@@ -16,32 +16,33 @@
                 </attribute>
                 <attribute>
                     <name>
-                        <literal expr="type"/>
+                        <literal expr="NVDB_ID"/>
                     </name>
                     <value>
-                        <extract expr="@type"/>
+                        <literal expr="NAN"/>
                     </value>
                 </attribute>
             </attributes>
-
+            
         </mapping>
     </feature-map>
     
     <feature-content-map>       
         <mapping match="annotation/appinfo">
-        <attributes>
-            <attribute>
-                <name>
-                    <literal expr="NVDB_ID"/>
-                </name>
-                <value>
-                    <comparison lhs="NVDB_ID">
-                        <arg name="rhs"><extract expr="./taggedValue[@tag]"/></arg>
-                        <arg name="success"><extract expr="./taggedValue"/></arg>
-                    </comparison>
-                </value>
-            </attribute>
-        </attributes>
+            <attributes>
+                <attribute>
+                    <name>
+                        <literal expr="NVDB_ID"/>
+                    </name>
+                    <value>
+                        <comparison lhs="NVDB_ID">
+                            <arg name="rhs"><extract expr="./taggedValue[@tag]"/></arg>
+                            <arg name="success"><extract expr="./taggedValue"/></arg>
+                            <arg name="failure"><literal expr="NAN"/></arg>
+                        </comparison>
+                    </value>
+                </attribute>
+            </attributes>
         </mapping>
     </feature-content-map>
 </xfMap>
