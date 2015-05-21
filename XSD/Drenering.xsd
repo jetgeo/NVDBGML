@@ -459,14 +459,14 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="sideposisjon" type="nvdb:SideposisjonType">
-            <annotation>
-              <documentation>Angir sideposisjon i for vegobjekt i forhold til vegens metreringsretning</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="vegreferanse" type="nvdb:VegreferansePropertyType">
             <annotation>
               <documentation>posisjon i Vegreferansesystemet</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sideposisjon" type="nvdb:SideposisjonType">
+            <annotation>
+              <documentation>Angir sideposisjon i for vegobjekt i forhold til vegens metreringsretning</documentation>
             </annotation>
           </element>
         </sequence>
@@ -4029,11 +4029,29 @@ method on which registration of position is based</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="avløp" type="nvdb:AvløpType">
+            <annotation>
+              <documentation>Avløp: Angir hvor avløpet fra kummen ledes.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8838</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVLØP</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="lokkRistType" type="nvdb:LokkRistTypeType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2290</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LOKKRISTTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dykker" type="nvdb:DykkerType">
+            <annotation>
+              <documentation>Dykker: Angir om det er dykker i tilknytning til kummen. Dykker er en konstruksjon som skal hindre slitasje på kummen når det føres mye vann inn i kummen på et nivå høyere enn bunnen på kummen. Dykker kan også brukes for å føre inn en slange med vann eller damp for tining av frosne kummer eller ledninger.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4594</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DYKKER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -4097,24 +4115,6 @@ method on which registration of position is based</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2388</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVSTANDFRAVEGKANT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="avløp" type="nvdb:AvløpType">
-            <annotation>
-              <documentation>Avløp: Angir hvor avløpet fra kummen ledes.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8838</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVLØP</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="dykker" type="nvdb:DykkerType">
-            <annotation>
-              <documentation>Dykker: Angir om det er dykker i tilknytning til kummen. Dykker er en konstruksjon som skal hindre slitasje på kummen når det føres mye vann inn i kummen på et nivå høyere enn bunnen på kummen. Dykker kan også brukes for å føre inn en slange med vann eller damp for tining av frosne kummer eller ledninger.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4594</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DYKKER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -4765,15 +4765,6 @@ Oppgitt i cm</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tverrsnittsform" type="nvdb:TverrsnittsformType">
-            <annotation>
-              <documentation>Tverrsnittsform: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6984</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TVERRSNITTSFORM</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="retning" type="nvdb:RetningStikkrenneKulvertType">
             <annotation>
               <documentation>Retning: Angir hvilken retning i forhold til metrering vegobjektet har.  Angir klokkeretning som vannet renner i, 12 angir at vannet renner parallelt med vegen i metreringsretningen</documentation>
@@ -4789,6 +4780,15 @@ Oppgitt i cm</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2123</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINKEL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tverrsnittsform" type="nvdb:TverrsnittsformType">
+            <annotation>
+              <documentation>Tverrsnittsform: Angir hvilken type tverrsnitt gjennomløpskonstruksjon har.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6984</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TVERRSNITTSFORM</taggedValue>
               </appinfo>
             </annotation>
           </element>
