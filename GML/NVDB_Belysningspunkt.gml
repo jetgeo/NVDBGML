@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gml:FeatureCollection xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="id4e17fbba-4a40-4ad5-adb7-74cd46e17825" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Belysningspunkt.xsd">
+<gml:FeatureCollection xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="ida37201fe-9ba9-4adc-ac79-59bab5673359" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Belysningspunkt.xsd">
 	<gml:boundedBy>
 		<gml:Envelope srsName="EPSG:25833" srsDimension="2">
 			<gml:lowerCorner>217958.6480746 6815762.76826093</gml:lowerCorner>
@@ -10252,31 +10252,29 @@
 		</nvdb:NVDB_Belysningspunkt>
 	</gml:featureMember>
 	<gml:featureMember>
-		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.91198556">
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113027">
 			<nvdb:identifikasjon>
 				<nvdb:Identifikasjon>
-					<nvdb:lokalId>91198556</nvdb:lokalId>
+					<nvdb:lokalId>598113027</nvdb:lokalId>
 					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
 				</nvdb:Identifikasjon>
 			</nvdb:identifikasjon>
-			<nvdb:prosesshistorie>Geometri: Generert fra lineære referanser til vegnett i NVDB</nvdb:prosesshistorie>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
 			<nvdb:vegreferanse>
 				<nvdb:Vegreferanse>
 					<nvdb:vegkategori>E</nvdb:vegkategori>
 					<nvdb:vegstatus>V</nvdb:vegstatus>
 					<nvdb:vegnummer>6</nvdb:vegnummer>
 					<nvdb:hovedParsell>14</nvdb:hovedParsell>
-					<nvdb:veglenkeMeterFra>1363</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterFra>838</nvdb:veglenkeMeterFra>
 				</nvdb:Vegreferanse>
 			</nvdb:vegreferanse>
-			<nvdb:bruksområde>Belysning veg/gate</nvdb:bruksområde>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
 			<nvdb:antall>1</nvdb:antall>
 			<nvdb:plassering>Lysmast</nvdb:plassering>
-			<nvdb:avstandFraVegkant>6.0</nvdb:avstandFraVegkant>
-			<nvdb:strømtilførselKategori>Line</nvdb:strømtilførselKategori>
 			<nvdb:posisjon>
-				<gml:Point gml:id="vegvesen.no.nvdb.91198556-0" srsName="EPSG:25833" srsDimension="2">
-					<gml:pos>231383.436111984 6835006.66170509</gml:pos>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113027-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231768.286454906 6834666.57593944</gml:pos>
 				</gml:Point>
 			</nvdb:posisjon>
 			<nvdb:lineærPosisjon>
@@ -10287,37 +10285,35 @@
 							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
 						</nvdb:Identifikasjon>
 					</nvdb:lineærtObjektIdentifikasjon>
-					<nvdb:posisjon>0.348388</nvdb:posisjon>
+					<nvdb:posisjon>0.291632</nvdb:posisjon>
 				</nvdb:LineærPosisjonPunkt>
 			</nvdb:lineærPosisjon>
 		</nvdb:NVDB_Belysningspunkt>
 	</gml:featureMember>
 	<gml:featureMember>
-		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.91198546">
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113026">
 			<nvdb:identifikasjon>
 				<nvdb:Identifikasjon>
-					<nvdb:lokalId>91198546</nvdb:lokalId>
+					<nvdb:lokalId>598113026</nvdb:lokalId>
 					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
 				</nvdb:Identifikasjon>
 			</nvdb:identifikasjon>
-			<nvdb:prosesshistorie>Geometri: Generert fra lineære referanser til vegnett i NVDB</nvdb:prosesshistorie>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
 			<nvdb:vegreferanse>
 				<nvdb:Vegreferanse>
 					<nvdb:vegkategori>E</nvdb:vegkategori>
 					<nvdb:vegstatus>V</nvdb:vegstatus>
 					<nvdb:vegnummer>6</nvdb:vegnummer>
 					<nvdb:hovedParsell>14</nvdb:hovedParsell>
-					<nvdb:veglenkeMeterFra>1412</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterFra>882</nvdb:veglenkeMeterFra>
 				</nvdb:Vegreferanse>
 			</nvdb:vegreferanse>
-			<nvdb:bruksområde>Belysning veg/gate</nvdb:bruksområde>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
 			<nvdb:antall>1</nvdb:antall>
 			<nvdb:plassering>Lysmast</nvdb:plassering>
-			<nvdb:avstandFraVegkant>8.0</nvdb:avstandFraVegkant>
-			<nvdb:strømtilførselKategori>Line</nvdb:strømtilførselKategori>
 			<nvdb:posisjon>
-				<gml:Point gml:id="vegvesen.no.nvdb.91198546-0" srsName="EPSG:25833" srsDimension="2">
-					<gml:pos>231359.908192479 6835047.25068889</gml:pos>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113026-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231731.07 6834687.9</gml:pos>
 				</gml:Point>
 			</nvdb:posisjon>
 			<nvdb:lineærPosisjon>
@@ -10328,37 +10324,35 @@
 							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
 						</nvdb:Identifikasjon>
 					</nvdb:lineærtObjektIdentifikasjon>
-					<nvdb:posisjon>0.35371</nvdb:posisjon>
+					<nvdb:posisjon>0.296388</nvdb:posisjon>
 				</nvdb:LineærPosisjonPunkt>
 			</nvdb:lineærPosisjon>
 		</nvdb:NVDB_Belysningspunkt>
 	</gml:featureMember>
 	<gml:featureMember>
-		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.91198533">
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113025">
 			<nvdb:identifikasjon>
 				<nvdb:Identifikasjon>
-					<nvdb:lokalId>91198533</nvdb:lokalId>
+					<nvdb:lokalId>598113025</nvdb:lokalId>
 					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
 				</nvdb:Identifikasjon>
 			</nvdb:identifikasjon>
-			<nvdb:prosesshistorie>Geometri: Generert fra lineære referanser til vegnett i NVDB</nvdb:prosesshistorie>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
 			<nvdb:vegreferanse>
 				<nvdb:Vegreferanse>
 					<nvdb:vegkategori>E</nvdb:vegkategori>
 					<nvdb:vegstatus>V</nvdb:vegstatus>
 					<nvdb:vegnummer>6</nvdb:vegnummer>
 					<nvdb:hovedParsell>14</nvdb:hovedParsell>
-					<nvdb:veglenkeMeterFra>1453</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterFra>925</nvdb:veglenkeMeterFra>
 				</nvdb:Vegreferanse>
 			</nvdb:vegreferanse>
-			<nvdb:bruksområde>Belysning veg/gate</nvdb:bruksområde>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
 			<nvdb:antall>1</nvdb:antall>
 			<nvdb:plassering>Lysmast</nvdb:plassering>
-			<nvdb:avstandFraVegkant>4.0</nvdb:avstandFraVegkant>
-			<nvdb:strømtilførselKategori>Jordkabel</nvdb:strømtilførselKategori>
 			<nvdb:posisjon>
-				<gml:Point gml:id="vegvesen.no.nvdb.91198533-0" srsName="EPSG:25833" srsDimension="2">
-					<gml:pos>231345.501963922 6835083.15756273</gml:pos>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113025-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231695.31 6834712.23</gml:pos>
 				</gml:Point>
 			</nvdb:posisjon>
 			<nvdb:lineærPosisjon>
@@ -10369,7 +10363,475 @@
 							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
 						</nvdb:Identifikasjon>
 					</nvdb:lineærtObjektIdentifikasjon>
-					<nvdb:posisjon>0.358052</nvdb:posisjon>
+					<nvdb:posisjon>0.301036</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113024">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113024</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>968</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113024-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231659.63 6834736.55</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.305683</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113023">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113023</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1011</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113023-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231623.95 6834760.87</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.310331</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113022">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113022</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1054</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113022-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231588.3 6834785.25</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.314979</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113021">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113021</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1098</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113021-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231553.34 6834810.86</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.319735</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113020">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113020</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1141</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113020-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231520.21 6834838.11</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.324383</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113019">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113019</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1185</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113019-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231488.57 6834867.49</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.329138</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113018">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113018</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1228</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113018-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231461.01 6834900.19</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.333786</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113017">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113017</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1272</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113017-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231436.61 6834936.22</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.338542</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113016">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113016</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1316</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113016-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231415.34 6834973.95</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.343298</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113015">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113015</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1361</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113015-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231391.21 6835009.72</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.348162</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113014">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113014</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1408</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113014-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231371.2 6835048.68</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.353242</nvdb:posisjon>
+				</nvdb:LineærPosisjonPunkt>
+			</nvdb:lineærPosisjon>
+		</nvdb:NVDB_Belysningspunkt>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:NVDB_Belysningspunkt gml:id="vegvesen.no.nvdb.598113013">
+			<nvdb:identifikasjon>
+				<nvdb:Identifikasjon>
+					<nvdb:lokalId>598113013</nvdb:lokalId>
+					<nvdb:navnerom>vegvesen.no.nvdb</nvdb:navnerom>
+				</nvdb:Identifikasjon>
+			</nvdb:identifikasjon>
+			<nvdb:prosesshistorie>Geometri: Egengeometri fra NVDB</nvdb:prosesshistorie>
+			<nvdb:vegreferanse>
+				<nvdb:Vegreferanse>
+					<nvdb:vegkategori>E</nvdb:vegkategori>
+					<nvdb:vegstatus>V</nvdb:vegstatus>
+					<nvdb:vegnummer>6</nvdb:vegnummer>
+					<nvdb:hovedParsell>14</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>1455</nvdb:veglenkeMeterFra>
+				</nvdb:Vegreferanse>
+			</nvdb:vegreferanse>
+			<nvdb:bruksområde>Belysning gang/sykkelveg</nvdb:bruksområde>
+			<nvdb:antall>1</nvdb:antall>
+			<nvdb:plassering>Lysmast</nvdb:plassering>
+			<nvdb:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.598113013-0" srsName="EPSG:25833" srsDimension="2">
+					<gml:pos>231356.03 6835089.22</gml:pos>
+				</gml:Point>
+			</nvdb:posisjon>
+			<nvdb:lineærPosisjon>
+				<nvdb:LineærPosisjonPunkt>
+					<nvdb:lineærtObjektIdentifikasjon>
+						<nvdb:Identifikasjon>
+							<nvdb:lokalId>1060621</nvdb:lokalId>
+							<nvdb:navnerom>vegvesen.no.nvdb.rl</nvdb:navnerom>
+						</nvdb:Identifikasjon>
+					</nvdb:lineærtObjektIdentifikasjon>
+					<nvdb:posisjon>0.358322</nvdb:posisjon>
 				</nvdb:LineærPosisjonPunkt>
 			</nvdb:lineærPosisjon>
 		</nvdb:NVDB_Belysningspunkt>
