@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV" version="2.03">
+  <annotation>
+    <documentation>70: Konstruksjon i tunnel for sikring mot vann og frost.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">70</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BrannfarligType">
+    <annotation>
+      <documentation>Brannfarlig: Angir om tunnelhvelv er brannfarlig eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3510</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNFARLIG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BrannfarligEnumerationType nvdb:BrannfarligOtherType"/>
+  </simpleType>
+  <simpleType name="BrannfarligEnumerationType">
+    <annotation>
+      <documentation>Brannfarlig: Angir om tunnelhvelv er brannfarlig eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3510</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNFARLIG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4706</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4707</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BrannfarligOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HvelvisolasjonType">
+    <annotation>
+      <documentation>Hvelvisolasjon: Angir om hvelv er isolert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9331</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HVELVISOLASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HvelvisolasjonEnumerationType nvdb:HvelvisolasjonOtherType"/>
+  </simpleType>
+  <simpleType name="HvelvisolasjonEnumerationType">
+    <annotation>
+      <documentation>Hvelvisolasjon: Angir om hvelv er isolert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9331</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HVELVISOLASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Isolert">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13017</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Uisolert">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13018</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HvelvisolasjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongHarLettilslagType">
+    <annotation>
+      <documentation>Sprøytebetong,har lettilslag: Angir om det er det er lettilslag i sprøytebetong (f.eks cafco)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9170</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGHARLETTILSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SprøytebetongHarLettilslagEnumerationType nvdb:SprøytebetongHarLettilslagOtherType"/>
+  </simpleType>
+  <simpleType name="SprøytebetongHarLettilslagEnumerationType">
+    <annotation>
+      <documentation>Sprøytebetong,har lettilslag: Angir om det er det er lettilslag i sprøytebetong (f.eks cafco)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9170</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGHARLETTILSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12262</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12263</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongHarLettilslagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongHarMikrofiberType">
+    <annotation>
+      <documentation>Sprøytebetong,har mikrofiber: Angir om det er mikrofiber i sprøytebetong (brannsikring)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9169</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGHARMIKROFIBER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SprøytebetongHarMikrofiberEnumerationType nvdb:SprøytebetongHarMikrofiberOtherType"/>
+  </simpleType>
+  <simpleType name="SprøytebetongHarMikrofiberEnumerationType">
+    <annotation>
+      <documentation>Sprøytebetong,har mikrofiber: Angir om det er mikrofiber i sprøytebetong (brannsikring)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9169</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGHARMIKROFIBER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12260</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12261</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongHarMikrofiberOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongTykkelseType">
+    <annotation>
+      <documentation>Sprøytebetong,tykkelse: Angir gjennomsnittlig tykkelse av sprøytebetong</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9171</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGTYKKELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SprøytebetongTykkelseEnumerationType nvdb:SprøytebetongTykkelseOtherType"/>
+  </simpleType>
+  <simpleType name="SprøytebetongTykkelseEnumerationType">
+    <annotation>
+      <documentation>Sprøytebetong,tykkelse: Angir gjennomsnittlig tykkelse av sprøytebetong</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9171</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGTYKKELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="2 cm">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12264</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="6 cm">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12265</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8 cm">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12266</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SprøytebetongTykkelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVannOgFrostsikringType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1132</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVANNOGFROSTSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVannOgFrostsikringEnumerationType nvdb:TypeVannOgFrostsikringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVannOgFrostsikringEnumerationType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1132</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVANNOGFROSTSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Betongelementer i vegger og tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3428</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Betongelementer i vegger, sprøytebetong på PE-skum i tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12270</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Betongelementer i vegger, sprøytebetong på knølmontert PE-skum i tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12271</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Betongelementer i vegger, stålkassetter i tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12272</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Betongelementer i vegger, tunnelduk i tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lettbetongelementer i vegger og tak">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12274</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lette konstruksjoner, platehvelv, aluminium">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3426</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lette konstruksjoner, platehvelv, stål">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3427</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lette konstruksjoner, kompositthvelv">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lette konstruksjoner, kassetthvelv">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12277</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sprøytebetonghvelv, nettarmert på membran">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12279</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sprøytebetonghvelv, nettarmert på PE-skum">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sprøytebetong, fiberarmert på knølmontert PE-skum">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12280</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="PE-skum, utildekket">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12281</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tunnelduk">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3425</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Platetak, metall">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12282</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVannOgFrostsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="VannOgFrostsikring" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VannOgFrostsikringType">
+    <annotation>
+      <documentation>Vann- og frostsikring: Konstruksjon i tunnel for sikring mot vann og frost.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">70</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNOGFROSTSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VannOgFrostsikringType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeVannOgFrostsikringType">
+            <annotation>
+              <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1132</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="lengde" type="double">
+            <annotation>
+              <documentation>Lengde: Angir lengde av vann-/frostsikring</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7543</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="gjennomsnittligElementlengde" type="integer">
+            <annotation>
+              <documentation>Gjennomsnittlig elementlengde: Angir normal lengde på elementene</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3729</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENNOMSNITTLIGELEMENTLENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="antallElement" type="integer">
+            <annotation>
+              <documentation>Antall element: Angir hvor mange enkeltelement en konstruksjon er satt sammen av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1644</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLELEMENT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tykkelse" type="integer">
+            <annotation>
+              <documentation>Tykkelse: Angir total tykkelse av hvelvkonstruksjon</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1619</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYKKELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="sprøytebetongHarMikrofiber" type="nvdb:SprøytebetongHarMikrofiberType">
+            <annotation>
+              <documentation>Sprøytebetong, har mikrofiber: Angir om det er mikrofiber i sprøytebetong (brannsikring)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9169</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGHARMIKROFIBER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="sprøytebetongTykkelse" type="nvdb:SprøytebetongTykkelseType">
+            <annotation>
+              <documentation>Sprøytebetong, tykkelse: Angir gjennomsnittlig tykkelse av sprøytebetong</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9171</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPRØYTEBETONGTYKKELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>Tilleggsinformasjon: Kan angi tilleggsinformasjon til hvelv.  Kan være detaljinfo, historikk, etc.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9172</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>Byggeår: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10391</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4772</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VannOgFrostsikringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:VannOgFrostsikring"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

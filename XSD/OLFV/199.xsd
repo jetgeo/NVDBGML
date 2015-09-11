@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV" version="2.03">
+  <annotation>
+    <documentation>199: Trær er flerårige vedaktige planter som har definert stamme og krone.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">199</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EierTrærType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8009</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERTRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierTrærEnumerationType nvdb:EierTrærOtherType"/>
+  </simpleType>
+  <simpleType name="EierTrærEnumerationType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8009</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERTRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Stat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fylkeskommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10737</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10339</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Privat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10403</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierTrærOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneTrærType">
+    <annotation>
+      <documentation>Løvfellende/vintergrønne: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNETRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LøvfellendeVintergrønneTrærEnumerationType nvdb:LøvfellendeVintergrønneTrærOtherType"/>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneTrærEnumerationType">
+    <annotation>
+      <documentation>Løvfellende/vintergrønne: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNETRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Løvfellende">
+        <annotation>
+          <documentation>5119: Løvfellende trær har flate og tynne blader og hører til den botaniske underavdelingen Magnoliophýtina (dekkfrøete planter)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5119</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vintergrønne">
+        <annotation>
+          <documentation>5120: Vintergrønne trær har lange og smale blader og hører til den botaniske underavdelingen Coniferophýtina (nakenfrøete planter)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5120</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneTrærOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesiellVerdiType">
+    <annotation>
+      <documentation>Spesiell verdi: Angir om trær har spesiell verdi.Trær med spesiell verdi er trær i naturområder med estetisk, biologisk, kulturhistorisk verdi, eller som er hule /grove. Hensikten med å registrere slike trær er å hindre hugging eller skade fra f.eks. kantslått, sprøyting</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10671</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SpesiellVerdiEnumerationType nvdb:SpesiellVerdiOtherType"/>
+  </simpleType>
+  <simpleType name="SpesiellVerdiEnumerationType">
+    <annotation>
+      <documentation>Spesiell verdi: Angir om trær har spesiell verdi.Trær med spesiell verdi er trær i naturområder med estetisk, biologisk, kulturhistorisk verdi, eller som er hule /grove. Hensikten med å registrere slike trær er å hindre hugging eller skade fra f.eks. kantslått, sprøyting</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10671</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Estetisk">
+        <annotation>
+          <documentation>17228: Treet er vakkert og står som et viktig landskapselement, gjerne landemerke. Treet er ofte solitært, men kan også være en del av alle eller trerekke.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17228</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Biologisk">
+        <annotation>
+          <documentation>17229: Treet har hulrom og tørr vedmold, minst noen partier med dødved. Grove hule eiker (jf.forskriften) og ask inngår her.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17229</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kulturhistorisk">
+        <annotation>
+          <documentation>17230: Treet står i tilknytning til en gård eller historisk anlegg. Kan være registrert som kulturminne. Ofte solitære, m en kan også inngå i trerekke.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17230</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesiellVerdiOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesielleRestriksjonerType">
+    <annotation>
+      <documentation>Spesielle restriksjoner: Angir om det er knyttet spesielle restriksjoner til tre/trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9986</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLERESTRIKSJONER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SpesielleRestriksjonerEnumerationType nvdb:SpesielleRestriksjonerOtherType"/>
+  </simpleType>
+  <simpleType name="SpesielleRestriksjonerEnumerationType">
+    <annotation>
+      <documentation>Spesielle restriksjoner: Angir om det er knyttet spesielle restriksjoner til tre/trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9986</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLERESTRIKSJONER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <documentation>16207: Det er knyttet spesielle restriksjoner til tre/trær</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16207</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ikke avgjort">
+        <annotation>
+          <documentation>16208: Tre/Trær er under vurdering, men ikke endelig avklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16208</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <documentation>16209: Det er ikke knyttet spesielle restriksjoner til tre/trær</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16209</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesielleRestriksjonerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Trær" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrærType">
+    <annotation>
+      <documentation>Trær: Trær er flerårige vedaktige planter som har definert stamme og krone.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">199</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TrærType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="typeGruppering" type="nvdb:TypeGrupperingType">
+            <annotation>
+              <documentation>Type/gruppering: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="løvfellendeVintergrønne" type="nvdb:LøvfellendeVintergrønneTrærType">
+            <annotation>
+              <documentation>Løvfellende/vintergrønne: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antall" type="integer">
+            <annotation>
+              <documentation>Antall: Angir hvor mange forekomster som er representert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4142</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="treslagNorskNavn" type="string">
+            <annotation>
+              <documentation>Treslag, norsk navn: Angir norsk navn på treslag.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4161</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAGNORSKNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="treslagBotaniskNavn" type="string">
+            <annotation>
+              <documentation>Treslag, botanisk navn: Angir botanisk navn på treslag</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4494</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAGBOTANISKNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="plantetidspunkt" type="integer">
+            <annotation>
+              <documentation>Plantetidspunkt: Angir hvilket årstall trær ble plantet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7553</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANTETIDSPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5896</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrærPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Trær"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeFormType">
+    <annotation>
+      <documentation>Type/form: Angir at treet/trærne er formet etter beskjæring  og hvilken type form det er gitt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9985</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFORM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeFormEnumerationType nvdb:TypeFormOtherType"/>
+  </simpleType>
+  <simpleType name="TypeFormEnumerationType">
+    <annotation>
+      <documentation>Type/form: Angir at treet/trærne er formet etter beskjæring  og hvilken type form det er gitt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9985</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFORM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Knutekollet">
+        <annotation>
+          <documentation>16205: Greinene blir kuttet tilbake årlig til hvert annet år til samme punkt inntil de 
+store knutene som vi kan se på 
+trærn når de står utenløv</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Formklippet">
+        <annotation>
+          <documentation>16206: Greiner skjæres for å gi kronen ønsket form, f.eks. kuleformet eller kjegleformet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16206</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeFormOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGrupperingType">
+    <annotation>
+      <documentation>Type/gruppering: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeGrupperingEnumerationType nvdb:TypeGrupperingOtherType"/>
+  </simpleType>
+  <simpleType name="TypeGrupperingEnumerationType">
+    <annotation>
+      <documentation>Type/gruppering: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Frittstående tre">
+        <annotation>
+          <documentation>5118: Enkeltstående/ solitære trær.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5118</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tregruppe">
+        <annotation>
+          <documentation>5115: Tre inngår i en tregruppe. Tregruppe består av minst 3 trær som står med relativ nærhet til hverandre. Gruppen skal ikke være særlig bredere enn høyden på trærne.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5115</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Allè">
+        <annotation>
+          <documentation>5117: Tre inngår i en allé. Allé er regelmessige rekker av trær på hver sin side av en veg, gate eller gangsti.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5117</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Trerekke">
+        <annotation>
+          <documentation>16216: Tre inngår i en trerekke. Trerekke består av minst 3 trær som står på linje med relativ nærhet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16216</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGrupperingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtviklingsfaseType">
+    <annotation>
+      <documentation>Utviklingsfase: Angir treets utviklingsstadie og dermed hvilken type skjøtsel som kreves.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9988</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTVIKLINGSFASE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtviklingsfaseEnumerationType nvdb:UtviklingsfaseOtherType"/>
+  </simpleType>
+  <simpleType name="UtviklingsfaseEnumerationType">
+    <annotation>
+      <documentation>Utviklingsfase: Angir treets utviklingsstadie og dermed hvilken type skjøtsel som kreves.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9988</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTVIKLINGSFASE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Etableringsfase">
+        <annotation>
+          <documentation>16212: Etableringsfasen starter rett etter treet er plantet og varer vanligvis frem til treet er i tilnærmet normal vekst igjen. Normalt 3-5 år.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16212</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vekstfase">
+        <annotation>
+          <documentation>16213: Vekstfasen karakteriseres av markant strekningsvekst med typisk en opprett vekst og relativ smal kroneform. Toppen av krona hos trær i vekstfasen skiller seg fra trær i klimaksfasen ved at den er spissere.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16213</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Klimaksfase">
+        <annotation>
+          <documentation>16214: For flere treslag karakteriseres klimaksfasen ved at endeknoppen aborteres og de nærmeste knoppene bak bryter og danner mange små sideskudd. Veksten orienterer seg mer i lateral retning enn i vertikalretningen. Krona blir bredere og utvikler et mer finmasket web av småkvist fra kronemarginen og et lite stykke innover i krona (vanligvis 1/3).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16214</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Hule/grove trær">
+        <annotation>
+          <documentation>16597: Gamle spesielle trær. Gjerne eik, ask, alm eller lind</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16597</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Avviklingsfase">
+        <annotation>
+          <documentation>16215: Skuddavdøing og glisne partier i krona – særlig i toppen. Produksjonen av døde greiner øker markant. For noen treslag som for eksempel bjerk og spisslønn er det som regel bare noen få år fra dette stadiet og frem til treet dør.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16215</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtviklingsfaseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrærType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9135</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligTrærEnumerationType nvdb:VedlikeholdsansvarligTrærOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrærEnumerationType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9135</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Statens vegvesen">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12178</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12179</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Privat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12180</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrærOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VernetType">
+    <annotation>
+      <documentation>Vernet: Angir om det trær er omfattet av vernebestemmelse.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10672</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VERNET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VernetEnumerationType nvdb:VernetOtherType"/>
+  </simpleType>
+  <simpleType name="VernetEnumerationType">
+    <annotation>
+      <documentation>Vernet: Angir om det trær er omfattet av vernebestemmelse.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10672</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VERNET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17277</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VernetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
