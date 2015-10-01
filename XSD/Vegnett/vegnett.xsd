@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett="vegnett" xmlns:net="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="vegnett" version="5.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:net="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" version="5.0">
   <annotation>
     <documentation>Forandringer til versjon 4.5:
 - Hovedforandringen er at alle lineære objekttyper er samlet i en objekttype (Veglenke).
@@ -6,7 +6,7 @@
   </annotation>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-  <import namespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/"/>
+  <import namespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="TrafikkreguleringerType">
     <annotation>
@@ -15,7 +15,7 @@
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TRAFIKKREGULERINGER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TrafikkreguleringerEnumerationType httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TrafikkreguleringerOtherType"/>
+    <union memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"/>
   </simpleType>
   <simpleType name="TrafikkreguleringerEnumerationType">
     <annotation>
@@ -64,7 +64,7 @@
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TypeVegEnumerationType httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TypeVegOtherType"/>
+    <union memberTypes="vegnett:TypeVegEnumerationType vegnett:TypeVegOtherType"/>
   </simpleType>
   <simpleType name="TypeVegEnumerationType">
     <annotation>
@@ -200,7 +200,7 @@ INSPIRE: FormOfWay=Tractor</documentation>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGSTATUS</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegStatusEnumerationType httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegStatusOtherType"/>
+    <union memberTypes="vegnett:VegStatusEnumerationType vegnett:VegStatusOtherType"/>
   </simpleType>
   <simpleType name="VegStatusEnumerationType">
     <annotation>
@@ -295,7 +295,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegdetaljnivåEnumerationType httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegdetaljnivåOtherType"/>
+    <union memberTypes="vegnett:VegdetaljnivåEnumerationType vegnett:VegdetaljnivåOtherType"/>
   </simpleType>
   <simpleType name="VegdetaljnivåEnumerationType">
     <annotation>
@@ -328,7 +328,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Vegident" substitutionGroup="gml:AbstractObject" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegidentType">
+  <element name="Vegident" substitutionGroup="gml:AbstractObject" type="vegnett:VegidentType">
     <annotation>
       <documentation>sammensatt identifikator for en vegrute</documentation>
       <appinfo>
@@ -338,12 +338,12 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
   </element>
   <complexType name="VegidentType">
     <sequence>
-      <element minOccurs="0" name="vegkategori" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegkategoriType">
+      <element minOccurs="0" name="vegkategori" type="vegnett:VegkategoriType">
         <annotation>
           <documentation>angir hvilken type veg veglenken beskriver</documentation>
         </annotation>
       </element>
-      <element minOccurs="0" name="vegstatus" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegStatusType">
+      <element minOccurs="0" name="vegstatus" type="vegnett:VegStatusType">
         <annotation>
           <documentation>angir veglenkens status</documentation>
         </annotation>
@@ -360,7 +360,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
   </complexType>
   <complexType name="VegidentPropertyType">
     <sequence>
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Vegident"/>
+      <element ref="vegnett:Vegident"/>
     </sequence>
   </complexType>
   <simpleType name="VegkategoriType">
@@ -370,7 +370,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGKATEGORI</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegkategoriEnumerationType httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegkategoriOtherType"/>
+    <union memberTypes="vegnett:VegkategoriEnumerationType vegnett:VegkategoriOtherType"/>
   </simpleType>
   <simpleType name="VegkategoriEnumerationType">
     <annotation>
@@ -393,7 +393,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Veglenke" substitutionGroup="net:Lenke" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VeglenkeType">
+  <element name="Veglenke" substitutionGroup="net:Lenke" type="vegnett:VeglenkeType">
     <annotation>
       <documentation>Objekttype som representerer lenker i vegnettet</documentation>
     </annotation>
@@ -407,7 +407,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
               <documentation>forløp som følger objektets sentrale del</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="veglenkeadresse" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VeglenkeadressePropertyType">
+          <element minOccurs="0" name="veglenkeadresse" type="vegnett:VeglenkeadressePropertyType">
             <annotation>
               <documentation>adressen til veglenken</documentation>
             </annotation>
@@ -420,7 +420,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="detaljnivå" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegdetaljnivåType">
+          <element minOccurs="0" name="detaljnivå" type="vegnett:VegdetaljnivåType">
             <annotation>
               <documentation>Detaljnivå i vegnettet. Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
 Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
@@ -434,7 +434,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="trafikkreguleringer" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TrafikkreguleringerType">
+          <element minOccurs="0" name="trafikkreguleringer" type="vegnett:TrafikkreguleringerType">
             <annotation>
               <documentation>angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
             </annotation>
@@ -448,12 +448,12 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
               </appinfo>
             </annotation>
           </element>
-          <element name="typeVeg" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:TypeVegType">
+          <element name="typeVeg" type="vegnett:TypeVegType">
             <annotation>
               <documentation>type veg (FormOfWay).</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="vegident" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegidentPropertyType">
+          <element minOccurs="0" name="vegident" type="vegnett:VegidentPropertyType">
             <annotation>
               <documentation>sammensatt identifikator for en vegrute</documentation>
             </annotation>
@@ -474,7 +474,7 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vegparsell" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegparsellPropertyType">
+          <element minOccurs="0" name="vegparsell" type="vegnett:VegparsellPropertyType">
             <annotation>
               <documentation>beskrivelse av parsell av en vegrute</documentation>
             </annotation>
@@ -485,12 +485,12 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
   </complexType>
   <complexType name="VeglenkePropertyType">
     <sequence minOccurs="0">
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Veglenke"/>
+      <element ref="vegnett:Veglenke"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VeglenkeadresseType">
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
     <annotation>
       <documentation>adressen på veglenken.
 
@@ -537,10 +537,10 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </complexType>
   <complexType name="VeglenkeadressePropertyType">
     <sequence>
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Veglenkeadresse"/>
+      <element ref="vegnett:Veglenkeadresse"/>
     </sequence>
   </complexType>
-  <element name="Veglenkesekvens" substitutionGroup="net:Lenkesekvens" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VeglenkesekvensType">
+  <element name="Veglenkesekvens" substitutionGroup="net:Lenkesekvens" type="vegnett:VeglenkesekvensType">
     <annotation>
       <documentation>Sekvens av veglenker.
 Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
@@ -555,12 +555,12 @@ Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
   </complexType>
   <complexType name="VeglenkesekvensPropertyType">
     <sequence minOccurs="0">
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Veglenkesekvens"/>
+      <element ref="vegnett:Veglenkesekvens"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkesett" substitutionGroup="net:Lenkesett" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VeglenkesettType">
+  <element name="Veglenkesett" substitutionGroup="net:Lenkesett" type="vegnett:VeglenkesettType">
     <annotation>
       <documentation>Sett av veglenker. eller veglenkesekvenser
 Eksempel: E6</documentation>
@@ -575,12 +575,12 @@ Eksempel: E6</documentation>
   </complexType>
   <complexType name="VeglenkesettPropertyType">
     <sequence minOccurs="0">
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Veglenkesett"/>
+      <element ref="vegnett:Veglenkesett"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Vegnode" substitutionGroup="net:Node" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegnodeType">
+  <element name="Vegnode" substitutionGroup="net:Node" type="vegnett:VegnodeType">
     <annotation>
       <documentation>abstrakt supertype for objekttyper som representerer noder i vegnettet</documentation>
     </annotation>
@@ -600,12 +600,12 @@ Eksempel: E6</documentation>
   </complexType>
   <complexType name="VegnodePropertyType">
     <sequence minOccurs="0">
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Vegnode"/>
+      <element ref="vegnett:Vegnode"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Vegparsell" substitutionGroup="gml:AbstractObject" type="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:VegparsellType">
+  <element name="Vegparsell" substitutionGroup="gml:AbstractObject" type="vegnett:VegparsellType">
     <annotation>
       <documentation>beskrivelse av parsell av en vegrute</documentation>
       <appinfo>
@@ -643,7 +643,7 @@ Eksempel: E6</documentation>
   </complexType>
   <complexType name="VegparsellPropertyType">
     <sequence>
-      <element ref="httpsraw.githubusercontent.comjetgeoNVDBGMLmasterXSDVegnett:Vegparsell"/>
+      <element ref="vegnett:Vegparsell"/>
     </sequence>
   </complexType>
 </schema>
