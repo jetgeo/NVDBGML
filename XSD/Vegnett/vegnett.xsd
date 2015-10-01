@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:net="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" version="5.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:net="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"
+  xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo"
+  xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/"
+  elementFormDefault="qualified"
+  targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/"
+  version="5.0">
   <annotation>
     <documentation>Forandringer til versjon 4.5:
 - Hovedforandringen er at alle lineære objekttyper er samlet i en objekttype (Veglenke).
 - Egenskapen TypeVeg brukes for å skille det som tidligere var egne objekttyper</documentation>
   </annotation>
-  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-  <import namespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo"
+    schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2"
+    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"
+    schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/nettverk.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="TrafikkreguleringerType">
     <annotation>
@@ -15,7 +24,9 @@
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TRAFIKKREGULERINGER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"/>
+    <union
+      memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"
+    />
   </simpleType>
   <simpleType name="TrafikkreguleringerEnumerationType">
     <annotation>
@@ -490,7 +501,8 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject"
+    type="vegnett:VeglenkeadresseType">
     <annotation>
       <documentation>adressen på veglenken.
 
@@ -540,7 +552,8 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <element ref="vegnett:Veglenkeadresse"/>
     </sequence>
   </complexType>
-  <element name="Veglenkesekvens" substitutionGroup="net:Lenkesekvens" type="vegnett:VeglenkesekvensType">
+  <element name="Veglenkesekvens" substitutionGroup="net:Lenkesekvens"
+    type="vegnett:VeglenkesekvensType">
     <annotation>
       <documentation>Sekvens av veglenker.
 Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
