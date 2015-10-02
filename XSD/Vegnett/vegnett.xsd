@@ -1,21 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
-  xmlns:net="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"
-  xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-  xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/"
-  elementFormDefault="qualified"
-  targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/"
-  version="5.0">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" version="5.0">
   <annotation>
     <documentation>Forandringer til versjon 4.5:
 - Hovedforandringen er at alle lineære objekttyper er samlet i en objekttype (Veglenke).
 - Egenskapen TypeVeg brukes for å skille det som tidligere var egne objekttyper</documentation>
   </annotation>
-  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-    schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2"
-    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
-  <import namespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/"
-    schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Nettverk/nettverk.xsd"/>
+  <include schemaLocation="nettverk.xsd"/>
+  <include schemaLocation="vegnettstest.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="TrafikkreguleringerType">
     <annotation>
@@ -24,9 +16,7 @@
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TRAFIKKREGULERINGER</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"
-    />
+    <union memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"/>
   </simpleType>
   <simpleType name="TrafikkreguleringerEnumerationType">
     <annotation>
@@ -404,14 +394,14 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Veglenke" substitutionGroup="net:Lenke" type="vegnett:VeglenkeType">
+  <element name="Veglenke" substitutionGroup="vegnett:Lenke" type="vegnett:VeglenkeType">
     <annotation>
       <documentation>Objekttype som representerer lenker i vegnettet</documentation>
     </annotation>
   </element>
   <complexType name="VeglenkeType">
     <complexContent>
-      <extension base="net:LenkeType">
+      <extension base="vegnett:LenkeType">
         <sequence>
           <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
@@ -501,8 +491,7 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject"
-    type="vegnett:VeglenkeadresseType">
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
     <annotation>
       <documentation>adressen på veglenken.
 
@@ -552,8 +541,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <element ref="vegnett:Veglenkeadresse"/>
     </sequence>
   </complexType>
-  <element name="Veglenkesekvens" substitutionGroup="net:Lenkesekvens"
-    type="vegnett:VeglenkesekvensType">
+  <element name="Veglenkesekvens" substitutionGroup="vegnett:Lenkesekvens" type="vegnett:VeglenkesekvensType">
     <annotation>
       <documentation>Sekvens av veglenker.
 Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
@@ -561,7 +549,7 @@ Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
   </element>
   <complexType name="VeglenkesekvensType">
     <complexContent>
-      <extension base="net:LenkesekvensType">
+      <extension base="vegnett:LenkesekvensType">
         <sequence/>
       </extension>
     </complexContent>
@@ -573,7 +561,7 @@ Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkesett" substitutionGroup="net:Lenkesett" type="vegnett:VeglenkesettType">
+  <element name="Veglenkesett" substitutionGroup="vegnett:Lenkesett" type="vegnett:VeglenkesettType">
     <annotation>
       <documentation>Sett av veglenker. eller veglenkesekvenser
 Eksempel: E6</documentation>
@@ -581,7 +569,7 @@ Eksempel: E6</documentation>
   </element>
   <complexType name="VeglenkesettType">
     <complexContent>
-      <extension base="net:LenkesettType">
+      <extension base="vegnett:LenkesettType">
         <sequence/>
       </extension>
     </complexContent>
@@ -593,14 +581,14 @@ Eksempel: E6</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Vegnode" substitutionGroup="net:Node" type="vegnett:VegnodeType">
+  <element name="Vegnode" substitutionGroup="vegnett:Node" type="vegnett:VegnodeType">
     <annotation>
       <documentation>abstrakt supertype for objekttyper som representerer noder i vegnettet</documentation>
     </annotation>
   </element>
   <complexType name="VegnodeType">
     <complexContent>
-      <extension base="net:NodeType">
+      <extension base="vegnett:NodeType">
         <sequence>
           <element name="posisjon" type="gml:PointPropertyType">
             <annotation>
