@@ -329,41 +329,6 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Vegident" substitutionGroup="gml:AbstractObject" type="vegnett:VegidentType">
-    <annotation>
-      <documentation>sammensatt identifikator for en vegrute</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VNR</taggedValue>
-      </appinfo>
-    </annotation>
-  </element>
-  <complexType name="VegidentType">
-    <sequence>
-      <element minOccurs="0" name="vegkategori" type="vegnett:VegkategoriType">
-        <annotation>
-          <documentation>angir hvilken type veg veglenken beskriver</documentation>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="vegstatus" type="vegnett:VegStatusType">
-        <annotation>
-          <documentation>angir veglenkens status</documentation>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="vegnummer" type="integer">
-        <annotation>
-          <documentation>angir nummeret til en vegrute</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
-          </appinfo>
-        </annotation>
-      </element>
-    </sequence>
-  </complexType>
-  <complexType name="VegidentPropertyType">
-    <sequence>
-      <element ref="vegnett:Vegident"/>
-    </sequence>
-  </complexType>
   <simpleType name="VegkategoriType">
     <annotation>
       <documentation>angir hvilken type veg veglenken beskriver. (Kilde: Statens vegvesen Håndbok 273 Nasjonalt vegreferansesystem, april 2010, kap 6.3.3.)</documentation>
@@ -408,6 +373,19 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
               <documentation>forløp som følger objektets sentrale del</documentation>
             </annotation>
           </element>
+          <element minOccurs="0" name="veglenkeadresse" type="vegnett:VeglenkeadressePropertyType">
+            <annotation>
+              <documentation>adressen til veglenken</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brøytes" type="boolean">
+            <annotation>
+              <documentation>angir om lenken brøytes</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">BRØYTES</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="detaljnivå" type="vegnett:VegdetaljnivåType">
             <annotation>
               <documentation>Detaljnivå i vegnettet. Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
@@ -420,6 +398,11 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkreguleringer" type="vegnett:TrafikkreguleringerType">
+            <annotation>
+              <documentation>angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="konnekteringslenke" type="boolean">
@@ -475,7 +458,7 @@ Merknad: veglenkeadresse gir adressen til veglenken. Denne er "fellesdelen" av a
   </element>
   <complexType name="VeglenkeadresseType">
     <sequence>
-      <element name="kommunenummer">
+      <element name="kommunenummer" type="vegnett:KommunenummerType">
         <annotation>
           <documentation>identifisering av hvilken kommune veglenken ligger i.
 Merknad: Må være med for å få unik identifisering, i og med at adressekoden kun er unik innen en kommune.</documentation>
@@ -578,16 +561,37 @@ Eksempel: E6</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Vegparsell" substitutionGroup="gml:AbstractObject" type="vegnett:VegparsellType">
+  <element name="Vegreferanse" substitutionGroup="gml:AbstractObject" type="vegnett:VegreferanseType">
     <annotation>
-      <documentation>beskrivelse av parsell av en vegrute</documentation>
+      <documentation>sammensatt identifikator for posisjon i vegreferansesystemet</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VPA</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VNR</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="VegparsellType">
+  <complexType name="VegreferanseType">
     <sequence>
+      <element minOccurs="0" name="vegkategori" type="vegnett:VegkategoriType">
+        <annotation>
+          <documentation>angir hvilken type veg veglenken beskriver</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/VegKategori.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegstatus" type="vegnett:VegStatusType">
+        <annotation>
+          <documentation>angir veglenkens status</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegnummer" type="integer">
+        <annotation>
+          <documentation>angir nummeret til en vegrute</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
       <element minOccurs="0" name="hovedParsell" type="integer">
         <annotation>
           <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
@@ -614,9 +618,9 @@ Eksempel: E6</documentation>
       </element>
     </sequence>
   </complexType>
-  <complexType name="VegparsellPropertyType">
+  <complexType name="VegreferansePropertyType">
     <sequence>
-      <element ref="vegnett:Vegparsell"/>
+      <element ref="vegnett:Vegreferanse"/>
     </sequence>
   </complexType>
 </schema>

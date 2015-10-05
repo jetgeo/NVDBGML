@@ -92,6 +92,13 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="sekvens" type="vegnett:LenkesekvensPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sekvensdel</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="sluttnode" type="vegnett:NodePropertyType">
             <annotation>
               <appinfo>
@@ -103,13 +110,6 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
             <annotation>
               <appinfo>
                 <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:startnodeFor</reversePropertyName>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="sekvens" type="vegnett:LenkesekvensPropertyType">
-            <annotation>
-              <appinfo>
-                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sekvensdel</reversePropertyName>
               </appinfo>
             </annotation>
           </element>
@@ -462,7 +462,7 @@ Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature" type="vegnett:NettverkselementType">
+  <element abstract="true" name="Nettverkselement" substitutionGroup="vegnett:Fellesegenskaper" type="vegnett:NettverkselementType">
     <annotation>
       <documentation>Abstrakt objekttype som representerer et element i et nettverk. 
 &lt;i&gt;Realisering av INSPIRE Network:NetworkElement&lt;/i&gt;</documentation>
@@ -470,7 +470,7 @@ Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
   </element>
   <complexType abstract="true" name="NettverkselementType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="vegnett:FellesegenskaperType">
         <sequence>
           <element name="identifikasjon" type="vegnett:IdentifikasjonPropertyType">
             <annotation>
