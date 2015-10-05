@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" version="5.0">
+  <include schemaLocation="vegnettstest.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="GeneralisertLenke" substitutionGroup="vegnett:Nettverkselement" type="vegnett:GeneralisertLenkeType">
+    <annotation>
+      <documentation>Abstrakt, generalisert objekttype for nettverkslenker, med generelle egenskaper som muliggjør lineære referanser til lenkene
+&lt;i&gt;Realisering av INSPIRE Network:GeneralisedLink og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="GeneralisertLenkeType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence>
+          <element minOccurs="0" name="standardLRM" type="vegnett:LineærReferanseMetodeType">
+            <annotation>
+              <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til lenken
+
+Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="måltLengde" type="double">
+            <annotation>
+              <documentation>STARTVERDI: Målt lengde for lenken, innenfor lenkens lineære referansesystem
+
+Merknad: Målt lengde overstyrer geometrilengde. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::measure(measureAttribute : CharacterString = defaultLength) : Measure&lt;/i&gt;&lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRMÅLTLENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GeneralisertLenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:GeneralisertLenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Lenke" substitutionGroup="vegnett:GeneralisertLenke" type="vegnett:LenkeType">
+    <annotation>
+      <documentation>Abstrakt objekttype for nettverkslenker, med mulighet for å angi tilhørighet til og posisjon i en sekvens av lenker.
+
+Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geometrilengde  kan angis på flere alternative måter:
+&amp;nbsp;
+&lt;ul&gt;
+	&lt;li&gt;Kun startVerdi. Målt lengde og sluttverdi er lik geometrilengde       &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-sluttVerdi. Målt lengde er lik differansen mellom disse egenskapene.       &lt;/li&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-måltLengde. Sluttverdi er lik summen av disse egenskapene.       &lt;/li&gt;
+	&lt;li&gt;Kun måltLengde. startverdi er lik 0, og sluttverdi er lik målt lengde       &lt;/li&gt;
+	&lt;li&gt;Ingen av egenskapene angitt. Kun geometrien benyttes for beregning av posisjoner.       &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;i&gt;Realisering av INSPIRE Network:Link.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkeType">
+    <complexContent>
+      <extension base="vegnett:GeneralisertLenkeType">
+        <sequence>
+          <element minOccurs="0" name="startposisjon" type="double">
+            <annotation>
+              <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;startposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: For en veglenke med vegreferanse er dette den verdien vi tidligere har kjent som FRAMETER. &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: &lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;LR_ILinearElement ::&lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;startValue(LRM : LinearReferencingMethod) : Measure&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTARTVERDI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluttposisjon" type="double">
+            <annotation>
+              <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;sluttposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: For en veglenke med vegreferanse er dette den verdien vi tidligere har kjent som TILMETER. &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: Finnes ikke&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSLUTTVERDI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sekvens" type="vegnett:LenkesekvensPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sekvensdel</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluttnode" type="vegnett:NodePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sluttnodeFor</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="startnode" type="vegnett:NodePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:startnodeFor</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Lenkesekvens" substitutionGroup="vegnett:GeneralisertLenke" type="vegnett:LenkesekvensType">
+    <annotation>
+      <documentation>Abstrakt objekttype for sekvenser av lenker.
+Eksempel: En sammenhengende rute bestående av flere dellenker 
+&lt;i&gt;Realisering av INSPIRE Network:LinkSequence&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkesekvensType">
+    <complexContent>
+      <extension base="vegnett:GeneralisertLenkeType">
+        <sequence>
+          <element maxOccurs="unbounded" name="sekvensdel" type="vegnett:LenkePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sekvens</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkesekvensPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenkesekvens"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Lenkesett" substitutionGroup="vegnett:Nettverkselement" type="vegnett:LenkesettType">
+    <annotation>
+      <documentation>Abstrakt klasse for et sett av lenker som hører sammen, både sekvenser og enkeltlenker. For eksempel en rute (E6)
+Realisering av INSPIRE Network:LinkSet</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkesettType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence>
+          <element maxOccurs="unbounded" name="lenke">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="vegnett:GeneralisertLenke"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkesettPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenkesett"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="vegnett:LineærPosisjonType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjonType">
+    <sequence>
+      <element minOccurs="0" name="lineærReferanseMetode" type="vegnett:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="felt" type="string">
+        <annotation>
+          <documentation>Tekststreng som brukes dersom referansen gjelder bestemte kjørefelt
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: Finnes ikke&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="avstandSide" type="double">
+        <annotation>
+          <documentation>Forskyvning til side for nettverkselementet. Positivt tall betyr høyre side, negativt tall betyr venstre side.
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: offsetLateralDistance&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRAVSTANDSIDE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="nettverkselement" type="vegnett:NettverkselementPropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LROBJREF_T</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjonPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjon"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonPunkt" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonPunktType">
+    <annotation>
+      <documentation>lineær posisjon som et punkt
+
+Merknad:
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_AtLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonPunktType">
+    <complexContent>
+      <extension base="vegnett:LineærPosisjonType">
+        <sequence>
+          <element name="posisjon" type="double">
+            <annotation>
+              <documentation>posisjon langs nettverkselementet, i henhold til referansemetoden 
+
+Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKTPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonPunktPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjonPunkt"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonStrekning" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonStrekningType">
+    <annotation>
+      <documentation>lineær posisjon som en strekning
+
+Merknad: 
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_FromToLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonStrekningType">
+    <complexContent>
+      <extension base="vegnett:LineærPosisjonType">
+        <sequence>
+          <element name="fraPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: fromPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRFRAPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tilPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;sluttposisjon langs &lt;/font&gt;nettverkselementet&lt;font color="#0f0f0f"&gt;, i henhold til referansemetoden&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: toPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRTILPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonStrekningPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjonStrekning"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LineærReferanseMetodeType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:LineærReferanseMetodeEnumerationType vegnett:LineærReferanseMetodeOtherType"/>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeEnumerationType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet (lenken), angitt i meter
+
+Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute"  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;units: "meter"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt som et desimaltall mellom 0 og 1, i forhold til start (0) og slutt (1) på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "0..1"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i prosent av lengden på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "percent"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i kilometer. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute" &lt;/li&gt;
+	&lt;li&gt;units: "kilometer" &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Nettverk" substitutionGroup="gml:AbstractFeature" type="vegnett:NettverkType">
+    <annotation>
+      <documentation>Objekttype som beskriver et nettverk, for eksempel NVDB</documentation>
+    </annotation>
+  </element>
+  <complexType name="NettverkType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="nettverkselement" type="vegnett:NettverkselementPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverk</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Nettverk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Nettverkselement" substitutionGroup="vegnett:Fellesegenskaper" type="vegnett:NettverkselementType">
+    <annotation>
+      <documentation>Abstrakt objekttype som representerer et element i et nettverk. 
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NettverkselementType">
+    <complexContent>
+      <extension base="vegnett:FellesegenskaperType">
+        <sequence>
+          <element name="identifikasjon" type="vegnett:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>Unik identifikasjon av nettverkselementet</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nettverk" type="vegnett:NettverkPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Nettverkselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Node" substitutionGroup="vegnett:Nettverkselement" type="vegnett:NodeType">
+    <annotation>
+      <documentation>Abstrakt objekttype for noder i et nettverk</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NodeType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="sluttnodeFor" type="vegnett:LenkePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sluttnode</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="startnodeFor" type="vegnett:LenkePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:startnode</reversePropertyName>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NodePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Node"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
