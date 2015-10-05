@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/Vegnett/" version="5.0">
+  <annotation>
+    <documentation>Forandringer til versjon 4.5:
+- Hovedforandringen er at alle lineære objekttyper er samlet i en objekttype (Veglenke).
+- Egenskapen TypeVeg brukes for å skille det som tidligere var egne objekttyper</documentation>
+  </annotation>
+  <include schemaLocation="nettverk.xsd"/>
+  <include schemaLocation="vegnettstest.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="TrafikkreguleringerType">
+    <annotation>
+      <documentation>angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TRAFIKKREGULERINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:TrafikkreguleringerEnumerationType vegnett:TrafikkreguleringerOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkreguleringerEnumerationType">
+    <annotation>
+      <documentation>angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TRAFIKKREGULERINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Forbudt for gående og syklende">
+        <annotation>
+          <documentation>forbudt for gående og syklende.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Forbudt for motortrafikk">
+        <annotation>
+          <documentation>forbudt for motortrafikk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Motortrafikk kun tillatt for varetransport">
+        <annotation>
+          <documentation>forbudt for motortrafikk, med unntak av varetransport</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Motortrafikk kun tillatt for kjøring til eiendommer">
+        <annotation>
+          <documentation>forbudt for motortrafikk, med unntak av kjøring til eiendommer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Motortrafikk kun tillatt for varetransport og kjøring til eiendommer">
+        <annotation>
+          <documentation>forbudt for motortrafikk, med unntak av varetransport og kjøring til eiendommer.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkreguleringerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegType">
+    <annotation>
+      <documentation>Type veg (FormOfWay).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:TypeVegEnumerationType vegnett:TypeVegOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegEnumerationType">
+    <annotation>
+      <documentation>Type veg (FormOfWay).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Motorveg">
+        <annotation>
+          <documentation>veg med fire eller flere kjørefelt, midtdeler, planskilte kryss og uten direkte tilknytning til eiendommene langs vegen. Skiltet med skilt 502.
+INSPIRE: FormOfWay = Motorway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Motortrafikkveg">
+        <annotation>
+          <documentation>motortrafikkveg. Motortrafikkveger kan være tofelts-, trefelts- eller flerfeltsveger, med eller uten midtdeler eller midtrekkverk, men følgende krav skal være oppfylt:
+• Vegen skal vare avkjørselsfri.
+• Vegkryss skal være planskilte.
+• Det skal finnes et tilfredsstillende parallellvegnett for de kjøretøy og trafikantgruppene som ikke er tillatt på motortrafikkvegen.
+Skiltet med skilt 503
+INSPIRE: FormOfWay=Freeway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kanalisert veg">
+        <annotation>
+          <documentation>1) veg som ikke er motorveg eller motortrafikkveg, og har fysisk adskilte kjørebaner med rekkverk eller annen fysisk barriere som hindrer møteulykker eller 2) veg som ikke er fysisk skilt, men oppmerking sørger for kanalisering. 
+
+Het "Møtefri veg" i høringsversjonen og dekket kun alternativ 1 over.
+2012-12-06: Gått bort fra "Møtefri veg" da dette vil medføre mange splittinger av geometrien til vegnettet. Det vil også opprettes en egen objekttype i NVDB, «Trafikkdeler», der en av typene er Møtefri.
+INSPIRE: FormOfWay=Dual Carriageway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Enkel bilveg">
+        <annotation>
+          <documentation>øvrige bilveger, også kanalisering med oppmerking, kantstein o.l.
+INSPIRE: FormOfWay=Single Carriageway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rampe">
+        <annotation>
+          <documentation>lenke for på- eller avkjøring av annen veg.
+INSPIRE: FormOfWay=Slip Road</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Rundkjøring">
+        <annotation>
+          <documentation>rundkjøring.
+INSPIRE: FormOfWay=Roundabout</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bilferje">
+        <annotation>
+          <documentation>strekning trafikkert av bilferjer som del av vegnettet.
+INSPIRE: FeatureType=FerryUse, FerryUseValue=&lt;i&gt;cars&lt;/i&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Passasjerferje">
+        <annotation>
+          <documentation>strekning trafikkert av passasjerferjer som del av nettverket.
+INSPIRE: FeatureType=&lt;i&gt;FerryUse,&lt;/i&gt; FerryUseValue=&lt;i&gt;passengers&lt;/i&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gang- og sykkelveg">
+        <annotation>
+          <documentation>veg som er bestemt for gående, syklende eller kombinert gang- og sykkeltrafikk. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. Normalt skiltet med skilt 522.
+INSPIRE: FormOfWay=BicycleRoad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sykkelveg">
+        <annotation>
+          <documentation>veg som er bestemt for syklende. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. Normalt skiltet med skilt 520.
+INSPIRE: FormOfWay=BicycleRoad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gangveg">
+        <annotation>
+          <documentation>veg som er bestemt for gående. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. 
+INSPIRE: FormOfWay=Walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gågate">
+        <annotation>
+          <documentation>område hvor det er forbudt  kjøre motorvogn og hvor trafikkreglenes bestemmelser om gågate gjelder. Skiltet med skilt 548.
+INSPIRE:FormOfWay=Pedestrian Zone</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gangfelt">
+        <annotation>
+          <documentation>kryssingssted for gående hvor trafikkreglenes bestemmelser om gangfelt gjelder. Oppmerket og eventuelt skiltet med skilt 516.
+INSPIRE: FormOfWay=Walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fortau">
+        <annotation>
+          <documentation>del av veg reservert for gående. Ligger høyere enn kjørebanen og er adskilt fra denne med kantstein
+INSPIRE: FormOfWay=Walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Traktorveg">
+        <annotation>
+          <documentation>veg som hele året (eller deler av året) ikke egner seg for vanlig bilkjøring, men som er farbar med traktor
+INSPIRE: FormOfWay=Tractor</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sti">
+        <annotation>
+          <documentation>tydelig tråkk i terrenget som er markert gjennom års bruk eller tilrettelagt for ferdsel til fots</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Trapp">
+        <annotation>
+          <documentation>trapp som naturlig inngår i nettverket</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Annet">
+        <annotation>
+          <documentation>lenke som binder sammen andre lenker. Brukes for å få sammenhengende ruter, der ingen andre typer kan brukes. Skal kun brukes for å lage et sammenhengende nettverk til bruk i ruter. For eksempel skiløyper over jorder og myrer.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegStatusType">
+    <annotation>
+      <documentation>angir veglenkens status (Kilde: Statens vegvesen Håndbok  273 Nasjonalt vegreferansesystem, april 2010, kap 6.3.4.)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGSTATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegStatusEnumerationType vegnett:VegStatusOtherType"/>
+  </simpleType>
+  <simpleType name="VegStatusEnumerationType">
+    <annotation>
+      <documentation>angir veglenkens status (Kilde: Statens vegvesen Håndbok  273 Nasjonalt vegreferansesystem, april 2010, kap 6.3.4.)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGSTATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="P">
+        <annotation>
+          <documentation>Planlagt veg vedtatt. (Kun én vegtrasé er tillatt; ingen alternativer.)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="A">
+        <annotation>
+          <documentation>Veg under bygging</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="V">
+        <annotation>
+          <documentation>Veg som er del av operativt vegnett (tatt opp til vedlikehold)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="T">
+        <annotation>
+          <documentation>Midlertidig status inntil ny status er bestemt for veg­strek­ningen. Denne skal brukes i de tilfeller hvor det formelt ikke er avklart hvilken status den gamle vegen skal ha.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="W">
+        <annotation>
+          <documentation>Midlertidig eksisterende veg. Brukes i de tilfeller hvor annen veg, riks-, fylkes-, kommunal, privat veg eller anleggsveg blir brukt for avvikling av trafikk for vedkom­mende veg uten at den er formelt opptatt. Denne statusen benyttes dersom denne vegen har en lengde på min. 20 m, og situasjonen har en varighet på over ett år.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="E">
+        <annotation>
+          <documentation>Planlagt ferjestrekning vedtatt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="S">
+        <annotation>
+          <documentation>Eksisterende ferjestrekning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="M">
+        <annotation>
+          <documentation>Serviceveg, normalt sett ikke åpen for allmenn ferdsel</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="G">
+        <annotation>
+          <documentation>Eksisterende gang- og sykkelveg</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="H">
+        <annotation>
+          <documentation>Gang- og sykkelveg under anlegg</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="U">
+        <annotation>
+          <documentation>Midlertidig status inntil ny status er bestemt for gang- og sykkelvegstrekningen. Denne skal brukes i de tilfeller hvor det formelt ikke er avklart hvilken status gang- og sykkelvegen skal ha.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Q">
+        <annotation>
+          <documentation>Planlagt gang- og sykkelveg, vedtatt.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="X">
+        <annotation>
+          <documentation>Rømmingstunnel, ikke åpen for allmenn ferdsel</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="B">
+        <annotation>
+          <documentation>Beredskapsveg, ikke åpen for allmenn ferdsel</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegStatusOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegdetaljnivåType">
+    <annotation>
+      <documentation>Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegdetaljnivåEnumerationType vegnett:VegdetaljnivåOtherType"/>
+  </simpleType>
+  <simpleType name="VegdetaljnivåEnumerationType">
+    <annotation>
+      <documentation>Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Kjørebane">
+        <annotation>
+          <documentation>del av veg som består av ett eller flere kjørefelt som ligger inntil hverandre og i samme plan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kjørefelt">
+        <annotation>
+          <documentation>del av veg som er bestemt for en vognrekke</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vegtrase">
+        <annotation>
+          <documentation>representerer en konstruert senterlinje som den fysiske vegen ikke følger (f.eks. ved fysisk atskilte kjørebaner).</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegdetaljnivåOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegkategoriType">
+    <annotation>
+      <documentation>angir hvilken type veg veglenken beskriver. (Kilde: Statens vegvesen Håndbok 273 Nasjonalt vegreferansesystem, april 2010, kap 6.3.3.)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegkategoriEnumerationType vegnett:VegkategoriOtherType"/>
+  </simpleType>
+  <simpleType name="VegkategoriEnumerationType">
+    <annotation>
+      <documentation>angir hvilken type veg veglenken beskriver. (Kilde: Statens vegvesen Håndbok 273 Nasjonalt vegreferansesystem, april 2010, kap 6.3.3.)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="E"/>
+      <enumeration value="R"/>
+      <enumeration value="F"/>
+      <enumeration value="K"/>
+      <enumeration value="P"/>
+      <enumeration value="S"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegkategoriOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Veglenke" substitutionGroup="vegnett:Lenke" type="vegnett:VeglenkeType">
+    <annotation>
+      <documentation>Objekttype som representerer lenker i vegnettet</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkeType">
+    <complexContent>
+      <extension base="vegnett:LenkeType">
+        <sequence>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="veglenkeadresse" type="vegnett:VeglenkeadressePropertyType">
+            <annotation>
+              <documentation>adressen til veglenken</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brøytes" type="boolean">
+            <annotation>
+              <documentation>angir om lenken brøytes</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">BRØYTES</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="detaljnivå" type="vegnett:VegdetaljnivåType">
+            <annotation>
+              <documentation>Detaljnivå i vegnettet. Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="feltoversikt" type="string">
+            <annotation>
+              <documentation>kjørefeltnummer angir stedfesting i vegens tverretning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkreguleringer" type="vegnett:TrafikkreguleringerType">
+            <annotation>
+              <documentation>angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konnekteringslenke" type="boolean">
+            <annotation>
+              <documentation>angir at en lenke kun eksisterer for å knytte sammen andre lenker.
+Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøter sammen lenker der det er hull i geometrien.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KONNEKTERINGSLENKE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="typeVeg" type="vegnett:TypeVegType">
+            <annotation>
+              <documentation>type veg (FormOfWay).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="veglenkeFraDato" type="date">
+            <annotation>
+              <documentation>gyldighetsdato fra for vegreferanse (startdato)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VFRADATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="veglenkeTilDato" type="date">
+            <annotation>
+              <documentation>gyldighetsdato til for vegreferanse (avslutningsdato)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VTILDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
+    <annotation>
+      <documentation>adressen på veglenken.
+
+Merknad: veglenkeadresse gir adressen til veglenken. Denne er "fellesdelen" av adressen til alle som er tilknyttet veglenken.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGLENKEADRESSE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VeglenkeadresseType">
+    <sequence>
+      <element name="kommunenummer" type="vegnett:KommunenummerType">
+        <annotation>
+          <documentation>identifisering av hvilken kommune veglenken ligger i.
+Merknad: Må være med for å få unik identifisering, i og med at adressekoden kun er unik innen en kommune.</documentation>
+        </annotation>
+      </element>
+      <element name="adressekode" type="integer">
+        <annotation>
+          <documentation>entydig nummerering av veglenker innen en kommune.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ADRESSEKODE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="adressenavn" type="string">
+        <annotation>
+          <documentation>offisielt navn på lenken</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ADRESSENAVN</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="sideveg" type="boolean">
+        <annotation>
+          <documentation>angir om en veglenke er sideveg og dermed bruker adresser fra lenken den er sideveg fra.
+Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SIDEVEG</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VeglenkeadressePropertyType">
+    <sequence>
+      <element ref="vegnett:Veglenkeadresse"/>
+    </sequence>
+  </complexType>
+  <element name="Veglenkesekvens" substitutionGroup="vegnett:Lenkesekvens" type="vegnett:VeglenkesekvensType">
+    <annotation>
+      <documentation>Sekvens av veglenker.
+Eksempel: NVDB Referanselenker, som består av Dellenker (Lenke)</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkesekvensType">
+    <complexContent>
+      <extension base="vegnett:LenkesekvensType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkesekvensPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenkesekvens"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Veglenkesett" substitutionGroup="vegnett:Lenkesett" type="vegnett:VeglenkesettType">
+    <annotation>
+      <documentation>Sett av veglenker. eller veglenkesekvenser
+Eksempel: E6</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkesettType">
+    <complexContent>
+      <extension base="vegnett:LenkesettType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkesettPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenkesett"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Vegnode" substitutionGroup="vegnett:Node" type="vegnett:VegnodeType">
+    <annotation>
+      <documentation>abstrakt supertype for objekttyper som representerer noder i vegnettet</documentation>
+    </annotation>
+  </element>
+  <complexType name="VegnodeType">
+    <complexContent>
+      <extension base="vegnett:NodeType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>sted som objektet eksisterer på</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegnodePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Vegnode"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Vegreferanse" substitutionGroup="gml:AbstractObject" type="vegnett:VegreferanseType">
+    <annotation>
+      <documentation>sammensatt identifikator for posisjon i vegreferansesystemet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VNR</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegreferanseType">
+    <sequence>
+      <element minOccurs="0" name="vegkategori" type="vegnett:VegkategoriType">
+        <annotation>
+          <documentation>angir hvilken type veg veglenken beskriver</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/VegKategori.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegstatus" type="vegnett:VegStatusType">
+        <annotation>
+          <documentation>angir veglenkens status</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegnummer" type="integer">
+        <annotation>
+          <documentation>angir nummeret til en vegrute</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="hovedParsell" type="integer">
+        <annotation>
+          <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HOVEDPARSELL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterFra" type="integer">
+        <annotation>
+          <documentation>meterverdi i veglenkens start</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METER-FRA</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterTil" type="integer">
+        <annotation>
+          <documentation>meterverdi i veglenkens slutt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METERTIL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VegreferansePropertyType">
+    <sequence>
+      <element ref="vegnett:Vegreferanse"/>
+    </sequence>
+  </complexType>
+</schema>
