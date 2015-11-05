@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="http://www.jetlundweb.no/geomatikk/GML/NIFS" gml:id="id0bc35261-6b32-4eb1-a916-c35e09b6380f" xsi:schemaLocation="http://www.jetlundweb.no/geomatikk/GML/NIFS http://www.jetlundweb.no/geomatikk/GML/NIFS/Stikkrenne.xsd">
+	<gml:boundedBy>
+		<gml:Envelope srsName="EPSG:5972" srsDimension="3">
+			<gml:lowerCorner>564961.489 6806186.455 188.47</gml:lowerCorner>
+			<gml:upperCorner>565697.808 6806642.022 235.274</gml:upperCorner>
+		</gml:Envelope>
+	</gml:boundedBy>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id96414943-58ad-46ed-aae5-f0d3cc5e01b6">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent med frontmur</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I skråning/terreng</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da7008b-2dab-008b-2dae-008b2da1008b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>564961.489 6806637.371 235.274 564968.127 6806642.022 233.717</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id55153b83-5066-4e6a-9ca5-98663edd36d4">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>FOT</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent i grøft</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I skråning/terreng</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2daf218b-2da3-218b-2da6-218b2da9218b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565003.508 6806572.366 228.062 565012.891 6806575.187 226.291</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="ida2cf0eb8-4e02-462a-97a9-e7941e51b321">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Kum over stikkrenne</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I skråning/terreng</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da0328b-2da4-328b-2dab-428b2dae428b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565037.693 6806500.635 221.917 565045.89 6806505.918 219.937</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Ja</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id85ff6b25-1b45-4b7a-a71b-10243f6455df">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>FOT</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent i grøft</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>Åpen grøft</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da9538b-2dad-538b-2da0-538b2da3538b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565103.725 6806436.287 212.873 565118.53 6806423.307 211.476</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id4a3f0921-1611-4366-945a-265ee9ca9854">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>1000</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>1000</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent i grøft</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I bekk/elv</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2dae708b-2da2-708b-2da5-708b2da8708b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565179.865 6806371.38 208.142 565199.488 6806382.195 205.193</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Ja</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id91dbc8d7-2b85-4377-93eb-20c198d09680">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Kum over stikkrenne</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I skråning/terreng</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da3818b-2da3-818b-2daa-918b2dad918b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565237.764 6806358.735 206.357 565240.77 6806366.471 205.18</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id524dc01a-759a-4723-8da4-5a1a9446e661">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>F</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Sirkulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>400</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>400</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Kum over stikkrenne</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I skråning/terreng</nvdb:typeUtløp>
+			<nvdb:eier>Fylkeskommune</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2daba28b-2daf-a28b-2da2-a28b2da1a28b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565475.343 6806252.772 192.102 565478.332 6806257.819 192.805</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Ja</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Nei</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="iddce78fd5-0b0a-4a5e-bc73-fe13034f2a23">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>P</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Rektangulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>2500</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>2500</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent i grøft</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I bekk/elv</nvdb:typeUtløp>
+			<nvdb:eier>Privat</nvdb:eier>
+			<nvdb:materialtype>Naturstein</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da0c38b-2da4-c38b-2da7-c38b2daac38b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565695.193 6806186.455 188.565 565697.808 6806186.974 188.47</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:spesielleProblem>Vegetasjonstetting, innløp</nvdb:spesielleProblem>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Ja</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+					<nvdb:tiltak>Ryddes</nvdb:tiltak>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+	<gml:featureMember>
+		<nvdb:Stikkrenne gml:id="id5037a7dd-eacd-4399-b666-35325fd9edc1">
+			<nvdb:endringsflagg>
+				<nvdb:Endringsflagg>
+					<nvdb:typeEndring>N</nvdb:typeEndring>
+					<nvdb:tidspunktEndring>2015-10-15</nvdb:tidspunktEndring>
+				</nvdb:Endringsflagg>
+			</nvdb:endringsflagg>
+			<nvdb:datafangstdato>2015-07-13</nvdb:datafangstdato>
+			<nvdb:kvalitet>
+				<nvdb:Posisjonskvalitet>
+					<nvdb:målemetode>96</nvdb:målemetode>
+					<nvdb:nøyaktighet>10</nvdb:nøyaktighet>
+					<nvdb:synbarhet>1</nvdb:synbarhet>
+					<nvdb:målemetodeHøyde>96</nvdb:målemetodeHøyde>
+					<nvdb:nøyaktighetHøyde>10</nvdb:nøyaktighetHøyde>
+					<nvdb:maksimaltAvvik>30</nvdb:maksimaltAvvik>
+				</nvdb:Posisjonskvalitet>
+			</nvdb:kvalitet>
+			<nvdb:høydereferanse>TOP</nvdb:høydereferanse>
+			<nvdb:vegident>
+				<nvdb:Vegident>
+					<nvdb:vegkategori>P</nvdb:vegkategori>
+					<nvdb:vegstatus>E</nvdb:vegstatus>
+					<nvdb:vegnummer>0</nvdb:vegnummer>
+				</nvdb:Vegident>
+			</nvdb:vegident>
+			<nvdb:vegparsell>
+				<nvdb:Vegparsell>
+					<nvdb:hovedParsell>0</nvdb:hovedParsell>
+					<nvdb:veglenkeMeterFra>0</nvdb:veglenkeMeterFra>
+					<nvdb:veglenkeMeterTil>0</nvdb:veglenkeMeterTil>
+				</nvdb:Vegparsell>
+			</nvdb:vegparsell>
+			<nvdb:tverrsnittsform>Rektangulær</nvdb:tverrsnittsform>
+			<nvdb:høydeInnvendig>3000</nvdb:høydeInnvendig>
+			<nvdb:breddeInnvendig>3000</nvdb:breddeInnvendig>
+			<nvdb:typeInnløp>Åpent i grøft</nvdb:typeInnløp>
+			<nvdb:harInnløpsrist>Nei</nvdb:harInnløpsrist>
+			<nvdb:typeUtløp>I bekk/elv</nvdb:typeUtløp>
+			<nvdb:eier>Privat</nvdb:eier>
+			<nvdb:materialtype>Betong</nvdb:materialtype>
+			<nvdb:bruksområde>Vann</nvdb:bruksområde>
+			<nvdb:senterlinje>
+				<gml:LineString gml:id="_2da1d48b-2da5-d48b-2dac-e48b2dafe48b_geom1" srsName="EPSG:5972" srsDimension="3">
+					<gml:posList>565661.532 6806254.12 188.901 565662.03 6806257.844 188.893</gml:posList>
+				</gml:LineString>
+			</nvdb:senterlinje>
+			<nvdb:spesielleProblem>Vegetasjonstetting, innløp</nvdb:spesielleProblem>
+			<nvdb:antallTininger>0</nvdb:antallTininger>
+			<nvdb:tilknyttetLukkaDren>Nei</nvdb:tilknyttetLukkaDren>
+			<nvdb:gjennomløpForElvBekk>Ja</nvdb:gjennomløpForElvBekk>
+			<nvdb:tilstandSkade>
+				<nvdb:TilstandSkadePunkt>
+					<nvdb:tilstand>Ok</nvdb:tilstand>
+					<nvdb:tiltak>Ryddes</nvdb:tiltak>
+				</nvdb:TilstandSkadePunkt>
+			</nvdb:tilstandSkade>
+		</nvdb:Stikkrenne>
+	</gml:featureMember>
+</gml:FeatureCollection>

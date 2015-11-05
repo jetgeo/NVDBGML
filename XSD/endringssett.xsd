@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://nvdb.vegvesen.no/apiskriv/domain/v1" xmlns:tns="http://nvdb.vegvesen.no/apiskriv/domain/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="endringssett" type="tns:Endringssett"/>
+
+  <xs:element name="etterbehandling" type="tns:Etterbehandling"/>
+
+  <xs:element name="fremdrift" type="tns:Fremdrift"/>
+
+  <xs:element name="status" type="tns:Status"/>
+
+  <xs:complexType name="Endringssett">
+    <xs:all>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="registrer" type="tns:Registrering" minOccurs="0"/>
+      <xs:element name="oppdater" type="tns:Oppdatering" minOccurs="0"/>
+      <xs:element name="korriger" type="tns:Korrigering" minOccurs="0"/>
+      <xs:element name="slett" type="tns:Sletting" minOccurs="0"/>
+      <xs:element name="delvisOppdater" type="tns:DelvisOppdatering" minOccurs="0"/>
+      <xs:element name="delvisKorriger" type="tns:DelvisKorrigering" minOccurs="0"/>
+      <xs:element ref="tns:status" minOccurs="0"/>
+      <xs:element ref="tns:etterbehandling" minOccurs="0"/>
+      <xs:element name="ansvarlig" type="xs:string" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="effektDato" type="xs:date" use="required"/>
+    <xs:attribute name="datakatalogversjon" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Registrering">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:NyttVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NyttVegObjekt">
+    <xs:all>
+      <xs:element name="egenskaper" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="egenskap" type="tns:FullEgenskap" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="assosiasjoner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="assosiasjon" type="tns:Assosiasjon" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lokasjon" type="tns:Lokasjon" minOccurs="0"/>
+      <xs:element name="sluttDato" type="xs:date" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="tempId" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="FullEgenskap">
+    <xs:sequence>
+      <xs:element name="verdi" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="struktur" type="tns:Struktur" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="binaer" type="tns:Binaer" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="enum" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Struktur">
+    <xs:sequence>
+      <xs:element name="medlem" type="tns:StrukturMedlem" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="StrukturMedlem">
+    <xs:all>
+      <xs:element name="verdi" type="xs:string" minOccurs="0"/>
+      <xs:element name="enum" type="xs:int" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int"/>
+  </xs:complexType>
+
+  <xs:complexType name="Binaer">
+    <xs:all/>
+    <xs:attribute name="ressursId" type="xs:string"/>
+    <xs:attribute name="nvdbId" type="xs:long"/>
+    <xs:attribute name="format" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="Assosiasjon">
+    <xs:sequence>
+      <xs:element name="nvdbId" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="tempId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Lokasjon">
+    <xs:sequence>
+      <xs:element name="linje" type="tns:linje" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="punkt" type="tns:punkt" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="sving" type="tns:sving" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="linje">
+    <xs:all/>
+    <xs:attribute name="lenkeId" type="xs:long" use="required"/>
+    <xs:attribute name="fra" type="xs:double" use="required"/>
+    <xs:attribute name="til" type="xs:double" use="required"/>
+    <xs:attribute name="retning" type="tns:VegLenkeRetning"/>
+    <xs:attribute name="sidePosisjon" type="tns:SidePosisjon"/>
+    <xs:attribute name="felt" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="punkt">
+    <xs:all/>
+    <xs:attribute name="lenkeId" type="xs:long" use="required"/>
+    <xs:attribute name="posisjon" type="xs:double" use="required"/>
+    <xs:attribute name="retning" type="tns:VegLenkeRetning"/>
+    <xs:attribute name="sidePosisjon" type="tns:SidePosisjon"/>
+    <xs:attribute name="felt" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="sving">
+    <xs:all>
+      <xs:element name="fra" type="tns:punkt"/>
+      <xs:element name="til" type="tns:punkt"/>
+    </xs:all>
+    <xs:attribute name="nodeId" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Oppdatering">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:OppdatertVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OppdatertVegObjekt">
+    <xs:all>
+      <xs:element name="egenskaper" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="egenskap" type="tns:FullEgenskap" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="assosiasjoner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="assosiasjon" type="tns:Assosiasjon" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lokasjon" type="tns:Lokasjon" minOccurs="0"/>
+      <xs:element name="sluttDato" type="xs:date" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="nvdbId" type="xs:long"/>
+    <xs:attribute name="versjon" type="xs:long"/>
+  </xs:complexType>
+
+  <xs:complexType name="Korrigering">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:KorrigertVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="KorrigertVegObjekt">
+    <xs:all>
+      <xs:element name="egenskaper" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="egenskap" type="tns:FullEgenskap" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="assosiasjoner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="assosiasjon" type="tns:Assosiasjon" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lokasjon" type="tns:Lokasjon" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="nvdbId" type="xs:long"/>
+    <xs:attribute name="versjon" type="xs:long"/>
+  </xs:complexType>
+
+  <xs:complexType name="Sletting">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:SlettetVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SlettetVegObjekt">
+    <xs:all/>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="nvdbId" type="xs:long"/>
+    <xs:attribute name="versjon" type="xs:long"/>
+    <xs:attribute name="kaskadeSletting" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisOppdatering">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:DelvisOppdatertVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisOppdatertVegObjekt">
+    <xs:all>
+      <xs:element name="egenskaper" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="egenskap" type="tns:DelvisEgenskap" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="assosiasjoner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="assosiasjon" type="tns:DelvisAssosiasjon" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lokasjon" type="tns:DelvisLokasjon" minOccurs="0"/>
+      <xs:element name="sluttDato" type="xs:date" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="nvdbId" type="xs:long" use="required"/>
+    <xs:attribute name="versjon" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisEgenskap">
+    <xs:sequence>
+      <xs:element name="verdi" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="struktur" type="tns:Struktur" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="binaer" type="tns:Binaer" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="enum" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="operasjon" type="tns:operasjon" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisAssosiasjon">
+    <xs:complexContent>
+      <xs:extension base="tns:Assosiasjon">
+        <xs:sequence/>
+        <xs:attribute name="operasjon" type="tns:operasjon" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisLokasjon">
+    <xs:complexContent>
+      <xs:extension base="tns:Lokasjon">
+        <xs:sequence/>
+        <xs:attribute name="operasjon" type="tns:operasjon" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisKorrigering">
+    <xs:sequence>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:DelvisKorrigertVegObjekt" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelvisKorrigertVegObjekt">
+    <xs:all>
+      <xs:element name="egenskaper" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="egenskap" type="tns:DelvisEgenskap" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="assosiasjoner" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="assosiasjon" type="tns:DelvisAssosiasjon" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lokasjon" type="tns:DelvisLokasjon" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="typeId" type="xs:int" use="required"/>
+    <xs:attribute name="nvdbId" type="xs:long" use="required"/>
+    <xs:attribute name="versjon" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Status">
+    <xs:all>
+      <xs:element name="mottatt" type="xs:dateTime"/>
+      <xs:element ref="tns:fremdrift"/>
+      <xs:element name="vente&#229;rsak" type="tns:Vente&#197;rsak" minOccurs="0"/>
+      <xs:element name="avvist&#229;rsak" type="tns:Avvist&#197;rsak" minOccurs="0"/>
+      <xs:element name="resultat" type="tns:Resultat"/>
+      <xs:element name="eier" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Resultat">
+    <xs:all>
+      <xs:element name="vegObjekter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vegObjekt" type="tns:VegObjektResultat" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="feil" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feil" type="tns:Feil" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advarsel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="advarsel" type="tns:Advarsel" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="VegObjektResultat">
+    <xs:all>
+      <xs:element name="feil" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feil" type="tns:Feil" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advarsel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="advarsel" type="tns:Advarsel" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="tempId" type="xs:string"/>
+    <xs:attribute name="nvdbId" type="xs:long"/>
+  </xs:complexType>
+
+  <xs:complexType name="Feil">
+    <xs:all>
+      <xs:element name="melding" type="xs:string"/>
+      <xs:element name="referanse" type="xs:string"/>
+    </xs:all>
+    <xs:attribute name="kode" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Advarsel">
+    <xs:all>
+      <xs:element name="melding" type="xs:string"/>
+      <xs:element name="referanse" type="xs:string"/>
+    </xs:all>
+    <xs:attribute name="kode" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Etterbehandling">
+    <xs:sequence>
+      <xs:element name="tilgjengeligILes" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="VegLenkeRetning">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MED"/>
+      <xs:enumeration value="MOT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SidePosisjon">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MH"/>
+      <xs:enumeration value="MV"/>
+      <xs:enumeration value="VT"/>
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="H"/>
+      <xs:enumeration value="HT"/>
+      <xs:enumeration value="VH"/>
+      <xs:enumeration value="K"/>
+      <xs:enumeration value="V"/>
+      <xs:enumeration value="L"/>
+      <xs:enumeration value="R"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="operasjon">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="oppdater"/>
+      <xs:enumeration value="slett"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Fremdrift">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IKKE_STARTET"/>
+      <xs:enumeration value="KANSELLERT"/>
+      <xs:enumeration value="BEHANDLES"/>
+      <xs:enumeration value="VENTER"/>
+      <xs:enumeration value="AVVIST"/>
+      <xs:enumeration value="UTF&#216;RT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Vente&#197;rsak">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VENTER_P&#197;_DATAKATALOG"/>
+      <xs:enumeration value="VENTER_P&#197;_L&#197;S"/>
+      <xs:enumeration value="I_K&#216;"/>
+      <xs:enumeration value="SYSTEMFEIL"/>
+      <xs:enumeration value="SYSTEMFEIL_VED_OPPL&#197;SING"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Avvist&#197;rsak">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IKKE_AUTORISERT"/>
+      <xs:enumeration value="VALIDERINGSFEIL"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
