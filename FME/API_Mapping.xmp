@@ -27,7 +27,21 @@
                 </attribute>
             </attributes>	
         </mapping>
-               
+
+        <!-- Assosiasjoner som liste, i tilfelle flere --> 
+        <mapping match="vegObjekt/assosiasjoner/assosiasjon/relasjon">
+            <attributes>
+                <attribute type="list">
+                    <name>   <literal expr="assosiasjon{}.typeId"/>  </name>
+                    <value>  <extract expr="@typeId"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="assosiasjon{}.uri"/>  </name>
+                    <value>  <extract expr="@uri"/>  </value>
+                </attribute>
+            </attributes>
+        </mapping>
+        
         <!-- Stedfesting i basisnettet, liste i tilfelle flere --> 		
         <mapping match="vegObjekt/lokasjon/veglenker/veglenke">
             <attributes>
@@ -68,9 +82,6 @@
                 </attribute>
             </attributes>
         </mapping>
-
-
-        
 
         <!-- Vegreferanser som liste, i tilfelle flere --> 
         <mapping match="vegObjekt/lokasjon/vegReferanser/vegReferanse">
