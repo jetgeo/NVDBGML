@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V203" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V203" version="2.03">
+  <annotation>
+    <documentation>481: Utstyr for tenning av belysning</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">481</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="SpenningTennpunktType">
+    <annotation>
+      <documentation>Spenning: Angir spenning enheten opererer med</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10080</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPENNINGTENNPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SpenningTennpunktEnumerationType nvdb:SpenningTennpunktOtherType"/>
+  </simpleType>
+  <simpleType name="SpenningTennpunktEnumerationType">
+    <annotation>
+      <documentation>Spenning: Angir spenning enheten opererer med</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10080</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPENNINGTENNPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="12">
+        <annotation>
+          <documentation>16448: 12 volt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16448</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="24">
+        <annotation>
+          <documentation>16449: 24 volt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16449</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="230">
+        <annotation>
+          <documentation>16450: 230 volt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16450</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="400">
+        <annotation>
+          <documentation>16451: 400 volt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16451</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="690">
+        <annotation>
+          <documentation>16714: 690 volt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16714</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpenningTennpunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Tennpunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TennpunktType">
+    <annotation>
+      <documentation>Tennpunkt: Utstyr for tenning av belysning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">481</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TENNPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TennpunktType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="driftsattår" type="integer">
+            <annotation>
+              <documentation>Driftsattår: Angir årstall objektet ble satt i drift</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10070</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSATTÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4996</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TennpunktPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Tennpunkt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

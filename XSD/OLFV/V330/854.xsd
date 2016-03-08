@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V203" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V203" version="2.03">
+  <annotation>
+    <documentation>854: Port som kan avstenge et tunnelløp</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">854</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BrannsikkerTunnelportType">
+    <annotation>
+      <documentation>Brannsikker: Angir om porten er godkjent brannport</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9761</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNSIKKERTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BrannsikkerTunnelportEnumerationType nvdb:BrannsikkerTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="BrannsikkerTunnelportEnumerationType">
+    <annotation>
+      <documentation>Brannsikker: Angir om porten er godkjent brannport</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9761</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNSIKKERTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Ja">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15888</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Nei">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15889</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BrannsikkerTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeTunnelportType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9763</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeTunnelportEnumerationType nvdb:BruksområdeTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeTunnelportEnumerationType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9763</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Tilgang fjellrom">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15890</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tilgang sideløp">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15891</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kuldeport">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15892</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierTunnelportType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9764</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierTunnelportEnumerationType nvdb:EierTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="EierTunnelportEnumerationType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9764</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Stat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15893</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fylkeskommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15894</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15895</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Privat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15896</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialeTunnelportType">
+    <annotation>
+      <documentation>Materiale: Angir materiale</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9769</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MaterialeTunnelportEnumerationType nvdb:MaterialeTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialeTunnelportEnumerationType">
+    <annotation>
+      <documentation>Materiale: Angir materiale</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9769</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Aluminium">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15900</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Stål">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15901</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialeTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NormalStillingTunnelportType">
+    <annotation>
+      <documentation>Normal stilling: Angir hva som er normal stilling for dør</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9770</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NORMALSTILLINGTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NormalStillingTunnelportEnumerationType nvdb:NormalStillingTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="NormalStillingTunnelportEnumerationType">
+    <annotation>
+      <documentation>Normal stilling: Angir hva som er normal stilling for dør</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9770</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NORMALSTILLINGTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Lukka, låst">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15902</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lukka, ulåst">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15903</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Åpen">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15904</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NormalStillingTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Tunnelport" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TunnelportType">
+    <annotation>
+      <documentation>Tunnelport: Port som kan avstenge et tunnelløp</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">854</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TunnelportType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="bruksområde" type="nvdb:BruksområdeTunnelportType">
+            <annotation>
+              <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9763</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="brannsikker" type="nvdb:BrannsikkerTunnelportType">
+            <annotation>
+              <documentation>Brannsikker: Angir om porten er godkjent brannport</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9761</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNSIKKER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="bredde" type="double">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9762</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="høyde" type="double">
+            <annotation>
+              <documentation>Høyde: Angir egenhøyde av vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9768</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>Byggeår: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10386</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9767</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TunnelportPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Tunnelport"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeTunnelportType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9771</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeTunnelportEnumerationType nvdb:TypeTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="TypeTunnelportEnumerationType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9771</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Leddport">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15905</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Skyveport">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15906</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTunnelportType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9765</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligTunnelportEnumerationType nvdb:VedlikeholdsansvarligTunnelportOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTunnelportEnumerationType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9765</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTUNNELPORT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Statens vegvesen">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15897</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kommune">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15898</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Privat">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15899</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTunnelportOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

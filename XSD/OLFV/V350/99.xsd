@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/DOK/V35/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/DOK/V35/" version="2.05">
+  <annotation>
+    <documentation>99: Vegoppmerking nyttes for å lede, varsle eller regulere trafikken, og for å klargjøre andre bestemmelser gitt ved trafikkskilt eller trafikkregler. (050).  Langsgående oppmerking omfatter alle langsgående oppmerka linjer og sperreområder, også inkludert oppmerking av trafikkøyer.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">99</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV350.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BreddeEnkeltlinjeType">
+    <annotation>
+      <documentation>Bredde,enkeltlinje: Angir normal bredde av enkeltlinje.  For sperreområde gjelder bredde omslutningslinje.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4514</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEENKELTLINJE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BreddeEnkeltlinjeEnumerationType nvdb:BreddeEnkeltlinjeOtherType"/>
+  </simpleType>
+  <simpleType name="BreddeEnkeltlinjeEnumerationType">
+    <annotation>
+      <documentation>Bredde,enkeltlinje: Angir normal bredde av enkeltlinje.  For sperreområde gjelder bredde omslutningslinje.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4514</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEENKELTLINJE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="010">
+        <annotation>
+          <documentation>5310: 0,10</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5310</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="015">
+        <annotation>
+          <documentation>5311: 0,15</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5311</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="020">
+        <annotation>
+          <documentation>5312: 0,20</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5312</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="025">
+        <annotation>
+          <documentation>5313: 0,25</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5313</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="030">
+        <annotation>
+          <documentation>5314: 0,30</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5314</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BreddeEnkeltlinjeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeVegoppmerkingLangsgåendeType">
+    <annotation>
+      <documentation>Bruksområde: Angir bruksområde for vegobjekttypen.  Dette er en tilleggsopplysning til typen.  Det er ikke aktuelt å gi til alle typer.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4520</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeVegoppmerkingLangsgåendeEnumerationType nvdb:BruksområdeVegoppmerkingLangsgåendeOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeVegoppmerkingLangsgåendeEnumerationType">
+    <annotation>
+      <documentation>Bruksområde: Angir bruksområde for vegobjekttypen.  Dette er en tilleggsopplysning til typen.  Det er ikke aktuelt å gi til alle typer.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4520</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="midtlinje">
+        <annotation>
+          <documentation>5342: Midtlinje: Linje som skiller mellom kjørefelt med trafikk i motgående retninger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5342</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kantlinje">
+        <annotation>
+          <documentation>11300: Kantlinje: Linje som markerer kjørebanens ytterkant (HB049)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11300</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="delelinje">
+        <annotation>
+          <documentation>5344: Delelinje: Linje som skiller mellom vanlige kjørefelt med trafikk i samme retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5344</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skillelinjeKollektivfelt">
+        <annotation>
+          <documentation>5347: Skillelinje, kollektivfelt: Linje som skiller mellom kjørefelt og kollektivffelt eller busslomme</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5347</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skillelinjeFartsendringsfelt">
+        <annotation>
+          <documentation>5346: Skillelinje, fartsendringsfelt: Linje som skiller mellom vanlig kjørefelt og fartsendringsfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5346</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skillelinjeSykkelfelt">
+        <annotation>
+          <documentation>5345: Skillelinje, sykkelfelt: Linje som skiller mellom kjørefelt og sykkelfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5345</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ledelinje">
+        <annotation>
+          <documentation>11301: Ledelinje: Linje som angir føring av kjørefelt eller svingebevegelser gjennom et vegkryss</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11301</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeVegoppmerkingLangsgåendeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FargeVegoppmerkingLangsgåendeType">
+    <annotation>
+      <documentation>Farge: Angir hovedfarge til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1295</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FargeVegoppmerkingLangsgåendeEnumerationType nvdb:FargeVegoppmerkingLangsgåendeOtherType"/>
+  </simpleType>
+  <simpleType name="FargeVegoppmerkingLangsgåendeEnumerationType">
+    <annotation>
+      <documentation>Farge: Angir hovedfarge til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1295</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="gul">
+        <annotation>
+          <documentation>2116: Gul</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2116</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hvit">
+        <annotation>
+          <documentation>2125: Hvit</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2125</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FargeVegoppmerkingLangsgåendeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="LinjemønsterType">
+    <annotation>
+      <documentation>Linjemønster: Angir mønster (stipling) for oppmerkingspunkt.  Angis som lengde av en punktdel + lengde av mellomrom.  Disse verdiene er avhengige av hastighetsområde.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4517</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LINJEMØNSTER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LinjemønsterEnumerationType nvdb:LinjemønsterOtherType"/>
+  </simpleType>
+  <simpleType name="LinjemønsterEnumerationType">
+    <annotation>
+      <documentation>Linjemønster: Angir mønster (stipling) for oppmerkingspunkt.  Angis som lengde av en punktdel + lengde av mellomrom.  Disse verdiene er avhengige av hastighetsområde.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4517</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LINJEMØNSTER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="over50KmT93Osv">
+        <annotation>
+          <documentation>5333: Over 50 Km/t (9+3.. osv): Benyttes ved fartsgrense over 50</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5333</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tom50KmT31Osv">
+        <annotation>
+          <documentation>5334: Tom 50 km/t (3+1 ..osv): Benyttes når fartsgrense er 50 eller mindre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5334</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LinjemønsterOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NedfresingType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8392</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NedfresingEnumerationType nvdb:NedfresingOtherType"/>
+  </simpleType>
+  <simpleType name="NedfresingEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8392</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11302: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11302</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16774: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16774</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NedfresingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ProfileringType">
+    <annotation>
+      <documentation>Profilering: Angir om vegoppmerkingen er profilert eller ikke, og i tilfelle hvilken type profilering</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2266</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROFILERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:ProfileringEnumerationType nvdb:ProfileringOtherType"/>
+  </simpleType>
+  <simpleType name="ProfileringEnumerationType">
+    <annotation>
+      <documentation>Profilering: Angir om vegoppmerkingen er profilert eller ikke, og i tilfelle hvilken type profilering</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2266</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROFILERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="planLinje">
+        <annotation>
+          <documentation>4095: Plan linje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4095</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kamflex">
+        <annotation>
+          <documentation>4097: Kamflex</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4097</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="longflex">
+        <annotation>
+          <documentation>4098: Longflex</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4098</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dråpeflex">
+        <annotation>
+          <documentation>4099: Dråpeflex</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4099</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dråpeKombi">
+        <annotation>
+          <documentation>16772: Dråpe kombi</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16772</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ProfileringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingLangsgåendeType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1152</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVegoppmerkingLangsgåendeEnumerationType nvdb:TypeVegoppmerkingLangsgåendeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingLangsgåendeEnumerationType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1152</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="kjørefeltlinje1000F">
+        <annotation>
+          <documentation>5317: Kjørefeltlinje (1000-F): Benyttes når dobbel sperrelinje brytes foran gangfelt (Og i forbindelse med avkjørsler?)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5317</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tettstedlinje1002T">
+        <annotation>
+          <documentation>12086: Tettstedlinje (1002-T)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12086</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sperrelinje1004S">
+        <annotation>
+          <documentation>5319: Sperrelinje (1004-S)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5319</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørefeltVarsellinje10061FV">
+        <annotation>
+          <documentation>5320: Kjørefelt-/Varsellinje (1006.1-FV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5320</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="varselKjørefeltlinje10061VF">
+        <annotation>
+          <documentation>5321: Varsel-/Kjørefeltlinje (1006.1-VF)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5321</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sperreKjørefeltlinje10062SF">
+        <annotation>
+          <documentation>5322: Sperre-/Kjørefeltlinje (1006.2-SF)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5322</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørefeltSperrelinje10062FS">
+        <annotation>
+          <documentation>5323: Kjørefelt-/Sperrelinje (1006.2-FS)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5323</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="varselSperrelinje10063VS">
+        <annotation>
+          <documentation>5324: Varsel-/Sperrelinje (1006.3-VS)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5324</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sperreVarsellinje10063SV">
+        <annotation>
+          <documentation>5325: Sperre-/Varsellinje (1006.3-SV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5325</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dobbelSperrelinje10064SS">
+        <annotation>
+          <documentation>5326: Dobbel sperrelinje (1006.4-SS)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5326</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="åpningIDobbelSperrelinje">
+        <annotation>
+          <documentation>10143: Åpning i dobbel sperrelinje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10143</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dobbelVarsellinje10065VV">
+        <annotation>
+          <documentation>5327: Dobbel varsellinje (1006.5-VV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5327</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skillelinje1008">
+        <annotation>
+          <documentation>5328: Skillelinje (1008)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5328</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ledelinje1010">
+        <annotation>
+          <documentation>5329: Ledelinje (1010)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5329</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kantlinjeHeltrukket10121">
+        <annotation>
+          <documentation>5330: Kantlinje, heltrukket (1012.1)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5330</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kantlinjeStiplet10122">
+        <annotation>
+          <documentation>5331: Kantlinje, stiplet (1012.2)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5331</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sperreområdeOppmerket1014">
+        <annotation>
+          <documentation>5332: Sperreområde, oppmerket (1014): Sperreområde som er fylt med enten heldekkende maling, skaravur eller ingen maling.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5332</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sperreområdeFysisk1014">
+        <annotation>
+          <documentation>5406: Sperreområde, fysisk (1014): Sperreområde som er fylt med fysisk opphøyd areal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5406</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="linjeParkering">
+        <annotation>
+          <documentation>2804: Linje, parkering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2804</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="varsellinje1002V">
+        <annotation>
+          <documentation>5318: Varsellinje (1002-V)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5318</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingLangsgåendeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegbanereflektorType">
+    <annotation>
+      <documentation>Vegbanereflektor: Angir om oppmerkingslinja har vegbanereflektor eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1909</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBANEREFLEKTOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VegbanereflektorEnumerationType nvdb:VegbanereflektorOtherType"/>
+  </simpleType>
+  <simpleType name="VegbanereflektorEnumerationType">
+    <annotation>
+      <documentation>Vegbanereflektor: Angir om oppmerkingslinja har vegbanereflektor eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1909</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBANEREFLEKTOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3528: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3528</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3566: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3566</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegbanereflektorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="VegoppmerkingLangsgående" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegoppmerkingLangsgåendeType">
+    <annotation>
+      <documentation>Vegoppmerking,langsgående: Vegoppmerking nyttes for å lede, varsle eller regulere trafikken, og for å klargjøre andre bestemmelser gitt ved trafikkskilt eller trafikkregler. (050).  Langsgående oppmerking omfatter alle langsgående oppmerka linjer og sperreområder, også inkludert oppmerking av trafikkøyer.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">99</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGOPPMERKINGLANGSGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegoppmerkingLangsgåendeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="bruksområde" type="nvdb:BruksområdeVegoppmerkingLangsgåendeType">
+            <annotation>
+              <documentation>Bruksområde: Angir bruksområde for vegobjekttypen.  Dette er en tilleggsopplysning til typen.  Det er ikke aktuelt å gi til alle typer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4520</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeVegoppmerkingLangsgåendeType">
+            <annotation>
+              <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1152</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="linjemønster" type="nvdb:LinjemønsterType">
+            <annotation>
+              <documentation>Linjemønster: Angir mønster (stipling) for oppmerkingspunkt.  Angis som lengde av en punktdel + lengde av mellomrom.  Disse verdiene er avhengige av hastighetsområde.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4517</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LINJEMØNSTER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="breddeEnkeltlinje" type="nvdb:BreddeEnkeltlinjeType">
+            <annotation>
+              <documentation>Bredde, enkeltlinje: Angir normal bredde av enkeltlinje.  For sperreområde gjelder bredde omslutningslinje.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4514</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEENKELTLINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="farge" type="nvdb:FargeVegoppmerkingLangsgåendeType">
+            <annotation>
+              <documentation>Farge: Angir hovedfarge til vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1295</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedtaksnummer" type="string">
+            <annotation>
+              <documentation>Vedtaksnummer: Angir vedtaksnummer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7841</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDTAKSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="profilering" type="nvdb:ProfileringType">
+            <annotation>
+              <documentation>Profilering: Angir om vegoppmerkingen er profilert eller ikke, og i tilfelle hvilken type profilering</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2266</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROFILERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="nedfresing" type="nvdb:NedfresingType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8392</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegbanereflektor" type="nvdb:VegbanereflektorType">
+            <annotation>
+              <documentation>Vegbanereflektor: Angir om oppmerkingslinja har vegbanereflektor eller ikke</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1909</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBANEREFLEKTOR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="arealAvFyltSperreområde" type="double">
+            <annotation>
+              <documentation>Areal av fylt sperreområde: Angir arealet av fylt sperreområde.  For skravert sperreområde måles mengde som løpemeter skravur.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1371</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREALAVFYLTSPERREOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="løpemeterSkravur" type="integer">
+            <annotation>
+              <documentation>Løpemeter skravur: Angir total lengde av striper i skravur.  Denne egenskapstypen er bare aktuell for vegoppmerking av type sperreområde.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2260</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØPEMETERSKRAVUR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeOmslutningslinje" type="integer">
+            <annotation>
+              <documentation>Lengde omslutningslinje: Angir lengde av sperreområdets omslutningspunkt.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4515</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDEOMSLUTNINGSLINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4798</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengde" type="double">
+            <annotation>
+              <documentation>Lengde: Angir lengde av vegobjektet, er normalt avledet fra geometri/stedfesting</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1329</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegoppmerkingLangsgåendePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:VegoppmerkingLangsgående"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
