@@ -1,315 +1,182 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!--This file represents feature coding definitions-->
-<FeatureCodingDefinitions CreationDate="2013-09-13T15:45:00.5377233+02:00"
-    DateModified="2013-09-13T15:46:13.9982523+02:00" SchemaVersion="3" Description="gmlSchema=http://www.jetlundweb.no/geomatikk/GML/NIFS/Stikkrenne.xsd"
-    xmlns="http://trimble.com/schema/fxl">
-    <LineStyleDefinitions Version="2" xmlns="http://trimble.com/schema/linestyle">
-        <LineStyleDefinition Name="Solid" Description="Definition from Trimble Business Center">
-            <Units Reference="Ground" Length="Metric"/>
-            <PatternType>Default</PatternType>
-            <Pattern TotalLength="10000.000000" EndLength="0.000000">
-                <Line Color="Empty" LineWeight="1">
-                    <Location X="0.000000" Y="0.000000"/>
-                    <Location X="10000.000000" Y="0.000000"/>
-                </Line>
-            </Pattern>
-        </LineStyleDefinition>
-    </LineStyleDefinitions>
-    <SymbolDefinitions Version="2" xmlns="http://trimble.com/schema/symbol">
-        <SymbolDefinition Name="Cross">
-            <Units Reference="Paper" Length="Metric"/>
-            <Scale Size="Variable" Shape="Fixed"/>
-            <Rotation Type="Allow"/>
-            <Dimension First="Length" Second="Length"/>
-            <Color Name="BlueViolet" Red="138" Green="43" Blue="226"/>
-            <Component Number="1" Name="Cross">
-                <Line Color="BlueViolet" LineWeight="1">
-                    <Location X="-2.000000" Y="-2.000000"/>
-                    <Location X="2.000000" Y="2.000000"/>
-                </Line>
-                <Line Color="BlueViolet" LineWeight="1">
-                    <Location X="-2.000000" Y="2.000000"/>
-                    <Location X="2.000000" Y="-2.000000"/>
-                </Line>
-            </Component>
-            <Component Number="2" Name=""/>
-        </SymbolDefinition>
-    </SymbolDefinitions>
-    <LayerDefinitions>
-        <LayerDefinition>
-            <Name>Points</Name>
-            <Color>FFFFFFFF</Color>
-            <LineStyleName>Solid</LineStyleName>
-        </LayerDefinition>
-        <LayerDefinition>
-            <Name>0</Name>
-            <Color>FFFFFFFF</Color>
-            <LineStyleName>Solid</LineStyleName>
-        </LayerDefinition>
-    </LayerDefinitions>
-    <FeatureDefinitions>
-        <LineFeatureDefinition Code="Stikkrenne" Name="Stikkrenne/Kulvert"
-            Category="GeometryName=senterlinje, GeometryPosition=30" IncludeInSurface="false" Color="FE000000"
-            Layer="0">
-            <Attributes>
-                <StringAttribute Name="identifikasjon.lokalId" Description="lokalId"
-                    EntryMethod="Optional"/>
-                <StringAttribute Name="identifikasjon.navnerom" Description="navnerom"
-                    EntryMethod="Optional" DefaultValue="vegvesen.no.nvdb"/>
-                <StringAttribute Name="identifikasjon.versjonId" Description="versjonId"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="endringsflagg.typeEndring" Description="typeEndring"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>E</Item>
-                        <Item>N</Item>
-                        <Item>S</Item>
-                    </ListItems>
-                </ListAttribute>
-                <DateAttribute Name="endringsflagg.tidspunktEndring" Description="tidspunktEndring"
-                    EntryMethod="Optional"/>
-                <DateAttribute Name="datafangstdato" Description="" EntryMethod="Optional"/>
-                <DateAttribute Name="oppdateringsdato" Description="" EntryMethod="Optional"/>
-                <ListAttribute Name="kvalitet.målemetode" Description="målemetode"
-                    EntryMethod="Required" DefaultValue="96">
-                    <ListItems>
-                        <Item>10</Item>
-                        <Item>82</Item>
-                        <Item>96</Item>
-                    </ListItems>
-                </ListAttribute>
-                <IntegerAttribute Name="kvalitet.nøyaktighet" Description="nøyaktighet"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="kvalitet.synbarhet" Description="synbarhet"
-                    EntryMethod="Optional" DefaultValue="0">
-                    <ListItems>
-                        <Item>0</Item>
-                        <Item>1</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="kvalitet.målemetodeHøyde" Description="målemetodeHøyde"
-                    EntryMethod="Optional" DefaultValue="96">
-                    <ListItems>
-                        <Item>10</Item>
-                        <Item>96</Item>
-                    </ListItems>
-                </ListAttribute>
-                <IntegerAttribute Name="kvalitet.nøyaktighetHøyde" Description="nøyaktighetHøyde"
-                    EntryMethod="Optional"/>
-                <IntegerAttribute Name="kvalitet.maksimaltAvvik" Description="maksimaltAvvik"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="høydereferanse" Description="" EntryMethod="Required"
-                    DefaultValue="FOT">
-                    <ListItems>
-                        <Item>FOT</Item>
-                        <Item>TOP</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="vegident.vegkategori" Description="vegkategori"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>E</Item>
-                        <Item>R</Item>
-                        <Item>F</Item>
-                        <Item>K</Item>
-                        <Item>P</Item>
-                        <Item>S</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="vegident.vegstatus" Description="vegstatus"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>P</Item>
-                        <Item>A</Item>
-                        <Item>V</Item>
-                        <Item>T</Item>
-                        <Item>W</Item>
-                        <Item>E</Item>
-                        <Item>S</Item>
-                        <Item>M</Item>
-                        <Item>G</Item>
-                        <Item>H</Item>
-                        <Item>U</Item>
-                        <Item>Q</Item>
-                        <Item>X</Item>
-                        <Item>B</Item>
-                    </ListItems>
-                </ListAttribute>
-                <IntegerAttribute Name="vegident.vegnummer" Description="vegnummer"
-                    EntryMethod="Optional"/>
-                <IntegerAttribute Name="vegparsell.hovedParsell" Description="hovedParsell"
-                    EntryMethod="Optional"/>
-                <IntegerAttribute Name="vegparsell.veglenkeMeterFra" Description="veglenkeMeterFra"
-                    EntryMethod="Optional"/>
-                <IntegerAttribute Name="vegparsell.veglenkeMeterTil" Description="veglenkeMeterTil"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="sideposisjon" Description="" EntryMethod="Optional">
-                    <ListItems>
-                        <Item>V</Item>
-                        <Item>H</Item>
-                        <Item>B</Item>
-                        <Item>M</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="tverrsnittsform" Description="Tverrsnittsform"
-                    EntryMethod="Required">
-                    <ListItems>
-                        <Item>Sirkulær</Item>
-                        <Item>Rektangulær</Item>
-                        <Item>Flatbunnet med hvelv</Item>
-                        <Item>Ellipseform</Item>
-                    </ListItems>
-                </ListAttribute>
-                <IntegerAttribute Name="høydeInnvendig" Description="Høyde, innvendig"
-                    EntryMethod="Required"/>
-                <IntegerAttribute Name="breddeInnvendig" Description="Bredde, innvendig"
-                    EntryMethod="Required"/>
-                <ListAttribute Name="typeInnløp" Description="Type innløp" EntryMethod="Required">
-                    <ListItems>
-                        <Item>Kum over stikkrenne</Item>
-                        <Item>Åpent i grøft</Item>
-                        <Item>Åpent med frontmur</Item>
-                        <Item>Åpent i grøft med støtteskjold</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="harInnløpsrist" Description="Har innløpsrist"
-                    EntryMethod="Required">
-                    <ListItems>
-                        <Item>Ja</Item>
-                        <Item>Ja, i forkant</Item>
-                        <Item>Nei</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="typeUtløp" Description="Type utløp" EntryMethod="Required">
-                    <ListItems>
-                        <Item>Kum</Item>
-                        <Item>I skråning/terreng</Item>
-                        <Item>I bekk/elv</Item>
-                        <Item>Åpen grøft</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="eier" Description="Eier" EntryMethod="Required">
-                    <ListItems>
-                        <Item>Stat</Item>
-                        <Item>Fylkeskommune</Item>
-                        <Item>Kommune</Item>
-                        <Item>Privat</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="materialtype" Description="Materialtype" EntryMethod="Required">
-                    <ListItems>
-                        <Item>Betong</Item>
-                        <Item>Stål</Item>
-                        <Item>Plast</Item>
-                        <Item>Naturstein</Item>
-                        <Item>Tre</Item>
-                        <Item>Eternitt</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="bruksområde" Description="Bruksområde" EntryMethod="Required"
-                    DefaultValue="Vann">
-                    <ListItems>
-                        <Item>Vann</Item>
-                        <Item>Landbruk</Item>
-                        <Item>Voll, vanngjennomløp</Item>
-                        <Item>Biologisk mangfold</Item>
-                    </ListItems>
-                </ListAttribute>
-                <StringAttribute Name="navn" Description="Navn" EntryMethod="Optional"/>
-                <IntegerAttribute Name="byggeår" Description="Byggeår" EntryMethod="Optional"/>
-                <ListAttribute Name="spesielleProblem" Description="Spesielle problem"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Masser, innløp</Item>
-                        <Item>Masser, utløp</Item>
-                        <Item>Vegetasjonstetting, innløp</Item>
-                        <Item>Vegetasjonstetting, utløp</Item>
-                    </ListItems>
-                </ListAttribute>
-                <IntegerAttribute Name="antallTininger" Description="Antall tininger"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="tilknyttetLukkaDren" Description="Tilknyttet lukka dren"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Ja</Item>
-                        <Item>Nei</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="gjennomløpForElvBekk" Description="Gjennomløp for elv/bekk"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Ja</Item>
-                        <Item>Nei</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="dokumentasjon.type" Description="type" EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Bilde</Item>
-                        <Item>Tegning</Item>
-                        <Item>Dokument</Item>
-                        <Item>Video</Item>
-                    </ListItems>
-                </ListAttribute>
-                <StringAttribute Name="dokumentasjon.filnavn" Description="filnavn"
-                    EntryMethod="Optional"/>
-                <StringAttribute Name="dokumentasjon.tekst" Description="tekst"
-                    EntryMethod="Optional"/>
-                <StringAttribute Name="dokumentasjon.merknad" Description="merknad"
-                    EntryMethod="Optional"/>
-                <StringAttribute Name="kommentar.beskrivelse" Description="beskrivelse"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="tilstandSkade.tilstand" Description="tilstand"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Ok</Item>
-                        <Item>Tiltaksbehov</Item>
-                        <Item>Mangler</Item>
-                        <Item>Funksjonell</Item>
-                    </ListItems>
-                </ListAttribute>
-                <StringAttribute Name="tilstandSkade.skadetype" Description="skadetype"
-                    EntryMethod="Optional"/>
-                <DateAttribute Name="tilstandSkade.datoKontrollert" Description="datoKontrollert"
-                    EntryMethod="Optional"/>
-                <ListAttribute Name="tilstandSkade.tiltak" Description="tiltak"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Skiftes</Item>
-                        <Item>Fjernes</Item>
-                        <Item>Utbedres på stedet</Item>
-                        <Item>Ryddes</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="tilstandSkade.tiltakNår" Description="tiltakNår"
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Straks</Item>
-                        <Item>14 dager</Item>
-                        <Item>3 mnd</Item>
-                        <Item>1 år</Item>
-                        <Item>1-2 år</Item>
-                        <Item>&gt; 2år</Item>
-                        <Item>på sikt</Item>
-                    </ListItems>
-                </ListAttribute>
-                <StringAttribute Name="tilstandSkade.tilleggsinformasjon"
-                    Description="tilleggsinformasjon" EntryMethod="Optional"/>
-                <ListAttribute Name="tiltakOppstrøms" Description="" EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Demping</Item>
-                        <Item>Fordrøying</Item>
-                        <Item>Sedimentering</Item>
-                    </ListItems>
-                </ListAttribute>
-                <ListAttribute Name="tilrettelagtFiskevandring" Description=""
-                    EntryMethod="Optional">
-                    <ListItems>
-                        <Item>Ja</Item>
-                        <Item>Nei</Item>
-                        <Item>Ikke relevant</Item>
-                    </ListItems>
-                </ListAttribute>
-            </Attributes>
-        </LineFeatureDefinition>
-    </FeatureDefinitions>
+<FeatureCodingDefinitions xmlns="http://trimble.com/schema/fxl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://trimble.com/schema/fxl https://sites.google.com/a/trimble.com/fxl-schema-repository/home/FXLSchema_V5x.xsd" CreationDate="2016-04-15T10:55:24" DateModified="2016-04-15T10:55:24" SchemaVersion="5" Description="gmlSchema=https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NIFS/Stikkrenne.xsd">
+<FeatureDefinitions>
+<LineFeatureDefinition Code="Stikkrenne" Name="Stikkrenne/Kulvert" Category="GeometryName=senterlinje, GeometryPosition=24" IncludeInSurface="false" Color="FE000000" Layer="0">
+<Attributes>
+<StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId" EntryMethod="Optional"/>
+<StringAttribute Name="navnerom" Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Optional" DefaultValue="vegvesen.no.nvdb"/>
+<StringAttribute Name="versjonId" Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+<ListAttribute Name="typeEndring" Description="typeEndring" EntryMethod="Required" DefaultItemIndex="2">
+<ListItems>
+<Item>E</Item>
+<Item>N</Item>
+<Item>S</Item>
+</ListItems>
+</ListAttribute>
+<DateAttribute Name="datafangstdato" Description="datafangstdato" EntryMethod="Required" AnnotationFormat="d"/>
+<DateAttribute Name="oppdateringsdato" Description="oppdateringsdato" EntryMethod="Optional" AnnotationFormat="d"/>
+<ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode" EntryMethod="Required" DefaultItemIndex="3">
+<ListItems>
+<Item>10</Item>
+<Item>82</Item>
+<Item>96</Item>
+</ListItems>
+</ListAttribute>
+<IntegerAttribute Name="nøyaktighet" Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+<ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet" EntryMethod="Optional" DefaultItemIndex="1">
+<ListItems>
+<Item>0</Item>
+<Item>1</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="målemetodeHøyde" Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional" DefaultItemIndex="2">
+<ListItems>
+<Item>10</Item>
+<Item>96</Item>
+</ListItems>
+</ListAttribute>
+<IntegerAttribute Name="nøyaktighetHøyde" Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+<IntegerAttribute Name="maksimaltAvvik" Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+<ListAttribute Name="høydereferanse" Description="høydereferanse" EntryMethod="Required" DefaultItemIndex="1">
+<ListItems>
+<Item>FOT</Item>
+<Item>TOP</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="vegkategori" Description="vegkategori" EntryMethod="Required">
+<ListItems>
+<Item>E</Item>
+<Item>R</Item>
+<Item>F</Item>
+<Item>K</Item>
+<Item>P</Item>
+<Item>S</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="tverrsnittsform" Description="tverrsnittsform" EntryMethod="Required">
+<ListItems>
+<Item>Sirkulær</Item>
+<Item>Rektangulær</Item>
+<Item>Flatbunnet med hvelv</Item>
+<Item>Ellipseform</Item>
+</ListItems>
+</ListAttribute>
+<IntegerAttribute Name="høydeInnvendig" Description="høydeInnvendig" EntryMethod="Required"/>
+<IntegerAttribute Name="breddeInnvendig" Description="breddeInnvendig" EntryMethod="Required"/>
+<ListAttribute Name="typeInnløp" Description="typeInnløp" EntryMethod="Required">
+<ListItems>
+<Item>Kum over stikkrenne</Item>
+<Item>Åpent i grøft</Item>
+<Item>Åpent med frontmur</Item>
+<Item>Åpent i grøft med støtteskjold</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="harInnløpsrist" Description="harInnløpsrist" EntryMethod="Required">
+<ListItems>
+<Item>Ja</Item>
+<Item>Nei</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="typeUtløp" Description="typeUtløp" EntryMethod="Required">
+<ListItems>
+<Item>Kum</Item>
+<Item>I skråning/terreng</Item>
+<Item>I bekk/elv</Item>
+<Item>Åpen grøft</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+<ListItems>
+<Item>Stat</Item>
+<Item>Fylkeskommune</Item>
+<Item>Kommune</Item>
+<Item>Privat</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="materialtype" Description="materialtype" EntryMethod="Required">
+<ListItems>
+<Item>Betong</Item>
+<Item>Stål</Item>
+<Item>Plast</Item>
+<Item>Naturstein</Item>
+<Item>Tre</Item>
+<Item>Eternitt</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="bruksområde" Description="bruksområde" EntryMethod="Required" DefaultItemIndex="1">
+<ListItems>
+<Item>Vann</Item>
+<Item>Landbruk</Item>
+<Item>Voll, vanngjennomløp</Item>
+<Item>Biologisk mangfold</Item>
+</ListItems>
+</ListAttribute>
+<StringAttribute Name="navn" Description="navn" EntryMethod="Optional"/>
+<IntegerAttribute Name="byggeår" Description="byggeår" EntryMethod="Optional"/>
+<ListAttribute Name="spesielleProblem" Description="spesielleProblem" EntryMethod="Optional">
+<ListItems>
+<Item>Masser, innløp</Item>
+<Item>Masser, utløp</Item>
+<Item>Vegetasjonstetting, innløp</Item>
+<Item>Vegetasjonstetting, utløp</Item>
+</ListItems>
+</ListAttribute>
+<IntegerAttribute Name="antallTininger" Description="antallTininger" EntryMethod="Optional"/>
+<ListAttribute Name="tilknyttetLukkaDren" Description="tilknyttetLukkaDren" EntryMethod="Optional">
+<ListItems>
+<Item>Ja</Item>
+<Item>Nei</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="gjennomløpForElvBekk" Description="gjennomløpForElvBekk" EntryMethod="Optional">
+<ListItems>
+<Item>Ja</Item>
+<Item>Nei</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="type" Description="dokumentasjon.NVDB_Dokumentasjon.type" EntryMethod="Optional">
+<ListItems>
+<Item>Bilde</Item>
+<Item>Tegning</Item>
+<Item>Dokument</Item>
+<Item>Video</Item>
+</ListItems>
+</ListAttribute>
+<StringAttribute Name="filnavn" Description="dokumentasjon.NVDB_Dokumentasjon.filnavn" EntryMethod="Optional"/>
+<StringAttribute Name="tekst" Description="dokumentasjon.NVDB_Dokumentasjon.tekst" EntryMethod="Optional"/>
+<StringAttribute Name="merknad" Description="dokumentasjon.NVDB_Dokumentasjon.merknad" EntryMethod="Optional"/>
+<StringAttribute Name="beskrivelse" Description="kommentar.NVDB_Kommentar.beskrivelse" EntryMethod="Optional"/>
+<ListAttribute Name="tilstand" Description="tilstandSkade.TilstandSkadePunkt.tilstand" EntryMethod="Optional">
+<ListItems>
+<Item>Ok</Item>
+<Item>Tiltaksbehov</Item>
+<Item>Mangler</Item>
+<Item>Funksjonell</Item>
+</ListItems>
+</ListAttribute>
+<StringAttribute Name="skadetype" Description="tilstandSkade.TilstandSkadePunkt.skadetype" EntryMethod="Optional"/>
+<DateAttribute Name="datoKontrollert" Description="tilstandSkade.TilstandSkadePunkt.datoKontrollert" EntryMethod="Optional" AnnotationFormat="d"/>
+<ListAttribute Name="tiltak" Description="tilstandSkade.TilstandSkadePunkt.tiltak" EntryMethod="Optional">
+<ListItems>
+<Item>Skiftes</Item>
+<Item>Fjernes</Item>
+<Item>Utbedres på stedet</Item>
+<Item>Ryddes</Item>
+</ListItems>
+</ListAttribute>
+<ListAttribute Name="tiltakNår" Description="tilstandSkade.TilstandSkadePunkt.tiltakNår" EntryMethod="Optional">
+<ListItems>
+<Item>Straks</Item>
+<Item>14 dager</Item>
+<Item>3 mnd</Item>
+<Item>1 år</Item>
+<Item>1-2 år</Item>
+<Item>&gt; 2år</Item>
+<Item>på sikt</Item>
+</ListItems>
+</ListAttribute>
+<StringAttribute Name="tilleggsinformasjon" Description="tilstandSkade.TilstandSkadePunkt.tilleggsinformasjon" EntryMethod="Optional"/>
+</Attributes>
+</LineFeatureDefinition>
+</FeatureDefinitions>
 </FeatureCodingDefinitions>

@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NIFS/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NIFS/" version="2.04">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NIFS/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NIFS/" version="2.05">
   <annotation>
     <documentation>761: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
     <appinfo>
       <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">761</taggedValue>
     </appinfo>
   </annotation>
-  <include schemaLocation="NVDBSK.xsd"/>
+  <include schemaLocation="Stikkrenne.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="TilstandSkadePunkt" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkadePunktType">
+  <element name="TilstandSkadePunkt" substitutionGroup="gml:AbstractObject" type="nvdb:TilstandSkadePunktType">
     <annotation>
       <documentation>Tilstand/skade,punkt: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
       <appinfo>
@@ -19,92 +19,76 @@
     </annotation>
   </element>
   <complexType name="TilstandSkadePunktType">
-    <complexContent>
-      <extension base="gml:AbstractFeatureType">
-        <sequence>
-          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadePunktType">
-            <annotation>
-              <documentation>Tilstand: Angir tilstand til vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTAND</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="skadetype" type="string">
-            <annotation>
-              <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7590</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="datoKontrollert" type="date">
-            <annotation>
-              <documentation>Dato kontrollert: Angir dato for når kontroll ble foretatt</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8777</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOKONTROLLERT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkadePunktType">
-            <annotation>
-              <documentation>Tiltak: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkadePunktType">
-            <annotation>
-              <documentation>Tiltak når: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="tilleggsinformasjon" type="string">
-            <annotation>
-              <documentation>Tilleggsinformasjon: Det kan her gis tilleggsinformasjon.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7859</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="testTilstandsindeks" type="integer">
-            <annotation>
-              <documentation>Test_Tilstandsindeks: Angir tilstand. Til testformål</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9834</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TESTTILSTANDSINDEKS</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
-            <annotation>
-              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7597</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertNVDB_Dokumentasjon" type="nvdb:NVDB_DokumentasjonPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
+    <sequence>
+      <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadePunktType">
+        <annotation>
+          <documentation>Tilstand: Angir tilstand til vegobjektet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTAND</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="skadetype" type="string">
+        <annotation>
+          <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7590</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="datoKontrollert" type="date">
+        <annotation>
+          <documentation>Dato kontrollert: Angir dato for når kontroll ble foretatt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8777</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOKONTROLLERT</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkadePunktType">
+        <annotation>
+          <documentation>Tiltak: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkadePunktType">
+        <annotation>
+          <documentation>Tiltak når: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅR</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="tilleggsinformasjon" type="string">
+        <annotation>
+          <documentation>Tilleggsinformasjon: Det kan her gis tilleggsinformasjon.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7859</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="testTilstandsindeks" type="integer">
+        <annotation>
+          <documentation>Test_Tilstandsindeks: Angir tilstand. Til testformål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9834</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TESTTILSTANDSINDEKS</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
   </complexType>
   <complexType name="TilstandSkadePunktPropertyType">
-    <sequence minOccurs="0">
+    <sequence>
       <element ref="nvdb:TilstandSkadePunkt"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="TilstandTilstandSkadePunktType">
     <annotation>
@@ -125,29 +109,33 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Ok">
+      <enumeration value="ok">
         <annotation>
+          <documentation>9890: Ok</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9890</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Tiltaksbehov">
+      <enumeration value="tiltaksbehov">
         <annotation>
+          <documentation>9891: Tiltaksbehov</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9891</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Mangler">
+      <enumeration value="mangler">
         <annotation>
+          <documentation>9892: Mangler</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9892</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Funksjonell">
+      <enumeration value="funksjonell">
         <annotation>
+          <documentation>9893: Funksjonell</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9893</taggedValue>
           </appinfo>
@@ -179,50 +167,57 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Straks">
+      <enumeration value="straks">
         <annotation>
+          <documentation>9883: Straks</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9883</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="14 dager">
+      <enumeration value="14Dager">
         <annotation>
+          <documentation>9884: 14 dager</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9884</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="3 mnd">
+      <enumeration value="3Mnd">
         <annotation>
+          <documentation>9885: 3 mnd</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9885</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="1 år">
+      <enumeration value="1År">
         <annotation>
+          <documentation>9886: 1 år</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9886</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="1-2 år">
+      <enumeration value="12År">
         <annotation>
+          <documentation>9887: 1-2 år</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9887</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="&gt; 2år">
+      <enumeration value="2år">
         <annotation>
+          <documentation>9888: &gt; 2år</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9888</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="på sikt">
+      <enumeration value="påSikt">
         <annotation>
+          <documentation>9889: på sikt</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9889</taggedValue>
           </appinfo>
@@ -254,29 +249,33 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Skiftes">
+      <enumeration value="skiftes">
         <annotation>
+          <documentation>9880: Skiftes</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9880</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Fjernes">
+      <enumeration value="fjernes">
         <annotation>
+          <documentation>9881: Fjernes</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9881</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Utbedres på stedet">
+      <enumeration value="utbedresPåStedet">
         <annotation>
+          <documentation>9882: Utbedres på stedet</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9882</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Ryddes">
+      <enumeration value="ryddes">
         <annotation>
+          <documentation>9896: Ryddes</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9896</taggedValue>
           </appinfo>
