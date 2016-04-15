@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<FeatureCodingDefinitions xmlns="http://trimble.com/schema/fxl"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://trimble.com/schema/fxl https://sites.google.com/a/trimble.com/fxl-schema-repository/home/FXLSchema_V5x.xsd"
+    CreationDate="2016-04-15T13:59:05" DateModified="2016-04-15T13:59:05" SchemaVersion="5"
+    Description="gmlSchema=https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA//glabelysning.xsd">
+    <FeatureDefinitions>
+        <PointFeatureDefinition Code="Belysningspunkt" Name="Belysningspunkt"
+            Category="GeometryName=posisjon, GeometryPosition=28" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="bruksområde" Description="bruksområde" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>belysningVegGate</Item>
+                        <Item>belysningTunnel</Item>
+                        <Item>nødbelysningTunnel</Item>
+                        <Item>belysningBru</Item>
+                        <Item>belysningOmrådePlass</Item>
+                        <Item>belysningFerjeleie</Item>
+                        <Item>belysningVegkryss</Item>
+                        <Item>belysningGangSykkelveg</Item>
+                        <Item>belysningGangfelt</Item>
+                        <Item>belysningUndergang</Item>
+                        <Item>belysningUtstyr</Item>
+                        <Item>privatOmråde</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="antall" Description="antall" EntryMethod="Optional"
+                    DefaultValue="1"/>
+                <ListAttribute Name="plassering" Description="plassering" EntryMethod="Required">
+                    <ListItems>
+                        <Item>lysmast</Item>
+                        <Item>mindreStolpe</Item>
+                        <Item>hengerITakKabelstige</Item>
+                        <Item>festetTilVeggBygning</Item>
+                        <Item>påPortal</Item>
+                        <Item>hengerIVaier</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DoubleAttribute Name="avstandFraVegkant" Description="avstandFraVegkant"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="strømtilførselKategori" Description="strømtilførselKategori"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>jordkabel</Item>
+                        <Item>line</Item>
+                        <Item>eX</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="strømtilførselTypeKabel"
+                    Description="strømtilførselTypeKabel" EntryMethod="Optional"/>
+                <ListAttribute Name="overbelastningsvern" Description="overbelastningsvern"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="fellesføringMedAnnenEtat"
+                    Description="fellesføringMedAnnenEtat" EntryMethod="Optional"/>
+                <StringAttribute Name="fellesføringLeietaker" Description="fellesføringLeietaker"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="tilleggsinformasjon" Description="tilleggsinformasjon"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>kommune</Item>
+                        <Item>lokaltEVerk</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </PointFeatureDefinition>
+        <LineFeatureDefinition Code="Belysningsstrekning" Name="Belysningsstrekning"
+            Category="GeometryName=senterlinje, GeometryPosition=27" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="bruksområde" Description="bruksområde" EntryMethod="Required">
+                    <ListItems>
+                        <Item>belysningVegGate</Item>
+                        <Item>belysningOmrådePlass</Item>
+                        <Item>belysningGangfelt</Item>
+                        <Item>belysningTunnel</Item>
+                        <Item>belysningGangSykkelveg</Item>
+                        <Item>belysningBru</Item>
+                        <Item>belysningFerjeleie</Item>
+                        <Item>privatOmråde</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="type" Description="type" EntryMethod="Required">
+                    <ListItems>
+                        <Item>belPktEnSideAvVeg</Item>
+                        <Item>belPktBeggeSiderAvVeg</Item>
+                        <Item>belPktSenter</Item>
+                        <Item>belPktSenter2Armet</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="navnPåStrekning" Description="navnPåStrekning"
+                    EntryMethod="Optional"/>
+                <IntegerAttribute Name="byggeår" Description="byggeår" EntryMethod="Required"/>
+                <ListAttribute Name="tenningssystem" Description="tenningssystem"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>manuell</Item>
+                        <Item>fotocelle</Item>
+                        <Item>ur</Item>
+                        <Item>signal</Item>
+                        <Item>kontaktor</Item>
+                        <Item>radiotenner</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="dimming" Description="dimming" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="fjernstyring" Description="fjernstyring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="avstandInnbyrdes" Description="avstandInnbyrdes"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="luminansnivå" Description="luminansnivå"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>kommune</Item>
+                        <Item>lokaltEVerk</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </LineFeatureDefinition>
+        <PointFeatureDefinition Code="ElektriskAnlegg" Name="Elektrisk anlegg"
+            Category="GeometryName=posisjon, GeometryPosition=41" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="anleggsnummer" Description="anleggsnummer"
+                    EntryMethod="Required"/>
+                <ListAttribute Name="bruksområde" Description="bruksområde" EntryMethod="Required">
+                    <ListItems>
+                        <Item>belysningIDagen</Item>
+                        <Item>bygning</Item>
+                        <Item>skilting</Item>
+                        <Item>trafikkreguleringOvervåking</Item>
+                        <Item>tunnel</Item>
+                        <Item>pumper</Item>
+                        <Item>vifter</Item>
+                        <Item>utsmykkingBroerEtc</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="kundenummer" Description="kundenummer" EntryMethod="Required"/>
+                <StringAttribute Name="målernummer" Description="målernummer" EntryMethod="Required"/>
+                <StringAttribute Name="målepunktID" Description="målepunktID" EntryMethod="Required"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="fjernavlesing" Description="fjernavlesing"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="inngårINødsystemet" Description="inngårINødsystemet"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="jordelektrode" Description="jordelektrode"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>spyd</Item>
+                        <Item>sammenkopletMedAnnetNett</Item>
+                        <Item>cuWiret</Item>
+                        <Item>antallKontrollMålepunkt</Item>
+                        <Item>annet</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="jordfeilbryter" Description="jordfeilbryter"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>fellesForAlleKurser</Item>
+                        <Item>enForHverKurs</Item>
+                        <Item>hverMast</Item>
+                        <Item>kombinasjon</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="jordfeilvarsling" Description="jordfeilvarsling"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målingType" Description="målingType" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>direktemåling</Item>
+                        <Item>trafomåling</Item>
+                        <Item>summasjonsmåling</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="nettselskap" Description="nettselskap" EntryMethod="Required"/>
+                <ListAttribute Name="nettsystem" Description="nettsystem" EntryMethod="Required">
+                    <ListItems>
+                        <Item>iT</Item>
+                        <Item>tT</Item>
+                        <Item>tNC</Item>
+                        <Item>tNS</Item>
+                        <Item>tNCS</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="tilleggsinformasjon" Description="tilleggsinformasjon"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="byggetEtterNorm" Description="byggetEtterNorm"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>nEK400</Item>
+                        <Item>nEK4002006</Item>
+                        <Item>nEK4002010</Item>
+                        <Item>nEK440</Item>
+                        <Item>nEK445</Item>
+                        <Item>nEKIEC619361</Item>
+                        <Item>nEKEN501101</Item>
+                        <Item>tavlenorm</Item>
+                        <Item>annet</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="plasseringMåler" Description="plasseringMåler"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="driftsmerking" Description="driftsmerking"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="spenning" Description="spenning" EntryMethod="Required">
+                    <ListItems>
+                        <Item>12</Item>
+                        <Item>24</Item>
+                        <Item>230</Item>
+                        <Item>400</Item>
+                        <Item>230400</Item>
+                        <Item>690</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="byggetEtterForskrift" Description="byggetEtterForskrift"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>nEKFEB88</Item>
+                        <Item>nEKFEB91</Item>
+                        <Item>nEKFEL1998</Item>
+                        <Item>nEKFEF2006</Item>
+                        <Item>annet</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="merknad" Description="merknad" EntryMethod="Optional"/>
+                <IntegerAttribute Name="driftsattår" Description="driftsattår"
+                    EntryMethod="Required"/>
+                <IntegerAttribute Name="effekt" Description="effekt" EntryMethod="Required"/>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <StringAttribute Name="integrertMed" Description="integrertMed"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </PointFeatureDefinition>
+        <LineFeatureDefinition Code="Kabel" Name="Kabel"
+            Category="GeometryName=senterlinje, GeometryPosition=30" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="bruksområde" Description="bruksområde" EntryMethod="Required">
+                    <ListItems>
+                        <Item>elektrisitetHøyspent</Item>
+                        <Item>elektrisitetLavspent</Item>
+                        <Item>signalkabel</Item>
+                        <Item>jordleder</Item>
+                        <Item>eKomFiber</Item>
+                        <Item>eKomKobber</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="typebetegnelse" Description="typebetegnelse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>2Par022YFSK</Item>
+                        <Item>2Par05YFSK</Item>
+                        <Item>2Par06PTHF1x4B1150</Item>
+                        <Item>2Par06PTHF1x4B2350</Item>
+                        <Item>2Par06PTSHF1x4B1150</Item>
+                        <Item>2Par06PTSHF1x4B2350</Item>
+                        <Item>2Par06PTSKHF</Item>
+                        <Item>2Par08BUSKABELEIBLSZH</Item>
+                        <Item>2Par08BUSKABELEIBLSZH</Item>
+                        <Item>4Par022YFSK</Item>
+                        <Item>4Par05YFSK</Item>
+                        <Item>4Par06PTHFB2150</Item>
+                        <Item>4Par06PTHFE4750</Item>
+                        <Item>4Par06PTSHFB2130</Item>
+                        <Item>4Par06PTSHFE4750</Item>
+                        <Item>4Par06PTSKHF</Item>
+                        <Item>6Par06PTHFB2130</Item>
+                        <Item>6Par06PTHFE4500</Item>
+                        <Item>6Par06PTSHFB2130</Item>
+                        <Item>6Par06PTSHFE4500</Item>
+                        <Item>10Par06PTHFB290</Item>
+                        <Item>10Par06PTHFE4350</Item>
+                        <Item>10Par06PTSHFB290</Item>
+                        <Item>10Par06PTSHFE4350</Item>
+                        <Item>10Par06PTSKHF</Item>
+                        <Item>20Par06PTHFE4200</Item>
+                        <Item>20Par06PTSHFE4200</Item>
+                        <Item>30Par06PTSHalogenfri</Item>
+                        <Item>aXCLHO24KVLT3X2516</Item>
+                        <Item>aXCLHO24KVLT3X5016</Item>
+                        <Item>aXCLHO24KVLT3X9516</Item>
+                        <Item>bFOUC250V12x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V12x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V16x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V2x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V2x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V2x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V4x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V4x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V4x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V8x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V8x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V8x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V12x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V12x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V12x3x075S4S8Blue</Item>
+                        <Item>bFOUC250V12x3x075S4S8Grey</Item>
+                        <Item>bFOUC250V12x3x15S4S8Blue</Item>
+                        <Item>bFOUC250V12x3x15S4S8Grey</Item>
+                        <Item>bFOUC250V16x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V16x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V16x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V16x3x075S4S8Blue</Item>
+                        <Item>bFOUC250V16x3x075S4S8Grey</Item>
+                        <Item>bFOUC250V16x3x15S4S8Blue</Item>
+                        <Item>bFOUC250V16x3x15S4S8Grey</Item>
+                        <Item>bFOUC250V24x2x075S4S8Blue</Item>
+                        <Item>bFOUC250V24x2x075S4S8Grey</Item>
+                        <Item>bFOUC250V24x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V24x2x15S4S8Grey</Item>
+                        <Item>bFOUC250V2x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V2x3x075S4S8Blue</Item>
+                        <Item>bFOUC250V2x3x075S4S8Grey</Item>
+                        <Item>bFOUC250V2x3x15S4S8Blue</Item>
+                        <Item>bFOUC250V2x3x15S4S8Grey</Item>
+                        <Item>bFOUC250V4x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V4x3x075S4S8Blue</Item>
+                        <Item>bFOUC250V4x3x075S4S8Grey</Item>
+                        <Item>bFOUC250V4x3x15S4S8Blue</Item>
+                        <Item>bFOUC250V4x3x15S4S8Grey</Item>
+                        <Item>bFOUC250V8x2x15S4S8Blue</Item>
+                        <Item>bFOUC250V8x3x075S4S8Blue</Item>
+                        <Item>bFOUC250V8x3x075S4S8Grey</Item>
+                        <Item>bFOUC250V8x3x15S4S8Blue</Item>
+                        <Item>bFOUC250V8x3x15S4S8Grey</Item>
+                        <Item>bFOUI250V1x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V1x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V1x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V1x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V1x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V1x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V1x3x15S3S7Grey</Item>
+                        <Item>bFOUI250V2x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V4x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V4x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V8x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V12x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V12x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V12x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V12x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V12x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V12x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V12x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V12x3x15S3S7Grey</Item>
+                        <Item>bFOUI250V16x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V16x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V16x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V16x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V16x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V16x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V16x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V16x3x15S3S7Grey</Item>
+                        <Item>bFOUI250V1x2x25S3S7Grey</Item>
+                        <Item>bFOUI250V1x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V24x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V24x2x075S3S7Grey</Item>
+                        <Item>bFOUI250V24x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V24x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V2x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V2x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V2x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V2x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V2x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V2x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V2x3x15S3S7Grey</Item>
+                        <Item>bFOUI250V4x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V4x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V4x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V4x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V4x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V4x3x15S3S7Grey</Item>
+                        <Item>bFOUI250V8x2x075S3S7Blue</Item>
+                        <Item>bFOUI250V8x2x15S3S7Blue</Item>
+                        <Item>bFOUI250V8x2x15S3S7Grey</Item>
+                        <Item>bFOUI250V8x3x075S3S7Blue</Item>
+                        <Item>bFOUI250V8x3x075S3S7Grey</Item>
+                        <Item>bFOUI250V8x3x15S3S7Blue</Item>
+                        <Item>bFOUI250V8x3x15S3S7Grey</Item>
+                        <Item>bFOU061kV12x1510P5P12</Item>
+                        <Item>bFOU061kV19x1510P5P12</Item>
+                        <Item>bFOU061kV1x30016P5P12</Item>
+                        <Item>bFOU061kV2x154P5P12</Item>
+                        <Item>bFOU061kV2x256P5P12</Item>
+                        <Item>bFOU061kV2x66P5P12</Item>
+                        <Item>bFOU061kV3x156P5P12</Item>
+                        <Item>bFOU061kV3x1010P5P12</Item>
+                        <Item>bFOU061kV3x1616P5P12</Item>
+                        <Item>bFOU061kV3x256P5P12</Item>
+                        <Item>bFOU061kV3x3516P5P12</Item>
+                        <Item>bFOU061kV3x66P5P12</Item>
+                        <Item>bFOU061kV4x156P5P12</Item>
+                        <Item>bFOU061kV4x1616P5P12</Item>
+                        <Item>bFOU061kV4x256P5P12</Item>
+                        <Item>bFOU061kV4x2516P5P12</Item>
+                        <Item>bFOU061kV4x5025P5P12</Item>
+                        <Item>bFOU061kV4x66P5P12</Item>
+                        <Item>bFOU061kV4x9550P5P12</Item>
+                        <Item>bFOU061kV7x156P5P12</Item>
+                        <Item>bFOU061kV12x2510P5P12</Item>
+                        <Item>bFOU061kV19x2510P5P12</Item>
+                        <Item>bFOU061kV1x15010P5P12</Item>
+                        <Item>bFOU061kV1x18510P5P12</Item>
+                        <Item>bFOU061kV1x24016P5P12</Item>
+                        <Item>bFOU061kV1x9510P5P12</Item>
+                        <Item>bFOU061kV27x1516P5P12</Item>
+                        <Item>bFOU061kV27x2516P5P12</Item>
+                        <Item>bFOU061kV2x1010P5P12</Item>
+                        <Item>bFOU061kV2x1616P5P12</Item>
+                        <Item>bFOU061kV2x46P5P12</Item>
+                        <Item>bFOU061kV3x12060P5P12</Item>
+                        <Item>bFOU061kV3x15060P5P12</Item>
+                        <Item>bFOU061kV3x2516P5P12</Item>
+                        <Item>bFOU061kV3x46P5P12</Item>
+                        <Item>bFOU061kV3x5025P5P12</Item>
+                        <Item>bFOU061kV3x7035P5P12</Item>
+                        <Item>bFOU061kV3x9550P5P12</Item>
+                        <Item>bFOU061kV4x1010P5P12</Item>
+                        <Item>bFOU061kV4x3516P5P12</Item>
+                        <Item>bFOU061kV4x46P5P12</Item>
+                        <Item>bFOU061kV4x7035P5P12</Item>
+                        <Item>bFOU061kV7x256P5P12</Item>
+                        <Item>bFSI1KV2X66</Item>
+                        <Item>bFSI1KV3X1010</Item>
+                        <Item>bFSI1KV3X15070</Item>
+                        <Item>bFSI1KV3X1616</Item>
+                        <Item>bFSI1KV3X2516</Item>
+                        <Item>bFSI1KV3X3516</Item>
+                        <Item>bFSI1KV3X5025</Item>
+                        <Item>bFSI1KV3X66</Item>
+                        <Item>bFSI1KV3X7035</Item>
+                        <Item>bFSI1KV3X9550</Item>
+                        <Item>bFSI1KV4X1010</Item>
+                        <Item>bFSI1KV4X15070</Item>
+                        <Item>bFSI1KV4X1616</Item>
+                        <Item>bFSI1KV4X2516</Item>
+                        <Item>bFSI1KV4X3516</Item>
+                        <Item>bFSI1KV4X5025</Item>
+                        <Item>bFSI1KV4X66</Item>
+                        <Item>bFSI1KV4X7035</Item>
+                        <Item>bFSIEMC1KV2X1515</Item>
+                        <Item>bFSIEMC1KV2X2525</Item>
+                        <Item>bFSIEMC1KV3X1515</Item>
+                        <Item>bFSIEMC1KV3X2525</Item>
+                        <Item>bFSIEMC1KV3X44</Item>
+                        <Item>bFSIEMC1KV4X1515</Item>
+                        <Item>bFSIEMC1KV4X2525</Item>
+                        <Item>bI500V3G15</Item>
+                        <Item>bI500V3G25</Item>
+                        <Item>cATV083659F67PVC</Item>
+                        <Item>cATV083659F67PVCB2130</Item>
+                        <Item>cATV083659FTri77PVC</Item>
+                        <Item>cATV10466F60PVC</Item>
+                        <Item>cATV10466F60PVCB2100</Item>
+                        <Item>cATV10466FTri77LSZH</Item>
+                        <Item>cATV10466FTri77PEF</Item>
+                        <Item>cATV10466FTri77PVC</Item>
+                        <Item>cATV167311FTri77LSZH</Item>
+                        <Item>cATV167311FTri77PEF</Item>
+                        <Item>eFSP3KV1X66SORT</Item>
+                        <Item>eX1KV2X25A</Item>
+                        <Item>eX1KV3X25A</Item>
+                        <Item>eX1KV3X50A</Item>
+                        <Item>eX1KV3X95A</Item>
+                        <Item>eX1KV4X25A</Item>
+                        <Item>eX1KV4X50A</Item>
+                        <Item>eX1KV4X95A</Item>
+                        <Item>g1250TBLSZHOM2</Item>
+                        <Item>g1250TBWSTLSZHOM2</Item>
+                        <Item>g1250TBWSTLSZHOM3</Item>
+                        <Item>g1250UT30LSZHOM2</Item>
+                        <Item>g12625TBLSZHOM1</Item>
+                        <Item>g12625TBWLSZHOM1</Item>
+                        <Item>g12625125QIQGØ37R10TIA</Item>
+                        <Item>g129AWAI</Item>
+                        <Item>g129GRSQBDV</Item>
+                        <Item>g129QXWE0403LVD70</Item>
+                        <Item>g129QXWE0403LVD90</Item>
+                        <Item>g129QXWE0403LVW14</Item>
+                        <Item>g129QXWEW07MONO</Item>
+                        <Item>g129QXXE0403LVD</Item>
+                        <Item>g129DQXXE23Mm</Item>
+                        <Item>g129DTBLSZH</Item>
+                        <Item>g129DTBWSTLSZH</Item>
+                        <Item>g129D125QIQGØ37R10TIA</Item>
+                        <Item>g1449QXWE0403LVD70</Item>
+                        <Item>g1449QXWE0403LVD90</Item>
+                        <Item>g1449QXWE0403LVW14</Item>
+                        <Item>g1449QXXE0403LVD</Item>
+                        <Item>g1449DQXXE23Mm</Item>
+                        <Item>g1929QXWE0403LVD70</Item>
+                        <Item>g1929QXWE0403LVD90</Item>
+                        <Item>g1929QXWE0403LVW14</Item>
+                        <Item>g1929QXXE0403LVD</Item>
+                        <Item>g2450TBLSZHOM2</Item>
+                        <Item>g2450TBWSTLSZHOM2</Item>
+                        <Item>g2450TBWSTLSZHOM3</Item>
+                        <Item>g2450UT30LSZHOM2</Item>
+                        <Item>g24625TBLSZHOM1</Item>
+                        <Item>g24625TBWLSZHOM1</Item>
+                        <Item>g24625125QIQGØ37R10TIA</Item>
+                        <Item>g24657A1QXXEMIKRO16Mm</Item>
+                        <Item>g249AWAI</Item>
+                        <Item>g249GRSQBDV</Item>
+                        <Item>g249QXWE0403LVD70</Item>
+                        <Item>g249QXWE0403LVD90</Item>
+                        <Item>g249QXWE0403LVW14</Item>
+                        <Item>g249QXXE0403LVD</Item>
+                        <Item>g249QXXI</Item>
+                        <Item>g249DQXXE23Mm</Item>
+                        <Item>g249DTBLSZH</Item>
+                        <Item>g249DTBWSTLSZH</Item>
+                        <Item>g249D125QIQGØ37R10TIA</Item>
+                        <Item>g250ZCLSZHOM2</Item>
+                        <Item>g2625ZCLSZHOM1Rød</Item>
+                        <Item>g2889DQXXE0403LVD</Item>
+                        <Item>g3849DQXXE0403LVD</Item>
+                        <Item>g4329DQXXE0403LVD</Item>
+                        <Item>g450TBLSZHOM2</Item>
+                        <Item>g450TBWSTLSZHOM2</Item>
+                        <Item>g450TBWSTLSZHOM3</Item>
+                        <Item>g450UT30LSZHOM2</Item>
+                        <Item>g4625TBLSZHOM1</Item>
+                        <Item>g4625TBWLSZHOM1</Item>
+                        <Item>g48657A1QXXEMIKRO16Mm</Item>
+                        <Item>g489GRSQBDV</Item>
+                        <Item>g489QXWE0403LVD70</Item>
+                        <Item>g489QXWE0403LVD90</Item>
+                        <Item>g489QXWE0403LVW14</Item>
+                        <Item>g489QXXE0403LVD</Item>
+                        <Item>g489QXXI</Item>
+                        <Item>g489DQXXE23Mm</Item>
+                        <Item>g49GRSQBDV</Item>
+                        <Item>g49QXWEW07MONO</Item>
+                        <Item>g49DTBLSZH</Item>
+                        <Item>g49DTBWSTLSZH</Item>
+                        <Item>g650TBLSZHOM2</Item>
+                        <Item>g650UT30LSZHOM2</Item>
+                        <Item>g650TBWSTLSZHOM2</Item>
+                        <Item>g6625TBLSZHOM1</Item>
+                        <Item>g650TBWSTLSZHOM3</Item>
+                        <Item>g6625TBWLSZHOM1</Item>
+                        <Item>g69DTBLSZH</Item>
+                        <Item>g69DTBWSTLSZH</Item>
+                        <Item>g729GRSQBDV</Item>
+                        <Item>g850TBLSZHOM2</Item>
+                        <Item>g850TBWSTLSZHOM2</Item>
+                        <Item>g850TBWSTLSZHOM3</Item>
+                        <Item>g850UT30LSZHOM2</Item>
+                        <Item>g8625TBLSZHOM1</Item>
+                        <Item>g8625TBWLSZHOM1</Item>
+                        <Item>g89GRSQBDV</Item>
+                        <Item>g89QXWEW07MONO</Item>
+                        <Item>g89DTBLSZH</Item>
+                        <Item>g89DTBWSTLSZH</Item>
+                        <Item>g96657A1QXXEMIKRO16Mm</Item>
+                        <Item>g969GRSQBDV</Item>
+                        <Item>g969QXWE0403LVD70</Item>
+                        <Item>g969QXWE0403LVD90</Item>
+                        <Item>g969QXWE0403LVW14</Item>
+                        <Item>g969QXXE0403LVD</Item>
+                        <Item>g969QXXI</Item>
+                        <Item>g969DQXXE23Mm</Item>
+                        <Item>iFLI250V2X11MMR</Item>
+                        <Item>iFLI250V2x11RB2150</Item>
+                        <Item>iFLI500V2X1515</Item>
+                        <Item>iFLI500V2X1515BUNT</Item>
+                        <Item>iFLI500V2X2525</Item>
+                        <Item>iFLI500V2X2525BUNT</Item>
+                        <Item>iFLI500V2X44</Item>
+                        <Item>iFLI500V2X44BUNT</Item>
+                        <Item>iFLI500V2X66</Item>
+                        <Item>iFLI500V2X66BUNT</Item>
+                        <Item>iFLI500V3X1515</Item>
+                        <Item>iFLI500V3X1515BUNT</Item>
+                        <Item>iFLI500V3X2525</Item>
+                        <Item>iFLI500V3X2525BUNT</Item>
+                        <Item>iFLI500V4X1515</Item>
+                        <Item>iFLI500V4X1515BUNT</Item>
+                        <Item>iFLI500V4X2525</Item>
+                        <Item>iFLI500V4X2525BUNT</Item>
+                        <Item>iFSI1KV3X1010</Item>
+                        <Item>iFSI1KV3X15070</Item>
+                        <Item>iFSI1KV3X150A41</Item>
+                        <Item>iFSI1KV3X1616</Item>
+                        <Item>iFSI1KV3X240A72</Item>
+                        <Item>iFSI1KV3X2516</Item>
+                        <Item>iFSI1KV3X25A10</Item>
+                        <Item>iFSI1KV3X3516</Item>
+                        <Item>iFSI1KV3X5025</Item>
+                        <Item>iFSI1KV3X50A15</Item>
+                        <Item>iFSI1KV3X95A29</Item>
+                        <Item>iFSI1KV3X9550</Item>
+                        <Item>iFSI1KV4X1010</Item>
+                        <Item>iFSI1KV4X12070</Item>
+                        <Item>iFSI1KV4X15070</Item>
+                        <Item>iFSI1KV4X150A41</Item>
+                        <Item>iFSI1KV4X1616</Item>
+                        <Item>iFSI1KV4X18595</Item>
+                        <Item>iFSI1KV4X240120</Item>
+                        <Item>iFSI1KV4X240A72</Item>
+                        <Item>iFSI1KV4X25A10</Item>
+                        <Item>iFSI1KV4X2516</Item>
+                        <Item>iFSI1KV4X3516</Item>
+                        <Item>iFSI1KV4X50A15</Item>
+                        <Item>iFSI1KV4X5025</Item>
+                        <Item>iFSI1KV4X7035</Item>
+                        <Item>iFSI1KV4X95A29</Item>
+                        <Item>iFSI1KV4X9550</Item>
+                        <Item>iFSI500V12X075</Item>
+                        <Item>iFSI500V20X075</Item>
+                        <Item>iFSI500V28X075</Item>
+                        <Item>iFSI500V4X075</Item>
+                        <Item>iFSI500V8X075</Item>
+                        <Item>iFSI750V12X15</Item>
+                        <Item>iFSI750V12X25</Item>
+                        <Item>iFSI750V19X15</Item>
+                        <Item>iFSI750V19X25</Item>
+                        <Item>iFSI750V27X15</Item>
+                        <Item>iFSI750V37X15</Item>
+                        <Item>iFSI750V5X15</Item>
+                        <Item>iFSI750V7X15</Item>
+                        <Item>iFSI750V7X25</Item>
+                        <Item>iFSIEMC1KV2X1515</Item>
+                        <Item>iFSIEMC1KV2X2525</Item>
+                        <Item>iFSIEMC1KV2X44</Item>
+                        <Item>iFSIEMC1KV2X66</Item>
+                        <Item>iFSIEMC1KV3X1515</Item>
+                        <Item>iFSIEMC1KV3X2525</Item>
+                        <Item>iFSIEMC1KV3X44</Item>
+                        <Item>iFSIEMC1KV3X66</Item>
+                        <Item>iFSIEMC1KV4X1515</Item>
+                        <Item>iFSIEMC1KV4X2525</Item>
+                        <Item>iFSIEMC1KV4X44</Item>
+                        <Item>iFSIEMC1KV4X66</Item>
+                        <Item>iFXI500V3G15</Item>
+                        <Item>iFXI500V3G25</Item>
+                        <Item>iFXI500V4G15</Item>
+                        <Item>iFXI500V4G25</Item>
+                        <Item>iFXI500V5G15</Item>
+                        <Item>iFXI500V5G25</Item>
+                        <Item>iX750V25GG</Item>
+                        <Item>iX750V6GG</Item>
+                        <Item>kat5UUTPLSZH1000Hvit</Item>
+                        <Item>kat5UUTPLSZH305Hvit</Item>
+                        <Item>kat5UUTPPVC1000Hvit</Item>
+                        <Item>kat5UUTPPVC305Hvit</Item>
+                        <Item>kat5UUTPPVCB2130Hvit</Item>
+                        <Item>kat6FUTPLSZHB2150Hvit</Item>
+                        <Item>kat6UUTPLSZH1000Hvit</Item>
+                        <Item>kat6UUTPLSZH305Hvit</Item>
+                        <Item>kat6UUTPLSZHB2150Hvit</Item>
+                        <Item>kat6UUTPPVC1000Hvit</Item>
+                        <Item>kat6UUTPPVC305Hvit</Item>
+                        <Item>kat6UUTPPVCB2130Hvit</Item>
+                        <Item>kGE25MM2565MM</Item>
+                        <Item>kGE25mmBunt25m</Item>
+                        <Item>kGE565MMBUNT100M</Item>
+                        <Item>kGF25MM27X224</Item>
+                        <Item>kGF35MM27X264</Item>
+                        <Item>kGF50MM27X301</Item>
+                        <Item>kGF95MM219X264</Item>
+                        <Item>kGF120MM219X297</Item>
+                        <Item>kHF25MM27X224</Item>
+                        <Item>kHF35MM27X264</Item>
+                        <Item>kHF50MM27X301</Item>
+                        <Item>kHF70MM219X224</Item>
+                        <Item>kHF95MM219X264</Item>
+                        <Item>mK214Mikrofonkabel</Item>
+                        <Item>mK250Mikrofonkabel</Item>
+                        <Item>modularKabel4x014Hv</Item>
+                        <Item>modularKabel4x014Sv</Item>
+                        <Item>modularKabel6x014Sv</Item>
+                        <Item>modularKabel8x014Sv</Item>
+                        <Item>nLINE6F1046TRI16100</Item>
+                        <Item>nLINEKAT5UTP4PAR16100</Item>
+                        <Item>nLINEKAT6UUTP16100</Item>
+                        <Item>pFSK440V12x022500m</Item>
+                        <Item>pFSK440V12x022B2130m</Item>
+                        <Item>pFSK440V12X05B260m</Item>
+                        <Item>pFSK440V18x022B2100m</Item>
+                        <Item>pFSK440V18x05100m</Item>
+                        <Item>pFSK440V25x022100m</Item>
+                        <Item>pFSK440V25x05100m</Item>
+                        <Item>pFSK440V2X05500m</Item>
+                        <Item>pFSK440V2x05B2130m</Item>
+                        <Item>pFSK440V36x05250m</Item>
+                        <Item>pFSK440V3x05B2130m</Item>
+                        <Item>pFSK440V4X022500m</Item>
+                        <Item>pFSK440V4x022B1130m</Item>
+                        <Item>pFSK440V4X05500m</Item>
+                        <Item>pFSK440V4x05B2130m</Item>
+                        <Item>pFSK440V6x022B2130m</Item>
+                        <Item>pFSK440V6x05500m</Item>
+                        <Item>pFSK440V6x05B2100m</Item>
+                        <Item>pFSK440V8X022500m</Item>
+                        <Item>pFSK440V8x022B2130m</Item>
+                        <Item>pFSK440V8X05B290m</Item>
+                        <Item>pFSP1KV2X1515</Item>
+                        <Item>pFSP1KV2X1515</Item>
+                        <Item>pFSP1KV2X1515</Item>
+                        <Item>pFSP1KV2X1010</Item>
+                        <Item>pFSP1KV2X1616</Item>
+                        <Item>pFSP1KV2X2525</Item>
+                        <Item>pFSP1KV2X2525</Item>
+                        <Item>pFSP1KV2X2525</Item>
+                        <Item>pFSP1KV2X44</Item>
+                        <Item>pFSP1KV2X66</Item>
+                        <Item>pFSP1KV3X1515</Item>
+                        <Item>pFSP1KV3X1515</Item>
+                        <Item>pFSP1KV3X1515</Item>
+                        <Item>pFSP1KV3X1010</Item>
+                        <Item>pFSP1KV3X12070</Item>
+                        <Item>pFSP1KV3X150A50</Item>
+                        <Item>pFSP1KV3X15070</Item>
+                        <Item>pFSP1KV3X1616</Item>
+                        <Item>pFSP1KV3X18595</Item>
+                        <Item>pFSP1KV3X2525</Item>
+                        <Item>pFSP1KV3X2525</Item>
+                        <Item>pFSP1KV3X2525</Item>
+                        <Item>pFSP1KV3X240A70</Item>
+                        <Item>pFSP1KV3X240120</Item>
+                        <Item>pFSP1KV3X25A10</Item>
+                        <Item>pFSP1KV3X2516</Item>
+                        <Item>pFSP1KV3X3516</Item>
+                        <Item>pFSP1KV3X44</Item>
+                        <Item>pFSP1KV3X50A16</Item>
+                        <Item>pFSP1KV3X5025</Item>
+                        <Item>pFSP1KV3X66</Item>
+                        <Item>pFSP1KV3X7035</Item>
+                        <Item>pFSP1KV3X95A35</Item>
+                        <Item>pFSP1KV3X9550</Item>
+                        <Item>pFSP1KV4X1515</Item>
+                        <Item>pFSP1KV4X1515</Item>
+                        <Item>pFSP1KV4X1010</Item>
+                        <Item>pFSP1KV4X150A50</Item>
+                        <Item>pFSP1KV4X1616</Item>
+                        <Item>pFSP1KV4X2525</Item>
+                        <Item>pFSP1KV4X240A70</Item>
+                        <Item>pFSP1KV4X25A10</Item>
+                        <Item>pFSP1KV4X2516</Item>
+                        <Item>pFSP1KV4X44</Item>
+                        <Item>pFSP1KV4X50A16</Item>
+                        <Item>pFSP1KV4X66</Item>
+                        <Item>pFSP1KV4X95A35</Item>
+                        <Item>pFSP500V12X075</Item>
+                        <Item>pFSP500V20X075</Item>
+                        <Item>pFSP500V28X075</Item>
+                        <Item>pFSP500V4X075</Item>
+                        <Item>pFSP500V8X075</Item>
+                        <Item>pFSP750V12X15</Item>
+                        <Item>pFSP750V12X25</Item>
+                        <Item>pFSP750V19X15</Item>
+                        <Item>pFSP750V19X25</Item>
+                        <Item>pFSP750V27X15</Item>
+                        <Item>pFSP750V37X15</Item>
+                        <Item>pFSP750V5X15</Item>
+                        <Item>pFSP750V5X25</Item>
+                        <Item>pFSP750V7X15</Item>
+                        <Item>pFSP750V7X25</Item>
+                        <Item>pFXP1KV3G25A</Item>
+                        <Item>pFXP1KV4G10</Item>
+                        <Item>pFXP1KV4G16</Item>
+                        <Item>pFXP1KV4G25</Item>
+                        <Item>pFXP1KV4G25A</Item>
+                        <Item>pFXP1KV4G35</Item>
+                        <Item>pFXP1KV4G50</Item>
+                        <Item>pFXP1KV4G50A</Item>
+                        <Item>pFXP1KV4G70</Item>
+                        <Item>pFXP1KV4G95A</Item>
+                        <Item>pFXP1KV5G10</Item>
+                        <Item>pFXP1KV5G16</Item>
+                        <Item>pFXP1KV5G25A</Item>
+                        <Item>pFXP1KV5G50A</Item>
+                        <Item>pFXP1KV5G95A</Item>
+                        <Item>pFXP500V3G15SN</Item>
+                        <Item>pFXP500V3G15B270</Item>
+                        <Item>pFXP500V3G25SN</Item>
+                        <Item>pFXP500V3G25B250</Item>
+                        <Item>pFXP500V4G15SN</Item>
+                        <Item>pFXP500V4G15B250</Item>
+                        <Item>pFXP500V4G25SN</Item>
+                        <Item>pFXP500V5G15SN</Item>
+                        <Item>pFXP500V5G25SN</Item>
+                        <Item>pN750V10BLÅ</Item>
+                        <Item>pN750V10BRUN</Item>
+                        <Item>pN750V10GG</Item>
+                        <Item>pN750V10HVIT</Item>
+                        <Item>pN750V10SORT</Item>
+                        <Item>pN750V16BLÅ</Item>
+                        <Item>pN750V16BRUN</Item>
+                        <Item>pN750V16GG</Item>
+                        <Item>pN750V16GG</Item>
+                        <Item>pN750V16GULRØD</Item>
+                        <Item>pN750V16GULRØD</Item>
+                        <Item>pN750V16SORT</Item>
+                        <Item>pN750V16SORT</Item>
+                        <Item>pN750V25GG</Item>
+                        <Item>pN750V25GG</Item>
+                        <Item>pN750V25GULRØD</Item>
+                        <Item>pN750V25SORT</Item>
+                        <Item>pN750V25SORT</Item>
+                        <Item>pN750V35GG</Item>
+                        <Item>pN750V35GG</Item>
+                        <Item>pN750V35SORT</Item>
+                        <Item>pN750V35SORT</Item>
+                        <Item>pN750V50GG</Item>
+                        <Item>pN750V50GULRØD</Item>
+                        <Item>pN750V50SORT</Item>
+                        <Item>pN750V6BLÅB1100</Item>
+                        <Item>pN750V6BRUNB1100</Item>
+                        <Item>pN750V6GGB1100</Item>
+                        <Item>pN750V70GG</Item>
+                        <Item>pN750V70SORT</Item>
+                        <Item>pN750VJETLINE15BLÅ</Item>
+                        <Item>pN750VJETLINE15BRUN</Item>
+                        <Item>pN750VJETLINE15GG</Item>
+                        <Item>pN750VJETLINE15GRÅ</Item>
+                        <Item>pN750VJETLINE15SORT</Item>
+                        <Item>pN750VJETLINE25BLÅ</Item>
+                        <Item>pN750VJETLINE25BRUN</Item>
+                        <Item>pN750VJETLINE25GG</Item>
+                        <Item>pN750VJETLINE25GRÅ</Item>
+                        <Item>pN750VJETLINE25SORT</Item>
+                        <Item>pNJetSet750V3G15B2150</Item>
+                        <Item>pNJetSet750V3G25B2100</Item>
+                        <Item>pNJetSet750V3G4B270</Item>
+                        <Item>pNJetSet750V4G15B2100</Item>
+                        <Item>pNJetSet750V4G25B280</Item>
+                        <Item>pRPLUSS500V2X1515</Item>
+                        <Item>pRPLUSS500V2X1515</Item>
+                        <Item>pRPLUSS500V2X1515B2100</Item>
+                        <Item>pRPLUSS500V2X2525</Item>
+                        <Item>pRPLUSS500V2X2525</Item>
+                        <Item>pRPLUSS500V2X2525B275</Item>
+                        <Item>pRPLUSS500V2X44</Item>
+                        <Item>pRPLUSS500V2X44</Item>
+                        <Item>pRPLUSS500V2X66</Item>
+                        <Item>pRPLUSS500V2X66</Item>
+                        <Item>pRPLUSS500V3X1515</Item>
+                        <Item>pRPLUSS500V3X1515</Item>
+                        <Item>pRPLUSS500V3X1515B250</Item>
+                        <Item>pRPLUSS500V3X2525</Item>
+                        <Item>pRPLUSS500V3X2525</Item>
+                        <Item>pRPLUSS500V3X2525B250</Item>
+                        <Item>pRPLUSS500V3X44</Item>
+                        <Item>pRPLUSS500V3X44</Item>
+                        <Item>pRPLUSS500V3X66</Item>
+                        <Item>pRPLUSS500V3X66</Item>
+                        <Item>pRPLUSS500V4X1515</Item>
+                        <Item>pRPLUSS500V4X1515</Item>
+                        <Item>pRPLUSS500V4X2525</Item>
+                        <Item>pRPLUSS500V4X2525</Item>
+                        <Item>pUREAX3G15mm2H07BQF</Item>
+                        <Item>pUREAX3G25mm2H07BQF</Item>
+                        <Item>pUREAX4G10mm2H07BQF</Item>
+                        <Item>pUREAX4G16mm2H07BQF</Item>
+                        <Item>pUREAX4G25mm2H07BQF</Item>
+                        <Item>pUREAX4G4mm2H07BQF</Item>
+                        <Item>pUREAX4G6mm2H07BQF</Item>
+                        <Item>pUREAX5G10mm2H07BQF</Item>
+                        <Item>pUREAX5G16mm2H07BQF</Item>
+                        <Item>pUREAX5G25mm3H07BQF</Item>
+                        <Item>pUREAX5G4mm2H07BQF</Item>
+                        <Item>pUREAX5G6mm2H07BQF</Item>
+                        <Item>pVXP250V2x11MMB2150</Item>
+                        <Item>pVXP250V2X11MM</Item>
+                        <Item>rFOUC250V12x2x075S2S6Blue</Item>
+                        <Item>rFOUC250V12x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V12x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V12x3x075S2S6Blue</Item>
+                        <Item>rFOUC250V12x3x075S2S6Grey</Item>
+                        <Item>rFOUC250V12x3x15S2S6Blue</Item>
+                        <Item>rFOUC250V12x3x15S2S6Grey</Item>
+                        <Item>rFOUC250V16x2x075S2S6Blue</Item>
+                        <Item>rFOUC250V16x2x075S2S6Grey</Item>
+                        <Item>rFOUC250V16x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V16x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V16x3x075S2S6Blue</Item>
+                        <Item>rFOUC250V16x3x075S2S6Grey</Item>
+                        <Item>rFOUC250V16x3x15S2S6Blue</Item>
+                        <Item>rFOUC250V16x3x15S2S6Grey</Item>
+                        <Item>rFOUC250V24x2x075S2S6Blue</Item>
+                        <Item>rFOUC250V24x2x075S2S6Grey</Item>
+                        <Item>rFOUC250V24x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V24x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V2x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V2x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V2x3x075S2S6Blue</Item>
+                        <Item>rFOUC250V2x3x075S2S6Grey</Item>
+                        <Item>rFOUC250V2x3x15S2S6Blue</Item>
+                        <Item>rFOUC250V2x3x15S2S6Grey</Item>
+                        <Item>rFOUC250V4x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V4x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V4x3x075S2S6Blue</Item>
+                        <Item>rFOUC250V4x3x075S2S6Grey</Item>
+                        <Item>rFOUC250V4x3x15S2S6Blue</Item>
+                        <Item>rFOUC250V4x3x15S2S6Grey</Item>
+                        <Item>rFOUC250V8x2x15S2S6Blue</Item>
+                        <Item>rFOUC250V8x2x15S2S6Grey</Item>
+                        <Item>rFOUC250V8x3x075S2S6Blue</Item>
+                        <Item>rFOUC250V8x3x075S2S6Grey</Item>
+                        <Item>rFOUC250V8x3x15S2S6Blue</Item>
+                        <Item>rFOUC250V8x3x15S2S6Grey</Item>
+                        <Item>rFOUI250V1x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V1x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V1x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V1x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V2x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V4x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V12x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V12x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V12x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V12x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V12x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V12x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V12x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V12x3x15S1S5Grey</Item>
+                        <Item>rFOUI250V16x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V16x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V16x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V16x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V16x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V16x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V16x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V16x3x15S1S5Grey</Item>
+                        <Item>rFOUI250V1x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V1x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V1x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V1x3x15S1S5Grey</Item>
+                        <Item>rFOUI250V24x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V24x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V24x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V24x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V2x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V2x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V2x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V2x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V2x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V2x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V2x3x15S1S5Grey</Item>
+                        <Item>rFOUI250V4x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V4x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V4x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V4x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V4x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V4x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V4x3x15S1S5Grey</Item>
+                        <Item>rFOUI250V8x2x075S1S5Blue</Item>
+                        <Item>rFOUI250V8x2x075S1S5Grey</Item>
+                        <Item>rFOUI250V8x2x15S1S5Blue</Item>
+                        <Item>rFOUI250V8x2x15S1S5Grey</Item>
+                        <Item>rFOUI250V8x3x075S1S5Blue</Item>
+                        <Item>rFOUI250V8x3x075S1S5Grey</Item>
+                        <Item>rFOUI250V8x3x15S1S5Blue</Item>
+                        <Item>rFOUI250V8x3x15S1S5Grey</Item>
+                        <Item>rFOU061kV3x2516P1P8</Item>
+                        <Item>rFOU061kV12x1510P1P8</Item>
+                        <Item>rFOU061kV4x1616P1P8</Item>
+                        <Item>rFOU061kV2x154P1P8</Item>
+                        <Item>rFOU061kV2x254P1P8</Item>
+                        <Item>rFOU061kV3x154P1P8</Item>
+                        <Item>rFOU061kV3x256P1P8</Item>
+                        <Item>rFOU061kV3x66P1P8</Item>
+                        <Item>rFOU061kV3x9550P1P8</Item>
+                        <Item>rFOU061kV4x156P1P8</Item>
+                        <Item>rFOU061kV4x5025P1P8</Item>
+                        <Item>rFOU061kV7x156P1P8</Item>
+                        <Item>rFOU061kV12x2510P1P8</Item>
+                        <Item>rFOU061kV19x1510P1P8</Item>
+                        <Item>rFOU061kV19x2510P1P8</Item>
+                        <Item>rFOU061kV1x15010P1P8</Item>
+                        <Item>rFOU061kV1x18510P1P8</Item>
+                        <Item>rFOU061kV1x24016P1P8</Item>
+                        <Item>rFOU061kV1x30016P1P8</Item>
+                        <Item>rFOU061kV1x9510P1P8</Item>
+                        <Item>rFOU061kV27x1510P1P8</Item>
+                        <Item>rFOU061kV27x2516P1P8</Item>
+                        <Item>rFOU061kV2x1010P1P8</Item>
+                        <Item>rFOU061kV2x1616P1P8</Item>
+                        <Item>rFOU061kV2x46P1P8</Item>
+                        <Item>rFOU061kV2x66P1P8</Item>
+                        <Item>rFOU061kV3x1010P1P8</Item>
+                        <Item>rFOU061kV3x12060P1P8</Item>
+                        <Item>rFOU061kV3x15060P1P8</Item>
+                        <Item>rFOU061kV3x1616P1P8</Item>
+                        <Item>rFOU061kV3x3516P1P8</Item>
+                        <Item>rFOU061kV3x46P1P8</Item>
+                        <Item>rFOU061kV3x5025P1P8</Item>
+                        <Item>rFOU061kV3x7035P1P8</Item>
+                        <Item>rFOU061kV4x1010P1P8</Item>
+                        <Item>rFOU061kV4x256P1P8</Item>
+                        <Item>rFOU061kV4x2516P1P8</Item>
+                        <Item>rFOU061kV4x3516P1P8</Item>
+                        <Item>rFOU061kV4x46P1P8</Item>
+                        <Item>rFOU061kV4x66P1P8</Item>
+                        <Item>rFOU061kV4x7035P1P8</Item>
+                        <Item>rFOU061kV4x9550P1P8</Item>
+                        <Item>rFOU061kV7x256P1P8</Item>
+                        <Item>rG11Koaks75Ohm500m</Item>
+                        <Item>rG213UKoaks50Ohm100m</Item>
+                        <Item>rG213UKoaks50Ohm500m</Item>
+                        <Item>rG58CUKoaks50Ohm100m</Item>
+                        <Item>rG58CUKoaks50Ohm500m</Item>
+                        <Item>rG59BUKoaks75Ohm100mHv</Item>
+                        <Item>rG59BUKoaks75Ohm500m</Item>
+                        <Item>rG59BUKoaks75OhmB2130</Item>
+                        <Item>rG59RK2x075Videokoaks100m</Item>
+                        <Item>rG59RK2x075Videokoaks500m</Item>
+                        <Item>rK500V075BLÅ</Item>
+                        <Item>rK500V075BRUN</Item>
+                        <Item>rK500V075GG</Item>
+                        <Item>rK500V075GRÅ</Item>
+                        <Item>rK500V075HVIT</Item>
+                        <Item>rK500V075ORANGE</Item>
+                        <Item>rK500V075RØD</Item>
+                        <Item>rK500V075SORT</Item>
+                        <Item>rK750V15BLÅ</Item>
+                        <Item>rK750V15BRUN</Item>
+                        <Item>rK750V15GG</Item>
+                        <Item>rK750V15GRÅ</Item>
+                        <Item>rK750V15HVIT</Item>
+                        <Item>rK750V15RØD</Item>
+                        <Item>rK750V15SORT</Item>
+                        <Item>rK750V10BLÅ</Item>
+                        <Item>rK750V10BRUN</Item>
+                        <Item>rK750V10GG</Item>
+                        <Item>rK750V10HVIT</Item>
+                        <Item>rK750V10SORT</Item>
+                        <Item>rK750V16BLÅ</Item>
+                        <Item>rK750V16BRUN</Item>
+                        <Item>rK750V16GG</Item>
+                        <Item>rK750V16GG</Item>
+                        <Item>rK750V16HVIT</Item>
+                        <Item>rK750V16SORT</Item>
+                        <Item>rK750V25BLÅ</Item>
+                        <Item>rK750V25BRUN</Item>
+                        <Item>rK750V25GG</Item>
+                        <Item>rK750V25GRÅ</Item>
+                        <Item>rK750V25HVIT</Item>
+                        <Item>rK750V25RØD</Item>
+                        <Item>rK750V25SORT</Item>
+                        <Item>rK750V25GG</Item>
+                        <Item>rK750V25SORT</Item>
+                        <Item>rK750V35GG</Item>
+                        <Item>rK750V35SORT</Item>
+                        <Item>rK750V4BLÅ</Item>
+                        <Item>rK750V4BRUN</Item>
+                        <Item>rK750V4GG</Item>
+                        <Item>rK750V4HVIT</Item>
+                        <Item>rK750V4SORT</Item>
+                        <Item>rK750V50GG</Item>
+                        <Item>rK750V50SORT</Item>
+                        <Item>rK750V6BLÅ</Item>
+                        <Item>rK750V6BRUN</Item>
+                        <Item>rK750V6GG</Item>
+                        <Item>rK750V6HVIT</Item>
+                        <Item>rK750V6SORT</Item>
+                        <Item>rK750V70GG</Item>
+                        <Item>tFSP1KV3X150A50</Item>
+                        <Item>tFSP1KV3X240A70</Item>
+                        <Item>tFSP1KV3X95A35</Item>
+                        <Item>tFSP1KV4G150A50</Item>
+                        <Item>tFSP1KV4G240A70</Item>
+                        <Item>tFSP1KV4G25A10</Item>
+                        <Item>tFSP1KV4G50A16</Item>
+                        <Item>tFSP1KV4G95A35</Item>
+                        <Item>tFXP1KV4G150A</Item>
+                        <Item>tFXP1KV4G240A</Item>
+                        <Item>tFXP1KV4G25A</Item>
+                        <Item>tFXP1KV4G50A</Item>
+                        <Item>tFXP1KV4G95A</Item>
+                        <Item>tFXPO1kV4G150AOPTO8Tall</Item>
+                        <Item>tFXPO1kV4G240AOPTO8Tall</Item>
+                        <Item>tFXPO1kV4G25AOPTO</Item>
+                        <Item>tFXPO1kV4G25AOPTO8Tall</Item>
+                        <Item>tFXPO1kV4G50AOPTO</Item>
+                        <Item>tFXPO1kV4G50AOPTO8Tall</Item>
+                        <Item>tFXPO1kV4G95AOPTO8Tall</Item>
+                        <Item>tSLF12KV1X150A25</Item>
+                        <Item>tSLF12KV1X240A35</Item>
+                        <Item>tSLF12KV1X400A35</Item>
+                        <Item>tSLF12KV1X50A16</Item>
+                        <Item>tSLF12KV1X630A35</Item>
+                        <Item>tSLF12KV3X1X150A</Item>
+                        <Item>tSLF12KV3X1X240A</Item>
+                        <Item>tSLF12KV3X1X50A</Item>
+                        <Item>tSLF12KVTRIPPEL1X150A25</Item>
+                        <Item>tSLF12KVTRIPPEL1X240A35</Item>
+                        <Item>tSLF12KVTRIPPEL1X50A16</Item>
+                        <Item>tSLF24KV1X50A16</Item>
+                        <Item>tSLF24KV1X95A25</Item>
+                        <Item>tSLF24KV1X150A25</Item>
+                        <Item>tSLF24KV1X240A35</Item>
+                        <Item>tSLF24KV1X400A35</Item>
+                        <Item>tSLF24KV1X630A50</Item>
+                        <Item>tSLF24KV3X1X50A</Item>
+                        <Item>tSLF24KV3X1X95A</Item>
+                        <Item>tSLF24KV3X1X150A</Item>
+                        <Item>tSLF24KV3X1X240A</Item>
+                        <Item>tSLF24KVTRIPPEL1X50A16</Item>
+                        <Item>tSLF24KVTRIPPEL1X95A25</Item>
+                        <Item>tSLF24KVTRIPPEL1X150A25</Item>
+                        <Item>tSLF24KVTRIPPEL1X240A35</Item>
+                        <Item>tSLF24KVTRIPPEL1X400A35</Item>
+                        <Item>tSLFJ12KV3x1x150AKGF25</Item>
+                        <Item>tSLFJ12KV3x1x150AKGF50</Item>
+                        <Item>tSLFJ12KV3x1x240AKGF25</Item>
+                        <Item>tSLFJ12KV3x1x240AKGF50</Item>
+                        <Item>tSLFJ12KV3x1x50AKGF25</Item>
+                        <Item>tSLFJ12KV3x1x50AKGF50</Item>
+                        <Item>tSLFJ24KV3x1x150AKGF25</Item>
+                        <Item>tSLFJ24KV3x1x150AKGF50</Item>
+                        <Item>tSLFJ24KV3x1x240AKGF25</Item>
+                        <Item>tSLFJ24KV3x1x240AKGF50</Item>
+                        <Item>tSLFJ24KV3x1x50AKGF25</Item>
+                        <Item>tSLFJ24KV3x1x50AKGF50</Item>
+                        <Item>tSLFJ24KV3x1x95AKGF25</Item>
+                        <Item>tSLFJ24KV3x1x95AKGF50</Item>
+                        <Item>tSLFO12KV3X1X50A</Item>
+                        <Item>tSLFO12KV3X1X150A</Item>
+                        <Item>tSLFO12KV3X1X240A</Item>
+                        <Item>tSLFO24KV3X1X50A</Item>
+                        <Item>tSLFO24KV3X1X95A</Item>
+                        <Item>tSLFO24KV3X1X150A</Item>
+                        <Item>tSLFO24KV3X1X240A</Item>
+                        <Item>tSLFOJ12kV3x1x150AMKGF25</Item>
+                        <Item>tSLFOJ12kV3x1x150AMKGF50</Item>
+                        <Item>tSLFOJ12kV3x1x240AMKGF25</Item>
+                        <Item>tSLFOJ12kV3x1x240AMKGF50</Item>
+                        <Item>tSLFOJ12kV3x1x50AMKGF25</Item>
+                        <Item>tSLFOJ12kV3x1x50AMKGF50</Item>
+                        <Item>tSLFOJ24KV3x1x50AKGF25</Item>
+                        <Item>tSLFOJ24KV3x1x50AKGF50</Item>
+                        <Item>tSLFOJ24KV3x1x95AKGF25</Item>
+                        <Item>tSLFOJ24KV3x1x95AKGF50</Item>
+                        <Item>tSLFOJ24KV3x1x150AKGF25</Item>
+                        <Item>tSLFOJ24KV3x1x150AKGF50</Item>
+                        <Item>tSLFOJ24KV3x1x240AKGF25</Item>
+                        <Item>tSLFOJ24KV3x1x240AKGF50</Item>
+                        <Item>tXSP24KV1X25CU16</Item>
+                        <Item>tXXP1KV1X95A</Item>
+                        <Item>tXXP1KV1X95CU</Item>
+                        <Item>tXXP1KV1X150A</Item>
+                        <Item>tXXP1KV1X150CU</Item>
+                        <Item>tXXP1KV1X240A</Item>
+                        <Item>tXXP1KV1X240CU</Item>
+                        <Item>tXXP1KV1X300A</Item>
+                        <Item>tXXP1KV1X300CU</Item>
+                        <Item>tXXP1KV1X400A</Item>
+                        <Item>tXXP1KV1X400CU</Item>
+                        <Item>tXXP1KV1X630A</Item>
+                        <Item>kabelUspesifisert</Item>
+                        <Item>kabelUisolert</Item>
+                        <Item>kabelIsolert</Item>
+                        <Item>kabelbunt</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="antall" Description="antall" EntryMethod="Optional"
+                    DefaultValue="1"/>
+                <StringAttribute Name="driftsmerking" Description="driftsmerking"
+                    EntryMethod="Optional"/>
+                <DoubleAttribute Name="lengde" Description="lengde" EntryMethod="Optional"/>
+                <DoubleAttribute Name="lengdeKart" Description="lengdeKart" EntryMethod="Optional"/>
+                <StringAttribute Name="farge" Description="farge" EntryMethod="Required"/>
+                <StringAttribute Name="produsentnavn" Description="produsentnavn"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="framføringsveg" Description="framføringsveg"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>trekkrørKanal</Item>
+                        <Item>grøft</Item>
+                        <Item>kabelbroStige</Item>
+                        <Item>luftspenn</Item>
+                        <Item>vann</Item>
+                        <Item>kulvert</Item>
+                        <Item>slisse</Item>
+                        <Item>borehull</Item>
+                        <Item>kabelbunt</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="driftsattår" Description="driftsattår"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="arkivnummer" Description="arkivnummer" EntryMethod="Optional"/>
+                <StringAttribute Name="tilleggsinformasjon" Description="tilleggsinformasjon"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </LineFeatureDefinition>
+        <PointFeatureDefinition Code="Lysarmatur" Name="Lysarmatur"
+            Category="GeometryName=posisjon, GeometryPosition=46" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="lyskildeType" Description="lyskildeType" EntryMethod="Required">
+                    <ListItems>
+                        <Item>kvikksølv</Item>
+                        <Item>natriumHøytrykk</Item>
+                        <Item>natriumLavtrykk</Item>
+                        <Item>lysstoffrør</Item>
+                        <Item>glødelampe</Item>
+                        <Item>qL</Item>
+                        <Item>lED</Item>
+                        <Item>metallhalogen</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="driftsmerking" Description="driftsmerking"
+                    EntryMethod="Optional"/>
+                <IntegerAttribute Name="driftsattår" Description="driftsattår"
+                    EntryMethod="Required"/>
+                <DoubleAttribute Name="høydeOverVeg" Description="høydeOverVeg"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="antallLyskilderPerArmatur"
+                    Description="antallLyskilderPerArmatur" EntryMethod="Required">
+                    <ListItems>
+                        <Item>1</Item>
+                        <Item>2</Item>
+                        <Item>3</Item>
+                        <Item>4</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="antallArmaturerIBelysningspkt"
+                    Description="antallArmaturerIBelysningspkt" EntryMethod="Required">
+                    <ListItems>
+                        <Item>1</Item>
+                        <Item>2</Item>
+                        <Item>3</Item>
+                        <Item>4</Item>
+                        <Item>5</Item>
+                        <Item>6</Item>
+                        <Item>7</Item>
+                        <Item>8</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="effekt" Description="effekt" EntryMethod="Required">
+                    <ListItems>
+                        <Item>5</Item>
+                        <Item>8</Item>
+                        <Item>9</Item>
+                        <Item>11</Item>
+                        <Item>15</Item>
+                        <Item>18</Item>
+                        <Item>20</Item>
+                        <Item>24</Item>
+                        <Item>26</Item>
+                        <Item>28</Item>
+                        <Item>32</Item>
+                        <Item>34</Item>
+                        <Item>35</Item>
+                        <Item>36</Item>
+                        <Item>50</Item>
+                        <Item>55</Item>
+                        <Item>58</Item>
+                        <Item>60</Item>
+                        <Item>70</Item>
+                        <Item>72</Item>
+                        <Item>80</Item>
+                        <Item>90</Item>
+                        <Item>100</Item>
+                        <Item>116</Item>
+                        <Item>120</Item>
+                        <Item>125</Item>
+                        <Item>135</Item>
+                        <Item>150</Item>
+                        <Item>180</Item>
+                        <Item>240</Item>
+                        <Item>250</Item>
+                        <Item>400</Item>
+                        <Item>600</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="inngårINødsystemet" Description="inngårINødsystemet"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="produktnavnArmatur" Description="produktnavnArmatur"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="produsentnavnArmatur" Description="produsentnavnArmatur"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>aeg</Item>
+                        <Item>thorn</Item>
+                        <Item>philips</Item>
+                        <Item>siemens</Item>
+                        <Item>siemensSiteco</Item>
+                        <Item>ifa</Item>
+                        <Item>noral</Item>
+                        <Item>seelux</Item>
+                        <Item>jernkonst</Item>
+                        <Item>urbis</Item>
+                        <Item>aECIlluminazione</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="produsentnavnDriver" Description="produsentnavnDriver"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="produsentnavnLyskilde" Description="produsentnavnLyskilde"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="optikk" Description="optikk" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>reflektor</Item>
+                        <Item>linse</Item>
+                        <Item>reflektorOgLinse</Item>
+                        <Item>direkteLys</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="konstantLysutbytte" Description="konstantLysutbytte"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="dimming" Description="dimming" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="utystyrsklasse" Description="utystyrsklasse"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ujorda</Item>
+                        <Item>jorda</Item>
+                        <Item>dobbeltisolert</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="driftsstrømUdimmet" Description="driftsstrømUdimmet"
+                    EntryMethod="Optional"/>
+                <IntegerAttribute Name="lysflux" Description="lysflux" EntryMethod="Optional"/>
+                <IntegerAttribute Name="lEDAntallDioder" Description="lEDAntallDioder"
+                    EntryMethod="Optional"/>
+                <DoubleAttribute Name="lEDEffektPerStkTest" Description="lEDEffektPerStkTest"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="avskjermingType" Description="avskjermingType"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>skjermPlan</Item>
+                        <Item>skjermBuet</Item>
+                        <Item>skjermHalvbuet</Item>
+                        <Item>skjermDyptrukket</Item>
+                        <Item>åpen</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="lEDEffektArmaturTotaltTest"
+                    Description="lEDEffektArmaturTotaltTest" EntryMethod="Optional"/>
+                <ListAttribute Name="avskjermingMateriale" Description="avskjermingMateriale"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>plant</Item>
+                        <Item>buet</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="fargetemperatur" Description="fargetemperatur"
+                    EntryMethod="Optional"/>
+                <IntegerAttribute Name="fargegjengivelsesindeks"
+                    Description="fargegjengivelsesindeks" EntryMethod="Optional"/>
+                <ListAttribute Name="utskiftbareLyskilder" Description="utskiftbareLyskilder"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="armaturnummer" Description="armaturnummer"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="kommunikasjonsenhet" Description="kommunikasjonsenhet"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>kommune</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </PointFeatureDefinition>
+        <PointFeatureDefinition Code="Lysmast" Name="Lysmast"
+            Category="GeometryName=posisjon, GeometryPosition=34" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="type" Description="type" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stålmast</Item>
+                        <Item>stålmastRett</Item>
+                        <Item>stålmastSylindrisk</Item>
+                        <Item>stålmastKonisk</Item>
+                        <Item>stålmast6KantetKonisk</Item>
+                        <Item>stålmastTeleskop</Item>
+                        <Item>tremast</Item>
+                        <Item>tremastSvekket</Item>
+                        <Item>gittermast</Item>
+                        <Item>komposittmast</Item>
+                        <Item>aluminiumsmast</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="produktnavn" Description="produktnavn" EntryMethod="Optional"/>
+                <ListAttribute Name="ettergivendeMast" Description="ettergivendeMast"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>jaUkjentType</Item>
+                        <Item>jaDeformasjonTypeHE</Item>
+                        <Item>jaAvskjæringsleddTypeNE</Item>
+                        <Item>jaTremastMedSvekking</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="byggeår" Description="byggeår" EntryMethod="Required"/>
+                <StringAttribute Name="driftsmerking" Description="driftsmerking"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="fundamentering" Description="fundamentering"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>betongfundament</Item>
+                        <Item>plasstøpt</Item>
+                        <Item>stålfundament</Item>
+                        <Item>fotplate</Item>
+                        <Item>jordstikk</Item>
+                        <Item>nedstikk</Item>
+                        <Item>iPåFjell</Item>
+                        <Item>iPåFjellfundament</Item>
+                        <Item>iPåJordfundament</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="boltavstandFotplate" Description="boltavstandFotplate"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>cCBolter160Mm</Item>
+                        <Item>cCBolter200Mm</Item>
+                        <Item>cCBolter240Mm</Item>
+                        <Item>ikkeStandardAvstand</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="diameter" Description="diameter" EntryMethod="Optional"/>
+                <IntegerAttribute Name="diameterTopp" Description="diameterTopp"
+                    EntryMethod="Optional"/>
+                <DoubleAttribute Name="totalMastelengde" Description="totalMastelengde"
+                    EntryMethod="Required"/>
+                <ListAttribute Name="utligger" Description="utligger" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DoubleAttribute Name="utliggerarmensLengde" Description="utliggerarmensLengde"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="bardunStrever" Description="bardunStrever"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>ja</Item>
+                        <Item>nei</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="overflatebehandling" Description="overflatebehandling"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>galvanisert</Item>
+                        <Item>galvanisertOgPulverlakkert</Item>
+                        <Item>galvanisertOgVåtlakkert</Item>
+                        <Item>eloksertAluminium</Item>
+                        <Item>beiset</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="rALKode" Description="rALKode" EntryMethod="Optional"/>
+                <StringAttribute Name="produsentnavn" Description="produsentnavn"
+                    EntryMethod="Optional"/>
+                <ListAttribute Name="eier" Description="eier" EntryMethod="Required">
+                    <ListItems>
+                        <Item>stat</Item>
+                        <Item>fylkeskommune</Item>
+                        <Item>kommune</Item>
+                        <Item>nettselskap</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="eierNavn" Description="eierNavn" EntryMethod="Optional"/>
+                <ListAttribute Name="vedlikeholdsansvarlig" Description="vedlikeholdsansvarlig"
+                    EntryMethod="Optional">
+                    <ListItems>
+                        <Item>statensVegvesen</Item>
+                        <Item>kommune</Item>
+                        <Item>nettselskap</Item>
+                        <Item>privat</Item>
+                    </ListItems>
+                </ListAttribute>
+            </Attributes>
+        </PointFeatureDefinition>
+        <PointFeatureDefinition Code="Tennpunkt" Name="Tennpunkt"
+            Category="GeometryName=posisjon, GeometryPosition=21" IncludeInSurface="false"
+            Color="FE000000" Layer="0">
+            <Attributes>
+                <StringAttribute Name="lokalId" Description="identifikasjon.Identifikasjon.lokalId"
+                    EntryMethod="Required"/>
+                <StringAttribute Name="navnerom"
+                    Description="identifikasjon.Identifikasjon.navnerom" EntryMethod="Required"
+                    DefaultValue="vegvesen.no.nvdb"/>
+                <StringAttribute Name="versjonId"
+                    Description="identifikasjon.Identifikasjon.versjonId" EntryMethod="Optional"/>
+                <ListAttribute Name="typeEndring"
+                    Description="endringsflagg.Endringsflagg.typeEndring" EntryMethod="Required">
+                    <ListItems>
+                        <Item>E</Item>
+                        <Item>N</Item>
+                        <Item>S</Item>
+                    </ListItems>
+                </ListAttribute>
+                <DateAttribute Name="tidspunktEndring"
+                    Description="endringsflagg.Endringsflagg.tidspunktEndring"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <DateAttribute Name="datafangstdato" Description="datafangstdato"
+                    EntryMethod="Required" AnnotationFormat="d"/>
+                <DateAttribute Name="oppdateringsdato" Description="oppdateringsdato"
+                    EntryMethod="Optional" AnnotationFormat="d"/>
+                <ListAttribute Name="målemetode" Description="kvalitet.Posisjonskvalitet.målemetode"
+                    EntryMethod="Required" DefaultItemIndex="3">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>82</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighet"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighet" EntryMethod="Optional"/>
+                <ListAttribute Name="synbarhet" Description="kvalitet.Posisjonskvalitet.synbarhet"
+                    EntryMethod="Optional" DefaultItemIndex="1">
+                    <ListItems>
+                        <Item>0</Item>
+                        <Item>1</Item>
+                    </ListItems>
+                </ListAttribute>
+                <ListAttribute Name="målemetodeHøyde"
+                    Description="kvalitet.Posisjonskvalitet.målemetodeHøyde" EntryMethod="Optional"
+                    DefaultItemIndex="2">
+                    <ListItems>
+                        <Item>10</Item>
+                        <Item>96</Item>
+                    </ListItems>
+                </ListAttribute>
+                <IntegerAttribute Name="nøyaktighetHøyde"
+                    Description="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" EntryMethod="Optional"/>
+                <IntegerAttribute Name="maksimaltAvvik"
+                    Description="kvalitet.Posisjonskvalitet.maksimaltAvvik" EntryMethod="Optional"/>
+                <ListAttribute Name="høydereferanse" Description="høydereferanse"
+                    EntryMethod="Required">
+                    <ListItems>
+                        <Item>topp</Item>
+                        <Item>ToppUtvendig</Item>
+                        <Item>fot</Item>
+                        <Item>ToppInnvendig</Item>
+                        <Item>Senter</Item>
+                        <Item>BunnInnvendig</Item>
+                        <Item>UnderkantUtvendig</Item>
+                        <Item>PåBakken</Item>
+                        <Item>Ukjent</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="tennpunktnummer" Description="tennpunktnummer"
+                    EntryMethod="Required"/>
+                <ListAttribute Name="spenning" Description="spenning" EntryMethod="Optional">
+                    <ListItems>
+                        <Item>12</Item>
+                        <Item>24</Item>
+                        <Item>230</Item>
+                        <Item>400</Item>
+                        <Item>690</Item>
+                    </ListItems>
+                </ListAttribute>
+                <StringAttribute Name="driftsmerking" Description="driftsmerking"
+                    EntryMethod="Optional"/>
+                <StringAttribute Name="produktnavn" Description="produktnavn" EntryMethod="Optional"/>
+                <StringAttribute Name="produsentnavn" Description="produsentnavn"
+                    EntryMethod="Optional"/>
+                <IntegerAttribute Name="driftsattår" Description="driftsattår"
+                    EntryMethod="Required"/>
+            </Attributes>
+        </PointFeatureDefinition>
+    </FeatureDefinitions>
+</FeatureCodingDefinitions>
