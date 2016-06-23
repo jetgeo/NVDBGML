@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V360" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V360" version="2.06">
+  <annotation>
+    <documentation>519: Vegoppmerking som ikke har nevneverdig langsgående utstrekning.  Eks symbol, sperreområder, piler, tekst, gangfelt og annen tverrgående oppmerking.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">519</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DimensjonerendeForholdForSymbolhøyderType">
+    <annotation>
+      <documentation>Dimensjonerende forhold for symbolhøyder: Angir hva som ligger til grunn for størrelse for symbolene</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10414</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DIMENSJONERENDEFORHOLDFORSYMBOLHØYDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DimensjonerendeForholdForSymbolhøyderEnumerationType nvdb:DimensjonerendeForholdForSymbolhøyderOtherType"/>
+  </simpleType>
+  <simpleType name="DimensjonerendeForholdForSymbolhøyderEnumerationType">
+    <annotation>
+      <documentation>Dimensjonerende forhold for symbolhøyder: Angir hva som ligger til grunn for størrelse for symbolene</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10414</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DIMENSJONERENDEFORHOLDFORSYMBOLHØYDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fartsgrenseTom60">
+        <annotation>
+          <documentation>16786: Fartsgrense tom. 60</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16786</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fartsgrenseOver60">
+        <annotation>
+          <documentation>16787: Fartsgrense over 60</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16787</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelveg">
+        <annotation>
+          <documentation>16788: Sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16788</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DimensjonerendeForholdForSymbolhøyderOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingTverrgåendeType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGTVERRGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVegoppmerkingTverrgåendeEnumerationType nvdb:TypeVegoppmerkingTverrgåendeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingTverrgåendeEnumerationType">
+    <annotation>
+      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGTVERRGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fartsgrense1054">
+        <annotation>
+          <documentation>16781: Fartsgrense (1054)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16781</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stopplinje1020">
+        <annotation>
+          <documentation>5168: Stopplinje (1020)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5168</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vikelinje1022">
+        <annotation>
+          <documentation>5167: Vikelinje (1022)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5167</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangfelt1024">
+        <annotation>
+          <documentation>5147: Gangfelt (1024)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5147</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelkryssing10261">
+        <annotation>
+          <documentation>5315: Sykkelkryssing (1026.1): Kryssingsfelt beregnet for sykkeltrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5315</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelkryssingInntilGangfelt10262">
+        <annotation>
+          <documentation>16777: Sykkelkryssing inntil gangfelt (1026.2): Kryssingsfelt beregnet for sykkeltrafikk som ligger inntil gangfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16777</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fartshump1027">
+        <annotation>
+          <documentation>11740: Fartshump (1027)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11740</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkeringsfelt1028">
+        <annotation>
+          <documentation>5261: Parkeringsfelt (1028)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5261</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rumlefelt">
+        <annotation>
+          <documentation>5165: Rumlefelt: Felt som er utformet slik at det ved kjøring over i stor fart framkommer en rumlende lyd (017) Vegreferanse angis for start rumlefelt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5165</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vikesymbol1036">
+        <annotation>
+          <documentation>5156: Vikesymbol (1036)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5156</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangsymbol10381">
+        <annotation>
+          <documentation>5158: Gangsymbol (1038.1)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5158</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelsymbol10382">
+        <annotation>
+          <documentation>5157: Sykkelsymbol (1038.2)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5157</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkeringssymbol1040">
+        <annotation>
+          <documentation>5316: Parkeringssymbol (1040)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5316</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="symbolForForflytningshemmede1042">
+        <annotation>
+          <documentation>5159: Symbol for forflytningshemmede (1042)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5159</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skinnekjøretøy1044">
+        <annotation>
+          <documentation>16778: Skinnekjøretøy (1044)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16778</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstStopp10501">
+        <annotation>
+          <documentation>5162: Tekst, stopp (1050.1)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5162</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstBuss10502">
+        <annotation>
+          <documentation>5163: Tekst, buss (1050.2)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5163</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstTaxi10503">
+        <annotation>
+          <documentation>5164: Tekst, taxi (1050.3)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5164</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstVegvisning10504">
+        <annotation>
+          <documentation>5161: Tekst, vegvisning (1050.4)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5161</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstSkole10505">
+        <annotation>
+          <documentation>16779: Tekst, skole (1050.5)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16779</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekstSambruksfelt1052">
+        <annotation>
+          <documentation>16780: Tekst, sambruksfelt (1052): F.eks "2+"</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16780</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilMinirundkjøring1034">
+        <annotation>
+          <documentation>16782: Pil, minirundkjøring (1034)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16782</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034RH">
+        <annotation>
+          <documentation>5150: Pil, kjøreretn, (1034.RH)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5150</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034RV">
+        <annotation>
+          <documentation>5151: Pil, kjøreretn, (1034.RV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5151</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034RHV">
+        <annotation>
+          <documentation>5152: Pil, kjøreretn, (1034.RHV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5152</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034V">
+        <annotation>
+          <documentation>5153: Pil, kjøreretn, (1034.V)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5153</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034H">
+        <annotation>
+          <documentation>5154: Pil, kjøreretn, (1034.H)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5154</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034HV">
+        <annotation>
+          <documentation>5155: Pil, kjøreretn, (1034.HV)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5155</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilFeltskifte1034V">
+        <annotation>
+          <documentation>5169: Pil, feltskifte, (1034.V)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5169</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilKjøreretn1034R">
+        <annotation>
+          <documentation>5149: Pil, kjøreretn, (1034.R)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5149</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilFeltskifte1034H">
+        <annotation>
+          <documentation>5170: Pil, feltskifte, (1034.H)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5170</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mangler">
+        <annotation>
+          <documentation>10240: Mangler: Angir at det mangler informasjon om type.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10240</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegoppmerkingTverrgåendeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="VegoppmerkingTverrgående" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegoppmerkingTverrgåendeType">
+    <annotation>
+      <documentation>Vegoppmerking,tverrgående: Vegoppmerking som ikke har nevneverdig langsgående utstrekning.  Eks symbol, sperreområder, piler, tekst, gangfelt og annen tverrgående oppmerking.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">519</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGOPPMERKINGTVERRGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegoppmerkingTverrgåendeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeVegoppmerkingTverrgåendeType">
+            <annotation>
+              <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dimensjonerendeForholdForSymbolhøyder" type="nvdb:DimensjonerendeForholdForSymbolhøyderType">
+            <annotation>
+              <documentation>Dimensjonerende forhold for symbolhøyder: Angir hva som ligger til grunn for størrelse for symbolene</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10414</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DIMENSJONERENDEFORHOLDFORSYMBOLHØYDER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedtaksnummer" type="string">
+            <annotation>
+              <documentation>Vedtaksnummer: Angir vedtaksnummer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7842</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDTAKSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="bredde" type="double">
+            <annotation>
+              <documentation>Bredde: Angir bredde av vegobjektet.  Bredde måles på tvers av symbol/tekst sin lengderetning.  Tverrsgående oppmerking som f.eks "gangfelt har lengderetning på tvers av vegen.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4173</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="lengde" type="double">
+            <annotation>
+              <documentation>Lengde: Angir lengde av vegobjektet, måles i oppmerkingens lengderetning.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4169</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="double">
+            <annotation>
+              <documentation>Areal: Angir arealet av vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4170</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tekstVegvisning" type="string">
+            <annotation>
+              <documentation>Tekst, vegvisning: Angir vegnummer eller stedsnavn som er tekster i vegbanen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4174</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKSTVEGVISNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallViketrekanter" type="integer">
+            <annotation>
+              <documentation>Antall viketrekanter: Angir hvor mange viketrekanter det er.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4181</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLVIKETREKANTER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallRomlelinjer" type="integer">
+            <annotation>
+              <documentation>Antall romlelinjer: Angir hvor mange linjer som inngår i romlefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4185</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLROMLELINJER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallGangfeltstaver" type="integer">
+            <annotation>
+              <documentation>Antall gangfeltstaver: Angir hvor mange staver (striper) det er i et gangfelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4518</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLGANGFELTSTAVER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Geometrisk linje som representerer symbolet, benyttes f.eks for vikelinjer, etc.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9395</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5020</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegoppmerkingTverrgåendePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:VegoppmerkingTverrgående"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

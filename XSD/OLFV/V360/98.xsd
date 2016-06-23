@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V360" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V360" version="2.06">
+  <annotation>
+    <documentation>98: Punkt langs veg hvor vegens metrering er angitt på fastmontert plate.  Finnes i 500-1000 meters mellomrom langs europa-, riks- og fylkesveger.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">98</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="PlasseringReferansestolpeType">
+    <annotation>
+      <documentation>Plassering: Angir hva plate er plassert på</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGREFERANSESTOLPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringReferansestolpeEnumerationType nvdb:PlasseringReferansestolpeOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringReferansestolpeEnumerationType">
+    <annotation>
+      <documentation>Plassering: Angir hva plate er plassert på</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGREFERANSESTOLPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="egenStolpe">
+        <annotation>
+          <documentation>10687: Egen stolpe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10687</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rekkverk">
+        <annotation>
+          <documentation>10688: Rekkverk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10688</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gjerdeStøyskjerm">
+        <annotation>
+          <documentation>10689: Gjerde/støyskjerm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10689</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lysstolpe">
+        <annotation>
+          <documentation>10690: Lysstolpe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10690</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="andreSkiltstolper">
+        <annotation>
+          <documentation>10691: Andre skiltstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10691</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bygningKonstruksjon">
+        <annotation>
+          <documentation>10692: Bygning/konstruksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10692</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringReferansestolpeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Referansestolpe" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:ReferansestolpeType">
+    <annotation>
+      <documentation>Referansestolpe: Punkt langs veg hvor vegens metrering er angitt på fastmontert plate.  Finnes i 500-1000 meters mellomrom langs europa-, riks- og fylkesveger.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">98</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REFERANSESTOLPE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="ReferansestolpeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="tekstPåPlate" type="string">
+            <annotation>
+              <documentation>Tekst på plate: Angir tekst som står på plate.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1907</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKSTPÅPLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høydeOverVegkant" type="double">
+            <annotation>
+              <documentation>Høyde over vegkant: Angir høyde fra vegkant til underkant plate.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2056</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEOVERVEGKANT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="avstandFraVegkant" type="double">
+            <annotation>
+              <documentation>Avstand fra vegkant: Angir avstand fra vegkant til referansestolpe</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4597</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVSTANDFRAVEGKANT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="stolpefundamentering" type="nvdb:StolpefundamenteringType">
+            <annotation>
+              <documentation>Stolpefundamentering: Angir hvordan vegobjektet er fundamentert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1672</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEFUNDAMENTERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>Oppsettingsår: Angir hvilket år vegobjektet ble satt opp</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10344</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="plassering" type="nvdb:PlasseringReferansestolpeType">
+            <annotation>
+              <documentation>Plassering: Angir hva plate er plassert på</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8134</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4797</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ReferansestolpePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Referansestolpe"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="StolpefundamenteringType">
+    <annotation>
+      <documentation>Stolpefundamentering: Angir hvordan vegobjektet er fundamentert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1672</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEFUNDAMENTERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StolpefundamenteringEnumerationType nvdb:StolpefundamenteringOtherType"/>
+  </simpleType>
+  <simpleType name="StolpefundamenteringEnumerationType">
+    <annotation>
+      <documentation>Stolpefundamentering: Angir hvordan vegobjektet er fundamentert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1672</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEFUNDAMENTERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="jordstikk">
+        <annotation>
+          <documentation>2426: Jordstikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2426</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="iPåFjell">
+        <annotation>
+          <documentation>3265: I/på fjell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3265</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="iPåJordfundament">
+        <annotation>
+          <documentation>2436: I/på jordfundament</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2436</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="iPåFjellfundament">
+        <annotation>
+          <documentation>2431: I/på fjellfundament</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2431</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StolpefundamenteringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
