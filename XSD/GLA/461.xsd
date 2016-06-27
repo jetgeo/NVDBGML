@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.05">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.06">
   <annotation>
     <documentation>461: Matepunkt med måler for lavspentnett som forsyner vegvesenets installasjoner med strøm.</documentation>
     <appinfo>
@@ -314,6 +314,14 @@
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17633: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17633</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="EierElektriskAnleggOtherType">
@@ -361,7 +369,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="eier" type="nvdb:EierElektriskAnleggType">
+          <element minOccurs="0" name="eier" type="nvdb:EierElektriskAnleggType">
             <annotation>
               <documentation>Eier: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
@@ -550,6 +558,7 @@
               </appinfo>
             </annotation>
           </element>
+          <element name="kommentar" type="nvdb:KommentarPropertyType"/>
           <element name="driftsattår" type="integer">
             <annotation>
               <documentation>Driftsattår: Angir årstall objektet ble satt i drift</documentation>
@@ -577,13 +586,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBelysningspunkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Belysningspunkt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
+          <element name="dokumentasjon" type="nvdb:DokumentasjonPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertBelysningsstrekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -591,17 +594,10 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBelysningspunkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Belysningspunkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -1096,6 +1092,14 @@
           <documentation>10649: Privat</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10649</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17741: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17741</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

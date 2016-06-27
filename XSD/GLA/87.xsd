@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.05">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.06">
   <annotation>
     <documentation>87: En eller flere lysarmatur på lysmast, etc lokalisert i et punkt</documentation>
     <appinfo>
@@ -85,6 +85,9 @@
               </appinfo>
             </annotation>
           </element>
+          <element name="kommentar" type="nvdb:KommentarPropertyType"/>
+          <element name="tilstandSkadeBelysning" type="nvdb:TilstandSkadeBelysningPropertyType"/>
+          <element name="tilstandSkadeFUPunkt" type="nvdb:TilstandSkadeFUPunktPropertyType"/>
           <element minOccurs="0" name="fellesføringMedAnnenEtat" type="string">
             <annotation>
               <documentation>Fellesføring med annen etat: Angir om det er felles luftlinjeframføring på felles stolperekke med f.eks energiverk, teleselskap, bredbåndsselskap etc</documentation>
@@ -112,7 +115,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="eier" type="nvdb:EierBelysningspunktType">
+          <element minOccurs="0" name="eier" type="nvdb:EierBelysningspunktType">
             <annotation>
               <documentation>Eier: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
@@ -156,13 +159,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertLysmast" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Lysmast</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
+          <element name="dokumentasjon" type="nvdb:DokumentasjonPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTennpunkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -170,10 +167,10 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertLysmast" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Lysmast</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -181,20 +178,6 @@
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Lysarmatur</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeBelysning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeBelysning</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -379,6 +362,14 @@
           <documentation>16265: Privat</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16265</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17632: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17632</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -595,6 +586,14 @@
           <documentation>3717: Lokalt e-verk</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3717</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17672: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17672</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
