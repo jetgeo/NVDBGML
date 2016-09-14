@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<xfMap>
+    <feature-map multi-feature-construction="true">
+        <mapping match="vegobjekt">
+            <feature-type>
+                <extract expr="./metadata/type/id"/>
+            </feature-type>
+        </mapping>
+    </feature-map>
+    <feature-content-map>
+        
+        <!-- ObjektID -->
+        <mapping match="vegobjekt/id"> 
+            <attributes>
+                <attribute>
+                    <name>   <literal expr="NVDB_ID"/> </name>
+                    <value>  <extract expr="."/>  </value>
+                </attribute>
+            </attributes>	
+        </mapping>
+        <!-- Versjon -->
+        <mapping match="vegobjekt/metadata/versjon"> 
+            <attributes>
+                <attribute>
+                    <name>   <literal expr="versjonsId"/> </name>
+                    <value>  <extract expr="."/>  </value>
+                </attribute>
+            </attributes>	
+        </mapping>
+
+        <!-- Mapper egenskaper for objekttypen (id som egenskapsnavn) -->
+        <mapping match="vegobjekt/egenskaper/egenskap">
+            <attributes>
+                <attribute>
+                    <name>   <extract expr="./id"/> </name>
+                    <!-- <value>  <extract expr="./verdi"/>  </value>  --> 
+                    <value>  <extract expr="./enum_id"/>  </value>
+                </attribute>
+            </attributes>
+        </mapping>
+        
+        <!-- Stedfesting i basisnettet, liste i tilfelle flere --> 		
+        <mapping match="vegobjekt/lokasjon/stedfestinger/stedfesting">
+            <attributes>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.lineærtObjektIdentifikasjon.Identifikasjon.lokalId"/>  </name>
+                    <value>  <extract expr="./veglenkeid"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.fraPosisjon"/>  </name>
+                    <value>  <extract expr="./fra_posisjon"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.tilPosisjon"/>  </name>
+                    <value>  <extract expr="./til_posisjon"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.posisjon"/>  </name>
+                    <value>  <extract expr="./posisjon"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.sideposisjon"/>  </name>
+                    <value>  <extract expr="./sideposisjon"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.felt"/>  </name>
+                    <value>  <extract expr="./felt"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="lineærPosisjon{}.retning"/>  </name>
+                    <value>  <extract expr="./retning"/>  </value>
+                </attribute>
+            </attributes>
+        </mapping>
+        
+        
+        <!-- Vegreferanser som liste, i tilfelle flere --> 
+        <mapping match="vegobjekt/lokasjon/vegreferanser/vegreferanse">
+            <attributes>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.vegkategori"/>  </name>
+                    <value>  <extract expr="./kategori"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.vegnummer"/>  </name>
+                    <value>  <extract expr="./nummer"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.vegstatus"/>  </name>
+                    <value>  <extract expr="./status"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.hovedParsell"/>  </name>
+                    <value>  <extract expr="./hp"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.veglenkeMeterFra"/>  </name>
+                    <value>  <extract expr="./fraMeter"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.veglenkeMeterTil"/>  </name>
+                    <value>  <extract expr="./tilMeter"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.veglenkeMeter"/>  </name>
+                    <value>  <extract expr="./meter"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.fylke"/>  </name>
+                    <value>  <extract expr="./fylke"/>  </value>
+                </attribute>
+                <attribute type="list">
+                    <name>   <literal expr="vegreferanse{}.Vegreferanse.kommune"/>  </name>
+                    <value>  <extract expr="./kommune"/>  </value>
+                </attribute>
+            </attributes>
+        </mapping>
+        
+        <!-- Geometri -->
+        <mapping match="vegobjekt/geometri"> 
+            <attributes>
+                <attribute>
+                    <name>   <literal expr="geometri"/> </name>
+                    <value>  <extract expr="./wkt"/>  </value>
+                </attribute>
+                <attribute>
+                    <name>   <literal expr="egengeometri"/> </name>
+                    <value>  <extract expr="./egengeometri"/>  </value>
+                </attribute>
+                <attribute>
+                    <name>   <literal expr="srid"/> </name>
+                    <value>  <extract expr="./srid"/>  </value>
+                </attribute>
+            </attributes>
+        </mapping>
+
+        
+    </feature-content-map>	  	
+</xfMap>
