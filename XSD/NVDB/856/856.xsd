@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>856: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">856</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Trafikkreguleringer.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Trafikkreguleringer" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrafikkreguleringerType">
+    <annotation>
+      <documentation>Trafikkreguleringer: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">856</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGER</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TrafikkreguleringerType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
+          <element name="trafikkreguleringer" type="nvdb:TrafikkreguleringerTrafikkreguleringerType">
+            <annotation>
+              <documentation>Trafikkreguleringer: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9794</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="merknad" type="string">
+            <annotation>
+              <documentation>Merknad: Angir eventuelle unntak for tidspunkt, kjøretøytyper, mm</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10782</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrafikkreguleringerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Trafikkreguleringer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerType">
+    <annotation>
+      <documentation>Trafikkreguleringer: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9794</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGERTRAFIKKREGULERINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrafikkreguleringerTrafikkreguleringerEnumerationType nvdb:TrafikkreguleringerTrafikkreguleringerOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerEnumerationType">
+    <annotation>
+      <documentation>Trafikkreguleringer: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9794</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGERTRAFIKKREGULERINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="forbudtForGåendeOgSyklende">
+        <annotation>
+          <documentation>15945: Forbudt for gående og syklende: Fforbudt for gående og syklende.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15945</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="forbudtForMotortrafikk">
+        <annotation>
+          <documentation>15946: Forbudt for motortrafikk : Forbudt for motortrafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15946</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="motortrafikkKunTillattForVaretransport">
+        <annotation>
+          <documentation>15947: Motortrafikk kun tillatt for varetransport : Forbudt for motortrafikk, med unntak av varetransport</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15947</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="motortrafikkKunTillattForKjøringTilEiendommer">
+        <annotation>
+          <documentation>15948: Motortrafikk kun tillatt for kjøring til eiendommer : Forbudt for motortrafikk, med unntak av kjøring til eiendommer.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15948</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="motortrafikkKunTillattForVaretransportOgKjøringTil">
+        <annotation>
+          <documentation>15949: Motortrafikk kun tillatt for varetransport og kjøring til eiendommer: Forbudt for motortrafikk, med unntak av varetransport og kjøring til eiendommer.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15949</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gjennomkjøringForbudt">
+        <annotation>
+          <documentation>16847: Gjennomkjøring forbudt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16847</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="syklingMotKjøreretningenTillatt">
+        <annotation>
+          <documentation>17464: Sykling mot kjøreretningen tillatt: Sykling mot kjøreretning er tillatt, og dette er regulert vha skilt. Gjelder der det ikke er merket opp egne sykkelfelt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17464</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

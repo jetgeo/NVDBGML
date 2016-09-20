@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>89: System for regulering og varsling av trafikk.  Det er sammensatt av flere signalpunkt med tilhørende signalhoder og blir styrt av et styreapparat.  Merknad: Rødblinkanlegg er som regel egne signalanlegg på hvert sted, dvs rødblink i en ende av en tunnel er et annet saignalanlegg enn rødblink i andre enden av tunnelen.  Motsatt kan signalpunkt ved et gangfelt høre sammen i samme signalanlegg som signalpunkt for et kryss like ved.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">89</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Styreapparat.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeSignalanleggType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1273</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeSignalanleggEnumerationType nvdb:BruksområdeSignalanleggOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeSignalanleggEnumerationType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1273</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="vegkryss">
+        <annotation>
+          <documentation>2974: Vegkryss: Signalanlegg for regulering av vegkryss. Kan bestå av kjøretøysignaler (trelyssignal, sykkelsignal og pilsignal), fotgjengersignal og kollektivsignal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2974</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangfelt">
+        <annotation>
+          <documentation>2975: Gangfelt: Signalanlegg for regulering av gangfelt utenfor signalregulerte vegkryss.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2975</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skytteltrafikk">
+        <annotation>
+          <documentation>2977: Skytteltrafikk: Signalanlegg for regulering av trafikken på steder utenfor vegkryss hvor bare én kjøreretning kan avvikles om gangen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2977</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bomstasjon">
+        <annotation>
+          <documentation>4873: Bomstasjon: Signalanlegg for dirigering av trafikk i forbindelse med bomstasjoner.  Det benyttes normalt tolyssignaler.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4873</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ferjekai">
+        <annotation>
+          <documentation>4872: Ferjekai: Signalanlegg for dirigering av trafikk i forbindelse med om bord- og i landkjøring på ferjeleier.  Det benyttes normalt tolyssignaler.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4872</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkering">
+        <annotation>
+          <documentation>11718: Parkering: Signalanlegg for dirigering av trafikk i forbindelse med parkeringsanlegg.  Det benyttes normalt tolyssignaler.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11718</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørefeltRetningsmarkering">
+        <annotation>
+          <documentation>2979: Kjørefelt, retningsmarkering: Benyttes for å angi retning på kjørefeltene.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2979</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkBru">
+        <annotation>
+          <documentation>2978: Rødt blink, bru: Signalanlegg for visning av trafikkretning for ett eller flere kjørefelt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2978</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkHøgfjellsstrekning">
+        <annotation>
+          <documentation>4870: Rødt blink, høgfjellsstrekning: Rødt blinkanlegg for å markere stengning av høyfjellsstrekning.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4870</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkTunnel">
+        <annotation>
+          <documentation>4876: Rødt blink, tunnel: Rødt blinkanlegg for å markere stengning av tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4876</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkLavHøyde">
+        <annotation>
+          <documentation>4875: Rødt blink, lav høyde: Rødt blinkanlegg for å markere stengning av veg pga at et kjøretøy er for høgt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4875</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkSkredSkredfare">
+        <annotation>
+          <documentation>4871: Rødt blink, skred/skredfare: Rødt blinkanlegg for å markere stengning av veg pga skred eller fare for skred</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4871</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkVindUvær">
+        <annotation>
+          <documentation>11719: Rødt blink, vind/uvær: Rødt blinkanlegg for å markere stengning av veg pga sterk vind/uvær</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11719</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkUtrykningsstasjon">
+        <annotation>
+          <documentation>11720: Rødt blink, utrykningsstasjon: Rødt blinkanlegg for å markere stengning av veg pga utrykning fra brannstasjon, politistasjon, etc.tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11720</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtBlinkAnnenFare">
+        <annotation>
+          <documentation>2980: Rødt blink, annen fare: Rødt blinkanlegg for å markere stengning av veg pga annen fare.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2980</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gulblink">
+        <annotation>
+          <documentation>11721: Gulblink: Gult blinkanlegg for varsling av fare.  Merknad: Kombinerte gult/rødt blink anlegg gis bruksområde "Rødt blink…"</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11721</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="jernbanekryssing">
+        <annotation>
+          <documentation>4874: Jernbanekryssing: Signalanlegg i forbindelse med jernbanekryssing.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4874</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeSignalanleggOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierSignalanleggType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7998</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierSignalanleggEnumerationType nvdb:EierSignalanleggOtherType"/>
+  </simpleType>
+  <simpleType name="EierSignalanleggEnumerationType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7998</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>10264: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10264</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>10726: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10726</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10328: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10328</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10392: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10392</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17571: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17571</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierSignalanleggOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnergitilførselType">
+    <annotation>
+      <documentation>Energitilførsel: Angir hvilken energitilførsel det er til signalanlegget</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8822</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENERGITILFØRSEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EnergitilførselEnumerationType nvdb:EnergitilførselOtherType"/>
+  </simpleType>
+  <simpleType name="EnergitilførselEnumerationType">
+    <annotation>
+      <documentation>Energitilførsel: Angir hvilken energitilførsel det er til signalanlegget</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8822</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENERGITILFØRSEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="spenningsbåndI">
+        <annotation>
+          <documentation>11735: Spenningsbånd I:  (0-50VAC, 0-120VDC)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11735</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spenningsbåndII">
+        <annotation>
+          <documentation>11736: Spenningsbånd II: (50-1000VAC, 120-1500VDC)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11736</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnergitilførselOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="LyshoderType">
+    <annotation>
+      <documentation>Lyshoder: Angir hvilken type lyshoder som er benyttet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8823</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSHODER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LyshoderEnumerationType nvdb:LyshoderOtherType"/>
+  </simpleType>
+  <simpleType name="LyshoderEnumerationType">
+    <annotation>
+      <documentation>Lyshoder: Angir hvilken type lyshoder som er benyttet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8823</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSHODER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lED">
+        <annotation>
+          <documentation>11734: LED</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11734</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glødelampeSpenningsbåndI">
+        <annotation>
+          <documentation>11732: Glødelampe spenningsbånd I</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11732</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glødelampeSpenningsbåndII">
+        <annotation>
+          <documentation>11733: Glødelampe spenningsbånd II</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11733</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LyshoderOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmrådestyringType">
+    <annotation>
+      <documentation>Områdestyring: Angir om signalanlegg er områdestyrt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8819</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDESTYRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OmrådestyringEnumerationType nvdb:OmrådestyringOtherType"/>
+  </simpleType>
+  <simpleType name="OmrådestyringEnumerationType">
+    <annotation>
+      <documentation>Områdestyring: Angir om signalanlegg er områdestyrt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8819</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDESTYRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11726: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11726</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11727: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11727</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmrådestyringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OvervåkingFraVTSType">
+    <annotation>
+      <documentation>Overvåking fra VTS: Angir om signalanlegg kan overvåkes fra VTS</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8820</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKINGFRAVTS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OvervåkingFraVTSEnumerationType nvdb:OvervåkingFraVTSOtherType"/>
+  </simpleType>
+  <simpleType name="OvervåkingFraVTSEnumerationType">
+    <annotation>
+      <documentation>Overvåking fra VTS: Angir om signalanlegg kan overvåkes fra VTS</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8820</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKINGFRAVTS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11728: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11728</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11729: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11729</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OvervåkingFraVTSOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OvervåkningFraBetjeningssentralType">
+    <annotation>
+      <documentation>Overvåkning fra betjeningssentral: Angir om signalanlegg kan overvåkes fra betjeningssentral</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8821</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKNINGFRABETJENINGSSENTRAL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OvervåkningFraBetjeningssentralEnumerationType nvdb:OvervåkningFraBetjeningssentralOtherType"/>
+  </simpleType>
+  <simpleType name="OvervåkningFraBetjeningssentralEnumerationType">
+    <annotation>
+      <documentation>Overvåkning fra betjeningssentral: Angir om signalanlegg kan overvåkes fra betjeningssentral</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8821</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKNINGFRABETJENINGSSENTRAL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11730: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11730</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11731: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11731</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OvervåkningFraBetjeningssentralOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SamkjørtType">
+    <annotation>
+      <documentation>Samkjørt: Angir om signalanlegget er samkjørt med andre signalanlegg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8818</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMKJØRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SamkjørtEnumerationType nvdb:SamkjørtOtherType"/>
+  </simpleType>
+  <simpleType name="SamkjørtEnumerationType">
+    <annotation>
+      <documentation>Samkjørt: Angir om signalanlegget er samkjørt med andre signalanlegg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8818</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMKJØRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11724: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11724</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11725: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11725</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SamkjørtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Signalanlegg" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SignalanleggType">
+    <annotation>
+      <documentation>Signalanlegg: System for regulering og varsling av trafikk.  Det er sammensatt av flere signalpunkt med tilhørende signalhoder og blir styrt av et styreapparat.  Merknad: Rødblinkanlegg er som regel egne signalanlegg på hvert sted, dvs rødblink i en ende av en tunnel er et annet saignalanlegg enn rødblink i andre enden av tunnelen.  Motsatt kan signalpunkt ved et gangfelt høre sammen i samme signalanlegg som signalpunkt for et kryss like ved.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">89</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="SignalanleggType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="anleggsnummer" type="string">
+            <annotation>
+              <documentation>Anleggsnummer: Gir unikt nummer til signalanlegget.  Nummeret er sammensatt av kommunenummer (4 siffer) og et tresifret løpenummer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8809</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANLEGGSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>Navn: Angir navn på signalanlegget</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7570</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedtaksnummer" type="string">
+            <annotation>
+              <documentation>Vedtaksnummer: Angir vedtaksnummer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1889</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDTAKSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeSignalanleggType">
+            <annotation>
+              <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1273</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="igangsettingsdato" type="date">
+            <annotation>
+              <documentation>Igangsettingsdato: Angir dato da signalanlegget ble satt i drift første gang.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8813</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_IGANGSETTINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="merknad" type="string">
+            <annotation>
+              <documentation>Merknad: Statisk tilleggsinformasjon om signalanlegget.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8811</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tidsstyrt" type="nvdb:TidsstyrtType">
+            <annotation>
+              <documentation>Tidsstyrt: Angir om Signalanlegg er tidsstyrt eller ikke.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8816</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSSTYRT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkstyrt" type="nvdb:TrafikkstyrtType">
+            <annotation>
+              <documentation>Trafikkstyrt: Angir om signalanlegg er trafikkstyrt eller ikke</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8817</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKSTYRT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="samkjørt" type="nvdb:SamkjørtType">
+            <annotation>
+              <documentation>Samkjørt: Angir om signalanlegget er samkjørt med andre signalanlegg</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8818</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMKJØRT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="områdestyring" type="nvdb:OmrådestyringType">
+            <annotation>
+              <documentation>Områdestyring: Angir om signalanlegg er områdestyrt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8819</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDESTYRING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="overvåkingFraVTS" type="nvdb:OvervåkingFraVTSType">
+            <annotation>
+              <documentation>Overvåking fra VTS: Angir om signalanlegg kan overvåkes fra VTS</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8820</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKINGFRAVTS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="overvåkningFraBetjeningssentral" type="nvdb:OvervåkningFraBetjeningssentralType">
+            <annotation>
+              <documentation>Overvåkning fra betjeningssentral: Angir om signalanlegg kan overvåkes fra betjeningssentral</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8821</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERVÅKNINGFRABETJENINGSSENTRAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="styringFraVTS" type="nvdb:StyringFraVTSType">
+            <annotation>
+              <documentation>Styring fra VTS: Angir om det er mulig å styre anlegg fra VTS</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3758</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRAVTS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="styringFraBetjeningssentral" type="nvdb:StyringFraBetjeningssentralType">
+            <annotation>
+              <documentation>Styring fra betjeningssentral: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3753</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="energitilførsel" type="nvdb:EnergitilførselType">
+            <annotation>
+              <documentation>Energitilførsel: Angir hvilken energitilførsel det er til signalanlegget</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8822</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENERGITILFØRSEL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lyshoder" type="nvdb:LyshoderType">
+            <annotation>
+              <documentation>Lyshoder: Angir hvilken type lyshoder som er benyttet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8823</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSHODER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="byggeår" type="integer">
+            <annotation>
+              <documentation>Byggeår: Angir byggeår for vegobjektet, dvs da signalanlegget ble etablert første gang</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10353</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierSignalanleggType">
+            <annotation>
+              <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7998</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSignalanleggType">
+            <annotation>
+              <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3824</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4789</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8919</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="assosiertStyreapparat" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Styreapparat</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SignalanleggPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Signalanlegg"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="StyringFraBetjeningssentralType">
+    <annotation>
+      <documentation>Styring fra betjeningssentral: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3753</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRAL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StyringFraBetjeningssentralEnumerationType nvdb:StyringFraBetjeningssentralOtherType"/>
+  </simpleType>
+  <simpleType name="StyringFraBetjeningssentralEnumerationType">
+    <annotation>
+      <documentation>Styring fra betjeningssentral: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3753</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRAL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4723: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4723</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StyringFraBetjeningssentralOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StyringFraVTSType">
+    <annotation>
+      <documentation>Styring fra VTS: Angir om det er mulig å styre anlegg fra VTS</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3758</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRAVTS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StyringFraVTSEnumerationType nvdb:StyringFraVTSOtherType"/>
+  </simpleType>
+  <simpleType name="StyringFraVTSEnumerationType">
+    <annotation>
+      <documentation>Styring fra VTS: Angir om det er mulig å styre anlegg fra VTS</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3758</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRAVTS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4725: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4725</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StyringFraVTSOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TidsstyrtType">
+    <annotation>
+      <documentation>Tidsstyrt: Angir om Signalanlegg er tidsstyrt eller ikke.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8816</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSSTYRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TidsstyrtEnumerationType nvdb:TidsstyrtOtherType"/>
+  </simpleType>
+  <simpleType name="TidsstyrtEnumerationType">
+    <annotation>
+      <documentation>Tidsstyrt: Angir om Signalanlegg er tidsstyrt eller ikke.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8816</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSSTYRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11722: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11722</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11723: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11723</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TidsstyrtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkstyrtType">
+    <annotation>
+      <documentation>Trafikkstyrt: Angir om signalanlegg er trafikkstyrt eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8817</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKSTYRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrafikkstyrtEnumerationType nvdb:TrafikkstyrtOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkstyrtEnumerationType">
+    <annotation>
+      <documentation>Trafikkstyrt: Angir om signalanlegg er trafikkstyrt eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8817</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKSTYRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>11745: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11745</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11746: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11746</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkstyrtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligSignalanleggType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3824</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligSignalanleggEnumerationType nvdb:VedlikeholdsansvarligSignalanleggOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligSignalanleggEnumerationType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3824</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSIGNALANLEGG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>9807: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9807</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>9808: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9808</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>9809: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9809</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17699: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17699</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligSignalanleggOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

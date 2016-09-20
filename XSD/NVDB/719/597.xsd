@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>597: VSTØY/VLUFT inndata og resultatdata knyttet til en vegstrekning.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">597</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="StoeyLuftBeregning.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DefaultVerdierForRushType">
+    <annotation>
+      <documentation>Default verdier for rush: Forteller om defaultverdier for rush skal benyttes.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5438</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEFAULTVERDIERFORRUSH</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DefaultVerdierForRushEnumerationType nvdb:DefaultVerdierForRushOtherType"/>
+  </simpleType>
+  <simpleType name="DefaultVerdierForRushEnumerationType">
+    <annotation>
+      <documentation>Default verdier for rush: Forteller om defaultverdier for rush skal benyttes.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5438</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEFAULTVERDIERFORRUSH</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>7370: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7370</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>7371: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7371</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DefaultVerdierForRushOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FasadeDekningsGradType">
+    <annotation>
+      <documentation>Fasade deknings grad: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5427</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEDEKNINGSGRAD</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FasadeDekningsGradEnumerationType nvdb:FasadeDekningsGradOtherType"/>
+  </simpleType>
+  <simpleType name="FasadeDekningsGradEnumerationType">
+    <annotation>
+      <documentation>Fasade deknings grad: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5427</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEDEKNINGSGRAD</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tettFasaderekkeEnSide75m">
+        <annotation>
+          <documentation>7361: Tett fasaderekke en side &gt; 75m</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7361</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tettFasaderekkeBeggeSider50m">
+        <annotation>
+          <documentation>7362: Tett fasaderekke begge sider &gt; 50m</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7362</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spredtBebyggelseVegetasjon">
+        <annotation>
+          <documentation>7363: Spredt bebyggelse/vegetasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7363</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="heltÅpent">
+        <annotation>
+          <documentation>7364: Helt åpent</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7364</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesiellTopografi">
+        <annotation>
+          <documentation>7365: Spesiell topografi</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7365</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel">
+        <annotation>
+          <documentation>7366: Tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7366</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FasadeDekningsGradOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="GateklasseType">
+    <annotation>
+      <documentation>Gateklasse: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6996</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GateklasseEnumerationType nvdb:GateklasseOtherType"/>
+  </simpleType>
+  <simpleType name="GateklasseEnumerationType">
+    <annotation>
+      <documentation>Gateklasse: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6996</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="gjennomfartInnfart">
+        <annotation>
+          <documentation>9272: Gjennomfart/Innfart: Hovedgate mot sentrum, gjennomfart gjennom sentrum eller ringveg/omkjøringsveg med halvsentral beliggenhet. Gaten har markerte trafikktopper morgen og ettermiddag, og relativt stor andel tungtrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9272</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sentrumsgate">
+        <annotation>
+          <documentation>9273: Sentrumsgate: Hovedgate i sentrumsområde. Gate i sentral bebyggelse som avvikler lokaltrafikk i byens/tettstedets sentrumsområde. Trafikken er jevnere fordelt over dagen enn for klasse 1, og andelen tungtrafikk er mindre, om gaten ikke har vesentlig busstrafikk. Trafikkrytmen på gaten er ujevn, forstyrrelser forekommer ofte</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="boliggate">
+        <annotation>
+          <documentation>9274: Boliggate: Hovedgate i boligområde.  Gate som fører trafikk mellom innfartsgater og ett eller flere boligområder. Gaten har kraftige trafikktopper spesielt om morgenen, men også om ettermiddagen, og har liten andel tungtrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9274</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gateIIndustriområde">
+        <annotation>
+          <documentation>9275: Gate i industriområde: Gate som betjener større nærings-/industriområde.  Gaten har stor andel tungtrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lokalVeg">
+        <annotation>
+          <documentation>9276: Lokal veg: Lokalveg i boligområde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GateklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KlassifikasjonAvVegstøvBelastningType">
+    <annotation>
+      <documentation>Klassifikasjon av vegstøv belastning: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5426</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSIFIKASJONAVVEGSTØVBELASTNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KlassifikasjonAvVegstøvBelastningEnumerationType nvdb:KlassifikasjonAvVegstøvBelastningOtherType"/>
+  </simpleType>
+  <simpleType name="KlassifikasjonAvVegstøvBelastningEnumerationType">
+    <annotation>
+      <documentation>Klassifikasjon av vegstøv belastning: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5426</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSIFIKASJONAVVEGSTØVBELASTNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="sværtStorVegstøvbelastning">
+        <annotation>
+          <documentation>7357: Svært stor vegstøvbelastning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7357</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="storVegstøvbelastning">
+        <annotation>
+          <documentation>7358: Stor vegstøvbelastning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7358</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middelsVegstøvbelastning">
+        <annotation>
+          <documentation>7359: Middels vegstøvbelastning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7359</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="liteVegstøvbelastning">
+        <annotation>
+          <documentation>7360: Lite vegstøvbelastning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7360</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KlassifikasjonAvVegstøvBelastningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmrådetypeType">
+    <annotation>
+      <documentation>Områdetype: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6995</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDETYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OmrådetypeEnumerationType nvdb:OmrådetypeOtherType"/>
+  </simpleType>
+  <simpleType name="OmrådetypeEnumerationType">
+    <annotation>
+      <documentation>Områdetype: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6995</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDETYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="spredtBebyggelse">
+        <annotation>
+          <documentation>9269: Spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9269</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middelsSpredtBebyggelse">
+        <annotation>
+          <documentation>9270: Middels spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9270</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tettBebyggelse">
+        <annotation>
+          <documentation>9271: Tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9271</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmrådetypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SoneBenyttetILuftstøyBeregningerType">
+    <annotation>
+      <documentation>Sone benyttet i luftstøy beregninger: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SONEBENYTTETILUFTSTØYBEREGNINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SoneBenyttetILuftstøyBeregningerEnumerationType nvdb:SoneBenyttetILuftstøyBeregningerOtherType"/>
+  </simpleType>
+  <simpleType name="SoneBenyttetILuftstøyBeregningerEnumerationType">
+    <annotation>
+      <documentation>Sone benyttet i luftstøy beregninger: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SONEBENYTTETILUFTSTØYBEREGNINGER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="by">
+        <annotation>
+          <documentation>7367: By</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7367</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tettsted">
+        <annotation>
+          <documentation>7368: Tettsted</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7368</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="landområde">
+        <annotation>
+          <documentation>7369: Landområde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7369</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SoneBenyttetILuftstøyBeregningerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StandardklasseStøyLuftStrekningsdataType">
+    <annotation>
+      <documentation>Standardklasse: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8315</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTØYLUFTSTREKNINGSDATA</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StandardklasseStøyLuftStrekningsdataEnumerationType nvdb:StandardklasseStøyLuftStrekningsdataOtherType"/>
+  </simpleType>
+  <simpleType name="StandardklasseStøyLuftStrekningsdataEnumerationType">
+    <annotation>
+      <documentation>Standardklasse: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8315</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTØYLUFTSTREKNINGSDATA</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="h1">
+        <annotation>
+          <documentation>11240: H1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11240</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h2">
+        <annotation>
+          <documentation>11241: H2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11241</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h3">
+        <annotation>
+          <documentation>11242: H3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11242</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="s1">
+        <annotation>
+          <documentation>11243: S1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11243</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="s2">
+        <annotation>
+          <documentation>11244: S2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11244</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="s3">
+        <annotation>
+          <documentation>11245: S3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11245</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="a1">
+        <annotation>
+          <documentation>11246: A1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11246</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="a2">
+        <annotation>
+          <documentation>11247: A2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11247</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="a3">
+        <annotation>
+          <documentation>11248: A3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11248</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="g1">
+        <annotation>
+          <documentation>11249: G1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11249</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="g2">
+        <annotation>
+          <documentation>11250: G2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11250</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="g3">
+        <annotation>
+          <documentation>11251: G3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11251</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StandardklasseStøyLuftStrekningsdataOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="StøyLuftStrekningsdata" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StøyLuftStrekningsdataType">
+    <annotation>
+      <documentation>Støy-luft,Strekningsdata: VSTØY/VLUFT inndata og resultatdata knyttet til en vegstrekning.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">597</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYLUFTSTREKNINGSDATA</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="StøyLuftStrekningsdataType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="versjonAvVluftVstøy" type="string">
+            <annotation>
+              <documentation>Versjon av vluft/vstøy: Forteller hvilken versjon av VLUFT/VSTØY som er benyttet ved beregning av størrelser.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5456</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VERSJONAVVLUFTVSTØY</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="soneBenyttetILuftstøyBeregninger" type="nvdb:SoneBenyttetILuftstøyBeregningerType">
+            <annotation>
+              <documentation>Sone benyttet i luftstøy beregninger: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SONEBENYTTETILUFTSTØYBEREGNINGER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="områdetype" type="nvdb:OmrådetypeType">
+            <annotation>
+              <documentation>Områdetype: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6995</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDETYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="standardklasse" type="nvdb:StandardklasseStøyLuftStrekningsdataType">
+            <annotation>
+              <documentation>Standardklasse: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8315</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gateklasse" type="nvdb:GateklasseType">
+            <annotation>
+              <documentation>Gateklasse: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6996</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATEKLASSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gatenavn" type="string">
+            <annotation>
+              <documentation>Gatenavn: Angir gatenavn som er representativt for strekningen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6997</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATENAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gatenummer" type="string">
+            <annotation>
+              <documentation>Gatenummer: Angir gatenummer for oppgitt gate</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6998</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATENUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stigning" type="integer">
+            <annotation>
+              <documentation>Stigning: Stigning på gaten/vegen i prosent.  Positivt fortegn angir stigning i metreringsretningen, negativt fortegn angir nedoverbakke i metreringsretningen.  Maksimal stigning er satt til 12 %. Stigningen har betydning for utslippsberegningene. (BV)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6999</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STIGNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjørebanebredde" type="integer">
+            <annotation>
+              <documentation>Kjørebanebredde: Kjørebanebredde i meter, fra kjørebanekant til kjørebanekant (avstand mellom hvitstripene). Ved manuell innlegging må kjørebanebredden angis på nærmeste meter. (BV)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7000</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØREBANEBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkretning" type="nvdb:TrafikkretningType">
+            <annotation>
+              <documentation>Trafikkretning: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7001</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="hastighetOverDøgnet" type="integer">
+            <annotation>
+              <documentation>Hastighet over døgnet: Gjennomsnittlig hastighet over døgnet (km/t).</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7002</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HASTIGHETOVERDØGNET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="hastighetIMakstime" type="integer">
+            <annotation>
+              <documentation>Hastighet i makstime: Kjørehastighet ved makstrafikk. (I rushtiden)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5429</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HASTIGHETIMAKSTIME</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="åDTIBeregningsår" type="integer">
+            <annotation>
+              <documentation>ÅDT i beregningsår: Årsdøgntrafikk i beregningsåret. Gjennomsnittlig døgntrafikk over året på lenken (kjøretøy pr. døgn).  ÅDT er grunnlaget for å beregne totalutslipp, og også for å tildele standardverdier av Mmaks dersom denne ikke har verdi i inngangsfila. (BV)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7003</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅDTIBEREGNINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="forventetMaksimalTimetrafikk" type="integer">
+            <annotation>
+              <documentation>Forventet maksimal timetrafikk: Angis i antall kjøretøy/time</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5430</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORVENTETMAKSIMALTIMETRAFIKK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="ådtBuss" type="integer">
+            <annotation>
+              <documentation>Ådt buss: Årsdøgntrafikk for buss. Sum begge retninger. Angis på nærmeste 20  50 kjt/døgn avhengig av trafikkmengden</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5431</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅDTBUSS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="busstrafikkIMakstime" type="integer">
+            <annotation>
+              <documentation>Busstrafikk i makstime: Antall busser i rushtimen (busser/time). Verdier må hentes fra ruteoversikter fra busselskapene eller tellinger. Brukes til å beregne bussenes bidrag til maksimalkonsentrasjonene. Hvis Bmaks blir oppgitt til -1 i inngangsfila, beregnes den på bakgrunn av ÅDTB, slik at bussandelen i makstimen blir lik bussandelen i snitt over døgnet. Hvis Bmaks oppgis til 0, antas det ngen busser på lenken i rushtimen. (BV)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7004</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUSSTRAFIKKIMAKSTIME</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="åDTAndelLangeKjøretøy" type="integer">
+            <annotation>
+              <documentation>ÅDT, andel lange kjøretøy: Andel lange kjøretøy av totaltrafikken.  Fordelingen mellom ulike kjøretøyklasser innen de lange og lette bilene ligger fast i programmet.  Tungtrafikkandelen har meget stor betydning for beregning av totalutslipp av NOx, og konsentrasjoner av NO2 og PM10 og støy. Kjøretøy over 5,5 meter regnes som lange. (BV)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7005</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅDTANDELLANGEKJØRETØY</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tungtrafikkandelIMaksTimen" type="integer">
+            <annotation>
+              <documentation>Tungtrafikkandel i maks timen: Angis i prosent og inklusive busser. (ÅDT  BUSS)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5432</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TUNGTRAFIKKANDELIMAKSTIMEN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="defaultVerdierForRush" type="nvdb:DefaultVerdierForRushType">
+            <annotation>
+              <documentation>Default verdier for rush: Forteller om defaultverdier for rush skal benyttes.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5438</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEFAULTVERDIERFORRUSH</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallPersonerPrBolig" type="double">
+            <annotation>
+              <documentation>Antall personer pr bolig: Antall personer pr. bolig benyttet ved beregninger i VSTØY/VLUFT.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5381</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPERSONERPRBOLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fasadeDekningsGrad" type="nvdb:FasadeDekningsGradType">
+            <annotation>
+              <documentation>Fasade deknings grad: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5427</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEDEKNINGSGRAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fasadeAvstand" type="integer">
+            <annotation>
+              <documentation>Fasade avstand: Antall meter fra kjørebanekant til fasade. Angis bare når FASDEKN = 1 eller 2.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5428</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEAVSTAND</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="klassifikasjonAvVegstøvBelastning" type="nvdb:KlassifikasjonAvVegstøvBelastningType">
+            <annotation>
+              <documentation>Klassifikasjon av vegstøv belastning: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5426</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSIFIKASJONAVVEGSTØVBELASTNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="endretAv" type="string">
+            <annotation>
+              <documentation>Endret av: Angir navn på de som sist endret informasjon om strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8948</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENDRETAV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="merknad" type="string">
+            <annotation>
+              <documentation>Merknad: Merknad</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5436</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="endretDen" type="date">
+            <annotation>
+              <documentation>Endret den: Angir dato for siste endring av informasjon om strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8949</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENDRETDEN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligUte5560DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, ute, 55-60 dBA: Antall boliger med utendørs støynivå fra og med 55 til 60 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5383</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGUTE5560DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligUte6065DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, ute, 60-65 dBA: Antall boliger med utendørs støynivå fra og med 60 til 65 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5384</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGUTE6065DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligUte6570DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, ute, 65-70 dBA: Antall boliger med utendørs støynivå fra og med 65 til 70 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5385</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGUTE6570DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligUteFraOgMed70DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, ute, fra og med 70 dBA: Antall boliger med utendørs støynivå fra og med 70 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5386</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGUTEFRAOGMED70DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligInne3035DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, inne, 30-35 dBA: Antall boliger med innendørs støynivå fra og med 30 til 35 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5387</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGINNE3035DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligInne3540DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, inne, 35-40 dBA: Antall boliger med innendørs støynivå fra og med 35 til 40 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5388</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGINNE3540DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligInne4042DBA" type="integer">
+            <annotation>
+              <documentation>Støy, bolig, inne, 40-42 dBA: Antall boliger med innendørs støynivå fra og med 40 til 42 dBA.  (Det vil ikke bli lagret data med 40 til 45 dBA i NVDB, siden det gjelder gamle versjoner av Vstøy/Vluft)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5389</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGINNE4042DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyBoligInneFraOgMed42DBA" type="integer">
+            <annotation>
+              <documentation>Støy bolig inne fra og med 42 dBA: Antall boliger med innendørs støynivå fra og med 42 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5439</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYBOLIGINNEFRAOGMED42DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstUte5055DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, ute, 50-55 dBA: Antall institusjonsplasser med utendørs støynivå fra og med 50 til 55 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5392</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTUTE5055DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstUte5560DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, ute, 55-60 dBA: Antall institusjonsplasser med utendørs støynivå fra og med 55 til 60 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5393</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTUTE5560DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstUte6065DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, ute, 60-65 dBA: Antall institusjonsplasser med utendørs støynivå fra og med 60 til 65 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5394</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTUTE6065DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstUte6570DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, ute, 65-70 dBA: Antall institusjonsplasser med utendørs støynivå fra og med 65 til 70 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5395</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTUTE6570DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstUteFraOgMed70DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, ute, fra og med 70 dBA: Antall institusjonsplasser med utendørs støynivå fra og med 70 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5396</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTUTEFRAOGMED70DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstInne3035DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, inne, 30-35 dBA: Antall institusjonsplasser med innendørs støynivå fra og med 30 til 35 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5397</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTINNE3035DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstInneFra3540DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, inne, fra, 35-40 dBA: Antall institusjonsplasser med innendørs støynivå fra og med 35 til 40 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5398</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTINNEFRA3540DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstInne4042DBA" type="integer">
+            <annotation>
+              <documentation>Støy, inst, inne, 40-42 dBA: Antall institusjonsplasser med innendørs støynivå fra og med 40 til 42 dBA.  (Det vil ikke bli lagret data med 40 til 45 dBA i NVDB, siden det gjelder gamle versjoner av Vstøy/Vluft)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5399</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTINNE4042DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="støyInstInneFraOgMed42DBA" type="integer">
+            <annotation>
+              <documentation>Støy inst inne fra og med 42 dBA: Antall institusjonsplasser med innendørs støynivå fra og med 42 dBA.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5440</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYINSTINNEFRAOGMED42DBA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sPI" type="integer">
+            <annotation>
+              <documentation>SPI: StøyPlageIndeks</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5632</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallStøyplagedePersonerIBolig" type="integer">
+            <annotation>
+              <documentation>Antall, støyplagede personer i bolig: Tall funnet ut fra plaghetsmodell av 1/1 92</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5382</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLSTØYPLAGEDEPERSONERIBOLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallStøyplagedePersIInstitusjon" type="integer">
+            <annotation>
+              <documentation>Antall støyplagede pers i institusjon: Tall funnet ut fra plaghetsmodell av 1/1 92</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5391</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLSTØYPLAGEDEPERSIINSTITUSJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="cOKonsentrasjon5mFraVegkant" type="integer">
+            <annotation>
+              <documentation>CO konsentrasjon 5m fra vegkant: Maksimal timemiddelkonsentrasjon av CO på lenken. Angitt i mg/m3.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5433</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COKONSENTRASJON5MFRAVEGKANT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="cOPers8" type="integer">
+            <annotation>
+              <documentation>CO pers 8: Antall personer i bolig utsatt for maksimale timemiddelkonsentrasjoner av CO i intervallet 8  15 MG/M3</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5405</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COPERS8</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="cOPers15" type="integer">
+            <annotation>
+              <documentation>CO pers 15: Antall personer i bolig utsatt for maksimale timemiddelkonsentrasjoner av CO i intervallet 15  25 mg/m3</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5406</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COPERS15</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="cOPers25" type="integer">
+            <annotation>
+              <documentation>CO pers 25: Antall personer i bolig utsatt for maksimale timemiddelkonsentrasjoner av CO på 25 mg/m3 eller mer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5407</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COPERS25</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="coinsp8" type="integer">
+            <annotation>
+              <documentation>Coinsp8: Antall personer i inst utsatt for maksimale timemiddelkonsentrasjoner av CO i intervallet 8  15 MG/M3</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5416</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COINSP8</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="coinsp15" type="integer">
+            <annotation>
+              <documentation>Coinsp15: Antall personer i inst. utsatt for maksimale timemiddelkonsentrasjoner av CO i intervallet 15  25 mg/m3</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5417</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COINSP15</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="coinsp25" type="integer">
+            <annotation>
+              <documentation>Coinsp25: Antall personer i inst. utsatt for maksimale timemiddelkonsentrasjoner av CO på 25 mg/m3 eller mer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5418</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_COINSP25</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2Konsentrasjon5mFraVegkant" type="integer">
+            <annotation>
+              <documentation>NO2 konsentrasjon 5m fra vegkant: Maksimal timemiddelkonsentrasjon av NO2 på lenken. Angitt i mg/m3.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5434</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2KONSENTRASJON5MFRAVEGKANT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2Personer100" type="integer">
+            <annotation>
+              <documentation>NO2 personer 100: Antall personer i bolig utsatt for maksimale timemiddelkonsentrasjoner av NO2 intervallet 100  200 ug/m3 (Data for 1991 gjelder intervallet 130  200)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5408</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PERSONER100</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2Personer200" type="integer">
+            <annotation>
+              <documentation>NO2 personer 200: Antall personer i bolig utsatt for maksimale timemiddelkonsentrasjoner av NO2 i intervallet 200  350 ug/m3, evt. 200  300 ug/m3, avhengig av versjon av VLUF/VSTØY. Ved versjon 4.0 eller nyere gjelder 200  300.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5409</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PERSONER200</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2Personer300" type="integer">
+            <annotation>
+              <documentation>NO2 personer 300: Antall personer i bolig utsatt for maks. timemiddelkonsentrasjon av NO2 i intervallet fra og med 300 ug/m3 til 400 ug/m3.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5441</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PERSONER300</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2Personer350" type="integer">
+            <annotation>
+              <documentation>NO2 personer 350: Antall personer i bolig utsatt for maks. timemiddelkonsentrasjon av NO2 i intervallet fra og med 350 ug/m3 til 400 ug/m3. Dette feltet har ingen verdi ved versjon 4.0 eller nyere av VLUFT/VSTØY.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5410</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PERSONER350</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="no2in100" type="integer">
+            <annotation>
+              <documentation>No2in100: Antall personer i inst. utsatt for maksimale timemiddelkonsentrasjoner av NO2 intervallet 100  200 ug/m3 (Data for 1991 gjelder intervallet 130  200)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5419</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2IN100</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="no2in200" type="integer">
+            <annotation>
+              <documentation>No2in200: Antall personer i inst. utsatt for maksimale timemiddelkonsentrasjoner av NO2 i intervallet 200  350 ug/m3, evt. intervallet 200   300, avhengig av versjon av VLUFT/VSTØY. Ved versjon 4.0 eller nyere gjelder 200 til 300.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5420</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2IN200</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2in300" type="integer">
+            <annotation>
+              <documentation>NO2in300: Antall personer i inst. utsatt for maksimale timemiddelkonsentrasjoner av NO2 i intervallet 300  400 ug/m3</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5444</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2IN300</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="no2in350" type="integer">
+            <annotation>
+              <documentation>No2in350: Antall personer i inst. utsatt for maks. timemiddelkonsentrasjon av NO2 i intervallet fra og med 350 ug/m3 til 400 ug/m3. Dette feltet har ingen verdi ved versjon 4.0 eller nyere av VLUFT/VSTØY.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5421</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2IN350</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="no2in400" type="integer">
+            <annotation>
+              <documentation>No2in400: Antall personer i inst. utsatt for maks. timemiddelkonsentrasjon av NO2 fra og med 400 ug/m3 og over.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5422</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2IN400</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2instpr1508" type="integer">
+            <annotation>
+              <documentation>NO2instpr150 8: NO2INSTPR150_8 er antall personer i institusjon utsatt for maks. timemiddelkonsentrasjon an NO2 over 150 (my)g/m3 mer enn 8 ganger pr. år.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5448</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2INSTPR1508</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2pr1508" type="integer">
+            <annotation>
+              <documentation>NO2pr150 8: NO2PR150_8 er antall personer i bolig utsatt for maks. timemiddelkons. av NO2 over 150 (my)g/m3 mer enn 8 ganger pr år.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5447</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PR1508</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2pr400" type="integer">
+            <annotation>
+              <documentation>NO2pr400: Antall personer i bolig utsatt for maks. timemiddelkonsentrasjon av NO2 fra og med 400 ug/m3 og over.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5411</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PR400</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nO2pros8" type="integer">
+            <annotation>
+              <documentation>NO2pros 8: NO2PROS_8 er konsentrasjonsnivå av NO2 som overstiges mer enn 8 ganger pr. år på 5m avstand.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5453</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2PROS8</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10Konsentrasjon5mFraVegkant" type="integer">
+            <annotation>
+              <documentation>Pm10 konsentrasjon 5m fra vegkant: Maks. timemiddelkons. av PM10 5 meter fra vegkanten i milligram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5435</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10KONSENTRASJON5MFRAVEGKANT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10i70" type="integer">
+            <annotation>
+              <documentation>Pm10i70: Antall personer i inst. utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 70 mikrogram pr. kubikkmeter til 200 mikrogram pr. kubikkmeter, evt. intervallet 70 til 150, avhengig av versjon av VLUFT/VSTØY. Ved versjon 4.0 eller nyere gjelder 70 til 150.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5423</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10I70</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10i150" type="integer">
+            <annotation>
+              <documentation>Pm10i150: Antall personer i inst. utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 150 mikrogram pr. kubikkmeter til 200 mikrogram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5445</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10I150</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10i200" type="integer">
+            <annotation>
+              <documentation>Pm10i200: Antall personer i inst. utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 200 mikrogram pr. kubikkmeter til 300 mikrogram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5424</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10I200</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10i300" type="integer">
+            <annotation>
+              <documentation>Pm10i300: Antall personer i inst. utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 300 mikrogram pr. kubikkmeter og over, evt. 300 til 350, avhengig av versjon av VLUFT/VSTØY. Ved versjon 4.0 eller nyere gjelder 300 til 350.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5425</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10I300</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10i350" type="integer">
+            <annotation>
+              <documentation>Pm10i350: Antall personer i inst. utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 350 mikrogram pr. kubikkmeter og over.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5446</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10I350</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10instpr507" type="integer">
+            <annotation>
+              <documentation>Pm10instpr50 7: PM10INSTPR50_7 er antall personer i institusjon utsatt for maks. timemiddelkons. av PM10 over 50 (my)g/m3 mer enn 7 ganger pr. år.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5452</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10INSTPR507</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10instpr5025" type="integer">
+            <annotation>
+              <documentation>Pm10instpr50 25: PM10INSTPR50_25 er antall personer i institusjon utsatt for maks. timemiddelkons. av PM10 over 50 (my)g/m3 mer enn 25 ganger pr. år</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5450</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10INSTPR5025</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10p70" type="integer">
+            <annotation>
+              <documentation>Pm10p70: Antall personer i bolig utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 70 mikrogram pr. kubikkmeter til 200 mikrogram pr. kubikkmeter, evt. intervallet 70 til 150, avhengig av versjon av VLUFT/VSTØY. Ved versjon 4.0 eller nyere gjelder 70 til 150.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5412</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10P70</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10p150" type="integer">
+            <annotation>
+              <documentation>Pm10p150: Antall personer i bolig utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 150 mikrogram pr. kubikkmeter til 200 mikrogram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5442</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10P150</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10p200" type="integer">
+            <annotation>
+              <documentation>Pm10p200: Antall personer i bolig utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 200 mikrogram pr. kubikkmeter til 300 mikrogram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5413</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10P200</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10p300" type="integer">
+            <annotation>
+              <documentation>Pm10p300: Antall personer i bolig utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 300 mikrogram pr. kubikkmeter til 350 mikrogram pr. kubikkmeter.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5414</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10P300</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10p350" type="integer">
+            <annotation>
+              <documentation>Pm10p350: Antall personer i bolig utsatt for maks. timemiddelkons. av PM10 i intervallet fra og med 350 mikrogram pr. kubikkmeter og over.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5443</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10P350</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10pr507" type="integer">
+            <annotation>
+              <documentation>Pm10pr50 7: PM10PR50_7 er antall personer i bolig utsatt for maks. timemiddelkons. over 50 (my)g/m3 mer enn 7 ganger pr. år.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5451</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10PR507</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10pr5025" type="integer">
+            <annotation>
+              <documentation>Pm10pr50 25: PM10PR50_25 er antall personer i bolig utsatt for maks. timemiddelkons. av PM10 over 50 (my)g/m3 mer enn 25 ganger pr. år.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5449</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10PR5025</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10pros7" type="integer">
+            <annotation>
+              <documentation>Pm10pros 7: PM10PROS_7 er konsentrasjonsnivå av PM10 som overstiges mer enn 7 ganger pr. år på 5m avstand.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5455</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10PROS7</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="pm10pros25" type="integer">
+            <annotation>
+              <documentation>Pm10pros 25: PM10PROS  25 er konsentrasjonsnivå av PM10 som overstiges mer enn 25 ganger pr. år på 5m avstand.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5454</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10PROS25</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utslippAvCO" type="integer">
+            <annotation>
+              <documentation>Utslipp av CO: Totalt utslipp av CO. Angitt i Tonn/År</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5403</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSLIPPAVCO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utslippAvCO2" type="integer">
+            <annotation>
+              <documentation>Utslipp av CO2: Totalt utslipp av CO2. Angitt i Tonn/År</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5402</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSLIPPAVCO2</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utslippAvNOX" type="integer">
+            <annotation>
+              <documentation>Utslipp av NOX: Totalt utslipp av NOX. Angitt i Tonn/År</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5404</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSLIPPAVNOX</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallLuftForurensningsplagaPers" type="integer">
+            <annotation>
+              <documentation>Antall luft forurensningsplaga pers: Benyttet plaghetsmodell pr. 1/1 92 som tar utgangspunkt i NO2  Konsentrasjoner som indikator på plagethet av luftforurensning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5401</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLUFTFORURENSNINGSPLAGAPERS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallPersonerLuftplagetIInst" type="integer">
+            <annotation>
+              <documentation>Antall personer luftplaget i inst: Antall personer plaget av luftforurensing i institusjon.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5415</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPERSONERLUFTPLAGETIINST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6909</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StøyLuftStrekningsdataPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:StøyLuftStrekningsdata"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TrafikkretningType">
+    <annotation>
+      <documentation>Trafikkretning: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7001</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrafikkretningEnumerationType nvdb:TrafikkretningOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkretningEnumerationType">
+    <annotation>
+      <documentation>Trafikkretning: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7001</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tovegsTrafikk">
+        <annotation>
+          <documentation>9277: Tovegs trafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9277</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="envegsMedMetreringsretning">
+        <annotation>
+          <documentation>9278: Envegs, med metreringsretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="envegsMotMetreringsretnig">
+        <annotation>
+          <documentation>9279: Envegs, mot metreringsretnig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9279</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkretningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

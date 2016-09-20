@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>838: Vegbredde beregnet på basis av grunnlagsdata, f.eks FKB, dekkestilstandsdata etc . Merknad: Disse dataene er i første omgang tiltenkt bruksområder hvor det ikke stilles veldig nøyaktige krav til breddenøyaktighet, bla analyser knyttet til NTP.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">838</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="VegbreddeBeregnet.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="GrunnlagType">
+    <annotation>
+      <documentation>Grunnlag: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9534</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GrunnlagEnumerationType nvdb:GrunnlagOtherType"/>
+  </simpleType>
+  <simpleType name="GrunnlagEnumerationType">
+    <annotation>
+      <documentation>Grunnlag: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9534</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fKB">
+        <annotation>
+          <documentation>13456: FKB</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13456</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="laserdataDekketilstand">
+        <annotation>
+          <documentation>13457: Laserdata, dekketilstand</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13457</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="manuellMåling">
+        <annotation>
+          <documentation>13458: Manuell måling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13458</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GrunnlagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="VegbreddeBeregnet" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegbreddeBeregnetType">
+    <annotation>
+      <documentation>Vegbredde,beregnet: Vegbredde beregnet på basis av grunnlagsdata, f.eks FKB, dekkestilstandsdata etc . Merknad: Disse dataene er i første omgang tiltenkt bruksområder hvor det ikke stilles veldig nøyaktige krav til breddenøyaktighet, bla analyser knyttet til NTP.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">838</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBREDDEBEREGNET</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegbreddeBeregnetType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="dekkebredde" type="double">
+            <annotation>
+              <documentation>Dekkebredde: Angir total dekkebredde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9537</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dekkebreddeMin" type="double">
+            <annotation>
+              <documentation>Dekkebredde, min: Angir minimum dekkebredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9538</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDEMIN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dekkebreddeMaks" type="double">
+            <annotation>
+              <documentation>Dekkebredde, maks: Angir maks dekkebredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9536</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDEMAKS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegbredde" type="double">
+            <annotation>
+              <documentation>Vegbredde: Angir total vegbredde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9797</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegbreddeMin" type="double">
+            <annotation>
+              <documentation>Vegbredde, min: Angir minimum vegbredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9798</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBREDDEMIN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegbreddeMaks" type="double">
+            <annotation>
+              <documentation>Vegbredde, maks: Angir maks vegbredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9796</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBREDDEMAKS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjørebanebredde" type="double">
+            <annotation>
+              <documentation>Kjørebanebredde: Angir total kjørebanebredde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9800</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØREBANEBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjørebanebreddeMin" type="double">
+            <annotation>
+              <documentation>Kjørebanebredde, min: Angir minimum kjørebanebredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9801</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØREBANEBREDDEMIN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjørebanebreddeMaks" type="double">
+            <annotation>
+              <documentation>Kjørebanebredde, maks: Angir maks kjørebanebredde på gitt strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9799</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØREBANEBREDDEMAKS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="grunnlag" type="nvdb:GrunnlagType">
+            <annotation>
+              <documentation>Grunnlag: Angir hvilke kilde dataene kommer fra</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9534</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNLAG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="målemetodeGrunnlag" type="string">
+            <annotation>
+              <documentation>Målemetode grunnlag: Angir hvilken målemetode som er benyttet for å framskaffe grunnlagsdata. Verdier fra SOSI målemetode.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9535</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEGRUNNLAG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoGrunnlag" type="date">
+            <annotation>
+              <documentation>Dato grunnlag: Angir opprinnelsesdato for eldste grunnlagsdata</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9533</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOGRUNNLAG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitetGrunnlag" type="integer">
+            <annotation>
+              <documentation>Kvalitet grunnlag: Angir kvalitet på grunnlagsdata</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9539</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETGRUNNLAG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="merknad" type="string">
+            <annotation>
+              <documentation>Merknad: Informasjon knyttet til vegbredde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9540</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dekkebreddeMedianTest" type="double">
+            <annotation>
+              <documentation>Dekkebredde, median (test): Gir median for dekkebredde. Foreløpig til testformål</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10248</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDEMEDIANTEST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dekkebreddeNormalTest" type="double">
+            <annotation>
+              <documentation>Dekkebredde, normal (test): Angir den dekkebredden som flest av de beregna profilene har når de er avrundet i henhold til oppgitt avrundingsintervall. Foreløpig til testformål</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10249</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDENORMALTEST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegbreddeBeregnetPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:VegbreddeBeregnet"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

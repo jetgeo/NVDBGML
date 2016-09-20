@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>528: Snitt av veg vinkelrett på vegens midtlinje</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">528</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Tverrprofil.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DataopprinnelseType">
+    <annotation>
+      <documentation>Dataopprinnelse: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4547</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DataopprinnelseEnumerationType nvdb:DataopprinnelseOtherType"/>
+  </simpleType>
+  <simpleType name="DataopprinnelseEnumerationType">
+    <annotation>
+      <documentation>Dataopprinnelse: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4547</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tverr">
+        <annotation>
+          <documentation>5446: Tverr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5446</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dekkeregister">
+        <annotation>
+          <documentation>5447: Dekkeregister</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5447</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegReg">
+        <annotation>
+          <documentation>5448: VegReg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5448</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regneark">
+        <annotation>
+          <documentation>5449: Regneark</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5449</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DataopprinnelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeBreddeType">
+    <annotation>
+      <documentation>Målemetode,bredde: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEBREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MålemetodeBreddeEnumerationType nvdb:MålemetodeBreddeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeBreddeEnumerationType">
+    <annotation>
+      <documentation>Målemetode,bredde: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEBREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="målehjul">
+        <annotation>
+          <documentation>5429: Målehjul</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5429</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stikkstang">
+        <annotation>
+          <documentation>5430: Stikkstang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5430</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anslag">
+        <annotation>
+          <documentation>5431: Anslag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5431</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stigningsmåler">
+        <annotation>
+          <documentation>5432: Stigningsmåler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5432</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="waterstang">
+        <annotation>
+          <documentation>5433: Waterstang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5433</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="målebånd">
+        <annotation>
+          <documentation>5434: Målebånd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5434</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kikkert">
+        <annotation>
+          <documentation>5435: Kikkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5435</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="manuellVideo">
+        <annotation>
+          <documentation>5436: Manuell video</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5436</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ukjent">
+        <annotation>
+          <documentation>5437: Ukjent</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="automatiskVideo">
+        <annotation>
+          <documentation>5439: Automatisk video</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5439</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anleggskontroll">
+        <annotation>
+          <documentation>5440: Anleggskontroll</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5440</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ferdigvegskart">
+        <annotation>
+          <documentation>5441: Ferdigvegskart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5441</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digitaleKart">
+        <annotation>
+          <documentation>5442: Digitale kart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5442</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kart">
+        <annotation>
+          <documentation>5443: Kart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5443</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="detaljplan">
+        <annotation>
+          <documentation>5444: Detaljplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5444</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="laser">
+        <annotation>
+          <documentation>5445: Laser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5445</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeBreddeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Tverrprofil" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TverrprofilType">
+    <annotation>
+      <documentation>Tverrprofil: Snitt av veg vinkelrett på vegens midtlinje</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">528</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TVERRPROFIL</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TverrprofilType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="breddeRekkverksromVenstre" type="double">
+            <annotation>
+              <documentation>Bredde rekkverksrom, venstre: Angir bredde rekkverksrom , venstre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4545</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEREKKVERKSROMVENSTRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeGrusskulderVenstre" type="double">
+            <annotation>
+              <documentation>Bredde grusskulder, venstre: Angir bredde grusskulder, venstre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4544</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEGRUSSKULDERVENSTRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeAsfaltskulderVenstre" type="double">
+            <annotation>
+              <documentation>Bredde asfaltskulder, venstre: Angir bredde asfaltskulder, venstre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4543</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEASFALTSKULDERVENSTRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel16" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del16: Angir bredde kjørebane, del16 (venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4619</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL16</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel15" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del15: Angir bredde kjørebane, del15 (venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4618</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL15</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel14" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del14: Angir bredde kjørebane, del14 (venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4617</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL14</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel13" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del13: Angir bredde kjørebane, del13 (venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4542</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL13</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel12" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del12: Angir bredde kjørebane, del12 (venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4541</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL12</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel11" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del11: Angir bredde kjørebane, del11 (innerst venstre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4540</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL11</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeTrafikkdelerAsfaltskulderVenstre" type="double">
+            <annotation>
+              <documentation>Bredde trafikkdeler, asfaltskulder, venstre: Angir bredde av trafikkdeler, asfaltskulder, venstre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4607</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDETRAFIKKDELERASFALTSKULDERVENSTRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeTrafikkdelerGrusskulderVenstre" type="double">
+            <annotation>
+              <documentation>Bredde trafikkdeler, grusskulder, venstre: Angir bredde av trafikkdeler, grusskulder, venstre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4606</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDETRAFIKKDELERGRUSSKULDERVENSTRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeTrafikkdelerMidt" type="double">
+            <annotation>
+              <documentation>Bredde trafikkdeler midt: Angir bredde av trafikkdeler eks. Skuldre mot trafikkdeler</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4539</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDETRAFIKKDELERMIDT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeTrafikkdelerGrusskulderHøyre" type="double">
+            <annotation>
+              <documentation>Bredde trafikkdeler, grusskulder, høyre: Angir bredde av trafikkdeler, grusskulder, høyre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4605</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDETRAFIKKDELERGRUSSKULDERHØYRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeTrafikkdelerAsfaltskulderHøyre" type="double">
+            <annotation>
+              <documentation>Bredde trafikkdeler, asfaltskulder, høyre: Angir bredde av trafikkdeler, asfaltskulder, høyre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4604</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDETRAFIKKDELERASFALTSKULDERHØYRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel1" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del1: Angir bredde av kjørebane, del1 (innerst høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4536</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL1</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel2" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del2: Angir bredde av kjørebane, del2 (høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4537</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL2</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel3" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del3: Angir bredde av kjørebane, del3 (høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4538</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL3</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel4" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del4: Angir bredde av kjørebane, del4 (høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4614</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL4</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel5" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del5: Angir bredde av kjørebane, del5 (høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4615</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL5</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneDel6" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, del6: Angir bredde av kjørebane, del6 (høyre side)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4616</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANEDEL6</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeDekkeTotal" type="double">
+            <annotation>
+              <documentation>Bredde dekke, total: Angir total dekkebredde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4603</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEDEKKETOTAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeKjørebaneTotal" type="double">
+            <annotation>
+              <documentation>Bredde kjørebane, total: Angir total kjørebanebredde (mellom hvitstriper)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4602</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEKJØREBANETOTAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeAsfaltskulderHøyre" type="double">
+            <annotation>
+              <documentation>Bredde asfaltskulder, høyre: Angir bredde av asfaltskulder, høyre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4535</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEASFALTSKULDERHØYRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeGrusskulderHøyre" type="double">
+            <annotation>
+              <documentation>Bredde grusskulder, høyre: Angir bredde av grusskulder, høyre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4534</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEGRUSSKULDERHØYRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breddeRekkverksromHøyre" type="double">
+            <annotation>
+              <documentation>Bredde rekkverksrom, høyre: Angir bredde av rekkverksrom, høyre</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4533</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDEREKKVERKSROMHØYRE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="målemetodeBredde" type="nvdb:MålemetodeBreddeType">
+            <annotation>
+              <documentation>Målemetode, bredde: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4531</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="registreringsdato" type="date">
+            <annotation>
+              <documentation>Registreringsdato: Angir dato for registrering av tverrprofil</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4546</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REGISTRERINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dataopprinnelse" type="nvdb:DataopprinnelseType">
+            <annotation>
+              <documentation>Dataopprinnelse: Angir hvilke kilde dataene kommer fra</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4547</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5028</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8928</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TverrprofilPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Tverrprofil"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

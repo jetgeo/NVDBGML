@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>485: Informasjon om periodevis stengning av veg.</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">485</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Vegstengning.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="HovedårsakTilStengningType">
+    <annotation>
+      <documentation>Hovedårsak til stengning: Gir informasjon om hva som er hovedårsak til stengning av vegen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9397</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDÅRSAKTILSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HovedårsakTilStengningEnumerationType nvdb:HovedårsakTilStengningOtherType"/>
+  </simpleType>
+  <simpleType name="HovedårsakTilStengningEnumerationType">
+    <annotation>
+      <documentation>Hovedårsak til stengning: Gir informasjon om hva som er hovedårsak til stengning av vegen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9397</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDÅRSAKTILSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="skred">
+        <annotation>
+          <documentation>13221: Skred: Stengning av vegstrekning pga av at ett eller flere skred stenger vegen.  Dette kan være alt fra mindre steinsprang til større snøskred.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13221</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredfare">
+        <annotation>
+          <documentation>13222: Skredfare: Stengning av vegstrekning pga fare for skred.  Kan være ulike typer skred.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13222</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flom">
+        <annotation>
+          <documentation>13223: Flom: Stengning av vegstrekning pga for mye vann i vegen.  Kan skyldes springflo, flom i vassdrag, oversvømmelser pga mye regn eller vannlekkasje, vassdrag som har tatt nye løp med mer.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13223</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vind">
+        <annotation>
+          <documentation>13224: Vind: Vegstrekning stengt pga sterk vind.  Ofte i forbindelse med bruer og værutsatte strekninger.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13224</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="drivsnøRedusertSikt">
+        <annotation>
+          <documentation>13228: Drivsnø/redusert sikt: Vesgstrekning stengt pga sterk vind i kombinasjon med snøfokk og eller nedbør i form av snø.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13228</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brann">
+        <annotation>
+          <documentation>13226: Brann: Vestrekning stengt pga brann på eller ved vegen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13226</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegarbeid">
+        <annotation>
+          <documentation>13227: Vegarbeid: Vegstrekning er stengt pga pågående vedlikeholdsarbeid.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13227</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkhendelse">
+        <annotation>
+          <documentation>13225: Trafikkhendelse: Vegen er stengt pga at det har skjedd en trafikkhendelse, f.eks trafikkulykke, motorstopp/havari på eller i tilknytning til vegen slik at det ikke er mulig eller ønskelig å ha trafikk på strekningen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13225</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glattVeg">
+        <annotation>
+          <documentation>13229: Glatt veg: Vegen er stengt pga for lav friksjon.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13229</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tekniskFeil">
+        <annotation>
+          <documentation>13230: Teknisk feil: Vegen er stengt pga teknisk feil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13230</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annenÅrsak">
+        <annotation>
+          <documentation>13239: Annen årsak</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13239</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedårsakTilStengningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkredtypeVegstengningType">
+    <annotation>
+      <documentation>Skredtype: Angir hvilken type skred det er fare for.  Bare aktuell dersom hovedårsak til vegstengning er "Skred" eller "Skredfare".</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3921</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDTYPEVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkredtypeVegstengningEnumerationType nvdb:SkredtypeVegstengningOtherType"/>
+  </simpleType>
+  <simpleType name="SkredtypeVegstengningEnumerationType">
+    <annotation>
+      <documentation>Skredtype: Angir hvilken type skred det er fare for.  Bare aktuell dersom hovedårsak til vegstengning er "Skred" eller "Skredfare".</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3921</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDTYPEVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stein">
+        <annotation>
+          <documentation>4931: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4931</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="jordLøsmasse">
+        <annotation>
+          <documentation>4932: Jord/løsmasse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4932</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snø">
+        <annotation>
+          <documentation>4933: Snø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4933</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="is">
+        <annotation>
+          <documentation>4934: Is</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4934</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flomskred">
+        <annotation>
+          <documentation>4935: Flomskred: Består av vann, stein og jord</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4935</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="isStein">
+        <annotation>
+          <documentation>5350: Is/stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5350</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sørpeskred">
+        <annotation>
+          <documentation>4936: Sørpeskred: Består av vann, snø og stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4936</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utglidningAvVeg">
+        <annotation>
+          <documentation>13231: Utglidning av veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13231</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkredtypeVegstengningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StengningVegstengningType">
+    <annotation>
+      <documentation>Stengning: Gir informasjon om stengning av vegen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3924</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGNINGVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StengningVegstengningEnumerationType nvdb:StengningVegstengningOtherType"/>
+  </simpleType>
+  <simpleType name="StengningVegstengningEnumerationType">
+    <annotation>
+      <documentation>Stengning: Gir informasjon om stengning av vegen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3924</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGNINGVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stengningAvDelAvVegbane">
+        <annotation>
+          <documentation>4945: Stengning av del av vegbane: F.eks stengning av et kjørefelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4945</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stengtForTungtrafikk">
+        <annotation>
+          <documentation>4944: Stengt for tungtrafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4944</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stengtForPersonbiler">
+        <annotation>
+          <documentation>4943: Stengt for personbiler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4943</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stengtForAllTrafikk">
+        <annotation>
+          <documentation>4942: Stengt for all trafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4942</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kolonnekjøringStyrtAvvikling">
+        <annotation>
+          <documentation>13232: Kolonnekjøring/styrt avvikling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13232</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nattestengt">
+        <annotation>
+          <documentation>13233: Nattestengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13233</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stengtForGåendeSyklende">
+        <annotation>
+          <documentation>13234: Stengt for gående/syklende</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13234</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StengningVegstengningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StengtRetningType">
+    <annotation>
+      <documentation>Stengt retning: Angir hvilken trafikkretning vegen er stengt for.  Det er særlig for veger med midtdeler det er aktuelt å stenge for en trafikkretning.  Envegskjørte veger angis som "helt stengt".</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9398</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTRETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StengtRetningEnumerationType nvdb:StengtRetningOtherType"/>
+  </simpleType>
+  <simpleType name="StengtRetningEnumerationType">
+    <annotation>
+      <documentation>Stengt retning: Angir hvilken trafikkretning vegen er stengt for.  Det er særlig for veger med midtdeler det er aktuelt å stenge for en trafikkretning.  Envegskjørte veger angis som "helt stengt".</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9398</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTRETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="heltStengt">
+        <annotation>
+          <documentation>13235: Helt stengt: Stengt for trafikk i begge retninger.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13235</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="medMetreringsretning">
+        <annotation>
+          <documentation>13236: Med metreringsretning: Stengt for trafikk som kjører i samme retning som metrering.  Åpen for trafikk i motsatt retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13236</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="motMetreringsretning">
+        <annotation>
+          <documentation>13237: Mot metreringsretning: Stengt for trafikk som kjører i motsatt retning av metreringsretning.  Åpen for trafikk med metreringsretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13237</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StengtRetningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Vegstengning" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegstengningType">
+    <annotation>
+      <documentation>Vegstengning: Informasjon om periodevis stengning av veg.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">485</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegstengningType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="hovedårsakTilStengning" type="nvdb:HovedårsakTilStengningType">
+            <annotation>
+              <documentation>Hovedårsak til stengning: Gir informasjon om hva som er hovedårsak til stengning av vegen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9397</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDÅRSAKTILSTENGNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skredtype" type="nvdb:SkredtypeVegstengningType">
+            <annotation>
+              <documentation>Skredtype: Angir hvilken type skred det er fare for.  Bare aktuell dersom hovedårsak til vegstengning er "Skred" eller "Skredfare".</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3921</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="stengtRetning" type="nvdb:StengtRetningType">
+            <annotation>
+              <documentation>Stengt retning: Angir hvilken trafikkretning vegen er stengt for.  Det er særlig for veger med midtdeler det er aktuelt å stenge for en trafikkretning.  Envegskjørte veger angis som "helt stengt".</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9398</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTRETNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedsangivelse" type="string">
+            <annotation>
+              <documentation>Stedsangivelse: Stedsnavn hvor forekomst er lokalisert.  Evt plassering i forhold til stedsnavn.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7906</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSANGIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="værforholdPåVegen" type="nvdb:VærforholdPåVegenVegstengningType">
+            <annotation>
+              <documentation>Værforhold på vegen: Angir hvilke værforhold det var på vegen i forkant av da vegstengning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3922</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VÆRFORHOLDPÅVEGEN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vindretning" type="nvdb:VindretningVegstengningType">
+            <annotation>
+              <documentation>Vindretning: Angir hvilken vindretning det var på vegen i forkant av vegstengningen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3923</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDRETNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="temperaturPåVeg" type="double">
+            <annotation>
+              <documentation>Temperatur på veg: Angir temperatur på vegen i forkant av vegstengning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5292</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEMPERATURPÅVEG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stengning" type="nvdb:StengningVegstengningType">
+            <annotation>
+              <documentation>Stengning: Gir informasjon om stengning av vegen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3924</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stengtFraDato" type="date">
+            <annotation>
+              <documentation>Stengt fra dato: Angir dato for stengning av vegen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3925</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTFRADATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stengtFraKlokkeslett" type="integer">
+            <annotation>
+              <documentation>Stengt fra klokkeslett: Angir klokkeslett for stengning av vegen.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3926</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTFRAKLOKKESLETT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stengtTilDato" type="date">
+            <annotation>
+              <documentation>Stengt til dato: Angir dato for åpning av vegen.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3927</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTTILDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stengtTilKlokkeslett" type="integer">
+            <annotation>
+              <documentation>Stengt til klokkeslett: Angir klokkeslett for åpning av vegen.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3928</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STENGTTILKLOKKESLETT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4999</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegstengningPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Vegstengning"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="VindretningVegstengningType">
+    <annotation>
+      <documentation>Vindretning: Angir hvilken vindretning det var på vegen i forkant av vegstengningen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3923</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDRETNINGVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VindretningVegstengningEnumerationType nvdb:VindretningVegstengningOtherType"/>
+  </simpleType>
+  <simpleType name="VindretningVegstengningEnumerationType">
+    <annotation>
+      <documentation>Vindretning: Angir hvilken vindretning det var på vegen i forkant av vegstengningen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3923</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDRETNINGVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="s">
+        <annotation>
+          <documentation>5682: S: sør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5682</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sSV">
+        <annotation>
+          <documentation>5683: SSV: Sør-sørvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5683</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sV">
+        <annotation>
+          <documentation>5684: SV: Sørvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5684</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vSV">
+        <annotation>
+          <documentation>5685: VSV: Vest-Sørvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5685</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="v">
+        <annotation>
+          <documentation>5686: V: Vest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5686</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vNV">
+        <annotation>
+          <documentation>5687: VNV: Vest-nordvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5687</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nV">
+        <annotation>
+          <documentation>5688: NV: Nordvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5688</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nNV">
+        <annotation>
+          <documentation>5689: NNV: Nord-nordvest</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5689</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="n">
+        <annotation>
+          <documentation>5690: N: Nord</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5690</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nNØ">
+        <annotation>
+          <documentation>5691: NNØ: Nord-nordøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5691</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nØ">
+        <annotation>
+          <documentation>5692: NØ: Nordøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5692</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="øNØ">
+        <annotation>
+          <documentation>5693: ØNØ: Øst-nordøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5693</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ø">
+        <annotation>
+          <documentation>5694: Ø: Øst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5694</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="øSØ">
+        <annotation>
+          <documentation>5695: ØSØ: Øst-sørøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5695</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sØ">
+        <annotation>
+          <documentation>5696: SØ: Sørøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5696</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sSØ">
+        <annotation>
+          <documentation>5697: SSØ: Sør-sørøst</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5697</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vindstille">
+        <annotation>
+          <documentation>13238: Vindstille</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13238</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VindretningVegstengningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VærforholdPåVegenVegstengningType">
+    <annotation>
+      <documentation>Værforhold på vegen: Angir hvilke værforhold det var på vegen i forkant av da vegstengning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3922</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VÆRFORHOLDPÅVEGENVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VærforholdPåVegenVegstengningEnumerationType nvdb:VærforholdPåVegenVegstengningOtherType"/>
+  </simpleType>
+  <simpleType name="VærforholdPåVegenVegstengningEnumerationType">
+    <annotation>
+      <documentation>Værforhold på vegen: Angir hvilke værforhold det var på vegen i forkant av da vegstengning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3922</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VÆRFORHOLDPÅVEGENVEGSTENGNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ingenNedbør">
+        <annotation>
+          <documentation>5673: Ingen nedbør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5673</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regn">
+        <annotation>
+          <documentation>5674: Regn</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5674</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regnLite">
+        <annotation>
+          <documentation>5676: Regn, lite</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5676</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regnMye">
+        <annotation>
+          <documentation>5677: Regn, mye</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5677</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regnMiddels">
+        <annotation>
+          <documentation>5675: Regn, middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5675</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snø">
+        <annotation>
+          <documentation>5678: Snø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5678</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snøLite">
+        <annotation>
+          <documentation>5679: Snø, lite</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5679</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snøMiddels">
+        <annotation>
+          <documentation>5680: Snø, middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5680</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snøMye">
+        <annotation>
+          <documentation>5681: Snø, mye</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5681</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VærforholdPåVegenVegstengningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>5: En anordning som skal hindre at kjøretøy forlater vegen (Håndbok N101 (231))</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Trafikkdeler.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeRekkverkType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har, hva det skjermer mot.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1248</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeRekkverkEnumerationType nvdb:BruksområdeRekkverkOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeRekkverkEnumerationType">
+    <annotation>
+      <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har, hva det skjermer mot.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1248</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="skråning">
+        <annotation>
+          <documentation>2393: Skråning: Rekkverk på bru som benyttes innenfor bruas ytterkanter med trafikk på en eller begge sider (se figur 1.4). Rekkverket kan f.eks. benyttes som:  rekkverk mellom kjørebaner, rekkverk mellom kjørebane og g/s veg eller som rekkverk mellom kjørebane og sikkerhetsrom for motorvegbruer.  Kilde: Rekkverksnormal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2393</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjell">
+        <annotation>
+          <documentation>4045: Fjell: Rekkverk mot fjellskjæring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4045</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vann">
+        <annotation>
+          <documentation>2396: Vann: Sikrer mot vann, sjø, elv</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2396</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikk">
+        <annotation>
+          <documentation>2394: Trafikk: Rekkverk benyttet som sikring mot trafikk på veg/areal ved siden av vegen, f.eks skille mellom hovedveg og sideveg, i forbindelse med parkeringsområde eller andre trafikerte sideareal. Merk: For midtdelere, gang- og sykkelveg og jernbane skal det benyttes egne verdier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2394</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="midtdeler">
+        <annotation>
+          <documentation>11789: Midtdeler: Angis der rekkverket er del av et fysisk skille mot møtende trafikk. F.eks der det både er grøft, grasdekke og rekkverk mellom kjøreretningene</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11789</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="midtrekkverk">
+        <annotation>
+          <documentation>11788: Midtrekkverk: Angis der rekkverket er eneste skille mellom motgående trafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11788</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="naboelement">
+        <annotation>
+          <documentation>2395: Naboelement: Rekkverk satt opp for beskytte mot trafikkfarlige element nær vegen, f.eks store trær, stolper, brupilarer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2395</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangSykkelveg">
+        <annotation>
+          <documentation>4044: Gang/sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4044</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sideaktivitet">
+        <annotation>
+          <documentation>17369: Sideaktivitet: Rekkverk skjermer mot sideaktivitet nært inn mot vegen. Dette kan være næringsvirksomhet, privat/offentlig område, mm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17369</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="jernbane">
+        <annotation>
+          <documentation>4591: Jernbane</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4591</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brukantStup">
+        <annotation>
+          <documentation>4667: Brukant/stup: Gjelder rekkverk som benyttes for å hindre utforkjøring ved brukant eller stup</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4667</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeRekkverkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierRekkverkType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7984</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierRekkverkEnumerationType nvdb:EierRekkverkOtherType"/>
+  </simpleType>
+  <simpleType name="EierRekkverkEnumerationType">
+    <annotation>
+      <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7984</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>10250: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10250</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>10712: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10712</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10314: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10314</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10378: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10378</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17609: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17609</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierRekkverkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HåndlistType">
+    <annotation>
+      <documentation>Håndlist: Element i et stål-/betongrekkverk som fungerer som rekkverkets øvre føring, og som har sin primære funksjon å gi ekstra sikkerhet for gående
+og syklende.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9592</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HÅNDLIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HåndlistEnumerationType nvdb:HåndlistOtherType"/>
+  </simpleType>
+  <simpleType name="HåndlistEnumerationType">
+    <annotation>
+      <documentation>Håndlist: Element i et stål-/betongrekkverk som fungerer som rekkverkets øvre føring, og som har sin primære funksjon å gi ekstra sikkerhet for gående
+og syklende.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9592</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HÅNDLIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>13813: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13813</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>13814: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13814</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HåndlistOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MCSkinneType">
+    <annotation>
+      <documentation>MC-skinne: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MCSkinneEnumerationType nvdb:MCSkinneOtherType"/>
+  </simpleType>
+  <simpleType name="MCSkinneEnumerationType">
+    <annotation>
+      <documentation>MC-skinne: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>13811: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13811</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>13812: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13812</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MCSkinneOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PanelType">
+    <annotation>
+      <documentation>Panel: Felles betegnelse på elementer i et stålrekkverk som plasseres mellom stolpene, som f.eks sprosser,  brøytetette gitter e.l. (se figur 1.4 i Rekkverksnormal).  Kilde: Rekkverksnormal</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4662</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PANEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PanelEnumerationType nvdb:PanelOtherType"/>
+  </simpleType>
+  <simpleType name="PanelEnumerationType">
+    <annotation>
+      <documentation>Panel: Felles betegnelse på elementer i et stålrekkverk som plasseres mellom stolpene, som f.eks sprosser,  brøytetette gitter e.l. (se figur 1.4 i Rekkverksnormal).  Kilde: Rekkverksnormal</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4662</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PANEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="sprosse">
+        <annotation>
+          <documentation>5730: Sprosse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5730</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gitter">
+        <annotation>
+          <documentation>5731: Gitter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5731</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PanelOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringPåBruType">
+    <annotation>
+      <documentation>Plassering på bru: Angir hvor på brua rekkverket er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4665</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGPÅBRU</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringPåBruEnumerationType nvdb:PlasseringPåBruOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringPåBruEnumerationType">
+    <annotation>
+      <documentation>Plassering på bru: Angir hvor på brua rekkverket er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4665</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGPÅBRU</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ytterrekkverk">
+        <annotation>
+          <documentation>5728: Ytterrekkverk: Rekkverk på bru som er plassert langs bruas ytterkant (se figur 1.4 i Rekkverksnormal). Kilde: Rekkverksnormal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5728</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="innerrekkverk">
+        <annotation>
+          <documentation>5729: Innerrekkverk: Rekkverk på bru som benyttes innenfor bruas ytterkanter med trafikk på en eller begge sider (se figur 1.4). Rekkverket kan f.eks. benyttes som:  rekkverk mellom kjørebaner, rekkverk mellom kjørebane og g/s veg eller som rekkverk mellom kjørebane og sikkerhetsrom for motorvegbruer.  Kilde: Rekkverksnormal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5729</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringPåBruOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Rekkverk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:RekkverkType">
+    <annotation>
+      <documentation>Rekkverk: En anordning som skal hindre at kjøretøy forlater vegen (Håndbok N101 (231))</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="RekkverkType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="rekkverkstype" type="nvdb:RekkverkstypeType">
+            <annotation>
+              <documentation>Rekkverkstype: Angir hvilken type rekkverk det er tale om</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1089</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKVERKSTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeRekkverkType">
+            <annotation>
+              <documentation>Bruksområde: Angir hva vegobjektet brukes til, hvilken funksjon det har, hva det skjermer mot.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1248</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skinneutrustning" type="nvdb:SkinneutrustningType">
+            <annotation>
+              <documentation>Skinneutrustning: Angir skinneutrustning for rekkverket.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1647</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKINNEUTRUSTNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>Oppsettingsår: Angir hvilket årstall Rekkverk er satt opp.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7558</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plasseringPåBru" type="nvdb:PlasseringPåBruType">
+            <annotation>
+              <documentation>Plassering på bru: Angir hvor på brua rekkverket er plassert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4665</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGPÅBRU</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="mCSkinne" type="nvdb:MCSkinneType">
+            <annotation>
+              <documentation>MC-skinne: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="panel" type="nvdb:PanelType">
+            <annotation>
+              <documentation>Panel: Felles betegnelse på elementer i et stålrekkverk som plasseres mellom stolpene, som f.eks sprosser,  brøytetette gitter e.l. (se figur 1.4 i Rekkverksnormal).  Kilde: Rekkverksnormal</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4662</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PANEL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utblokking" type="nvdb:UtblokkingType">
+            <annotation>
+              <documentation>Utblokking: Anordning mellom rekkverksskinne og rekkverksstolper for å skape større avstand mellom skinnen og stive stolper (se figur 1.2 i Rekkverksnormal). Kilde: Rekkverksnormal.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1645</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBLOKKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="håndlist" type="nvdb:HåndlistType">
+            <annotation>
+              <documentation>Håndlist: Element i et stål-/betongrekkverk som fungerer som rekkverkets øvre føring, og som har sin primære funksjon å gi ekstra sikkerhet for gående
+og syklende.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9592</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HÅNDLIST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengde" type="double">
+            <annotation>
+              <documentation>Lengde: Angir total lengde av rekkverket</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1298</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stolpeavstand" type="nvdb:StolpeavstandType">
+            <annotation>
+              <documentation>Stolpeavstand: Angir normal avstand mellom stolper</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1567</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEAVSTAND</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="elementlengde" type="double">
+            <annotation>
+              <documentation>Elementlengde: Angir lengde av enkeltelement (skinner/betongelement etc)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1965</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ELEMENTLENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høyde" type="double">
+            <annotation>
+              <documentation>Høyde: Angir den høyde over vegkant som rekkverket var dimensjonert for ved oppsetting langs veg</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1574</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rekkverksbredde" type="double">
+            <annotation>
+              <documentation>Rekkverksbredde: Avstanden mellom forkant og bakkant av rekkverket (inkl. skinne og stolper - se figur l.5 i Rekkverksnormal).  Kilde: Rekkverksnormal</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4663</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKVERKSBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="styrkeklasse" type="nvdb:StyrkeklasseType">
+            <annotation>
+              <documentation>Styrkeklasse: Angir styrkeklasse i henhold til håndbok N101 (231), vedlegg 1.1</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9554</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRKEKLASSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierRekkverkType">
+            <annotation>
+              <documentation>Eier: Angir hvem som er eier av vegobjektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7984</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligRekkverkType">
+            <annotation>
+              <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8048</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4714</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>Tilleggsinformasjon: Ekstra Informasjon om rekkverket</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10415</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFUStrekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFUStrekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RekkverkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Rekkverk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="RekkverkstypeType">
+    <annotation>
+      <documentation>Rekkverkstype: Angir hvilken type rekkverk det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1089</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKVERKSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RekkverkstypeEnumerationType nvdb:RekkverkstypeOtherType"/>
+  </simpleType>
+  <simpleType name="RekkverkstypeEnumerationType">
+    <annotation>
+      <documentation>Rekkverkstype: Angir hvilken type rekkverk det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1089</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKVERKSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stålskinneMTrestolper">
+        <annotation>
+          <documentation>13747: Stålskinne m/trestolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13747</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålskinneMStålstolpler">
+        <annotation>
+          <documentation>13746: Stålskinne m/stålstolpler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13746</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålskinneMSigmaStålstolper">
+        <annotation>
+          <documentation>13790: Stålskinne m/sigma stålstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13790</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålskinneMPlaststolper">
+        <annotation>
+          <documentation>13745: Stålskinne m/plaststolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13745</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålskinneFestetPåMurVegg">
+        <annotation>
+          <documentation>13791: Stålskinne festet på mur/vegg: Rekkverksskinne er festet på mur, vegg, skjerm, etc og ikke på egen stolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13791</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongPlasstøpt">
+        <annotation>
+          <documentation>3366: Betong, plasstøpt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3366</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongPrefabrikkert">
+        <annotation>
+          <documentation>3367: Betong, prefabrikkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3367</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongNewJersey">
+        <annotation>
+          <documentation>3368: Betong, New Jersey</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3368</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålrørMRundeStålstolper">
+        <annotation>
+          <documentation>13748: Stålrør m/runde stålstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13748</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålrørMSigmaStålstolper">
+        <annotation>
+          <documentation>13749: Stålrør m/sigma stålstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13749</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålrørMTrestolper">
+        <annotation>
+          <documentation>13750: Stålrør m/trestolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13750</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="wirerekkverk">
+        <annotation>
+          <documentation>3371: Wirerekkverk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3371</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="treskinneMTrestolper">
+        <annotation>
+          <documentation>13752: Treskinne m/trestolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13752</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="treskinneMStålstolper">
+        <annotation>
+          <documentation>13751: Treskinne m/stålstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13751</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stabbesteiner">
+        <annotation>
+          <documentation>3370: Stabbesteiner</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3370</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brurekkverkStålMFøringsskinne">
+        <annotation>
+          <documentation>13743: Brurekkverk, stål m/føringsskinne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13743</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brurekkverkStålUFøringsskinne">
+        <annotation>
+          <documentation>13744: Brurekkverk, stål u/føringsskinne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13744</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brurekkverkBetong">
+        <annotation>
+          <documentation>3467: Brurekkverk, betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3467</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rekkverkForGåendeSyklende">
+        <annotation>
+          <documentation>17305: Rekkverk for gående/syklende: Rekkverk som er dimensjonert for gående og syklende. Kan f.eks være for å hindre  utforkjørsel med sykkel. Benyttes ikke på/ved veger med biltrafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17305</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RekkverkstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkinneutrustningType">
+    <annotation>
+      <documentation>Skinneutrustning: Angir skinneutrustning for rekkverket.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1647</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKINNEUTRUSTNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkinneutrustningEnumerationType nvdb:SkinneutrustningOtherType"/>
+  </simpleType>
+  <simpleType name="SkinneutrustningEnumerationType">
+    <annotation>
+      <documentation>Skinneutrustning: Angir skinneutrustning for rekkverket.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1647</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKINNEUTRUSTNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ensidigEnkelOLl">
+        <annotation>
+          <documentation>3725: Ensidig, enkel ( o-ll ): Ei skinne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3725</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ensidigDobbel8Ll">
+        <annotation>
+          <documentation>3461: Ensidig, dobbel ( 8=ll ): To skinner over hverandre på samme side av stolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3461</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tosidigEnkelOLlO">
+        <annotation>
+          <documentation>3734: Tosidig, enkel ( o-ll-o ): Ei skinne på hver side av stolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3734</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tosidigDobbel8Ll8">
+        <annotation>
+          <documentation>3462: Tosidig, dobbel ( 8=ll=8 ): To skinner over hverandre på hver side av stolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3462</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tosidigDobbelEnkel8LlO">
+        <annotation>
+          <documentation>3464: Tosidig, dobbel/enkel ( 8=ll=o ): To skinner over hverandre på side inn mot veg, ei på motsatt side.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3464</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tosidigEnkelDobbelOLl8">
+        <annotation>
+          <documentation>4076: Tosidig, enkel/dobbel ( o-ll=8 ): Ei skinne på side inn mot veg, to skinne under hverandre på motsatt side.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4076</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkinneutrustningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StolpeavstandType">
+    <annotation>
+      <documentation>Stolpeavstand: Angir normal avstand mellom stolper</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1567</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEAVSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StolpeavstandEnumerationType nvdb:StolpeavstandOtherType"/>
+  </simpleType>
+  <simpleType name="StolpeavstandEnumerationType">
+    <annotation>
+      <documentation>Stolpeavstand: Angir normal avstand mellom stolper</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1567</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOLPEAVSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="4">
+        <annotation>
+          <documentation>3998: 4</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3998</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>3996: 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3996</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>3995: 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3995</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>3997: 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3997</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="133">
+        <annotation>
+          <documentation>13722: 1,33</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13722</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="18">
+        <annotation>
+          <documentation>13723: 1,8</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13723</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="23">
+        <annotation>
+          <documentation>13724: 2,3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13724</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StolpeavstandOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StyrkeklasseType">
+    <annotation>
+      <documentation>Styrkeklasse: Angir styrkeklasse i henhold til håndbok N101 (231), vedlegg 1.1</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9554</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRKEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StyrkeklasseEnumerationType nvdb:StyrkeklasseOtherType"/>
+  </simpleType>
+  <simpleType name="StyrkeklasseEnumerationType">
+    <annotation>
+      <documentation>Styrkeklasse: Angir styrkeklasse i henhold til håndbok N101 (231), vedlegg 1.1</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9554</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRKEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="h1">
+        <annotation>
+          <documentation>13726: H1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13726</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h2">
+        <annotation>
+          <documentation>13727: H2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13727</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h3">
+        <annotation>
+          <documentation>13728: H3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13728</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h4a">
+        <annotation>
+          <documentation>13729: H4a</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13729</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="h4b">
+        <annotation>
+          <documentation>13730: H4b</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13730</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="l1">
+        <annotation>
+          <documentation>13731: L1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13731</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="l2">
+        <annotation>
+          <documentation>13732: L2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13732</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="l3">
+        <annotation>
+          <documentation>13733: L3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13733</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="l4a">
+        <annotation>
+          <documentation>13734: L4a</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13734</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="l4b">
+        <annotation>
+          <documentation>13735: L4b</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13735</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="n1">
+        <annotation>
+          <documentation>13736: N1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13736</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="n2">
+        <annotation>
+          <documentation>13737: N2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13737</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="t1">
+        <annotation>
+          <documentation>13738: T1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13738</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="t2">
+        <annotation>
+          <documentation>13739: T2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13739</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="t3">
+        <annotation>
+          <documentation>13740: T3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13740</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StyrkeklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtblokkingType">
+    <annotation>
+      <documentation>Utblokking: Anordning mellom rekkverksskinne og rekkverksstolper for å skape større avstand mellom skinnen og stive stolper (se figur 1.2 i Rekkverksnormal). Kilde: Rekkverksnormal.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1645</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBLOKKING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtblokkingEnumerationType nvdb:UtblokkingOtherType"/>
+  </simpleType>
+  <simpleType name="UtblokkingEnumerationType">
+    <annotation>
+      <documentation>Utblokking: Anordning mellom rekkverksskinne og rekkverksstolper for å skape større avstand mellom skinnen og stive stolper (se figur 1.2 i Rekkverksnormal). Kilde: Rekkverksnormal.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1645</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBLOKKING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bakskinne">
+        <annotation>
+          <documentation>13741: Bakskinne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13741</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bøyle">
+        <annotation>
+          <documentation>13742: Bøyle</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13742</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtblokkingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligRekkverkType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8048</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligRekkverkEnumerationType nvdb:VedlikeholdsansvarligRekkverkOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligRekkverkEnumerationType">
+    <annotation>
+      <documentation>Vedlikeholdsansvarlig: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8048</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGREKKVERK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10442: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10442</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10520: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10520</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10598: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10598</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17701: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17701</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligRekkverkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
