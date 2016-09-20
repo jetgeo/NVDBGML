@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+  <annotation>
+    <documentation>810: Inndeling av vegnettet for å beskrive ulik standard for vinterdrift. Inndelingen baseres på trafikkmengde, viktighet av veg, klima, trafikksikkerhet mm. (Revidert HB R610 (111))</documentation>
+    <appinfo>
+      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">810</taggedValue>
+    </appinfo>
+  </annotation>
+  <include schemaLocation="Vinterdriftsklasse.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DriftsklasseType">
+    <annotation>
+      <documentation>Driftsklasse: Angir hvilken driftsklasse som gjelder på denne strekningen. De ulike driftsklassene er beskrevet i HB R610 (111).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9260</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DriftsklasseEnumerationType nvdb:DriftsklasseOtherType"/>
+  </simpleType>
+  <simpleType name="DriftsklasseEnumerationType">
+    <annotation>
+      <documentation>Driftsklasse: Angir hvilken driftsklasse som gjelder på denne strekningen. De ulike driftsklassene er beskrevet i HB R610 (111).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9260</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dkA">
+        <annotation>
+          <documentation>12904: DkA: Godkjent føreforhold er bar veg (tørr eller våt). Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12904</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkBLav">
+        <annotation>
+          <documentation>13354: DkB, lav: Godkjent føreforhold er bar veg (tørr eller våt), hard snø/is  tillates utenom hjulspor i begrenset tidsrom. Lavt tidskrav. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13354</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkBMiddels">
+        <annotation>
+          <documentation>12905: DkB, middels: Godkjent føreforhold er bar veg (tørr eller våt), hard snø/is tillates utenom hjulspor i begrenset tidsrom. Middels tidskrav. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12905</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkBHøy">
+        <annotation>
+          <documentation>13355: DkB, høy: Godkjent føreforhold er bar veg (tørr eller våt), hard snø/is  tillates utenom hjulspor i begrenset tidsrom. Høyt tidskrav. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13355</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkC">
+        <annotation>
+          <documentation>12906: DkC: Godkjent føreforhold er bar veg (tørr eller våt) i milde perioder og  hard snø/is i kalde perioder. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12906</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkD">
+        <annotation>
+          <documentation>12907: DkD: Godkjent føreforhold er hard snø/is. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12907</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dkE">
+        <annotation>
+          <documentation>12908: DkE: Godkjent føreforhold er hard snø/is. Friksjon ned til 0,20 aksepteres. DkE skal ikke nyttes på riksveg. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12908</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gsA">
+        <annotation>
+          <documentation>12909: GsA: Bymessig strøk med høy gang- og sykkeltrafikk Hovednett for sykkeltrafikk Ferdselsareal hvor store deler av arealet eller strekningen har indikatorer. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12909</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gsB">
+        <annotation>
+          <documentation>12910: GsB: Øvrige ferdselsareal for gående og syklende. Håndbok R610 (111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12910</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sideanlegg">
+        <annotation>
+          <documentation>15876: Sideanlegg: Spesiell standard for sideanlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15876</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DriftsklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Vinterdriftsklasse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VinterdriftsklasseType">
+    <annotation>
+      <documentation>Vinterdriftsklasse: Inndeling av vegnettet for å beskrive ulik standard for vinterdrift. Inndelingen baseres på trafikkmengde, viktighet av veg, klima, trafikksikkerhet mm. (Revidert HB R610 (111))</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">810</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERDRIFTSKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VinterdriftsklasseType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="driftsklasse" type="nvdb:DriftsklasseType">
+            <annotation>
+              <documentation>Driftsklasse: Angir hvilken driftsklasse som gjelder på denne strekningen. De ulike driftsklassene er beskrevet i HB R610 (111).</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9260</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSKLASSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9301</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VinterdriftsklassePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Vinterdriftsklasse"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
