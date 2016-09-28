@@ -2676,6 +2676,13 @@ Merknad: Dersom verdi er angitt overstyrer denne standard metode for det referer
           </appinfo>
         </annotation>
       </element>
+      <element name="nettverkselement" type="nvdb:NettverkselementPropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LROBJREF</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="LineærPosisjonPropertyType">
@@ -2972,6 +2979,36 @@ method on which registration of position is based</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature" type="nvdb:NettverkselementType">
+    <annotation>
+      <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NettverkselementType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="standardLRM" type="nvdb:LineærReferanseMetodeType">
+            <annotation>
+              <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
+
+Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Nettverkselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="nvdb:PosisjonskvalitetType">
     <annotation>
       <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
