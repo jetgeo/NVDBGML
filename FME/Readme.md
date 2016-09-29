@@ -1,5 +1,5 @@
 
-Workspacet [NVDBAPI2GML_V2.fmw](https://github.com/jetgeo/NVDBGML/blob/master/FME/NVDBAPI2GML_V2.fmw) gir en fleksibel lesing fra NVDB-APIet, med validerte GML-filer som resultat. Dersom andre utformater er ønskelig (QUADRI, ESRI Filgeodatabase osv) kan det legges til i workspacet.  
+Workspacet [NVDBAPI2GML_V2.fmw](https://github.com/jetgeo/NVDBGML/blob/master/FME/NVDBAPI2GML_V2.fmw) gir en fleksibel lesing fra NVDB-APIet, med validerte GML-filer som resultat. Dersom andre utformater er ønskelig (QUADRI, ESRI Filgeodatabase osv) kan det legges til i workspacet, eller kjøres som egen konvertering fra GML. Vi jobber med å forbedre workspacet ytterliggere for å kunne håndtere ulike kjente formater. 
 
 **NB! Workspacet krever FME Versjon 2016.1**
 
