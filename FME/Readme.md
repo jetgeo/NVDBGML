@@ -9,7 +9,7 @@ Parametre i workspacet:
 * omr – Områdetype (fra områdefilteret til APIet – kommune, fylke osv).
 * omrNavn – Områdenummer (kommunenummer, fylkesnummer, regionnummer osv)
 * gmlFolder – Hovedområde for lagring av GML-filer. Filene lagres i en struktur under der igjen, basert på områdefilteret
-* dwnlAssObj – Ja eller nei til å inkludere assosierte objekter i nedlastingen. 
+* dwnlAssObj – Ja eller nei til å inkludere assosierte objekter i nedlastingen. Selve assosiasjonen (rollen) blir med uansett.
 
 Workspacet **[NVDBAPI2GML_V2_paraply.fmw](https://github.com/jetgeo/NVDBGML/blob/master/FME/NVDBAPI2GML_V2_paraply.fmw)** gir mulighet for å kjøre eksport av flere objekttyper og flere områder (for eksempel flere objekttyper i en serie med kommuner) 
 
