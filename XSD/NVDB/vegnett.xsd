@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="4.6">
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Endringsflagg" substitutionGroup="gml:AbstractObject" type="vegnett:EndringsflaggType">
+    <annotation>
+      <documentation>endringsinformasjon om et objekt
+
+Merknad: 
+Inntil videre vil hele objektet merkes med endringsflagget.
+I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved å angi om endringen er knyttet til geometrien, egenskapene eller relasjoner</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRINGSFLAGG</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="EndringsflaggType">
+    <sequence>
+      <element name="typeEndring" type="vegnett:TypeEndringType">
+        <annotation>
+          <documentation>endringsstatus for objektet</documentation>
+        </annotation>
+      </element>
+      <element name="tidspunktEndring" type="dateTime">
+        <annotation>
+          <documentation>tidspunkt for endring av objektet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="EndringsflaggPropertyType">
+    <sequence>
+      <element ref="vegnett:Endringsflagg"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="GeneralisertLenke" substitutionGroup="vegnett:Nettverkselement" type="vegnett:GeneralisertLenkeType">
+    <annotation>
+      <documentation>Abstrakt, generalisert objekttype for nettverkslenker
+&lt;i&gt;Realisering av INSPIRE Network:GeneralisedLink &lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="GeneralisertLenkeType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GeneralisertLenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:GeneralisertLenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="HøydereferanseType">
+    <annotation>
+      <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HREF</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:HøydereferanseEnumerationType vegnett:HøydereferanseOtherType"/>
+  </simpleType>
+  <simpleType name="HøydereferanseEnumerationType">
+    <annotation>
+      <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HREF</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="topp">
+        <annotation>
+          <documentation>Høyden målt til toppen av objektet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="fot">
+        <annotation>
+          <documentation>Høyden målt til  foten av objektet</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HøydereferanseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="vegnett:IdentifikasjonType">
+    <annotation>
+      <documentation>Identification: Unik identifikasjon av et objekt i et datasett, forvaltet av den ansvarlige produsent/forvalter, og kan benyttes av eksterne applikasjoner som stabil referanse til objektet. 
+
+Merknad 1: Denne objektidentifikasjonen må ikke forveksles med en tematisk objektidentifikasjon, slik som f.eks bygningsnummer. 
+
+Merknad 2: Denne unike identifikatoren vil ikke endres i løpet av objektets levetid, og ikke gjenbrukes i andre objekt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">IDENT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element name="lokalId" type="string">
+        <annotation>
+          <documentation>localId: lokal identifikator av et objekt
+
+Merknad: Det er dataleverendørens ansvar å sørge for at den lokale identifikatoren er unik innenfor navnerommet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LOKALID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="navnerom" type="string">
+        <annotation>
+          <documentation>namespace: navnerom som unikt identifiserer datakilden til et objekt, anbefales å være en http-URI
+
+Eksempel: http://data.geonorge.no/SentraltStedsnavnsregister/1.0
+
+Merknad : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og må være registrert i data.geonorge.no eller data.norge.no</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NAVNEROM</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="versjonId" type="string">
+        <annotation>
+          <documentation>versionId: identifikasjon av en spesiell versjon av et geografisk objekt (instans)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VERSJONID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="vegnett:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <element name="Kopidata" substitutionGroup="gml:AbstractObject" type="vegnett:KopidataType">
+    <annotation>
+      <documentation>angivelse av at objektet er hentet fra en kopi av originaldata
+
+Merknad: 
+Kan benyttes dersom man gjør et uttak av en database som ikke inneholder originaldataene.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOPIDATA</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="KopidataType">
+    <sequence>
+      <element name="områdeId" type="integer">
+        <annotation>
+          <documentation>identifikasjon av område som dataene dekker
+
+Merknad: Kan angis med kommunenummer eller fylkesnummer. Disse bør spesifiseres nærmere.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">OMRÅDEID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="originalDatavert" type="string">
+        <annotation>
+          <documentation>ansvarlig etat for forvaltning av data</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ORIGINALDATAVERT</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="kopidato" type="dateTime">
+        <annotation>
+          <documentation>dato når objektet ble kopiert fra originaldatasettet  
+
+Merknad:
+Er en del av egenskapen Kopidata. Brukes i de tilfeller hvor en kopidatabase brukes til distribusjon.
+Å kopiere et datasett til en kopidatabase skal ikke føre til at Oppdateringsdato blir endret.
+Eventuell redigering av data i et kopidatasett medfører ny Oppdateringsdato, Datafangstdato og/eller Verifiseringsdato.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOPIDATO</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="KopidataPropertyType">
+    <sequence>
+      <element ref="vegnett:Kopidata"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="Lenke" substitutionGroup="vegnett:GeneralisertLenke" type="vegnett:LenkeType">
+    <annotation>
+      <documentation>Abstrakt objekttype for nettverkslenker, med mulighet for å angi posisjon i en sekvens av lenker.
+
+Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geometrilengde  kan angis på flere alternative måter:
+&amp;nbsp;
+&lt;ul&gt;
+	&lt;li&gt;Kun startVerdi. Målt lengde og sluttverdi er lik geometrilengde      &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-sluttVerdi. Målt lengde er lik differansen mellom disse egenskapene.      &lt;/li&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-måltLengde. Sluttverdi er lik summen av disse egenskapene.      &lt;/li&gt;
+	&lt;li&gt;Kun måltLengde. startverdi er lik 0, og sluttverdi er lik målt lengde      &lt;/li&gt;
+	&lt;li&gt;Ingen av egenskapene angitt. Kun geometrien benyttes for beregning av posisjoner.      &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;i&gt;Realisering av INSPIRE Network:Link.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkeType">
+    <complexContent>
+      <extension base="vegnett:GeneralisertLenkeType">
+        <sequence>
+          <element minOccurs="0" name="måltLengde" type="double">
+            <annotation>
+              <documentation>STARTVERDI: Målt lengde for lenken, innenfor lenkens lineære referansesystem
+
+Merknad: Målt lengde overstyrer geometrilengde. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::measure(measureAttribute : CharacterString = defaultLength) : Measure&lt;/i&gt;&lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRMÅLTLENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="startposisjon" type="double">
+            <annotation>
+              <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;startposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: &lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;LR_ILinearElement ::&lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;startValue(LRM : LinearReferencingMethod) : Measure&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTARTVERDI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluttposisjon" type="double">
+            <annotation>
+              <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;sluttposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: Finnes ikke&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSLUTTVERDI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluttnode" type="vegnett:NodePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sluttnodeFor</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SLUTTNODE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="startnode" type="vegnett:NodePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:startnodeFor</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">STARTNODE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Lenkesekvens" substitutionGroup="vegnett:GeneralisertLenke" type="vegnett:LenkesekvensType">
+    <annotation>
+      <documentation>Abstrakt objekttype for sekvenser av lenker.
+Eksempel: En sammenhengende rute bestående av flere dellenker 
+&lt;i&gt;Realisering av INSPIRE Network:LinkSequence&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkesekvensType">
+    <complexContent>
+      <extension base="vegnett:GeneralisertLenkeType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkesekvensPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenkesekvens"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Lenkesett" substitutionGroup="vegnett:Nettverkselement" type="vegnett:LenkesettType">
+    <annotation>
+      <documentation>Abstrakt klasse for et sett av lenker som hører sammen, både sekvenser og enkeltlenker. For eksempel en rute (E6)
+Realisering av INSPIRE Network:LinkSet</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LenkesettType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>Navn på lenkesettet, for eksempel "Europaveg 6"</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="lenke">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LENKE</taggedValue>
+              </appinfo>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="vegnett:GeneralisertLenke"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LenkesettPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Lenkesett"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="vegnett:LineærPosisjonType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjonType">
+    <sequence>
+      <element minOccurs="0" name="lineærReferanseMetode" type="vegnett:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="retning" type="vegnett:RetningskodeType">
+        <annotation>
+          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="avstandSide" type="double">
+        <annotation>
+          <documentation>Forskyvning til side for nettverkselementet. Positivt tall betyr høyre side, negativt tall betyr venstre side.
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: offsetLateralDistance&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRAVSTANDSIDE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="nettverkselement" type="vegnett:NettverkselementPropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LROBJREF</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjonPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjon"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonPunkt" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonPunktType">
+    <annotation>
+      <documentation>lineær posisjon som et punkt
+
+Merknad:
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_AtLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonPunktType">
+    <complexContent>
+      <extension base="vegnett:LineærPosisjonType">
+        <sequence>
+          <element name="posisjon" type="double">
+            <annotation>
+              <documentation>posisjon langs nettverkselementet, i henhold til referansemetoden 
+
+Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKTPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonPunktPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjonPunkt"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonStrekning" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonStrekningType">
+    <annotation>
+      <documentation>lineær posisjon som en strekning
+
+Merknad: 
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_FromToLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonStrekningType">
+    <complexContent>
+      <extension base="vegnett:LineærPosisjonType">
+        <sequence>
+          <element name="fraPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: fromPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRFRAPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tilPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;sluttposisjon langs &lt;/font&gt;nettverkselementet&lt;font color="#0f0f0f"&gt;, i henhold til referansemetoden&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: toPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRTILPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonStrekningPropertyType">
+    <sequence>
+      <element ref="vegnett:LineærPosisjonStrekning"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LineærReferanseMetodeType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:LineærReferanseMetodeEnumerationType vegnett:LineærReferanseMetodeOtherType"/>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeEnumerationType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="metrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet (lenken), angitt i meter
+
+Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute"  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;units: "meter"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kilometrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i kilometer. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute" &lt;/li&gt;
+	&lt;li&gt;units: "kilometer" &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="normalisert">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt som et desimaltall mellom 0 og 1, i forhold til start (0) og slutt (1) på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "0..1"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="prosent">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i prosent av lengden på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "percent"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MediumType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MEDIUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:MediumEnumerationType vegnett:MediumOtherType"/>
+  </simpleType>
+  <simpleType name="MediumEnumerationType">
+    <annotation>
+      <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MEDIUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="iBygning">
+        <annotation>
+          <documentation>I bygning/bygningsmessig anlegg</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="tidvisUnderVann">
+        <annotation>
+          <documentation>Tidvis under vann</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="påIsbre">
+        <annotation>
+          <documentation>På isbre</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="underIsbre">
+        <annotation>
+          <documentation>Under isbre</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="iLuft">
+        <annotation>
+          <documentation>I luft</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="påVannoverflaten">
+        <annotation>
+          <documentation>På vannoverflaten</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="påSjøbunnen">
+        <annotation>
+          <documentation>På sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="påTerrenget">
+        <annotation>
+          <documentation>På terrenget/på bakkenivå. default</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="underTerrenget">
+        <annotation>
+          <documentation>Under terrenget</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="alltidIVann">
+        <annotation>
+          <documentation>Alltid i vann</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="underSjøbunnen">
+        <annotation>
+          <documentation>Under sjøbunnen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ukjent">
+        <annotation>
+          <documentation>ukjent</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MediumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Nettverk" substitutionGroup="gml:AbstractFeature" type="vegnett:NettverkType">
+    <annotation>
+      <documentation>Objekttype som beskriver en samling av nettverkselementer i et nettverk, for eksempel NVDB</documentation>
+    </annotation>
+  </element>
+  <complexType name="NettverkType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="nettverksnavn" type="string">
+            <annotation>
+              <documentation>Navn på nettverket.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="nettverkselement" type="vegnett:NettverkselementPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverk</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERKSELEMENT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Nettverk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Nettverkselement" substitutionGroup="vegnett:SOSI_Objekt" type="vegnett:NettverkselementType">
+    <annotation>
+      <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NettverkselementType">
+    <complexContent>
+      <extension base="vegnett:SOSI_ObjektType">
+        <sequence>
+          <element minOccurs="0" name="standardLRM" type="vegnett:LineærReferanseMetodeType">
+            <annotation>
+              <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
+
+Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="nettverkskobling" type="vegnett:NettverkskoblingPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERKSKOBLING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="nettverk" type="vegnett:NettverkPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Nettverkselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Nettverkskobling" substitutionGroup="gml:AbstractFeature" type="vegnett:NettverkskoblingType">
+    <annotation>
+      <documentation>Kobling mellom elementer i ulike nettverk, for eksempel en veglenke og en jernbanelenke.
+&lt;i&gt;Realisering av INSPIRE Network:NetworkConnection.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType name="NettverkskoblingType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="2" name="nettverkselement" type="vegnett:NettverkselementPropertyType">
+            <annotation>
+              <documentation>Nettverkselementer som er kobla i nettverkskoblingen</documentation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkskobling</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERKSELEMENT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkskoblingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Nettverkskobling"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="Node" substitutionGroup="vegnett:Nettverkselement" type="vegnett:NodeType">
+    <annotation>
+      <documentation>Abstrakt objekttype for noder i et nettverk</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NodeType">
+    <complexContent>
+      <extension base="vegnett:NettverkselementType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="sluttnodeFor" type="vegnett:LenkePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:sluttnode</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SLUTTNODEFOR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="startnodeFor" type="vegnett:LenkePropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:startnode</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">STARTNODEFOR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NodePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Node"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="vegnett:PosisjonskvalitetType">
+    <annotation>
+      <documentation>beskrivelse av kvaliteten på stedfestingen.
+
+Merknad: Posisjonskvalitet er ikke konform med  kvalitetsmodellen i ISO slik den er defineret i ISO19157:2013, men er en videreføring av tildligere brukte kvalitetsegenskaper i SOSI.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KVALITET</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="gml:CodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighet" type="integer">
+        <annotation>
+          <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NØYAKTIGHET</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="synbarhet" type="vegnett:SynbarhetType">
+        <annotation>
+          <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="målemetodeHøyde" type="gml:CodeType">
+        <annotation>
+          <documentation>metode for å måle høyden</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighetHøyde" type="integer">
+        <annotation>
+          <documentation>nøyaktighet for høyden i cm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">H-NØYAKTIGHET</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="maksimaltAvvik" type="integer">
+        <annotation>
+          <documentation>absolutt toleranse for geometriske avvik</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MAX-AVVIK</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="vegnett:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+  <element name="Registreringsversjon" substitutionGroup="gml:AbstractObject" type="vegnett:RegistreringsversjonType">
+    <annotation>
+      <documentation>angir hvilken versjon av registreringsinstruksen som ble benyttet ved datafangst
+
+Eksempel:
+I et datasett kan det finnes objekter som er etablert fra ulike registreringsversjoner. For eksempel har registreringsinstruksen for objekttypen Takkant i FKB blitt endret fra SOSI/FKB-versjon 3.4 til versjon 4.0. Dersom en kommune ønsker å ajourføre Takkant for et delområde av kommunen etter FKB/SOSI-versjon 4.0, vil han etter ajourføring ha et kommunedekkende datasett der Takkant er registrert med forskjellig registreringsinstruks. I disse tilfellene kan det være nyttig å kunne skille på objektnivå hvilken registreringsversjon som er benyttet ved datafangst. Egenskapen kan benyttes til dette.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REGISTRERINGSVERSJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="RegistreringsversjonType">
+    <sequence>
+      <element name="produkt" type="string">
+        <annotation>
+          <documentation>entydig navn på produktet i form av et kortnavn</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">PRODUKT</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="versjon" type="string">
+        <annotation>
+          <documentation>versjonsnummer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VERSJON</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="RegistreringsversjonPropertyType">
+    <sequence>
+      <element ref="vegnett:Registreringsversjon"/>
+    </sequence>
+  </complexType>
+  <simpleType name="RetningskodeType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:RetningskodeEnumerationType vegnett:RetningskodeOtherType"/>
+  </simpleType>
+  <simpleType name="RetningskodeEnumerationType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="med">
+        <annotation>
+          <documentation>Retning med geometrien</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="mot">
+        <annotation>
+          <documentation>Retning mot geometrien</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningskodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="RettaLenke" substitutionGroup="gml:AbstractObject" type="vegnett:RettaLenkeType">
+    <annotation>
+      <documentation>Lenker med angitt retning.
+
+&lt;i&gt;Realisering av INSPIRE Network:DirectedLink.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType name="RettaLenkeType">
+    <sequence>
+      <element name="retning" type="vegnett:RetningskodeType">
+        <annotation>
+          <documentation>Angivelse av retning for lenken, i forhold til geometriretning.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="lenke" type="vegnett:LenkePropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LENKE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="RettaLenkePropertyType">
+    <sequence>
+      <element ref="vegnett:RettaLenke"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="SOSI_Fellesegenskaper" substitutionGroup="gml:AbstractFeature" type="vegnett:SOSI_FellesegenskaperType">
+    <annotation>
+      <documentation>abstrakt objekttype som bærer sentrale egenskaper som er anbefalt for bruk i produktspesifikasjoner.
+
+Merknad: Disse egenskapene skal derfor ikke modelleres inn i fagområdemodeller.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_FellesegenskaperType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identifikasjon" type="vegnett:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">IDENT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppdateringsdato" type="dateTime">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene 
+
+Merknad: 
+Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">OPPDATERINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gyldigFra" type="dateTime">
+            <annotation>
+              <documentation>validFrom: Tidspunktet når objektet oppstod i den virkelige verden</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">GYLDIGFRA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gyldigTil" type="dateTime">
+            <annotation>
+              <documentation>validTo: Tidspunktet når objektet opphørte å eksistere i den virkelige verden</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">GYLDIGTIL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_FellesegenskaperPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:SOSI_Fellesegenskaper"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="SOSI_Objekt" substitutionGroup="vegnett:SOSI_Fellesegenskaper" type="vegnett:SOSI_ObjektType">
+    <annotation>
+      <documentation>abstrakt objekttype som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="SOSI_ObjektType">
+    <complexContent>
+      <extension base="vegnett:SOSI_FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="datafangstdato" type="dateTime">
+            <annotation>
+              <documentation>dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.
+Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">DATAFANGSTDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="førsteDatafangstdato" type="dateTime">
+            <annotation>
+              <documentation>dato når data ble registrert/observert/målt første gang, som utgangspunkt for første digitalisering
+
+Merknad:
+førsteDatafangstdato brukes hvis det er av interesse å forvalte informasjon om når en ble klar over objektet. Dette kan for eksempel gjelde datoen for første flybilde som var utgangspunkt for registrering i en database.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">FØRSTEDATAFANGSTDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="førsteDigitaliseringsdato" type="dateTime">
+            <annotation>
+              <documentation>dato når en representasjon av objektet i digital form første gang ble etablert
+
+Merknad: 
+førsteDigitaliseringsdato kan skille seg fra førsteDatafangstdato ved at den første datafangsten skjedde analogt og gjort om til digital form senere i en produksjonsprosess. 
+Eventuelt at innlegging i databasen skjedde på et senere tidspunkt enn registreringen /observasjonen / målingen av objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">FØRSTEDIGITALISERINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="verifiseringsdato" type="dateTime">
+            <annotation>
+              <documentation>dato når dataene er fastslått å være i samsvar med virkeligheten
+
+Merknad: Verifiseringsdato er identisk med ..DATO i tidligere versjoner av SOSI</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VERIFISERINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluttdato" type="dateTime">
+            <annotation>
+              <documentation>endLifespanVersion: Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SLUTTDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datauttaksdato" type="dateTime">
+            <annotation>
+              <documentation>dato for uttak fra en database
+
+Merknad:
+Skiller seg fra Kopidato ved at en ikke skiller på om det er uttak fra en originaldatabase eller en kopidatabase.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">DATAUTTAKSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="endringsflagg" type="vegnett:EndringsflaggPropertyType">
+            <annotation>
+              <documentation>endringsinformasjon om et objekt 
+
+Merknad: 
+Reglene knyttet til bruken av endringsflagg er for denne versjonen ikke avklart. Utdypes nærmere i produktspesifikasjonen basert på 4.0.
+
+Merknad: 
+Endringsflagg kan benyttes til å merke slettede "objekter".
+
+Eksempel: 
+Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendomsteigen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitet" type="vegnett:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen
+
+Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KVALITET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="status" type="vegnett:StatusType">
+            <annotation>
+              <documentation>objektets tilstand
+
+Eksempel: Brukes, drift, foreldet, planlagt  etc</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="medium" type="vegnett:MediumType">
+            <annotation>
+              <documentation>objektets beliggenhet i forhold til jordoverflaten
+
+Eksempel:
+På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="opphav" type="string">
+            <annotation>
+              <documentation>referanse til opphavsmaterialet, kildematerialet, organisasjons/publiseringskilde
+
+Merknad: 
+Kan også beskrive navn på person og årsak til oppdatering</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">OPPHAV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="digitaliseringsmålestokk" type="integer">
+            <annotation>
+              <documentation>kartmålestokk registreringene/ datene er hentet fra/ registrert på
+
+Eksempel: 1:50 000 = 50000.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">DIGITALISERINGSMÅLESTOKK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="prosesshistorie" type="string">
+            <annotation>
+              <documentation>beskrivelse av de prosesser som dataene er gått gjennom som kan ha betydning for kvaliteten og bruken av dataene
+
+Merknad:
+Prosesshistorie vil kunne inneholde informasjon om transformasjoner. Hva slags informasjon som angis er ofte gitt i andre standarder, f.eks kvalitet og kvalitetsikring.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">PROSESS_HISTORIE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kopidata" type="vegnett:KopidataPropertyType">
+            <annotation>
+              <documentation>angivelse av at objektet er hentet fra et kopidatasett og ikke fra originaldatasettet
+
+Merknad: Inneholder informasjon om når kopidatasettet ble kopiert fra originaldatasettet og hvem som er originaldataansvarlig</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="informasjon" type="string">
+            <annotation>
+              <documentation>generell opplysning
+
+Merknad:
+mulighet til å legge inn utfyllende informasjon om objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">INFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="registreringsversjon" type="vegnett:RegistreringsversjonPropertyType">
+            <annotation>
+              <documentation>angivelse av hvilken produktspesifikasjon som er utgangspunkt  for dataene</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="link" type="vegnett:URIPropertyType">
+            <annotation>
+              <documentation>referanse  til et informasjonselement, enten lokalt eller globalt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LINK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="geodataeier" type="string">
+            <annotation>
+              <documentation>rettighetshaver til datasettet/tjenesten</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="geodataprodusent" type="string">
+            <annotation>
+              <documentation>organisasjon som har produsert datasettet/tjenesten</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">PRODUSENT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kontaktperson" type="string">
+            <annotation>
+              <documentation>person som kan kontaktes i forbindelse med en forespørsel</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KONTAKTPERSON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høydeOverBakken" type="double">
+            <annotation>
+              <documentation>objekts høyde over bakken
+
+Merknad:
+Kan være aktuelt i forbindelse med ulike typer objekter med utstrekning i høyde, slik som telefonstolper, gjerde, etc. Må brukes med forsiktighet og det må komme klart fram hvilke detalj av objektet eller objektets overbygning høyden relateres til.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HOB</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høydereferanse" type="vegnett:HøydereferanseType">
+            <annotation>
+              <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_ObjektPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:SOSI_Objekt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="StatusType">
+    <annotation>
+      <documentation>Status: objektets tilstand
+
+Eksempel: 
+Brukes, drift, foreldet, planlagt etc
+
+
+-- Definition - - 
+the condition of the object    Examples:In use, in operation, obsolete, planned, etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">STATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:StatusEnumerationType vegnett:StatusOtherType"/>
+  </simpleType>
+  <simpleType name="StatusEnumerationType">
+    <annotation>
+      <documentation>Status: objektets tilstand
+
+Eksempel: 
+Brukes, drift, foreldet, planlagt etc
+
+
+-- Definition - - 
+the condition of the object    Examples:In use, in operation, obsolete, planned, etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">STATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="brukes">
+        <annotation>
+          <documentation>In use: Brukes</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="drift">
+        <annotation>
+          <documentation>Operations: Drift</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="eksisterende">
+        <annotation>
+          <documentation>Existing (default): Eksisterende (default). Identisk med tidligere SITSTAT = 3</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="foreldet">
+        <annotation>
+          <documentation>Obsolete: Foreldet. Identisk med tidligere SITSTAT = 4 historisk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjernet">
+        <annotation>
+          <documentation>Removed: Fjernet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kondemnert">
+        <annotation>
+          <documentation>Condemned: Kondemnert</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="nedlagt">
+        <annotation>
+          <documentation>Discontinued: Nedlagt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ombygd">
+        <annotation>
+          <documentation>Rebuilt: Ombygd</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="planlagt">
+        <annotation>
+          <documentation>Planned: Planlagt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="underArbeid">
+        <annotation>
+          <documentation>In progress: Under arbeid</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="iForfall">
+        <annotation>
+          <documentation>In disrepair: I forfall</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="planlagtIllustrert">
+        <annotation>
+          <documentation>Illustrated as planned: Planlagt illustrert. Illustrert fremtidig situasjon (Tidligere SITSTAT = 1)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="planlagtOgProsjektert">
+        <annotation>
+          <documentation>Planned, engineered: Planlagt, prosjektert. Prosjektert fremtidig situasjon (Tidligere SITSTAT = 2)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="vedtatt">
+        <annotation>
+          <documentation>Vedtatt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="tenktTattIBruk">
+        <annotation>
+          <documentation>??: Tenkt tatt i bruk</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SynbarhetType">
+    <annotation>
+      <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SYNBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:SynbarhetEnumerationType vegnett:SynbarhetOtherType"/>
+  </simpleType>
+  <simpleType name="SynbarhetEnumerationType">
+    <annotation>
+      <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SYNBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fulltSynligOgGjenfinnbarITerrenget">
+        <annotation>
+          <documentation>Fullt ut synlig/gjenfinnbar i terrenget
+Default</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="dårligGjenfinnbarITerrenget">
+        <annotation>
+          <documentation>Dårlig gjenfinnbari terreng.
+Forøvrig grei å innmåle. (Benyttes bl.a. for innmåling av ledninger på lukket grøft)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="middelsSynligIFlybilde">
+        <annotation>
+          <documentation>Middels synlig i flybilde/modell</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="dårligSynligIFlybilde">
+        <annotation>
+          <documentation>Dårlig/ikke synlig i flybilde/modell</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SynbarhetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:TypeEndringEnumerationType vegnett:TypeEndringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeEndringEnumerationType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="endret">
+        <annotation>
+          <documentation>Endret</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="nytt">
+        <annotation>
+          <documentation>Nytt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="slettet">
+        <annotation>
+          <documentation>Slettet</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegType">
+    <annotation>
+      <documentation>Type veg (FormOfWay).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:TypeVegEnumerationType vegnett:TypeVegOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegEnumerationType">
+    <annotation>
+      <documentation>Type veg (FormOfWay).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="motorveg">
+        <annotation>
+          <documentation>Motorveg: veg med fire eller flere kjørefelt, midtdeler, planskilte kryss og uten direkte tilknytning til eiendommene langs vegen. Skiltet med skilt 502.
+INSPIRE: FormOfWay = motorway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="motortrafikkveg">
+        <annotation>
+          <documentation>Motortrafikkveg: Motortrafikkveger kan være tofelts-, trefelts- eller flerfeltsveger, med eller uten midtdeler eller midtrekkverk, men følgende krav skal være oppfylt:
+• Vegen skal vare avkjørselsfri.
+• Vegkryss skal være planskilte.
+• Det skal finnes et tilfredsstillende parallellvegnett for de kjøretøy og trafikantgruppene som ikke er tillatt på motortrafikkvegen.
+Skiltet med skilt 503
+INSPIRE: FormOfWay=freeway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kanalisertVeg">
+        <annotation>
+          <documentation>Kanalisert veg: veg som ikke er motorveg eller motortrafikkveg, og har fysisk adskilte kjørebaner med rekkverk eller annen fysisk barriere som hindrer møteulykke. 
+
+INSPIRE: FormOfWay=dualCarriageway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="enkelBilveg">
+        <annotation>
+          <documentation>Enkel bilveg: øvrige bilveger
+INSPIRE: FormOfWay=singleCarriageway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="rampe">
+        <annotation>
+          <documentation>Rampe: lenke for på- eller avkjøring av annen veg.
+INSPIRE: FormOfWay=slipRoad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="rundkjøring">
+        <annotation>
+          <documentation>Rundkjøring.
+INSPIRE: FormOfWay=roundabout</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="bilferje">
+        <annotation>
+          <documentation>Bilferje: strekning trafikkert av bilferjer som del av vegnettet.
+INSPIRE: FeatureType=FerryUse, FerryUseValue=&lt;i&gt;cars&lt;/i&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="passasjerferje">
+        <annotation>
+          <documentation>Passasjerferje: strekning trafikkert av passasjerferjer som del av nettverket.
+INSPIRE: FeatureType=&lt;i&gt;FerryUse,&lt;/i&gt; FerryUseValue=&lt;i&gt;passengers&lt;/i&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangOgSykkelveg">
+        <annotation>
+          <documentation>Gang- og sykkelveg: veg som er bestemt for gående, syklende eller kombinert gang- og sykkeltrafikk. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. Normalt skiltet med skilt 522.
+INSPIRE: FormOfWay=bicycleRoad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelveg">
+        <annotation>
+          <documentation>Sykkelveg: veg som er bestemt for syklende. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. Normalt skiltet med skilt 520.
+INSPIRE: FormOfWay=bicycleRoad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangveg">
+        <annotation>
+          <documentation>Gangveg: veg som er bestemt for gående. Vegen er skilt fra annen veg med gressplen, grøft, gjerde, kantstein eller på annen måte. 
+INSPIRE: FormOfWay=walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="gågate">
+        <annotation>
+          <documentation>Gågate: område hvor det er forbudt å kjøre motorvogn og hvor trafikkreglenes bestemmelser om gågate gjelder. Skiltet med skilt 548.
+INSPIRE:FormOfWay=pedestrianZone</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangfelt">
+        <annotation>
+          <documentation>Gangfelt: kryssingssted for gående hvor trafikkreglenes bestemmelser om gangfelt gjelder. Oppmerket og eventuelt skiltet med skilt 516.
+INSPIRE: FormOfWay=walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="fortau">
+        <annotation>
+          <documentation>Fortau: del av veg reservert for gående. Ligger høyere enn vegbanen og er adskilt fra denne med kantstein
+INSPIRE: FormOfWay=walkway</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="traktorveg">
+        <annotation>
+          <documentation>Traktorveg: veg som hele året (eller deler av året) ikke egner seg for vanlig bilkjøring, men som er farbar med traktor
+INSPIRE: FormOfWay=tractor</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="sti">
+        <annotation>
+          <documentation>Sti: tydelig tråkk i terrenget som er markert gjennom års bruk eller tilrettelagt for ferdsel til fots</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="trapp">
+        <annotation>
+          <documentation>Trapp: trapp som naturlig inngår i nettverket</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="annet">
+        <annotation>
+          <documentation>Annet: lenke som binder sammen andre lenker. Brukes for å få sammenhengende ruter, der ingen andre typer kan brukes. Skal kun brukes for å lage et sammenhengende nettverk til bruk i ruter. For eksempel skiløyper over jorder og myrer.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="URI" substitutionGroup="gml:AbstractObject" type="vegnett:URIType"/>
+  <complexType name="URIType">
+    <sequence/>
+  </complexType>
+  <complexType name="URIPropertyType">
+    <sequence>
+      <element ref="vegnett:URI"/>
+    </sequence>
+  </complexType>
+  <simpleType name="VegdetaljnivåType">
+    <annotation>
+      <documentation>Detaljnivå i vegnettet. 
+Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegdetaljnivåEnumerationType vegnett:VegdetaljnivåOtherType"/>
+  </simpleType>
+  <simpleType name="VegdetaljnivåEnumerationType">
+    <annotation>
+      <documentation>Detaljnivå i vegnettet. 
+Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="kjørebane">
+        <annotation>
+          <documentation>del av veg som består av ett eller flere kjørefelt som ligger inntil hverandre og i samme plan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørefelt">
+        <annotation>
+          <documentation>del av veg som er bestemt for en vognrekke</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegtrase">
+        <annotation>
+          <documentation>representerer en konstruert senterlinje som den fysiske vegen ikke følger (f.eks. ved fysisk atskilte kjørebaner).</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegdetaljnivåOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegkategoriType">
+    <annotation>
+      <documentation>Vegkategori: Angir vegkategori</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4566</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegkategoriEnumerationType vegnett:VegkategoriOtherType"/>
+  </simpleType>
+  <simpleType name="VegkategoriEnumerationType">
+    <annotation>
+      <documentation>Vegkategori: Angir vegkategori</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4566</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="E">
+        <annotation>
+          <documentation>5492: Europaveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5492</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="R">
+        <annotation>
+          <documentation>5493: Riksveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5493</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="F">
+        <annotation>
+          <documentation>5494: Fylkesveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5494</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="K">
+        <annotation>
+          <documentation>5495: Kommunal veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5495</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="P">
+        <annotation>
+          <documentation>5496: Privat veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5496</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="S">
+        <annotation>
+          <documentation>5497: Skogsveg - tidligere Skogsbilveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5497</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegkategoriOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Veglenke" substitutionGroup="vegnett:Lenke" type="vegnett:VeglenkeType">
+    <annotation>
+      <documentation>Objekttype som representerer lenker i vegnettet
+Eksempel: NVDB Referanselenkedeler, NVDB Transportlenker</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkeType">
+    <complexContent>
+      <extension base="vegnett:LenkeType">
+        <sequence>
+          <element name="typeVeg" type="vegnett:TypeVegType">
+            <annotation>
+              <documentation>type veg (FormOfWay).</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="detaljnivå" type="vegnett:VegdetaljnivåType">
+            <annotation>
+              <documentation>Detaljnivå i vegnettet.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konnekteringslenke" type="boolean">
+            <annotation>
+              <documentation>angir at en lenke kun eksisterer for å knytte sammen andre lenker.
+Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøter sammen lenker der det er hull i geometrien.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KONNEKTERINGSLENKE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="veglenkeadresse" type="vegnett:VeglenkeadressePropertyType">
+            <annotation>
+              <documentation>sammensatt identifikator for veglenkeadresse.
+Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vegreferanse" type="vegnett:VegreferansePropertyType">
+            <annotation>
+              <documentation>sammensatt identifikator for vegreferanse</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VREF</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="feltoversikt" type="string">
+            <annotation>
+              <documentation>kjørefeltnummer angir stedfesting i vegens tverretning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>forløp som følger objektets sentrale del</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenke"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
+    <annotation>
+      <documentation>sammensatt identifikator for veglenkeadresse. 
+Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b&gt;.&lt;/b&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGLENKEADRESSE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VeglenkeadresseType">
+    <sequence>
+      <element name="kommunenummer">
+        <annotation>
+          <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste.
+Merknad: egenskapen er påkrevd for unik identifisering av veglenkeadresser, i og med at adressekoden kun er unik innen en kommune.</documentation>
+        </annotation>
+      </element>
+      <element name="adressekode" type="integer">
+        <annotation>
+          <documentation>nummer som entydig identifiserer adresserbare veglenker i matrikkelen. For hvert adressenavn skal det således foreligge en adressekode, jf. matrikkelforskriften § 51.2. 
+Merknad: Adressekode er unik innenfor kommunen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ADRESSEKODE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="adressenavn" type="string">
+        <annotation>
+          <documentation>navn på veglenke i matrikkelen (matrikkelforskriften § 2e).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ADRESSENAVN</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="sideveg" type="boolean">
+        <annotation>
+          <documentation>angir om en veglenke er sideveg og dermed bruker adresser fra lenka den er sideveg fra.
+Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SIDEVEG</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VeglenkeadressePropertyType">
+    <sequence>
+      <element ref="vegnett:Veglenkeadresse"/>
+    </sequence>
+  </complexType>
+  <element name="Veglenkesekvens" substitutionGroup="vegnett:Lenkesekvens" type="vegnett:VeglenkesekvensType">
+    <annotation>
+      <documentation>Sekvens av veglenker.
+Eksempel: NVDB Referanselenker, som består av referanselenkedeler (Lenke)</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkesekvensType">
+    <complexContent>
+      <extension base="vegnett:LenkesekvensType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkesekvensPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenkesekvens"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Veglenkesett" substitutionGroup="vegnett:Lenkesett" type="vegnett:VeglenkesettType">
+    <annotation>
+      <documentation>Sett av veglenker. eller veglenkesekvenser
+Eksempel: E6</documentation>
+    </annotation>
+  </element>
+  <complexType name="VeglenkesettType">
+    <complexContent>
+      <extension base="vegnett:LenkesettType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VeglenkesettPropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Veglenkesett"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Vegnode" substitutionGroup="vegnett:Node" type="vegnett:VegnodeType">
+    <annotation>
+      <documentation>node i vegnettet</documentation>
+    </annotation>
+  </element>
+  <complexType name="VegnodeType">
+    <complexContent>
+      <extension base="vegnett:NodeType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>sted som objektet eksisterer på</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegnodePropertyType">
+    <sequence minOccurs="0">
+      <element ref="vegnett:Vegnode"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Vegreferanse" substitutionGroup="gml:AbstractObject" type="vegnett:VegreferanseType">
+    <annotation>
+      <documentation>sammensatt identifikator for vegreferanse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VREF</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegreferanseType">
+    <sequence>
+      <element minOccurs="0" name="vegkategori" type="vegnett:VegkategoriType">
+        <annotation>
+          <documentation>angir hvilken type veg veglenk beskriver</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegstatus" type="vegnett:VegstatusType">
+        <annotation>
+          <documentation>angir veglenka sin status</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegnummer" type="integer">
+        <annotation>
+          <documentation>angir nummeret til en vegrute</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="hovedparsell" type="integer">
+        <annotation>
+          <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HOVEDPARSELL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterFra" type="integer">
+        <annotation>
+          <documentation>meterverdi ved start veglenke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METERFRA</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterTil" type="integer">
+        <annotation>
+          <documentation>meterverdi ved slutt veglenke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METERTIL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="referanseretning" type="vegnett:RetningskodeType">
+        <annotation>
+          <documentation>retning for vegreferansen, med eller mot koordinatrekkefølgen. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting og lenkenes geometri.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegreferanseFraDato" type="date">
+        <annotation>
+          <documentation>gyldighetsdato fra for vegreferanse (startdato)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VFRADATO</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegreferanseTilDato" type="date">
+        <annotation>
+          <documentation>gyldighetsdato til for vegreferanse (avslutningsdato)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VTILDATO</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="VegreferansePropertyType">
+    <sequence>
+      <element ref="vegnett:Vegreferanse"/>
+    </sequence>
+  </complexType>
+  <simpleType name="VegstatusType">
+    <annotation>
+      <documentation>Vegstatus: Angir vegstatus</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4567</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGSTATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="vegnett:VegstatusEnumerationType vegnett:VegstatusOtherType"/>
+  </simpleType>
+  <simpleType name="VegstatusEnumerationType">
+    <annotation>
+      <documentation>Vegstatus: Angir vegstatus</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4567</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGSTATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="V">
+        <annotation>
+          <documentation>5499: Eksisterende veg. Veg som er del av operativt vegnett (tatt opp til vedlikehold).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5499</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="W">
+        <annotation>
+          <documentation>5505: Midlertidig eksisterende veg. Brukes i de tilfeller hvor det bygges en midlertidig veg som blir brukt for avvikling av trafikk for vedkommende veg uten at den er formelt opptatt. Denne statusen benyttes dersom denne vegen blir liggende i 6 måneder eller lengre, men fjernes når veganlegget er ferdig bygget. Kan også benyttes i tilfeller hvor annen veg, riks-, fylkes-, kommunal eller privat veg blir brukt for avvikling av trafikk for vedkommende veg uten at den er formelt opptatt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5505</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="T">
+        <annotation>
+          <documentation>5502: Midlertidig status inntil ny kategori er bestemt for vegstrekningen. Denne skal brukes i de tilfeller hvor det formelt ikke er avklart hvem som skal forvalte vegstrekningen, og med det hvilken kategori strekningen skal ha.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5502</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="S">
+        <annotation>
+          <documentation>5504: Eksisterende ferjestrekning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5504</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="G">
+        <annotation>
+          <documentation>12159: Gang-/sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12159</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="U">
+        <annotation>
+          <documentation>12983: Midlertidig status inntil ny kategori er bestemt for gang- og sykkelvegstrekningen. Denne skal brukes i de tilfeller hvor det formelt ikke er avklart hvem som skal forvalte strekningen, og med det hvilken kategori strekningen skal ha.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12983</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="B">
+        <annotation>
+          <documentation>13707: Beredskapsveg, ikke åpen for allmenn ferdsel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13707</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="M">
+        <annotation>
+          <documentation>5501: Serviceveg, normalt sett ikke åpen for allmenn ferdsel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5501</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="X">
+        <annotation>
+          <documentation>5500: Rømningstunnel, ikke åpen for allmenn ferdsel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5500</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="A">
+        <annotation>
+          <documentation>7041: Anleggsveg - veg under bygging</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7041</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="H">
+        <annotation>
+          <documentation>12160: Gang-/sykkelveg anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12160</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="P">
+        <annotation>
+          <documentation>7042: Planlagt veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7042</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="E">
+        <annotation>
+          <documentation>7046: Planlagt ferjestrekning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7046</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Q">
+        <annotation>
+          <documentation>12986: Planlagt gang- og sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12986</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegstatusOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
