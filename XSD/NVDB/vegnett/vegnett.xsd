@@ -286,7 +286,16 @@ Eksempel: En sammenhengende rute bestående av flere dellenker
   <complexType abstract="true" name="LenkesekvensType">
     <complexContent>
       <extension base="vegnett:GeneralisertLenkeType">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" name="lenke" type="vegnett:RettaLenkePropertyType">
+            <annotation>
+              <documentation>ordna samling med retta lenker som utgjør lenkesekvensen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LENKE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -733,19 +742,19 @@ Merknad: Kan overstyres for den enkelte posisjonsangivelse.
 &lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="nettverk" type="vegnett:NettverkPropertyType">
-            <annotation>
-              <appinfo>
-                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERK</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="nettverkskobling" type="vegnett:NettverkskoblingPropertyType">
             <annotation>
               <appinfo>
                 <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERKSKOBLING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="nettverk" type="vegnett:NettverkPropertyType">
+            <annotation>
+              <appinfo>
+                <reversePropertyName xmlns="http://www.opengis.net/gml/3.2">vegnett:nettverkselement</reversePropertyName>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NETTVERK</taggedValue>
               </appinfo>
             </annotation>
           </element>
