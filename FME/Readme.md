@@ -16,7 +16,7 @@ Workspacet **[NVDBAPI2GML_V2_paraply.fmw](https://github.com/jetgeo/NVDBGML/blob
 
 ### Lesing av vegnett
 Workspacet [NVDBAPI2GML_V2_Vegnett.fmw](https://github.com/jetgeo/NVDBGML/blob/master/FME/NVDBAPI2GML_V2_Vegnett.fmw) leser vegnett for en valgt kommune og eksporterer til GML. 
-Dette workspacet har feoløpig noen mangler på grunn av feil i APIet:
+Dette workspacet har foreløpig noen mangler på grunn av feil i APIet:
 * Egenskapen _detaljnivå_ (Vegtrase, Kjørebane, Kjørefelt) mangler på en stor andel av lenkene, på grunn av at informasjonen mangler for de samme lenkene fra APIet
 * Alle lenker får angitt verdi "enkelBilveg" for egenskapen _typeVeg_, på grunn av at nødvendig informasjon ikke er med i responsen fra APIet
 * Noder blir ikke unike, på grunn av feil nummerering i responsen fra APIet
