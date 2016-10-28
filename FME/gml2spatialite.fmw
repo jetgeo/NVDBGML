@@ -1,0 +1,3469 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    
+#    
+#    Command-line to run this workspace:
+#    
+#    
+#    "C:\Program Files\FME2016.1\64\fme.exe" C:\DATA\GitHub\NVDBGML\FME\gml2spatialite.fmw
+#          --SourceDataset_GML "C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.gml"
+#          --DestDataset_SPATIALITE "C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.db"
+#    
+#    
+#!   REDIRECT_TERMINATORS="NONE"
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   DESCRIPTION=""
+#!   ZOOM_SCALE="100"
+#!   LEGAL_TERMS_CONDITIONS=""
+#!   IGNORE_READER_FAILURE="No"
+#!   FME_DOCUMENT_GUID="44e18949-9c1c-4a1c-9989-47eeeaaedf06"
+#!   USAGE=""
+#!   CATEGORY=""
+#!   END_TCL=""
+#!   BEGIN_TCL=""
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   DOC_EXTENTS="2212.52 1560.01"
+#!   SOURCE_ROUTING_FILE=""
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   LOG_FILE=""
+#!   PYTHON_COMPATIBILITY="27"
+#!   SOURCE="NONE"
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   DESTINATION_ROUTING_FILE=""
+#!   REQUIREMENTS_KEYWORD=""
+#!   SHOW_ANNOTATIONS="true"
+#!   FME_BUILD_NUM="16481"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   BEGIN_PYTHON=""
+#!   FME_DOCUMENT_PRIORGUID=""
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   FME_SERVER_SERVICES=""
+#!   SHOW_INFO_NODES="true"
+#!   REQUIREMENTS=""
+#!   VIEW_POSITION="0 100.001"
+#!   TITLE=""
+#!   END_PYTHON=""
+#!   DOC_TOP_LEFT="100 -1590.01"
+#!   LAST_SAVE_DATE="2016-10-20T13:03:38"
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   HISTORY=""
+#!   PASSWORD=""
+#!   DESTINATION="NONE"
+#!   WORKSPACE_VERSION="1"
+#!   LAST_SAVE_BUILD="FME(R) 2016.1.0.0 (20160329 - Build 16481 - WIN64)"
+#!   MAX_LOG_FEATURES="200"
+#! >
+#! <DATASETS>
+#! <DATASET
+#!   IS_SOURCE="true"
+#!   ROLE="READER"
+#!   FORMAT="GML"
+#!   DATASET="$(SourceDataset_GML)"
+#!   KEYWORD="GML_1"
+#!   MULTI_GEOM_ALLOWED="false"
+#!   ATTR_MAX_LENGTH="0"
+#!   ATTR_CASE="ANY"
+#!   ALLOWED_FEAT_TYPES=""
+#!   WRITE_DEFS="true"
+#!   DEFLINE_TEMPLATE=""
+#!   DEFLINE_ATTRS="true"
+#!   EXPOSABLE_ATTRS="fme_feature_type xml_char(50) gml_original_coordinate_system xml_char(64) fme_start_angle xml_real64 multi_reader_keyword xml_char(50) fme_geometry fme_char(50) xml_type xml_char(50) gml_parent_id xml_char(254) fme_sweep_angle xml_real64 fme_text_size xml_real64 multi_reader_id xml_int32 fme_dataset xml_char(50) multi_reader_full_id xml_int32 multi_reader_type xml_char(50) fme_fill_color xml_char(50) fme_primary_axis xml_real64 fme_type xml_char(50) gml_parent_property xml_char(254) xml_ns_uri xml_char(254) fme_basename xml_char(50) fme_text_string xml_char(50) fme_color xml_char(50) fme_secondary_axis xml_real64 gml_id xml_char(254) fme_rotation xml_real64"
+#!   DEFLINE_PARMS=""
+#!   ATTR_INDEX_TYPES=""
+#!   ATTR_NAME_INVALID_CHARS=""
+#!   SUPPORTS_FEATURE_TYPE_FANOUT="true"
+#!   ENABLED="true"
+#!   DYNAMIC_FEATURE_TYPES_LIST_ON_MERGE="true"
+#!   DATASET_TYPE="FILE_OR_URL"
+#!   GENERATE_FME_BUILD_NUM="16481"
+#!   MAX_FEATURES=""
+#!   MIN_FEATURES=""
+#!   COORDSYS=""
+#!   START_FEATURE=""
+#!   MAX_FEATURES_PER_FEATURE_TYPE=""
+#!   FEATURE_TYPES=""
+#! >
+#! <METAFILE_PARAMETER
+#!   NAME="READER_DATASET_HINT"
+#!   VALUE="Select the GML file(s)"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="ADVANCED_PARMS"
+#!   VALUE="GML_IN_SEARCH_ENVELOPE_MINX GML_IN_SEARCH_ENVELOPE_MINY GML_IN_SEARCH_ENVELOPE_MAXX GML_IN_SEARCH_ENVELOPE_MAXY GML_IN_CLIP_TO_ENVELOPE SEARCH_ENVELOPE_COORDINATE_SYSTEM"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="NETWORK_PROXY"
+#!   VALUE="NO"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="NETWORK_AUTHENTICATION"
+#!   VALUE="ALWAYS"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="WRITER_DATASET_HINT"
+#!   VALUE="Specify a name for the GML file"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="DATASET_NAME"
+#!   VALUE="gml file"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="MIME_TYPE"
+#!   VALUE="application/xml"
+#! />
+#! </DATASET>
+#! <DATASET
+#!   IS_SOURCE="false"
+#!   ROLE="WRITER"
+#!   FORMAT="SPATIALITE"
+#!   DATASET="$(DestDataset_SPATIALITE)"
+#!   KEYWORD="SPATIALITE_1"
+#!   MULTI_GEOM_ALLOWED="false"
+#!   ATTR_MAX_LENGTH="256"
+#!   ATTR_CASE="LOWER"
+#!   ALLOWED_FEAT_TYPES=""
+#!   WRITE_DEFS="true"
+#!   DEFLINE_TEMPLATE="spatialite_type {FME_GEN_GEOMETRY} spatialite_overwrite_tables No spatialite_create_spatial_index Yes spatialite_compress_geometry Yes"
+#!   DEFLINE_ATTRS="true"
+#!   EXPOSABLE_ATTRS="fme_text_string string(50) fme_color string(50) fme_fill_color string(50) fme_feature_type string(50) fme_basename string(50) fme_geometry fme_char(50) fme_sweep_angle real(31,15) fme_start_angle real(31,15) fme_text_size real(31,15) fme_dataset string(50) fme_type string(50) spatialite_type string(255) fme_rotation real(31,15) fme_primary_axis real(31,15) fme_secondary_axis real(31,15)"
+#!   DEFLINE_PARMS="&quot;GUI NAMEDGROUP spatialite_layer_group spatialite_overwrite_tables%spatialite_compress_geometry%spatialite_create_spatial_index  Table Settings&quot; &quot;&quot; &quot;GUI CHOICE spatialite_overwrite_tables Yes%No Drop Existing Table&quot; No &quot;GUI CHOICE spatialite_compress_geometry Yes%No Compress Geometry&quot; Yes &quot;GUI CHOICE spatialite_create_spatial_index Yes%No Create Spatial Index&quot; Yes "
+#!   ATTR_INDEX_TYPES=""
+#!   ATTR_NAME_INVALID_CHARS="\\/&quot;:?*&lt;&gt;|[# &apos;&amp;+-{}]."
+#!   SUPPORTS_FEATURE_TYPE_FANOUT="true"
+#!   ENABLED="true"
+#!   DYNAMIC_FEATURE_TYPES_LIST_ON_MERGE="true"
+#!   DATASET_TYPE="FILE"
+#!   GENERATE_FME_BUILD_NUM="16481"
+#!   COORDSYS=""
+#!   FANOUT_EXPRESSION=""
+#!   FANOUT_GROUP="NO"
+#! >
+#! <METAFILE_PARAMETER
+#!   NAME="READER_DATASET_HINT"
+#!   VALUE="Select the SpatiaLite file(s)"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="FEATURE_TYPE_NAME"
+#!   VALUE="Table"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="ADVANCED_PARMS"
+#!   VALUE="SPATIALITE_OUT_ENCODING TRANSACTION_SIZE"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="FEATURE_TYPE_DEFAULT_NAME"
+#!   VALUE="Table1"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="WRITER_DATASET_HINT"
+#!   VALUE="Specify a name for the SpatiaLite file"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="DATASET_NAME"
+#!   VALUE="sl3 file"
+#! />
+#! </DATASET>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(width)"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(width)"
+#!   FME_TYPE="fme_varbinary(width)"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(width)"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(width)"
+#!   FME_TYPE="fme_binary(width)"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_buffer"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_buffer"
+#!   FME_TYPE="fme_binarybuffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_buffer"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_xml"
+#!   FME_TYPE="fme_xml"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_datetime"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_date"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_time"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_int64"
+#!   FME_TYPE="fme_int64"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_uint64"
+#!   FME_TYPE="fme_uint64"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_int32"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_uint32"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_int16"
+#!   FME_TYPE="fme_int16"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_uint16"
+#!   FME_TYPE="fme_uint16"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_byte"
+#!   FME_TYPE="fme_int8"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_ubyte"
+#!   FME_TYPE="fme_uint8"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_real32"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_real64"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_decimal(width,decimal)"
+#!   FME_TYPE="fme_decimal(width,decimal)"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_boolean"
+#!   FME_TYPE="fme_boolean"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(20)"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(8)"
+#!   FME_TYPE="fme_date"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_char(12)"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_geometry"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GML"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string(width)"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string(width)"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string(255)"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string(255)"
+#!   FME_TYPE="fme_xml"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="string(255)"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="binary"
+#!   FME_TYPE="fme_binarybuffer"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="binary"
+#!   FME_TYPE="fme_varbinary(width)"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="binary"
+#!   FME_TYPE="fme_binary(width)"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real(width,decimal)"
+#!   FME_TYPE="fme_decimal(width,decimal)"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="datetime"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="date"
+#!   FME_TYPE="fme_date"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="time"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer64"
+#!   FME_TYPE="fme_int64"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real(20,0)"
+#!   FME_TYPE="fme_uint64"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_int16"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_uint16"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_int8"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_uint8"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real(15,7)"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real(31,15)"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real(10,0)"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="integer"
+#!   FME_TYPE="fme_boolean"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="real64"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="SPATIALITE"
+#! />
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_no_geom"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_point"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_line"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_aggregate"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_text"
+#!   FME_TYPE="fme_text"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_ellipse"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_rectangle"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_rounded_rectangle"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_arc"
+#!   FME_TYPE="fme_arc"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_surface"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_solid"
+#!   FME_TYPE="fme_solid"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_mesh"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_raster"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_area"
+#!   FME_TYPE="fme_point_cloud"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="xml_no_geom"
+#!   FME_TYPE="fme_feature_table"
+#!   FORMAT="GML"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_point_xyz"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_point"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_point_xyz"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_point"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_point_xyz"
+#!   FME_TYPE="fme_text"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_line_xyz"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_line"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_line_xyz"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_line"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_line_xyz"
+#!   FME_TYPE="fme_arc"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_line_xyz"
+#!   FME_TYPE="fme_solid"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_line_xyz"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_polygon_xyz"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_multi_polygon"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_ellipse"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_rectangle"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_rounded_rectangle"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_raster"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_polygon_xyz"
+#!   FME_TYPE="fme_point_cloud"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_geometry_collection_xyz"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_geometry_collection"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_geometry"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_none"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="SPATIALITE"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="wkb_geometry"
+#!   FME_TYPE="fme_feature_table"
+#!   FORMAT="SPATIALITE"
+#! />
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Vegnode"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="1"
+#!   FEAT_GEOMTYPE="xml_point"
+#!   POSITION="100 -155.001"
+#!   BOUNDING_RECT="100 -155.001 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="true"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.lokalId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.navnerom" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.versjonId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigFra" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigTil" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDatafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDigitaliseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.typeEndring" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.tidspunktEndring" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighet" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.synbarhet" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.maksimaltAvvik" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.områdeId" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.originalDatavert" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.kopidato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.produkt" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.versjon" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeOverBakken" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardLRM" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodeFor{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodeFor{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodeFor{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodeFor{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodeFor{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodeFor{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodeFor{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodeFor{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="posisjon" ATTR_TYPE="xml_geometry" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="vegnode"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="2"
+#!   FEAT_GEOMTYPE="wkb_multi_point_xyz"
+#!   POSITION="2236.53 -155.001"
+#!   BOUNDING_RECT="2236.53 -155.001 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_lokalid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_navnerom" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_versjonid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigfra" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigtil" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedatafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedigitaliseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_typeendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_tidspunktendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighet" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_synbarhet" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighethøyde" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_maksimaltavvik" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_områdeid" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_originaldatavert" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_kopidato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_produkt" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_versjon" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeoverbakken" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardlrm" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodefor___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodefor___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodefor___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnodefor___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodefor___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodefor___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodefor___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnodefor___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="posisjon" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Veglenkesett"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="3"
+#!   FEAT_GEOMTYPE="xml_no_geom"
+#!   POSITION="100 -274.501"
+#!   BOUNDING_RECT="100 -274.501 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="true"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.lokalId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.navnerom" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.versjonId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigFra" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigTil" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDatafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDigitaliseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.typeEndring" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.tidspunktEndring" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighet" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.synbarhet" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.maksimaltAvvik" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.områdeId" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.originalDatavert" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.kopidato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.produkt" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.versjon" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeOverBakken" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardLRM" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="navn" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="veglenkesett"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="4"
+#!   FEAT_GEOMTYPE="wkb_geometry"
+#!   POSITION="2236.53 -274.501"
+#!   BOUNDING_RECT="2236.53 -274.501 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_lokalid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_navnerom" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_versjonid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigfra" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigtil" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedatafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedigitaliseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_typeendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_tidspunktendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighet" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_synbarhet" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighethøyde" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_maksimaltavvik" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_områdeid" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_originaldatavert" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_kopidato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_produkt" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_versjon" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeoverbakken" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardlrm" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="navn" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Veglenkesekvens"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="5"
+#!   FEAT_GEOMTYPE="xml_no_geom"
+#!   POSITION="100 -394.001"
+#!   BOUNDING_RECT="100 -394.001 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="true"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.lokalId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.navnerom" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.versjonId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigFra" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigTil" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDatafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDigitaliseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.typeEndring" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.tidspunktEndring" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighet" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.synbarhet" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.maksimaltAvvik" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.områdeId" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.originalDatavert" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.kopidato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.produkt" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.versjon" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeOverBakken" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardLRM" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.RettaLenke.retning" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.RettaLenke.lenke.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.RettaLenke.lenke.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.RettaLenke.lenke.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke{}.RettaLenke.lenke.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="veglenkesekvens"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="6"
+#!   FEAT_GEOMTYPE="wkb_geometry"
+#!   POSITION="2236.53 -394.001"
+#!   BOUNDING_RECT="2236.53 -394.001 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_lokalid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_navnerom" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_versjonid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigfra" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigtil" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedatafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedigitaliseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_typeendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_tidspunktendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighet" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_synbarhet" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighethøyde" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_maksimaltavvik" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_områdeid" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_originaldatavert" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_kopidato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_produkt" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_versjon" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeoverbakken" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardlrm" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___rettalenke_retning" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___rettalenke_lenke_nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___rettalenke_lenke_gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___rettalenke_lenke_xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="lenke___rettalenke_lenke_owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Veglenke"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="7"
+#!   FEAT_GEOMTYPE="xml_line"
+#!   POSITION="100 -513.501"
+#!   BOUNDING_RECT="100 -513.501 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="false"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.lokalId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.navnerom" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon.Identifikasjon.versjonId" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigFra" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigTil" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDatafangstdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førsteDigitaliseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.typeEndring" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg.Endringsflagg.tidspunktEndring" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetode.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighet" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.synbarhet" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.nøyaktighetHøyde" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet.Posisjonskvalitet.maksimaltAvvik" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.områdeId" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.originalDatavert" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata.Kopidata.kopidato" ATTR_TYPE="xml_datetime" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon{}" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.produkt" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon.Registreringsversjon.versjon" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeOverBakken" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardLRM" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="måltLengde" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startposisjon" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttposisjon" ATTR_TYPE="xml_real64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="typeVeg" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="detaljnivå" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="konnekteringslenke" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse.Veglenkeadresse.kommunenummer" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse.Veglenkeadresse.adressekode" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse.Veglenkeadresse.adressenavn" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse.Veglenkeadresse.sideveg" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.fylkesnummer" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.kommunenummer" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.vegkategori" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.hovedparsell" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.veglenkeMeterFra" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.veglenkeMeterTil" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.referanseretning" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.vegreferanseFraDato" ATTR_TYPE="xml_date" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.vegreferanseTilDato" ATTR_TYPE="xml_date" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.vegstatus" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse.Vegreferanse.vegnummer" ATTR_TYPE="xml_int64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="feltoversikt" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="senterlinje" ATTR_TYPE="xml_geometry" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="veglenke"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="8"
+#!   FEAT_GEOMTYPE="wkb_multi_line_xyz"
+#!   POSITION="2236.53 -513.501"
+#!   BOUNDING_RECT="2236.53 -513.501 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_lokalid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_navnerom" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="identifikasjon_identifikasjon_versjonid" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="oppdateringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigfra" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gyldigtil" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedatafangstdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="førstedigitaliseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="verifiseringsdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="datauttaksdato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_typeendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="endringsflagg_endringsflagg_tidspunktendring" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetode_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighet" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_synbarhet" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_målemetodehøyde_codespace" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_nøyaktighethøyde" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kvalitet_posisjonskvalitet_maksimaltavvik" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="status" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="medium" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="opphav" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="digitaliseringsmålestokk" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="prosesshistorie__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_områdeid" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_originaldatavert" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kopidata_kopidata_kopidato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="informasjon__" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_produkt" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="registreringsversjon_registreringsversjon_versjon" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataeier" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="geodataprodusent" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="kontaktperson" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydeoverbakken" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="høydereferanse" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="standardlrm" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverk___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkskobling___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="måltlengde" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startposisjon" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttposisjon" ATTR_TYPE="real(31,15)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode_nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode_gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode_xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="sluttnode_owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode_nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode_gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode_xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="startnode_owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="typeveg" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="detaljnivå" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="konnekteringslenke" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse_veglenkeadresse_kommunenummer" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse_veglenkeadresse_adressekode" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse_veglenkeadresse_adressenavn" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="veglenkeadresse_veglenkeadresse_sideveg" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_fylkesnummer" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_kommunenummer" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_vegkategori" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_hovedparsell" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_veglenkemeterfra" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_veglenkemetertil" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_referanseretning" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_vegreferansefradato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_vegreferansetildato" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_vegstatus" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="vegreferanse_vegreferanse_vegnummer" ATTR_TYPE="integer64" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="feltoversikt" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="senterlinje" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Nettverkskobling"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="9"
+#!   FEAT_GEOMTYPE="xml_no_geom"
+#!   POSITION="107.504 -1470.51"
+#!   BOUNDING_RECT="107.504 -1470.51 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="false"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="nettverkskobling"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="10"
+#!   FEAT_GEOMTYPE="wkb_geometry"
+#!   POSITION="2244.03 -1470.51"
+#!   BOUNDING_RECT="2244.03 -1470.51 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Nettverk"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="11"
+#!   FEAT_GEOMTYPE="xml_no_geom"
+#!   POSITION="107.504 -1590.01"
+#!   BOUNDING_RECT="107.504 -1590.01 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="GML_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER=""
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="false"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="xml_buffer"  EXPOSABLE_ATTR="true" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverksnavn" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.nilReason" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.gml_remoteSchema" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.xlink_href" ATTR_TYPE="xml_buffer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement{}.owns" ATTR_TYPE="xml_boolean" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="nettverk"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="12"
+#!   FEAT_GEOMTYPE="wkb_geometry"
+#!   POSITION="2244.03 -1590.01"
+#!   BOUNDING_RECT="2244.03 -1590.01 -1 -1"
+#!   ORDER="5e+14"
+#!   COLLAPSED="true"
+#!   KEYWORD="SPATIALITE_1"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_parent_property" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gml_id" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverksnavn" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___nilreason" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___gml_remoteschema" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___xlink_href" ATTR_TYPE="string(255)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="nettverkselement___owns" ATTR_TYPE="integer" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_overwrite_tables" PARM_VALUE="No"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_compress_geometry" PARM_VALUE="Yes"/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_layer_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="spatialite_create_spatial_index" PARM_VALUE="Yes"/>
+#! </FEATURE_TYPE>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI MULTIFILE SourceDataset_GML GML_Files(*.gml;*.gz;*.xml)|*.gml;*gz;*.xml|GML_Files(*.gml)|*.gml|Compressed_GML_Files(*.gz)|*.gz|GML_Files(*.xml)|*.xml|All_Files|* Source Geography Markup Language (GML) File(s):"
+#!   DEFAULT_VALUE="C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.gml"
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI FILENAME DestDataset_SPATIALITE SpatiaLite_Database_Files(*.sl3;*.db;*.sqlite)|*.sl3;*.db;*.sqlite|SpatiaLite_Database_Files(*.sl3)|*.sl3|SpatiaLite_Database_Files(*.db)|*.db|SpatiaLite_Database_Files(*.sqlite)|*.sqlite|All_files(*)|* Destination SpatiaLite Database File:"
+#!   DEFAULT_VALUE="C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.db"
+#!   IS_STAND_ALONE="false"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="19"
+#!   COMMENT_VALUE="Reader Feature Types"
+#!   POSITION="100 -30"
+#!   TOP_LEFT="100 -30"
+#!   BOTTOM_RIGHT="99 -29"
+#!   BOUNDING_RECT="100 -30 -1 -1"
+#!   ORDER="5e+14"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.196078"
+#!   SIZE_POLICY="10"
+#!   COMMENT_TYPE="SOURCE_HEADER"
+#!   ANCHORED_NODE="0"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="20"
+#!   COMMENT_VALUE="Data Flow"
+#!   POSITION="1301.26 -30"
+#!   TOP_LEFT="1301.26 -30"
+#!   BOTTOM_RIGHT="1300.26 -29"
+#!   BOUNDING_RECT="1301.26 -30 -1 -1"
+#!   ORDER="5e+14"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.196078"
+#!   SIZE_POLICY="10"
+#!   COMMENT_TYPE="DATAFLOW_HEADER"
+#!   ANCHORED_NODE="0"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="21"
+#!   COMMENT_VALUE="Writer Feature Types"
+#!   POSITION="2312.52 -30"
+#!   TOP_LEFT="2312.52 -30"
+#!   BOTTOM_RIGHT="2311.52 -29"
+#!   BOUNDING_RECT="2312.52 -30 -1 -1"
+#!   ORDER="5e+14"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.196078"
+#!   SIZE_POLICY="10"
+#!   COMMENT_TYPE="DEST_HEADER"
+#!   ANCHORED_NODE="0"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="13"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="14"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="15"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="16"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="17"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="10"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="18"
+#!   SOURCE_NODE="11"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! <ATTR_LINK
+#!   IDENTIFIER="983053"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="5"
+#!   TARGET_PORT_DESC="5"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1310733"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="40"
+#!   TARGET_PORT_DESC="40"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="327693"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="19"
+#!   TARGET_PORT_DESC="19"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2031629"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="7"
+#!   TARGET_PORT_DESC="7"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1179661"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="39"
+#!   TARGET_PORT_DESC="39"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131085"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="25"
+#!   TARGET_PORT_DESC="25"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2228237"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="17"
+#!   TARGET_PORT_DESC="17"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="393229"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="37"
+#!   TARGET_PORT_DESC="37"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2097165"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="18"
+#!   TARGET_PORT_DESC="18"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1048589"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="41"
+#!   TARGET_PORT_DESC="41"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1376269"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="30"
+#!   TARGET_PORT_DESC="30"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1441805"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="21"
+#!   TARGET_PORT_DESC="21"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2293773"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="24"
+#!   TARGET_PORT_DESC="24"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="655373"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="35"
+#!   TARGET_PORT_DESC="35"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="458765"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="38"
+#!   TARGET_PORT_DESC="38"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1703949"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="27"
+#!   TARGET_PORT_DESC="27"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2621453"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="8"
+#!   TARGET_PORT_DESC="8"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1507341"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="13"
+#!   TARGET_PORT_DESC="13"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2359309"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="34"
+#!   TARGET_PORT_DESC="34"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="720909"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="31"
+#!   TARGET_PORT_DESC="31"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="786445"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="26"
+#!   TARGET_PORT_DESC="26"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1769485"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="20"
+#!   TARGET_PORT_DESC="20"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2686989"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="28"
+#!   TARGET_PORT_DESC="28"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="524301"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="3"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1572877"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="22"
+#!   TARGET_PORT_DESC="22"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2424845"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="10"
+#!   TARGET_PORT_DESC="10"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="851981"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="15"
+#!   TARGET_PORT_DESC="15"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2490381"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="11"
+#!   TARGET_PORT_DESC="11"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1835021"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="16"
+#!   TARGET_PORT_DESC="16"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1638413"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="9"
+#!   TARGET_PORT_DESC="9"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="589837"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65549"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="12"
+#!   TARGET_PORT_DESC="12"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="917517"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="32"
+#!   TARGET_PORT_DESC="32"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1245197"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="4"
+#!   TARGET_PORT_DESC="4"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2555917"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="6"
+#!   TARGET_PORT_DESC="6"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196621"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1900557"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="23"
+#!   TARGET_PORT_DESC="23"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262157"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1966093"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="58"
+#!   TARGET_PORT_DESC="58"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1114125"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="14"
+#!   TARGET_PORT_DESC="14"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2162701"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="36"
+#!   TARGET_PORT_DESC="36"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="655374"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="35"
+#!   TARGET_PORT_DESC="35"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1703950"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="27"
+#!   TARGET_PORT_DESC="27"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262158"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2621454"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="8"
+#!   TARGET_PORT_DESC="8"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1245198"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="4"
+#!   TARGET_PORT_DESC="4"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2031630"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="18"
+#!   TARGET_PORT_DESC="18"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1769486"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="20"
+#!   TARGET_PORT_DESC="20"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="327694"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="19"
+#!   TARGET_PORT_DESC="19"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1376270"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="30"
+#!   TARGET_PORT_DESC="30"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="983054"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="5"
+#!   TARGET_PORT_DESC="5"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131086"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="25"
+#!   TARGET_PORT_DESC="25"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2097166"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="36"
+#!   TARGET_PORT_DESC="36"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2686990"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="28"
+#!   TARGET_PORT_DESC="28"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196622"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="393230"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="37"
+#!   TARGET_PORT_DESC="37"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1441806"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="21"
+#!   TARGET_PORT_DESC="21"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1048590"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="41"
+#!   TARGET_PORT_DESC="41"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2293774"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="34"
+#!   TARGET_PORT_DESC="34"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1507342"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="13"
+#!   TARGET_PORT_DESC="13"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1114126"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="14"
+#!   TARGET_PORT_DESC="14"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2162702"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="17"
+#!   TARGET_PORT_DESC="17"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="720910"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="31"
+#!   TARGET_PORT_DESC="31"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2359310"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="10"
+#!   TARGET_PORT_DESC="10"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="458766"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="38"
+#!   TARGET_PORT_DESC="38"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2424846"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="11"
+#!   TARGET_PORT_DESC="11"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1179662"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="39"
+#!   TARGET_PORT_DESC="39"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1572878"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="22"
+#!   TARGET_PORT_DESC="22"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2228238"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="24"
+#!   TARGET_PORT_DESC="24"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="786446"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="26"
+#!   TARGET_PORT_DESC="26"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="524302"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="3"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2490382"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="50"
+#!   TARGET_PORT_DESC="50"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1835022"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="16"
+#!   TARGET_PORT_DESC="16"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="851982"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="15"
+#!   TARGET_PORT_DESC="15"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65550"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="12"
+#!   TARGET_PORT_DESC="12"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1900558"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="23"
+#!   TARGET_PORT_DESC="23"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="589838"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1638414"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="9"
+#!   TARGET_PORT_DESC="9"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2555918"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="6"
+#!   TARGET_PORT_DESC="6"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="917518"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="32"
+#!   TARGET_PORT_DESC="32"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1310734"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="40"
+#!   TARGET_PORT_DESC="40"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1966094"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="7"
+#!   TARGET_PORT_DESC="7"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1310735"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="40"
+#!   TARGET_PORT_DESC="40"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2359311"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="10"
+#!   TARGET_PORT_DESC="10"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1441807"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="21"
+#!   TARGET_PORT_DESC="21"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1769487"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="20"
+#!   TARGET_PORT_DESC="20"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="720911"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="31"
+#!   TARGET_PORT_DESC="31"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2621455"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="28"
+#!   TARGET_PORT_DESC="28"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1507343"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="13"
+#!   TARGET_PORT_DESC="13"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1245199"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="4"
+#!   TARGET_PORT_DESC="4"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="983055"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="5"
+#!   TARGET_PORT_DESC="5"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131087"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="25"
+#!   TARGET_PORT_DESC="25"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2424847"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="11"
+#!   TARGET_PORT_DESC="11"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1835023"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="16"
+#!   TARGET_PORT_DESC="16"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="786447"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="26"
+#!   TARGET_PORT_DESC="26"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1572879"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="22"
+#!   TARGET_PORT_DESC="22"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1048591"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="41"
+#!   TARGET_PORT_DESC="41"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196623"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="851983"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="15"
+#!   TARGET_PORT_DESC="15"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2490383"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="6"
+#!   TARGET_PORT_DESC="6"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1114127"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="14"
+#!   TARGET_PORT_DESC="14"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1900559"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="23"
+#!   TARGET_PORT_DESC="23"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2097167"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="36"
+#!   TARGET_PORT_DESC="36"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262159"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="917519"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="32"
+#!   TARGET_PORT_DESC="32"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2162703"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="24"
+#!   TARGET_PORT_DESC="24"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="524303"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="3"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1179663"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="39"
+#!   TARGET_PORT_DESC="39"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1966095"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="7"
+#!   TARGET_PORT_DESC="7"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2228239"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="17"
+#!   TARGET_PORT_DESC="17"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="589839"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="327695"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="19"
+#!   TARGET_PORT_DESC="19"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2031631"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="18"
+#!   TARGET_PORT_DESC="18"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1638415"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="9"
+#!   TARGET_PORT_DESC="9"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65551"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="12"
+#!   TARGET_PORT_DESC="12"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2293775"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="34"
+#!   TARGET_PORT_DESC="34"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1376271"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="30"
+#!   TARGET_PORT_DESC="30"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="655375"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="35"
+#!   TARGET_PORT_DESC="35"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="393231"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="37"
+#!   TARGET_PORT_DESC="37"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1703951"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="27"
+#!   TARGET_PORT_DESC="27"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="458767"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="38"
+#!   TARGET_PORT_DESC="38"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2555919"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="8"
+#!   TARGET_PORT_DESC="8"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3670032"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="7"
+#!   TARGET_PORT_DESC="7"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3014672"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="22"
+#!   TARGET_PORT_DESC="22"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3276816"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="66"
+#!   TARGET_PORT_DESC="66"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="917520"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="72"
+#!   TARGET_PORT_DESC="72"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1179664"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="75"
+#!   TARGET_PORT_DESC="75"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="524304"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="19"
+#!   TARGET_PORT_DESC="19"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2621456"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="56"
+#!   TARGET_PORT_DESC="56"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3735568"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="55"
+#!   TARGET_PORT_DESC="55"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1769488"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="70"
+#!   TARGET_PORT_DESC="70"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3080208"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="9"
+#!   TARGET_PORT_DESC="9"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="983056"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3342352"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="16"
+#!   TARGET_PORT_DESC="16"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="589840"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="37"
+#!   TARGET_PORT_DESC="37"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1376272"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="31"
+#!   TARGET_PORT_DESC="31"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3801104"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="18"
+#!   TARGET_PORT_DESC="18"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1835024"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="41"
+#!   TARGET_PORT_DESC="41"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3145744"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="27"
+#!   TARGET_PORT_DESC="27"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1048592"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="77"
+#!   TARGET_PORT_DESC="77"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3407888"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="23"
+#!   TARGET_PORT_DESC="23"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="655376"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="62"
+#!   TARGET_PORT_DESC="62"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1441808"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="26"
+#!   TARGET_PORT_DESC="26"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3866640"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="61"
+#!   TARGET_PORT_DESC="61"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1114128"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="65"
+#!   TARGET_PORT_DESC="65"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1900560"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="14"
+#!   TARGET_PORT_DESC="14"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4128784"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="34"
+#!   TARGET_PORT_DESC="34"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3473424"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="63"
+#!   TARGET_PORT_DESC="63"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1507344"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="15"
+#!   TARGET_PORT_DESC="15"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3932176"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="36"
+#!   TARGET_PORT_DESC="36"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4587536"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="54"
+#!   TARGET_PORT_DESC="54"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1966096"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="68"
+#!   TARGET_PORT_DESC="68"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4194320"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="80"
+#!   TARGET_PORT_DESC="80"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2228240"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="40"
+#!   TARGET_PORT_DESC="40"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3538960"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="57"
+#!   TARGET_PORT_DESC="57"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1572880"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="32"
+#!   TARGET_PORT_DESC="32"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2686992"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="13"
+#!   TARGET_PORT_DESC="13"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4653072"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="28"
+#!   TARGET_PORT_DESC="28"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3997712"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="17"
+#!   TARGET_PORT_DESC="17"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4259856"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="10"
+#!   TARGET_PORT_DESC="10"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65552"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="52"
+#!   TARGET_PORT_DESC="52"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2031632"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="39"
+#!   TARGET_PORT_DESC="39"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2293776"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="30"
+#!   TARGET_PORT_DESC="30"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1638416"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="5"
+#!   TARGET_PORT_DESC="5"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3604496"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="50"
+#!   TARGET_PORT_DESC="50"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2752528"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="73"
+#!   TARGET_PORT_DESC="73"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4063248"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="24"
+#!   TARGET_PORT_DESC="24"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4325392"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="11"
+#!   TARGET_PORT_DESC="11"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1310736"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="76"
+#!   TARGET_PORT_DESC="76"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2097168"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="4"
+#!   TARGET_PORT_DESC="4"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2359312"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="21"
+#!   TARGET_PORT_DESC="21"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1703952"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="60"
+#!   TARGET_PORT_DESC="60"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262160"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="25"
+#!   TARGET_PORT_DESC="25"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2818064"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="78"
+#!   TARGET_PORT_DESC="78"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2162704"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="79"
+#!   TARGET_PORT_DESC="79"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4390928"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="67"
+#!   TARGET_PORT_DESC="67"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="1245200"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="35"
+#!   TARGET_PORT_DESC="35"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="720912"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="74"
+#!   TARGET_PORT_DESC="74"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2424848"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="51"
+#!   TARGET_PORT_DESC="51"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="327696"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2883600"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="58"
+#!   TARGET_PORT_DESC="58"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4456464"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="6"
+#!   TARGET_PORT_DESC="6"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131088"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="71"
+#!   TARGET_PORT_DESC="71"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="786448"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="38"
+#!   TARGET_PORT_DESC="38"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2490384"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="53"
+#!   TARGET_PORT_DESC="53"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="393232"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2949136"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="69"
+#!   TARGET_PORT_DESC="69"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="3211280"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="20"
+#!   TARGET_PORT_DESC="20"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="4522000"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="8"
+#!   TARGET_PORT_DESC="8"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="851984"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="3"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196624"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="12"
+#!   TARGET_PORT_DESC="12"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="2555920"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="64"
+#!   TARGET_PORT_DESC="64"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="458768"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="59"
+#!   TARGET_PORT_DESC="59"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131089"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="10"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65553"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="10"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196625"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="10"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="196626"
+#!   SOURCE_NODE="11"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="65554"
+#!   SOURCE_NODE="11"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="2"
+#!   TARGET_PORT_DESC="2"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="131090"
+#!   SOURCE_NODE="11"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="3"
+#!   TARGET_PORT_DESC="3"
+#! />
+#! <ATTR_LINK
+#!   IDENTIFIER="262162"
+#!   SOURCE_NODE="11"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="1"
+#!   TARGET_PORT_DESC="1"
+#! />
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+FME_PYTHON_VERSION 27
+GUI IGNORE SourceDataset_GML_1,GML_IN_IGNORE_APPLICATON_SCHEMA_GML_1,GML_IN_XSD_DOC_GML_1,GML_IN_VALIDATE_DATASET_GML_1,GML_IN_SKIP_SCHEMA_LOCATION_IN_DATASET_GML_1,GML_IN_MAP_FEATURE_COLLECTION_GML_1,GML_IN_GML_FEATURE_ELEMENTS_GML_1,GML_IN_SRS_GEOMETRY_PARAMETERS_GML_1,GML_IN_SRS_AXIS_ORDER_GML_1,GML_IN_SRS_ANGLE_DIRECTION_GML_1,GML_IN_ENFORCE_PATH_CONTINUITY_BY_GML_1,GML_IN_FEATURE_PROPERTIES_READER_GML_1,GML_IN_MAP_EMBEDDED_OBJECTS_AS_GML_1,GML_IN_MAP_PREDEFINED_GML_PROPERTIES_GML_1,GML_IN_MAP_GEOMETRY_COLUMNS_GML_1,GML_IN_MAP_ALL_SUBSTITUTABLE_PROPERTIES_GML_1,GML_IN_ADD_NAMESPACE_PREFIX_TO_NAMES_GML_1,GML_IN_QNAMES_FOR_PROPERTIES_TO_IGNORE_GML_1,GML_IN_ATTRIBUTE_HANDLING_GML_1,GML_IN_MAP_COMPLEX_PROPERTIES_AS_GML_1,GML_IN_MAX_MULTI_LIST_LEVEL_GML_1,GML_IN_ADD_GEOMETRIES_AS_XML_FRAGMENTS_GML_1,GML_IN_XML_FRAGMENTS_AS_DOCUMENTS_GML_1,GML_IN_FLATTEN_XML_FRAGMENTS_GML_1,GML_IN_FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE_GML_1,GML_IN_FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE_GML_1,GML_IN_FLATTEN_XML_FRAGMENTS_SEPARATOR_GML_1,GML_IN_GML_READER_GROUP_GML_1,GML_IN_USE_OLD_READER_GML_1,GML_IN_DISABLE_AUTOMATIC_READER_TYPE_SELECTION_GML_1,GML_IN_DISABLE_XML_NAMESPACE_PROCESSING_GML_1,GML_IN_EXPOSE_ATTRS_GROUP_GML_1,GML_IN_SEARCH_ENVELOPE_MINX_GML_1,GML_IN_SEARCH_ENVELOPE_MINY_GML_1,GML_IN_SEARCH_ENVELOPE_MAXX_GML_1,GML_IN_SEARCH_ENVELOPE_MAXY_GML_1,GML_IN_CLIP_TO_ENVELOPE_GML_1,GML_IN_GML_RDR_ADV_GML_1,GML_IN_CONTINUE_ON_GEOM_ERROR_GML_1,GML_IN_SYSTEM_ENCODING_GML_1,GML_IN_CACHE_XSD_GML_1,GML_IN_CACHE_XSD_EXPIRY_TIME_GML_1,GML_IN_MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV_GML_1,GML_IN_NETWORK_AUTHENTICATION_GML_1,SEARCH_ENVELOPE_COORDINATE_SYSTEM_GML_1,DestDataset_SPATIALITE_1,SPATIALITE_OUT_OVERWRITE_DATASET_SPATIALITE_1,SPATIALITE_OUT_DATASET_TEMPLATE_SPATIALITE_1,SPATIALITE_OUT_ENCODING_SPATIALITE_1,SPATIALITE_OUT_SPATIALITE_WRT_ADV_PARM_SPATIALITE_1,SPATIALITE_OUT_TRANSACTION_SIZE_SPATIALITE_1
+DEFAULT_MACRO SourceDataset_GML C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.gml
+GUI MULTIFILE SourceDataset_GML GML_Files(*.gml;*.gz;*.xml)|*.gml;*gz;*.xml|GML_Files(*.gml)|*.gml|Compressed_GML_Files(*.gz)|*.gz|GML_Files(*.xml)|*.xml|All_Files|* Source Geography Markup Language (GML) File(s):
+DEFAULT_MACRO DestDataset_SPATIALITE C:\DATA\GitHub\NVDBGML\GML\Test\kommune\403\vegnett\vegnett.db
+GUI FILENAME DestDataset_SPATIALITE SpatiaLite_Database_Files(*.sl3;*.db;*.sqlite)|*.sl3;*.db;*.sqlite|SpatiaLite_Database_Files(*.sl3)|*.sl3|SpatiaLite_Database_Files(*.db)|*.db|SpatiaLite_Database_Files(*.sqlite)|*.sqlite|All_files(*)|* Destination SpatiaLite Database File:
+INCLUDE [ if {{$(SourceDataset_GML)} == {}} { puts_real {Parameter 'SourceDataset_GML' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(DestDataset_SPATIALITE)} == {}} { puts_real {Parameter 'DestDataset_SPATIALITE' must be given a value.}; exit 1; }; ]
+#! START_HEADER
+#! encoding="utf-8"
+#! WORKSPACE_VERSION 1
+# ============================================================================ 
+# 
+# This mapping file was generated by FME Workbench
+# on 10/20/16 10:02:16 for translation between GML and SPATIALITE
+# 
+# This workspace was generated with FME build 16481
+#
+# You may edit this mapping file to customize its operation.  Comments are 
+# placed throughout to assist you. 
+# 
+# Modification History:
+# 
+#     Name              Date     Description
+#     ================= ======== =============================================
+# 
+# 
+# ============================================================================ 
+# ============================================================================ 
+# The following line defines the title presented to the user when this
+# mapping file is run through the FME GUI.  You may modify this
+# if a more meaningful title would be appropriate.
+GUI TITLE GML to SPATIALITE Translation 
+# ============================================================================ 
+# The following line names the log file to which useful statistics about
+# the translation will be written.  This line can be uncommented and
+# updated if you do wish to keep these statistics.
+# LOG_FILENAME translation.log
+# LOG_APPEND NO
+# ============================================================================ 
+# The following line instructs the FME to log any features that do not
+# match any of the source feature patterns listed further down in
+# this file.  If you are modifying this mapping file, this will be
+# useful to describe to you exactly which features you are losing
+# during translation, if the statistics indicate that features are
+# not being correlated or grouped.  Uncorrelated features do not
+# match any source specification, ungrouped features do not have
+# any corresponding _DEF line. 
+# FME_DEBUG UNGROUPED UNCORRELATED
+# ============================================================================ 
+# The following two lines define the type of reader and writer to be
+# used for this translation.  If you want to translate your data
+# back into its original format, you may make a copy of this file
+# and switch the reader and writer types.  If you rerun the FME, you
+# will get your original data back again (together with any modifications
+# you made in the meantime).  Note that several formats are NOT
+# bi-directional (for example, GIF can only be used as a WRITER)
+# so a reverse translation may not always be possible.
+#! START_WB_HEADER
+READER_TYPE GML
+READER_KEYWORD GML_1
+READER_GEN_DIRECTIVES IGNORE_APPLICATON_SCHEMA,no,VALIDATE_DATASET,no,FEATURE_TYPES_SCHEMA_MODE,XML_SCHEMA,SKIP_SCHEMA_LOCATION_IN_DATASET,No,GML_FEATURE_ELEMENTS,<lt>Unused<gt>,ENFORCE_PATH_CONTINUITY_BY,SNAPPING_END_POINTS,MAP_EMBEDDED_OBJECTS_AS,ATTRIBUTES,MAP_PREDEFINED_GML_PROPERTIES,NO,MAP_GEOMETRY_COLUMNS,YES,MAP_ALL_SUBSTITUTABLE_PROPERTIES,YES,MAP_COMPLEX_PROPERTIES_AS,Nested<space>Attributes,ADD_GEOMETRIES_AS_XML_FRAGMENTS,NO,XML_FRAGMENTS_AS_DOCUMENTS,YES,FLATTEN_XML_FRAGMENTS,NO,USE_OLD_READER,NO,DISABLE_AUTOMATIC_READER_TYPE_SELECTION,NO,DISABLE_XML_NAMESPACE_PROCESSING,NO,USE_SEARCH_ENVELOPE,NO,SEARCH_ENVELOPE_MINX,0,SEARCH_ENVELOPE_MINY,0,SEARCH_ENVELOPE_MAXX,0,SEARCH_ENVELOPE_MAXY,0,CLIP_TO_ENVELOPE,NO,CONTINUE_ON_GEOM_ERROR,yes,CACHE_XSD,yes,MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV,no,SourceDataset,C:<backslash>DATA<backslash>GitHub<backslash>NVDBGML<backslash>GML<backslash>Test<backslash>kommune<backslash>805<backslash>vegnett<backslash>vegnett.gml,FME_GEOMETRY_HANDLING,Enhanced
+
+WRITER_TYPE MULTI_WRITER
+MULTI_WRITER_DATASET_ORDER BY_ID
+MULTI_WRITER_FIRST_WRITER_ID 0
+MULTI_WRITER_TYPE{0} SPATIALITE
+MULTI_WRITER_KEYWORD{0} SPATIALITE_1
+#! END_WB_HEADER
+
+#! START_WB_HEADER
+MACRO WB_KEYWORD "GML_1"
+#! END_WB_HEADER
+#! START_SOURCE_HEADER GML GML_1
+# ============================================================================
+# The following GUI lines prompt for a GML file to be used as the
+# the source of the data.
+# The user input is stored in a macro, which is then used to define
+# the dataset to be written.
+# The dataset this mapping file was generated from was:
+#! END_SOURCE_HEADER
+#! START_WB_HEADER
+DEFAULT_MACRO SourceDataset
+INCLUDE [ if {{$(SourceDataset)} != ""} {                        \
+ puts {DEFAULT_MACRO SourceDataset_GML_1 $(SourceDataset)}     \
+ } ]
+#! END_WB_HEADER
+#! START_SOURCE_HEADER GML GML_1
+DEFAULT_MACRO SourceDataset_GML_1 $(SourceDataset_GML)
+GUI MULTIFILE SourceDataset_GML_1 GML_Files(*.gml;*.gz;*.xml)|*.gml;*gz;*.xml|GML_Files(*.gml)|*.gml|Compressed_GML_Files(*.gz)|*.gz|GML_Files(*.xml)|*.xml|All_Files|* Source Geography Markup Language (GML) File(s):
+# ============================================================================
+DEFAULT_MACRO GML_IN_IGNORE_APPLICATON_SCHEMA_GML_1 no
+GML_1_IGNORE_APPLICATON_SCHEMA "$(GML_IN_IGNORE_APPLICATON_SCHEMA_GML_1)"
+GUI ACTIVECHOICE GML_IN_IGNORE_APPLICATON_SCHEMA_GML_1 no,GML_IN_GML_FEATURE_ELEMENTS%yes,GML_IN_XSD_DOC,GML_IN_VALIDATE_DATASET,GML_IN_FEATURE_TYPES_SCHEMA_MODE,GML_IN_SKIP_SCHEMA_LOCATION_IN_DATASET,GML_IN_FEATURE_PROPERTIES_READER,GML_IN_ATTRIBUTE_HANDLING,GML_IN_GML_READER_GROUP Ignore Application Schema:
+# ============================================================================
+# The XSD_DOC keyword overwrites the location of the XML Schema document that
+# is specified in the xsi:schemaLocation of the XML dataset.
+DEFAULT_MACRO GML_IN_XSD_DOC_GML_1 
+GML_1_XSD_DOC "$(GML_IN_XSD_DOC_GML_1)"
+GUI OPTIONAL FILE_OR_URL GML_IN_XSD_DOC_GML_1 GML_Schema_File(*.xsd)|*.xsd|All_Files(*)|* Application Schema:
+# ============================================================================
+# This specifies whether the XML dataset should be validated against its
+# DTD file. If set to 'auto', the XML document will only be validated if
+# its DTD file is available.
+DEFAULT_MACRO GML_IN_VALIDATE_DATASET_GML_1 no
+GML_1_VALIDATE_DATASET "$(GML_IN_VALIDATE_DATASET_GML_1)"
+GUI CHOICE GML_IN_VALIDATE_DATASET_GML_1 yes%no Validate GML Dataset File:
+# ============================================================================
+# Specifies whether we should only show feature types from XSD or dataset
+DEFAULT_MACRO GML_IN_FEATURE_TYPES_SCHEMA_MODE_GML_1 XML_SCHEMA
+GML_1_FEATURE_TYPES_SCHEMA_MODE "$(GML_IN_FEATURE_TYPES_SCHEMA_MODE_GML_1)"
+DEFAULT_MACRO GML_IN_SKIP_SCHEMA_LOCATION_IN_DATASET_GML_1 No
+GML_1_SKIP_SCHEMA_LOCATION_IN_DATASET "$(GML_IN_SKIP_SCHEMA_LOCATION_IN_DATASET_GML_1)"
+GUI CHOICE GML_IN_SKIP_SCHEMA_LOCATION_IN_DATASET_GML_1 Yes%No Ignore xsi:schemaLocation in Dataset:
+DEFAULT_MACRO GML_IN_MAP_FEATURE_COLLECTION_GML_1 
+GML_1_MAP_FEATURE_COLLECTION "$(GML_IN_MAP_FEATURE_COLLECTION_GML_1)"
+GUI OPTIONAL LOOKUP_LISTBOX GML_IN_MAP_FEATURE_COLLECTION_GML_1 gml:FeatureCollection,gml%wfs:FeatureCollection,wfs Map FeatureCollection:
+DEFAULT_MACRO GML_IN_GML_FEATURE_ELEMENTS_GML_1 <Unused>
+GML_1_GML_FEATURE_ELEMENTS "$(GML_IN_GML_FEATURE_ELEMENTS_GML_1)"
+GUI OPTIONAL TEXT_EDIT_ GML_IN_GML_FEATURE_ELEMENTS_GML_1 GML Feature Elements:
+# ============================================================================
+GUI DISCLOSUREGROUP GML_IN_SRS_GEOMETRY_PARAMETERS_GML_1 SRS_AXIS_ORDER%SRS_ANGLE_DIRECTION%ENFORCE_PATH_CONTINUITY_BY GML SRS/Geometry Parameters
+DEFAULT_MACRO GML_IN_SRS_AXIS_ORDER_GML_1 
+GML_1_SRS_AXIS_ORDER "$(GML_IN_SRS_AXIS_ORDER_GML_1)"
+GUI OPTIONAL CHOICE GML_IN_SRS_AXIS_ORDER_GML_1 1,2%2,1%1,2,3%2,1,3 GML SRS Axis Order:
+DEFAULT_MACRO GML_IN_SRS_ANGLE_DIRECTION_GML_1 
+GML_1_SRS_ANGLE_DIRECTION "$(GML_IN_SRS_ANGLE_DIRECTION_GML_1)"
+GUI OPTIONAL LOOKUP_CHOICE GML_IN_SRS_ANGLE_DIRECTION_GML_1 Counterclockwise,CCW%Clockwise,CW GML SRS Angle Direction:
+DEFAULT_MACRO GML_IN_ENFORCE_PATH_CONTINUITY_BY_GML_1 SNAPPING_END_POINTS
+GML_1_ENFORCE_PATH_CONTINUITY_BY "$(GML_IN_ENFORCE_PATH_CONTINUITY_BY_GML_1)"
+GUI OPTIONAL LOOKUP_CHOICE GML_IN_ENFORCE_PATH_CONTINUITY_BY_GML_1 "Snapping End Points",SNAPPING_END_POINTS%"Inserting New Segment",INSERTING_NEW_SEGMENT Enforce Path Continuity By:
+# ============================================================================
+GUI DISCLOSUREGROUP GML_IN_FEATURE_PROPERTIES_READER_GML_1 MAP_EMBEDDED_OBJECTS_AS%MAP_PREDEFINED_GML_PROPERTIES%MAP_GEOMETRY_COLUMNS%MAP_ALL_SUBSTITUTABLE_PROPERTIES%ADD_NAMESPACE_PREFIX_TO_NAMES%QNAMES_FOR_PROPERTIES_TO_IGNORE Feature Properties
+DEFAULT_MACRO GML_IN_MAP_EMBEDDED_OBJECTS_AS_GML_1 ATTRIBUTES
+GML_1_MAP_EMBEDDED_OBJECTS_AS "$(GML_IN_MAP_EMBEDDED_OBJECTS_AS_GML_1)"
+GUI LOOKUP_CHOICE GML_IN_MAP_EMBEDDED_OBJECTS_AS_GML_1 "Attributes",ATTRIBUTES%"Geometries",GEOMETRIES%"Feature Types",FEATURE_TYPES Map Embedded Objects as:
+DEFAULT_MACRO GML_IN_MAP_PREDEFINED_GML_PROPERTIES_GML_1 NO
+GML_1_MAP_PREDEFINED_GML_PROPERTIES "$(GML_IN_MAP_PREDEFINED_GML_PROPERTIES_GML_1)"
+GUI CHECKBOX GML_IN_MAP_PREDEFINED_GML_PROPERTIES_GML_1 YES%NO Map Predefined Properties
+DEFAULT_MACRO GML_IN_MAP_GEOMETRY_COLUMNS_GML_1 YES
+GML_1_MAP_GEOMETRY_COLUMNS "$(GML_IN_MAP_GEOMETRY_COLUMNS_GML_1)"
+GUI CHECKBOX GML_IN_MAP_GEOMETRY_COLUMNS_GML_1 YES%NO Map Geometry Columns
+DEFAULT_MACRO GML_IN_MAP_ALL_SUBSTITUTABLE_PROPERTIES_GML_1 YES
+GML_1_MAP_ALL_SUBSTITUTABLE_PROPERTIES "$(GML_IN_MAP_ALL_SUBSTITUTABLE_PROPERTIES_GML_1)"
+GUI CHECKBOX GML_IN_MAP_ALL_SUBSTITUTABLE_PROPERTIES_GML_1 YES%NO Map All Substitutable Properties
+DEFAULT_MACRO GML_IN_ADD_NAMESPACE_PREFIX_TO_NAMES_GML_1 
+GML_1_ADD_NAMESPACE_PREFIX_TO_NAMES "$(GML_IN_ADD_NAMESPACE_PREFIX_TO_NAMES_GML_1)"
+GUI OPTIONAL LOOKUP_CHOICE GML_IN_ADD_NAMESPACE_PREFIX_TO_NAMES_GML_1 "Feature Types",FEATURE_TYPES%"Feature Types and Attributes",FEATURE_TYPES_AND_ATTRIBUTES Add XML Namespace Prefix to:
+DEFAULT_MACRO GML_IN_QNAMES_FOR_PROPERTIES_TO_IGNORE_GML_1 
+GML_1_QNAMES_FOR_PROPERTIES_TO_IGNORE "$(GML_IN_QNAMES_FOR_PROPERTIES_TO_IGNORE_GML_1)"
+GUI OPTIONAL TEXT_EDIT_XML GML_IN_QNAMES_FOR_PROPERTIES_TO_IGNORE_GML_1 Properties to Ignore:
+# ============================================================================
+GUI DISCLOSUREGROUP GML_IN_ATTRIBUTE_HANDLING_GML_1 MAP_COMPLEX_PROPERTIES_AS%MAX_MULTI_LIST_LEVEL%ADD_GEOMETRIES_AS_XML_FRAGMENTS%XML_FRAGMENTS_AS_DOCUMENTS%FLATTEN_XML_FRAGMENTS Feature Properties - Attribute Handling
+DEFAULT_MACRO GML_IN_MAP_COMPLEX_PROPERTIES_AS_GML_1 Nested Attributes
+GML_1_MAP_COMPLEX_PROPERTIES_AS "$(GML_IN_MAP_COMPLEX_PROPERTIES_AS_GML_1)"
+GUI ACTIVECHOICE GML_IN_MAP_COMPLEX_PROPERTIES_AS_GML_1 "Nested Attributes"%"XML Fragments",GML_IN_MAX_MULTI_LIST_LEVEL Map Complex Properties as:
+DEFAULT_MACRO GML_IN_MAX_MULTI_LIST_LEVEL_GML_1 
+GML_1_MAX_MULTI_LIST_LEVEL "$(GML_IN_MAX_MULTI_LIST_LEVEL_GML_1)"
+GUI OPTIONAL CHOICE GML_IN_MAX_MULTI_LIST_LEVEL_GML_1 0%1%2%3%4%5%6%7%8%9%10%11%12%13%14%15%16%17%18%19%20 Limit Number of Lists in Nested Attributes:
+DEFAULT_MACRO GML_IN_ADD_GEOMETRIES_AS_XML_FRAGMENTS_GML_1 NO
+GML_1_ADD_GEOMETRIES_AS_XML_FRAGMENTS "$(GML_IN_ADD_GEOMETRIES_AS_XML_FRAGMENTS_GML_1)"
+GUI CHECKBOX GML_IN_ADD_GEOMETRIES_AS_XML_FRAGMENTS_GML_1 YES%NO Add Geometries as XML Fragments
+DEFAULT_MACRO GML_IN_XML_FRAGMENTS_AS_DOCUMENTS_GML_1 YES
+GML_1_XML_FRAGMENTS_AS_DOCUMENTS "$(GML_IN_XML_FRAGMENTS_AS_DOCUMENTS_GML_1)"
+GUI CHECKBOX GML_IN_XML_FRAGMENTS_AS_DOCUMENTS_GML_1 YES%NO Include XML Declaration in XML Fragments
+DEFAULT_MACRO GML_IN_FLATTEN_XML_FRAGMENTS_GML_1 NO
+GML_1_FLATTEN_XML_FRAGMENTS "$(GML_IN_FLATTEN_XML_FRAGMENTS_GML_1)"
+GUI ACTIVEDISCLOSUREGROUP GML_IN_FLATTEN_XML_FRAGMENTS_GML_1 FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE%FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE%FLATTEN_XML_FRAGMENTS_SEPARATOR Flatten XML Fragments
+DEFAULT_MACRO GML_IN_FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE_GML_1 
+GML_1_FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE "$(GML_IN_FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE_GML_1)"
+GUI OPTIONAL STRING_OR_CHOICE GML_IN_FLATTEN_XML_FRAGMENTS_OPEN_LIST_BRACE_GML_1 {%_%-%empty_string Substitute Open List Brace:
+DEFAULT_MACRO GML_IN_FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE_GML_1 
+GML_1_FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE "$(GML_IN_FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE_GML_1)"
+GUI OPTIONAL STRING_OR_CHOICE GML_IN_FLATTEN_XML_FRAGMENTS_CLOSE_LIST_BRACE_GML_1 }%_%-%empty_string Substitute Close List Brace:
+DEFAULT_MACRO GML_IN_FLATTEN_XML_FRAGMENTS_SEPARATOR_GML_1 
+GML_1_FLATTEN_XML_FRAGMENTS_SEPARATOR "$(GML_IN_FLATTEN_XML_FRAGMENTS_SEPARATOR_GML_1)"
+GUI OPTIONAL STRING_OR_CHOICE GML_IN_FLATTEN_XML_FRAGMENTS_SEPARATOR_GML_1 .%_%empty_string Substitute Element List Separator:
+# ============================================================================
+GUI DISCLOSUREGROUP GML_IN_GML_READER_GROUP_GML_1 USE_OLD_READER%DISABLE_AUTOMATIC_READER_TYPE_SELECTION%DISABLE_XML_NAMESPACE_PROCESSING Version and XML Namespace Processing
+DEFAULT_MACRO GML_IN_USE_OLD_READER_GML_1 NO
+GML_1_USE_OLD_READER "$(GML_IN_USE_OLD_READER_GML_1)"
+GUI ACTIVECHECK GML_IN_USE_OLD_READER_GML_1 YES,GML_IN_MAP_ALL_SUBSTITUTABLE_PROPERTIES%NO Use Old Reader for GML v3.1.1 and v2.1.2 Documents
+DEFAULT_MACRO GML_IN_DISABLE_AUTOMATIC_READER_TYPE_SELECTION_GML_1 NO
+GML_1_DISABLE_AUTOMATIC_READER_TYPE_SELECTION "$(GML_IN_DISABLE_AUTOMATIC_READER_TYPE_SELECTION_GML_1)"
+GUI CHECKBOX GML_IN_DISABLE_AUTOMATIC_READER_TYPE_SELECTION_GML_1 YES%NO Disable Automatic Reader Type Selection
+DEFAULT_MACRO GML_IN_DISABLE_XML_NAMESPACE_PROCESSING_GML_1 NO
+GML_1_DISABLE_XML_NAMESPACE_PROCESSING "$(GML_IN_DISABLE_XML_NAMESPACE_PROCESSING_GML_1)"
+GUI CHECKBOX GML_IN_DISABLE_XML_NAMESPACE_PROCESSING_GML_1 YES%NO Disable XML Namespace Processing
+DEFAULT_MACRO GML_IN_EXPOSE_ATTRS_GROUP_GML_1 
+GML_1_EXPOSE_ATTRS_GROUP "$(GML_IN_EXPOSE_ATTRS_GROUP_GML_1)"
+GUI DISCLOSUREGROUP GML_IN_EXPOSE_ATTRS_GROUP_GML_1 GML_EXPOSE_FORMAT_ATTRS Schema Attributes
+# Include this file in source setting section to add external search envelope processing
+# Zero as a default means we don't do any search -- this makes workbench happier
+# ===========================================================================
+DEFAULT_MACRO GML_IN_SEARCH_ENVELOPE_MINX_GML_1 0
+GML_1_SEARCH_ENVELOPE "$(GML_IN_SEARCH_ENVELOPE_MINX_GML_1)"
+GUI OPTIONAL FLOAT GML_IN_SEARCH_ENVELOPE_MINX_GML_1 Minimum X:
+# ===========================================================================
+DEFAULT_MACRO GML_IN_SEARCH_ENVELOPE_MINY_GML_1 0
+GML_1_SEARCH_ENVELOPE "$(GML_IN_SEARCH_ENVELOPE_MINY_GML_1)"
+GUI OPTIONAL FLOAT GML_IN_SEARCH_ENVELOPE_MINY_GML_1 Minimum Y:
+# ===========================================================================
+DEFAULT_MACRO GML_IN_SEARCH_ENVELOPE_MAXX_GML_1 0
+GML_1_SEARCH_ENVELOPE "$(GML_IN_SEARCH_ENVELOPE_MAXX_GML_1)"
+GUI OPTIONAL FLOAT GML_IN_SEARCH_ENVELOPE_MAXX_GML_1 Maximum X:
+# ===========================================================================
+DEFAULT_MACRO GML_IN_SEARCH_ENVELOPE_MAXY_GML_1 0
+GML_1_SEARCH_ENVELOPE "$(GML_IN_SEARCH_ENVELOPE_MAXY_GML_1)"
+GUI OPTIONAL FLOAT GML_IN_SEARCH_ENVELOPE_MAXY_GML_1 Maximum Y:
+# ===========================================================================
+# BUG18999: We now have a soft clip to fall back on like native spatial index
+# thus we are reintroducing the clip to envelop as an option for users.
+# Defualt to soft clip as per the existing database readers we are emulating
+DEFAULT_MACRO GML_IN_CLIP_TO_ENVELOPE_GML_1 NO
+GML_1_CLIP_TO_ENVELOPE "$(GML_IN_CLIP_TO_ENVELOPE_GML_1)"
+GUI OPTIONAL CHECKBOX GML_IN_CLIP_TO_ENVELOPE_GML_1 YES%NO Clip to Search Envelope
+GUI DISCLOSUREGROUP GML_IN_GML_RDR_ADV_GML_1 CONTINUE_ON_GEOM_ERROR%SYSTEM_ENCODING%CACHE_XSD%CACHE_XSD_EXPIRY_TIME%MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV Advanced
+# ============================================================================
+# This keyword allows the GML reader to continue reading the input dataset when
+# it encounters an error reading a feature's geometry.
+DEFAULT_MACRO GML_IN_CONTINUE_ON_GEOM_ERROR_GML_1 yes
+GML_1_CONTINUE_ON_GEOM_ERROR "$(GML_IN_CONTINUE_ON_GEOM_ERROR_GML_1)"
+GUI CHOICE GML_IN_CONTINUE_ON_GEOM_ERROR_GML_1 yes%no Continue on Geometry Error:
+# ============================================================================
+# This keyword specifies what encoding the GML schema and data features should
+# be in when they are output to the FME. The default value for this keyword
+# is the system's encoding.
+DEFAULT_MACRO GML_IN_SYSTEM_ENCODING_GML_1 
+GML_1_SYSTEM_ENCODING "$(GML_IN_SYSTEM_ENCODING_GML_1)"
+GUI OPTIONAL TEXT GML_IN_SYSTEM_ENCODING_GML_1 System Encoding:
+# ============================================================================
+# This keyword allows XML Schemas to be temporarily cached thereby minimizing
+# the number of network fetches.
+DEFAULT_MACRO GML_IN_CACHE_XSD_GML_1 yes
+GML_1_CACHE_XSD "$(GML_IN_CACHE_XSD_GML_1)"
+GUI CHOICE GML_IN_CACHE_XSD_GML_1 yes%no Cache XSD Documents:
+# ============================================================================
+# Specifies the amount of time in seconds an XML Schema document is allowed
+# to be cached before it expires.
+DEFAULT_MACRO GML_IN_CACHE_XSD_EXPIRY_TIME_GML_1 
+GML_1_CACHE_XSD_EXPIRY_TIME "$(GML_IN_CACHE_XSD_EXPIRY_TIME_GML_1)"
+GUI OPTIONAL INTEGER GML_IN_CACHE_XSD_EXPIRY_TIME_GML_1 Cache XSD Expiry Time:
+DEFAULT_MACRO GML_IN_MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV_GML_1 no
+GML_1_MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV "$(GML_IN_MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV_GML_1)"
+GUI CHOICE GML_IN_MULTI_VALUE_SIMPLE_PROPERTIES_AS_CSV_GML_1 no%yes Simple multi-valued properties as csv:
+# ===========================================================================
+DEFAULT_MACRO GML_IN_NETWORK_AUTHENTICATION_GML_1 
+GML_1_NETWORK_AUTHENTICATION "$(GML_IN_NETWORK_AUTHENTICATION_GML_1)"
+GUI OPTIONAL AUTHENTICATOR GML_IN_NETWORK_AUTHENTICATION_GML_1 CONTAINER%GROUP%CONTAINER_TITLE%"Network Authentication"%PROMPT_TYPE%NETWORK Network Authentication
+# ===========================================================================
+DEFAULT_MACRO GML_IN_ATTRIBUTE_READING_GML_1 ALL
+GML_1_ATTRIBUTE_READING "$(GML_IN_ATTRIBUTE_READING_GML_1)"
+# PR:31021
+# Include this file in workbench source preamble section to enable the ability
+# to specify a coordinate system for search envelope processing
+# ===========================================================================
+DEFAULT_MACRO SEARCH_ENVELOPE_COORDINATE_SYSTEM_GML_1 
+GUI OPTIONAL COORDSYS SEARCH_ENVELOPE_COORDINATE_SYSTEM_GML_1 Search Envelope Coordinate System:
+GML_1_SEARCH_ENVELOPE_COORDINATE_SYSTEM "$(SEARCH_ENVELOPE_COORDINATE_SYSTEM_GML_1)"
+# ===========================================================================
+GML_1_DATASET "$(SourceDataset_GML_1)"
+#! END_SOURCE_HEADER
+#! START_WB_HEADER
+MACRO WB_KEYWORD "SPATIALITE_1"
+#! END_WB_HEADER
+#! START_DEST_HEADER SPATIALITE SPATIALITE_1
+# ============================================================================
+# The following GUI line prompts for a file to be used as the
+# the destination for the SpatiaLite writer.
+# The user input is stored in a macro, which is then used to define
+# the dataset to be written.
+# The dataset this mapping file was generated for was:
+#! END_DEST_HEADER
+#! START_WB_HEADER
+DEFAULT_MACRO DestDataset
+INCLUDE [ if {"$(DestDataset)" != ""} {                          \
+ puts {DEFAULT_MACRO DestDataset_SPATIALITE_1 $(DestDataset)}         \
+ } ]
+#! END_WB_HEADER
+#! START_DEST_HEADER SPATIALITE SPATIALITE_1
+DEFAULT_MACRO DestDataset_SPATIALITE_1 $(DestDataset_SPATIALITE)
+GUI FILENAME DestDataset_SPATIALITE_1 SpatiaLite_Database_Files(*.sl3;*.db;*.sqlite)|*.sl3;*.db;*.sqlite|SpatiaLite_Database_Files(*.sl3)|*.sl3|SpatiaLite_Database_Files(*.db)|*.db|SpatiaLite_Database_Files(*.sqlite)|*.sqlite|All_files(*)|* Destination SpatiaLite Database File:
+DEFAULT_MACRO SPATIALITE_OUT_OVERWRITE_DATASET_SPATIALITE_1 No
+SPATIALITE_1_OVERWRITE_DATASET "$(SPATIALITE_OUT_OVERWRITE_DATASET_SPATIALITE_1)"
+GUI ACTIVECHECK SPATIALITE_OUT_OVERWRITE_DATASET_SPATIALITE_1 Yes%No,SPATIALITE_OUT_DATASET_TEMPLATE Overwrite Existing Database:
+DEFAULT_MACRO SPATIALITE_OUT_DATASET_TEMPLATE_SPATIALITE_1 
+SPATIALITE_1_DATASET_TEMPLATE "$(SPATIALITE_OUT_DATASET_TEMPLATE_SPATIALITE_1)"
+GUI OPTIONAL FILENAME_MUSTEXIST SPATIALITE_OUT_DATASET_TEMPLATE_SPATIALITE_1 SpatiaLite_Database_Files(*.sl3;*.db;*.sqlite)|*.sl3;*.db;*.sqlite|SpatiaLite_Database_Files(*.sl3)|*.sl3|SpatiaLite_Database_Files(*.db)|*.db|SpatiaLite_Database_Files(*.sqlite)|*.sqlite|All_files(*)|* Template File:
+DEFAULT_MACRO SPATIALITE_OUT_OVERWRITE_TABLES_SPATIALITE_1 No
+SPATIALITE_1_OVERWRITE_TABLES "$(SPATIALITE_OUT_OVERWRITE_TABLES_SPATIALITE_1)"
+DEFAULT_MACRO SPATIALITE_OUT_GENERIC_GEOMETRY_SPATIALITE_1 No
+SPATIALITE_1_GENERIC_GEOMETRY "$(SPATIALITE_OUT_GENERIC_GEOMETRY_SPATIALITE_1)"
+DEFAULT_MACRO SPATIALITE_OUT_COMPRESS_GEOMETRY_SPATIALITE_1 Yes
+SPATIALITE_1_COMPRESS_GEOMETRY "$(SPATIALITE_OUT_COMPRESS_GEOMETRY_SPATIALITE_1)"
+DEFAULT_MACRO SPATIALITE_OUT_CREATE_SPATIAL_INDEX_SPATIALITE_1 Yes
+SPATIALITE_1_CREATE_SPATIAL_INDEX "$(SPATIALITE_OUT_CREATE_SPATIAL_INDEX_SPATIALITE_1)"
+DEFAULT_MACRO SPATIALITE_OUT_ENCODING_SPATIALITE_1 SYSTEM
+SPATIALITE_1_ENCODING "$(SPATIALITE_OUT_ENCODING_SPATIALITE_1)"
+GUI OPTIONAL ENCODING SPATIALITE_OUT_ENCODING_SPATIALITE_1 SYSTEM%* Character Encoding:
+GUI DISCLOSUREGROUP SPATIALITE_OUT_SPATIALITE_WRT_ADV_PARM_SPATIALITE_1 TRANSACTION_SIZE Advanced
+DEFAULT_MACRO SPATIALITE_OUT_TRANSACTION_SIZE_SPATIALITE_1 1000
+SPATIALITE_1_TRANSACTION_SIZE "$(SPATIALITE_OUT_TRANSACTION_SIZE_SPATIALITE_1)"
+GUI INTEGER SPATIALITE_OUT_TRANSACTION_SIZE_SPATIALITE_1 Transaction Interval:
+# ============================================================================
+# Opt in for destination dataset type vs format type validation
+DEFAULT_MACRO SPATIALITE_OUT_DESTINATION_DATASETTYPE_VALIDATION_SPATIALITE_1 Yes
+SPATIALITE_1_DESTINATION_DATASETTYPE_VALIDATION "$(SPATIALITE_OUT_DESTINATION_DATASETTYPE_VALIDATION_SPATIALITE_1)"
+DEFAULT_MACRO SPATIALITE_OUT_COORDINATE_SYSTEM_GRANULARITY_SPATIALITE_1 FEATURE_TYPE
+SPATIALITE_1_COORDINATE_SYSTEM_GRANULARITY "$(SPATIALITE_OUT_COORDINATE_SYSTEM_GRANULARITY_SPATIALITE_1)"
+SPATIALITE_1_DATASET "$(DestDataset_SPATIALITE_1)"
+#! END_DEST_HEADER
+#! START_WB_HEADER
+#! END_WB_HEADER
+
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)gml2spatialite.log"
+LOG_APPEND NO
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+LOG_TIMINGS YES
+LOG_FILTER_MASK -1
+DEFAULT_MACRO DATASET_KEYWORD_GML_1 GML_1
+DEFAULT_MACRO DATASET_KEYWORD_SPATIALITE_1 SPATIALITE_1
+# -------------------------------------------------------------------------
+
+GML_1_READER_META_ATTRIBUTES fme_feature_type
+
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO WORKSPACE_NAME gml2spatialite
+MACRO FME_VIEWER_APP fmedatainspector
+# -------------------------------------------------------------------------
+GML_1_DEF Nettverk   nettverksnavn                xml_buffer   nettverkselement{}.nilReason xml_buffer   nettverkselement{}.gml_remoteSchema xml_buffer   nettverkselement{}.xlink_href xml_buffer   nettverkselement{}.owns      xml_boolean
+# -------------------------------------------------------------------------
+GML_1_DEF Veglenkesekvens   identifikasjon.Identifikasjon.lokalId xml_buffer   identifikasjon.Identifikasjon.navnerom xml_buffer   identifikasjon.Identifikasjon.versjonId xml_buffer   oppdateringsdato             xml_datetime   gyldigFra                    xml_datetime   gyldigTil                    xml_datetime   datafangstdato               xml_datetime   førsteDatafangstdato         xml_datetime   førsteDigitaliseringsdato    xml_datetime   verifiseringsdato            xml_datetime   sluttdato                    xml_datetime   datauttaksdato               xml_datetime   endringsflagg.Endringsflagg.typeEndring xml_buffer   endringsflagg.Endringsflagg.tidspunktEndring xml_datetime   kvalitet.Posisjonskvalitet.målemetode xml_buffer   kvalitet.Posisjonskvalitet.målemetode.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighet xml_int64   kvalitet.Posisjonskvalitet.synbarhet xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighetHøyde xml_int64   kvalitet.Posisjonskvalitet.maksimaltAvvik xml_int64   status                       xml_buffer   medium                       xml_buffer   opphav                       xml_buffer   digitaliseringsmålestokk     xml_int64   prosesshistorie{}            xml_buffer   kopidata.Kopidata.områdeId   xml_int64   kopidata.Kopidata.originalDatavert xml_buffer   kopidata.Kopidata.kopidato   xml_datetime   informasjon{}                xml_buffer   registreringsversjon.Registreringsversjon.produkt xml_buffer   registreringsversjon.Registreringsversjon.versjon xml_buffer   geodataeier                  xml_buffer   geodataprodusent             xml_buffer   kontaktperson                xml_buffer   høydeOverBakken              xml_real64   høydereferanse               xml_buffer   standardLRM                  xml_buffer   nettverk{}.nilReason         xml_buffer   nettverk{}.gml_remoteSchema  xml_buffer   nettverk{}.xlink_href        xml_buffer   nettverk{}.owns              xml_boolean   nettverkskobling{}.nilReason xml_buffer   nettverkskobling{}.gml_remoteSchema xml_buffer   nettverkskobling{}.xlink_href xml_buffer   nettverkskobling{}.owns      xml_boolean   lenke{}.RettaLenke.retning   xml_buffer   lenke{}.RettaLenke.lenke.nilReason xml_buffer   lenke{}.RettaLenke.lenke.gml_remoteSchema xml_buffer   lenke{}.RettaLenke.lenke.xlink_href xml_buffer   lenke{}.RettaLenke.lenke.owns xml_boolean
+# -------------------------------------------------------------------------
+GML_1_DEF Nettverkskobling   nettverkselement{}.nilReason xml_buffer   nettverkselement{}.gml_remoteSchema xml_buffer   nettverkselement{}.xlink_href xml_buffer   nettverkselement{}.owns      xml_boolean
+# -------------------------------------------------------------------------
+GML_1_DEF Vegnode   identifikasjon.Identifikasjon.lokalId xml_buffer   identifikasjon.Identifikasjon.navnerom xml_buffer   identifikasjon.Identifikasjon.versjonId xml_buffer   oppdateringsdato             xml_datetime   gyldigFra                    xml_datetime   gyldigTil                    xml_datetime   datafangstdato               xml_datetime   førsteDatafangstdato         xml_datetime   førsteDigitaliseringsdato    xml_datetime   verifiseringsdato            xml_datetime   sluttdato                    xml_datetime   datauttaksdato               xml_datetime   endringsflagg.Endringsflagg.typeEndring xml_buffer   endringsflagg.Endringsflagg.tidspunktEndring xml_datetime   kvalitet.Posisjonskvalitet.målemetode xml_buffer   kvalitet.Posisjonskvalitet.målemetode.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighet xml_int64   kvalitet.Posisjonskvalitet.synbarhet xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighetHøyde xml_int64   kvalitet.Posisjonskvalitet.maksimaltAvvik xml_int64   status                       xml_buffer   medium                       xml_buffer   opphav                       xml_buffer   digitaliseringsmålestokk     xml_int64   prosesshistorie{}            xml_buffer   kopidata.Kopidata.områdeId   xml_int64   kopidata.Kopidata.originalDatavert xml_buffer   kopidata.Kopidata.kopidato   xml_datetime   informasjon{}                xml_buffer   registreringsversjon.Registreringsversjon.produkt xml_buffer   registreringsversjon.Registreringsversjon.versjon xml_buffer   geodataeier                  xml_buffer   geodataprodusent             xml_buffer   kontaktperson                xml_buffer   høydeOverBakken              xml_real64   høydereferanse               xml_buffer   standardLRM                  xml_buffer   nettverk{}.nilReason         xml_buffer   nettverk{}.gml_remoteSchema  xml_buffer   nettverk{}.xlink_href        xml_buffer   nettverk{}.owns              xml_boolean   nettverkskobling{}.nilReason xml_buffer   nettverkskobling{}.gml_remoteSchema xml_buffer   nettverkskobling{}.xlink_href xml_buffer   nettverkskobling{}.owns      xml_boolean   sluttnodeFor{}.nilReason     xml_buffer   sluttnodeFor{}.gml_remoteSchema xml_buffer   sluttnodeFor{}.xlink_href    xml_buffer   sluttnodeFor{}.owns          xml_boolean   startnodeFor{}.nilReason     xml_buffer   startnodeFor{}.gml_remoteSchema xml_buffer   startnodeFor{}.xlink_href    xml_buffer   startnodeFor{}.owns          xml_boolean   posisjon                     xml_geometry
+# -------------------------------------------------------------------------
+GML_1_DEF Veglenkesett   identifikasjon.Identifikasjon.lokalId xml_buffer   identifikasjon.Identifikasjon.navnerom xml_buffer   identifikasjon.Identifikasjon.versjonId xml_buffer   oppdateringsdato             xml_datetime   gyldigFra                    xml_datetime   gyldigTil                    xml_datetime   datafangstdato               xml_datetime   førsteDatafangstdato         xml_datetime   førsteDigitaliseringsdato    xml_datetime   verifiseringsdato            xml_datetime   sluttdato                    xml_datetime   datauttaksdato               xml_datetime   endringsflagg.Endringsflagg.typeEndring xml_buffer   endringsflagg.Endringsflagg.tidspunktEndring xml_datetime   kvalitet.Posisjonskvalitet.målemetode xml_buffer   kvalitet.Posisjonskvalitet.målemetode.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighet xml_int64   kvalitet.Posisjonskvalitet.synbarhet xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighetHøyde xml_int64   kvalitet.Posisjonskvalitet.maksimaltAvvik xml_int64   status                       xml_buffer   medium                       xml_buffer   opphav                       xml_buffer   digitaliseringsmålestokk     xml_int64   prosesshistorie{}            xml_buffer   kopidata.Kopidata.områdeId   xml_int64   kopidata.Kopidata.originalDatavert xml_buffer   kopidata.Kopidata.kopidato   xml_datetime   informasjon{}                xml_buffer   registreringsversjon.Registreringsversjon.produkt xml_buffer   registreringsversjon.Registreringsversjon.versjon xml_buffer   geodataeier                  xml_buffer   geodataprodusent             xml_buffer   kontaktperson                xml_buffer   høydeOverBakken              xml_real64   høydereferanse               xml_buffer   standardLRM                  xml_buffer   nettverk{}.nilReason         xml_buffer   nettverk{}.gml_remoteSchema  xml_buffer   nettverk{}.xlink_href        xml_buffer   nettverk{}.owns              xml_boolean   nettverkskobling{}.nilReason xml_buffer   nettverkskobling{}.gml_remoteSchema xml_buffer   nettverkskobling{}.xlink_href xml_buffer   nettverkskobling{}.owns      xml_boolean   navn                         xml_buffer   lenke{}.nilReason            xml_buffer   lenke{}.gml_remoteSchema     xml_buffer   lenke{}.xlink_href           xml_buffer   lenke{}.owns                 xml_boolean
+# -------------------------------------------------------------------------
+GML_1_DEF Veglenke   identifikasjon.Identifikasjon.lokalId xml_buffer   identifikasjon.Identifikasjon.navnerom xml_buffer   identifikasjon.Identifikasjon.versjonId xml_buffer   oppdateringsdato             xml_datetime   gyldigFra                    xml_datetime   gyldigTil                    xml_datetime   datafangstdato               xml_datetime   førsteDatafangstdato         xml_datetime   førsteDigitaliseringsdato    xml_datetime   verifiseringsdato            xml_datetime   sluttdato                    xml_datetime   datauttaksdato               xml_datetime   endringsflagg.Endringsflagg.typeEndring xml_buffer   endringsflagg.Endringsflagg.tidspunktEndring xml_datetime   kvalitet.Posisjonskvalitet.målemetode xml_buffer   kvalitet.Posisjonskvalitet.målemetode.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighet xml_int64   kvalitet.Posisjonskvalitet.synbarhet xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde xml_buffer   kvalitet.Posisjonskvalitet.målemetodeHøyde.codeSpace xml_buffer   kvalitet.Posisjonskvalitet.nøyaktighetHøyde xml_int64   kvalitet.Posisjonskvalitet.maksimaltAvvik xml_int64   status                       xml_buffer   medium                       xml_buffer   opphav                       xml_buffer   digitaliseringsmålestokk     xml_int64   prosesshistorie{}            xml_buffer   kopidata.Kopidata.områdeId   xml_int64   kopidata.Kopidata.originalDatavert xml_buffer   kopidata.Kopidata.kopidato   xml_datetime   informasjon{}                xml_buffer   registreringsversjon.Registreringsversjon.produkt xml_buffer   registreringsversjon.Registreringsversjon.versjon xml_buffer   geodataeier                  xml_buffer   geodataprodusent             xml_buffer   kontaktperson                xml_buffer   høydeOverBakken              xml_real64   høydereferanse               xml_buffer   standardLRM                  xml_buffer   nettverk{}.nilReason         xml_buffer   nettverk{}.gml_remoteSchema  xml_buffer   nettverk{}.xlink_href        xml_buffer   nettverk{}.owns              xml_boolean   nettverkskobling{}.nilReason xml_buffer   nettverkskobling{}.gml_remoteSchema xml_buffer   nettverkskobling{}.xlink_href xml_buffer   nettverkskobling{}.owns      xml_boolean   måltLengde                   xml_real64   startposisjon                xml_real64   sluttposisjon                xml_real64   sluttnode.nilReason          xml_buffer   sluttnode.gml_remoteSchema   xml_buffer   sluttnode.xlink_href         xml_buffer   sluttnode.owns               xml_boolean   startnode.nilReason          xml_buffer   startnode.gml_remoteSchema   xml_buffer   startnode.xlink_href         xml_buffer   startnode.owns               xml_boolean   typeVeg                      xml_buffer   detaljnivå                   xml_buffer   konnekteringslenke           xml_boolean   veglenkeadresse.Veglenkeadresse.kommunenummer xml_buffer   veglenkeadresse.Veglenkeadresse.adressekode xml_int64   veglenkeadresse.Veglenkeadresse.adressenavn xml_buffer   veglenkeadresse.Veglenkeadresse.sideveg xml_boolean   vegreferanse.Vegreferanse.fylkesnummer xml_buffer   vegreferanse.Vegreferanse.kommunenummer xml_buffer   vegreferanse.Vegreferanse.vegkategori xml_buffer   vegreferanse.Vegreferanse.hovedparsell xml_int64   vegreferanse.Vegreferanse.veglenkeMeterFra xml_int64   vegreferanse.Vegreferanse.veglenkeMeterTil xml_int64   vegreferanse.Vegreferanse.referanseretning xml_buffer   vegreferanse.Vegreferanse.vegreferanseFraDato xml_date   vegreferanse.Vegreferanse.vegreferanseTilDato xml_date   vegreferanse.Vegreferanse.vegstatus xml_buffer   vegreferanse.Vegreferanse.vegnummer xml_int64   feltoversikt                 xml_buffer   senterlinje                  xml_geometry
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory   FACTORY_NAME "Router and Unexpected Input Remover"   COMMAND_PARM_EVALUATION SINGLE_PASS   MULTI_READER_KEYWORD GML_1   INPUT FEATURE_TYPE *    ROUTE GML GML_1::Nettverk TO FME_GENERIC ::Nettverk ALIAS_GEOMETRY    ROUTE GML GML_1::Veglenkesekvens TO FME_GENERIC ::Veglenkesekvens ALIAS_GEOMETRY    ROUTE GML GML_1::Nettverkskobling TO FME_GENERIC ::Nettverkskobling ALIAS_GEOMETRY    ROUTE GML GML_1::Vegnode TO FME_GENERIC ::Vegnode ALIAS_GEOMETRY    ROUTE GML GML_1::Veglenkesett TO FME_GENERIC ::Veglenkesett ALIAS_GEOMETRY    ROUTE GML GML_1::Veglenke TO FME_GENERIC ::Veglenke ALIAS_GEOMETRY    MERGE_INPUT Yes   OUTPUT ROUTED FEATURE_TYPE *
+GML_1_MERGE_DEF GML_1::Nettverk EXACT Nettverk
+GML_1_MERGE_DEF GML_1::Veglenkesekvens EXACT Veglenkesekvens
+GML_1_MERGE_DEF GML_1::Nettverkskobling EXACT Nettverkskobling
+GML_1_MERGE_DEF GML_1::Vegnode EXACT Vegnode
+GML_1_MERGE_DEF GML_1::Veglenkesett EXACT Veglenkesett
+GML_1_MERGE_DEF GML_1::Veglenke EXACT Veglenke
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Nettverk (GML_1) Splitter"    INPUT FEATURE_TYPE Nettverk    OUTPUT FEATURE_TYPE Nettverk_GML_1
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Veglenkesekvens (GML_1) Splitter"    INPUT FEATURE_TYPE Veglenkesekvens    OUTPUT FEATURE_TYPE Veglenkesekvens_GML_1
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Nettverkskobling (GML_1) Splitter"    INPUT FEATURE_TYPE Nettverkskobling    OUTPUT FEATURE_TYPE Nettverkskobling_GML_1
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Vegnode (GML_1) Splitter"    INPUT FEATURE_TYPE Vegnode    OUTPUT FEATURE_TYPE Vegnode_GML_1
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Veglenkesett (GML_1) Splitter"    INPUT FEATURE_TYPE Veglenkesett    OUTPUT FEATURE_TYPE Veglenkesett_GML_1
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Veglenke (GML_1) Splitter"    INPUT FEATURE_TYPE Veglenke    OUTPUT FEATURE_TYPE Veglenke_GML_1
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC Veglenkesekvens_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifikasjon_identifikasjon_lokalid<comma>identifikasjon.Identifikasjon.lokalId<comma>identifikasjon_identifikasjon_navnerom<comma>identifikasjon.Identifikasjon.navnerom<comma>identifikasjon_identifikasjon_versjonid<comma>identifikasjon.Identifikasjon.versjonId<comma>gyldigfra<comma>gyldigFra<comma>gyldigtil<comma>gyldigTil<comma>f<lt>u00f8<gt>rstedatafangstdato<comma>f<lt>u00f8<gt>rsteDatafangstdato<comma>f<lt>u00f8<gt>rstedigitaliseringsdato<comma>f<lt>u00f8<gt>rsteDigitaliseringsdato<comma>endringsflagg_endringsflagg_typeendring<comma>endringsflagg.Endringsflagg.typeEndring<comma>endringsflagg_endringsflagg_tidspunktendring<comma>endringsflagg.Endringsflagg.tidspunktEndring<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktighet<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighet<comma>kvalitet_posisjonskvalitet_synbarhet<comma>kvalitet.Posisjonskvalitet.synbarhet<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktigheth<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighetH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_maksimaltavvik<comma>kvalitet.Posisjonskvalitet.maksimaltAvvik<comma>kopidata_kopidata_omr<lt>u00e5<gt>deid<comma>kopidata.Kopidata.omr<lt>u00e5<gt>deId<comma>kopidata_kopidata_originaldatavert<comma>kopidata.Kopidata.originalDatavert<comma>kopidata_kopidata_kopidato<comma>kopidata.Kopidata.kopidato<comma>registreringsversjon_registreringsversjon_produkt<comma>registreringsversjon.Registreringsversjon.produkt<comma>registreringsversjon_registreringsversjon_versjon<comma>registreringsversjon.Registreringsversjon.versjon<comma>h<lt>u00f8<gt>ydeoverbakken<comma>h<lt>u00f8<gt>ydeOverBakken<comma>standardlrm<comma>standardLRM<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>veglenkesekvens<closeparen> GEOMETRY    ROUTE FME_GENERIC Nettverk_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>nettverk<closeparen> GEOMETRY    ROUTE FME_GENERIC Veglenke_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifikasjon_identifikasjon_lokalid<comma>identifikasjon.Identifikasjon.lokalId<comma>identifikasjon_identifikasjon_navnerom<comma>identifikasjon.Identifikasjon.navnerom<comma>identifikasjon_identifikasjon_versjonid<comma>identifikasjon.Identifikasjon.versjonId<comma>gyldigfra<comma>gyldigFra<comma>gyldigtil<comma>gyldigTil<comma>f<lt>u00f8<gt>rstedatafangstdato<comma>f<lt>u00f8<gt>rsteDatafangstdato<comma>f<lt>u00f8<gt>rstedigitaliseringsdato<comma>f<lt>u00f8<gt>rsteDigitaliseringsdato<comma>endringsflagg_endringsflagg_typeendring<comma>endringsflagg.Endringsflagg.typeEndring<comma>endringsflagg_endringsflagg_tidspunktendring<comma>endringsflagg.Endringsflagg.tidspunktEndring<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktighet<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighet<comma>kvalitet_posisjonskvalitet_synbarhet<comma>kvalitet.Posisjonskvalitet.synbarhet<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktigheth<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighetH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_maksimaltavvik<comma>kvalitet.Posisjonskvalitet.maksimaltAvvik<comma>kopidata_kopidata_omr<lt>u00e5<gt>deid<comma>kopidata.Kopidata.omr<lt>u00e5<gt>deId<comma>kopidata_kopidata_originaldatavert<comma>kopidata.Kopidata.originalDatavert<comma>kopidata_kopidata_kopidato<comma>kopidata.Kopidata.kopidato<comma>registreringsversjon_registreringsversjon_produkt<comma>registreringsversjon.Registreringsversjon.produkt<comma>registreringsversjon_registreringsversjon_versjon<comma>registreringsversjon.Registreringsversjon.versjon<comma>h<lt>u00f8<gt>ydeoverbakken<comma>h<lt>u00f8<gt>ydeOverBakken<comma>standardlrm<comma>standardLRM<comma>m<lt>u00e5<gt>ltlengde<comma>m<lt>u00e5<gt>ltLengde<comma>sluttnode_nilreason<comma>sluttnode.nilReason<comma>sluttnode_gml_remoteschema<comma>sluttnode.gml_remoteSchema<comma>sluttnode_xlink_href<comma>sluttnode.xlink_href<comma>sluttnode_owns<comma>sluttnode.owns<comma>startnode_nilreason<comma>startnode.nilReason<comma>startnode_gml_remoteschema<comma>startnode.gml_remoteSchema<comma>startnode_xlink_href<comma>startnode.xlink_href<comma>startnode_owns<comma>startnode.owns<comma>typeveg<comma>typeVeg<comma>veglenkeadresse_veglenkeadresse_kommunenummer<comma>veglenkeadresse.Veglenkeadresse.kommunenummer<comma>veglenkeadresse_veglenkeadresse_adressekode<comma>veglenkeadresse.Veglenkeadresse.adressekode<comma>veglenkeadresse_veglenkeadresse_adressenavn<comma>veglenkeadresse.Veglenkeadresse.adressenavn<comma>veglenkeadresse_veglenkeadresse_sideveg<comma>veglenkeadresse.Veglenkeadresse.sideveg<comma>vegreferanse_vegreferanse_fylkesnummer<comma>vegreferanse.Vegreferanse.fylkesnummer<comma>vegreferanse_vegreferanse_kommunenummer<comma>vegreferanse.Vegreferanse.kommunenummer<comma>vegreferanse_vegreferanse_vegkategori<comma>vegreferanse.Vegreferanse.vegkategori<comma>vegreferanse_vegreferanse_hovedparsell<comma>vegreferanse.Vegreferanse.hovedparsell<comma>vegreferanse_vegreferanse_veglenkemeterfra<comma>vegreferanse.Vegreferanse.veglenkeMeterFra<comma>vegreferanse_vegreferanse_veglenkemetertil<comma>vegreferanse.Vegreferanse.veglenkeMeterTil<comma>vegreferanse_vegreferanse_referanseretning<comma>vegreferanse.Vegreferanse.referanseretning<comma>vegreferanse_vegreferanse_vegreferansefradato<comma>vegreferanse.Vegreferanse.vegreferanseFraDato<comma>vegreferanse_vegreferanse_vegreferansetildato<comma>vegreferanse.Vegreferanse.vegreferanseTilDato<comma>vegreferanse_vegreferanse_vegstatus<comma>vegreferanse.Vegreferanse.vegstatus<comma>vegreferanse_vegreferanse_vegnummer<comma>vegreferanse.Vegreferanse.vegnummer<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>veglenke<closeparen> GEOMETRY    ROUTE FME_GENERIC Vegnode_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifikasjon_identifikasjon_lokalid<comma>identifikasjon.Identifikasjon.lokalId<comma>identifikasjon_identifikasjon_navnerom<comma>identifikasjon.Identifikasjon.navnerom<comma>identifikasjon_identifikasjon_versjonid<comma>identifikasjon.Identifikasjon.versjonId<comma>gyldigfra<comma>gyldigFra<comma>gyldigtil<comma>gyldigTil<comma>f<lt>u00f8<gt>rstedatafangstdato<comma>f<lt>u00f8<gt>rsteDatafangstdato<comma>f<lt>u00f8<gt>rstedigitaliseringsdato<comma>f<lt>u00f8<gt>rsteDigitaliseringsdato<comma>endringsflagg_endringsflagg_typeendring<comma>endringsflagg.Endringsflagg.typeEndring<comma>endringsflagg_endringsflagg_tidspunktendring<comma>endringsflagg.Endringsflagg.tidspunktEndring<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktighet<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighet<comma>kvalitet_posisjonskvalitet_synbarhet<comma>kvalitet.Posisjonskvalitet.synbarhet<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktigheth<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighetH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_maksimaltavvik<comma>kvalitet.Posisjonskvalitet.maksimaltAvvik<comma>kopidata_kopidata_omr<lt>u00e5<gt>deid<comma>kopidata.Kopidata.omr<lt>u00e5<gt>deId<comma>kopidata_kopidata_originaldatavert<comma>kopidata.Kopidata.originalDatavert<comma>kopidata_kopidata_kopidato<comma>kopidata.Kopidata.kopidato<comma>registreringsversjon_registreringsversjon_produkt<comma>registreringsversjon.Registreringsversjon.produkt<comma>registreringsversjon_registreringsversjon_versjon<comma>registreringsversjon.Registreringsversjon.versjon<comma>h<lt>u00f8<gt>ydeoverbakken<comma>h<lt>u00f8<gt>ydeOverBakken<comma>standardlrm<comma>standardLRM<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>vegnode<closeparen> GEOMETRY    ROUTE FME_GENERIC Veglenkesett_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>identifikasjon_identifikasjon_lokalid<comma>identifikasjon.Identifikasjon.lokalId<comma>identifikasjon_identifikasjon_navnerom<comma>identifikasjon.Identifikasjon.navnerom<comma>identifikasjon_identifikasjon_versjonid<comma>identifikasjon.Identifikasjon.versjonId<comma>gyldigfra<comma>gyldigFra<comma>gyldigtil<comma>gyldigTil<comma>f<lt>u00f8<gt>rstedatafangstdato<comma>f<lt>u00f8<gt>rsteDatafangstdato<comma>f<lt>u00f8<gt>rstedigitaliseringsdato<comma>f<lt>u00f8<gt>rsteDigitaliseringsdato<comma>endringsflagg_endringsflagg_typeendring<comma>endringsflagg.Endringsflagg.typeEndring<comma>endringsflagg_endringsflagg_tidspunktendring<comma>endringsflagg.Endringsflagg.tidspunktEndring<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetode_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetode.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktighet<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighet<comma>kvalitet_posisjonskvalitet_synbarhet<comma>kvalitet.Posisjonskvalitet.synbarhet<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_m<lt>u00e5<gt>lemetodeh<lt>u00f8<gt>yde_codespace<comma>kvalitet.Posisjonskvalitet.m<lt>u00e5<gt>lemetodeH<lt>u00f8<gt>yde.codeSpace<comma>kvalitet_posisjonskvalitet_n<lt>u00f8<gt>yaktigheth<lt>u00f8<gt>yde<comma>kvalitet.Posisjonskvalitet.n<lt>u00f8<gt>yaktighetH<lt>u00f8<gt>yde<comma>kvalitet_posisjonskvalitet_maksimaltavvik<comma>kvalitet.Posisjonskvalitet.maksimaltAvvik<comma>kopidata_kopidata_omr<lt>u00e5<gt>deid<comma>kopidata.Kopidata.omr<lt>u00e5<gt>deId<comma>kopidata_kopidata_originaldatavert<comma>kopidata.Kopidata.originalDatavert<comma>kopidata_kopidata_kopidato<comma>kopidata.Kopidata.kopidato<comma>registreringsversjon_registreringsversjon_produkt<comma>registreringsversjon.Registreringsversjon.produkt<comma>registreringsversjon_registreringsversjon_versjon<comma>registreringsversjon.Registreringsversjon.versjon<comma>h<lt>u00f8<gt>ydeoverbakken<comma>h<lt>u00f8<gt>ydeOverBakken<comma>standardlrm<comma>standardLRM<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>veglenkesett<closeparen> GEOMETRY    ROUTE FME_GENERIC Nettverkskobling_GML_1 TO SPATIALITE __GO_TO_FINAL_OUTPUT_ROUTER__ multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>nettverkskobling<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF veglenkesekvens   spatialite_type              wkb_geometry   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   identifikasjon_identifikasjon_lokalid string(255)   identifikasjon_identifikasjon_navnerom string(255)   identifikasjon_identifikasjon_versjonid string(255)   oppdateringsdato             string(255)   gyldigfra                    string(255)   gyldigtil                    string(255)   datafangstdato               string(255)   førstedatafangstdato         string(255)   førstedigitaliseringsdato    string(255)   verifiseringsdato            string(255)   sluttdato                    string(255)   datauttaksdato               string(255)   endringsflagg_endringsflagg_typeendring string(255)   endringsflagg_endringsflagg_tidspunktendring string(255)   kvalitet_posisjonskvalitet_målemetode string(255)   kvalitet_posisjonskvalitet_målemetode_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighet integer64   kvalitet_posisjonskvalitet_synbarhet string(255)   kvalitet_posisjonskvalitet_målemetodehøyde string(255)   kvalitet_posisjonskvalitet_målemetodehøyde_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighethøyde integer64   kvalitet_posisjonskvalitet_maksimaltavvik integer64   status                       string(255)   medium                       string(255)   opphav                       string(255)   digitaliseringsmålestokk     integer64   prosesshistorie__            string(255)   kopidata_kopidata_områdeid   integer64   kopidata_kopidata_originaldatavert string(255)   kopidata_kopidata_kopidato   string(255)   informasjon__                string(255)   registreringsversjon_registreringsversjon_produkt string(255)   registreringsversjon_registreringsversjon_versjon string(255)   geodataeier                  string(255)   geodataprodusent             string(255)   kontaktperson                string(255)   høydeoverbakken              real(31,15)   høydereferanse               string(255)   standardlrm                  string(255)   nettverk___nilreason         string(255)   nettverk___gml_remoteschema  string(255)   nettverk___xlink_href        string(255)   nettverk___owns              integer   nettverkskobling___nilreason string(255)   nettverkskobling___gml_remoteschema string(255)   nettverkskobling___xlink_href string(255)   nettverkskobling___owns      integer   lenke___rettalenke_retning   string(255)   lenke___rettalenke_lenke_nilreason string(255)   lenke___rettalenke_lenke_gml_remoteschema string(255)   lenke___rettalenke_lenke_xlink_href string(255)   lenke___rettalenke_lenke_owns integer
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF nettverk   spatialite_type              wkb_geometry   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   nettverksnavn                string(255)   nettverkselement___nilreason string(255)   nettverkselement___gml_remoteschema string(255)   nettverkselement___xlink_href string(255)   nettverkselement___owns      integer
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF veglenke   spatialite_type              wkb_multi_line_xyz   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   identifikasjon_identifikasjon_lokalid string(255)   identifikasjon_identifikasjon_navnerom string(255)   identifikasjon_identifikasjon_versjonid string(255)   oppdateringsdato             string(255)   gyldigfra                    string(255)   gyldigtil                    string(255)   datafangstdato               string(255)   førstedatafangstdato         string(255)   førstedigitaliseringsdato    string(255)   verifiseringsdato            string(255)   sluttdato                    string(255)   datauttaksdato               string(255)   endringsflagg_endringsflagg_typeendring string(255)   endringsflagg_endringsflagg_tidspunktendring string(255)   kvalitet_posisjonskvalitet_målemetode string(255)   kvalitet_posisjonskvalitet_målemetode_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighet integer64   kvalitet_posisjonskvalitet_synbarhet string(255)   kvalitet_posisjonskvalitet_målemetodehøyde string(255)   kvalitet_posisjonskvalitet_målemetodehøyde_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighethøyde integer64   kvalitet_posisjonskvalitet_maksimaltavvik integer64   status                       string(255)   medium                       string(255)   opphav                       string(255)   digitaliseringsmålestokk     integer64   prosesshistorie__            string(255)   kopidata_kopidata_områdeid   integer64   kopidata_kopidata_originaldatavert string(255)   kopidata_kopidata_kopidato   string(255)   informasjon__                string(255)   registreringsversjon_registreringsversjon_produkt string(255)   registreringsversjon_registreringsversjon_versjon string(255)   geodataeier                  string(255)   geodataprodusent             string(255)   kontaktperson                string(255)   høydeoverbakken              real(31,15)   høydereferanse               string(255)   standardlrm                  string(255)   nettverk___nilreason         string(255)   nettverk___gml_remoteschema  string(255)   nettverk___xlink_href        string(255)   nettverk___owns              integer   nettverkskobling___nilreason string(255)   nettverkskobling___gml_remoteschema string(255)   nettverkskobling___xlink_href string(255)   nettverkskobling___owns      integer   måltlengde                   real(31,15)   startposisjon                real(31,15)   sluttposisjon                real(31,15)   sluttnode_nilreason          string(255)   sluttnode_gml_remoteschema   string(255)   sluttnode_xlink_href         string(255)   sluttnode_owns               integer   startnode_nilreason          string(255)   startnode_gml_remoteschema   string(255)   startnode_xlink_href         string(255)   startnode_owns               integer   typeveg                      string(255)   detaljnivå                   string(255)   konnekteringslenke           integer   veglenkeadresse_veglenkeadresse_kommunenummer string(255)   veglenkeadresse_veglenkeadresse_adressekode integer64   veglenkeadresse_veglenkeadresse_adressenavn string(255)   veglenkeadresse_veglenkeadresse_sideveg integer   vegreferanse_vegreferanse_fylkesnummer string(255)   vegreferanse_vegreferanse_kommunenummer string(255)   vegreferanse_vegreferanse_vegkategori string(255)   vegreferanse_vegreferanse_hovedparsell integer64   vegreferanse_vegreferanse_veglenkemeterfra integer64   vegreferanse_vegreferanse_veglenkemetertil integer64   vegreferanse_vegreferanse_referanseretning string(255)   vegreferanse_vegreferanse_vegreferansefradato string(255)   vegreferanse_vegreferanse_vegreferansetildato string(255)   vegreferanse_vegreferanse_vegstatus string(255)   vegreferanse_vegreferanse_vegnummer integer64   feltoversikt                 string(255)   senterlinje                  string(255)
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF vegnode   spatialite_type              wkb_multi_point_xyz   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   identifikasjon_identifikasjon_lokalid string(255)   identifikasjon_identifikasjon_navnerom string(255)   identifikasjon_identifikasjon_versjonid string(255)   oppdateringsdato             string(255)   gyldigfra                    string(255)   gyldigtil                    string(255)   datafangstdato               string(255)   førstedatafangstdato         string(255)   førstedigitaliseringsdato    string(255)   verifiseringsdato            string(255)   sluttdato                    string(255)   datauttaksdato               string(255)   endringsflagg_endringsflagg_typeendring string(255)   endringsflagg_endringsflagg_tidspunktendring string(255)   kvalitet_posisjonskvalitet_målemetode string(255)   kvalitet_posisjonskvalitet_målemetode_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighet integer64   kvalitet_posisjonskvalitet_synbarhet string(255)   kvalitet_posisjonskvalitet_målemetodehøyde string(255)   kvalitet_posisjonskvalitet_målemetodehøyde_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighethøyde integer64   kvalitet_posisjonskvalitet_maksimaltavvik integer64   status                       string(255)   medium                       string(255)   opphav                       string(255)   digitaliseringsmålestokk     integer64   prosesshistorie__            string(255)   kopidata_kopidata_områdeid   integer64   kopidata_kopidata_originaldatavert string(255)   kopidata_kopidata_kopidato   string(255)   informasjon__                string(255)   registreringsversjon_registreringsversjon_produkt string(255)   registreringsversjon_registreringsversjon_versjon string(255)   geodataeier                  string(255)   geodataprodusent             string(255)   kontaktperson                string(255)   høydeoverbakken              real(31,15)   høydereferanse               string(255)   standardlrm                  string(255)   nettverk___nilreason         string(255)   nettverk___gml_remoteschema  string(255)   nettverk___xlink_href        string(255)   nettverk___owns              integer   nettverkskobling___nilreason string(255)   nettverkskobling___gml_remoteschema string(255)   nettverkskobling___xlink_href string(255)   nettverkskobling___owns      integer   sluttnodefor___nilreason     string(255)   sluttnodefor___gml_remoteschema string(255)   sluttnodefor___xlink_href    string(255)   sluttnodefor___owns          integer   startnodefor___nilreason     string(255)   startnodefor___gml_remoteschema string(255)   startnodefor___xlink_href    string(255)   startnodefor___owns          integer   posisjon                     string(255)
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF veglenkesett   spatialite_type              wkb_geometry   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   identifikasjon_identifikasjon_lokalid string(255)   identifikasjon_identifikasjon_navnerom string(255)   identifikasjon_identifikasjon_versjonid string(255)   oppdateringsdato             string(255)   gyldigfra                    string(255)   gyldigtil                    string(255)   datafangstdato               string(255)   førstedatafangstdato         string(255)   førstedigitaliseringsdato    string(255)   verifiseringsdato            string(255)   sluttdato                    string(255)   datauttaksdato               string(255)   endringsflagg_endringsflagg_typeendring string(255)   endringsflagg_endringsflagg_tidspunktendring string(255)   kvalitet_posisjonskvalitet_målemetode string(255)   kvalitet_posisjonskvalitet_målemetode_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighet integer64   kvalitet_posisjonskvalitet_synbarhet string(255)   kvalitet_posisjonskvalitet_målemetodehøyde string(255)   kvalitet_posisjonskvalitet_målemetodehøyde_codespace string(255)   kvalitet_posisjonskvalitet_nøyaktighethøyde integer64   kvalitet_posisjonskvalitet_maksimaltavvik integer64   status                       string(255)   medium                       string(255)   opphav                       string(255)   digitaliseringsmålestokk     integer64   prosesshistorie__            string(255)   kopidata_kopidata_områdeid   integer64   kopidata_kopidata_originaldatavert string(255)   kopidata_kopidata_kopidato   string(255)   informasjon__                string(255)   registreringsversjon_registreringsversjon_produkt string(255)   registreringsversjon_registreringsversjon_versjon string(255)   geodataeier                  string(255)   geodataprodusent             string(255)   kontaktperson                string(255)   høydeoverbakken              real(31,15)   høydereferanse               string(255)   standardlrm                  string(255)   nettverk___nilreason         string(255)   nettverk___gml_remoteschema  string(255)   nettverk___xlink_href        string(255)   nettverk___owns              integer   nettverkskobling___nilreason string(255)   nettverkskobling___gml_remoteschema string(255)   nettverkskobling___xlink_href string(255)   nettverkskobling___owns      integer   navn                         string(255)   lenke___nilreason            string(255)   lenke___gml_remoteschema     string(255)   lenke___xlink_href           string(255)   lenke___owns                 integer
+# -------------------------------------------------------------------------
+SPATIALITE_1_DEF nettverkskobling   spatialite_type              wkb_geometry   spatialite_overwrite_tables  No   spatialite_create_spatial_index Yes   spatialite_compress_geometry Yes   gml_parent_id                string(255)   gml_parent_property          string(255)   gml_id                       string(255)   nettverkselement___nilreason string(255)   nettverkselement___gml_remoteschema string(255)   nettverkselement___xlink_href string(255)   nettverkselement___owns      integer
