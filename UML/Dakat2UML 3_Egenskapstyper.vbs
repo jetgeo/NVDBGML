@@ -72,7 +72,7 @@ Sub updateProperties_Egenskapstyper()
 	If Not IsNull(rsEgenskapstyper.Fields("SOSI_navn").Value) Then '
 		set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", rsEgenskapstyper.Fields("SOSI_navn").Value)
 	Else
-		set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", createSOSInavn(rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value, "Lower", 32, ""))
+		set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", createSOSInavn(rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value, "Lower", 255, ""))
 	End If
 	aTag.Update()
 	If Not IsNull(rsEgenskapstyper.Fields("DATO_FRA").Value) Then set aTag = eAttributt.TaggedValues.AddNew("ObjektlisteFerdigveg", "true")
@@ -97,6 +97,13 @@ Sub updateProperties_Egenskapstyper()
 		End If
 	End If
 
+	If Not IsNull(rsEgenskapstyper.Fields("navn_enhet").Value) Then
+		set aTag = eAttributt.TaggedValues.AddNew("Enhet", rsEgenskapstyper.Fields("navn_enhet").Value)
+		aTag.Update()
+		eAttributt.Notes = eAttributt.Notes & vbCrLf & "Enhet: " & rsEgenskapstyper.Fields("navn_enhet").Value
+		eAttributt.Update()
+	End If
+	
 	eAttributt.TaggedValues.Refresh()
 End Sub
 
@@ -106,7 +113,7 @@ sub updateEgenskapstyper()
 	connect2models
     'Koble til tabellen EGENSKAPSTYPE i Dakat-databasen
 	set rsEgenskapstyper = CreateObject("ADODB.Recordset")
-	rsEgenskapstyper.Open "SELECT * FROM EGENSKAPSTYPE WHERE NAVN_EGENSKAPSTYPE NOT LIKE 'Utgår%'", dbDakat, 3, 1
+	rsEgenskapstyper.Open "SELECT ENHET.navn_enhet, * FROM ENHET RIGHT JOIN EGENSKAPSTYPE ON ENHET.id_enhet = EGENSKAPSTYPE.ID_ENHET WHERE EGENSKAPSTYPE.NAVN_EGENSKAPSTYPE Not Like 'Utgår%'", dbDakat, 3, 1
 	rsEgenskapstyper.Filter = "Dato_fra_nvdb <> NULL AND ID_VEGOB_TYPE <> NULL"
 
 	'Kjører gjennom alle registrerte objekttyper og deres egenskapstyper (egenskaper) i EA, pakke for pakke
@@ -152,7 +159,7 @@ sub updateEgenskapstyper()
                     If Not lstAlias.Contains(id) Then
 						'Attributt med angitt alias finnes ikke under objekttypen
 						Repository.WriteOutput "Endringer", Now & " Lager egenskapstype: " & element.Name & "." & rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value & " (" & rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value & ")",0
-						eAttributt = element.Attributes.AddNew(rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value, "")
+						set eAttributt = element.Attributes.AddNew(rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value, "")
 						eAttributt.Update()
 						updateProperties_Egenskapstyper()
                     Else

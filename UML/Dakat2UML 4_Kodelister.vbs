@@ -5,6 +5,104 @@ option explicit
 !INC NVDB._parametre
 
 
+Sub updateProperties_Kodelister()
+	'Oppdaterer kodelister (ikke verdier)
+	element.Name = rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value
+	If Not IsNull(rsEgenskapstyper.Fields("BSKR_EGENSKAPSTYPE").Value) Then element.Notes = rsEgenskapstyper.Fields("BSKR_EGENSKAPSTYPE").Value
+	element.StereotypeEx = ""
+	element.Stereotype = "Tillatte verdier"
+	element.Alias = rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value
+	element.Status = "Implemented"
+	element.Visibility = "Public"
+	element.Author = "Dakat"
+	element.Version = FC_version
+	element.Modified = Now
+	element.Update()
+	'Fjerner alle tagged values og legger til på nytt
+	For idxT = 0 To element.TaggedValues.Count - 1
+		element.TaggedValues.DeleteAt idxT, False
+	Next
+	set tagVal = element.TaggedValues.AddNew("ID_EGENSKAPSTYPE", rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value)
+	tagVal.Update()
+	set tagVal= element.TaggedValues.AddNew("NAVN_EGENSKAPSTYPE", rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value)
+	tagVal.Update()
+
+	Select Case rsEgenskapstyper.Fields("ID_DATATYPE").Value
+		Case 30
+			set tagVal= element.TaggedValues.AddNew("SOSI_datatype", "T")
+		Case 31
+			'MsgBox("31")
+			If Not IsNull(rsEgenskapstyper.Fields("ANTALL_DESIMALER").Value) Then
+				If rsEgenskapstyper.Fields("ANTALL_DESIMALER").Value = 0 Then
+					set tagVal = element.TaggedValues.AddNew("SOSI_datatype", "H")
+				Else
+					set tagVal = element.TaggedValues.AddNew("SOSI_datatype", "D")
+				End If
+			Else
+				set tagVal = element.TaggedValues.AddNew("SOSI_datatype", "H")
+			End If
+	End Select
+	tagVal.Update()
+
+	If Not IsNull(rsEgenskapstyper.Fields("KORTN_EGENSKAPSTYPE").Value) Then
+		set tagVal = element.TaggedValues.AddNew("KORTN_EGENSKAPSTYPE", rsEgenskapstyper.Fields("KORTN_EGENSKAPSTYPE").Value)
+		tagVal.Update()
+	End If
+	If Not IsNull(rsEgenskapstyper.Fields("TOTAL_FELTLENGDE").Value) Then
+		set tagVal = element.TaggedValues.AddNew("TOTAL_FELTLENGDE", rsEgenskapstyper.Fields("TOTAL_FELTLENGDE").Value)
+		tagVal.Update()
+	End If
+	If Not IsNull(rsEgenskapstyper.Fields("ANTALL_DESIMALER").Value) Then
+		set tagVal = element.TaggedValues.AddNew("ANTALL_DESIMALER", rsEgenskapstyper.Fields("ANTALL_DESIMALER").Value)
+		tagVal.Update()
+	End If
+
+	set tagVal = element.TaggedValues.AddNew("SOSINVDB_navn", rsEgenskapstyper.Fields("SOSINVDB_navn").Value)
+	tagVal.Update()
+	'SOSI-navn - skal være unikt. Hentes fra tilhørende egenskap i modellen 
+	Dim el as EA.Element
+	For Each el In pkOT_Sub.Elements
+		'Søker gjennom pakka for å finne selve objekttypen og den egenskapen kodelista tilhører
+		If el.Stereotype = "Vegobjekttype" Then
+			'finner SOSI-navn for objekttypen, til bruk som eventuell suffix. For eksempel: "Basseng/Magasin" => "BassengMagasin"
+			set tagVal = el.TaggedValues.GetByName("SOSI_navn")
+			Dim strSOSI_OT 
+			strSOSI_OT = tagVal.Value
+			dim attr as EA.Attribute
+			For Each attr In el.Attributes
+				'Finner attributten som kodelisten tilhører
+				If attr.Style = element.Alias Then
+					'finner SOSI-navn for attributten
+					set aTag = attr.TaggedValues.GetByName("SOSI_navn")
+					If not aTag is Nothing then
+						'Lager så velformulert og unikt SOSI-navn, med suffix dersom det er nødvendig for å få det unikt i SOSI. For eksempel: "Eier" => "EierBassengMagasin"
+						Dim strSOSInavn
+						strSOSInavn = UCase(Left(aTag.Value, 1)) &  Mid(aTag.Value, 2)
+						'Kontrollerer i  om det nye navnet er i bruk på andre kodelister i Datakatalogen, og legger i såfall på suffix
+						'For eksempel: "Eier" kan være unikt i SOSI Objektkatalog, men det kan være andre egenskaper i Datakatalog-modellen som har samme SOSI-tag.
+						If lstCodeListNames.Contains(strSOSInavn) Then
+							strSOSInavn = strSOSInavn & strSOSI_OT
+						End if
+						Repository.WriteOutput "SOSI", Now & " SOSI-navn for " & element.Name & ": " & strSOSInavn, 0 
+						set tagVal = element.TaggedValues.AddNew("SOSI_navn", strSOSInavn)
+						lstCodeListNames.Add(strSOSInavn)
+					end if
+				End If
+			Next
+		End If
+	Next
+	tagVal.Update()
+
+	If rsEgenskapstyper.Fields("kortnavn_TV_offisiell").Value = True Then
+		set tagVal = element.TaggedValues.AddNew("kortnavn_TV_offisiell", "True")
+	Else
+		set tagVal = element.TaggedValues.AddNew("kortnavn_TV_offisiell", "False")
+	End If
+	element.TaggedValues.Refresh()
+
+End Sub
+
+
 'Oppdaterer kodelister (lister med tillatte verdier)
 sub updateKodelister()
 	'Setter opp spørring som viser egenskaper med tillatte verdier i Dakat-databasen
@@ -15,6 +113,21 @@ sub updateKodelister()
    
 	rsEgenskapstyper.MoveLast()
     Repository.WriteOutput "Script", Now & " Oppdaterer kodelister og legger til nye", 0 
+	Set lstCodeListNames = CreateObject("System.Collections.ArrayList")
+	'Kjør gjennom alle pakker, finn alle vegobjekttyper sine SOSI-navn og legg til i listen
+	Repository.WriteOutput "Script", Now & " Lager liste med brukte SOSI-navn",0
+	For each pkOT_Sub in pkObjekttyper.Packages
+		For each element in pkOT_Sub.elements
+			If element.Stereotype = "Vegobjekttype" then
+			   set  tagVal = element.TaggedValues.GetByName("SOSI_navn")
+			   if not tagVal is Nothing then
+			     lstCodeListNames.Add tagVal.Value
+				Repository.WriteOutput "Script", Now & " Legger til vegobjekttype " & pkOT_Sub.Name & " med SOSI-navn " & tagVal.Value & " i liste",0
+			   end if
+			end if
+		Next
+	Next
+	
 	For idxP = 0 To pkObjekttyper.Packages.Count - 1
 		Set lstAlias = CreateObject("System.Collections.ArrayList")
 		set pkOT_Sub = pkObjekttyper.Packages.GetAt(idxP)
@@ -34,7 +147,7 @@ sub updateKodelister()
 				If Not rsEgenskapstyper.EOF Then
 					'Oppdaterer egenskapstypen
 					Repository.WriteOutput "Script", Now & " Oppdaterer kodeliste: " & rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value & " (" & rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value & ")",0
-					'updateProperties_Kodelister()
+					updateProperties_Kodelister()
 					lstAlias.Add(element.Alias)
 				Else
 					'Egenskapstypen finnes ikke med tillatte verdier i Dakat
@@ -55,7 +168,7 @@ sub updateKodelister()
 					Repository.WriteOutput "Endringer", Now & " Lager kodeliste: " & pkOT_Sub.Name & "." & rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value & " (" & rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value & ")",0
 					set element = pkOT_Sub.Elements.AddNew(rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value, "Class")
 					element.Update()
-					'updateProperties_Kodelister()
+					updateProperties_Kodelister()
 				Else
 					Repository.WriteOutput "Script", Now & " Kodelisten finnes: " & rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value & " (" & rsEgenskapstyper.Fields("ID_EGENSKAPSTYPE").Value & ")",0
 				End If
@@ -64,8 +177,7 @@ sub updateKodelister()
 		End If
 		
 		'Sorterer objekter (featuretype og codelists) i pakka
-		
-		
+		sortElementsInPackage(pkOT_Sub)
 		
 	Next
 

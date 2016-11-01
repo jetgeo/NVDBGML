@@ -63,6 +63,7 @@ Sub updateProperties_Objekttyper()
 End Sub
 
 sub updateObjekttyper()
+'Oppdatering av vegobjekttyper
 	'Setter opp kobling til modeller og databasetabell
 	connect2models
 	set rsObjekttyper = CreateObject("ADODB.Recordset")
