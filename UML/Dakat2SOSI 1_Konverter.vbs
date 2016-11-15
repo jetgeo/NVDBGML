@@ -7,7 +7,7 @@ option explicit
 'konverterer fra Dakat-UML til SOSI-UML
 
 Function setMultiplicityFromImportance(strImportance) 
-	'Set mulitplicity from importance tag
+	'Sett mulitiplisitet ut fra viktighet
 	setMultiplicityFromImportance = 0
 	Select Case strImportance
 		Case "Påkrevd i database"
@@ -19,6 +19,173 @@ Function setMultiplicityFromImportance(strImportance)
 	End Select
 End Function
 
+Function setGMLasDictionary() 
+	'Sett GML tag "asDictionary" ut fra innstillinger
+	setGMLasDictionary = "false"
+	If blnAsDictionary Then
+		setGMLasDictionary = "true"
+	End If
+End Function
+
+Sub setPackageTags_GML(pck, el, shortFromAlias, targetNamespace)
+	'************ SOSI- og GML-tagger på pakkene ********************
+
+	Dim pkEl As EA.Element
+	set pkEl = pck.Element
+
+	'*************** GML
+	If targetNamespace Then
+		pck.StereotypeEx = "applicationSchema"
+		pck.Update()
+
+		set tagVal = Nothing
+		set tagVal = pkEl.TaggedValues.GetByName("targetNamespace")
+		if not tagVal is Nothing then
+			tagVal.Value = strTargetNamespace
+		else
+			set tagVal = pkEl.TaggedValues.AddNew("targetNamespace", strTargetNamespace)
+		End if
+		tagVal.Update()
+	End If
+	
+	set tagVal = Nothing
+	set	tagVal = pkEl.TaggedValues.GetByName("version")
+	if not tagVal is Nothing then
+		tagVal.Value = strVersion
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("version",FC_Version)
+	End if
+	tagVal.Update()
+	
+	set tagVal = Nothing
+	set	tagVal = pkEl.TaggedValues.GetByName("xmlns")
+	if not tagVal is Nothing then
+		tagVal.Value = "nvdb"
+	else	
+		set tagVal = pkEl.TaggedValues.AddNew("xmlns", "nvdb")
+	End if
+	tagVal.Update()
+
+	Dim strTagVal 
+	If shortFromAlias Then
+		strTagVal = el.Alias
+	Else
+		strTagVal = txtShortName
+	End If
+	strTagVal = strTagVal & ".xsd"
+	
+	set tagVal = Nothing
+	set	tagVal = pkEl.TaggedValues.GetByName("xsdDocument")
+	if not tagVal is Nothing then
+		tagVal.Value = strTagVal
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("xsdDocument", strTagVal)
+	End if
+	tagVal.Update()
+
+	set tagVal = Nothing
+	set	tagVal = pkEl.TaggedValues.GetByName("xsdEncodingRule")
+	if not tagVal is Nothing then
+		tagVal.Value = "sosi"
+	else
+		set tagVal = pkEl.TaggedValues.AddNew("xsdEncodingRule", "sosi")
+	End if
+	tagVal.Update()
+
+	'****************** SOSI
+	If shortFromAlias Then
+		strTagVal = "NVDB" & el.Alias
+	Else
+		strTagVal = "NVDB" & txtShortName
+	End If
+	
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_kortnavn")
+	If not tagVal is nothing then
+		tagVal.Value = strTagVal
+	else
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_kortnavn", strTagVal)
+	End if
+	tagVal.Update()
+
+	If Not Mid(el.Name, 1, 4) = "NVDB" Then
+		strTagVal = "NVDB " & pck.Name
+	Else
+		strTagVal = el.Name
+	End If
+	
+	With (New RegExp)
+		.Global = True
+		.Pattern = "[_]+"
+		strTagVal = .Replace(strTagVal, "_") 
+	End With	
+
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_langnavn")
+	if not tagVal is Nothing then
+		tagVal.Value = strTagVal
+	else	
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_langnavn", strTagVal)
+	End if
+	tagVal.Update()
+	
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_organisasjon")
+	if not tagVal is nothing then
+		tagVal.Value = "Statens vegvesen"
+	else	
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_organisasjon", "Statens vegvesen")
+	End if
+	tagVal.Update()
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_produktgruppe")
+	if not tagVal is Nothing then
+		tagVal.Value = "NVDB"
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_produktgruppe", "NVDB")
+	End if
+	tagVal.Update()
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_produsent")
+	If not tagVal is Nothing then
+		tagVal.Value = "Statens vegvesen"
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_produsent", "Statens vegvesen")
+	End if
+	tagVal.Update()
+	set tagVal = Nothing
+	set	tagVal = pkEl.TaggedValues.GetByName("SOSI_spesifikasjonstype")
+	if not tagVal is Nothing then
+		tagVal.Value = "Applikasjonsskjema"
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_spesifikasjonstype", "Applikasjonsskjema")
+	End if
+	tagVal.Update()
+	set tagVal = Nothing
+	set tagVal = pkEl.TaggedValues.GetByName("SOSI_versjon")
+	If not tagVal is Nothing then
+		tagVal.Value = My.Settings.SOSIversjon
+	Else
+		set tagVal = pkEl.TaggedValues.AddNew("SOSI_versjon", strSOSIversjon)
+	End if
+	tagVal.Update()
+
+	pkEl.TaggedValues.Refresh()
+	pck.Element.Refresh()
+End Sub
+
+Sub removeConstraints(el)
+	'Fjerner constraints
+	Dim cnstr As EA.Constraint
+	Repository.WriteOutput "Script", Now & " Fjerner constraints for objekttype " & el.Name,0
+	For idxT = 0 To el.Constraints.Count - 1
+		'set cnstr = el.Constraints.GetAt(idxT)
+		'If cnstr.Type <> "OCL" Then
+		el.Constraints.DeleteAt idxT, False
+		'End If
+	Next 
+	el.Constraints.Refresh()
+End Sub
 
 sub convert2SOSI()
 	dim strPar
@@ -28,9 +195,15 @@ sub convert2SOSI()
 	strPar = strPar & "Arv fra SOSI Fellesegenskaper: " & blnFellesegenskaper & vbCrLf 
 	strPar = strPar & "Kun egenskaper fra Objektliste ferdigvegsdata: " & blnOLFV & vbCrLf 
 	strPar = strPar & "Utelat sensitive egenskaper: " & blnSensitivitet & vbCrLf & vbCrLf
+	
+	strPar = strPar & "Legg til LR-attributter: " & blnLRAttr & vbCrLf 
+	strPar = strPar & "Fjern constraints: " & blnRemoveConstraints & vbCrLf & vbCrLf
+
+	strPar = strPar & "Kodelister som dictionary: " & blnAsDictionary & vbCrLf 
+	strPar = strPar & "GML-Namespace: " & strTargetNamespace & vbCrLf & vbCrLf
+
 	strPar = strPar & "Viktighet som gir påkrevd: " & vbCrLf 
 	strPar = strPar & "Påkrevd i database (" & blnPkrvd & "), Påkrevd ved nyregistrering (" & blnPkrvdNyreg & "), Betinget (" & blnBetinget & ")" & vbCrLf 
-	
 	strPar = strPar & vbCrLf
 	strPar = strPar & "Objekttyper: " & strPakker & vbCrLf 
 	
@@ -66,6 +239,11 @@ sub convert2SOSI()
 	Repository.WriteOutput "Script", Now & " Oppretter pakke: " & txtSOSIpakke,0
 	set pkNVDBSOSI = pkNVDBSOSImain.Packages.AddNew(txtSOSIpakke, "Package")
 	pkNVDBSOSI.Update()
+	'Tagged values på morpakken
+	Repository.WriteOutput "Script", Now & " Setter stereotype og tagged values på hovedpakke",0
+	setPackageTags_GML pkNVDBSOSI, pkNVDBSOSI.Element, False, True
+	pkNVDBSOSI.Modified = Now
+	pkNVDBSOSI.Update()
 
 	'Oppretter diagrammet hovedskjema
 	set  eHovedskjema = pkNVDBSOSI.Diagrams.AddNew("Hovedskjema", "Logical")
@@ -81,6 +259,34 @@ sub convert2SOSI()
 		Repository.WriteOutput "Script", Now & " Importerer fra versjonskontrollert XMI: " & xmiFile,0
 		ePIF.ImportPackageXMI pkNVDBSOSI.PackageGUID, xmiFile, 1, 1 
         pkNVDBSOSI.Packages.Refresh()	
+		
+		'Setter referanse til ny, lokal pakke med SOSI fellesegenskaper
+		Repository.WriteOutput "Script", Now & " Finner featuretype Fellesegenskaper i lokal pakke",1
+		set pkSOSIfelles = Nothing
+		set pkSOSIfelles = pkNVDBSOSI.Packages.GetByName(strSOSIFelles)
+		If not pkSOSIfelles is Nothing then
+			pkSOSIfelles.Element.Alias = "SOSIFelles"
+			pkSOSIfelles.Update()
+			If blnIndividualAS Then 
+				setPackageTags_GML pkSOSIfelles, pkSOSIfelles.Element, True, False
+			end if	
+			set ftSOSIfelles = Nothing
+			Set ftSOSIfelles = pkSOSIfelles.Elements.GetByName("Fellesegenskaper")
+			If not ftSOSIfelles is Nothing then
+				If blnRemoveConstraints Then
+					'Fjerner constraints
+					removeConstraints(ftSOSIfelles)
+				End If
+
+				'Legger til i diagrammet Hovedskjema
+				set diagramObjekt = eHovedskjema.DiagramObjects.AddNew("", "")
+				diagramObjekt.ElementID = ftSOSIfelles.ElementID
+				hideAttributes diagramObjekt
+				setSize diagramObjekt, 70, 200
+				diagramObjekt.Update()
+				eHovedskjema.Update()		
+			end if
+		end if
 	end if
 
 	'Liste med pakker som skal konverteres 
@@ -123,6 +329,11 @@ sub convert2SOSI()
         Dim geomPunkt, geomKurve 
 		geomPunkt = False
 		geomKurve = False
+
+		'Tagged values på pakken
+		If blnIndividualAS Then 
+			setPackageTags_GML pkOT_Sub, pkOT_Sub.Element, True, False
+		end if	
 
         'Kjører gjennom alle klasser i delpakken. Endrer stereotyper, navn, tagged values...
         For idxe = 0 To pkOT_Sub.Elements.Count - 1
@@ -206,6 +417,27 @@ sub convert2SOSI()
 			element.Modified = Now
 			element.Update()
 			
+			'GML-tagger for kodelister
+			If element.Stereotype = "codeList" Then
+				set tagVal = Nothing
+				set tagVal = element.TaggedValues.GetByName("asDictionary")
+				If not tagVal is Nothing then
+					tagVal.Value = setGMLasDictionary()
+				else
+					set tagVal = element.TaggedValues.AddNew("asDictionary", setGMLasDictionary)
+				End if
+				tagVal.Update()
+				
+				set tagVal = Nothing
+				set tagVal = element.TaggedValues.GetByName("codeList")
+				If not tagVal is Nothing then
+					tagVal.Value = My.Settings.strTargetNamespace & element.Name
+				Else
+					set tagVal = element.TaggedValues.AddNew("codeList", strTargetNamespace & element.Name)
+				End if
+				tagVal.Update()
+			End If
+
 			'********************** Navn og tagged values på egenskaper og tillatte verdier **********************
 			For idxA = 0 To element.Attributes.Count - 1
 				set eAttributt = element.Attributes.GetAt(idxA)
@@ -392,6 +624,229 @@ sub convert2SOSI()
 				End if 'IncludeAttr
 				eAttributt.Update()
 			Next 'idxA
+			
+			'Operasjoner som gjelder objekttyper
+			If element.Stereotype = "featureType" Or element.Stereotype = "FeatureType" Then	
+				'********************** Stedfestingsegenskaper *************************
+				'Legger til eventuelt manglende geometriegenskaper, og lr-posisjon dersom det er valgt
+				Select Case strStedfesting
+					Case "strekning"
+						If Not geomKurve Then
+							'Legger til manglende egenskap for kurvegeometri
+							Repository.WriteOutput "SOSI", Now & " Legger til geometriegenskap senterlinje på " & element.Name, 0
+							set eAttributt = element.Attributes.AddNew("senterlinje", "")
+							eAttributt.Pos = 99998
+							eAttributt.Type = "Kurve"
+							eAttributt.LowerBound = 0
+							eAttributt.UpperBound = 1
+							eAttributt.Notes = "Angivelse av objektets posisjon"							
+							eAttributt.Visibility = "Public"							
+							set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "SENTERLINJE")
+							aTag.Update()
+							set elementB = Nothing
+							'Finner kobling til riktig datatype
+							set elementB = Repository.GetElementByGuid(guidKurve)
+							If not elementB is Nothing then
+								eAttributt.ClassifierID = elementB.ElementID
+							end if 	
+							eAttributt.Update()
+						End If
+
+						If blnLRAttr Then
+							'Legger til lr-posisjon for strekning
+							Repository.WriteOutput "SOSI", Now & " Legger til egenskap lineærPosisjon (strekning) på " & element.Name, 0
+							set eAttributt = element.Attributes.AddNew("lineærPosisjon", "")
+							eAttributt.Pos = 99999
+							eAttributt.Type = "LineærPosisjonStrekning"
+							eAttributt.LowerBound = 0
+							eAttributt.UpperBound = "*"
+							eAttributt.Notes = "Angivelse av posisjon på det lineære objektet."
+							eAttributt.Visibility = "Public"
+							set constraint = element.Constraints.AddNew("Må ha minst en av stedfestingene lineærPosisjon og senterlinje", "OCL")
+							constraint.Notes = "inv:count(self.senterlinje)+count(self.lineærposisjon)>0"
+							constraint.Weight = 100
+							constraint.Update()
+							set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "LRSTREKNING")
+							aTag.Update()
+							set elementB = Nothing
+							If blnFellesegenskaper Then
+								'Finner kobling til riktig datatype i lokal pakke med SOSI Fellesegenskaper
+								set elementB = pkSOSIfelles.Elements.GetByName(eAttributt.Type)
+								If not elementB is Nothing then
+									eAttributt.ClassifierID = elementB.ElementID
+								End if
+							Else
+								'Finner kobling til riktig datatype
+								set elementB = Repository.GetElementByGuid(guidLRStrekning)
+								If not elementB is Nothing then
+									eAttributt.ClassifierID = elementB.ElementID
+								End if	
+							End If
+							eAttributt.Update()
+						End if	
+							
+					Case "punkt"
+						If Not geomPunkt Then
+							'Legger til manglende egenskap for punktgeometri
+							Repository.WriteOutput "SOSI", Now & " Legger til geometriegenskap posisjon på " & element.Name, 0
+							set eAttributt = element.Attributes.AddNew("posisjon", "")
+							eAttributt.Pos = 99998
+							eAttributt.Type = "Punkt"
+							eAttributt.LowerBound = 0
+							eAttributt.UpperBound = 1
+							eAttributt.Notes = "Angivelse av objektets posisjon"							
+							eAttributt.Visibility = "Public"							
+							set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "POSISJON")
+							aTag.Update()
+							set elementB = Nothing
+							'Finner kobling til riktig datatype
+							set elementB = Repository.GetElementByGuid(guidKurve)
+							if not elementB is Nothing then
+								eAttributt.ClassifierID = elementB.ElementID
+							End if	
+							eAttributt.Update()
+						End If
+
+						If blnLRAttr Then
+							'Legger til lr-posisjon for punkt
+							Repository.WriteOutput "SOSI", Now & " Legger til egenskap lineærPosisjon (punkt) på " & element.Name, 0
+							set eAttributt = element.Attributes.AddNew("lineærPosisjon", "")
+							eAttributt.Pos = 99999
+							eAttributt.Type = "LineærPosisjonPunkt"
+							eAttributt.LowerBound = 0
+							eAttributt.UpperBound = "*"
+							eAttributt.Notes = "Angivelse av posisjon på det lineære objektet."
+							eAttributt.Visibility = "Public"
+							set constraint = element.Constraints.AddNew("Må ha minst en av stedfestingene lineærPosisjon og posisjon", "OCL")
+							constraint.Notes = "inv:count(self.posisjon)+count(self.lineærPosisjon)>0"
+							constraint.Weight = 100
+							constraint.Update()
+							set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "LRPUNKT")
+							aTag.Update()
+							set elementB = Nothing
+							If blnFellesegenskaper Then
+								'Finner kobling til riktig datatype i lokal pakke med SOSI Fellesegenskaper
+								set elementB = pkSOSIfelles.Elements.GetByName(eAttributt.Type)
+								If not elementB is Nothing then
+									eAttributt.ClassifierID = elementB.ElementID
+								End if	
+							Else
+								'Finner kobling til riktig datatype								
+								set elementB = Repository.GetElementByGuid(guidLRPunkt)
+								if not elementB is Nothing then
+									eAttributt.ClassifierID = elementB.ElementID
+								End if	
+							End If
+							eAttributt.Update()
+						End if
+				End Select
+				
+				'************************************** Spesialiteter: Retning *************************************
+				'Dersom Retningsrelevant: Constraint med krav om retning
+				If retning Then 'Or pkOT_Sub.Name = "Innkjøring forbudt" Or pkOT_Sub.Name = "Svingerestriksjon" 
+					Repository.WriteOutput "SOSI", Now & " Legger til constraint om retning på " & element.Name,0 
+					'Legger til constraint
+					set constraint = element.Constraints.AddNew("LineærPosisjon skal ha retning", "OCL")
+					constraint.Notes = "inv:count(self.lineærPosisjon.retning)=1"
+					constraint.Weight = 100
+					constraint.Update()
+				End If
+				
+				'************************************** Spesialiteter: Kjørefelt *************************************
+				'Dersom kjørefeltrelevant: Feltegenskap 
+				If kjorefelt > 0 Then
+					Repository.WriteOutput "SOSI", Now & " Legger til egenskap felt på " & element.Name, 0
+					'Legge til egenskapen med korrekt datatype
+					set eAttributt = element.Attributes.AddNew("felt", "CharacterString")
+					set elementB = Nothing
+					Set elementB = Repository.GetElementByGuid(guidCharacterString)
+					If not ElementB is nothing then
+						Repository.WriteOutput "SOSI", Now & " Egenskapen " & eAttributt.Name & " (" & eAttributt.Style & ") gis datatype " & eAttributt.Type,0
+						eAttributt.ClassifierID = elementB.ElementID
+					end if	
+					eAttributt.Pos = 99998
+					eAttributt.Visibility = "Public"
+					eAttributt.Notes = "Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt"
+					eAttributt.UpperBound = 1
+					If kjorefelt = 1 Then
+						eAttributt.LowerBound = 0
+					ElseIf kjorefelt = 2 Then
+						eAttributt.LowerBound = 1
+					End If
+					eAttributt.Update()
+					set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "VKJORFELT")
+					aTag.Update()
+				End If
+
+
+                '******************************* Spesialiteter for Svingerestriksjoner *****************************************************
+				'Spesielt for Svingerestriksjoner: Legger til egenskapene "svingeforbudFra" og "svingeforbudTil" med datatype "LineærPosisjonPunkt"
+				If pkOT_Sub.Name = "Svingerestriksjon" Then
+					Repository.WriteOutput "SOSI", Now & " Legger til stedfestingsegenskaper på " & element.Name, 0
+					'Søke opp datatype
+					set elementB = Nothing
+					set elementB = Repository.GetElementByGuid(guidLRPunkt)
+					'Legge til egenskapene med korrekt datatype
+					set eAttributt = element.Attributes.AddNew("svingeforbudFra", "LineærPosisjonPunkt")
+					eAttributt.Pos = 99996
+					eAttributt.Visibility = "Public"
+					eAttributt.Notes = "angir hvilken lenke svingerestriksjonen gjelder fra. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene"
+					If Not elementB Is Nothing Then 
+						eAttributt.ClassifierID = elementB.ElementID
+					end if	
+					eAttributt.Update()
+					set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "NVDB_SVINGEFORBUDFRA")
+					aTag.Update()
+					set eAttributt = element.Attributes.AddNew("svingeforbudTil", "LineærPosisjonPunkt")
+					eAttributt.Pos = 99997
+					eAttributt.Visibility = "Public"
+					eAttributt.Notes = "angir hvilken lenke svingerestriksjonen gjelder til. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene"
+					If Not elementB Is Nothing Then 
+						eAttributt.ClassifierID = elementB.ElementID
+					End if	
+					eAttributt.Update()
+					set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", "NVDB_SVINGEFORBUDTIL")
+					aTag.Update()
+					set constraint = element.Constraints.AddNew("Lineære posisjoner skal ha retning", "OCL")
+					constraint.Notes = "inv:count(self.svingeforbudFra.retning)=1 and count(self.svingeforbudTil.retning)=1"
+					constraint.Weight = 100
+					constraint.Update()
+				End If
+
+				'Fjerner constraints
+				If blnRemoveConstraints Then
+					'Fjerner constraints
+					removeConstraints(element)
+				End If
+				
+				'Legger til arv fra SOSI Fellesegenskaper
+				if blnFellesegenskaper then
+					If Not ftSOSIfelles Is Nothing Then
+						If element.Name = "Dokumentasjon" Or element.Name = "Kommentar" Or element.Name = "Systemobjekt" Or Mid(element.Name, 1, 8) = "Tilstand" Or _
+						element.Name = "NVDB_Dokumentasjon" Or element.Name = "NVDB_Kommentar" Or element.Name = "NVDB_Systemobjekt" Or Mid(element.Name, 1, 13) = "NVDB_Tilstand" Then
+							Repository.WriteOutput "SOSI", Now & " Legger ikke til arv fra SOSI Fellesegenskaper for objekttypen " & element.Name, 0
+						Else
+							Repository.WriteOutput "SOSI", Now & " Legger til arv fra SOSI Fellesegenskaper for objekttypen " & element.Name, 0
+							set con = element.Connectors.AddNew("", "Generalization")
+							con.ClientID = element.ElementID
+							con.SupplierID = ftSOSIfelles.ElementID
+							con.Update()
+						End If
+					End If
+				end if
+
+				'Legger til i diagrammet Hovedskjema
+				Repository.WriteOutput "Script", Now & " Legger til objekttypen i diagrammet Hovedskjema", 0
+				set	diagramObjekt = eHovedskjema.DiagramObjects.AddNew("", "")
+				diagramObjekt.ElementID = element.ElementID
+				diagramObjekt.Update()
+				hideAttributes diagramObjekt
+				setSize diagramObjekt, 70, 200
+				eHovedskjema.Update()
+				
+			End if 	
+			element.Update()
+			
 		Next 'idxE	 
 	Next 'i 
 
@@ -402,19 +857,18 @@ sub convert2SOSI()
 	
 	'Operasjoner med utgangspunkt i selve featuretypen (kun en i hver pakke)
 	'Assosiasjoner 
-	'Legger til arv fra SOSI Fellesegenskaper
-	'Fjerner constraints
-	'Legger til i diagrammet Hovedskjema
 
 	'Ordner layout på Hovedskjema
+	ePIF.LayoutDiagramEx eHovedskjema.DiagramGUID, 14, 8, 30, 20, True
 
-	'Tagged values på morpakken
 	'Alias på alle elementer og pakker - dersom satt til NVDB_Navn
+	'?
+	
 	'Sorterer pakker og elementer
 
 	Repository.WriteOutput "Script", Now & " Ferdig, sjekk logg", 0 
 	Repository.EnsureOutputVisible "Script"
-	repository.RefreshModelView(pkNVDBSOSImain.PackageID)
+	'repository.RefreshModelView(pkNVDBSOSImain.PackageID)
 
 end sub
 

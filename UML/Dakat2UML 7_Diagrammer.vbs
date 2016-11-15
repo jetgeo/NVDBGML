@@ -38,24 +38,6 @@ Sub updateDiagramObjects(eD)
 	Next 
 End Sub
 
-Sub hideAttributes(eDobj)
-	'Hide attributes for a diagramobject
-	Dim strDOS
-	strDOS = eDobj.Style
-	If InStr(strDOS, "AttPub=1") > 0 Then
-		eDobj.Style = Replace(strDOS, "AttPub=1", "AttPub=0")
-	ElseIf InStr(strDOS, "AttPub=0") = 0 Then
-		eDobj.Style = strDOS & "AttPub=0;"
-	End If
-	eDobj.Update()
-End Sub
-
-Sub setSize(eDobj, h, w)
-	'Set size for diagram objects
-	eDobj.bottom = eDobj.top - h
-	eDobj.right = eDobj.left + w
-	eDobj.Update()
-End Sub
 
 Sub updateDiagramObjectsAssociations(eD, el, mothers, strST)
 	'Oppdatering av assosierte vegobjekttyper for angitt element i angitt diagram. 

@@ -43,7 +43,7 @@ Sub updateProperties_Kodelisteverdier()
 	end if 
 
 	'Genererer SOSI-navn
-	set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", createSOSInavn(rsKodelister.Fields("NAVN_TILLATT_VERDI").Value, "Lower", 255, "_"))
+	set aTag = eAttributt.TaggedValues.AddNew("SOSI_navn", createSOSInavn(rsKodelister.Fields("NAVN_TILLATT_VERDI").Value, "Lower", 255, ""))
 	aTag.Update()
 
 	eAttributt.TaggedValues.Refresh()

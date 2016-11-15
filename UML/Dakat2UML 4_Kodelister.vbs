@@ -27,6 +27,9 @@ Sub updateProperties_Kodelister()
 	set tagVal= element.TaggedValues.AddNew("NAVN_EGENSKAPSTYPE", rsEgenskapstyper.Fields("NAVN_EGENSKAPSTYPE").Value)
 	tagVal.Update()
 
+	If Not IsNull(rsEgenskapstyper.Fields("DATO_FRA").Value) Then set tagVal = element.TaggedValues.AddNew("ObjektlisteFerdigveg", "true")
+	tagVal.Update()
+
 	Select Case rsEgenskapstyper.Fields("ID_DATATYPE").Value
 		Case 30
 			set tagVal= element.TaggedValues.AddNew("SOSI_datatype", "T")
