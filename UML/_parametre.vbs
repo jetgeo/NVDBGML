@@ -5,10 +5,10 @@ const FC_db = "C:\DATA\Standardisering\NVDB\NVDB Datakatalogen\NVDB_Datakataloge
 'Parametre for konvertering til SOSI
 const txtSOSIpakke = "NVDB Datakatalogen"
 const txtShortName = "NVDB"
-const strPakker = "Trafikkmengde;Fartsgrense" '"Alle" 
+const strPakker = "Branndetektor" '"Alle" 
 
 const blnFellesegenskaper = True 						'Arv fra SOSI Fellesegenskaper. Brukes i produktspesifikasjoner, ikke i konseptuel modell
-const blnOLFV = False 									'Ta med kun egenskaper som er med i Objektliste ferdigvegsdata
+const blnOLFV = True 									'Ta med kun egenskaper som er med i Objektliste ferdigvegsdata
 const blnSensitivitet = True 							'Utelat sensitive egenskaper
 const blnLRAttr = True									'Angir om det skal legges til LR-attributter
 const blnRemoveConstraints = True						'Angir om constraints skal fjernes

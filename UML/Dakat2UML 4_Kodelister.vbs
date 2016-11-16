@@ -124,7 +124,7 @@ sub updateKodelister()
 			If element.Stereotype = "Vegobjekttype" then
 			   set  tagVal = element.TaggedValues.GetByName("SOSI_navn")
 			   if not tagVal is Nothing then
-			     lstCodeListNames.Add tagVal.Value
+				lstCodeListNames.Add tagVal.Value
 				Repository.WriteOutput "Script", Now & " Legger til vegobjekttype " & pkOT_Sub.Name & " med SOSI-navn " & tagVal.Value & " i liste",0
 			   end if
 			end if
