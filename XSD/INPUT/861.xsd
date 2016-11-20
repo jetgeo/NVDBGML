@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V370" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V370" version="2.07">
+  <annotation>
+    <documentation>861: En rekke med lys satt opp i den hensikt å gi optisk ledning for de kjørende. Må ikke forveksles med evakueringslys i tunnel, men kan like fullt ha funksjon i forbindelse med evakuering av røyklagt tunnel.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Ledelysstrekning_Optisk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Ledelysstrekning_OptiskType">
+    <annotation>
+      <documentation>861: En rekke med lys satt opp i den hensikt å gi optisk ledning for de kjørende. Må ikke forveksles med evakueringslys i tunnel, men kan like fullt ha funksjon i forbindelse med evakuering av røyklagt tunnel.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">861</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEDELYSSTREKNING_OPTISK</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="Ledelysstrekning_OptiskType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="lyskildeType" type="nvdb:LyskildeTypeType">
+            <annotation>
+              <documentation>9917: Angir type lyskilder i ledelyset</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9917</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSKILDETYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="plassering" type="nvdb:PlasseringLedelysstrekningOptiskType">
+            <annotation>
+              <documentation>9923: Angir hvor ledelys er plassert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9923</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="antallLedelyspunkt" type="integer">
+            <annotation>
+              <documentation>9907: Angir hvor mange ledelyspunkt det er totalt i ledelysstrekning
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9907</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLEDELYSPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="effekt" type="integer">
+            <annotation>
+              <documentation>9912: Angir effekt for ett ledelys
+Enhet: Watt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9912</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EFFEKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>9915: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9915</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="driftsattår" type="integer">
+            <annotation>
+              <documentation>9909: Angir årstall objektet ble satt i drift</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9909</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSATTÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Ledelysstrekning_OptiskPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Ledelysstrekning_Optisk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="LyskildeTypeType">
+    <annotation>
+      <documentation>9917: Angir type lyskilder i ledelyset</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9917</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSKILDETYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LyskildeTypeEnumerationType nvdb:LyskildeTypeOtherType"/>
+  </simpleType>
+  <simpleType name="LyskildeTypeEnumerationType">
+    <annotation>
+      <documentation>9917: Angir type lyskilder i ledelyset</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9917</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYSKILDETYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="LED">
+        <annotation>
+          <documentation>16112: LED</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16112</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lysstoffrør">
+        <annotation>
+          <documentation>16113: Lysstoffrør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16113</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lystråd">
+        <annotation>
+          <documentation>16723: Lystråd: Tråd som lyser i hele trådens lengde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16723</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glødelampe">
+        <annotation>
+          <documentation>16724: Glødelampe: Tradisjonell glødelampe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16724</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LyskildeTypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringLedelysstrekningOptiskType">
+    <annotation>
+      <documentation>9923: Angir hvor ledelys er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9923</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGLEDELYSSTREKNINGOPTISK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringLedelysstrekningOptiskEnumerationType nvdb:PlasseringLedelysstrekningOptiskOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringLedelysstrekningOptiskEnumerationType">
+    <annotation>
+      <documentation>9923: Angir hvor ledelys er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9923</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGLEDELYSSTREKNINGOPTISK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="IBankettVegskulder">
+        <annotation>
+          <documentation>16098: I bankett/vegskulder: Ledelys er motert på bankett eller vegskulder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16098</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påRekkverk">
+        <annotation>
+          <documentation>16099: På rekkverk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16099</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påMurVegg">
+        <annotation>
+          <documentation>16100: På mur/vegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16100</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="egetOppsettingsutstyr">
+        <annotation>
+          <documentation>16101: Eget oppsettingsutstyr: Plassert på egene stolper, kantstolper eller eget oppsttingsutstyr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16101</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringLedelysstrekningOptiskOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

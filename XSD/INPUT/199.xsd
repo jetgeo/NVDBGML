@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V370" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V370" version="2.07">
+  <annotation>
+    <documentation>199: Trær er flerårige vedaktige planter som har definert stamme og krone.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="LøvfellendeVintergrønneTrærType">
+    <annotation>
+      <documentation>4160: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNETRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LøvfellendeVintergrønneTrærEnumerationType nvdb:LøvfellendeVintergrønneTrærOtherType"/>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneTrærEnumerationType">
+    <annotation>
+      <documentation>4160: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNETRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="løvfellende">
+        <annotation>
+          <documentation>5119: Løvfellende: Løvfellende trær har flate og tynne blader og hører til den botaniske underavdelingen Magnoliophýtina (dekkfrøete planter)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5119</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vintergrønne">
+        <annotation>
+          <documentation>5120: Vintergrønne: Vintergrønne trær har lange og smale blader og hører til den botaniske underavdelingen Coniferophýtina (nakenfrøete planter)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5120</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneTrærOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Trær" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrærType">
+    <annotation>
+      <documentation>199: Trær er flerårige vedaktige planter som har definert stamme og krone.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">199</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRÆR</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TrærType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="typeGruppering" type="nvdb:TypeGrupperingType">
+            <annotation>
+              <documentation>4134: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="løvfellendeVintergrønne" type="nvdb:LøvfellendeVintergrønneTrærType">
+            <annotation>
+              <documentation>4160: Angir om trær tilhører kategori løvfellende eller vintergrønne</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4160</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antall" type="integer">
+            <annotation>
+              <documentation>4142: Angir hvor mange forekomster som er representert
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4142</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="treslagNorskNavn" type="string">
+            <annotation>
+              <documentation>4161: Angir norsk navn på treslag.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4161</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAGNORSKNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="treslagBotaniskNavn" type="string">
+            <annotation>
+              <documentation>4494: Angir botanisk navn på treslag</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4494</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAGBOTANISKNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="plantetidspunkt" type="integer">
+            <annotation>
+              <documentation>7553: Angir hvilket årstall trær ble plantet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7553</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANTETIDSPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>5896: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5896</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrærPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Trær"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeGrupperingType">
+    <annotation>
+      <documentation>4134: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeGrupperingEnumerationType nvdb:TypeGrupperingOtherType"/>
+  </simpleType>
+  <simpleType name="TypeGrupperingEnumerationType">
+    <annotation>
+      <documentation>4134: Angir om det er frittstående tre eller om treet inngår i ei gruppe med trær.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4134</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRUPPERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="frittståendeTre">
+        <annotation>
+          <documentation>5118: Frittstående tre: Enkeltstående/ solitære trær.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5118</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tregruppe">
+        <annotation>
+          <documentation>5115: Tregruppe: Tre inngår i en tregruppe. Tregruppe består av minst 3 trær som står med relativ nærhet til hverandre. Gruppen skal ikke være særlig bredere enn høyden på trærne.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5115</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="all">
+        <annotation>
+          <documentation>5117: Allè: Tre inngår i en allé. Allé er regelmessige rekker av trær på hver sin side av en veg, gate eller gangsti.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5117</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trerekke">
+        <annotation>
+          <documentation>16216: Trerekke: Tre inngår i en trerekke. Trerekke består av minst 3 trær som står på linje med relativ nærhet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16216</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGrupperingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
