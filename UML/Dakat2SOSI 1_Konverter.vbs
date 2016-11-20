@@ -293,6 +293,8 @@ sub convert2SOSI()
 	'Liste med pakker som skal konverteres 
 	Dim lstPakkerTmp, strPakkeStreng, i, lstPakker
 	Set lstPakker = CreateObject("System.Collections.ArrayList")
+	
+	Repository.WriteOutput "Script", Now & " Lager liste over pakker som skal konverteres",0
 
 	if strPakker = "Alle" then
 		'Tar med alle objekttyper i listen
@@ -342,6 +344,8 @@ sub convert2SOSI()
 
 	For each strPakkeStreng in lstPakker
 		Repository.WriteOutput "Script", Now & " Konverterer vegobjekttype: " & strPakkeStreng,0
+		set pkOT_Sub = pkObjekttyper.Packages.GetByName(strPakkeStreng)
+
 		'Dersom begrenset til Objektliste ferdigvegsdata: Slett objekttyper og kodelister som ikke inngår
 		dim includeClass
 		includeClass=True
@@ -924,129 +928,130 @@ sub convert2SOSI()
 	Dim mPck As EA.Package
 
 	For each pkOT_Sub in pkNVDBSOSI.Packages
-		'Gjennomgang av diagrammer 
-		Repository.WriteOutput "Script", Now & " Gjennomgang av diagrammer for " & pkOT_Sub.Name,0
-		For idxD = 0 To pkOT_Sub.Diagrams.Count - 1
-            set eDiagram= pkOT_Sub.Diagrams.GetAt(idxD)
-			Repository.WriteOutput "Script", Now & " Gjennomgang av objekter i diagrammet " & eDiagram.Name,0
-			For idxC = 0 To eDiagram.DiagramObjects.Count - 1
-				'Sjekker om diagramobjektet viser et objekt fra gjeldende hovedpakke (pkNVDBSOSI)
-				set diagramObjekt = eDiagram.DiagramObjects.GetAt(idxC)
-				set element = Repository.GetElementByID(diagramObjekt.ElementID)
-				set ePck = Repository.GetPackageByID(element.PackageID)
-				set mPck= Repository.GetPackageByID(ePck.ParentID)
-				If mPck.PackageID = pkNVDBSOSI.PackageID Then
-					Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " tilhører riktig pakke",0
-					if element.Alias = pkOT_SUB.element.Alias and element.Stereotype = "featureType" then
-						'Dette er selve objekttypen
-						set elementA = element
-					end if
-				ElseIf mPck.PackageID = pkObjekttyper.PackageID Then
-					Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " tilhører Datakatalog-pakken " & ePck.Name & " og skal endres",0
-					'Prøver å finne et element med samme NVDB-ID i gjeldende hovedpakke
-					'set tagVal = element.TaggedValues.GetByName("ID_VOBJ_TYPE")
-					Dim NVDB_ID, newElId 
-					'NVDB_ID = tagVal.Value
-					NVDB_ID = element.Alias
-					newElId = 0
-					For idxP = 0 To pkNVDBSOSI.Packages.Count - 1
-						Set ePck = pkNVDBSOSI.Packages.GetAt(idxP)
-						If ePck.Alias = NVDB_ID then
-							For idxE  = 0 To ePck.Elements.Count - 1
-								Set elementB = ePck.Elements.GetAt(idxE)
-								if elementB.Alias = NVDB_ID Then
-									newElId = elementB.ElementID
-									idxE = ePck.Elements.Count - 1
-									idxP = pkNVDBSOSI.Packages.Count - 1
-								End If
-							Next
-						End if	
-					Next
-					
-					If newElId <> 0 Then
-						'Endrer elementId for diagramobjektet
-						Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " er funnet i gjeldende hovedpakke, og oppdateres",0
-						diagramObjekt.ElementID = newElId
-						diagramObjekt.Update()
+		If not pkOT_Sub.Name = strSOSIFelles then 
+			'Gjennomgang av diagrammer 
+			Repository.WriteOutput "Script", Now & " Gjennomgang av diagrammer for " & pkOT_Sub.Name,0
+			For idxD = 0 To pkOT_Sub.Diagrams.Count - 1
+				set eDiagram= pkOT_Sub.Diagrams.GetAt(idxD)
+				Repository.WriteOutput "Script", Now & " Gjennomgang av objekter i diagrammet " & eDiagram.Name,0
+				For idxC = 0 To eDiagram.DiagramObjects.Count - 1
+					'Sjekker om diagramobjektet viser et objekt fra gjeldende hovedpakke (pkNVDBSOSI)
+					set diagramObjekt = eDiagram.DiagramObjects.GetAt(idxC)
+					set element = Repository.GetElementByID(diagramObjekt.ElementID)
+					set ePck = Repository.GetPackageByID(element.PackageID)
+					set mPck= Repository.GetPackageByID(ePck.ParentID)
+					If mPck.PackageID = pkNVDBSOSI.PackageID Then
+						Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " tilhører riktig pakke",0
+						if element.Alias = pkOT_SUB.element.Alias and element.Stereotype = "featureType" then
+							'Dette er selve objekttypen
+							set elementA = element
+						end if
+					ElseIf mPck.PackageID = pkObjekttyper.PackageID Then
+						Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " tilhører Datakatalog-pakken " & ePck.Name & " og skal endres",0
+						'Prøver å finne et element med samme NVDB-ID i gjeldende hovedpakke
+						'set tagVal = element.TaggedValues.GetByName("ID_VOBJ_TYPE")
+						Dim NVDB_ID, newElId 
+						'NVDB_ID = tagVal.Value
+						NVDB_ID = element.Alias
+						newElId = 0
+						For idxP = 0 To pkNVDBSOSI.Packages.Count - 1
+							Set ePck = pkNVDBSOSI.Packages.GetAt(idxP)
+							If ePck.Alias = NVDB_ID then
+								For idxE  = 0 To ePck.Elements.Count - 1
+									Set elementB = ePck.Elements.GetAt(idxE)
+									if elementB.Alias = NVDB_ID Then
+										newElId = elementB.ElementID
+										idxE = ePck.Elements.Count - 1
+										idxP = pkNVDBSOSI.Packages.Count - 1
+									End If
+								Next
+							End if	
+						Next
+						
+						If newElId <> 0 Then
+							'Endrer elementId for diagramobjektet
+							Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " er funnet i gjeldende hovedpakke, og oppdateres",0
+							diagramObjekt.ElementID = newElId
+							diagramObjekt.Update()
+						Else
+							'Sletter diagramobjektet
+							Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " finnes ikke i gjeldende hovedpakke, slettes",0
+							eDiagram.DiagramObjects.DeleteAt idxC, False
+						End If
 					Else
-						'Sletter diagramobjektet
-						Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " finnes ikke i gjeldende hovedpakke, slettes",0
+						'Sletter diagramobjekt
+						Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " fra pakken " & mPck.Name & "." & ePck.Name & " slettes fra diagrammet " & eD.Name,0
 						eDiagram.DiagramObjects.DeleteAt idxC, False
+					end if
+				next 'idxc
+				eDiagram.Update()
+				'Skjuler assosiasjoner som ikke går fra aktuelt element, viser de som skal vises
+				Repository.WriteOutput "Script", Now & " Rydder i visning av assosiasjoner i diagrammet " &  eDiagram.Name,0
+				Dim edCon As EA.DiagramLink
+				eDiagram.DiagramLinks.Refresh()
+				For idxA = 0 To eDiagram.DiagramLinks.Count - 1
+					set edCon = eDiagram.DiagramLinks.GetAt(idxA)
+					set con = Repository.GetConnectorByID(edCon.ConnectorID)
+					if con.ClientID = elementA.ElementID or con.SupplierID= elementA.ElementID then
+						edCon.IsHidden = False
+					else
+						edCon.IsHidden = True
 					End If
+					edCon.Update()
+				Next 
+			next 'idxd
+			
+			'Assosiasjoner 
+			Repository.WriteOutput "Script", Now & " Rydder i assosiasjoner for featureType " & elementA.Name,0
+			'Søker etter assosierte objekttyper
+			For idxT = 0 To elementA.Connectors.Count - 1
+				set con = elementA.Connectors.GetAt(idxT)
+				set elementB = Nothing
+				'Skiller mellom morobjekt og datterobjekt. Begge skal oppdateres 
+				Dim conTV As EA.ConnectorTag
+				If con.ClientID = elementA.ElementID Then
+					set elementB = Repository.GetElementByID(con.SupplierID)
+					'Rollenavn og tagged values på assosiasjonen
+					con.ClientEnd.Role = "assosiert" & elementA.Name
+					set conTV = con.TaggedValues.AddNew("NVDB_ClientID", elementA.Alias)
+					conTV.Update()
+					con.SupplierEnd.Role = "assosiert" & elementB.Name
+					set conTV = con.TaggedValues.AddNew("NVDB_SupplierID", elementB.Alias)
+					conTV.Update()
 				Else
-					'Sletter diagramobjekt
-					Repository.WriteOutput "Script", Now & " Diagramobjektet " & element.Name & " fra pakken " & mPck.Name & "." & ePck.Name & " slettes fra diagrammet " & eD.Name,0
-					eDiagram.DiagramObjects.DeleteAt idxC, False
-				end if
-			next 'idxc
-			eDiagram.Update()
-			'Skjuler assosiasjoner som ikke går fra aktuelt element, viser de som skal vises
-			Repository.WriteOutput "Script", Now & " Rydder i visning av assosiasjoner i diagrammet " &  eDiagram.Name,0
-			Dim edCon As EA.DiagramLink
-			eDiagram.DiagramLinks.Refresh()
-			For idxA = 0 To eDiagram.DiagramLinks.Count - 1
-				set edCon = eDiagram.DiagramLinks.GetAt(idxA)
-				set con = Repository.GetConnectorByID(edCon.ConnectorID)
-				if con.ClientID = elementA.ElementID or con.SupplierID= elementA.ElementID then
-					edCon.IsHidden = False
-				else
-					edCon.IsHidden = True
+					set	elementB = Repository.GetElementByID(con.ClientID)
+					'Rollenavn og tagged values på assosiasjonen
+					con.ClientEnd.Role = "assosiert" & elementB.Name
+					set	conTV = con.TaggedValues.AddNew("NVDB_ClientID", elementB.Alias)
+					conTV.Update()
+					con.SupplierEnd.Role = "assosiert" & elementA.Name
+					set conTV = con.TaggedValues.AddNew("NVDB_SupplierID", elementA.Alias)
+					conTV.Update()
 				End If
-				edCon.Update()
-			Next 
-		next 'idxd
-		
-		'Assosiasjoner 
-		Repository.WriteOutput "Script", Now & " Rydder i assosiasjoner for featureType " & elementA.Name,0
-		'Søker etter assosierte objekttyper
-		For idxT = 0 To elementA.Connectors.Count - 1
-			set con = elementA.Connectors.GetAt(idxT)
-			set elementB = Nothing
-			'Skiller mellom morobjekt og datterobjekt. Begge skal oppdateres 
-			Dim conTV As EA.ConnectorTag
-			If con.ClientID = elementA.ElementID Then
-				set elementB = Repository.GetElementByID(con.SupplierID)
-				'Rollenavn og tagged values på assosiasjonen
-				con.ClientEnd.Role = "assosiert" & elementA.Name
-				set conTV = con.TaggedValues.AddNew("NVDB_ClientID", elementA.Alias)
-				conTV.Update()
-				con.SupplierEnd.Role = "assosiert" & elementB.Name
-				set conTV = con.TaggedValues.AddNew("NVDB_SupplierID", elementB.Alias)
-				conTV.Update()
-			Else
-				set	elementB = Repository.GetElementByID(con.ClientID)
-				'Rollenavn og tagged values på assosiasjonen
-				con.ClientEnd.Role = "assosiert" & elementB.Name
-				set	conTV = con.TaggedValues.AddNew("NVDB_ClientID", elementB.Alias)
-				conTV.Update()
-				con.SupplierEnd.Role = "assosiert" & elementA.Name
-				set conTV = con.TaggedValues.AddNew("NVDB_SupplierID", elementA.Alias)
-				conTV.Update()
-			End If
-			Dim rTag As EA.RoleTag
-			set rTag = con.ClientEnd.TaggedValues.AddNew("inlineOrByReference", "ByReference")
-			rTag.Update()
-			con.ClientEnd.TaggedValues.Refresh()
-			con.ClientEnd.Update()
-			set rTag = con.SupplierEnd.TaggedValues.AddNew("inlineOrByReference", "ByReference")
-			rTag.Update()
-			con.SupplierEnd.TaggedValues.Refresh()
-			con.SupplierEnd.Update()
+				Dim rTag As EA.RoleTag
+				set rTag = con.ClientEnd.TaggedValues.AddNew("inlineOrByReference", "ByReference")
+				rTag.Update()
+				con.ClientEnd.TaggedValues.Refresh()
+				con.ClientEnd.Update()
+				set rTag = con.SupplierEnd.TaggedValues.AddNew("inlineOrByReference", "ByReference")
+				rTag.Update()
+				con.SupplierEnd.TaggedValues.Refresh()
+				con.SupplierEnd.Update()
 
-			'Finner overordna for den assosierte objekttypen. Kun de som er i den aktuelle NVDB_SOSI-pakken skal være assosiert
-			'Kjøres etter operasjonen over, med tanke på identifisering av den assosierte klassen som client eller supplier
-			set ePck = Repository.GetPackageByID(elementB.PackageID)
-			set mPck = Repository.GetPackageByID(ePck.ParentID)
-			If mPck.PackageID <> pkNVDBSOSI.PackageID Then
-				'Annen morpakke, skal slettes
-				elementA.Connectors.DeleteAt idxT, False
-				Repository.WriteOutput "Script", Now & " Fjerner assosiasjon til objekttype " & elementB.Name & " i pakken " & mPck.Name & "." & ePck.Name,0
-			Else
-				Repository.WriteOutput "Script", Now & " Beholder assosiasjon til objekttype " & elementB.Name & " i pakken " & mPck.Name & "." & ePck.Name,0		
-			End If
-		Next 'idxT
-		elementA.Connectors.Refresh()
-
+				'Finner overordna for den assosierte objekttypen. Kun de som er i den aktuelle NVDB_SOSI-pakken skal være assosiert
+				'Kjøres etter operasjonen over, med tanke på identifisering av den assosierte klassen som client eller supplier
+				set ePck = Repository.GetPackageByID(elementB.PackageID)
+				set mPck = Repository.GetPackageByID(ePck.ParentID)
+				If mPck.PackageID <> pkNVDBSOSI.PackageID Then
+					'Annen morpakke, skal slettes
+					elementA.Connectors.DeleteAt idxT, False
+					Repository.WriteOutput "Script", Now & " Fjerner assosiasjon til objekttype " & elementB.Name & " i pakken " & mPck.Name & "." & ePck.Name,0
+				Else
+					Repository.WriteOutput "Script", Now & " Beholder assosiasjon til objekttype " & elementB.Name & " i pakken " & mPck.Name & "." & ePck.Name,0		
+				End If
+			Next 'idxT
+			elementA.Connectors.Refresh()
+		End if
 	next 'package
 	
 	'Ordner layout på Hovedskjema
@@ -1081,7 +1086,7 @@ sub convert2SOSI()
 
 	Repository.WriteOutput "Script", Now & " Ferdig, sjekk logg", 0 
 	Repository.EnsureOutputVisible "Script"
-	'Repository.RefreshModelView(pkNVDBSOSImain.PackageID)
+	Repository.RefreshModelView(pkNVDBSOSImain.PackageID)
 
 end sub
 
