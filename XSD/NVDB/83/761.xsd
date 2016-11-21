@@ -1,30 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
     <documentation>761: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">761</taggedValue>
-    </appinfo>
   </annotation>
   <include schemaLocation="Kum.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="TilstandSkadePunkt" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkadePunktType">
+  <element name="TilstandSkade_Punkt" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkade_PunktType">
     <annotation>
-      <documentation>Tilstand/skade,punkt: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
+      <documentation>761: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">761</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="TilstandSkadePunktType">
+  <complexType name="TilstandSkade_PunktType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadePunktType">
             <annotation>
-              <documentation>Tilstand: Angir tilstand til vegobjektet</documentation>
+              <documentation>7596: Angir tilstand til vegobjektet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTAND</taggedValue>
@@ -33,7 +30,7 @@
           </element>
           <element minOccurs="0" name="skadetype" type="string">
             <annotation>
-              <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
+              <documentation>7590: Angir hvilken type skade det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7590</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPE</taggedValue>
@@ -42,7 +39,7 @@
           </element>
           <element minOccurs="0" name="datoKontrollert" type="date">
             <annotation>
-              <documentation>Dato kontrollert: Angir dato for når kontroll ble foretatt</documentation>
+              <documentation>8777: Angir dato for når kontroll ble foretatt</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8777</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOKONTROLLERT</taggedValue>
@@ -51,7 +48,7 @@
           </element>
           <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkadePunktType">
             <annotation>
-              <documentation>Tiltak: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+              <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK</taggedValue>
@@ -60,7 +57,7 @@
           </element>
           <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkadePunktType">
             <annotation>
-              <documentation>Tiltak når: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+              <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅR</taggedValue>
@@ -69,25 +66,26 @@
           </element>
           <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>Tilleggsinformasjon: Det kan her gis tilleggsinformasjon.</documentation>
+              <documentation>7859: Det kan her gis tilleggsinformasjon.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7859</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="testTilstandsindeks" type="integer">
+          <element minOccurs="0" name="test_Tilstandsindeks" type="integer">
             <annotation>
-              <documentation>Test_Tilstandsindeks: Angir tilstand. Til testformål</documentation>
+              <documentation>9834: Angir tilstand. Til testformål
+Enhet: Prosent</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9834</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TESTTILSTANDSINDEKS</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEST_TILSTANDSINDEKS</taggedValue>
               </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
-              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <documentation>7597: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7597</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
@@ -102,11 +100,6 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -118,16 +111,16 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="TilstandSkadePunktPropertyType">
+  <complexType name="TilstandSkade_PunktPropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:TilstandSkadePunkt"/>
+      <element ref="nvdb:TilstandSkade_Punkt"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="TilstandTilstandSkadePunktType">
     <annotation>
-      <documentation>Tilstand: Angir tilstand til vegobjektet</documentation>
+      <documentation>7596: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEPUNKT</taggedValue>
@@ -137,7 +130,7 @@
   </simpleType>
   <simpleType name="TilstandTilstandSkadePunktEnumerationType">
     <annotation>
-      <documentation>Tilstand: Angir tilstand til vegobjektet</documentation>
+      <documentation>7596: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEPUNKT</taggedValue>
@@ -185,7 +178,7 @@
   </simpleType>
   <simpleType name="TiltakNårTilstandSkadePunktType">
     <annotation>
-      <documentation>Tiltak når: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+      <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEPUNKT</taggedValue>
@@ -195,7 +188,7 @@
   </simpleType>
   <simpleType name="TiltakNårTilstandSkadePunktEnumerationType">
     <annotation>
-      <documentation>Tiltak når: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+      <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEPUNKT</taggedValue>
@@ -234,7 +227,7 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="12År">
+      <enumeration value="1til2År">
         <annotation>
           <documentation>9887: 1-2 år</documentation>
           <appinfo>
@@ -242,7 +235,7 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="2år">
+      <enumeration value="over2år">
         <annotation>
           <documentation>9888: &gt; 2år</documentation>
           <appinfo>
@@ -267,7 +260,7 @@
   </simpleType>
   <simpleType name="TiltakTilstandSkadePunktType">
     <annotation>
-      <documentation>Tiltak: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADEPUNKT</taggedValue>
@@ -277,7 +270,7 @@
   </simpleType>
   <simpleType name="TiltakTilstandSkadePunktEnumerationType">
     <annotation>
-      <documentation>Tiltak: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADEPUNKT</taggedValue>

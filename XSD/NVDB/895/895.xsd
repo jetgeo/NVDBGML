@@ -1,67 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
     <documentation>895: Punkt/strekning i vegnettet hvor det er økt risiko og sårbarhet for langvarige fremkommelighetsbrudd. Merknad: Skal ha minst 10 meters utstrekning</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">895</taggedValue>
-    </appinfo>
   </annotation>
   <include schemaLocation="VegROSPunkt.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AnalysenivåType">
-    <annotation>
-      <documentation>Analysenivå: Angir hvilket analysenivå som er gjennomført</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10770</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANALYSENIVÅ</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:AnalysenivåEnumerationType nvdb:AnalysenivåOtherType"/>
-  </simpleType>
-  <simpleType name="AnalysenivåEnumerationType">
-    <annotation>
-      <documentation>Analysenivå: Angir hvilket analysenivå som er gjennomført</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10770</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANALYSENIVÅ</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="grov">
-        <annotation>
-          <documentation>17448: Grov: Analysegruppens vurdering etter retningslinjer for VegROS. Tilsvarende grovanalyse i VegCIM ROS</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17448</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="forenklet">
-        <annotation>
-          <documentation>17449: Forenklet: Fagmiljøer eller andre miljøers mer omfattende analyse, tilsvarende forenklet analyse i VegCIM ROS</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17449</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="detaljert">
-        <annotation>
-          <documentation>17450: Detaljert: Fagmiljøer eller andre miljøers mer omfattende og detaljerte analyse, tilsvarende detaljerte analyse i VegCIM ROS</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17450</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="AnalysenivåOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <simpleType name="HendelsestypeType">
     <annotation>
-      <documentation>Hendelsestype: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
+      <documentation>10749: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10749</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HENDELSESTYPE</taggedValue>
@@ -71,14 +18,14 @@
   </simpleType>
   <simpleType name="HendelsestypeEnumerationType">
     <annotation>
-      <documentation>Hendelsestype: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
+      <documentation>10749: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10749</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HENDELSESTYPE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="bilbergingVogntog">
+      <enumeration value="bilberging_Vogntog">
         <annotation>
           <documentation>17410: Bilberging (Vogntog): Punkt eller strekning som erfaringsvis har økt sannsynlighet for stengt veg pga fastkjørt vogntog, for eksempel i bratte stigninger vinterstid</documentation>
           <appinfo>
@@ -86,9 +33,9 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="brannIObjekterPåNærVegen">
+      <enumeration value="brann_IObjekterPåNærVegen">
         <annotation>
-          <documentation>17411: Brann (i objekter på/nær vegen): Punkt eller strekning der riksvegen ligger nært opp til objekter som kan forårsake storbrann som fører til stengt veg. For eksempel prosessindustri. Alle bensinstasjoner skal ikke kartlegges, men om det f.eks ligger en bensinstasjon midt i et sentralt knutepunkt så kan bør den være med</documentation>
+          <documentation>17411: Brann (i objekter på/nær vegen): Punkt eller strekning der riksvegen ligger nært opp til objekter som kan forårsake storbrann som fører til langvarig stengt veg, for eksempel prosessindustri. Bensinstasjoner og industriområder generelt skal ikke kartlegges her. Brukes kun i særskilte tilfeller.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17411</taggedValue>
           </appinfo>
@@ -96,7 +43,7 @@
       </enumeration>
       <enumeration value="bruStengt">
         <annotation>
-          <documentation>17412: Bru stengt: Brufundamenter som er utsatt for høy vannføring, vindutsatt bru. Bru som er spesielt sårbar pga konstruksjon, slitasje eller annet</documentation>
+          <documentation>17412: Bru stengt: Brufundamenter som er utsatt for flom eller vind. Bru som er spesielt sårbar pga konstruksjon, slitasje eller annet.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17412</taggedValue>
           </appinfo>
@@ -126,11 +73,10 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="fergeFergekaiUteAvDrift">
+      <enumeration value="ferjeFerjekaiUteAvDrift">
         <annotation>
-          <documentation>17416: Ferge/fergekai ute av drift: Kai som ligger til slik at den er ekstra sårbar ved vind, flo etc 
-Kai med sårbart teknisk utstyr
-Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</documentation>
+          <documentation>17416: Ferje/ferjekai ute av drift: Ferjekai som ligger til slik at den er ekstra sårbar ved vind, flo etc.  
+Ferjekai med sårbart teknisk utstyrVind-/værutsatt ferjestrekning som er spesielt sårbar for stengning"</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17416</taggedValue>
           </appinfo>
@@ -146,23 +92,23 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="fundamenteringssvikt">
         <annotation>
-          <documentation>17418: Fundamenteringssvikt: Punkt eller strekning med økt sannsynlighet for brudd i vegfundamenteringen. For eksempel ved utvasking etter store nedbørsmengder, eller erfaringsvis andre svake punkter på vegnettet etter slitasje fra økt tungtrafikk eller som følge av dårlig grunnforhold eller vegoverbygning.</documentation>
+          <documentation>17418: Fundamenteringssvikt: Punkt eller strekning med økt sannsynlighet for brudd i vegfundamenteringen pga. utvasking etter store nedbørsmengder, slitasje fra tungtrafikk, dårlige grunnforhold eller andre årsaker.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17418</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="høydeLengdeBreddeVekt">
+      <enumeration value="høyde_Lengde_Bredde_Vekt">
         <annotation>
-          <documentation>17419: Høyde - lengde - bredde - vekt: Veger med begrenset bruksområde.</documentation>
+          <documentation>17419: Høyde - lengde - bredde - vekt: Veger med restriksjoner.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17419</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="knutepunktStengt">
+      <enumeration value="knutepunkt_Stengt">
         <annotation>
-          <documentation>17420: Knutepunkt - stengt: Knutepunkt stengtPunkt eller strekning der sentrale transportårer og infrastruktur ligger nært hverandre, som riksveg, jernbane, kraftverk og sentrale samfunnsfunksjoner som sykehus, eller lignende.</documentation>
+          <documentation>17420: Knutepunkt - stengt: IKKE I BRUK Var ment som punkt eller strekning der ulike typer infrastruktur ligger nært hverandre eller krysser hverandre, som veg, jernbane, adkomst til havn, flyplass, jernbanestasjon.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17420</taggedValue>
           </appinfo>
@@ -170,7 +116,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="skredKvikkleire">
         <annotation>
-          <documentation>17421: Skred kvikkleire</documentation>
+          <documentation>17421: Skred kvikkleire: Punkt eller strekning med fare for kvikkleireskred der vegen ligger i eller nær et område med kvikkleire.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17421</taggedValue>
           </appinfo>
@@ -178,7 +124,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="skredJord">
         <annotation>
-          <documentation>17422: Skred jord</documentation>
+          <documentation>17422: Skred jord: Punkt eller strekning med fare for jordskred.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17422</taggedValue>
           </appinfo>
@@ -186,7 +132,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="skredLeire">
         <annotation>
-          <documentation>17423: Skred leire</documentation>
+          <documentation>17423: Skred leire: Punkt eller strekning med fare for leirskred, der vegen ligger i eller nær et område med leire.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17423</taggedValue>
           </appinfo>
@@ -194,7 +140,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="skredSnø">
         <annotation>
-          <documentation>17424: Skred snø</documentation>
+          <documentation>17424: Skred snø: Punkt eller strekning med fare for snøskred.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17424</taggedValue>
           </appinfo>
@@ -202,7 +148,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="skredStein">
         <annotation>
-          <documentation>17425: Skred stein</documentation>
+          <documentation>17425: Skred stein: Punkt eller strekning med fare for steinskred.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17425</taggedValue>
           </appinfo>
@@ -210,7 +156,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="stormflo">
         <annotation>
-          <documentation>17426: Stormflo</documentation>
+          <documentation>17426: Stormflo: Lavtliggende punkt eller strekning som ligger slik til at det kan bli oversvømt ved stormflo.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17426</taggedValue>
           </appinfo>
@@ -218,7 +164,7 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="strømbrudd">
         <annotation>
-          <documentation>17427: Strømbrudd: I tilknytning til tunneler eller for eksempel mekaniske skilt og bommer ved fjelloverganger, eller lignende.</documentation>
+          <documentation>17427: Strømbrudd: IKKE i BRUK. Strømbrudd i tunnel registreres under "Tunnel stengt", strømbrudd ved f.eks. hevebruer under "Bru stengt". Strømbrudd ved variable skilting eller andre styringssystemer skal ikke kartlegges.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17427</taggedValue>
           </appinfo>
@@ -226,20 +172,15 @@ Vind/bølgeutsatt fergestrekning som er spesielt sårbar for stengning</document
       </enumeration>
       <enumeration value="tunnelStengt">
         <annotation>
-          <documentation>17429: Tunnel stengt: Alle tuneller over 500 meter skal defineres som en hendelse og vurderes som følger:
-
-Grønn: Tunneler under 500 m og uten særskilt risiko. To-løps tunneler over 500 m som tilfredsstiller tunnelsikkerhetsforskriften og er uten særskilt risiko. Må ha under 5% stigning i tunnel og lite stigning i nærliggende omgivelser. 
-
-Gul: Ett-løps tunneler som tilfredsstiller tunnelsikkerhetsforskriften, uten særskilt risiko. To-løps tunneler over 500 m som tilfredsstiller tunnelsikkerhetsforskriften. Må ha under 5% stigning i tunnel og lite stigning i nærliggende omgivelser.
-Rødt: Tunneler over 500 m som ikke tilfredsstiller tunnelsikkerhetsforskriften. Tunneler som av andre grunner har risiko og sårbarhet for langvarige stengning.</documentation>
+          <documentation>17429: Tunnel stengt: Tunnel med lengde over 500 meter skal vurderes iht. egne retningslinjer, tunneler med lengde under 500 meter kan vurderes hvis det finnes særskilt risiko.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17429</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ulykkespunktStrekningTs">
+      <enumeration value="ulykkespunktStrekning">
         <annotation>
-          <documentation>17430: Ulykkespunkt/-strekning (ts): Punkt eller strekning med økt risiko for ulykker som kan gi hyppige eller langvarige stengninger.</documentation>
+          <documentation>17430: Ulykkespunkt/-strekning: Punkt eller strekning med økt risiko for ulykker som kan gi hyppige eller langvarige stengninger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17430</taggedValue>
           </appinfo>
@@ -261,9 +202,9 @@ Rødt: Tunneler over 500 m som ikke tilfredsstiller tunnelsikkerhetsforskriften.
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="værrealterteHendelser">
+      <enumeration value="vær">
         <annotation>
-          <documentation>17433: Værrealterte hendelser: Annet værreletart enn vind/flom/flo som kan gi stenging</documentation>
+          <documentation>17433: Vær: Annet værrelatert enn vind/flom/flo som kan gi stenging</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17433</taggedValue>
           </appinfo>
@@ -276,62 +217,9 @@ Rødt: Tunneler over 500 m som ikke tilfredsstiller tunnelsikkerhetsforskriften.
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="StatusFramkomelighetEtterNyeTiltakType">
-    <annotation>
-      <documentation>Status framkomelighet etter nye tiltak: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10757</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMELIGHETETTERNYETILTAK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:StatusFramkomelighetEtterNyeTiltakEnumerationType nvdb:StatusFramkomelighetEtterNyeTiltakOtherType"/>
-  </simpleType>
-  <simpleType name="StatusFramkomelighetEtterNyeTiltakEnumerationType">
-    <annotation>
-      <documentation>Status framkomelighet etter nye tiltak: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10757</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMELIGHETETTERNYETILTAK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="grønn">
-        <annotation>
-          <documentation>17407: Grønn: Åpen veg, men redusert fremkommelighet
-Grønn farge innebærer at situasjonen er ok, tiltak kan vurderes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17407</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gul">
-        <annotation>
-          <documentation>17408: Gul: Stengt veg i kortere periode
-Gul farge indikerer at tiltak bør vurderes.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17408</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="rød">
-        <annotation>
-          <documentation>17409: Rød: Stengt veg over 24 t
-Rød farge indikerer at tiltak skal vurderes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17409</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="StatusFramkomelighetEtterNyeTiltakOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <simpleType name="StatusFramkommelighetType">
     <annotation>
-      <documentation>Status framkommelighet: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
+      <documentation>10755: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10755</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHET</taggedValue>
@@ -341,7 +229,7 @@ Rød farge indikerer at tiltak skal vurderes</documentation>
   </simpleType>
   <simpleType name="StatusFramkommelighetEnumerationType">
     <annotation>
-      <documentation>Status framkommelighet: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
+      <documentation>10755: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10755</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHET</taggedValue>
@@ -384,7 +272,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
   </simpleType>
   <simpleType name="StatusFramkommelighetEtterBesluttedeTiltakType">
     <annotation>
-      <documentation>Status framkommelighet etter besluttede tiltak: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
+      <documentation>10756: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10756</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERBESLUTTEDETILTAK</taggedValue>
@@ -394,7 +282,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
   </simpleType>
   <simpleType name="StatusFramkommelighetEtterBesluttedeTiltakEnumerationType">
     <annotation>
-      <documentation>Status framkommelighet etter besluttede tiltak: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
+      <documentation>10756: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10756</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERBESLUTTEDETILTAK</taggedValue>
@@ -435,9 +323,62 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="StatusFramkommelighetEtterNyeTiltakType">
+    <annotation>
+      <documentation>10757: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10757</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERNYETILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StatusFramkommelighetEtterNyeTiltakEnumerationType nvdb:StatusFramkommelighetEtterNyeTiltakOtherType"/>
+  </simpleType>
+  <simpleType name="StatusFramkommelighetEtterNyeTiltakEnumerationType">
+    <annotation>
+      <documentation>10757: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10757</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERNYETILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="grønn">
+        <annotation>
+          <documentation>17407: Grønn: Åpen veg, men redusert fremkommelighet
+Grønn farge innebærer at situasjonen er ok, tiltak kan vurderes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17407</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gul">
+        <annotation>
+          <documentation>17408: Gul: Stengt veg i kortere periode
+Gul farge indikerer at tiltak bør vurderes.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17408</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rød">
+        <annotation>
+          <documentation>17409: Rød: Stengt veg over 24 t
+Rød farge indikerer at tiltak skal vurderes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17409</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusFramkommelighetEtterNyeTiltakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="VegROSPunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegROSPunktType">
     <annotation>
-      <documentation>VegROS punkt: Punkt/strekning i vegnettet hvor det er økt risiko og sårbarhet for langvarige fremkommelighetsbrudd. Merknad: Skal ha minst 10 meters utstrekning</documentation>
+      <documentation>895: Punkt/strekning i vegnettet hvor det er økt risiko og sårbarhet for langvarige fremkommelighetsbrudd. Merknad: Skal ha minst 10 meters utstrekning</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">895</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGROSPUNKT</taggedValue>
@@ -450,7 +391,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
         <sequence>
           <element name="hendelsestype" type="nvdb:HendelsestypeType">
             <annotation>
-              <documentation>Hendelsestype: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
+              <documentation>10749: Angir hvilken type hendelse det er økt risiko for at skal inntreffe på gitt vegstrekning</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10749</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HENDELSESTYPE</taggedValue>
@@ -459,7 +400,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="sted" type="string">
             <annotation>
-              <documentation>Sted: Det navnet Statens vegvesen ansatte bruker på stedet, ref. stedsregistret til SVV. Eksempel: Nes-Bjonevika</documentation>
+              <documentation>10750: Det navnet Statens vegvesen ansatte bruker på stedet, ref. stedsregistret til SVV. Eksempel: Nes-Bjonevika</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10750</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STED</taggedValue>
@@ -468,7 +409,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="beskrivelse" type="string">
             <annotation>
-              <documentation>Beskrivelse: Kort begrunnelse på hvorfor analysegruppen har valgt å ha med hendelsen.  Eks. Bekk/elv som flommer over ved store nedbørsmengder</documentation>
+              <documentation>10751: Kort begrunnelse på hvorfor analysegruppen har valgt å ha med hendelsen.  Eks. Bekk/elv som flommer over ved store nedbørsmengder</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10751</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESKRIVELSE</taggedValue>
@@ -477,7 +418,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="statusFramkommelighet" type="nvdb:StatusFramkommelighetType">
             <annotation>
-              <documentation>Status framkommelighet: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
+              <documentation>10755: Dette er risikobildet for framkommelighet slik vegen er bygget og fremstår i dag.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10755</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHET</taggedValue>
@@ -486,25 +427,25 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="statusFramkommelighetEtterBesluttedeTiltak" type="nvdb:StatusFramkommelighetEtterBesluttedeTiltakType">
             <annotation>
-              <documentation>Status framkommelighet etter besluttede tiltak: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
+              <documentation>10756: Dette er risikobildet for framkommelighet under forutsetning av at besluttede tiltak er gjennomført. Dvs tiltaket har fått bevilgning gjennom årlig budsjett, men er ikke gjennomført</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10756</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERBESLUTTEDETILTAK</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="statusFramkomelighetEtterNyeTiltak" type="nvdb:StatusFramkomelighetEtterNyeTiltakType">
+          <element minOccurs="0" name="statusFramkommelighetEtterNyeTiltak" type="nvdb:StatusFramkommelighetEtterNyeTiltakType">
             <annotation>
-              <documentation>Status framkomelighet etter nye tiltak: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
+              <documentation>10757: Dette er risikobildet for framkommelighet etter gjennomføring av alle nye tiltak som analysegruppen kommer på, og allerede planlagte eller besluttede tiltak uten finansiering. Dette inkluderer tiltak i eksisterende vedtatte handlingsprogram.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10757</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMELIGHETETTERNYETILTAK</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFRAMKOMMELIGHETETTERNYETILTAK</taggedValue>
               </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="årsak" type="string">
             <annotation>
-              <documentation>Årsak: Beskrivelse av årsak(er) til hendelse. Eks: - Høy vannstand/flom i Sperillen</documentation>
+              <documentation>10758: Beskrivelse av årsak(er) til hendelse. Eks: - Høy vannstand/flom i Sperillen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10758</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAK</taggedValue>
@@ -513,7 +454,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="konsekvens" type="string">
             <annotation>
-              <documentation>Konsekvens: Beskrivelse av konsekvensene av hendelse. Eksempel: Skredvolumet forventes så stort at det vil være et langvarig sikrings og opprydningsarbeid som vil gå over 24 t.</documentation>
+              <documentation>10759: Beskrivelse av konsekvensene av hendelse. Eksempel: Skredvolumet forventes så stort at det vil være et langvarig sikrings og opprydningsarbeid som vil gå over 24 t.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10759</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSEKVENS</taggedValue>
@@ -522,7 +463,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="besluttedeTiltak" type="string">
             <annotation>
-              <documentation>Besluttede tiltak: Kort beskrivelse tiltaket og hva slags budsjett tiltaket er forankret i og interne referanser for tiltaket (eks prosjektnummer annen aktuell referanse, tilpasses Vegprosessen). Tiltaket har fått bevilgning gjennom årlig budsjett for gjennomføring.</documentation>
+              <documentation>10760: Kort beskrivelse tiltaket og hva slags budsjett tiltaket er forankret i og interne referanser for tiltaket (eks prosjektnummer annen aktuell referanse, tilpasses Vegprosessen). Tiltaket har fått bevilgning gjennom årlig budsjett for gjennomføring.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10760</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESLUTTEDETILTAK</taggedValue>
@@ -531,7 +472,7 @@ Rød farge indikerer at tiltak skal vurderes.</documentation>
           </element>
           <element minOccurs="0" name="foreslåtteTiltak" type="string">
             <annotation>
-              <documentation>Foreslåtte tiltak: Kort beskrivelse av forslag til tiltak fra analysegruppe eller fagmiljø. 
+              <documentation>10761: Kort beskrivelse av forslag til tiltak fra analysegruppe eller fagmiljø. 
 Planstatus, plannivå, eventuelt aktuelle interne referanser på tiltaket.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10761</taggedValue>
@@ -539,18 +480,9 @@ Planstatus, plannivå, eventuelt aktuelle interne referanser på tiltaket.</docu
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="analysenivå" type="nvdb:AnalysenivåType">
-            <annotation>
-              <documentation>Analysenivå: Angir hvilket analysenivå som er gjennomført</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10770</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANALYSENIVÅ</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="arkivnummer" type="string">
             <annotation>
-              <documentation>Arkivnummer: Referanse til Mime</documentation>
+              <documentation>10754: Referanse til Mime</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10754</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
@@ -559,7 +491,7 @@ Planstatus, plannivå, eventuelt aktuelle interne referanser på tiltaket.</docu
           </element>
           <element minOccurs="0" name="metadata" type="string">
             <annotation>
-              <documentation>Metadata: Angir hvor det finnes metadata. URL eller filkatalog</documentation>
+              <documentation>10753: Angir hvor det finnes metadata. URL eller filkatalog</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10753</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_METADATA</taggedValue>
@@ -568,17 +500,16 @@ Planstatus, plannivå, eventuelt aktuelle interne referanser på tiltaket.</docu
           </element>
           <element minOccurs="0" name="merknad" type="string">
             <annotation>
-              <documentation>Merknad: Merknad. Benyttes bla i forbindelse med overføring av data.</documentation>
+              <documentation>10752: Merknad. Benyttes bla i forbindelse med overføring av data.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10752</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+              <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
         </sequence>

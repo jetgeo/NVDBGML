@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
     <documentation>720: Gir informasjon om terreng- og skjermingsforhold mellom angitt bygning og veg, samt om det er hard eller myk mark.</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">720</taggedValue>
-    </appinfo>
   </annotation>
   <include schemaLocation="Stoey_Luft_Bygning.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
@@ -59,7 +56,7 @@
   </simpleType>
   <simpleType name="PrimærbidragType">
     <annotation>
-      <documentation>Primærbidrag: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
+      <documentation>6994: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6994</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIMÆRBIDRAG</taggedValue>
@@ -69,7 +66,7 @@
   </simpleType>
   <simpleType name="PrimærbidragEnumerationType">
     <annotation>
-      <documentation>Primærbidrag: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
+      <documentation>6994: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6994</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIMÆRBIDRAG</taggedValue>
@@ -116,7 +113,7 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="synligVeg90Grader">
+      <enumeration value="synligVegOver90Grader">
         <annotation>
           <documentation>9280: Synlig veg &gt; 90 grader</documentation>
           <appinfo>
@@ -124,7 +121,7 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="synligVeg90Grader">
+      <enumeration value="synligVegUnder90Grader">
         <annotation>
           <documentation>9281: Synlig veg &lt; 90 grader</documentation>
           <appinfo>
@@ -267,22 +264,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="StøyLuftUtbredelse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StøyLuftUtbredelseType">
+  <element name="Støy_Luft_Utbredelse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Støy_Luft_UtbredelseType">
     <annotation>
-      <documentation>Støy-luft,Utbredelse: Gir informasjon om terreng- og skjermingsforhold mellom angitt bygning og veg, samt om det er hard eller myk mark.</documentation>
+      <documentation>720: Gir informasjon om terreng- og skjermingsforhold mellom angitt bygning og veg, samt om det er hard eller myk mark.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">720</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØYLUFTUTBREDELSE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØY_LUFT_UTBREDELSE</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="StøyLuftUtbredelseType">
+  <complexType name="Støy_Luft_UtbredelseType">
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
           <element minOccurs="0" name="primærbidrag" type="nvdb:PrimærbidragType">
             <annotation>
-              <documentation>Primærbidrag: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
+              <documentation>6994: Angir om dette er demping i forhold til primær eller sekundær bidragsstrekning.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6994</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIMÆRBIDRAG</taggedValue>
@@ -291,6 +288,12 @@
           </element>
           <element minOccurs="0" name="avstandSenterlinje" type="integer">
             <annotation>
+              <documentation>7006: Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7006</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVSTANDSENTERLINJE</taggedValue>
@@ -307,6 +310,12 @@
           </element>
           <element minOccurs="0" name="høydeforskjellVeg1Etg" type="integer">
             <annotation>
+              <documentation>7008: Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7008</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEFORSKJELLVEG1ETG</taggedValue>
@@ -331,6 +340,12 @@
           </element>
           <element minOccurs="0" name="skjermingsgrad" type="nvdb:SkjermingsgradType">
             <annotation>
+              <documentation>7011: Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter
+Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7011</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJERMINGSGRAD</taggedValue>
@@ -347,6 +362,12 @@
           </element>
           <element minOccurs="0" name="korreksjonUtendørsstøy" type="double">
             <annotation>
+              <documentation>7013: Enhet: Desibel A
+Enhet: Desibel A
+Enhet: Desibel A
+Enhet: Desibel A
+Enhet: Desibel A
+Enhet: Desibel A</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7013</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KORREKSJONUTENDØRSSTØY</taggedValue>
@@ -355,25 +376,20 @@
           </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
-              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <documentation>8845: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8845</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="StøyLuftUtbredelsePropertyType">
+  <complexType name="Støy_Luft_UtbredelsePropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:StøyLuftUtbredelse"/>
+      <element ref="nvdb:Støy_Luft_Utbredelse"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>

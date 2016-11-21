@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
     <documentation>123: Gir informasjon om tilstand og eventuell skade på vegdekke.</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">123</taggedValue>
-    </appinfo>
   </annotation>
   <include schemaLocation="Vegdekke.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
@@ -11,7 +8,7 @@
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="AlvorlighetsgradType">
     <annotation>
-      <documentation>Alvorlighetsgrad: Angir hvor alvorlig en skade/tilstand er</documentation>
+      <documentation>1998: Angir hvor alvorlig en skade/tilstand er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1998</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ALVORLIGHETSGRAD</taggedValue>
@@ -21,7 +18,7 @@
   </simpleType>
   <simpleType name="AlvorlighetsgradEnumerationType">
     <annotation>
-      <documentation>Alvorlighetsgrad: Angir hvor alvorlig en skade/tilstand er</documentation>
+      <documentation>1998: Angir hvor alvorlig en skade/tilstand er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1998</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ALVORLIGHETSGRAD</taggedValue>
@@ -69,7 +66,7 @@
   </simpleType>
   <simpleType name="SkadetypeTilstandSkadeDekkeType">
     <annotation>
-      <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
+      <documentation>1162: Angir hvilken type skade det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1162</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADEDEKKE</taggedValue>
@@ -79,7 +76,7 @@
   </simpleType>
   <simpleType name="SkadetypeTilstandSkadeDekkeEnumerationType">
     <annotation>
-      <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
+      <documentation>1162: Angir hvilken type skade det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1162</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADEDEKKE</taggedValue>
@@ -118,6 +115,14 @@
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="sporslitasje">
+        <annotation>
+          <documentation>17906: Sporslitasje: Spordannelse grunnet slitasje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17906</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="SkadetypeTilstandSkadeDekkeOtherType">
@@ -125,22 +130,23 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="TilstandSkadeDekke" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkadeDekkeType">
+  <element name="TilstandSkade_Dekke" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkade_DekkeType">
     <annotation>
-      <documentation>Tilstand/skade,dekke: Gir informasjon om tilstand og eventuell skade på vegdekke.</documentation>
+      <documentation>123: Gir informasjon om tilstand og eventuell skade på vegdekke.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">123</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDSKADEDEKKE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDSKADE_DEKKE</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="TilstandSkadeDekkeType">
+  <complexType name="TilstandSkade_DekkeType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="antall" type="integer">
             <annotation>
-              <documentation>Antall: Vegobjektet kan representere flere objekt av samme type.  Vi angir her hvor mange objekt dette objektet representerer.</documentation>
+              <documentation>2205: Vegobjektet kan representere flere objekt av samme type.  Vi angir her hvor mange objekt dette objektet representerer.
+Enhet: Stykker</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2205</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALL</taggedValue>
@@ -149,7 +155,7 @@
           </element>
           <element minOccurs="0" name="skadetype" type="nvdb:SkadetypeTilstandSkadeDekkeType">
             <annotation>
-              <documentation>Skadetype: Angir hvilken type skade det er tale om</documentation>
+              <documentation>1162: Angir hvilken type skade det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1162</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPE</taggedValue>
@@ -158,7 +164,7 @@
           </element>
           <element minOccurs="0" name="årsakTilSkadeMangel" type="nvdb:ÅrsakTilSkadeMangelType">
             <annotation>
-              <documentation>Årsak til skade/mangel: Angir årsak til en skade eller mangel</documentation>
+              <documentation>2001: Angir årsak til en skade eller mangel</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2001</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAKTILSKADEMANGEL</taggedValue>
@@ -167,7 +173,7 @@
           </element>
           <element minOccurs="0" name="datoKontrollert" type="date">
             <annotation>
-              <documentation>Dato kontrollert: Angir dato for når kontroll ble foretatt</documentation>
+              <documentation>8775: Angir dato for når kontroll ble foretatt</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8775</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOKONTROLLERT</taggedValue>
@@ -176,7 +182,7 @@
           </element>
           <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>Tilleggsinformasjon: Det kan her gis tilleggsinformasjon.</documentation>
+              <documentation>7852: Det kan her gis tilleggsinformasjon.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7852</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
@@ -185,7 +191,7 @@
           </element>
           <element minOccurs="0" name="registreringsdato" type="date">
             <annotation>
-              <documentation>Registreringsdato: Angir dato da vegobjektet ble registrert.  Datoformat: ååååmmdd</documentation>
+              <documentation>2009: Angir dato da vegobjektet ble registrert.  Datoformat: ååååmmdd</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2009</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REGISTRERINGSDATO</taggedValue>
@@ -194,7 +200,7 @@
           </element>
           <element minOccurs="0" name="utbredelse" type="nvdb:UtbredelseType">
             <annotation>
-              <documentation>Utbredelse: Angir hvor utbredt en skade/tilstand er</documentation>
+              <documentation>2000: Angir hvor utbredt en skade/tilstand er</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2000</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBREDELSE</taggedValue>
@@ -203,7 +209,7 @@
           </element>
           <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
-              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <documentation>4814: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4814</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
@@ -212,7 +218,7 @@
           </element>
           <element minOccurs="0" name="alvorlighetsgrad" type="nvdb:AlvorlighetsgradType">
             <annotation>
-              <documentation>Alvorlighetsgrad: Angir hvor alvorlig en skade/tilstand er</documentation>
+              <documentation>1998: Angir hvor alvorlig en skade/tilstand er</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1998</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ALVORLIGHETSGRAD</taggedValue>
@@ -227,11 +233,6 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -243,16 +244,16 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="TilstandSkadeDekkePropertyType">
+  <complexType name="TilstandSkade_DekkePropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:TilstandSkadeDekke"/>
+      <element ref="nvdb:TilstandSkade_Dekke"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="UtbredelseType">
     <annotation>
-      <documentation>Utbredelse: Angir hvor utbredt en skade/tilstand er</documentation>
+      <documentation>2000: Angir hvor utbredt en skade/tilstand er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2000</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBREDELSE</taggedValue>
@@ -262,7 +263,7 @@
   </simpleType>
   <simpleType name="UtbredelseEnumerationType">
     <annotation>
-      <documentation>Utbredelse: Angir hvor utbredt en skade/tilstand er</documentation>
+      <documentation>2000: Angir hvor utbredt en skade/tilstand er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2000</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBREDELSE</taggedValue>
@@ -302,7 +303,7 @@
   </simpleType>
   <simpleType name="ÅrsakTilSkadeMangelType">
     <annotation>
-      <documentation>Årsak til skade/mangel: Angir årsak til en skade eller mangel</documentation>
+      <documentation>2001: Angir årsak til en skade eller mangel</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2001</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAKTILSKADEMANGEL</taggedValue>
@@ -312,7 +313,7 @@
   </simpleType>
   <simpleType name="ÅrsakTilSkadeMangelEnumerationType">
     <annotation>
-      <documentation>Årsak til skade/mangel: Angir årsak til en skade eller mangel</documentation>
+      <documentation>2001: Angir årsak til en skade eller mangel</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2001</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAKTILSKADEMANGEL</taggedValue>
@@ -348,6 +349,14 @@
           <documentation>2642: Dårlig drenering</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2642</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sporslitasje">
+        <annotation>
+          <documentation>17878: Sporslitasje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17878</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

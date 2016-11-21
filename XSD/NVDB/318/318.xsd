@@ -1,17 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
-    <documentation>318: Angir område hvor det er behov for spesiell snø eller isrydding.</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">318</taggedValue>
-    </appinfo>
+    <documentation>318: Sted/område hvor det er behov for å snø-/isrydding utover det som tas med brøytekjøretøy</documentation>
   </annotation>
   <include schemaLocation="SnoeIsrydding.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BortkjøringType">
+    <annotation>
+      <documentation>10863: Angir om det er nødvendig å laste snø/is over på annet kjøretøy (lastebil/traktor) og kjøre det bort fra stedet eller ikke.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10863</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BORTKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BortkjøringEnumerationType nvdb:BortkjøringOtherType"/>
+  </simpleType>
+  <simpleType name="BortkjøringEnumerationType">
+    <annotation>
+      <documentation>10863: Angir om det er nødvendig å laste snø/is over på annet kjøretøy (lastebil/traktor) og kjøre det bort fra stedet eller ikke.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10863</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BORTKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>17903: Ja: Snø/is må normalt lastes over på annet kjøretøy og kjøres bort fra stedet da det ikke er tilstrekkelig opplagringsplass i umiddelbar nærhet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17903</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>17904: Nei: Det er plass til opplagring av snø i nærheten slik at snø kan flyttes uten omlasting til annet kjøretøy for bortkjøring.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17904</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17905: Uavklart: Informasjon om hvorvidt det er behov for bortkjøring er ikke innhentet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17905</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BortkjøringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="SnøIsrydding" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SnøIsryddingType">
     <annotation>
-      <documentation>Snø-/isrydding: Angir område hvor det er behov for spesiell snø eller isrydding.</documentation>
+      <documentation>318: Sted/område hvor det er behov for å snø-/isrydding utover det som tas med brøytekjøretøy</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">318</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SNØISRYDDING</taggedValue>
@@ -24,7 +71,7 @@
         <sequence>
           <element minOccurs="0" name="type" type="nvdb:TypeSnøIsryddingType">
             <annotation>
-              <documentation>Type: Angir hvilken type snørydding det er tale om</documentation>
+              <documentation>2224: Angir hvilken type snørydding det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2224</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
@@ -33,31 +80,57 @@
           </element>
           <element minOccurs="0" name="beskrivelse" type="string">
             <annotation>
-              <documentation>Beskrivelse: Tilleggsbeskrivelse. Kan f.eks være bakgrunn for snøryddingsbehov, om snø må kjøres bort, Hvor stort omffang snørydding har osv.</documentation>
+              <documentation>10719: Tilleggsbeskrivelse. Kan f.eks være bakgrunn for snøryddingsbehov, om snø må kjøres bort, Hvor stort omffang snørydding har osv.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10719</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESKRIVELSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element minOccurs="0" name="bortkjøring" type="nvdb:BortkjøringType">
             <annotation>
-              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <documentation>10863: Angir om det er nødvendig å laste snø/is over på annet kjøretøy (lastebil/traktor) og kjøre det bort fra stedet eller ikke.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4909</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10863</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BORTKJØRING</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+          <element minOccurs="0" name="hyppighet" type="integer">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+              <documentation>10864: Angir anslag for hvor ofte det er behov for å foreta rydding per vintersesong</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10864</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HYPPIGHET</taggedValue>
+              </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element minOccurs="0" name="makshøydeIs" type="integer">
             <annotation>
+              <documentation>10865: Angir hvor høyt over veg det er nødvendig med isrensk.
+Enhet: Meter</documentation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10865</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSHØYDEIS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="integer">
+            <annotation>
+              <documentation>10866: Angir areal av område som skal snø-/isryddes.
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10866</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>4909: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4909</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -65,6 +138,13 @@
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -81,7 +161,7 @@
   </complexType>
   <simpleType name="TypeSnøIsryddingType">
     <annotation>
-      <documentation>Type: Angir hvilken type snørydding det er tale om</documentation>
+      <documentation>2224: Angir hvilken type snørydding det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2224</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESNØISRYDDING</taggedValue>
@@ -91,80 +171,112 @@
   </simpleType>
   <simpleType name="TypeSnøIsryddingEnumerationType">
     <annotation>
-      <documentation>Type: Angir hvilken type snørydding det er tale om</documentation>
+      <documentation>2224: Angir hvilken type snørydding det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2224</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESNØISRYDDING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="ekstraSnørydding">
+      <enumeration value="snørydding">
         <annotation>
-          <documentation>4075: Ekstra snørydding</documentation>
+          <documentation>4075: Snørydding: Benyttes om ikke annen verdi passer. Skal suppleres med informasjon under «Beskrivelse»</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4075</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingSkjæring">
+      <enumeration value="snørydding_ManglendeSnøopplager">
         <annotation>
-          <documentation>9839: Ekstra snørydding, skjæring</documentation>
+          <documentation>17899: Snørydding, manglende snøopplager: Snørydding pga manglende snøopplager generelt. Eksempel  bysenter.</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9839</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17899</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingSikt">
+      <enumeration value="snørydding_Sikt">
         <annotation>
-          <documentation>9840: Ekstra snørydding, sikt: For å opprettholde tilstrekkelige siktforhold</documentation>
+          <documentation>9840: Snørydding, sikt: Snørydding for å opprettholde tilstrekkelige siktforhold. Gjelder kryss, rekkverk, kurver mm.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9840</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingTrafikkdelerØy">
+      <enumeration value="snørydding_TrafikkdelerØy">
         <annotation>
-          <documentation>9831: Ekstra snørydding, trafikkdeler/øy: Gjelder fysiske trafikkdelere og øyer</documentation>
+          <documentation>9831: Snørydding, trafikkdeler/øy: Ekstra snørydding i tilknytning til trafikkdelere og trafikkøyer. Kan være både fysiske og malte.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9831</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingFortau">
+      <enumeration value="snørydding_Fortau">
         <annotation>
-          <documentation>9830: Ekstra snørydding, fortau</documentation>
+          <documentation>9830: Snørydding, fortau: Snørydding i tilknytning til fortau. Kan være parti med smale passasjer eller manglende snøopplager.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9830</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingLeskur">
+      <enumeration value="snørydding_Leskur">
         <annotation>
-          <documentation>9834: Ekstra snørydding, leskur</documentation>
+          <documentation>9834: Snørydding, leskur: Snørydding i tilknytning til leskur</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9834</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingTrafikklomme">
+      <enumeration value="snørydding_Trafikklomme">
         <annotation>
-          <documentation>9832: Ekstra snørydding, trafikklomme</documentation>
+          <documentation>9832: Snørydding, trafikklomme: Snørydding i tilknytning til trafikklommer. F.eks ved manglende plass til snøopplager.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9832</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ekstraSnøryddingFresefelt">
+      <enumeration value="snørydding_SideanleggNaboeiendom">
         <annotation>
-          <documentation>9833: Ekstra snørydding, fresefelt: Strekning hvor det freses bort snø i en viss bredde ved siden av vegen undervegs i vintersesongen for å gi plass til store snømengder</documentation>
+          <documentation>17900: Snørydding, sideanlegg/naboeiendom: Snørydding i tilknytning til sideanlegg, naboeiendom, mot annen vegholder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17900</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snørydding_SkjæringMur">
+        <annotation>
+          <documentation>9839: Snørydding, skjæring/mur: Snørydding i forbindelse med skjæringer/murer for å sikre plass til snø fra kommende brøyting og hindre at det raser snø fra skråning ut i kjørebanen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9839</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snørydding_NedfresingAvBrøytekanter">
+        <annotation>
+          <documentation>17902: Snørydding, nedfresing av brøytekanter: Strekning hvor det erfaringsmessig er behov for å frese ned brøytekanter for å få plass til å brøyte bort ny snø.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17902</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snørydding_Fokksnø">
+        <annotation>
+          <documentation>17901: Snørydding, fokksnø: Snørydding på strekning som er spesielt utsatt for at det bygger seg opp snøfonner ved bestemte værforhold.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17901</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="snørydding_Fresefelt">
+        <annotation>
+          <documentation>9833: Snørydding, fresefelt: Strekning hvor det freses bort snø i en viss bredde ved siden av vegen undervegs i vintersesongen for å gi plass til store snømengder</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9833</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="isrenskIFjellskjæring">
+      <enumeration value="isrenskIBergskjæringSkråning">
         <annotation>
-          <documentation>5483: Isrensk i fjellskjæring</documentation>
+          <documentation>5483: Isrensk i bergskjæring/skråning: Bergskjæringer eller bratte skråninger/fjellsider hvor det erfaringsmessig må fjernes is for å hindre at det raser ned på vegen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5483</taggedValue>
           </appinfo>
@@ -172,7 +284,7 @@
       </enumeration>
       <enumeration value="isrenskITunnel">
         <annotation>
-          <documentation>5484: Isrensk i tunnel</documentation>
+          <documentation>5484: Isrensk i tunnel:  Sted hvor det erfaringsmessig må foretas isrensk i tunnel.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5484</taggedValue>
           </appinfo>

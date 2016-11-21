@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <annotation>
     <documentation>822: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
-    <appinfo>
-      <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">822</taggedValue>
-    </appinfo>
   </annotation>
   <include schemaLocation="Landbruksvegklasse.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
@@ -50,7 +47,7 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="sommerbilvegTømmerbilMedHenger">
+      <enumeration value="sommerbilveg_TømmerbilMedHenger">
         <annotation>
           <documentation>13073: Sommerbilveg, tømmerbil med henger: bilveger som bygges for transport av tømmer i barmarksperioden, enkle seterveger etc. Vegklassen bør bare bygges i områder der tømmerkvantum og transportavstand tilsier biltransport, men der terrengforhold og tilgjengelige ressurser ikke gir økonomisk grunnlag for å bygge en helårsveg.</documentation>
           <appinfo>
@@ -58,7 +55,7 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="sommerbilvegTømmerbilUtenHenger">
+      <enumeration value="sommerbilveg_TømmerbilUtenHenger">
         <annotation>
           <documentation>13074: Sommerbilveg, tømmerbil uten henger: bilveger beregnet for tømmertransport med bil uten henger utelukkende i barmarksperioden. Vegklassen må bare bygges på steder der det ikke er teknisk mulig eller økonomisk forsvarlig å bygge en høyere vegstandard. Denne vegklassen skal bare benyttes i unntakstilfeller.</documentation>
           <appinfo>
@@ -99,7 +96,7 @@
   </simpleType>
   <element name="Landbruksvegklasse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:LandbruksvegklasseType">
     <annotation>
-      <documentation>Landbruksvegklasse: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
+      <documentation>822: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">822</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDBRUKSVEGKLASSE</taggedValue>
@@ -118,10 +115,9 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+              <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
