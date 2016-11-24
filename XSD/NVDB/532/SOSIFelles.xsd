@@ -1,13 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
-  xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB"
-  xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-  elementFormDefault="qualified"
-  targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
   <include schemaLocation="Vegreferanse.xsd"/>
-  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-    schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2"
-    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element name="Endringsflagg" substitutionGroup="gml:AbstractObject" type="nvdb:EndringsflaggType">
     <annotation>
@@ -46,8 +40,7 @@ I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved 
       <element ref="nvdb:Endringsflagg"/>
     </sequence>
   </complexType>
-  <element abstract="true" name="Fellesegenskaper" substitutionGroup="gml:AbstractFeature"
-    type="nvdb:FellesegenskaperType">
+  <element abstract="true" name="Fellesegenskaper" substitutionGroup="gml:AbstractFeature" type="nvdb:FellesegenskaperType">
     <annotation>
       <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
 
@@ -130,16 +123,6 @@ Prosesshistorie vil kunne inneholde informasjon om transformasjoner. Hva slags i
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kommunenummer" type="nvdb:KommunenummerType">
-            <annotation>
-              <documentation>nummerering av kommunen i henhold til Statistisk sentralbyrå sin offisielle liste
-
-Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 siffer.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOMM</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="sideposisjon" type="nvdb:SideposisjonType">
             <annotation>
               <documentation>Angir sideposisjon i for vegobjekt i forhold til vegens metreringsretning</documentation>
@@ -190,8 +173,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject"
-    type="nvdb:IdentifikasjonType">
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="nvdb:IdentifikasjonType">
     <annotation>
       <documentation>Identification: Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet. 
 
@@ -2641,8 +2623,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject"
-    type="nvdb:LineærPosisjonType">
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="nvdb:LineærPosisjonType">
     <annotation>
       <documentation>Angivelse av en posisjon langs et nettverkselement
 &lt;font color="#ff0000"&gt;&lt;i&gt;
@@ -2694,8 +2675,7 @@ Merknad: Dersom verdi er angitt overstyrer denne standard metode for det referer
       <element ref="nvdb:LineærPosisjon"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonPunkt" substitutionGroup="nvdb:LineærPosisjon"
-    type="nvdb:LineærPosisjonPunktType">
+  <element name="LineærPosisjonPunkt" substitutionGroup="nvdb:LineærPosisjon" type="nvdb:LineærPosisjonPunktType">
     <annotation>
       <documentation>lineær posisjon som et punkt
 
@@ -2732,8 +2712,7 @@ Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distan
       <element ref="nvdb:LineærPosisjonPunkt"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonStrekning" substitutionGroup="nvdb:LineærPosisjon"
-    type="nvdb:LineærPosisjonStrekningType">
+  <element name="LineærPosisjonStrekning" substitutionGroup="nvdb:LineærPosisjon" type="nvdb:LineærPosisjonStrekningType">
     <annotation>
       <documentation>lineær posisjon som en strekning
 
@@ -2805,8 +2784,7 @@ positiveVerticalOffsetDirection: "up"
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="nvdb:LineærReferanseMetodeEnumerationType nvdb:LineærReferanseMetodeOtherType"/>
+    <union memberTypes="nvdb:LineærReferanseMetodeEnumerationType nvdb:LineærReferanseMetodeOtherType"/>
   </simpleType>
   <simpleType name="LineærReferanseMetodeEnumerationType">
     <annotation>
@@ -2986,8 +2964,7 @@ method on which registration of position is based</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature"
-    type="nvdb:NettverkselementType">
+  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature" type="nvdb:NettverkselementType">
     <annotation>
       <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
 &lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
@@ -3017,8 +2994,7 @@ Merknad: Kan overstyres for den enkelte posisjonsangivelse.
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject"
-    type="nvdb:PosisjonskvalitetType">
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="nvdb:PosisjonskvalitetType">
     <annotation>
       <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
       <appinfo>
