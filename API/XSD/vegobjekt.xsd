@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vegobjekt" type="vegobjektType"/>
+  <xs:complexType name="stedfestingType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="veglenkeid"/>
+      <xs:element type="xs:string" name="posisjon"/>
+      <xs:element type="xs:string" name="kortform"/>
+      <xs:element type="xs:string" name="retning"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="navn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fylkerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="fylke"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="enhetType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="navn"/>
+      <xs:element type="xs:string" name="kortnavn"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="egenskaperType">
+    <xs:sequence>
+      <xs:element type="egenskapType" name="egenskap" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stedfestingerType">
+    <xs:sequence>
+      <xs:element type="stedfestingType" name="stedfesting"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="geometriType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wkt"/>
+      <xs:element type="xs:string" name="srid"/>
+      <xs:element type="xs:string" name="egengeometri" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vegavdelingerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="vegavdeling"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="kommunerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="kommune"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vegreferanserType">
+    <xs:sequence>
+      <xs:element type="vegreferanseType" name="vegreferanse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vegobjektType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="href"/>
+      <xs:element type="metadataType" name="metadata"/>
+      <xs:element type="egenskaperType" name="egenskaper"/>
+      <xs:element type="geometriType" name="geometri"/>
+      <xs:element type="lokasjonType" name="lokasjon"/>
+      <xs:element type="xs:string" name="relasjoner"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="regionerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="region"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="egenskapType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="navn"/>
+      <xs:element type="xs:string" name="datatype"/>
+      <xs:element name="datatype_tekst">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FlerverdiAttributt, Tekst"/>
+            <xs:enumeration value="Tall"/>
+            <xs:enumeration value="GeomLinje eller Kurve"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="verdi"/>
+      <xs:element type="xs:string" name="enum_id" minOccurs="0"/>
+      <xs:element type="enhetType" name="enhet" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lokasjonType">
+    <xs:sequence>
+      <xs:element type="kommunerType" name="kommuner"/>
+      <xs:element type="fylkerType" name="fylker"/>
+      <xs:element type="regionerType" name="regioner"/>
+      <xs:element type="vegavdelingerType" name="vegavdelinger"/>
+      <xs:element type="vegreferanserType" name="vegreferanser"/>
+      <xs:element type="stedfestingerType" name="stedfestinger"/>
+      <xs:element type="geometriType" name="geometri"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="metadataType">
+    <xs:sequence>
+      <xs:element type="typeType" name="type"/>
+      <xs:element type="xs:string" name="versjon"/>
+      <xs:element type="xs:string" name="sist_modifisert"/>
+      <xs:element type="xs:string" name="startdato"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vegreferanseType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="fylke"/>
+      <xs:element type="xs:string" name="kommune"/>
+      <xs:element type="xs:string" name="kategori"/>
+      <xs:element type="xs:string" name="status"/>
+      <xs:element type="xs:string" name="nummer"/>
+      <xs:element type="xs:string" name="hp"/>
+      <xs:element type="xs:string" name="meter"/>
+      <xs:element type="xs:string" name="kortform"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
