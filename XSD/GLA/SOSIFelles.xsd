@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.06">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/GLA/" version="2.07">
   <include schemaLocation="glabelysning.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
@@ -52,7 +52,7 @@ Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningsl
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="identifikasjon" type="nvdb:IdentifikasjonPropertyType">
+          <element minOccurs="0" name="identifikasjon" type="nvdb:IdentifikasjonPropertyType">
             <annotation>
               <documentation>unik identifikasjon av et objekt</documentation>
             </annotation>
@@ -71,7 +71,7 @@ Eksempel:
 Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendomsteigen</documentation>
             </annotation>
           </element>
-          <element name="datafangstdato" type="date">
+          <element minOccurs="0" name="datafangstdato" type="date">
             <annotation>
               <documentation>dato når objektet siste gang ble registrert/observert/målt i terrenget
 
@@ -96,7 +96,7 @@ Date and time at which this version of the spatial object was inserted or change
               </appinfo>
             </annotation>
           </element>
-          <element name="kvalitet" type="nvdb:PosisjonskvalitetPropertyType">
+          <element minOccurs="0" name="kvalitet" type="nvdb:PosisjonskvalitetPropertyType">
             <annotation>
               <documentation>beskrivelse av kvaliteten på stedfestingen
 
@@ -2638,6 +2638,254 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="nvdb:LineærPosisjonType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjonType">
+    <sequence>
+      <element minOccurs="0" name="lineærReferanseMetode" type="nvdb:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="retning" type="nvdb:RetningskodeType">
+        <annotation>
+          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="avstandSide" type="double">
+        <annotation>
+          <documentation>Forskyvning til side for nettverkselementet. Positivt tall betyr høyre side, negativt tall betyr venstre side.
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: offsetLateralDistance&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRAVSTANDSIDE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="nettverkselement" type="nvdb:NettverkselementPropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LROBJREF</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjonPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjon"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonPunkt" substitutionGroup="nvdb:LineærPosisjon" type="nvdb:LineærPosisjonPunktType">
+    <annotation>
+      <documentation>lineær posisjon som et punkt
+
+Merknad:
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_AtLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonPunktType">
+    <complexContent>
+      <extension base="nvdb:LineærPosisjonType">
+        <sequence>
+          <element name="posisjon" type="double">
+            <annotation>
+              <documentation>posisjon langs nettverkselementet, i henhold til referansemetoden 
+
+Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKTPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonPunktPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjonPunkt"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonStrekning" substitutionGroup="nvdb:LineærPosisjon" type="nvdb:LineærPosisjonStrekningType">
+    <annotation>
+      <documentation>lineær posisjon som en strekning
+
+Merknad: 
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_FromToLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonStrekningType">
+    <complexContent>
+      <extension base="nvdb:LineærPosisjonType">
+        <sequence>
+          <element name="fraPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: fromPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRFRAPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tilPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;sluttposisjon langs &lt;/font&gt;nettverkselementet&lt;font color="#0f0f0f"&gt;, i henhold til referansemetoden&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: toPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRTILPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonStrekningPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjonStrekning"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LineærReferanseMetodeType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LineærReferanseMetodeEnumerationType nvdb:LineærReferanseMetodeOtherType"/>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeEnumerationType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="metrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet (lenken), angitt i meter
+
+Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute"  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;units: "meter"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kilometrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i kilometer. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute" &lt;/li&gt;
+	&lt;li&gt;units: "kilometer" &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="normalisert">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt som et desimaltall mellom 0 og 1, i forhold til start (0) og slutt (1) på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "0..1"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="prosent">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i prosent av lengden på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "percent"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Link" substitutionGroup="gml:AbstractObject" type="nvdb:LinkType">
     <annotation>
       <documentation>referanse  til et informasjonselement, enten lokalt eller globalt
@@ -2731,6 +2979,36 @@ method on which registration of position is based</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature" type="nvdb:NettverkselementType">
+    <annotation>
+      <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NettverkselementType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="standardLRM" type="nvdb:LineærReferanseMetodeType">
+            <annotation>
+              <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
+
+Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Nettverkselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
   <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="nvdb:PosisjonskvalitetType">
     <annotation>
       <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
@@ -3018,11 +3296,51 @@ Oppgitt i cm</documentation>
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="hovedParsell" type="integer">
+      <element minOccurs="0" name="hovedparsell" type="integer">
         <annotation>
           <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HOVEDPARSELL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterFra" type="integer">
+        <annotation>
+          <documentation>meterverdi i veglenkens start</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METERFRA</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="veglenkeMeterTil" type="integer">
+        <annotation>
+          <documentation>meterverdi i veglenkens slutt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">METERTIL</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="referanseretning" type="nvdb:RetningskodeType">
+        <annotation>
+          <documentation>retning for vegreferansen, med eller mot koordinatrekkefølgen. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting og lenkenes geometri.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegreferanseFraDato" type="date">
+        <annotation>
+          <documentation>gyldighetsdato fra for vegreferanse (startdato)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VFRADATO</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="vegreferanseTilDato" type="date">
+        <annotation>
+          <documentation>gyldighetsdato til for vegreferanse (avslutningsdato)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VTILDATO</taggedValue>
           </appinfo>
         </annotation>
       </element>
