@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>45: Et punkt i vegnettet hvor det kreves betaling for å kunne kjøre videre.  Kan gjelde i en eller begge retninger.</documentation>
   </annotation>
@@ -122,24 +122,6 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rushtidMorgenFra" type="string">
-            <annotation>
-              <documentation>9407: Angir tidspunkt eventuell rushtidsavgift starter på morgenen</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9407</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGENFRA</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="rushtidMorgenTil" type="string">
-            <annotation>
-              <documentation>9408: Angir tidspunkt eventuell rushtidsavgift slutter på morgenen</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9408</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGENTIL</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="bomstasjon_Id" type="integer">
             <annotation>
               <documentation>9595: Angir ID på bomstasjonen.  Er grunnlag for å få overført takstinformasjon fra CS-Norge</documentation>
@@ -158,21 +140,39 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rushtidEttermiddagFra" type="string">
+          <element minOccurs="0" name="rushtidMorgen_Fra" type="string">
+            <annotation>
+              <documentation>9407: Angir tidspunkt eventuell rushtidsavgift starter på morgenen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9407</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGEN_FRA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rushtidMorgen_Til" type="string">
+            <annotation>
+              <documentation>9408: Angir tidspunkt eventuell rushtidsavgift slutter på morgenen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9408</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGEN_TIL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rushtidEttermiddag_Fra" type="string">
             <annotation>
               <documentation>9405: Angir tidspunkt eventuell rushtidsavgift starter på ettermiddagen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9405</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDETTERMIDDAGFRA</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDETTERMIDDAG_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rushtidEttermiddagTil" type="string">
+          <element minOccurs="0" name="rushtidEttermiddag_Til" type="string">
             <annotation>
               <documentation>9406: Angir tidspunkt eventuell rushtidsavgift slutter på ettermiddagen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9406</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDETTERMIDDAGTIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDETTERMIDDAG_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -185,12 +185,31 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="gratisGjennomkjøringVedHCBrikke" type="nvdb:GratisGjennomkjøringVedHCBrikkeType">
+          <element minOccurs="0" name="timesregel_Varighet" type="integer">
+            <annotation>
+              <documentation>10952: Angir hvor lang tid (minutter) det maksimalt kan gå mellom to bomstasjopnspasseringer for at rabatt skal innrømmes basert på timesregel.
+Enhet: Minutt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10952</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIMESREGEL_VARIGHET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="timesregel_Passeringsgruppe" type="integer">
+            <annotation>
+              <documentation>10951: Unik ID som er felles for de bomstasjonene som har samme timesregel.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10951</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIMESREGEL_PASSERINGSGRUPPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="gratisGjennomkjøringVedHC_Brikke" type="nvdb:GratisGjennomkjøringVedHC_BrikkeType">
             <annotation>
               <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9404</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHCBRIKKE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHC_BRIKKE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -226,7 +245,7 @@ Enhet: Kroner</documentation>
               <documentation>4752: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4752</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -243,20 +262,6 @@ Enhet: Kroner</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertBygning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -268,6 +273,20 @@ Enhet: Kroner</documentation>
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -398,22 +417,22 @@ Enhet: Kroner</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHCBrikkeType">
+  <simpleType name="GratisGjennomkjøringVedHC_BrikkeType">
     <annotation>
       <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9404</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHCBRIKKE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHC_BRIKKE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:GratisGjennomkjøringVedHCBrikkeEnumerationType nvdb:GratisGjennomkjøringVedHCBrikkeOtherType"/>
+    <union memberTypes="nvdb:GratisGjennomkjøringVedHC_BrikkeEnumerationType nvdb:GratisGjennomkjøringVedHC_BrikkeOtherType"/>
   </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHCBrikkeEnumerationType">
+  <simpleType name="GratisGjennomkjøringVedHC_BrikkeEnumerationType">
     <annotation>
       <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9404</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHCBRIKKE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHC_BRIKKE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -435,7 +454,7 @@ Enhet: Kroner</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHCBrikkeOtherType">
+  <simpleType name="GratisGjennomkjøringVedHC_BrikkeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -551,17 +570,25 @@ Enhet: Kroner</documentation>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="standardTimesregel">
         <annotation>
-          <documentation>13257: Ja</documentation>
+          <documentation>13257: Standard timesregel: Det gis fritak/rabatt ved passering av mer enn en bomstasjon innenfor et avgrenset tidsrom.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13257</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="nei">
+      <enumeration value="omvendtTimesregel">
         <annotation>
-          <documentation>13258: Nei</documentation>
+          <documentation>18299: Omvendt timesregel: Det gis fritak/rabatt om kun en av to eller flere angitte bomstasjon passeres innenfor et gitt tidsrom. Må passere minst to bomstasjoner for å bli belastet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18299</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeTimesregel">
+        <annotation>
+          <documentation>13258: Ikke timesregel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13258</taggedValue>
           </appinfo>

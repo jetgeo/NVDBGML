@@ -1,24 +1,177 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
-    <documentation>826: Veg som inngår i det trans-europeiske vegnettet (Trans European Road Network). I regi av EU. Definert og er vedtatt i vedtak nr 1692/96/EF. Referert i HB R511 (269) - Sikkerhetsforvaltning av vegtunneler.</documentation>
+    <documentation>826: Veg som inngår i det trans-europeiske vegnettet (Trans European Network - Transport). I regi av EU. Definert og er vedtatt i vedtak nr 1692/96/EF. Referert i HB R511 (269) - Sikkerhetsforvaltning av vegtunneler. Brukes også til CEDR rapportering</documentation>
   </annotation>
-  <include schemaLocation="TERN_Veg.xsd"/>
+  <include schemaLocation="TEN_TVeg.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="TERN_Veg" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TERN_VegType">
+  <simpleType name="CEDRVegtypeType">
     <annotation>
-      <documentation>826: Veg som inngår i det trans-europeiske vegnettet (Trans European Road Network). I regi av EU. Definert og er vedtatt i vedtak nr 1692/96/EF. Referert i HB R511 (269) - Sikkerhetsforvaltning av vegtunneler.</documentation>
+      <documentation>10947: Angir hvilken vegtype det er tale om. Definisjoner av vegtyper i henhold til CEDR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10947</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_CEDRVEGTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:CEDRVegtypeEnumerationType nvdb:CEDRVegtypeOtherType"/>
+  </simpleType>
+  <simpleType name="CEDRVegtypeEnumerationType">
+    <annotation>
+      <documentation>10947: Angir hvilken vegtype det er tale om. Definisjoner av vegtyper i henhold til CEDR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10947</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_CEDRVEGTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="CEDR_Motorveg">
+        <annotation>
+          <documentation>18295: CEDR-motorveg: Veg kategoriseres som CEDR-motorveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18295</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeCEDRMotorveg">
+        <annotation>
+          <documentation>18296: Ikke CEDR Motorveg: Vegen kan ikke kategoriseres som CEDR-motorveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18296</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="CEDRVegtypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="DR_ITS_NivåType">
+    <annotation>
+      <documentation>10948: Angir hvilket nivå vegstrekningen ligger på i forhold til ITS-systemer/ITS-styring. De ulike nivåene er definert av CEDR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10948</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DR_ITS_NIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DR_ITS_NivåEnumerationType nvdb:DR_ITS_NivåOtherType"/>
+  </simpleType>
+  <simpleType name="DR_ITS_NivåEnumerationType">
+    <annotation>
+      <documentation>10948: Angir hvilket nivå vegstrekningen ligger på i forhold til ITS-systemer/ITS-styring. De ulike nivåene er definert av CEDR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10948</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DR_ITS_NIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="level0">
+        <annotation>
+          <documentation>18290: Level 0: None</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18290</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="level1">
+        <annotation>
+          <documentation>18291: Level 1: Monitoring Systems</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18291</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="level2">
+        <annotation>
+          <documentation>18292: Level 2: Level 1 + Travel information</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18292</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="level3">
+        <annotation>
+          <documentation>18293: Level 3: Level 2 + Traffic Management</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18293</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="level4">
+        <annotation>
+          <documentation>18294: Level 4: Cooperative ITS (C-ITS)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18294</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DR_ITS_NivåOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="TEN_TVeg" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TEN_TVegType">
+    <annotation>
+      <documentation>826: Veg som inngår i det trans-europeiske vegnettet (Trans European Network - Transport). I regi av EU. Definert og er vedtatt i vedtak nr 1692/96/EF. Referert i HB R511 (269) - Sikkerhetsforvaltning av vegtunneler. Brukes også til CEDR rapportering</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">826</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TERN_VEG</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEN_TVEG</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="TERN_VegType">
+  <complexType name="TEN_TVegType">
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
+          <element minOccurs="0" name="CEDRStrekningsnavn" type="string">
+            <annotation>
+              <documentation>10945: Gir navn på strekning. Følger CEDR-regelverk for navning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10945</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_CEDRSTREKNINGSNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="CEDRStrekningskode" type="string">
+            <annotation>
+              <documentation>10946: Kode på vegstrekningen. Følger CEDR-regelverk for koding</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10946</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_CEDRSTREKNINGSKODE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="CEDRVegtype" type="nvdb:CEDRVegtypeType">
+            <annotation>
+              <documentation>10947: Angir hvilken vegtype det er tale om. Definisjoner av vegtyper i henhold til CEDR</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10947</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_CEDRVEGTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="DR_ITS_Nivå" type="nvdb:DR_ITS_NivåType">
+            <annotation>
+              <documentation>10948: Angir hvilket nivå vegstrekningen ligger på i forhold til ITS-systemer/ITS-styring. De ulike nivåene er definert av CEDR</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10948</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DR_ITS_NIVÅ</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="etablertÅr" type="integer">
+            <annotation>
+              <documentation>10949: Angir hvilket år vegstrekning ble etablert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10949</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ETABLERTÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
@@ -47,9 +200,9 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="TERN_VegPropertyType">
+  <complexType name="TEN_TVegPropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:TERN_Veg"/>
+      <element ref="nvdb:TEN_TVeg"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>

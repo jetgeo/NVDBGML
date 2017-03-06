@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>456: Apparatur i tilknytning til teknisk utstyr.  Apparatur står vanligvis i skap.  Inneholder f.eks PLS, modem, batteri/strøm, telefon med mer.  Benyttes f.eks i tilknytning til signalanlegg.</documentation>
   </annotation>
@@ -25,6 +25,14 @@
       </appinfo>
     </annotation>
     <restriction base="string">
+      <enumeration value="bredbåndFiber">
+        <annotation>
+          <documentation>18273: Bredbånd/fiber</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="ISDN">
         <annotation>
           <documentation>4759: ISDN</documentation>
@@ -33,17 +41,17 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="basis">
+      <enumeration value="ISDN_Basis">
         <annotation>
-          <documentation>4758: Basis</documentation>
+          <documentation>4758: ISDN, Basis</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4758</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="plus">
+      <enumeration value="ISDN_Plus">
         <annotation>
-          <documentation>4760: Plus</documentation>
+          <documentation>4760: ISDN, Plus</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4760</taggedValue>
           </appinfo>
@@ -52,6 +60,72 @@
     </restriction>
   </simpleType>
   <simpleType name="AbonnementstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatType">
+    <annotation>
+      <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeStyreapparatEnumerationType nvdb:BruksområdeStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatEnumerationType">
+    <annotation>
+      <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="signalanlegg">
+        <annotation>
+          <documentation>18408: Signalanlegg: Benyttes til styring av signalanlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18408</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skilt">
+        <annotation>
+          <documentation>18409: Skilt: Benyttes til styring av variabelt skilt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18409</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegbom">
+        <annotation>
+          <documentation>18410: Vegbom: Benyttes til styring av vegbom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18410</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ventilasjon">
+        <annotation>
+          <documentation>18411: Ventilasjon: Benyttes til styring av ventilasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18411</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annetUtstyr">
+        <annotation>
+          <documentation>18412: Annet utstyr: Benyttes til styring av annet teknisk utstyr.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18412</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -260,6 +334,15 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeStyreapparatType">
+            <annotation>
+              <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11003</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="installeringsår" type="string">
             <annotation>
               <documentation>4066: Angir hvilket år utstyret ble installert</documentation>
@@ -287,12 +370,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="typeCPUKort" type="string">
+          <element minOccurs="0" name="typeCPU_Kort" type="string">
             <annotation>
               <documentation>3781: Angir type CPU-kort</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3781</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPECPUKORT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPECPU_KORT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -341,6 +424,15 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>11004: Tilleggsinformasjon</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11004</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="driftsmerking" type="string">
             <annotation>
               <documentation>10482: Gir unikt navn/id for objektet</documentation>
@@ -382,7 +474,7 @@
               <documentation>4974: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4974</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -407,17 +499,17 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>

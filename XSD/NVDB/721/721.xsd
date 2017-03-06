@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>721: Høyeste tillatte hastighet på en vegstrekning innenfor et avgrenset tidsrom.</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="FartsgrenseFartsgrenseVariabelType">
+  <simpleType name="FartsgrenseFartsgrense_VariabelType">
     <annotation>
       <documentation>7023: Verdien på fartsgrensen i angitt tidsrom</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7023</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSEVARIABEL</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSE_VARIABEL</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:FartsgrenseFartsgrenseVariabelEnumerationType nvdb:FartsgrenseFartsgrenseVariabelOtherType"/>
+    <union memberTypes="nvdb:FartsgrenseFartsgrense_VariabelEnumerationType nvdb:FartsgrenseFartsgrense_VariabelOtherType"/>
   </simpleType>
-  <simpleType name="FartsgrenseFartsgrenseVariabelEnumerationType">
+  <simpleType name="FartsgrenseFartsgrense_VariabelEnumerationType">
     <annotation>
       <documentation>7023: Verdien på fartsgrensen i angitt tidsrom</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7023</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSEVARIABEL</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSE_VARIABEL</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -107,7 +107,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="FartsgrenseFartsgrenseVariabelOtherType">
+  <simpleType name="FartsgrenseFartsgrense_VariabelOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -125,7 +125,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="fartsgrense" type="nvdb:FartsgrenseFartsgrenseVariabelType">
+          <element name="fartsgrense" type="nvdb:FartsgrenseFartsgrense_VariabelType">
             <annotation>
               <documentation>7023: Verdien på fartsgrensen i angitt tidsrom
 Enhet: Kilometer/time</documentation>
@@ -135,7 +135,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="type" type="nvdb:TypeFartsgrenseVariabelType">
+          <element name="type" type="nvdb:TypeFartsgrense_VariabelType">
             <annotation>
               <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
               <appinfo>
@@ -153,39 +153,39 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="datoFra" type="string">
+          <element minOccurs="0" name="dato_Fra" type="string">
             <annotation>
               <documentation>7019: Angir dato (mmdd) som variabel fartsgrense gjelder fra og med i et normalår.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7019</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOFRA</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATO_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="klokkeslettFra" type="string">
+          <element minOccurs="0" name="klokkeslett_Fra" type="string">
             <annotation>
               <documentation>7017: Angir tidspunkt (hhmm) på døgnet som variabel fartsgrense gjelder fra.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7017</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETTFRA</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETT_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="datoTil" type="string">
+          <element minOccurs="0" name="dato_Til" type="string">
             <annotation>
               <documentation>7022: Angir dato (mmdd) som variabel fartsgrense gjelder til og med i et normalår.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7022</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOTIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATO_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="klokkeslettTil" type="string">
+          <element minOccurs="0" name="klokkeslett_Til" type="string">
             <annotation>
               <documentation>7018: Angir tidspunkt på døgnet (hhmm) som variabel fartsgrense gjelder til</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7018</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETTTIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETT_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -261,22 +261,22 @@ Enhet: Kilometer/time</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeFartsgrenseVariabelType">
+  <simpleType name="TypeFartsgrense_VariabelType">
     <annotation>
       <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7016</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSEVARIABEL</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSE_VARIABEL</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TypeFartsgrenseVariabelEnumerationType nvdb:TypeFartsgrenseVariabelOtherType"/>
+    <union memberTypes="nvdb:TypeFartsgrense_VariabelEnumerationType nvdb:TypeFartsgrense_VariabelOtherType"/>
   </simpleType>
-  <simpleType name="TypeFartsgrenseVariabelEnumerationType">
+  <simpleType name="TypeFartsgrense_VariabelEnumerationType">
     <annotation>
       <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7016</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSEVARIABEL</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSE_VARIABEL</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -314,7 +314,7 @@ Enhet: Kilometer/time</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TypeFartsgrenseVariabelOtherType">
+  <simpleType name="TypeFartsgrense_VariabelOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>5: En anordning som skal hindre at kjøretøy forlater vegen (Håndbok N101 (231))</documentation>
   </annotation>
@@ -230,22 +230,22 @@ og syklende.</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="MCSkinneType">
+  <simpleType name="MC_SkinneType">
     <annotation>
       <documentation>9591: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MC_SKINNE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:MCSkinneEnumerationType nvdb:MCSkinneOtherType"/>
+    <union memberTypes="nvdb:MC_SkinneEnumerationType nvdb:MC_SkinneOtherType"/>
   </simpleType>
-  <simpleType name="MCSkinneEnumerationType">
+  <simpleType name="MC_SkinneEnumerationType">
     <annotation>
       <documentation>9591: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MC_SKINNE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -267,7 +267,7 @@ og syklende.</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="MCSkinneOtherType">
+  <simpleType name="MC_SkinneOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -423,12 +423,12 @@ og syklende.</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="MCSkinne" type="nvdb:MCSkinneType">
+          <element minOccurs="0" name="MC_Skinne" type="nvdb:MC_SkinneType">
             <annotation>
               <documentation>9591: Angir om det er festet ekstra skinne/hinder under hovedskinne for å hindre eventuelt skrensende motorsykler å treffe rekkverksstolper.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9591</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MCSKINNE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MC_SKINNE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -560,7 +560,7 @@ Enhet: Meter</documentation>
               <documentation>4714: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4714</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -569,17 +569,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertRekkverksskjøt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Rekkverksskjøt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

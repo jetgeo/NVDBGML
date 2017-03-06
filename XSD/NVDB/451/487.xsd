@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>487: Sted for på og avstigning av kollektivtrafikk.</documentation>
   </annotation>
@@ -121,12 +121,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="trafikkretningGeografisk" type="nvdb:TrafikkretningGeografiskType">
+          <element minOccurs="0" name="trafikkretning_Geografisk" type="nvdb:Trafikkretning_GeografiskType">
             <annotation>
               <documentation>10213: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10213</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISK</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING_GEOGRAFISK</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -139,84 +139,84 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_GangadkomstKryssingsmulighet" type="nvdb:UU_GangadkomstKryssingsmulighetType">
+          <element minOccurs="0" name="UU_Gangadkomst_Kryssingsmulighet" type="nvdb:UU_Gangadkomst_KryssingsmulighetType">
             <annotation>
               <documentation>10694: Angir hvilken mulighet det er for å krysse vegen ved holdeplassen.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10694</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTKRYSSINGSMULIGHET</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_KRYSSINGSMULIGHET</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="NHR_Holdeplass_ID" type="string">
+          <element minOccurs="0" name="NHR_Holdeplassnummer" type="string">
             <annotation>
-              <documentation>3958: Gir nummer på holdeplassen som Holdeplassutrustning tilhører. Offisielt nummer hentes fra Rutebanken</documentation>
+              <documentation>3958: Unikt nummer for holdeplass i NHR (Nasjonalt Holdeplassregister).  Brukes for kobling mot NHR, noe som muliggjør dataoverføring mellom registrene.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3958</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_HOLDEPLASS_ID</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_HOLDEPLASSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="holdeplassnummer_Alternativ" type="string">
+            <annotation>
+              <documentation>10884: Angir alternativt holdeplassnummer, kan f.eks være 8-sifret nummer som inneholde kommunenummer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10884</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSNUMMER_ALTERNATIV</taggedValue>
               </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="NHR_Holdeplassnavn" type="string">
             <annotation>
-              <documentation>3957: Gir navn på holdeplassen som Holdeplassutrustning tilhører. Offisielt navn hentes fra Rutebanken</documentation>
+              <documentation>3957: Gir navn på holdeplassen som Holdeplassutrustning er del av. Offisielt navn hentes fra Nasjonalt holdeplassregister.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3957</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_HOLDEPLASSNAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="holdeplassnummerTemporær" type="string">
+          <element minOccurs="0" name="holdeplassnavn_Alternativ" type="string">
             <annotation>
-              <documentation>10884: Angir holdeplassnummer som er brukt tidligere, eventuelt alternativt navn. Kan fjernes når kopling mot nasjonalt holdeplassregister er på plass.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10884</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSNUMMERTEMPORÆR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="holdeplassnavnTemporær" type="string">
-            <annotation>
-              <documentation>10885: Angir holdeplassnavn som er brukt tidligere, eventuelt alternativt navn. Kan fjernes når kopling mot nasjonalt holdeplassregister er på plass.</documentation>
+              <documentation>10885: Angir alternativt holdeplassnavn. Kan være holdeplassnavn som ble brukt tidligere.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10885</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSNAVNTEMPORÆR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSNAVN_ALTERNATIV</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="NHR_Stoppunkt_ID" type="integer">
+          <element minOccurs="0" name="NHR_Stoppunktnummer" type="string">
             <annotation>
-              <documentation>10204: ID for stoppunkt i NHR.  Brukes for kobling mot Rutebanken, noe som muliggjør dataoverføring mellom registrene</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10204</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_STOPPUNKT_ID</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="NHR_Soppunktnummer" type="string">
-            <annotation>
-              <documentation>10203: Gir nummer på stoppunkt som Holdeplassutrustning tilhører. Offisielt nummer hentes fra Rutebanken</documentation>
+              <documentation>10203: Unikt nummer for stoppunkt i NHR (Nasjonalt Holdeplassregister).  Brukes for kobling mot NHR, noe som muliggjør dataoverføring mellom registrene.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10203</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_SOPPUNKTNUMMER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NHR_STOPPUNKTNUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_poengBeregnetMulig" type="double">
+          <element minOccurs="0" name="stoppunktnummer_alternativ" type="string">
+            <annotation>
+              <documentation>10204: Stoppunktnummer som er benyttet tidligere eller benyttes i andre sammenhenger</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10204</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOPPUNKTNUMMER_ALTERNATIV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="UU_poeng_Beregnet_Mulig" type="double">
             <annotation>
               <documentation>10261: Angir hvor mange poeng det er mulig å oppnå.  Avhenger av type</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10261</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_POENGBEREGNETMULIG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_POENG_BEREGNET_MULIG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_poengBeregnetFaktisk" type="double">
+          <element minOccurs="0" name="UU_poeng_Beregnet_Faktisk" type="double">
             <annotation>
               <documentation>10188: Beregnet antall Universell utforming poeng for Holdeplassutrustning</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10188</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_POENGBEREGNETFAKTISK</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_POENG_BEREGNET_FAKTISK</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -238,41 +238,41 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_OppslagstavleRutetabHøydeUnderkant" type="integer">
+          <element minOccurs="0" name="UU_OppslagstavleRutetab_HøydeUnderkant" type="integer">
             <annotation>
               <documentation>10207: Høyde over bakken for nedre kant av oppslagstavle for rutetabell..
 Enhet: Centimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10207</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABHØYDEUNDERKANT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_HØYDEUNDERKANT</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_OppslagstavleRutetabHøydeOverkant" type="integer">
+          <element minOccurs="0" name="UU_OppslagstavleRutetab_HøydeOverkant" type="integer">
             <annotation>
               <documentation>10257: Høyde over bakken for øvre kant av oppslagstavle for rutetabell..
 Enhet: Centimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10257</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABHØYDEOVERKANT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_HØYDEOVERKANT</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_OppslagstavleRutetabAdgang" type="nvdb:UU_OppslagstavleRutetabAdgangType">
+          <element minOccurs="0" name="UU_OppslagstavleRutetab_Adgang" type="nvdb:UU_OppslagstavleRutetab_AdgangType">
             <annotation>
               <documentation>10208: Angir om det er mulig å komme helt inntil oppslagstavle for rutetabell</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10208</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABADGANG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_ADGANG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_OppslagstavleRutetabBelyst" type="nvdb:UU_OppslagstavleRutetabBelystType">
+          <element minOccurs="0" name="UU_OppslagstavleRutetab_Belyst" type="nvdb:UU_OppslagstavleRutetab_BelystType">
             <annotation>
               <documentation>10417: Angir om oppslagstavle er belyst eller ikke</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10417</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABBELYST</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_BELYST</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -312,32 +312,32 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_LeskurFriBreddeInnvendig" type="double">
+          <element minOccurs="0" name="UU_Leskur_FriBreddeInnvendig" type="double">
             <annotation>
               <documentation>10262: Angir minste frie bredde innvendig i leskur
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10262</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKURFRIBREDDEINNVENDIG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKUR_FRIBREDDEINNVENDIG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_LeskurFriDybdeInnvendig" type="double">
+          <element minOccurs="0" name="UU_Leskur_FriDybdeInnvendig" type="double">
             <annotation>
               <documentation>10263: Angir minimum fri dybde i leskur
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10263</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKURFRIDYBDEINNVENDIG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKUR_FRIDYBDEINNVENDIG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_LeskurArealTilpassetRullestol" type="nvdb:UU_LeskurArealTilpassetRullestolType">
+          <element minOccurs="0" name="UU_Leskur_ArealTilpassetRullestol" type="nvdb:UU_Leskur_ArealTilpassetRullestolType">
             <annotation>
               <documentation>10200: Angir om det finnes fritt areal innvendig i takoverbygg/leskur på minst 1.5 x 1.5 m</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10200</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKURAREALTILPASSETRULLESTOL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKUR_AREALTILPASSETRULLESTOL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -368,12 +368,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_GangadkomstStigning" type="nvdb:UU_GangadkomstStigningType">
+          <element minOccurs="0" name="UU_Gangadkomst_Stigning" type="nvdb:UU_Gangadkomst_StigningType">
             <annotation>
               <documentation>10190: Stigningsforhold på beste adkomst til Holdeplass</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10190</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTSTIGNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_STIGNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -386,98 +386,98 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformType" type="nvdb:UU_PlattformTypeType">
+          <element minOccurs="0" name="UU_Plattform_Type" type="nvdb:UU_Plattform_TypeType">
             <annotation>
               <documentation>10219: Angir type område hvor reisende kan oppholde seg i forbindelse med venting på kollektivtrafikk</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10219</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMTYPE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_TYPE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformBelegning" type="nvdb:UU_PlattformBelegningType">
+          <element minOccurs="0" name="UU_Plattform_Belegning" type="nvdb:UU_Plattform_BelegningType">
             <annotation>
               <documentation>10193: Belegning på plattform</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10193</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBELEGNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BELEGNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformDekkekvalitet" type="nvdb:UU_PlattformDekkekvalitetType">
+          <element minOccurs="0" name="UU_Plattform_Dekkekvalitet" type="nvdb:UU_Plattform_DekkekvalitetType">
             <annotation>
               <documentation>10189: Dekkekvalitet på Holdeplassutrustning</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10189</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMDEKKEKVALITET</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_DEKKEKVALITET</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformLengde" type="double">
+          <element minOccurs="0" name="UU_Plattform_Lengde" type="double">
             <annotation>
               <documentation>10191: Lengde av plattform eksklusiv inn-/utkjøringslengde
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10191</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMLENGDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_LENGDE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformBredde" type="double">
+          <element minOccurs="0" name="UU_Plattform_Bredde" type="double">
             <annotation>
               <documentation>10192: Fri bredde i plattformens fulle lengde. Ved varierende bredde brukes gjennomsnitt.
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10192</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBREDDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BREDDE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformPunkthinder" type="nvdb:UU_PlattformPunkthinderType">
+          <element minOccurs="0" name="UU_Plattform_Punkthinder" type="nvdb:UU_Plattform_PunkthinderType">
             <annotation>
               <documentation>10202: Angir om det finnes punkthinder i forflytningsbane langs plattformen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10202</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMPUNKTHINDER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_PUNKTHINDER</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformMinstebreddeUPunkthinder" type="double">
+          <element minOccurs="0" name="UU_Plattform_MinstebreddeUPunkthinder" type="double">
             <annotation>
-              <documentation>10201: Minste bredde på beste gang-/forflytningsbane langs plattformen
+              <documentation>10201: Minste bredde på beste gang-/forflytningsbane uten punkthinder langs plattformen.
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10201</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMMINSTEBREDDEUPUNKTHINDER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_MINSTEBREDDEUPUNKTHINDER</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformKantsteinhøydePåstigning" type="double">
+          <element minOccurs="0" name="UU_Plattform_KantsteinhøydePåstigning" type="double">
             <annotation>
               <documentation>10194: Høyde på kantstein ved påstigningspunkt
 Enhet: Centimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10194</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMKANTSTEINHØYDEPÅSTIGNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_KANTSTEINHØYDEPÅSTIGNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformKantsteinhøydeAvstigning" type="double">
+          <element minOccurs="0" name="UU_Plattform_KantsteinhøydeAvstigning" type="double">
             <annotation>
               <documentation>10195: Høyde på kantstein ved avstigningspunkt (ca 5 m bak påstigning)
 Enhet: Centimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10195</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMKANTSTEINHØYDEAVSTIGNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_KANTSTEINHØYDEAVSTIGNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="UU_PlattformBussAdgangTilKant" type="nvdb:UU_PlattformBussAdgangTilKantType">
+          <element minOccurs="0" name="UU_Plattform_BussAdgangTilKant" type="nvdb:UU_Plattform_BussAdgangTilKantType">
             <annotation>
               <documentation>10196: Angir om buss/trikk kan kjøre uhindret inn til kant. Gjelder vanlig buss eller trikk</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10196</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBUSSADGANGTILKANT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BUSSADGANGTILKANT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -531,7 +531,7 @@ Enhet: Centimeter</documentation>
               <documentation>5001: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5001</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -540,7 +540,7 @@ Enhet: Centimeter</documentation>
               <documentation>8926: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8926</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -574,22 +574,22 @@ Enhet: Centimeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TrafikkretningGeografiskType">
+  <simpleType name="Trafikkretning_GeografiskType">
     <annotation>
       <documentation>10213: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10213</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING_GEOGRAFISK</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TrafikkretningGeografiskEnumerationType nvdb:TrafikkretningGeografiskOtherType"/>
+    <union memberTypes="nvdb:Trafikkretning_GeografiskEnumerationType nvdb:Trafikkretning_GeografiskOtherType"/>
   </simpleType>
-  <simpleType name="TrafikkretningGeografiskEnumerationType">
+  <simpleType name="Trafikkretning_GeografiskEnumerationType">
     <annotation>
       <documentation>10213: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10213</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING_GEOGRAFISK</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -659,7 +659,7 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TrafikkretningGeografiskOtherType">
+  <simpleType name="Trafikkretning_GeografiskOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -830,22 +830,22 @@ Enhet: Centimeter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_GangadkomstKryssingsmulighetType">
+  <simpleType name="UU_Gangadkomst_KryssingsmulighetType">
     <annotation>
       <documentation>10694: Angir hvilken mulighet det er for å krysse vegen ved holdeplassen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10694</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTKRYSSINGSMULIGHET</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_KRYSSINGSMULIGHET</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_GangadkomstKryssingsmulighetEnumerationType nvdb:UU_GangadkomstKryssingsmulighetOtherType"/>
+    <union memberTypes="nvdb:UU_Gangadkomst_KryssingsmulighetEnumerationType nvdb:UU_Gangadkomst_KryssingsmulighetOtherType"/>
   </simpleType>
-  <simpleType name="UU_GangadkomstKryssingsmulighetEnumerationType">
+  <simpleType name="UU_Gangadkomst_KryssingsmulighetEnumerationType">
     <annotation>
       <documentation>10694: Angir hvilken mulighet det er for å krysse vegen ved holdeplassen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10694</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTKRYSSINGSMULIGHET</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_KRYSSINGSMULIGHET</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -867,27 +867,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_GangadkomstKryssingsmulighetOtherType">
+  <simpleType name="UU_Gangadkomst_KryssingsmulighetOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_GangadkomstStigningType">
+  <simpleType name="UU_Gangadkomst_StigningType">
     <annotation>
       <documentation>10190: Stigningsforhold på beste adkomst til Holdeplass</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10190</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTSTIGNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_STIGNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_GangadkomstStigningEnumerationType nvdb:UU_GangadkomstStigningOtherType"/>
+    <union memberTypes="nvdb:UU_Gangadkomst_StigningEnumerationType nvdb:UU_Gangadkomst_StigningOtherType"/>
   </simpleType>
-  <simpleType name="UU_GangadkomstStigningEnumerationType">
+  <simpleType name="UU_Gangadkomst_StigningEnumerationType">
     <annotation>
       <documentation>10190: Stigningsforhold på beste adkomst til Holdeplass</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10190</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMSTSTIGNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_GANGADKOMST_STIGNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -925,7 +925,7 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_GangadkomstStigningOtherType">
+  <simpleType name="UU_Gangadkomst_StigningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -949,17 +949,33 @@ Enhet: Centimeter</documentation>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="ja">
+      <enumeration value="ja_StandardSkiltplate">
         <annotation>
-          <documentation>16791: Ja</documentation>
+          <documentation>16791: Ja, standard skiltplate: Det er standard skiltplate i tilknytning til holdeplass</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16791</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="ja_IntegrertSymbol">
+        <annotation>
+          <documentation>18175: Ja, integrert symbol: Skilt er integrert ("trykket") som symbol i selve leskuret, oppslagstavle, eller annen del av holdeplassutrustningen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18175</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ja_Klistremerke">
+        <annotation>
+          <documentation>18176: Ja, klistremerke: Skilt er limt på selve leskuret, oppslagstavle, eller annen del av holdeplassutrustningen i form av klistremerke.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18176</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="nei">
         <annotation>
-          <documentation>16792: Nei</documentation>
+          <documentation>16792: Nei: Det er ingen Ingen former for holdeplasskilt.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16792</taggedValue>
           </appinfo>
@@ -1010,48 +1026,6 @@ Enhet: Centimeter</documentation>
     </restriction>
   </simpleType>
   <simpleType name="UU_HøyttalerOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="UU_LeskurArealTilpassetRullestolType">
-    <annotation>
-      <documentation>10200: Angir om det finnes fritt areal innvendig i takoverbygg/leskur på minst 1.5 x 1.5 m</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10200</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKURAREALTILPASSETRULLESTOL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:UU_LeskurArealTilpassetRullestolEnumerationType nvdb:UU_LeskurArealTilpassetRullestolOtherType"/>
-  </simpleType>
-  <simpleType name="UU_LeskurArealTilpassetRullestolEnumerationType">
-    <annotation>
-      <documentation>10200: Angir om det finnes fritt areal innvendig i takoverbygg/leskur på minst 1.5 x 1.5 m</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10200</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKURAREALTILPASSETRULLESTOL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>16621: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16621</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>16622: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16622</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="UU_LeskurArealTilpassetRullestolOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -1114,6 +1088,48 @@ Enhet: Centimeter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="UU_Leskur_ArealTilpassetRullestolType">
+    <annotation>
+      <documentation>10200: Angir om det finnes fritt areal innvendig i takoverbygg/leskur på minst 1.5 x 1.5 m</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10200</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKUR_AREALTILPASSETRULLESTOL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UU_Leskur_ArealTilpassetRullestolEnumerationType nvdb:UU_Leskur_ArealTilpassetRullestolOtherType"/>
+  </simpleType>
+  <simpleType name="UU_Leskur_ArealTilpassetRullestolEnumerationType">
+    <annotation>
+      <documentation>10200: Angir om det finnes fritt areal innvendig i takoverbygg/leskur på minst 1.5 x 1.5 m</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10200</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_LESKUR_AREALTILPASSETRULLESTOL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16621: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16621</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16622: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16622</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UU_Leskur_ArealTilpassetRullestolOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="UU_OppslagstavleForRutetabellType">
     <annotation>
       <documentation>10206: Angir om det er oppslagstavle/kassett eller annen tilrettelegging for oppslag av rutetabeller.</documentation>
@@ -1156,22 +1172,22 @@ Enhet: Centimeter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabAdgangType">
+  <simpleType name="UU_OppslagstavleRutetab_AdgangType">
     <annotation>
       <documentation>10208: Angir om det er mulig å komme helt inntil oppslagstavle for rutetabell</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10208</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABADGANG</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_ADGANG</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_OppslagstavleRutetabAdgangEnumerationType nvdb:UU_OppslagstavleRutetabAdgangOtherType"/>
+    <union memberTypes="nvdb:UU_OppslagstavleRutetab_AdgangEnumerationType nvdb:UU_OppslagstavleRutetab_AdgangOtherType"/>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabAdgangEnumerationType">
+  <simpleType name="UU_OppslagstavleRutetab_AdgangEnumerationType">
     <annotation>
       <documentation>10208: Angir om det er mulig å komme helt inntil oppslagstavle for rutetabell</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10208</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABADGANG</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_ADGANG</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1193,27 +1209,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabAdgangOtherType">
+  <simpleType name="UU_OppslagstavleRutetab_AdgangOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabBelystType">
+  <simpleType name="UU_OppslagstavleRutetab_BelystType">
     <annotation>
       <documentation>10417: Angir om oppslagstavle er belyst eller ikke</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10417</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABBELYST</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_BELYST</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_OppslagstavleRutetabBelystEnumerationType nvdb:UU_OppslagstavleRutetabBelystOtherType"/>
+    <union memberTypes="nvdb:UU_OppslagstavleRutetab_BelystEnumerationType nvdb:UU_OppslagstavleRutetab_BelystOtherType"/>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabBelystEnumerationType">
+  <simpleType name="UU_OppslagstavleRutetab_BelystEnumerationType">
     <annotation>
       <documentation>10417: Angir om oppslagstavle er belyst eller ikke</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10417</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETABBELYST</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_OPPSLAGSTAVLERUTETAB_BELYST</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1235,27 +1251,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_OppslagstavleRutetabBelystOtherType">
+  <simpleType name="UU_OppslagstavleRutetab_BelystOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformBelegningType">
+  <simpleType name="UU_Plattform_BelegningType">
     <annotation>
       <documentation>10193: Belegning på plattform</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10193</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBELEGNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BELEGNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_PlattformBelegningEnumerationType nvdb:UU_PlattformBelegningOtherType"/>
+    <union memberTypes="nvdb:UU_Plattform_BelegningEnumerationType nvdb:UU_Plattform_BelegningOtherType"/>
   </simpleType>
-  <simpleType name="UU_PlattformBelegningEnumerationType">
+  <simpleType name="UU_Plattform_BelegningEnumerationType">
     <annotation>
       <documentation>10193: Belegning på plattform</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10193</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBELEGNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BELEGNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1301,27 +1317,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformBelegningOtherType">
+  <simpleType name="UU_Plattform_BelegningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformBussAdgangTilKantType">
+  <simpleType name="UU_Plattform_BussAdgangTilKantType">
     <annotation>
       <documentation>10196: Angir om buss/trikk kan kjøre uhindret inn til kant. Gjelder vanlig buss eller trikk</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10196</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBUSSADGANGTILKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BUSSADGANGTILKANT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_PlattformBussAdgangTilKantEnumerationType nvdb:UU_PlattformBussAdgangTilKantOtherType"/>
+    <union memberTypes="nvdb:UU_Plattform_BussAdgangTilKantEnumerationType nvdb:UU_Plattform_BussAdgangTilKantOtherType"/>
   </simpleType>
-  <simpleType name="UU_PlattformBussAdgangTilKantEnumerationType">
+  <simpleType name="UU_Plattform_BussAdgangTilKantEnumerationType">
     <annotation>
       <documentation>10196: Angir om buss/trikk kan kjøre uhindret inn til kant. Gjelder vanlig buss eller trikk</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10196</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMBUSSADGANGTILKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_BUSSADGANGTILKANT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1343,27 +1359,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformBussAdgangTilKantOtherType">
+  <simpleType name="UU_Plattform_BussAdgangTilKantOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformDekkekvalitetType">
+  <simpleType name="UU_Plattform_DekkekvalitetType">
     <annotation>
       <documentation>10189: Dekkekvalitet på Holdeplassutrustning</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10189</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMDEKKEKVALITET</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_DEKKEKVALITET</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_PlattformDekkekvalitetEnumerationType nvdb:UU_PlattformDekkekvalitetOtherType"/>
+    <union memberTypes="nvdb:UU_Plattform_DekkekvalitetEnumerationType nvdb:UU_Plattform_DekkekvalitetOtherType"/>
   </simpleType>
-  <simpleType name="UU_PlattformDekkekvalitetEnumerationType">
+  <simpleType name="UU_Plattform_DekkekvalitetEnumerationType">
     <annotation>
       <documentation>10189: Dekkekvalitet på Holdeplassutrustning</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10189</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMDEKKEKVALITET</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_DEKKEKVALITET</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1393,27 +1409,27 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformDekkekvalitetOtherType">
+  <simpleType name="UU_Plattform_DekkekvalitetOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformPunkthinderType">
+  <simpleType name="UU_Plattform_PunkthinderType">
     <annotation>
       <documentation>10202: Angir om det finnes punkthinder i forflytningsbane langs plattformen</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10202</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMPUNKTHINDER</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_PUNKTHINDER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_PlattformPunkthinderEnumerationType nvdb:UU_PlattformPunkthinderOtherType"/>
+    <union memberTypes="nvdb:UU_Plattform_PunkthinderEnumerationType nvdb:UU_Plattform_PunkthinderOtherType"/>
   </simpleType>
-  <simpleType name="UU_PlattformPunkthinderEnumerationType">
+  <simpleType name="UU_Plattform_PunkthinderEnumerationType">
     <annotation>
       <documentation>10202: Angir om det finnes punkthinder i forflytningsbane langs plattformen</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10202</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMPUNKTHINDER</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_PUNKTHINDER</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -1435,35 +1451,35 @@ Enhet: Centimeter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformPunkthinderOtherType">
+  <simpleType name="UU_Plattform_PunkthinderOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformTypeType">
+  <simpleType name="UU_Plattform_TypeType">
     <annotation>
       <documentation>10219: Angir type område hvor reisende kan oppholde seg i forbindelse med venting på kollektivtrafikk</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10219</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMTYPE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_TYPE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:UU_PlattformTypeEnumerationType nvdb:UU_PlattformTypeOtherType"/>
+    <union memberTypes="nvdb:UU_Plattform_TypeEnumerationType nvdb:UU_Plattform_TypeOtherType"/>
   </simpleType>
-  <simpleType name="UU_PlattformTypeEnumerationType">
+  <simpleType name="UU_Plattform_TypeEnumerationType">
     <annotation>
       <documentation>10219: Angir type område hvor reisende kan oppholde seg i forbindelse med venting på kollektivtrafikk</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10219</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORMTYPE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UU_PLATTFORM_TYPE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="ikkePlattform">
+      <enumeration value="egetAreal">
         <annotation>
-          <documentation>16689: Ikke plattform: Det er ikke noe eget tilpasset venteareal</documentation>
+          <documentation>16692: Eget areal: Eget areal som brukes som venteareal</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16689</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16692</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -1483,17 +1499,17 @@ Enhet: Centimeter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="sideareal">
+      <enumeration value="ikkePlattform">
         <annotation>
-          <documentation>16692: Sideareal: Annet areal som brukes som venteareal</documentation>
+          <documentation>16689: Ikke plattform: Det er ikke noe eget tilpasset venteareal</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16692</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16689</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="UU_PlattformTypeOtherType">
+  <simpleType name="UU_Plattform_TypeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

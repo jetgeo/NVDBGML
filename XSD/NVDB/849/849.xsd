@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>849: Område som blir overvåket med hensyn på skred</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AdkomstSkredVarslingOvervåkningType">
+  <simpleType name="AdkomstSkred_VarslingOvervåkningType">
     <annotation>
       <documentation>9649: Beskriver hvordan man får adkomst til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9649</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDVARSLINGOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKRED_VARSLINGOVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:AdkomstSkredVarslingOvervåkningEnumerationType nvdb:AdkomstSkredVarslingOvervåkningOtherType"/>
+    <union memberTypes="nvdb:AdkomstSkred_VarslingOvervåkningEnumerationType nvdb:AdkomstSkred_VarslingOvervåkningOtherType"/>
   </simpleType>
-  <simpleType name="AdkomstSkredVarslingOvervåkningEnumerationType">
+  <simpleType name="AdkomstSkred_VarslingOvervåkningEnumerationType">
     <annotation>
       <documentation>9649: Beskriver hvordan man får adkomst til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9649</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDVARSLINGOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKRED_VARSLINGOVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -75,7 +75,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="AdkomstSkredVarslingOvervåkningOtherType">
+  <simpleType name="AdkomstSkred_VarslingOvervåkningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -178,7 +178,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstSkredVarslingOvervåkningType">
+          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstSkred_VarslingOvervåkningType">
             <annotation>
               <documentation>9649: Beskriver hvordan man får adkomst til vegobjektet</documentation>
               <appinfo>
@@ -201,7 +201,7 @@
               <documentation>9652: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9652</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -210,7 +210,7 @@
               <documentation>9651: Gir flate/polygon som geometrisk avgrenser området</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9651</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -219,10 +219,10 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -233,10 +233,10 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

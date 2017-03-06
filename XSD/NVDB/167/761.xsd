@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>761: Gir informasjon om tilstand og eventuell skade.  Normalt knyttet til et spesifikt punktobjekt.</documentation>
   </annotation>
-  <include schemaLocation="Detektor.xsd"/>
+  <include schemaLocation="Detektor_Trafikk.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadePunktType">
+          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkade_PunktType">
             <annotation>
               <documentation>7596: Angir tilstand til vegobjektet</documentation>
               <appinfo>
@@ -46,7 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkadePunktType">
+          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkade_PunktType">
             <annotation>
               <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
               <appinfo>
@@ -55,7 +55,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkadePunktType">
+          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkade_PunktType">
             <annotation>
               <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
               <appinfo>
@@ -88,7 +88,7 @@ Enhet: Prosent</documentation>
               <documentation>7597: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7597</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -123,22 +123,22 @@ Enhet: Prosent</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TilstandTilstandSkadePunktType">
+  <simpleType name="TilstandTilstandSkade_PunktType">
     <annotation>
       <documentation>7596: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TilstandTilstandSkadePunktEnumerationType nvdb:TilstandTilstandSkadePunktOtherType"/>
+    <union memberTypes="nvdb:TilstandTilstandSkade_PunktEnumerationType nvdb:TilstandTilstandSkade_PunktOtherType"/>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadePunktEnumerationType">
+  <simpleType name="TilstandTilstandSkade_PunktEnumerationType">
     <annotation>
       <documentation>7596: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7596</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -176,27 +176,27 @@ Enhet: Prosent</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadePunktOtherType">
+  <simpleType name="TilstandTilstandSkade_PunktOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadePunktType">
+  <simpleType name="TiltakNårTilstandSkade_PunktType">
     <annotation>
       <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TiltakNårTilstandSkadePunktEnumerationType nvdb:TiltakNårTilstandSkadePunktOtherType"/>
+    <union memberTypes="nvdb:TiltakNårTilstandSkade_PunktEnumerationType nvdb:TiltakNårTilstandSkade_PunktOtherType"/>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadePunktEnumerationType">
+  <simpleType name="TiltakNårTilstandSkade_PunktEnumerationType">
     <annotation>
       <documentation>7595: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7595</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -258,27 +258,27 @@ Enhet: Prosent</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadePunktOtherType">
+  <simpleType name="TiltakNårTilstandSkade_PunktOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadePunktType">
+  <simpleType name="TiltakTilstandSkade_PunktType">
     <annotation>
       <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TiltakTilstandSkadePunktEnumerationType nvdb:TiltakTilstandSkadePunktOtherType"/>
+    <union memberTypes="nvdb:TiltakTilstandSkade_PunktEnumerationType nvdb:TiltakTilstandSkade_PunktOtherType"/>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadePunktEnumerationType">
+  <simpleType name="TiltakTilstandSkade_PunktEnumerationType">
     <annotation>
       <documentation>7594: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7594</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADEPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_PUNKT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -316,7 +316,7 @@ Enhet: Prosent</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadePunktOtherType">
+  <simpleType name="TiltakTilstandSkade_PunktOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

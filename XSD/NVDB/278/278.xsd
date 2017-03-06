@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>278: Anlegg for å ventilere f.eks tunneler</documentation>
   </annotation>
@@ -156,22 +156,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="StyringFraBetjeningssentralVentilasjonsanleggType">
+  <simpleType name="StyringFraBetjeningssentralType">
     <annotation>
       <documentation>3752: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3752</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRALVENTILASJONSANLEGG</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRAL</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:StyringFraBetjeningssentralVentilasjonsanleggEnumerationType nvdb:StyringFraBetjeningssentralVentilasjonsanleggOtherType"/>
+    <union memberTypes="nvdb:StyringFraBetjeningssentralEnumerationType nvdb:StyringFraBetjeningssentralOtherType"/>
   </simpleType>
-  <simpleType name="StyringFraBetjeningssentralVentilasjonsanleggEnumerationType">
+  <simpleType name="StyringFraBetjeningssentralEnumerationType">
     <annotation>
       <documentation>3752: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3752</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRALVENTILASJONSANLEGG</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STYRINGFRABETJENINGSSENTRAL</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -193,7 +193,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="StyringFraBetjeningssentralVentilasjonsanleggOtherType">
+  <simpleType name="StyringFraBetjeningssentralOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -312,7 +312,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="styringFraBetjeningssentral" type="nvdb:StyringFraBetjeningssentralVentilasjonsanleggType">
+          <element minOccurs="0" name="styringFraBetjeningssentral" type="nvdb:StyringFraBetjeningssentralType">
             <annotation>
               <documentation>3752: Angir om det er mulig å styre anlegg fra betjeningssentral</documentation>
               <appinfo>
@@ -362,7 +362,7 @@
               <documentation>4884: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4884</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -371,7 +371,7 @@
               <documentation>8933: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8933</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -404,17 +404,17 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertVifteVentilator" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:VifteVentilator</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

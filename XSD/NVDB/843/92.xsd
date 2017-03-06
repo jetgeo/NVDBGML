@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>92: Elektrisk eller optisk leder</documentation>
   </annotation>
@@ -295,13 +295,13 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="lengdeKart" type="double">
+          <element minOccurs="0" name="lengde_Kart" type="double">
             <annotation>
               <documentation>9746: Angir 2D kartlengde for vegobjektet i meter
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9746</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDEKART</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE_KART</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -341,6 +341,15 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="arkivnummer" type="string">
+            <annotation>
+              <documentation>9743: Referanse til Statens vegvesen sitt arkivsystem</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9743</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="driftsmerking" type="string">
             <annotation>
               <documentation>9744: Gir navn/id for kabelen.</documentation>
@@ -359,15 +368,6 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="arkivnummer" type="string">
-            <annotation>
-              <documentation>9743: Referanse til Statens vegvesen sitt arkivsystem</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9743</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="eier" type="nvdb:EierKabelType">
             <annotation>
               <documentation>5811: Angir hvem som er eier av vegobjektet.</documentation>
@@ -377,12 +377,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eierNavn" type="string">
+          <element minOccurs="0" name="eier_Navn" type="string">
             <annotation>
               <documentation>9745: Navn på eier av  vegobjektet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9745</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERNAVN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER_NAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -400,7 +400,7 @@ Enhet: Meter</documentation>
               <documentation>4792: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4792</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -409,17 +409,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -7658,6 +7658,30 @@ Enhet: Meter</documentation>
           <documentation>14768: TXXP 1KV 1X630 A: 1020118</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">14768</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="TXXP_RL_1KV_5x25mm">
+        <annotation>
+          <documentation>18278: TXXP - RL 1KV 5x25mm: 1007491 - https://www.ahlsell.no/33/elektro/gr.-10-kabler-og-ledning/10-kabler-og-ledninger/kraftkabel/1007491/</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="PROlight5G50">
+        <annotation>
+          <documentation>18301: PROlight 5G50: 1018305 - https://www.ahlsell.no/33/elektro/gr.-10-kabler-og-ledning/10-kabler-og-ledninger/halogenfrie-kabler/1018305/</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18301</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="PROlight5G25">
+        <annotation>
+          <documentation>18302: PROlight 5G25: 1018303 - https://www.ahlsell.no/33/elektro/gr.-10-kabler-og-ledning/10-kabler-og-ledninger/halogenfrie-kabler/1018303/</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18302</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

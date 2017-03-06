@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>468: Reservestrømskilde bla i forbindelse med tunneler</documentation>
   </annotation>
@@ -193,22 +193,42 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="batteriDriftstid" type="integer">
-            <annotation>
-              <documentation>10046: Angir hvor lang tid batteriene er beregnet å kunne levere strøm til anlegget
-Enhet: Time</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10046</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERIDRIFTSTID</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeUPSType">
             <annotation>
               <documentation>10051: Angir hva vegobjektet brukes til</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10051</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="totalEffekt" type="integer">
+            <annotation>
+              <documentation>3852: Angir total effekt UPS kan levere
+Enhet: KiloVoltAmpere</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3852</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TOTALEFFEKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftstid" type="integer">
+            <annotation>
+              <documentation>10046: Angir hvor lang tid batteriene er beregnet å kunne levere strøm til anlegget
+Enhet: Time</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10046</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSTID</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kapasitet" type="integer">
+            <annotation>
+              <documentation>10043: Angir totalt kapasitet for alle batterier
+Enhet: Amperetimer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10043</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAPASITET</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -219,6 +239,44 @@ Enhet: Volt</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10049</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPENNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="batteripakke_Spenning" type="integer">
+            <annotation>
+              <documentation>10044: Angir spenningen på hver batteripakke
+Enhet: Volt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10044</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERIPAKKE_SPENNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="batteripakke_Antall" type="integer">
+            <annotation>
+              <documentation>3844: Angir hvor mange  batteripakker UPS har tilkoblet.
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3844</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERIPAKKE_ANTALL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallEnkeltbatteri" type="integer">
+            <annotation>
+              <documentation>10893: Angir hvor mange enkeltbatteri UPS har tilkoplet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10893</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLENKELTBATTERI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skilletrafo" type="string">
+            <annotation>
+              <documentation>10050: Angir produsent og typebetegnelse for eventell skilletrafo</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10050</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILLETRAFO</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -240,60 +298,12 @@ Enhet: Volt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierUPSType">
+          <element minOccurs="0" name="produsentnavn" type="string">
             <annotation>
-              <documentation>8030: Angir hvem som er eier av vegobjektet.</documentation>
+              <documentation>10042: Angir navn på firma som har produsert produktet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8030</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligUPSType">
-            <annotation>
-              <documentation>8104: Angir hvem som er ansvarlig for vedlikehold</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8104</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="batteriAntall" type="integer">
-            <annotation>
-              <documentation>3844: Angir hvor mange  batteripakker UPS har tilkoblet.
-Enhet: Stykker</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3844</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERIANTALL</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="batteriKapasitet" type="integer">
-            <annotation>
-              <documentation>10043: Totalt kapasitet for alle batterier
-Enhet: Amperetimer</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10043</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERIKAPASITET</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="batteriSpenning" type="integer">
-            <annotation>
-              <documentation>10044: Angir spenningen på hver batteripakke
-Enhet: Volt</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10044</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BATTERISPENNING</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="eierNavn" type="string">
-            <annotation>
-              <documentation>10048: Navn på eier av  vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10048</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERNAVN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10042</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -306,31 +316,30 @@ Enhet: Volt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="produsentnavn" type="string">
+          <element minOccurs="0" name="eier" type="nvdb:EierUPSType">
             <annotation>
-              <documentation>10042: Angir navn på firma som har produsert produktet</documentation>
+              <documentation>8030: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10042</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8030</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skilletrafo" type="string">
+          <element minOccurs="0" name="eier_Navn" type="string">
             <annotation>
-              <documentation>10050: Angir produsent og typebetegnelse for eventell skilletrafo</documentation>
+              <documentation>10048: Navn på eier av  vegobjektet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10050</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILLETRAFO</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10048</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER_NAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="totalEffekt" type="integer">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligUPSType">
             <annotation>
-              <documentation>3852: Angir total effekt UPS kan levere
-Enhet: KiloVoltAmpere</documentation>
+              <documentation>8104: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3852</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TOTALEFFEKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8104</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -339,7 +348,7 @@ Enhet: KiloVoltAmpere</documentation>
               <documentation>4985: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4985</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>

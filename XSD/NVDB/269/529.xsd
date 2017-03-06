@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>529: Angir tilstand/skade knyttet til vegens skulder/vegkant.  Dette er særlig med tanke på tilgroing oppsamling av løsmasse.</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="SkadetypeTilstandSkadeSkulderKantType">
+  <simpleType name="SkadetypeTilstandSkade_SkulderKantType">
     <annotation>
       <documentation>4550: Angir hvilken type skade det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4550</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:SkadetypeTilstandSkadeSkulderKantEnumerationType nvdb:SkadetypeTilstandSkadeSkulderKantOtherType"/>
+    <union memberTypes="nvdb:SkadetypeTilstandSkade_SkulderKantEnumerationType nvdb:SkadetypeTilstandSkade_SkulderKantOtherType"/>
   </simpleType>
-  <simpleType name="SkadetypeTilstandSkadeSkulderKantEnumerationType">
+  <simpleType name="SkadetypeTilstandSkade_SkulderKantEnumerationType">
     <annotation>
       <documentation>4550: Angir hvilken type skade det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4550</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -43,7 +43,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="SkadetypeTilstandSkadeSkulderKantOtherType">
+  <simpleType name="SkadetypeTilstandSkade_SkulderKantOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -61,7 +61,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadeSkulderKantType">
+          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkade_SkulderKantType">
             <annotation>
               <documentation>4552: Angir tilstand til vegobjektet</documentation>
               <appinfo>
@@ -70,7 +70,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skadetype" type="nvdb:SkadetypeTilstandSkadeSkulderKantType">
+          <element minOccurs="0" name="skadetype" type="nvdb:SkadetypeTilstandSkade_SkulderKantType">
             <annotation>
               <documentation>4550: Angir hvilken type skade det er tale om</documentation>
               <appinfo>
@@ -88,7 +88,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkadeSkulderKantType">
+          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkade_SkulderKantType">
             <annotation>
               <documentation>4551: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
               <appinfo>
@@ -120,7 +120,7 @@
               <documentation>5029: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5029</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -147,22 +147,22 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TilstandTilstandSkadeSkulderKantType">
+  <simpleType name="TilstandTilstandSkade_SkulderKantType">
     <annotation>
       <documentation>4552: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4552</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TilstandTilstandSkadeSkulderKantEnumerationType nvdb:TilstandTilstandSkadeSkulderKantOtherType"/>
+    <union memberTypes="nvdb:TilstandTilstandSkade_SkulderKantEnumerationType nvdb:TilstandTilstandSkade_SkulderKantOtherType"/>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadeSkulderKantEnumerationType">
+  <simpleType name="TilstandTilstandSkade_SkulderKantEnumerationType">
     <annotation>
       <documentation>4552: Angir tilstand til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4552</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -192,27 +192,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadeSkulderKantOtherType">
+  <simpleType name="TilstandTilstandSkade_SkulderKantOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadeSkulderKantType">
+  <simpleType name="TiltakTilstandSkade_SkulderKantType">
     <annotation>
       <documentation>4551: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4551</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TiltakTilstandSkadeSkulderKantEnumerationType nvdb:TiltakTilstandSkadeSkulderKantOtherType"/>
+    <union memberTypes="nvdb:TiltakTilstandSkade_SkulderKantEnumerationType nvdb:TiltakTilstandSkade_SkulderKantOtherType"/>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadeSkulderKantEnumerationType">
+  <simpleType name="TiltakTilstandSkade_SkulderKantEnumerationType">
     <annotation>
       <documentation>4551: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4551</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADESKULDERKANT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_SKULDERKANT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -234,7 +234,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakTilstandSkadeSkulderKantOtherType">
+  <simpleType name="TiltakTilstandSkade_SkulderKantOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

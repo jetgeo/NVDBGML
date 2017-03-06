@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>834: Angir tilstand og skade knyttet til en fjellskjæring</documentation>
   </annotation>
@@ -177,7 +177,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkadeFjellskjæringType">
+          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkade_FjellskjæringType">
             <annotation>
               <documentation>9444: Angir tilstand på gitt tidspunkt. EU-kategorier</documentation>
               <appinfo>
@@ -186,7 +186,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkadeFjellskjæringType">
+          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkade_FjellskjæringType">
             <annotation>
               <documentation>9465: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
               <appinfo>
@@ -218,7 +218,7 @@
               <documentation>9542: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9542</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -227,17 +227,17 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -252,22 +252,22 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TilstandTilstandSkadeFjellskjæringType">
+  <simpleType name="TilstandTilstandSkade_FjellskjæringType">
     <annotation>
       <documentation>9444: Angir tilstand på gitt tidspunkt. EU-kategorier</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9444</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEFJELLSKJÆRING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_FJELLSKJÆRING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TilstandTilstandSkadeFjellskjæringEnumerationType nvdb:TilstandTilstandSkadeFjellskjæringOtherType"/>
+    <union memberTypes="nvdb:TilstandTilstandSkade_FjellskjæringEnumerationType nvdb:TilstandTilstandSkade_FjellskjæringOtherType"/>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadeFjellskjæringEnumerationType">
+  <simpleType name="TilstandTilstandSkade_FjellskjæringEnumerationType">
     <annotation>
       <documentation>9444: Angir tilstand på gitt tidspunkt. EU-kategorier</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9444</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADEFJELLSKJÆRING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_FJELLSKJÆRING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -305,27 +305,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TilstandTilstandSkadeFjellskjæringOtherType">
+  <simpleType name="TilstandTilstandSkade_FjellskjæringOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadeFjellskjæringType">
+  <simpleType name="TiltakNårTilstandSkade_FjellskjæringType">
     <annotation>
       <documentation>9465: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9465</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEFJELLSKJÆRING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_FJELLSKJÆRING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TiltakNårTilstandSkadeFjellskjæringEnumerationType nvdb:TiltakNårTilstandSkadeFjellskjæringOtherType"/>
+    <union memberTypes="nvdb:TiltakNårTilstandSkade_FjellskjæringEnumerationType nvdb:TiltakNårTilstandSkade_FjellskjæringOtherType"/>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadeFjellskjæringEnumerationType">
+  <simpleType name="TiltakNårTilstandSkade_FjellskjæringEnumerationType">
     <annotation>
       <documentation>9465: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9465</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADEFJELLSKJÆRING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_FJELLSKJÆRING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -387,7 +387,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TiltakNårTilstandSkadeFjellskjæringOtherType">
+  <simpleType name="TiltakNårTilstandSkade_FjellskjæringOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

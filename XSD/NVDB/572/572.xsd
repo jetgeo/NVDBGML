@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>572: Personer involvert i trafikkulykke.</documentation>
   </annotation>
@@ -391,22 +391,6 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="illebefinnende">
-        <annotation>
-          <documentation>6666: Illebefinnende</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6666</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="selvdrap">
-        <annotation>
-          <documentation>6667: Selvdrap</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6667</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="ukjent">
         <annotation>
           <documentation>6668: Ukjent: ukjent</documentation>
@@ -481,22 +465,6 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="illebefinnende">
-        <annotation>
-          <documentation>11658: Illebefinnende</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11658</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="selvdrap">
-        <annotation>
-          <documentation>11657: Selvdrap</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11657</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="ukjent">
         <annotation>
           <documentation>11656: Ukjent: ukjent</documentation>
@@ -512,22 +480,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="Skjema2SSBType">
+  <simpleType name="Skjema2_SSBType">
     <annotation>
       <documentation>9574: Angir om personopplysninger fra ulykkesregistreringsskjema 2 er mottatt fra SSB</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9574</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2SSB</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2_SSB</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:Skjema2SSBEnumerationType nvdb:Skjema2SSBOtherType"/>
+    <union memberTypes="nvdb:Skjema2_SSBEnumerationType nvdb:Skjema2_SSBOtherType"/>
   </simpleType>
-  <simpleType name="Skjema2SSBEnumerationType">
+  <simpleType name="Skjema2_SSBEnumerationType">
     <annotation>
       <documentation>9574: Angir om personopplysninger fra ulykkesregistreringsskjema 2 er mottatt fra SSB</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9574</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2SSB</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2_SSB</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -557,7 +525,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="Skjema2SSBOtherType">
+  <simpleType name="Skjema2_SSBOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -575,11 +543,38 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
+          <element minOccurs="0" name="passasjerNummer" type="string">
+            <annotation>
+              <documentation>5107: Passasjernummer, f.eks. A0.  Satt sammen av ENHETS-bokstav og et fortløpende nummer. Fører=0, resten er fortløpende.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5107</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PASSASJERNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skjema2_SSB" type="nvdb:Skjema2_SSBType">
+            <annotation>
+              <documentation>9574: Angir om personopplysninger fra ulykkesregistreringsskjema 2 er mottatt fra SSB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9574</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2_SSB</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="kjønnIUlykke" type="nvdb:KjønnIUlykkeType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5108</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØNNIULYKKE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fødselsdato" type="date">
+            <annotation>
+              <documentation>5109: Fødselsdato</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5109</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FØDSELSDATO</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -602,12 +597,30 @@ Enhet: År</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skjema2SSB" type="nvdb:Skjema2SSBType">
+          <element minOccurs="0" name="skadegrad" type="nvdb:SkadegradType">
             <annotation>
-              <documentation>9574: Angir om personopplysninger fra ulykkesregistreringsskjema 2 er mottatt fra SSB</documentation>
+              <documentation>5112: Skadegrad for person innblandet i trafikkulykke</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9574</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJEMA2SSB</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5112</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADEGRAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skadegradFraSSB" type="nvdb:SkadegradFraSSBType">
+            <annotation>
+              <documentation>8808: Skadegrad for person innblandet i trafikkulykke.  Rapportert fra SSB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8808</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADEGRADFRASSB</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskyttelsesutstyr" type="nvdb:BeskyttelsesutstyrType">
+            <annotation>
+              <documentation>5113: Den beskyttelse personen har benyttet seg av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5113</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESKYTTELSESUTSTYR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -625,7 +638,7 @@ Enhet: År</documentation>
               <documentation>8844: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8844</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>

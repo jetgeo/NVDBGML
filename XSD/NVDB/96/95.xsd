@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>95: Skiltpunkt er en sammensetning av skiltplater, stolper og stolpefundament mm.</documentation>
   </annotation>
@@ -288,92 +288,126 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="KampanjetypeType">
+  <simpleType name="Kampanje_EgnetType">
     <annotation>
       <documentation>9483: Angir type kampanje(r) som skiltpunktet er tilrettelagt for</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9483</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJETYPE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_EGNET</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:KampanjetypeEnumerationType nvdb:KampanjetypeOtherType"/>
+    <union memberTypes="nvdb:Kampanje_EgnetEnumerationType nvdb:Kampanje_EgnetOtherType"/>
   </simpleType>
-  <simpleType name="KampanjetypeEnumerationType">
+  <simpleType name="Kampanje_EgnetEnumerationType">
     <annotation>
       <documentation>9483: Angir type kampanje(r) som skiltpunktet er tilrettelagt for</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9483</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJETYPE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_EGNET</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
       <enumeration value="bilbelte">
         <annotation>
-          <documentation>13357: Bilbelte: Punkt forberedt for bruk bilbeltekampanje</documentation>
+          <documentation>13357: Bilbelte: Punkt forberedt og egent for bruk i  bilbeltekampanje</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13357</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="stoppOgSov">
-        <annotation>
-          <documentation>13358: Stopp og sov: Punkt forberedt for stopp og sov kampanje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13358</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bilbelteStoppOgSov">
-        <annotation>
-          <documentation>13359: Bilbelte/stopp og sov: Punkt forberedt både for bilbeltekampanje og stopp og sov kampanje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13359</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="fart">
         <annotation>
-          <documentation>13360: Fart: Punkt forberedt for fartskampanje</documentation>
+          <documentation>13360: Fart: Punkt forberedt og egnet for bruk i  fartskampanje</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13360</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="bilbelteFart">
-        <annotation>
-          <documentation>13361: Bilbelte/Fart: Punkt forberedt både for bilbeltekampanje og fartskampanje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13361</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="stoppOgSovFart">
-        <annotation>
-          <documentation>13362: Stopp og sov/Fart: Punkt forberedt både for Stopp og sov kampanje og fartskampanje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13362</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bilbelteStoppOgSovFart">
-        <annotation>
-          <documentation>13363: Bilbelte/Stopp og sov/Fart: Punkt forberedt både for bilbeltekampanje, stopp og sov kampanje og fartskampanje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13363</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="delVegen">
         <annotation>
-          <documentation>17367: Del vegen</documentation>
+          <documentation>17367: Del vegen: Punkt forberedt og egnet for bruk i del vegen-kampanje</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17367</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="bilbelteFart">
+        <annotation>
+          <documentation>13361: Bilbelte/Fart: Punkt forberedt og egnet både for bruk i både bilbeltekampanje og fartskampanje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13361</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stoppOgSov_Historisk">
+        <annotation>
+          <documentation>13358: Stopp og sov (historisk): Punkt forberedt for stopp og sov kampanje. 2016: Kampanjen er utgått. Verdi er kun med for å kunne ta vare på historikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13358</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="KampanjetypeOtherType">
+  <simpleType name="Kampanje_EgnetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Kampanje_PågåendeType">
+    <annotation>
+      <documentation>10895: Angir type kampanje som pågår i periode angitt under ET 10894 "Kampanjeperiode"</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10895</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_PÅGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Kampanje_PågåendeEnumerationType nvdb:Kampanje_PågåendeOtherType"/>
+  </simpleType>
+  <simpleType name="Kampanje_PågåendeEnumerationType">
+    <annotation>
+      <documentation>10895: Angir type kampanje som pågår i periode angitt under ET 10894 "Kampanjeperiode"</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10895</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_PÅGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bilbelte">
+        <annotation>
+          <documentation>18173: Bilbelte: Punkt hvor det pågår bilbeltekampanje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18173</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fart">
+        <annotation>
+          <documentation>18172: Fart: Punkt hvor det pågår fartskampanje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18172</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="delVegen">
+        <annotation>
+          <documentation>18174: Del vegen: Punkt hvor det pågår del vegen-kampanje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18174</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingen">
+        <annotation>
+          <documentation>18171: Ingen: Punkt det er tilrettelat for kampanje, men hvor det for tiden ikke pågår noen kampanje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18171</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Kampanje_PågåendeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -728,22 +762,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="ProduktnavnSkiltmastType">
+  <simpleType name="Produktnavn_SkiltmastType">
     <annotation>
       <documentation>10427: Gir produktnavn for ettergivende skiltmast. Verdier er hentet fra oversikt over godkjente produkttyper på vegvesen.no</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10427</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVNSKILTMAST</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVN_SKILTMAST</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:ProduktnavnSkiltmastEnumerationType nvdb:ProduktnavnSkiltmastOtherType"/>
+    <union memberTypes="nvdb:Produktnavn_SkiltmastEnumerationType nvdb:Produktnavn_SkiltmastOtherType"/>
   </simpleType>
-  <simpleType name="ProduktnavnSkiltmastEnumerationType">
+  <simpleType name="Produktnavn_SkiltmastEnumerationType">
     <annotation>
       <documentation>10427: Gir produktnavn for ettergivende skiltmast. Verdier er hentet fra oversikt over godkjente produkttyper på vegvesen.no</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10427</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVNSKILTMAST</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVN_SKILTMAST</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -917,7 +951,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="ProduktnavnSkiltmastOtherType">
+  <simpleType name="Produktnavn_SkiltmastOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -996,7 +1030,7 @@
           </element>
           <element minOccurs="0" name="antallOppsettingsutstyr" type="integer">
             <annotation>
-              <documentation>1877: Angir antall oppsettingsutstyr det er i forbindelse med vegobjektet.  Antall skiltstolper/søyler knyttet til skiltpunktet
+              <documentation>1877: Angir antall oppsettingsutstyr det er i forbindelse med vegobjektet.  Antall skiltstolper/søyler knyttet til skiltpunktet. Eventuelle støttestolper skal ikke medregnes.
 Enhet: Stykker</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1877</taggedValue>
@@ -1004,12 +1038,21 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="produktnavnSkiltmast" type="nvdb:ProduktnavnSkiltmastType">
+          <element minOccurs="0" name="produktnavn_Skiltmast" type="nvdb:Produktnavn_SkiltmastType">
             <annotation>
               <documentation>10427: Gir produktnavn for ettergivende skiltmast. Verdier er hentet fra oversikt over godkjente produkttyper på vegvesen.no</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10427</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVNSKILTMAST</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVN_SKILTMAST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallStøttestolper" type="integer">
+            <annotation>
+              <documentation>10929: Angir hvor mange støttestolper det er i tilknytning til skiltpunktet. Støttestolpene er skråstilte og benyttes for å avstive skiltpunkt i forhold til bla vindlast.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10929</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLSTØTTESTOLPER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1022,13 +1065,13 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="høydeMastStolpe" type="double">
+          <element minOccurs="0" name="høyde_MastStolpe" type="double">
             <annotation>
               <documentation>10428: Gir høyde (lengde) av selve masten/stolpen.
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10428</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEMASTSTOLPE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_MASTSTOLPE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1080,12 +1123,30 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kampanjetype" type="nvdb:KampanjetypeType">
+          <element minOccurs="0" name="kampanje_Egnet" type="nvdb:Kampanje_EgnetType">
             <annotation>
               <documentation>9483: Angir type kampanje(r) som skiltpunktet er tilrettelagt for</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9483</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJETYPE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_EGNET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kampanje_Pågående" type="nvdb:Kampanje_PågåendeType">
+            <annotation>
+              <documentation>10895: Angir type kampanje som pågår i periode angitt under ET 10894 "Kampanjeperiode"</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10895</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJE_PÅGÅENDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kampanjeperiode" type="string">
+            <annotation>
+              <documentation>10894: Angir hvilken periode gjeldende kampanje gjelder for.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10894</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAMPANJEPERIODE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1125,12 +1186,12 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="FKB_ID" type="string">
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>10854: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.</documentation>
+              <documentation>10854: Felt kan benyttes til tilleggsinformajon.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10854</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FKB_ID</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1157,7 +1218,7 @@ Enhet: Stykker</documentation>
               <documentation>4794: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4794</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1174,13 +1235,6 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertSkiltplate" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -1192,6 +1246,13 @@ Enhet: Stykker</documentation>
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

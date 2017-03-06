@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>502: Skap for oppbevaring/installasjon av utstyr.</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="EierSkapTekniskType">
+  <simpleType name="EierSkap_TekniskType">
     <annotation>
       <documentation>8039: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8039</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:EierSkapTekniskEnumerationType nvdb:EierSkapTekniskOtherType"/>
+    <union memberTypes="nvdb:EierSkap_TekniskEnumerationType nvdb:EierSkap_TekniskOtherType"/>
   </simpleType>
-  <simpleType name="EierSkapTekniskEnumerationType">
+  <simpleType name="EierSkap_TekniskEnumerationType">
     <annotation>
       <documentation>8039: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8039</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -67,7 +67,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="EierSkapTekniskOtherType">
+  <simpleType name="EierSkap_TekniskOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -85,12 +85,21 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeSkapTekniskType">
+          <element minOccurs="0" name="type" type="nvdb:TypeSkap_TekniskType">
             <annotation>
               <documentation>4013: Angir hvilken type skap det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="produsentnavn" type="string">
+            <annotation>
+              <documentation>4016: Angir navn på produsent av vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4016</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -112,7 +121,16 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierSkapTekniskType">
+          <element minOccurs="0" name="produktnavn" type="string">
+            <annotation>
+              <documentation>4018: Angir produktnavn/typebetegnelse, kan også ta med typenummer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4018</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierSkap_TekniskType">
             <annotation>
               <documentation>8039: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -121,7 +139,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSkapTekniskType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSkap_TekniskType">
             <annotation>
               <documentation>8114: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -135,7 +153,7 @@
               <documentation>5007: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5007</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -162,22 +180,22 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeSkapTekniskType">
+  <simpleType name="TypeSkap_TekniskType">
     <annotation>
       <documentation>4013: Angir hvilken type skap det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TypeSkapTekniskEnumerationType nvdb:TypeSkapTekniskOtherType"/>
+    <union memberTypes="nvdb:TypeSkap_TekniskEnumerationType nvdb:TypeSkap_TekniskOtherType"/>
   </simpleType>
-  <simpleType name="TypeSkapTekniskEnumerationType">
+  <simpleType name="TypeSkap_TekniskEnumerationType">
     <annotation>
       <documentation>4013: Angir hvilken type skap det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -215,27 +233,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TypeSkapTekniskOtherType">
+  <simpleType name="TypeSkap_TekniskOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkapTekniskType">
+  <simpleType name="VedlikeholdsansvarligSkap_TekniskType">
     <annotation>
       <documentation>8114: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8114</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligSkapTekniskEnumerationType nvdb:VedlikeholdsansvarligSkapTekniskOtherType"/>
+    <union memberTypes="nvdb:VedlikeholdsansvarligSkap_TekniskEnumerationType nvdb:VedlikeholdsansvarligSkap_TekniskOtherType"/>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkapTekniskEnumerationType">
+  <simpleType name="VedlikeholdsansvarligSkap_TekniskEnumerationType">
     <annotation>
       <documentation>8114: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8114</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKAPTEKNISK</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKAP_TEKNISK</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -273,7 +291,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkapTekniskOtherType">
+  <simpleType name="VedlikeholdsansvarligSkap_TekniskOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

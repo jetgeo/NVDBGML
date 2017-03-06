@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <include schemaLocation="SOSI_Bestilling.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
@@ -61,22 +61,72 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="SOSIVersjonType">
+  <element name="SOSI_Bestilling" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SOSI_BestillingType">
     <annotation>
-      <documentation>5558: Angir SOSI-versjon</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">622</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_BESTILLING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:SOSIVersjonEnumerationType nvdb:SOSIVersjonOtherType"/>
-  </simpleType>
-  <simpleType name="SOSIVersjonEnumerationType">
+  </element>
+  <complexType name="SOSI_BestillingType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="SOSI_Versjon" type="nvdb:SOSI_VersjonType">
+            <annotation>
+              <documentation>5558: Angir SOSI-versjon</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_VERSJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="enhet" type="nvdb:EnhetType">
+            <annotation>
+              <documentation>7563: Angir enhet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7563</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="ledetekst" type="integer">
+            <annotation>
+              <documentation>5826: LedetekstID</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5826</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEDETEKST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_BestillingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:SOSI_Bestilling"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="SOSI_VersjonType">
     <annotation>
       <documentation>5558: Angir SOSI-versjon</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_VERSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SOSI_VersjonEnumerationType nvdb:SOSI_VersjonOtherType"/>
+  </simpleType>
+  <simpleType name="SOSI_VersjonEnumerationType">
+    <annotation>
+      <documentation>5558: Angir SOSI-versjon</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_VERSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -114,59 +164,9 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="SOSIVersjonOtherType">
+  <simpleType name="SOSI_VersjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="SOSI_Bestilling" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SOSI_BestillingType">
-    <annotation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">622</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_BESTILLING</taggedValue>
-      </appinfo>
-    </annotation>
-  </element>
-  <complexType name="SOSI_BestillingType">
-    <complexContent>
-      <extension base="nvdb:FellesegenskaperType">
-        <sequence>
-          <element name="SOSIVersjon" type="nvdb:SOSIVersjonType">
-            <annotation>
-              <documentation>5558: Angir SOSI-versjon</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element name="enhet" type="nvdb:EnhetType">
-            <annotation>
-              <documentation>7563: Angir enhet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7563</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHET</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="ledetekst" type="integer">
-            <annotation>
-              <documentation>5826: LedetekstID</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5826</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEDETEKST</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="SOSI_BestillingPropertyType">
-    <sequence minOccurs="0">
-      <element ref="nvdb:SOSI_Bestilling"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
 </schema>

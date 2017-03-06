@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>647: Aggregert informasjon ifbm PMS-rapport 2625</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="GeografiskOppløsningStatistikkVegbreddeType">
+  <simpleType name="GeografiskOppløsningStatistikk_VegbreddeType">
     <annotation>
       <documentation>6117: Angir hva statistikken omfatter</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6117</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNINGSTATISTIKKVEGBREDDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNINGSTATISTIKK_VEGBREDDE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:GeografiskOppløsningStatistikkVegbreddeEnumerationType nvdb:GeografiskOppløsningStatistikkVegbreddeOtherType"/>
+    <union memberTypes="nvdb:GeografiskOppløsningStatistikk_VegbreddeEnumerationType nvdb:GeografiskOppløsningStatistikk_VegbreddeOtherType"/>
   </simpleType>
-  <simpleType name="GeografiskOppløsningStatistikkVegbreddeEnumerationType">
+  <simpleType name="GeografiskOppløsningStatistikk_VegbreddeEnumerationType">
     <annotation>
       <documentation>6117: Angir hva statistikken omfatter</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6117</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNINGSTATISTIKKVEGBREDDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNINGSTATISTIKK_VEGBREDDE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -139,7 +139,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="GeografiskOppløsningStatistikkVegbreddeOtherType">
+  <simpleType name="GeografiskOppløsningStatistikk_VegbreddeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -165,16 +165,16 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="stedsangivelseFraTil" type="string">
+          <element minOccurs="0" name="stedsangivelse_Fra_Til" type="string">
             <annotation>
               <documentation>8732: Angir stedsnavn for start og slutt strekning.  Rekkefølge som navnene settes i har ikke betydning.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8732</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSANGIVELSEFRATIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSANGIVELSE_FRA_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element name="geografiskOppløsning" type="nvdb:GeografiskOppløsningStatistikkVegbreddeType">
+          <element name="geografiskOppløsning" type="nvdb:GeografiskOppløsningStatistikk_VegbreddeType">
             <annotation>
               <documentation>6117: Angir hva statistikken omfatter</documentation>
               <appinfo>
@@ -183,27 +183,29 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="minimumsdatoGrunnlag" type="date">
+          <element minOccurs="0" name="min_Mm_Dato_Grunnlag" type="date">
             <annotation>
               <documentation>8794: Datagrunnlaget for statistikkobjektet er ikke eldre enn gitt dato.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8794</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MINIMUMSDATOGRUNNLAG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MIN_MM_DATO_GRUNNLAG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksimumsdatoGrunnlag" type="date">
+          <element minOccurs="0" name="maks_Mm_Dato_Grunnlag" type="date">
             <annotation>
               <documentation>8795: Datagrunnlaget for statistikkobjektet er ikke nyere enn gitt dato.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8795</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSIMUMSDATOGRUNNLAG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKS_MM_DATO_GRUNNLAG</taggedValue>
               </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="midlereDekkebredde" type="double">
             <annotation>
               <documentation>6119: Enhet: Meter
+Enhet: Meter
+Enhet: Meter
 Enhet: Meter
 Enhet: Meter
 Enhet: Meter
@@ -222,6 +224,8 @@ Enhet: Meter
 Enhet: Meter
 Enhet: Meter
 Enhet: Meter
+Enhet: Meter
+Enhet: Meter
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6120</taggedValue>
@@ -232,6 +236,8 @@ Enhet: Meter</documentation>
           <element minOccurs="0" name="midlereVegbredde" type="double">
             <annotation>
               <documentation>6121: Enhet: Meter
+Enhet: Meter
+Enhet: Meter
 Enhet: Meter
 Enhet: Meter
 Enhet: Meter
@@ -250,6 +256,8 @@ Enhet: Kvadratmeter
 Enhet: Kvadratmeter
 Enhet: Kvadratmeter
 Enhet: Kvadratmeter
+Enhet: Kvadratmeter
+Enhet: Kvadratmeter
 Enhet: Kvadratmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6122</taggedValue>
@@ -260,6 +268,8 @@ Enhet: Kvadratmeter</documentation>
           <element minOccurs="0" name="måltProsent" type="double">
             <annotation>
               <documentation>6123: Enhet: Prosent
+Enhet: Prosent
+Enhet: Prosent
 Enhet: Prosent
 Enhet: Prosent
 Enhet: Prosent

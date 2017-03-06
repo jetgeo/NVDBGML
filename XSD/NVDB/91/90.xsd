@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>90: Signalhoder inkludert stolpe etc. lokalisert til et punkt.</documentation>
   </annotation>
@@ -25,14 +25,6 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="jordstikk">
-        <annotation>
-          <documentation>2425: Jordstikk</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2425</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="IPåFjellfundament">
         <annotation>
           <documentation>2429: I/på fjellfundament</documentation>
@@ -57,7 +49,15 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kumMedFundament">
+      <enumeration value="jordstikk">
+        <annotation>
+          <documentation>2425: Jordstikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2425</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="K_Mm_DFundament">
         <annotation>
           <documentation>3930: Kum med fundament</documentation>
           <appinfo>
@@ -175,15 +175,6 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="string">
-            <annotation>
-              <documentation>1146: Angir hvilken type vegobjektet er av</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1146</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="oppsettingsutstyr" type="nvdb:OppsettingsutstyrSignalpunktType">
             <annotation>
               <documentation>1875: Angir hvilken type oppsettingsutstyr vegobjektet er festet på</documentation>
@@ -202,6 +193,15 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="fundamentering" type="nvdb:FundamenteringSignalpunktType">
+            <annotation>
+              <documentation>1670: Angir hvordan vegobjektet er fundamentert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1670</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="oppsettingsår" type="integer">
             <annotation>
               <documentation>10355: Angir hvilket år vegobjektet ble satt opp</documentation>
@@ -211,21 +211,21 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>1146: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1146</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>4790: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4790</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="fundamentering" type="nvdb:FundamenteringSignalpunktType">
-            <annotation>
-              <documentation>1670: Angir hvordan vegobjektet er fundamentert</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1670</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -301,19 +301,27 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="pipelyd">
+      <enumeration value="akustiskSignal">
         <annotation>
-          <documentation>2990: Pipelyd</documentation>
+          <documentation>2990: Akustisk signal</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2990</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="trykknappForFotgjengereOgPipelyd">
+      <enumeration value="trykknappForFotgjengereOgAkustiskSignal">
         <annotation>
-          <documentation>2991: Trykknapp for fotgjengere og pipelyd</documentation>
+          <documentation>2991: Trykknapp for fotgjengere og akustisk signal</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2991</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeTilleggsutstyr">
+        <annotation>
+          <documentation>18308: Ikke tilleggsutstyr: Ikke noe tilleggsutstyr. Bare aktuelt å angi denne verdien i tilfeller hvor det er relevant med tilleggsutstyr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18308</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

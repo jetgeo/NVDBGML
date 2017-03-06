@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>97: Skilt som kan vise ulike motiv.  Motivet kan styres fra en sentral eller det kan varieres manuelt.</documentation>
   </annotation>
@@ -198,22 +198,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="SkiltnummerOrdinærVisningType">
+  <simpleType name="Skiltnummer_OrdinærVisningType">
     <annotation>
       <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMERORDINÆRVISNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:SkiltnummerOrdinærVisningEnumerationType nvdb:SkiltnummerOrdinærVisningOtherType"/>
+    <union memberTypes="nvdb:Skiltnummer_OrdinærVisningEnumerationType nvdb:Skiltnummer_OrdinærVisningOtherType"/>
   </simpleType>
-  <simpleType name="SkiltnummerOrdinærVisningEnumerationType">
+  <simpleType name="Skiltnummer_OrdinærVisningEnumerationType">
     <annotation>
       <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMERORDINÆRVISNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -603,7 +603,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="SkiltnummerOrdinærVisningOtherType">
+  <simpleType name="Skiltnummer_OrdinærVisningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -695,12 +695,12 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="skiltnummerOrdinærVisning" type="nvdb:SkiltnummerOrdinærVisningType">
+          <element minOccurs="0" name="skiltnummer_OrdinærVisning" type="nvdb:Skiltnummer_OrdinærVisningType">
             <annotation>
               <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMERORDINÆRVISNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -714,12 +714,12 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tekstOrdinærVisning" type="string">
+          <element minOccurs="0" name="tekst_OrdinærVisning" type="string">
             <annotation>
               <documentation>3763: Angir tekst på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3763</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKSTORDINÆRVISNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKST_ORDINÆRVISNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -831,6 +831,15 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="type" type="nvdb:TypeVariabeltSkiltType">
+            <annotation>
+              <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1151</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="skiltutforming">
             <annotation>
               <documentation>5291: Benyttes i forbindelse med interface mot skiltmodulen. Til testformål.</documentation>
@@ -849,21 +858,12 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeVariabeltSkiltType">
-            <annotation>
-              <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1151</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>4796: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4796</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -880,10 +880,10 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -894,17 +894,17 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

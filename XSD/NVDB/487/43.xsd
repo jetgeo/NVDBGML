@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>43: Område avsatt til parkering for mer enn ett kjøretøy. (1)</documentation>
   </annotation>
@@ -222,22 +222,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="KjøretøytypeDimensjonerendeType">
+  <simpleType name="Kjøretøytype_DimensjonerendeType">
     <annotation>
       <documentation>1775: Dimensjonerende kjøretøytype for kjøring på parkeringsområde.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1775</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPEDIMENSJONERENDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPE_DIMENSJONERENDE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:KjøretøytypeDimensjonerendeEnumerationType nvdb:KjøretøytypeDimensjonerendeOtherType"/>
+    <union memberTypes="nvdb:Kjøretøytype_DimensjonerendeEnumerationType nvdb:Kjøretøytype_DimensjonerendeOtherType"/>
   </simpleType>
-  <simpleType name="KjøretøytypeDimensjonerendeEnumerationType">
+  <simpleType name="Kjøretøytype_DimensjonerendeEnumerationType">
     <annotation>
       <documentation>1775: Dimensjonerende kjøretøytype for kjøring på parkeringsområde.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1775</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPEDIMENSJONERENDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPE_DIMENSJONERENDE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -283,7 +283,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="KjøretøytypeDimensjonerendeOtherType">
+  <simpleType name="Kjøretøytype_DimensjonerendeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -301,22 +301,12 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="antallParkeringsplasserSmåKjt" type="integer">
+          <element minOccurs="0" name="navn" type="string">
             <annotation>
-              <documentation>1807: Angir antall oppmerka parkeringsplasser for små personbiler.  For parkeringsområder som ikke har oppmerka plasser gis det anslag på hvor mange personbiler det er plass til.  Områder som er skiltet o.l. for buss/lastebil regnes ikke med.  Rasteplasser kan ha oppstillingsplasser utenom parkeringsområde (se "Rasteplass").
-Enhet: Stykker</documentation>
+              <documentation>1076: Angir navn på vegobjektet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1807</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPARKERINGSPLASSERSMÅKJT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeParkeringsområdeType">
-            <annotation>
-              <documentation>1255: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1255</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1076</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -329,6 +319,15 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeParkeringsområdeType">
+            <annotation>
+              <documentation>1255: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1255</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="innfartsparkering" type="nvdb:InnfartsparkeringType">
             <annotation>
               <documentation>5779: Angir om parkeringsområde kan defineres som innfartsparkering.</documentation>
@@ -338,12 +337,52 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vinterdriftsklasse" type="nvdb:VinterdriftsklasseParkeringsområdeType">
+          <element minOccurs="0" name="kjøretøytype_Dimensjonerende" type="nvdb:Kjøretøytype_DimensjonerendeType">
             <annotation>
-              <documentation>9555: Beskriver hvilken standard for vinterdrift som skal gjelde for plassen. (Se også vegobjekttype 819-Vinterdriftsklasse)</documentation>
+              <documentation>1775: Dimensjonerende kjøretøytype for kjøring på parkeringsområde.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9555</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERDRIFTSKLASSE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1775</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPE_DIMENSJONERENDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallParkeringsplasserSmåKjt" type="integer">
+            <annotation>
+              <documentation>1807: Angir antall oppmerka parkeringsplasser for små personbiler.  For parkeringsområder som ikke har oppmerka plasser gis det anslag på hvor mange personbiler det er plass til.  Områder som er skiltet o.l. for buss/lastebil regnes ikke med.  Rasteplasser kan ha oppstillingsplasser utenom parkeringsområde (se "Rasteplass").
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1807</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPARKERINGSPLASSERSMÅKJT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plasserReservertHandikappede" type="integer">
+            <annotation>
+              <documentation>1818: Angir antall parkerings/oppstillingsplasser reservert handikappede
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1818</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERRESERVERTHANDIKAPPEDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallParkeringsplasserStoreKjt" type="integer">
+            <annotation>
+              <documentation>1817: Angir antall oppmerka parkeringsplasser for store kjøretøy.  For parkeringsområder som ikke har oppmerka plasser telles det kun med antall slike plasser innenfor delområder som er tydelig merka buss/lastebil.
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1817</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPARKERINGSPLASSERSTOREKJT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="integer">
+            <annotation>
+              <documentation>1359: Angir totalt areal.  Dette inkluderer kjørbart, ikke kjørbart og bebygd areal innenfor parkeringsområdets avgrensning.  Se tilhørende "datterobjekt" for mer detaljert arealinformasjon.
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1359</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -374,6 +413,15 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="vinterdriftsklasse" type="nvdb:VinterdriftsklasseParkeringsområdeType">
+            <annotation>
+              <documentation>9555: Beskriver hvilken standard for vinterdrift som skal gjelde for plassen. (Se også vegobjekttype 819-Vinterdriftsklasse)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9555</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERDRIFTSKLASSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="brøyterodenummer" type="string">
             <annotation>
               <documentation>9868: Angir nummer til brøyterode som dekker parkeringsområde.</documentation>
@@ -389,45 +437,6 @@ Enhet: Stykker</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9869</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STRØRODENUMMER</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="antallParkeringsplasserStoreKjt" type="integer">
-            <annotation>
-              <documentation>1817: Angir antall oppmerka parkeringsplasser for store kjøretøy.  For parkeringsområder som ikke har oppmerka plasser telles det kun med antall slike plasser innenfor delområder som er tydelig merka buss/lastebil.
-Enhet: Stykker</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1817</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLPARKERINGSPLASSERSTOREKJT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="areal" type="integer">
-            <annotation>
-              <documentation>1359: Angir totalt areal.  Dette inkluderer kjørbart, ikke kjørbart og bebygd areal innenfor parkeringsområdets avgrensning.  Se tilhørende "datterobjekt" for mer detaljert arealinformasjon.
-Enhet: Kvadratmeter</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1359</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="navn" type="string">
-            <annotation>
-              <documentation>1076: Angir navn på vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1076</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="plasserReservertHandikappede" type="integer">
-            <annotation>
-              <documentation>1818: Angir antall parkerings/oppstillingsplasser reservert handikappede
-Enhet: Stykker</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1818</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERRESERVERTHANDIKAPPEDE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -454,7 +463,7 @@ Enhet: Stykker</documentation>
               <documentation>10891: Gir flate/polygon som geometrisk avgrenser området</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10891</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -463,7 +472,7 @@ Enhet: Stykker</documentation>
               <documentation>4750: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4750</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -472,16 +481,7 @@ Enhet: Stykker</documentation>
               <documentation>9431: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9431</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="kjøretøytypeDimensjonerende" type="nvdb:KjøretøytypeDimensjonerendeType">
-            <annotation>
-              <documentation>1775: Dimensjonerende kjøretøytype for kjøring på parkeringsområde.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1775</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYTYPEDIMENSJONERENDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -490,17 +490,17 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

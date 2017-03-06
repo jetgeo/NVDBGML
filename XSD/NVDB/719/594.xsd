@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>594: VSTØY/VLUFT inndata og resultatdata i tilknytning til en bygning/enhet.  Kan også være uteområde etc.  Tidligere register 29-Bygning i VDB</documentation>
   </annotation>
@@ -280,22 +280,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="NummerIndikatorType">
+  <simpleType name="Nummer_IndikatorType">
     <annotation>
       <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5337</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMERINDIKATOR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER_INDIKATOR</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:NummerIndikatorEnumerationType nvdb:NummerIndikatorOtherType"/>
+    <union memberTypes="nvdb:Nummer_IndikatorEnumerationType nvdb:Nummer_IndikatorOtherType"/>
   </simpleType>
-  <simpleType name="NummerIndikatorEnumerationType">
+  <simpleType name="Nummer_IndikatorEnumerationType">
     <annotation>
       <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5337</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMERINDIKATOR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER_INDIKATOR</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -317,7 +317,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="NummerIndikatorOtherType">
+  <simpleType name="Nummer_IndikatorOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -389,21 +389,21 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="GABNummer" type="integer">
+          <element minOccurs="0" name="GAB_Nummer" type="integer">
             <annotation>
               <documentation>5336: Bygningsnummer eksklusiv fylkesnummer og kommunenummer.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5336</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GABNUMMER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GAB_NUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="nummerIndikator" type="nvdb:NummerIndikatorType">
+          <element minOccurs="0" name="nummer_Indikator" type="nvdb:Nummer_IndikatorType">
             <annotation>
               <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR-IND settes til 'L'.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5337</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMERINDIKATOR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER_INDIKATOR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -547,6 +547,15 @@ Enhet: Desibel A</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="vindustypeIVeggMotHovedveg" type="nvdb:VindustypeIVeggMotHovedvegType">
+            <annotation>
+              <documentation>5350: Vindustype i vegg mot hovedveg</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5350</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDUSTYPEIVEGGMOTHOVEDVEG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="ekvivalentUtendørsStøynivå" type="double">
             <annotation>
               <documentation>5354: Ekvivalent utendørs støynivå.
@@ -554,15 +563,6 @@ Enhet: Desibel A</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5354</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EKVIVALENTUTENDØRSSTØYNIVÅ</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="vindustypeIVeggMotHovedveg" type="nvdb:VindustypeIVeggMotHovedvegType">
-            <annotation>
-              <documentation>5350: Vindustype i vegg mot hovedveg</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5350</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDUSTYPEIVEGGMOTHOVEDVEG</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -599,6 +599,8 @@ Enhet: Desibel A</documentation>
           <element minOccurs="0" name="L5AFUtendørsStøynivå" type="double">
             <annotation>
               <documentation>9286: Enhet: Desibel A
+Enhet: Desibel A
+Enhet: Desibel A
 Enhet: Desibel A
 Enhet: Desibel A
 Enhet: Desibel A
@@ -666,23 +668,23 @@ Enhet: Desibel A</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="måltUtvendigNO2Timemiddel" type="integer">
+          <element minOccurs="0" name="måltUtvendigNO2_TMm_Ddel" type="integer">
             <annotation>
               <documentation>5370: Målt utvendig NO2 timemiddel
 Enhet: Milligram/kubikkmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5370</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLTUTVENDIGNO2TIMEMIDDEL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLTUTVENDIGNO2_TMM_DDEL</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="NO2Kons8GgrPrÅr" type="integer">
+          <element minOccurs="0" name="NO2_Kons8_Ggr_Pr_År" type="integer">
             <annotation>
               <documentation>5367: Konsentrasjon av NO2 som overstiges 8 ganger pr. år
 Enhet: Milligram/kubikkmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5367</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2KONS8GGRPRÅR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NO2_KONS8_GGR_PR_ÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -715,23 +717,23 @@ Enhet: Milligram/kubikkmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="pm10Kons7GgrPrÅr" type="integer">
+          <element minOccurs="0" name="pm10_Kons7_Ggr_Pr_År" type="integer">
             <annotation>
               <documentation>5369: Konsentrasjonsnivå av PM10 som overstiges mer enn 7 ganger pr. år.
 Enhet: Milligram/kubikkmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5369</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10KONS7GGRPRÅR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10_KONS7_GGR_PR_ÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="pm10Kons25GgrPrÅr" type="integer">
+          <element minOccurs="0" name="pm10_Kons25_Ggr_Pr_År" type="integer">
             <annotation>
               <documentation>5368: Konsentrasjon av PM10 som overstiges 25 ganger pr. år
 Enhet: Milligram/kubikkmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5368</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10KONS25GGRPRÅR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PM10_KONS25_GGR_PR_ÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -759,7 +761,7 @@ Enhet: Milligram/kubikkmeter</documentation>
               <documentation>5340: Koordinater til punkt som er representativt for bygning.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5340</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKTBYGNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT_BYGNING</taggedValue>
               </appinfo>
             </annotation>
           </element>

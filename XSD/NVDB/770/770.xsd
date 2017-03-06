@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>770: Overfart som trafikkeres av bilferje.  Kan ha to eller flere anløpssteder.(uoff)</documentation>
   </annotation>
@@ -68,12 +68,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="NFDB_Id" type="integer">
+          <element minOccurs="0" name="sambandstype" type="nvdb:SambandstypeType">
             <annotation>
-              <documentation>9187: Nøkkel i ny ferjedatabank (nFDB)</documentation>
+              <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9187</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NFDB_ID</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMBANDSTYPE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -82,6 +82,15 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9189</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="FDB_Id" type="integer">
+            <annotation>
+              <documentation>9187: Nøkkel i ny ferjedatabank (nFDB)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9187</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FDB_ID</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -102,7 +111,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="assosiertFerjestrekning" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertFerjestrekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Ferjestrekning</targetElement>
@@ -120,4 +129,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="SambandstypeType">
+    <annotation>
+      <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMBANDSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SambandstypeEnumerationType nvdb:SambandstypeOtherType"/>
+  </simpleType>
+  <simpleType name="SambandstypeEnumerationType">
+    <annotation>
+      <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMBANDSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="riksvegferjesamband">
+        <annotation>
+          <documentation>18304: Riksvegferjesamband: Samband som administreres av stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18304</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkesferjesamband">
+        <annotation>
+          <documentation>18305: Fylkesferjesamband: Samband som administreres av fylkeskummune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18305</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommuneferjesamband">
+        <annotation>
+          <documentation>18306: Kommuneferjesamband: Ferjesamband som administreres av kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18306</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SambandstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

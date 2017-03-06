@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>181: Mast i forbindelse med veg/gatebelysning. Normalt har mast påmontert lysarmatur, men kan også være mast uten lysarmatur som benyttes for framføring av kabel.</documentation>
   </annotation>
@@ -133,19 +133,11 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kabelframføring">
+      <enumeration value="kunKabelframføring">
         <annotation>
-          <documentation>18163: Kabelframføring: Lysmast benyttes til kabelframføring, ikke lysarmatur</documentation>
+          <documentation>18163: Kun kabelframføring: Lysmast benyttes til kabelframføring, ikke lysarmatur</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18163</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lysOgKabelframføring">
-        <annotation>
-          <documentation>18164: Lys og kabelframføring: Lysmast benyttes til både kabelframføring og lysarmatur</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18164</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -470,6 +462,15 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="RAL_Kode" type="string">
+            <annotation>
+              <documentation>3886: Angir lakkfargekode for mast.  Bare aktuelt for lakkerte master</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3886</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RAL_KODE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligLysmastType">
             <annotation>
               <documentation>9956: Angir hvem som er ansvarlig for vedlikehold</documentation>
@@ -489,13 +490,13 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="diameterTopp" type="integer">
+          <element minOccurs="0" name="diameter_Topp" type="integer">
             <annotation>
               <documentation>10586: Angir diameter for topp lysmast
 Enhet: Millimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10586</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DIAMETERTOPP</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DIAMETER_TOPP</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -509,7 +510,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksområde" type="integer">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeLysmastType">
             <annotation>
               <documentation>10889: Angir bruksområde for lysmast.</documentation>
               <appinfo>
@@ -563,12 +564,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="RALKode" type="string">
+          <element minOccurs="0" name="FKB_ID" type="string">
             <annotation>
-              <documentation>3886: Angir lakkfargekode for mast.  Bare aktuelt for lakkerte master</documentation>
+              <documentation>10972: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3886</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RALKODE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10972</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FKB_ID</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -590,12 +591,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eierNavn" type="string">
+          <element minOccurs="0" name="eier_Navn" type="string">
             <annotation>
               <documentation>10015: Navn på eier av  vegobjektet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10015</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERNAVN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER_NAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -604,7 +605,7 @@ Enhet: Meter</documentation>
               <documentation>4838: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4838</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -620,10 +621,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -634,10 +635,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -817,7 +818,7 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="aluminiumsmast">
+      <enumeration value="alumini_Mm_St">
         <annotation>
           <documentation>16304: Aluminiumsmast</documentation>
           <appinfo>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>874: Informasjon om sykkeltilbud langs riksvegrute</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="RiksvegruteSykkeltilbudRiksvegruteType">
+  <simpleType name="RiksvegruteSykkeltilbud_RiksvegruteType">
     <annotation>
       <documentation>10418: Angir hvilken riksvegrute aktuelt sykkeltilbud gjelder for</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10418</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RIKSVEGRUTESYKKELTILBUDRIKSVEGRUTE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RIKSVEGRUTESYKKELTILBUD_RIKSVEGRUTE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:RiksvegruteSykkeltilbudRiksvegruteEnumerationType nvdb:RiksvegruteSykkeltilbudRiksvegruteOtherType"/>
+    <union memberTypes="nvdb:RiksvegruteSykkeltilbud_RiksvegruteEnumerationType nvdb:RiksvegruteSykkeltilbud_RiksvegruteOtherType"/>
   </simpleType>
-  <simpleType name="RiksvegruteSykkeltilbudRiksvegruteEnumerationType">
+  <simpleType name="RiksvegruteSykkeltilbud_RiksvegruteEnumerationType">
     <annotation>
       <documentation>10418: Angir hvilken riksvegrute aktuelt sykkeltilbud gjelder for</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10418</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RIKSVEGRUTESYKKELTILBUDRIKSVEGRUTE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RIKSVEGRUTESYKKELTILBUD_RIKSVEGRUTE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -171,7 +171,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="RiksvegruteSykkeltilbudRiksvegruteOtherType">
+  <simpleType name="RiksvegruteSykkeltilbud_RiksvegruteOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -243,9 +243,9 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="ikkeSykkeltilbud">
+      <enumeration value="sykkelforbud_IkkeAlternativer">
         <annotation>
-          <documentation>16819: Ikke sykkeltilbud: Strekning hvor det ikke er sykkeltilbud på/ved selve riksvegen, og hvor det heller ikke er tilbud på lokalt vegnett. Syklende må basere seg på skyss med annet transportmiddel.</documentation>
+          <documentation>16819: Sykkelforbud, ikke alternativer: Strekning hvor det ikke er sykkeltilbud på/ved selve riksvegen, og hvor det heller ikke er tilbud på lokalt vegnett. Syklende må basere seg på skyss med annet transportmiddel.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16819</taggedValue>
           </appinfo>
@@ -271,7 +271,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="riksvegrute" type="nvdb:RiksvegruteSykkeltilbudRiksvegruteType">
+          <element minOccurs="0" name="riksvegrute" type="nvdb:RiksvegruteSykkeltilbud_RiksvegruteType">
             <annotation>
               <documentation>10418: Angir hvilken riksvegrute aktuelt sykkeltilbud gjelder for</documentation>
               <appinfo>
@@ -300,10 +300,28 @@
           </element>
           <element minOccurs="0" name="vurderingAvTilbud" type="nvdb:VurderingAvTilbudType">
             <annotation>
-              <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer</documentation>
+              <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer. Vegnormaler legges til grunn i vurderingen.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10420</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VURDERINGAVTILBUD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitetssikretDato" type="date">
+            <annotation>
+              <documentation>10933: Dato informajson sist var kvalitetssikret</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10933</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETSSIKRETDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitetssikretAv" type="string">
+            <annotation>
+              <documentation>10934: Angir hvem som utførte siste kvalitetsskring</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10934</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETSSIKRETAV</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -344,7 +362,7 @@
   </complexType>
   <simpleType name="VurderingAvTilbudType">
     <annotation>
-      <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer</documentation>
+      <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer. Vegnormaler legges til grunn i vurderingen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10420</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VURDERINGAVTILBUD</taggedValue>
@@ -354,7 +372,7 @@
   </simpleType>
   <simpleType name="VurderingAvTilbudEnumerationType">
     <annotation>
-      <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer</documentation>
+      <documentation>10420: Vurdering av kvalitet på tilbud. Vurdering foretas av regionale sykkelkoordinatorer. Vegnormaler legges til grunn i vurderingen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10420</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VURDERINGAVTILBUD</taggedValue>
@@ -363,7 +381,7 @@
     <restriction base="string">
       <enumeration value="tilfredsstillende">
         <annotation>
-          <documentation>16820: Tilfredsstillende</documentation>
+          <documentation>16820: Tilfredsstillende: Sykkeltilbudet er ikke tilfredsstillende i forhold til krav som stilles i vegnormalene</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16820</taggedValue>
           </appinfo>
@@ -371,7 +389,7 @@
       </enumeration>
       <enumeration value="ikkeTilfredsstillende">
         <annotation>
-          <documentation>16821: Ikke tilfredsstillende</documentation>
+          <documentation>16821: Ikke tilfredsstillende: Sykkeltilbudet er tilfredsstillende i forhold til krav som stilles i vegnormalene</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16821</taggedValue>
           </appinfo>

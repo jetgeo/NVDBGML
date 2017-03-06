@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>519: Vegoppmerking som ikke har nevneverdig langsgående utstrekning.  Eks symbol, sperreområder, piler, tekst, gangfelt og annen tverrgående oppmerking.</documentation>
   </annotation>
@@ -56,22 +56,64 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TypeVegoppmerkingTverrgåendeType">
+  <simpleType name="NedfresingVegoppmerking_TverrgåendeType">
     <annotation>
-      <documentation>4167: Angir hvilken type vegobjektet er av</documentation>
+      <documentation>10930: Angir hvorvidt det er frest ned en plan forsenkning i asfalten for å legge vegmerkingen i. Hensikten med dette er bla at vegmerkingen blir mindre utsatt for brøyteskader.</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGTVERRGÅENDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10930</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESINGVEGOPPMERKING_TVERRGÅENDE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TypeVegoppmerkingTverrgåendeEnumerationType nvdb:TypeVegoppmerkingTverrgåendeOtherType"/>
+    <union memberTypes="nvdb:NedfresingVegoppmerking_TverrgåendeEnumerationType nvdb:NedfresingVegoppmerking_TverrgåendeOtherType"/>
   </simpleType>
-  <simpleType name="TypeVegoppmerkingTverrgåendeEnumerationType">
+  <simpleType name="NedfresingVegoppmerking_TverrgåendeEnumerationType">
+    <annotation>
+      <documentation>10930: Angir hvorvidt det er frest ned en plan forsenkning i asfalten for å legge vegmerkingen i. Hensikten med dette er bla at vegmerkingen blir mindre utsatt for brøyteskader.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10930</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESINGVEGOPPMERKING_TVERRGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>18274: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18274</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>18275: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NedfresingVegoppmerking_TverrgåendeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegoppmerking_TverrgåendeType">
     <annotation>
       <documentation>4167: Angir hvilken type vegobjektet er av</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKINGTVERRGÅENDE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKING_TVERRGÅENDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVegoppmerking_TverrgåendeEnumerationType nvdb:TypeVegoppmerking_TverrgåendeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegoppmerking_TverrgåendeEnumerationType">
+    <annotation>
+      <documentation>4167: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4167</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKING_TVERRGÅENDE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -333,7 +375,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TypeVegoppmerkingTverrgåendeOtherType">
+  <simpleType name="TypeVegoppmerking_TverrgåendeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -351,7 +393,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="type" type="nvdb:TypeVegoppmerkingTverrgåendeType">
+          <element name="type" type="nvdb:TypeVegoppmerking_TverrgåendeType">
             <annotation>
               <documentation>4167: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -375,6 +417,15 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7842</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDTAKSNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nedfresing" type="nvdb:NedfresingVegoppmerking_TverrgåendeType">
+            <annotation>
+              <documentation>10930: Angir hvorvidt det er frest ned en plan forsenkning i asfalten for å legge vegmerkingen i. Hensikten med dette er bla at vegmerkingen blir mindre utsatt for brøyteskader.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10930</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NEDFRESING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -408,12 +459,12 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tekstVegvisning" type="string">
+          <element minOccurs="0" name="tekst_Vegvisning" type="string">
             <annotation>
               <documentation>4174: Angir vegnummer eller stedsnavn som er tekster i vegbanen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4174</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKSTVEGVISNING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKST_VEGVISNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -462,7 +513,7 @@ Enhet: Stykker</documentation>
               <documentation>9395: Geometrisk linje som representerer symbolet, benyttes f.eks for vikelinjer, etc.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9395</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -471,7 +522,7 @@ Enhet: Stykker</documentation>
               <documentation>5020: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5020</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -488,6 +539,13 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -502,13 +560,6 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -516,10 +567,10 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

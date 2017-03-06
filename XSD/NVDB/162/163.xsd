@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>163: Fastmontert video- eller fotokamera for trafikkovervåkning</documentation>
   </annotation>
@@ -6,6 +6,88 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeKamera_OvervåkningType">
+    <annotation>
+      <documentation>10971: Angir hva vegobjektet brukes til</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10971</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEKAMERA_OVERVÅKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeKamera_OvervåkningEnumerationType nvdb:BruksområdeKamera_OvervåkningOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeKamera_OvervåkningEnumerationType">
+    <annotation>
+      <documentation>10971: Angir hva vegobjektet brukes til</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10971</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEKAMERA_OVERVÅKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ATK">
+        <annotation>
+          <documentation>18314: ATK</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18314</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="værFøreovervåkning">
+        <annotation>
+          <documentation>18310: Vær-/føreovervåkning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18310</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signalanlegg_Trafikkdetektering">
+        <annotation>
+          <documentation>18311: Signalanlegg, trafikkdetektering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18311</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkovervåkning">
+        <annotation>
+          <documentation>18316: Trafikkovervåkning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18316</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_Trafikkdetektering">
+        <annotation>
+          <documentation>18312: Tunnel, trafikkdetektering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18312</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnell_BrannVarme">
+        <annotation>
+          <documentation>18315: Tunnell, brann/varme</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18315</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bomstasjon">
+        <annotation>
+          <documentation>18313: Bomstasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18313</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeKamera_OvervåkningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="DigitaltType">
     <annotation>
       <documentation>7015: Angir om kameraet er digitalt eller ikke</documentation>
@@ -48,22 +130,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="EierKameraOvervåkningType">
+  <simpleType name="EierKamera_OvervåkningType">
     <annotation>
       <documentation>8004: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8004</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:EierKameraOvervåkningEnumerationType nvdb:EierKameraOvervåkningOtherType"/>
+    <union memberTypes="nvdb:EierKamera_OvervåkningEnumerationType nvdb:EierKamera_OvervåkningOtherType"/>
   </simpleType>
-  <simpleType name="EierKameraOvervåkningEnumerationType">
+  <simpleType name="EierKamera_OvervåkningEnumerationType">
     <annotation>
       <documentation>8004: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8004</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -109,7 +191,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="EierKameraOvervåkningOtherType">
+  <simpleType name="EierKamera_OvervåkningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -127,6 +209,15 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeKamera_OvervåkningType">
+            <annotation>
+              <documentation>10971: Angir hva vegobjektet brukes til</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10971</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="oppsettingsutstyr" type="nvdb:OppsettingsutstyrType">
             <annotation>
               <documentation>3734: Angir hva utstyret er festet på</documentation>
@@ -181,12 +272,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fabrikant" type="string">
+          <element minOccurs="0" name="produsentnavn" type="string">
             <annotation>
-              <documentation>1536: Angir navn på firma som har produsert produktet</documentation>
+              <documentation>1536: Angir navn på produsent av produktet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1536</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FABRIKANT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -208,7 +299,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeKameraOvervåkningType">
+          <element minOccurs="0" name="type" type="nvdb:TypeKamera_OvervåkningType">
             <annotation>
               <documentation>1179: Angir hvilken type kamera det er tale om</documentation>
               <appinfo>
@@ -217,7 +308,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierKameraOvervåkningType">
+          <element minOccurs="0" name="eier" type="nvdb:EierKamera_OvervåkningType">
             <annotation>
               <documentation>8004: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -226,7 +317,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligKameraOvervåkningType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligKamera_OvervåkningType">
             <annotation>
               <documentation>8069: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -240,7 +331,7 @@
               <documentation>4829: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4829</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -257,17 +348,17 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -421,22 +512,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TypeKameraOvervåkningType">
+  <simpleType name="TypeKamera_OvervåkningType">
     <annotation>
       <documentation>1179: Angir hvilken type kamera det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TypeKameraOvervåkningEnumerationType nvdb:TypeKameraOvervåkningOtherType"/>
+    <union memberTypes="nvdb:TypeKamera_OvervåkningEnumerationType nvdb:TypeKamera_OvervåkningOtherType"/>
   </simpleType>
-  <simpleType name="TypeKameraOvervåkningEnumerationType">
+  <simpleType name="TypeKamera_OvervåkningEnumerationType">
     <annotation>
       <documentation>1179: Angir hvilken type kamera det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -458,27 +549,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TypeKameraOvervåkningOtherType">
+  <simpleType name="TypeKamera_OvervåkningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligKameraOvervåkningType">
+  <simpleType name="VedlikeholdsansvarligKamera_OvervåkningType">
     <annotation>
       <documentation>8069: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8069</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligKameraOvervåkningEnumerationType nvdb:VedlikeholdsansvarligKameraOvervåkningOtherType"/>
+    <union memberTypes="nvdb:VedlikeholdsansvarligKamera_OvervåkningEnumerationType nvdb:VedlikeholdsansvarligKamera_OvervåkningOtherType"/>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligKameraOvervåkningEnumerationType">
+  <simpleType name="VedlikeholdsansvarligKamera_OvervåkningEnumerationType">
     <annotation>
       <documentation>8069: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8069</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGKAMERAOVERVÅKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGKAMERA_OVERVÅKNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -516,7 +607,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligKameraOvervåkningOtherType">
+  <simpleType name="VedlikeholdsansvarligKamera_OvervåkningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

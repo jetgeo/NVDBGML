@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>234: Opphøyd terrengformasjon f.eks. anlagt for å skjerme mot vegtrafikkstøy eller skredmasser. Kan være sammensatt av flere lag</documentation>
   </annotation>
@@ -349,6 +349,15 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeVollType">
+            <annotation>
+              <documentation>1286: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1286</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="materialtype" type="nvdb:MaterialtypeVollType">
             <annotation>
               <documentation>1422: Angir primær materialtype for vegobjektet. For skredsikringsvoller skal det angis materiale på støtside.</documentation>
@@ -388,43 +397,43 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="høydeGjsn" type="double">
+          <element minOccurs="0" name="høyde_Gjsn" type="double">
             <annotation>
               <documentation>1598: Angir gjennomsnittlig egenhøyde fra fot voll til topp krone av vollen. Høyde skal måles på støtside for skredsikringsvoller.
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1598</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEGJSN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_GJSN</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="høydeMaks" type="double">
+          <element minOccurs="0" name="høyde_Maks" type="double">
             <annotation>
               <documentation>9678: Angis største egenhøyde fra fot voll til topp krone av vollen. Høyde skal måles på støtside for skredsikringsvoller.
 Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9678</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEMAKS</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_MAKS</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="helningGjsn" type="integer">
+          <element minOccurs="0" name="helning_Gjsn" type="integer">
             <annotation>
               <documentation>9679: Gjennomsnittlig helning av vollskråningen i fallretningen. Helning skal måles på støtside for skredsikringsvoller.
 Enhet: Grader (360)</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9679</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HELNINGGJSN</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HELNING_GJSN</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="helningMaks" type="integer">
+          <element minOccurs="0" name="helning_Maks" type="integer">
             <annotation>
               <documentation>9680: Største helning av vollskråningen i fallretning. Helning skal måles på støtside for skredsikringsvoller..
 Enhet: Grader (360)</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9680</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HELNINGMAKS</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HELNING_MAKS</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -438,15 +447,6 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="byggeår" type="integer">
-            <annotation>
-              <documentation>9683: Angir byggeår for vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9683</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="adkomst" type="nvdb:AdkomstVollType">
             <annotation>
               <documentation>9682: Beskriver hvordan man får adkomst til vegobjektet</documentation>
@@ -456,12 +456,12 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeVollType">
+          <element minOccurs="0" name="byggeår" type="integer">
             <annotation>
-              <documentation>1286: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <documentation>9683: Angir byggeår for vegobjektet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1286</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9683</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -497,7 +497,7 @@ Enhet: Grader (360)</documentation>
               <documentation>4864: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4864</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -506,7 +506,7 @@ Enhet: Grader (360)</documentation>
               <documentation>8886: Gir flate/polygon som geometrisk avgrenser området</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8886</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -515,10 +515,10 @@ Enhet: Grader (360)</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -529,10 +529,10 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
               </appinfo>
             </annotation>
           </element>
