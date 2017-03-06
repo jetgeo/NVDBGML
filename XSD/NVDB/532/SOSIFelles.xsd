@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB"
+  xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo"
+  elementFormDefault="qualified"
+  targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <include schemaLocation="Vegreferanse.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo"
+    schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2"
+    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Endringsflagg" substitutionGroup="gml:AbstractObject" type="nvdb:EndringsflaggType">
+    <annotation>
+      <documentation>endringsinformasjon om et objekt
+
+Merknad: 
+Inntil videre vil hele objektet merkes med endringsflagget.
+I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved å angi om endringen er knyttet til geometrien, egenskapene eller relasjoner</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRINGSFLAGG</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="EndringsflaggType">
+    <sequence>
+      <element name="typeEndring" type="nvdb:TypeEndringType">
+        <annotation>
+          <documentation>endringsstatus for objektet</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/TypeEndring.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="tidspunktEndring" type="date">
+        <annotation>
+          <documentation>tidspunkt for endring av objektet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="EndringsflaggPropertyType">
+    <sequence>
+      <element ref="nvdb:Endringsflagg"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="Fellesegenskaper" substitutionGroup="gml:AbstractFeature"
+    type="nvdb:FellesegenskaperType">
+    <annotation>
+      <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
+
+Merknad:
+Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningslinjer fra denne klassen.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="FellesegenskaperType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="identifikasjon" type="nvdb:IdentifikasjonPropertyType">
+            <annotation>
+              <documentation>unik identifikasjon av et objekt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="endringsflagg" type="nvdb:EndringsflaggPropertyType">
+            <annotation>
+              <documentation>endringsinformasjon om et objekt 
+
+Merknad: 
+Reglene knyttet til bruken av endringsflagg er for denne versjonen ikke avklart. Utdypes nærmere i produktspesifikasjonen basert på 4.0.
+
+Merknad: 
+Endringsflagg kan benyttes til å merke slettede "objekter".
+
+Eksempel: 
+Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendomsteigen</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datafangstdato" type="date">
+            <annotation>
+              <documentation>dato når objektet siste gang ble registrert/observert/målt i terrenget
+
+Merknad: I mange tilfeller er denne forskjellig fra Oppdateringsdato, da registrerte endringer kan bufres i en kortere eller lengre periode før disse legges inn i databasen.
+Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">DATAFANGSTDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppdateringsdato" type="date">
+            <annotation>
+              <documentation>dato for siste endring på objektetdataene 
+
+Merknad: 
+Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert kan bufres en kortere eller lengre periode før disse legges inn i datasystemet (databasen).
+
+-Definition-
+Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">OPPDATERINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kvalitet" type="nvdb:PosisjonskvalitetPropertyType">
+            <annotation>
+              <documentation>beskrivelse av kvaliteten på stedfestingen
+
+Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosesshistorie" type="string">
+            <annotation>
+              <documentation>beskrivelse av de prosesser som dataene er gått gjennom som kan ha betydning for kvaliteten og bruken av dataene
+
+Merknad:
+Prosesshistorie vil kunne inneholde informasjon om transformasjoner. Hva slags informasjon som angis er ofte gitt i andre standarder, f.eks kvalitet og kvalitetsikring.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">PROSESS_HISTORIE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høydereferanse" type="nvdb:HøydereferanseType">
+            <annotation>
+              <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+              <appinfo>
+                <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/Høydereferanse.xml</defaultCodeSpace>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HREF</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sideposisjon" type="nvdb:SideposisjonType">
+            <annotation>
+              <documentation>Angir sideposisjon i for vegobjekt i forhold til vegens metreringsretning</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FellesegenskaperPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Fellesegenskaper"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="HøydereferanseType">
+    <annotation>
+      <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HREF</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HøydereferanseEnumerationType nvdb:HøydereferanseOtherType"/>
+  </simpleType>
+  <simpleType name="HøydereferanseEnumerationType">
+    <annotation>
+      <documentation>koordinatregistering utført på topp eller bunn av et objekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HREF</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="topp">
+        <annotation>
+          <documentation>Høyden målt til toppen av objektet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="fot">
+        <annotation>
+          <documentation>Høyden målt til  foten av objektet</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HøydereferanseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject"
+    type="nvdb:IdentifikasjonType">
+    <annotation>
+      <documentation>Identification: Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet. 
+
+NOTE1 Denne eksterne objektidentifikasjonen må ikke forveksles med en tematisk objektidentifikasjon, slik som f.eks bygningsnummer. 
+
+NOTE 2 Denne unike identifikatoren vil ikke endres i løpet av objektets levetid.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">IDENT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="IdentifikasjonType">
+    <sequence>
+      <element name="lokalId" type="string">
+        <annotation>
+          <documentation>localId: lokal identifikator, tildelt av dataleverendør/dataforvalter. Den lokale identifikatoren er unik innenfor navnerommet, ingen andre objekter har samme identifikator.
+
+NOTE: Det er data leverendørens ansvar å sørge for at denne lokale identifikatoren er unik innenfor navnerommet.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LOKALID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="navnerom" type="string">
+        <annotation>
+          <documentation>namespace: navnerom som unikt identifiserer datakilden til objektet, starter med to bokstavs kode jfr ISO 3166. Benytter understreking  ("_") dersom data produsenten ikke er assosiert med bare et land.
+
+NOTE 1 : Verdien for nanverom vil eies av den dataprodusent som har ansvar for de unike identifikatorene og vil registreres i "INSPIRE external  Object Identifier Namespaces Register"
+
+Eksempel: NO for Norge.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NAVNEROM</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="versjonId" type="string">
+        <annotation>
+          <documentation>versionId: identifikasjon av en spesiell versjon av et geografisk objekt (instans), maksimum lengde på 25 karakterers. Dersom spesifikasjonen av et geografisk objekt med en identifikasjon inkludererer livsløpssyklusinformasjon, benyttes denne versjonId for å skille mellom ulike versjoner av samme objekt. versjonId er en unik  identifikasjon av versjonen. 
+
+NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO 8601, slik som  "2007-02-12T12:12:12+05:30" som versjonId.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VERSJONID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IdentifikasjonPropertyType">
+    <sequence>
+      <element ref="nvdb:Identifikasjon"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject"
+    type="nvdb:LineærPosisjonType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjonType">
+    <sequence>
+      <element minOccurs="0" name="lineærReferanseMetode" type="nvdb:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="retning" type="nvdb:RetningskodeType">
+        <annotation>
+          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="avstandSide" type="double">
+        <annotation>
+          <documentation>Forskyvning til side for nettverkselementet. Positivt tall betyr høyre side, negativt tall betyr venstre side.
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: offsetLateralDistance&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRAVSTANDSIDE</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="nettverkselement" type="nvdb:NettverkselementPropertyType">
+        <annotation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LROBJREF</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjonPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjon"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonPunkt" substitutionGroup="nvdb:LineærPosisjon"
+    type="nvdb:LineærPosisjonPunktType">
+    <annotation>
+      <documentation>lineær posisjon som et punkt
+
+Merknad:
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_AtLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonPunktType">
+    <complexContent>
+      <extension base="nvdb:LineærPosisjonType">
+        <sequence>
+          <element name="posisjon" type="double">
+            <annotation>
+              <documentation>posisjon langs nettverkselementet, i henhold til referansemetoden 
+
+Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKTPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonPunktPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjonPunkt"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonStrekning" substitutionGroup="nvdb:LineærPosisjon"
+    type="nvdb:LineærPosisjonStrekningType">
+    <annotation>
+      <documentation>lineær posisjon som en strekning
+
+Merknad: 
+Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
+LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
+
+&lt;i&gt;Realisering av ISO19148: LE_FromToLocation&lt;/i&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LineærPosisjonStrekningType">
+    <complexContent>
+      <extension base="nvdb:LineærPosisjonType">
+        <sequence>
+          <element name="fraPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: fromPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRFRAPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="tilPosisjon" type="double">
+            <annotation>
+              <documentation>&lt;font color="#0f0f0f"&gt;sluttposisjon langs &lt;/font&gt;nettverkselementet&lt;font color="#0f0f0f"&gt;, i henhold til referansemetoden&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: toPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRTILPOSISJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LineærPosisjonStrekningPropertyType">
+    <sequence>
+      <element ref="nvdb:LineærPosisjonStrekning"/>
+    </sequence>
+  </complexType>
+  <simpleType name="LineærReferanseMetodeType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union
+      memberTypes="nvdb:LineærReferanseMetodeEnumerationType nvdb:LineærReferanseMetodeOtherType"/>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeEnumerationType">
+    <annotation>
+      <documentation>Metode brukt for lineære referanser
+
+Merknad:
+
+Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
+Felles for alle metoder i Norge:
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
+positiveVerticalOffsetDirection: "up"
+
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="metrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet (lenken), angitt i meter
+
+Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute"  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;units: "meter"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="kilometrering">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i kilometer. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute" &lt;/li&gt;
+	&lt;li&gt;units: "kilometer" &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="normalisert">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt som et desimaltall mellom 0 og 1, i forhold til start (0) og slutt (1) på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "0..1"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="prosent">
+        <annotation>
+          <documentation>posisjon fra start av nettverkselementet, angitt i prosent av lengden på nettverkselementet (lenken)
+
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "percent"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LineærReferanseMetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Link" substitutionGroup="gml:AbstractObject" type="nvdb:LinkType">
+    <annotation>
+      <documentation>referanse  til et informasjonselement, enten lokalt eller globalt
+
+Eksempel:
+Som lokal : //skrisrv2/tjenester/sosiforv/web/welcome.htm
+Som global: http://www.statkart.no/standard/sosi/ACCESS/welcome.htm</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LINK</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LinkType">
+    <sequence/>
+  </complexType>
+  <complexType name="LinkPropertyType">
+    <sequence>
+      <element ref="nvdb:Link"/>
+    </sequence>
+  </complexType>
+  <simpleType name="MålemetodeType">
+    <annotation>
+      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - - 
+method on which registration of position is based</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MålemetodeEnumerationType nvdb:MålemetodeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeEnumerationType">
+    <annotation>
+      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - - 
+method on which registration of position is based</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="10">
+        <annotation>
+          <documentation>Measured in terrain: Målt i terrenget , uspesifisert metode/måleinstrument</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="82">
+        <annotation>
+          <documentation>Directly input on screen: Digitalisert ut fra frihåndstegning (direkte på skjerm). Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="96">
+        <annotation>
+          <documentation>GPS phase measurement RTK: Innmålt med satellittbaserte systemer for navigasjon og posisjonering med global dekning (f.eks GPS, GLONASS, GALILEO).: Fasemåling RTK (realtids kinematisk måling)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeHøydeType">
+    <annotation>
+      <documentation>metode for å måle objekttypens høydeverdi</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">H-MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MålemetodeHøydeEnumerationType nvdb:MålemetodeHøydeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeHøydeEnumerationType">
+    <annotation>
+      <documentation>metode for å måle objekttypens høydeverdi</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">H-MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="10"/>
+      <enumeration value="96"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeHøydeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="Nettverkselement" substitutionGroup="gml:AbstractFeature"
+    type="nvdb:NettverkselementType">
+    <annotation>
+      <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="NettverkselementType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="standardLRM" type="nvdb:LineærReferanseMetodeType">
+            <annotation>
+              <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
+
+Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NettverkselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Nettverkselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject"
+    type="nvdb:PosisjonskvalitetType">
+    <annotation>
+      <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KVALITET</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="PosisjonskvalitetType">
+    <sequence>
+      <element name="målemetode" type="nvdb:MålemetodeType">
+        <annotation>
+          <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/Målemetode.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighet" type="integer">
+        <annotation>
+          <documentation>punktstandardavviket i grunnriss for punkter samt tverravvik for linjer
+
+Merknad:
+Oppgitt i cm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NØYAKTIGHET</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="synbarhet" type="nvdb:SynbarhetType">
+        <annotation>
+          <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/Synbarhet.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="målemetodeHøyde" type="nvdb:MålemetodeHøydeType">
+        <annotation>
+          <documentation>metode for å måle høyden</documentation>
+          <appinfo>
+            <defaultCodeSpace xmlns="http://www.opengis.net/gml/3.2">http://www.jetlundweb.no/geomatikk/GML/NIFS/MålemetodeHøyde.xml</defaultCodeSpace>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="nøyaktighetHøyde" type="integer">
+        <annotation>
+          <documentation>nøyaktighet for høyden i cm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">H-NØYAKTIGHET</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="maksimaltAvvik" type="integer">
+        <annotation>
+          <documentation>absolutt toleranse for geometriske avvik</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MAX-AVVIK</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PosisjonskvalitetPropertyType">
+    <sequence>
+      <element ref="nvdb:Posisjonskvalitet"/>
+    </sequence>
+  </complexType>
+  <simpleType name="RetningskodeType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RetningskodeEnumerationType nvdb:RetningskodeOtherType"/>
+  </simpleType>
+  <simpleType name="RetningskodeEnumerationType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="med">
+        <annotation>
+          <documentation>Retning med geometrien</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="mot">
+        <annotation>
+          <documentation>Retning mot geometrien</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningskodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SideposisjonType">
+    <annotation>
+      <documentation>Angir sideposisjon for vegobjekt, i forhold til vegens metreringsretning</documentation>
+    </annotation>
+    <union memberTypes="nvdb:SideposisjonEnumerationType nvdb:SideposisjonOtherType"/>
+  </simpleType>
+  <simpleType name="SideposisjonEnumerationType">
+    <annotation>
+      <documentation>Angir sideposisjon for vegobjekt, i forhold til vegens metreringsretning</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="V"/>
+      <enumeration value="H"/>
+      <enumeration value="B"/>
+      <enumeration value="M"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SideposisjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SynbarhetType">
+    <annotation>
+      <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SYNBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SynbarhetEnumerationType nvdb:SynbarhetOtherType"/>
+  </simpleType>
+  <simpleType name="SynbarhetEnumerationType">
+    <annotation>
+      <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SYNBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>Default</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>Forøvrig grei å innmåle. (Benyttes bl.a. for innmåling av ledninger på lukket grøft)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SynbarhetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeEndringEnumerationType nvdb:TypeEndringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeEndringEnumerationType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="E"/>
+      <enumeration value="N"/>
+      <enumeration value="S"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>780: Skriftlig melding fra brukere av vegsystemet om sted i vegnettet hvor det ofte oppstår trafikkfarlige situasjoner.</documentation>
+  </annotation>
+  <include schemaLocation="FarligeForhold.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BebyggelseType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8162</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEBYGGELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BebyggelseEnumerationType nvdb:BebyggelseOtherType"/>
+  </simpleType>
+  <simpleType name="BebyggelseEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8162</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEBYGGELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="innenforTettbebyggelse">
+        <annotation>
+          <documentation>10918: Innenfor tettbebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10918</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utenforTettbebyggelse">
+        <annotation>
+          <documentation>10919: Utenfor tettbebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10919</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BebyggelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="DriftsrelaterteForholdType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8167</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSRELATERTEFORHOLD</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DriftsrelaterteForholdEnumerationType nvdb:DriftsrelaterteForholdOtherType"/>
+  </simpleType>
+  <simpleType name="DriftsrelaterteForholdEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8167</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSRELATERTEFORHOLD</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ikkeDriftsrelatertProblem">
+        <annotation>
+          <documentation>10963: Ikke driftsrelatert problem</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10963</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sommerdrift">
+        <annotation>
+          <documentation>10964: Sommerdrift</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10964</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vinterdrift">
+        <annotation>
+          <documentation>10965: Vinterdrift</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10965</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="helårsdrift">
+        <annotation>
+          <documentation>10966: Helårsdrift</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10966</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DriftsrelaterteForholdOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkePrimærtType">
+    <annotation>
+      <documentation>8165: Angir hvilken type ulykke det primært er fare for</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8165</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKEPRIMÆRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FareForTypeUlykkePrimærtEnumerationType nvdb:FareForTypeUlykkePrimærtOtherType"/>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkePrimærtEnumerationType">
+    <annotation>
+      <documentation>8165: Angir hvilken type ulykke det primært er fare for</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8165</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKEPRIMÆRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fotgjengerulykker">
+        <annotation>
+          <documentation>10947: Fotgjengerulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10947</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelulykker">
+        <annotation>
+          <documentation>10948: Sykkelulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10948</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="viltulykker">
+        <annotation>
+          <documentation>10949: Viltulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10949</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påkjøringBakfra">
+        <annotation>
+          <documentation>10950: Påkjøring bakfra</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10950</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="møteulykker">
+        <annotation>
+          <documentation>10951: Møteulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10951</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ulykkerMedKryssendeKjøreretning">
+        <annotation>
+          <documentation>10952: Ulykker med kryssende kjøreretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10952</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utforkjøringsulykker">
+        <annotation>
+          <documentation>10953: Utforkjøringsulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10953</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="andreTyperUlykker">
+        <annotation>
+          <documentation>10954: Andre typer ulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkePrimærtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkeSekundærtType">
+    <annotation>
+      <documentation>8166: Angir hvilken type ulykke det også kan være fare for</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8166</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKESEKUNDÆRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FareForTypeUlykkeSekundærtEnumerationType nvdb:FareForTypeUlykkeSekundærtOtherType"/>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkeSekundærtEnumerationType">
+    <annotation>
+      <documentation>8166: Angir hvilken type ulykke det også kan være fare for</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8166</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKESEKUNDÆRT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fotgjengerulykker">
+        <annotation>
+          <documentation>10955: Fotgjengerulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10955</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelulykker">
+        <annotation>
+          <documentation>10956: Sykkelulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10956</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="viltulykker">
+        <annotation>
+          <documentation>10957: Viltulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10957</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påkjøringBakfra">
+        <annotation>
+          <documentation>10958: Påkjøring bakfra</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10958</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="møteulykker">
+        <annotation>
+          <documentation>10959: Møteulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10959</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ulykkerMedKryssendeKjøreretning">
+        <annotation>
+          <documentation>10960: Ulykker med kryssende kjøreretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10960</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utforkjøringsulykker">
+        <annotation>
+          <documentation>10961: Utforkjøringsulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10961</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="andreTyperUlykker">
+        <annotation>
+          <documentation>10962: Andre typer ulykker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10962</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FareForTypeUlykkeSekundærtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="FarligeForhold" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FarligeForholdType">
+    <annotation>
+      <documentation>780: Skriftlig melding fra brukere av vegsystemet om sted i vegnettet hvor det ofte oppstår trafikkfarlige situasjoner.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">780</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARLIGEFORHOLD</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="FarligeForholdType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="innmeldertype" type="nvdb:InnmeldertypeType">
+            <annotation>
+              <documentation>8152: hvilken gruppe innmelder tilhører</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8152</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersNavn" type="string">
+            <annotation>
+              <documentation>8153: Navn på innmelder</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8153</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersAdresse" type="string">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8154</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSADRESSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersPostnr" type="integer">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSPOSTNR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersPoststed" type="string">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8156</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSPOSTSTED</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersEPostadresse" type="string">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8157</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSEPOSTADRESSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="innmeldersTelefonnr" type="string">
+            <annotation>
+              <documentation>8158: Sannsynlighet og konsekvens av en evt. ulykke.  Gradering av risiko</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8158</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERSTELEFONNR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoForInnmelding" type="date">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8159</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOFORINNMELDING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="registrertAv" type="string">
+            <annotation>
+              <documentation>8160: Navn på den som registrer inn meldingen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8160</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REGISTRERTAV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedsangivelse" type="string">
+            <annotation>
+              <documentation>8161: Tekstlig beskrivelse av lokalitet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8161</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSANGIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="bebyggelse" type="nvdb:BebyggelseType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8162</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEBYGGELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stedsforhold" type="nvdb:StedsforholdType">
+            <annotation>
+              <documentation>8163: Del av veg hvor ulykker antas å inntreffe med en viss risiko.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8163</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSFORHOLD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utsattGruppe" type="nvdb:UtsattGruppeType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8164</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSATTGRUPPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fareForTypeUlykkePrimært" type="nvdb:FareForTypeUlykkePrimærtType">
+            <annotation>
+              <documentation>8165: Angir hvilken type ulykke det primært er fare for</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8165</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKEPRIMÆRT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fareForTypeUlykkeSekundært" type="nvdb:FareForTypeUlykkeSekundærtType">
+            <annotation>
+              <documentation>8166: Angir hvilken type ulykke det også kan være fare for</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8166</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREFORTYPEULYKKESEKUNDÆRT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsrelaterteForhold" type="nvdb:DriftsrelaterteForholdType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8167</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSRELATERTEFORHOLD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="risikotype" type="nvdb:RisikotypeType">
+            <annotation>
+              <documentation>8168: Angir risikofaktor (kan gi inntil 5 verdier)</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8168</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="farebeskrivelse" type="string">
+            <annotation>
+              <documentation>8169: Gir samlet beskrivelse av faremomentene</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8169</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAREBESKRIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="risikovurdering" type="nvdb:RisikovurderingType">
+            <annotation>
+              <documentation>8173: Sannsynlighet og konsekvens av en evt. ulykke.  Gradering av risiko</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8173</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOVURDERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="FFid" type="integer">
+            <annotation>
+              <documentation>8735: Id administrert av FF-klient</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8735</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FFID</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="SVEISnummer" type="string">
+            <annotation>
+              <documentation>8170: Saksnummer i SVEIS</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8170</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SVEISNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="saksbehandler" type="string">
+            <annotation>
+              <documentation>8171: Navn på ansvarlig saksbehandler</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8171</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAKSBEHANDLER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="saksbehandlingsdato" type="date">
+            <annotation>
+              <documentation>8172: Dato for når saken ble ferdig saksbehandlet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8172</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAKSBEHANDLINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utfallAvSaksbehandlingen" type="nvdb:UtfallAvSaksbehandlingenType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8174</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFALLAVSAKSBEHANDLINGEN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="begrunnelseForUtfallet" type="string">
+            <annotation>
+              <documentation>8175: Kort begrunnelse for utfall av saksbehandlingen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8175</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEGRUNNELSEFORUTFALLET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>8176: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8176</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>8179: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8179</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FarligeForholdPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:FarligeForhold"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="InnmeldertypeType">
+    <annotation>
+      <documentation>8152: hvilken gruppe innmelder tilhører</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8152</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:InnmeldertypeEnumerationType nvdb:InnmeldertypeOtherType"/>
+  </simpleType>
+  <simpleType name="InnmeldertypeEnumerationType">
+    <annotation>
+      <documentation>8152: hvilken gruppe innmelder tilhører</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8152</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNMELDERTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ekstern_Privatperson">
+        <annotation>
+          <documentation>10905: Ekstern, Privatperson</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10905</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Bedrift">
+        <annotation>
+          <documentation>10906: Ekstern, Bedrift</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10906</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Kommune">
+        <annotation>
+          <documentation>10907: Ekstern, Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10907</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Funksjonsentreprenør">
+        <annotation>
+          <documentation>10908: Ekstern, Funksjonsentreprenør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10908</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Politiet">
+        <annotation>
+          <documentation>10909: Ekstern, Politiet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10909</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Pressen">
+        <annotation>
+          <documentation>10910: Ekstern, Pressen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10910</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ekstern_Interesseorganisasjon">
+        <annotation>
+          <documentation>10911: Ekstern, Interesseorganisasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10911</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="intern_VTS">
+        <annotation>
+          <documentation>10913: Intern, VTS</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10913</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="intern_Ledelse">
+        <annotation>
+          <documentation>10914: Intern, Ledelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10914</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="intern_DistriktsvisUlykkesgruppe">
+        <annotation>
+          <documentation>10915: Intern, Distriktsvis ulykkesgruppe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10915</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="intern_AnnenAnalyse">
+        <annotation>
+          <documentation>10916: Intern, Annen analyse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10916</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="intern">
+        <annotation>
+          <documentation>10917: Intern</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10917</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="InnmeldertypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikotypeType">
+    <annotation>
+      <documentation>8168: Angir risikofaktor (kan gi inntil 5 verdier)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8168</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RisikotypeEnumerationType nvdb:RisikotypeOtherType"/>
+  </simpleType>
+  <simpleType name="RisikotypeEnumerationType">
+    <annotation>
+      <documentation>8168: Angir risikofaktor (kan gi inntil 5 verdier)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8168</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fart">
+        <annotation>
+          <documentation>10967: Fart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10967</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkmengde">
+        <annotation>
+          <documentation>10968: Trafikkmengde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10968</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="linjeføringKurvaturOptiskLedning">
+        <annotation>
+          <documentation>10969: Linjeføring/kurvatur/optisk ledning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10969</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tverrprofil">
+        <annotation>
+          <documentation>10970: Tverrprofil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10970</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sideterrengSikkerhetssone">
+        <annotation>
+          <documentation>10971: Sideterreng/sikkerhetssone</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10971</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegutstyr">
+        <annotation>
+          <documentation>10972: Vegutstyr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10972</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegdekke">
+        <annotation>
+          <documentation>10973: Vegdekke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10973</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sikt">
+        <annotation>
+          <documentation>10974: Sikt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10974</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysning">
+        <annotation>
+          <documentation>10975: Belysning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10975</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkskilting">
+        <annotation>
+          <documentation>10976: Trafikkskilting</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10976</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegoppmerking">
+        <annotation>
+          <documentation>10977: Vegoppmerking</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10977</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkbildeDistraksjon">
+        <annotation>
+          <documentation>10978: Trafikkbilde/distraksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10978</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikotypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikovurderingType">
+    <annotation>
+      <documentation>8173: Sannsynlighet og konsekvens av en evt. ulykke.  Gradering av risiko</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8173</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOVURDERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RisikovurderingEnumerationType nvdb:RisikovurderingOtherType"/>
+  </simpleType>
+  <simpleType name="RisikovurderingEnumerationType">
+    <annotation>
+      <documentation>8173: Sannsynlighet og konsekvens av en evt. ulykke.  Gradering av risiko</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8173</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKOVURDERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tiltakNødvendig">
+        <annotation>
+          <documentation>10982: Tiltak nødvendig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10982</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tiltakSkalVurderes">
+        <annotation>
+          <documentation>10981: Tiltak skal vurderes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10981</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tiltakBørVurderes">
+        <annotation>
+          <documentation>10980: Tiltak bør vurderes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10980</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tiltakIkkeNødvendig">
+        <annotation>
+          <documentation>10979: Tiltak ikke nødvendig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10979</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikovurderingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StedsforholdType">
+    <annotation>
+      <documentation>8163: Del av veg hvor ulykker antas å inntreffe med en viss risiko.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8163</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSFORHOLD</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StedsforholdEnumerationType nvdb:StedsforholdOtherType"/>
+  </simpleType>
+  <simpleType name="StedsforholdEnumerationType">
+    <annotation>
+      <documentation>8163: Del av veg hvor ulykker antas å inntreffe med en viss risiko.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8163</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEDSFORHOLD</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="gangfelt_SkiltetMerket">
+        <annotation>
+          <documentation>10921: Gangfelt, skiltet/merket</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10921</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangfelt_Signalregulert">
+        <annotation>
+          <documentation>10922: Gangfelt, signalregulert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10922</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kryssingspunktForMykeTrafikanter_IkkeSkiltetMenTilrettelagt">
+        <annotation>
+          <documentation>10923: Kryssingspunkt for myke trafikanter, Ikke skiltet men tilrettelagt: Ikke gangfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10923</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kryssingspunktForMykeTrafikanter_IkkeTilrettelagt">
+        <annotation>
+          <documentation>10920: Kryssingspunkt for myke trafikanter, ikke tilrettelagt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10920</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="XOgT_Kryss_UregulertHøyreregel">
+        <annotation>
+          <documentation>10927: X- og T-kryss, Uregulert/høyreregel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10927</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="XOgT_Kryss_Vikepliktsregulert">
+        <annotation>
+          <documentation>10926: X- og T-kryss, Vikepliktsregulert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10926</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="XOgT_Kryss_Signalregulert">
+        <annotation>
+          <documentation>10925: X- og T-kryss, Signalregulert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10925</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rundkjøring">
+        <annotation>
+          <documentation>10928: Rundkjøring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10928</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bussholdeplass">
+        <annotation>
+          <documentation>10929: Bussholdeplass</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10929</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="avkjørsel">
+        <annotation>
+          <documentation>10930: Avkjørsel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10930</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangSykkelveg_Fortau_Sykkelfelt">
+        <annotation>
+          <documentation>10931: Gang-/sykkelveg, fortau, sykkelfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10931</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="P_Plass_Torv_RasteplassOL">
+        <annotation>
+          <documentation>10932: P-plass, torv, rasteplass o.l</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10932</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="planovergang">
+        <annotation>
+          <documentation>10933: Planovergang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10933</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnelUndergang">
+        <annotation>
+          <documentation>10934: Tunnel/undergang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10934</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bru">
+        <annotation>
+          <documentation>10935: Bru</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10935</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fergekai">
+        <annotation>
+          <documentation>10936: Fergekai</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10936</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bomstasjon">
+        <annotation>
+          <documentation>10937: Bomstasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10937</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegstrekningForØvrig">
+        <annotation>
+          <documentation>10938: Vegstrekning for øvrig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10938</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StedsforholdOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtfallAvSaksbehandlingenType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8174</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFALLAVSAKSBEHANDLINGEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtfallAvSaksbehandlingenEnumerationType nvdb:UtfallAvSaksbehandlingenOtherType"/>
+  </simpleType>
+  <simpleType name="UtfallAvSaksbehandlingenEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8174</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFALLAVSAKSBEHANDLINGEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="avslått">
+        <annotation>
+          <documentation>10983: Avslått</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10983</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_InnmeldesNTP_Prosess">
+        <annotation>
+          <documentation>10984: Prioritert, innmeldes NTP-prosess</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10984</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_InnmeldesNesteÅrsBudsjettprosess">
+        <annotation>
+          <documentation>10985: Prioritert, innmeldes neste års budsjettprosess</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10985</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_IvaretasGjennomÅretsBudsjett">
+        <annotation>
+          <documentation>10986: Prioritert, ivaretas gjennom årets budsjett</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10986</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_IvaretasIByggeplan">
+        <annotation>
+          <documentation>10987: Prioritert, ivaretas i byggeplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10987</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_FølgesOppGjennomLøpendeDV_Tiltak">
+        <annotation>
+          <documentation>10988: Prioritert, følges opp gjennom løpende d/v-tiltak</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10988</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="prioritert_MenMåVurderesNærmere">
+        <annotation>
+          <documentation>10989: Prioritert, men må vurderes nærmere</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10989</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtfallAvSaksbehandlingenOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtsattGruppeType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8164</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSATTGRUPPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtsattGruppeEnumerationType nvdb:UtsattGruppeOtherType"/>
+  </simpleType>
+  <simpleType name="UtsattGruppeEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8164</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSATTGRUPPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fotgjenger">
+        <annotation>
+          <documentation>10939: Fotgjenger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10939</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="syklist">
+        <annotation>
+          <documentation>10940: Syklist</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10940</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fotgjengerOgSyklist">
+        <annotation>
+          <documentation>10941: Fotgjenger og syklist</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10941</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mopedMC">
+        <annotation>
+          <documentation>10942: Moped/MC</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10942</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lettBil">
+        <annotation>
+          <documentation>10943: Lett bil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10943</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tungBil">
+        <annotation>
+          <documentation>10944: Tung bil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10944</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="naboerBebyggelse">
+        <annotation>
+          <documentation>10945: Naboer/bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10945</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flereTrafikantgrupper">
+        <annotation>
+          <documentation>10946: Flere trafikantgrupper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10946</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtsattGruppeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

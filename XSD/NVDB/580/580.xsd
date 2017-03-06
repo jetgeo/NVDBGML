@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>580: Kontrakt/avtale om drift/vedlikehold relatert til bestemte veger innenfor et avgrensa område</documentation>
+  </annotation>
+  <include schemaLocation="Kontraktsomraade.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Kontraktsområde" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:KontraktsområdeType">
+    <annotation>
+      <documentation>580: Kontrakt/avtale om drift/vedlikehold relatert til bestemte veger innenfor et avgrensa område</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">580</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTRAKTSOMRÅDE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="KontraktsområdeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>5174: Angir navn på kontraktsområdet.  Navnet skal settes sammen etter følgende mønster: "NNNN n..........n ÅÅÅÅ-ÅÅÅÅ" .  "NNNN" er et firesifret nummer knyttet til kontraktsområde, nr &lt; 2100 kan bli tolka som at de to første siffer er fylkesnummer.  For siffer mindre enn 1000 skal det gis 0 (f.eks 0350) .  "n.....n" er navn på kontraktsområdet. "ÅÅÅÅ-ÅÅÅÅ" angir årstal kontrakten løper fra og til. Eksempel på navn:  "1203 Nordhordland 2004-2008</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5174</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nr" type="integer">
+            <annotation>
+              <documentation>5175: Angir nummer på kontraktsområde</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5175</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeKontraktsområdeType">
+            <annotation>
+              <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8832</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="datoFra" type="date">
+            <annotation>
+              <documentation>8833: Kontrakten løper fra og med angitt dato</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8833</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOFRA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="datoTil" type="date">
+            <annotation>
+              <documentation>8834: Kontrakten løper til og med angitt dato</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8834</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOTIL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>5173: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5173</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>5172: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5172</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KontraktsområdePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Kontraktsområde"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeKontraktsområdeType">
+    <annotation>
+      <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8832</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKONTRAKTSOMRÅDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeKontraktsområdeEnumerationType nvdb:TypeKontraktsområdeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeKontraktsområdeEnumerationType">
+    <annotation>
+      <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8832</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKONTRAKTSOMRÅDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="driftskontrakt">
+        <annotation>
+          <documentation>11750: Driftskontrakt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11750</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="OPS_Kontrakt">
+        <annotation>
+          <documentation>11751: OPS-kontrakt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11751</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="refusjonsavtale">
+        <annotation>
+          <documentation>11752: Refusjonsavtale</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11752</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="elektrokontrakt">
+        <annotation>
+          <documentation>11753: Elektrokontrakt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11753</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="veglyskontrakt">
+        <annotation>
+          <documentation>11754: Veglyskontrakt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11754</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnelkontrakt">
+        <annotation>
+          <documentation>11755: Tunnelkontrakt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11755</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grøntkontrakt">
+        <annotation>
+          <documentation>18158: Grøntkontrakt: Område der det er inngått egen driftskontrakt rettet mot grøntområder/grøntobjekter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18158</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="andrepartskontrakt">
+        <annotation>
+          <documentation>18159: Andrepartskontrakt: Område der drift administreres av annen part, f.eks en kommune på vegne av Statens vegvesen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18159</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utprøving">
+        <annotation>
+          <documentation>11756: Utprøving: Benyttes som "kladd" dersom man ønsker å se på flere alternativer før man bestemmer seg for hvilke veger som skal være med i en kontrakt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11756</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeKontraktsområdeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <include schemaLocation="SOSI_Bestilling.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EnhetType">
+    <annotation>
+      <documentation>7563: Angir enhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7563</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EnhetEnumerationType nvdb:EnhetOtherType"/>
+  </simpleType>
+  <simpleType name="EnhetEnumerationType">
+    <annotation>
+      <documentation>7563: Angir enhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7563</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1_0">
+        <annotation>
+          <documentation>9849: 1,0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9849</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="0_1">
+        <annotation>
+          <documentation>9848: 0,1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9848</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="0_01">
+        <annotation>
+          <documentation>9847: 0,01</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9847</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="0_001">
+        <annotation>
+          <documentation>9846: 0,001</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9846</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnhetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SOSIVersjonType">
+    <annotation>
+      <documentation>5558: Angir SOSI-versjon</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SOSIVersjonEnumerationType nvdb:SOSIVersjonOtherType"/>
+  </simpleType>
+  <simpleType name="SOSIVersjonEnumerationType">
+    <annotation>
+      <documentation>5558: Angir SOSI-versjon</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="versjon4_5">
+        <annotation>
+          <documentation>15929: Versjon 4.5</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15929</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="versjon4_0">
+        <annotation>
+          <documentation>11747: Versjon 4.0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11747</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="versjon4_0MedTemakoder">
+        <annotation>
+          <documentation>11748: Versjon 4.0 med temakoder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11748</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="versjon3_41">
+        <annotation>
+          <documentation>7897: Versjon 3.41</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7897</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SOSIVersjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="SOSI_Bestilling" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SOSI_BestillingType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">622</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSI_BESTILLING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="SOSI_BestillingType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="SOSIVersjon" type="nvdb:SOSIVersjonType">
+            <annotation>
+              <documentation>5558: Angir SOSI-versjon</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5558</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SOSIVERSJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="enhet" type="nvdb:EnhetType">
+            <annotation>
+              <documentation>7563: Angir enhet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7563</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="ledetekst" type="integer">
+            <annotation>
+              <documentation>5826: LedetekstID</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5826</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEDETEKST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SOSI_BestillingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:SOSI_Bestilling"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

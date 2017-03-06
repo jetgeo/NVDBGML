@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>752: Del av holdeplass.  Sted for av/påstigning av kollektivtrafikk. (Noe varierende kvalitet. Vil utgå på sikt. Data overføres til Holdeplassutrustning)</documentation>
+  </annotation>
+  <include schemaLocation="Holdeplass.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="HoldeplasstypeType">
+    <annotation>
+      <documentation>8126: Det refereres her til kategorisering av bussholdeplasser i HB V123 (232).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8126</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HoldeplasstypeEnumerationType nvdb:HoldeplasstypeOtherType"/>
+  </simpleType>
+  <simpleType name="HoldeplasstypeEnumerationType">
+    <annotation>
+      <documentation>8126: Det refereres her til kategorisering av bussholdeplasser i HB V123 (232).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8126</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fleksibelt">
+        <annotation>
+          <documentation>10182: Fleksibelt: Jfr.kap 5.4 i HB V123 (232) (Statens vegvesen). Stoppunkt som ikke er markert på noe vis.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10182</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kunSkilt">
+        <annotation>
+          <documentation>10180: Kun skilt: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10180</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skiltOgPlattform">
+        <annotation>
+          <documentation>10181: Skilt og plattform: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10181</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skilt_PlattformOgLomme">
+        <annotation>
+          <documentation>11610: Skilt, plattform og lomme: Jfr.kap5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11610</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesial_PåSnuplass">
+        <annotation>
+          <documentation>11611: Spesial, på snuplass: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11611</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesial_InnsnevretVeg">
+        <annotation>
+          <documentation>11612: Spesial, innsnevret veg: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11612</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesial_EnsidigLomme">
+        <annotation>
+          <documentation>11613: Spesial, ensidig lomme: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11613</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesial_Reguleringssted">
+        <annotation>
+          <documentation>11614: Spesial, reguleringssted: Jfr.kap 5.4  i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11614</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påKnutepunktTerminal">
+        <annotation>
+          <documentation>11615: På knutepunkt/terminal: Jfr.kap 6 i HB V123 (232) (Statens vegvesen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11615</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HoldeplasstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="LeTakType">
+    <annotation>
+      <documentation>7955: Angir hvilken mulighet det er for tak over hodet ved opphold på stoppunktet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7955</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LETAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LeTakEnumerationType nvdb:LeTakOtherType"/>
+  </simpleType>
+  <simpleType name="LeTakEnumerationType">
+    <annotation>
+      <documentation>7955: Angir hvilken mulighet det er for tak over hodet ved opphold på stoppunktet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7955</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LETAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ikkeLeOverbygg">
+        <annotation>
+          <documentation>10184: Ikke le/overbygg: Det er ikke tak/overbygg ved stoppunktet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10184</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="leskur">
+        <annotation>
+          <documentation>10185: Leskur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10185</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="åpentOverbygg">
+        <annotation>
+          <documentation>10186: Åpent overbygg: Stoppunkt er plassert under åpent overbygg.  Beskytter mot regn, men ikke nødvendigvis mot vind.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10186</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="IUndergrunn">
+        <annotation>
+          <documentation>10187: I undergrunn: Stoppunkt er plassert i undergrunn.  F.eks T-banestasjon.  Temperatur og vindforhold kan variere</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10187</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="innendørs">
+        <annotation>
+          <documentation>10188: Innendørs: Stoppunkt er plassert innendørs</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10188</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LeTakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RutetidsinformasjonType">
+    <annotation>
+      <documentation>7956: Angir om det er tilgjengelig informasjon om rutetider på/ved stoppunktet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7956</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUTETIDSINFORMASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RutetidsinformasjonEnumerationType nvdb:RutetidsinformasjonOtherType"/>
+  </simpleType>
+  <simpleType name="RutetidsinformasjonEnumerationType">
+    <annotation>
+      <documentation>7956: Angir om det er tilgjengelig informasjon om rutetider på/ved stoppunktet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7956</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUTETIDSINFORMASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>10190: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10190</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>10191: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10191</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RutetidsinformasjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SittemulighetStoppunktType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7957</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHETSTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SittemulighetStoppunktEnumerationType nvdb:SittemulighetStoppunktOtherType"/>
+  </simpleType>
+  <simpleType name="SittemulighetStoppunktEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7957</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHETSTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>10192: Ja: Det er mulighet for å sitte.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10192</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>10194: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10194</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SittemulighetStoppunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Stoppunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StoppunktType">
+    <annotation>
+      <documentation>752: Del av holdeplass.  Sted for av/påstigning av kollektivtrafikk. (Noe varierende kvalitet. Vil utgå på sikt. Data overføres til Holdeplassutrustning)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">752</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="StoppunktType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>7491: Gir navn til stoppunkt.  Kan f.eks være "Gate 33", "M22", "Spor 1", "Kai 4", med mer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7491</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kortnavn" type="string">
+            <annotation>
+              <documentation>7492: Kortnavn til stoppunkt.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7492</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KORTNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="nummer" type="string">
+            <annotation>
+              <documentation>7493: Gir nummer til stoppunkt.  Alle stoppunkt innenfor en holdeplass skal ha unike nummer.  Dette nummeret vil ved enkelte presentasjoner legges til holdeplassnummer.  Hvert stoppunkt vil dermed ha et unikt 10-sifret nummer.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7493</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="holdeplasstype" type="nvdb:HoldeplasstypeType">
+            <annotation>
+              <documentation>8126: Det refereres her til kategorisering av bussholdeplasser i HB V123 (232).</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8126</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOLDEPLASSTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkretningNett" type="nvdb:TrafikkretningNettType">
+            <annotation>
+              <documentation>7540: Angir hvilken trafikkretning som betjenes sett i forhold til transportårens retning.  I vegsammenheng vil det si i forhold til metreringsretning.  Mest aktuelt for veg og bane.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7540</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGNETT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trafikkretningGeografisk" type="nvdb:TrafikkretningGeografiskStoppunktType">
+            <annotation>
+              <documentation>7481: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7481</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="type" type="nvdb:TypeStoppunktType">
+            <annotation>
+              <documentation>7494: Angir hvilken hovedtype stoppunkt det er tale om</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7494</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="merknad" type="string">
+            <annotation>
+              <documentation>7495: Spesielle merknader knyttet til stoppunkt.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7495</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilretteleggingHandikappede" type="string">
+            <annotation>
+              <documentation>7958: Beskriver forhold rundt stoppunktet som kan ha betydning for handikappede.  Gjelder ulike kategorier handikappede.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7958</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILRETTELEGGINGHANDIKAPPEDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rutetidsinformasjon" type="nvdb:RutetidsinformasjonType">
+            <annotation>
+              <documentation>7956: Angir om det er tilgjengelig informasjon om rutetider på/ved stoppunktet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7956</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUTETIDSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="leTak" type="nvdb:LeTakType">
+            <annotation>
+              <documentation>7955: Angir hvilken mulighet det er for tak over hodet ved opphold på stoppunktet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7955</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LETAK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sittemulighet" type="nvdb:SittemulighetStoppunktType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7957</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eksternReferanse" type="string">
+            <annotation>
+              <documentation>7846: Det kan her legges inn nøkkelinformasjon til eksternt holdeplassystem.  Benyttes bla ved innlegging av data fra andre system.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7846</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EKSTERNREFERANSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>7496: Gir koordinater til stoppunkt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7496</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>8930: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8930</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StoppunktPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Stoppunkt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TrafikkretningGeografiskStoppunktType">
+    <annotation>
+      <documentation>7481: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7481</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISKSTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrafikkretningGeografiskStoppunktEnumerationType nvdb:TrafikkretningGeografiskStoppunktOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkretningGeografiskStoppunktEnumerationType">
+    <annotation>
+      <documentation>7481: Angir hvilken trafikkretning som betjenes.  Angis hvis entydig.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7481</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGGEOGRAFISKSTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="begge">
+        <annotation>
+          <documentation>9740: Begge: Stoppunktet betjener trafikk i begge/alle retninger.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9740</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tilSentrum">
+        <annotation>
+          <documentation>9734: Til sentrum: Betjener primært trafikk til sentrum av nærmeste by.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9734</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fraSentrum">
+        <annotation>
+          <documentation>9735: Fra sentrum: Betjener primært trafikk fra sentrum av nærmeste by</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9735</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nordgående">
+        <annotation>
+          <documentation>9736: Nordgående: Betjener primært trafikk fra sør til nord.  Retning må sees i større perspektiv enn den lokale retningen transportåren har inne på holdeplassen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9736</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sørgående">
+        <annotation>
+          <documentation>9737: Sørgående: Betjener primært trafikk fra nord til sør.  Retning må sees i større perspektiv enn den lokale retningen transportåren har inne på holdeplassen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9737</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="østgående">
+        <annotation>
+          <documentation>9738: Østgående: Betjener primært trafikk fra vest til øst  Retning må sees i større perspektiv enn den lokale retningen transportåren har inne på holdeplassen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9738</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vestgående">
+        <annotation>
+          <documentation>9739: Vestgående: Betjener normalt trafikk fra øst til vest.  Retning må sees i større perspektiv enn den lokale retningen transportåren har inne på holdeplassen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9739</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="varierer">
+        <annotation>
+          <documentation>9768: Varierer: Benyttes hvis det varierer hvilken retning som trafikkerer stoppunktet.  Eks for tog/fly vil samme stoppunkt benyttes til ulike retninger.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9768</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkretningGeografiskStoppunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkretningNettType">
+    <annotation>
+      <documentation>7540: Angir hvilken trafikkretning som betjenes sett i forhold til transportårens retning.  I vegsammenheng vil det si i forhold til metreringsretning.  Mest aktuelt for veg og bane.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7540</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrafikkretningNettEnumerationType nvdb:TrafikkretningNettOtherType"/>
+  </simpleType>
+  <simpleType name="TrafikkretningNettEnumerationType">
+    <annotation>
+      <documentation>7540: Angir hvilken trafikkretning som betjenes sett i forhold til transportårens retning.  I vegsammenheng vil det si i forhold til metreringsretning.  Mest aktuelt for veg og bane.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7540</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNINGNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="medNettretning">
+        <annotation>
+          <documentation>9769: Med nettretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9769</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="motNettretning">
+        <annotation>
+          <documentation>9770: Mot nettretning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9770</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="begge">
+        <annotation>
+          <documentation>9771: Begge: Betjener begge retninger.  Typisk for endeholdeplasser, stoppunkt på jernbane osv.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9771</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrafikkretningNettOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStoppunktType">
+    <annotation>
+      <documentation>7494: Angir hvilken hovedtype stoppunkt det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7494</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeStoppunktEnumerationType nvdb:TypeStoppunktOtherType"/>
+  </simpleType>
+  <simpleType name="TypeStoppunktEnumerationType">
+    <annotation>
+      <documentation>7494: Angir hvilken hovedtype stoppunkt det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7494</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTOPPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="gate_Fly">
+        <annotation>
+          <documentation>9749: Gate, fly: Stoppunkt hvor det er mulighet for av- og/eller påstigning til fly</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9749</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="togplattform">
+        <annotation>
+          <documentation>10179: Togplattform: Stoppunkt hvor det er mulighet for av- og/eller påstigning til tog</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10179</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kaiFortøyningsplass">
+        <annotation>
+          <documentation>9753: Kai/fortøyningsplass: Stoppunkt hvor det er mulighet for av- og/eller påstigning til båt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9753</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trikkestopp">
+        <annotation>
+          <documentation>9750: Trikkestopp: Stoppunkt hvor det er mulighet for av- og/eller påstigning til trikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9750</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="busstopp">
+        <annotation>
+          <documentation>9748: Busstopp: Stoppunkt hvor det er mulighet for av- og/eller påstigning til buss</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9748</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="drosjestopp">
+        <annotation>
+          <documentation>9751: Drosjestopp: Stoppunkt hvor det er markert for påstigning til drosje.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9751</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegGatenett">
+        <annotation>
+          <documentation>11255: Veg/gatenett: Stoppunkt hvor det er mulighet for tilknytning mot veg/gatenett.  For videre transport med privatbil, sykkel, moped/motorsykkel eller til fots</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11255</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bilparkering">
+        <annotation>
+          <documentation>9752: Bilparkering: Stoppunkt for tilknytning mot parkert privatbil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9752</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="interntStoppunkt">
+        <annotation>
+          <documentation>11256: Internt stoppunkt: Stoppunkt internt på en holdeplass.  Kan typisk være internt knutepunkt for gangtrafikk.  Bare aktuelt på store holdeplasser/terminaler.  Kan benyttes i forbindelse med spesifisering av gangavstander.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11256</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStoppunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

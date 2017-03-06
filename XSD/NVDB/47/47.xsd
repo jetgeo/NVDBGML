@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>47: Kjøreareal som ligger inntil ytterste kjørefelt. Der kan være trafikkdeler mellom kjørefelt og trafikklomme.</documentation>
+  </annotation>
+  <include schemaLocation="Trafikklomme.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BelysningTrafikklommeType">
+    <annotation>
+      <documentation>3122: Angir om trafikklommen er belyst</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3122</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSNINGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BelysningTrafikklommeEnumerationType nvdb:BelysningTrafikklommeOtherType"/>
+  </simpleType>
+  <simpleType name="BelysningTrafikklommeEnumerationType">
+    <annotation>
+      <documentation>3122: Angir om trafikklommen er belyst</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3122</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSNINGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja_EgenBelysning">
+        <annotation>
+          <documentation>4648: Ja, egen belysning: Belysning satt opp spesielt for utvendig belysning av bussholdeplass/lomme</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4648</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ja_BelystAvGatebelysning">
+        <annotation>
+          <documentation>4649: Ja, belyst av gatebelysning: Ingen ekstraordinær belysning for trafikklomme/bussholdeplass Men belyst av gatebelysning.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4649</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>4650: Nei: Ingen utvendig belysning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4650</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelysningTrafikklommeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeTrafikklommeType">
+    <annotation>
+      <documentation>1257: Angir primært bruksområde for trafikklomma.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1257</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDETRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeTrafikklommeEnumerationType nvdb:BruksområdeTrafikklommeOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeTrafikklommeEnumerationType">
+    <annotation>
+      <documentation>1257: Angir primært bruksområde for trafikklomma.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1257</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDETRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="busslomme">
+        <annotation>
+          <documentation>3200: Busslomme: Trafikklomme i forbindelse med stoppunkt for buss</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3200</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="havariStopplomme">
+        <annotation>
+          <documentation>3201: Havari/Stopplomme: Trafikklomme hvor det er tilrettelagt for parkering i forbindelse med nødstopp eller kortere stopp ved spesielle behov.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3201</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørepause">
+        <annotation>
+          <documentation>3202: Kjørepause: Trafikklomme der det er mulig å parkere for å ta en kjørepause</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3202</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="møteplass">
+        <annotation>
+          <documentation>4071: Møteplass: Spesielt anlagt og merket breddeutvidelse hvor kjøretøy kan komme forbi hverandre på enfeltsveg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4071</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="arbeidslommeSVV">
+        <annotation>
+          <documentation>4674: Arbeidslomme SVV: Trafikklomme som brukes i forbindelse med vegarbeid</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4674</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lastelomme">
+        <annotation>
+          <documentation>3203: Lastelomme: Trafikklomme for lasting , lossing eller omlasting.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3203</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="informasjonslomme">
+        <annotation>
+          <documentation>4969: Informasjonslomme: Trafikklomme hvor skilt eller annen form for informasjon er plassert.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4969</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjettingplass">
+        <annotation>
+          <documentation>4970: Kjettingplass: Trafikklomme for å sette på eller ta av kjettinger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4970</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kolonneoppstilling">
+        <annotation>
+          <documentation>8190: Kolonneoppstilling: Trafikklomme som fungerer som midlertidig parkering mens man venter på å sette i gang kolonnekjøring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8190</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lomme_Generell">
+        <annotation>
+          <documentation>4968: Lomme, generell: Lomme som har bruksområde som ikke dekkes av øvrige tillatte verdier.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4968</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeTrafikklommeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="DekketypeTrafikklommeType">
+    <annotation>
+      <documentation>4612: Angir hvilken type dekke det er på trafikklomma</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4612</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKETYPETRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DekketypeTrafikklommeEnumerationType nvdb:DekketypeTrafikklommeOtherType"/>
+  </simpleType>
+  <simpleType name="DekketypeTrafikklommeEnumerationType">
+    <annotation>
+      <documentation>4612: Angir hvilken type dekke det er på trafikklomma</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4612</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKETYPETRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="asfalt">
+        <annotation>
+          <documentation>5570: Asfalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5570</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grus">
+        <annotation>
+          <documentation>5569: Grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5569</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stein">
+        <annotation>
+          <documentation>5572: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5572</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong">
+        <annotation>
+          <documentation>5571: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5571</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DekketypeTrafikklommeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesieltParkeringsformålType">
+    <annotation>
+      <documentation>9883: Angir at trafikklomme benyttes til spesielt parkerngsformål</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9883</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELTPARKERINGSFORMÅL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SpesieltParkeringsformålEnumerationType nvdb:SpesieltParkeringsformålOtherType"/>
+  </simpleType>
+  <simpleType name="SpesieltParkeringsformålEnumerationType">
+    <annotation>
+      <documentation>9883: Angir at trafikklomme benyttes til spesielt parkerngsformål</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9883</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELTPARKERINGSFORMÅL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tekniskRom">
+        <annotation>
+          <documentation>16061: Teknisk rom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16061</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesieltParkeringsformålOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Trafikklomme" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrafikklommeType">
+    <annotation>
+      <documentation>47: Kjøreareal som ligger inntil ytterste kjørefelt. Der kan være trafikkdeler mellom kjørefelt og trafikklomme.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">47</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TrafikklommeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeTrafikklommeType">
+            <annotation>
+              <documentation>1257: Angir primært bruksområde for trafikklomma.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1257</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>3120: Angir navn på trafikklomme.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3120</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="integer">
+            <annotation>
+              <documentation>1362: Angir arealet av vegobjektet
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1362</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengdeMedFullBredde" type="double">
+            <annotation>
+              <documentation>1307: Angir lengde av trafikklommen med minimum ca. 3 meter bredde
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1307</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDEMEDFULLBREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="bredde" type="double">
+            <annotation>
+              <documentation>2239: Angir fast bredde for vegobjektet
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2239</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BREDDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brøytetAreal" type="integer">
+            <annotation>
+              <documentation>8317: Angir hvor stort areal av trafikklomma som brøytes.
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8317</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRØYTETAREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="spesieltParkeringsformål" type="nvdb:SpesieltParkeringsformålType">
+            <annotation>
+              <documentation>9883: Angir at trafikklomme benyttes til spesielt parkerngsformål</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9883</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELTPARKERINGSFORMÅL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="dekketype" type="nvdb:DekketypeTrafikklommeType">
+            <annotation>
+              <documentation>4612: Angir hvilken type dekke det er på trafikklomma</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4612</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKETYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utforming" type="nvdb:UtformingTrafikklommeType">
+            <annotation>
+              <documentation>1118: Angir hvordan vegobjektet er utforma</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1118</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligTrafikklommeType">
+            <annotation>
+              <documentation>3125: Angir hvem som er ansvarlig for vedlikehold</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3125</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="byggeår" type="integer">
+            <annotation>
+              <documentation>10377: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10377</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vinteråpen" type="nvdb:VinteråpenType">
+            <annotation>
+              <documentation>4652: Angir om trafikklomma blir holdt åpen gjennom vinteren.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4652</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERÅPEN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>4754: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4754</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>5897: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5897</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>5900: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5900</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="belysning" type="nvdb:BelysningTrafikklommeType">
+            <annotation>
+              <documentation>3122: Angir om trafikklommen er belyst</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3122</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrafikklommePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Trafikklomme"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="UtformingTrafikklommeType">
+    <annotation>
+      <documentation>1118: Angir hvordan vegobjektet er utforma</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1118</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtformingTrafikklommeEnumerationType nvdb:UtformingTrafikklommeOtherType"/>
+  </simpleType>
+  <simpleType name="UtformingTrafikklommeEnumerationType">
+    <annotation>
+      <documentation>1118: Angir hvordan vegobjektet er utforma</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1118</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lommeMedFysiskDeleøy">
+        <annotation>
+          <documentation>3204: Lomme med fysisk deleøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3204</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lommeMedMaltDeleøy">
+        <annotation>
+          <documentation>3205: Lomme med malt deleøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lommeUtenDeleøy">
+        <annotation>
+          <documentation>3206: Lomme uten deleøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3206</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtformingTrafikklommeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrafikklommeType">
+    <annotation>
+      <documentation>3125: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3125</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligTrafikklommeEnumerationType nvdb:VedlikeholdsansvarligTrafikklommeOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrafikklommeEnumerationType">
+    <annotation>
+      <documentation>3125: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3125</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGTRAFIKKLOMME</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>4655: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4655</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>4656: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4656</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>4657: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4657</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17673: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17673</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligTrafikklommeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VinteråpenType">
+    <annotation>
+      <documentation>4652: Angir om trafikklomma blir holdt åpen gjennom vinteren.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4652</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VinteråpenEnumerationType nvdb:VinteråpenOtherType"/>
+  </simpleType>
+  <simpleType name="VinteråpenEnumerationType">
+    <annotation>
+      <documentation>4652: Angir om trafikklomma blir holdt åpen gjennom vinteren.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4652</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5698: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5698</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5699: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5699</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VinteråpenOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

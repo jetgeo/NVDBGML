@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>72: Område/felt i tunnel eller fjellskjæring i dagen som er sikra med nett, bolter etc.</documentation>
+  </annotation>
+  <include schemaLocation="TunnelloepUtenTrafikk.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AdkomstType">
+    <annotation>
+      <documentation>9675: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9675</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:AdkomstEnumerationType nvdb:AdkomstOtherType"/>
+  </simpleType>
+  <simpleType name="AdkomstEnumerationType">
+    <annotation>
+      <documentation>9675: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9675</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hjullaster">
+        <annotation>
+          <documentation>13942: Hjullaster: Adkomst for hjullaster</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13942</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gravemaskin">
+        <annotation>
+          <documentation>13943: Gravemaskin: Adkomst for gravemaskin</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13943</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tilFots">
+        <annotation>
+          <documentation>13944: Til fots: Adkomst til fots</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13944</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kran">
+        <annotation>
+          <documentation>13945: Kran: Adkomst for kran</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13945</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tau">
+        <annotation>
+          <documentation>13946: Tau: Adkomt med tau</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13946</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="helikopter">
+        <annotation>
+          <documentation>13947: Helikopter: Adkomst for helikopter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13947</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AdkomstOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Bergsikring" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:BergsikringType">
+    <annotation>
+      <documentation>72: Område/felt i tunnel eller fjellskjæring i dagen som er sikra med nett, bolter etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">72</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="BergsikringType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="type" type="nvdb:TypeBergsikringType">
+            <annotation>
+              <documentation>1133: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1133</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="double">
+            <annotation>
+              <documentation>1368: Angir areal av sikringsfeltet.
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1368</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="antallBolterAnker" type="integer">
+            <annotation>
+              <documentation>1989: Angir hvor mange bolter og/eller anker som er brukt i sikringsområde
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1989</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLBOLTERANKER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengde" type="integer">
+            <annotation>
+              <documentation>5296: Angir total lengde av sikringsfelt
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5296</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="typeSprøytbetong" type="nvdb:TypeSprøytbetongType">
+            <annotation>
+              <documentation>9166: Angir hvilken type sprøytbetong som er benyttet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9166</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESPRØYTBETONG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="høydeOverVeg" type="integer">
+            <annotation>
+              <documentation>9673: Angir høyde over veg for sikringen
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9673</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEOVERVEG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plassering" type="nvdb:PlasseringBergsikringType">
+            <annotation>
+              <documentation>1651: Angir sikringsfeltets plassering.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1651</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="wiredimensjon" type="integer">
+            <annotation>
+              <documentation>9674: Angir dimensjon for sikringswire
+Enhet: Millimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9674</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_WIREDIMENSJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="byggeår" type="integer">
+            <annotation>
+              <documentation>9167: Angir hvilket år sikringen ble montert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9167</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstType">
+            <annotation>
+              <documentation>9675: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9675</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>9877: Kan angi tillegginformasjon om vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9877</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierBergsikringType">
+            <annotation>
+              <documentation>9676: Angir hvem som er eier av vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9676</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBergsikringType">
+            <annotation>
+              <documentation>9677: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9677</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tykkelseSprøytbetong" type="integer">
+            <annotation>
+              <documentation>9330: Angir tykkelse av sprøytbetong
+Enhet: Centimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9330</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYKKELSESPRØYTBETONG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>4774: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4774</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>8877: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8877</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIFLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BergsikringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Bergsikring"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="EierBergsikringType">
+    <annotation>
+      <documentation>9676: Angir hvem som er eier av vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9676</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierBergsikringEnumerationType nvdb:EierBergsikringOtherType"/>
+  </simpleType>
+  <simpleType name="EierBergsikringEnumerationType">
+    <annotation>
+      <documentation>9676: Angir hvem som er eier av vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9676</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>13948: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13948</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>13949: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13949</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>13950: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13950</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>13951: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13951</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17665: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17665</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBergsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringBergsikringType">
+    <annotation>
+      <documentation>1651: Angir sikringsfeltets plassering.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1651</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringBergsikringEnumerationType nvdb:PlasseringBergsikringOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringBergsikringEnumerationType">
+    <annotation>
+      <documentation>1651: Angir sikringsfeltets plassering.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1651</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tunnel_HeleProfilet">
+        <annotation>
+          <documentation>3295: Tunnel, hele profilet: Sikring plassert i hele profilet i tunnelløpet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3295</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_HengOgVegger">
+        <annotation>
+          <documentation>3297: Tunnel, heng og vegger: Sikring plassert i heng og vegger i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3297</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_Heng">
+        <annotation>
+          <documentation>3299: Tunnel, heng: Sikring plassert  i heng i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3299</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_Såle">
+        <annotation>
+          <documentation>3303: Tunnel, såle: Sikring plassert i såle i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3303</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_HøyreVegg">
+        <annotation>
+          <documentation>3308: Tunnel, høyre vegg: Sikring plassert på høyre vegg (i forhold til vegens metreringsretning)  i tunnelløp.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3308</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_VenstreVegg">
+        <annotation>
+          <documentation>3305: Tunnel, venstre vegg: Sikring plassert på venstre vegg (i forhold til vegens metreringsretning)  i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3305</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_HøyreVeggOgHeng">
+        <annotation>
+          <documentation>3314: Tunnel, høyre vegg og heng: Sikring plassert på høyre vegg (i forhold til vegens metreringsretning) og heng i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3314</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_VenstreVeggOgHeng">
+        <annotation>
+          <documentation>3316: Tunnel, venstre vegg og heng: Sikring plassert på venstre vegg (i forhold til vegens metreringsretning) og heng i tunnelløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3316</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_HalveProfilHøyreSide">
+        <annotation>
+          <documentation>12999: Tunnel, halve profil høyre side: Sikring plassert halve profil høyre side</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12999</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel_HalveProfilVenstreSide">
+        <annotation>
+          <documentation>13000: Tunnel, Halve profil venstre side: Sikring plassert halve profil venstre side</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13000</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dagen_Skjæring">
+        <annotation>
+          <documentation>15877: Dagen, skjæring: Sikring er plassert i skjæring i dagen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15877</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dagen_NaturligTerreng">
+        <annotation>
+          <documentation>15878: Dagen, naturlig terreng: Sikring er plassert i naturlig skråning i dagen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15878</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringBergsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBergsikringType">
+    <annotation>
+      <documentation>1133: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1133</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeBergsikringEnumerationType nvdb:TypeBergsikringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeBergsikringEnumerationType">
+    <annotation>
+      <documentation>1133: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1133</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bartBerg">
+        <annotation>
+          <documentation>12995: Bart berg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12995</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bolter">
+        <annotation>
+          <documentation>3290: Bolter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3290</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nett">
+        <annotation>
+          <documentation>3291: Nett</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3291</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nett_Ubåtnett">
+        <annotation>
+          <documentation>13210: Nett, ubåtnett: Kraftig stålnett som legges over områder med oppsprukket fjell, ur eller løsmasser for å hindre nedfall/ras. Boltes fast til fjellet. Benyttes normalt i fjellskjæringer og ikke i tunneler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13210</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nett_Isnett">
+        <annotation>
+          <documentation>13212: Nett, isnett: Stålnett som boltes fast fast på selve fjellskjæringa. Skal "binde" is og dermed avverga at isen faller ned på vegen. Benyttes normalt i fjellskjæringer og ikke i tunneler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13212</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nett_Steinsprangnett">
+        <annotation>
+          <documentation>13211: Nett, steinsprangnett: Stålnett som legges over områder med oppsprukket fjell, ur eller løsmasser for å hindre nedfall/ras. Boltes fast til fjellet. Benyttes normalt i fjellskjæringer og ikke i tunneler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13211</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anker">
+        <annotation>
+          <documentation>15879: Anker: Anker/forebygning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15879</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjellbånd">
+        <annotation>
+          <documentation>3289: Fjellbånd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3289</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprøytebetong">
+        <annotation>
+          <documentation>12250: Sprøytebetong: Sprøytebetong benyttet i forbindelse med bergsikring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12250</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprøytebetongbuer_Enkel">
+        <annotation>
+          <documentation>12251: Sprøytebetongbuer, enkel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12251</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprøytebetongbuer_Dobbel">
+        <annotation>
+          <documentation>12252: Sprøytebetongbuer, dobbel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12252</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBergsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSprøytbetongType">
+    <annotation>
+      <documentation>9166: Angir hvilken type sprøytbetong som er benyttet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9166</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESPRØYTBETONG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeSprøytbetongEnumerationType nvdb:TypeSprøytbetongOtherType"/>
+  </simpleType>
+  <simpleType name="TypeSprøytbetongEnumerationType">
+    <annotation>
+      <documentation>9166: Angir hvilken type sprøytbetong som er benyttet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9166</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESPRØYTBETONG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="uarmert">
+        <annotation>
+          <documentation>12253: Uarmert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12253</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="medPP_Fiber">
+        <annotation>
+          <documentation>12254: Med PP-fiber</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12254</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="medStålfiber">
+        <annotation>
+          <documentation>12255: Med stålfiber</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12255</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="medArmeringsnett">
+        <annotation>
+          <documentation>12256: Med armeringsnett</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12256</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSprøytbetongOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBergsikringType">
+    <annotation>
+      <documentation>9677: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9677</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligBergsikringEnumerationType nvdb:VedlikeholdsansvarligBergsikringOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBergsikringEnumerationType">
+    <annotation>
+      <documentation>9677: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9677</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBERGSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>13952: Statens Vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13952</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>13953: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13953</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>13954: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13954</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17765: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17765</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBergsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

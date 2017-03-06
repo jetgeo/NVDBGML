@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>600: Landskapsverdi.  Tidligere register 42-Landskap i VDB</documentation>
+  </annotation>
+  <include schemaLocation="Landskapsverdi.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="LandskapstemaLandskapsverdiType">
+    <annotation>
+      <documentation>5464: Angir landskapstema</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5464</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSTEMALANDSKAPSVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LandskapstemaLandskapsverdiEnumerationType nvdb:LandskapstemaLandskapsverdiOtherType"/>
+  </simpleType>
+  <simpleType name="LandskapstemaLandskapsverdiEnumerationType">
+    <annotation>
+      <documentation>5464: Angir landskapstema</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5464</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSTEMALANDSKAPSVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="landskapsbilde">
+        <annotation>
+          <documentation>7395: Landskapsbilde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7395</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="naturmiljø">
+        <annotation>
+          <documentation>7396: Naturmiljø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7396</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kulturmiljø">
+        <annotation>
+          <documentation>7397: Kulturmiljø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7397</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="samlet">
+        <annotation>
+          <documentation>7398: Samlet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7398</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LandskapstemaLandskapsverdiOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Landskapsverdi" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:LandskapsverdiType">
+    <annotation>
+      <documentation>600: Landskapsverdi.  Tidligere register 42-Landskap i VDB</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">600</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LandskapsverdiType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="landskapstema" type="nvdb:LandskapstemaLandskapsverdiType">
+            <annotation>
+              <documentation>5464: Angir landskapstema</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5464</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSTEMA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="landskapsverdi" type="nvdb:LandskapsverdiLandskapsverdiType">
+            <annotation>
+              <documentation>5465: Angir landskapsverdi</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5465</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSVERDI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="landskapsansvarlig" type="string">
+            <annotation>
+              <documentation>5466: Angir hvem som er landskapsansvarlig</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5466</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <documentation>7067: Gir beskrivelse</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7067</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESKRIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>6912: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6912</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LandskapsverdiPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Landskapsverdi"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="LandskapsverdiLandskapsverdiType">
+    <annotation>
+      <documentation>5465: Angir landskapsverdi</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5465</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSVERDILANDSKAPSVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LandskapsverdiLandskapsverdiEnumerationType nvdb:LandskapsverdiLandskapsverdiOtherType"/>
+  </simpleType>
+  <simpleType name="LandskapsverdiLandskapsverdiEnumerationType">
+    <annotation>
+      <documentation>5465: Angir landskapsverdi</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5465</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDSKAPSVERDILANDSKAPSVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="spesieltVerdifullt">
+        <annotation>
+          <documentation>7399: Spesielt verdifullt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7399</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="verdifullt">
+        <annotation>
+          <documentation>7400: Verdifullt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7400</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vanlig">
+        <annotation>
+          <documentation>7401: Vanlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7401</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="forringetVerdi">
+        <annotation>
+          <documentation>9345: Forringet verdi</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9345</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LandskapsverdiLandskapsverdiOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

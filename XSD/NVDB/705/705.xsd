@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.07">
+  <annotation>
+    <documentation>705: Fastlagt rute for sykling, primært for tur/fritidssykling</documentation>
+  </annotation>
+  <include schemaLocation="Sykkelrute_TurFritid.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EuroVeloSykkelruteType">
+    <annotation>
+      <documentation>10422: Angir nummer/navn på EuroVelosykkelrute</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EUROVELOSYKKELRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EuroVeloSykkelruteEnumerationType nvdb:EuroVeloSykkelruteOtherType"/>
+  </simpleType>
+  <simpleType name="EuroVeloSykkelruteEnumerationType">
+    <annotation>
+      <documentation>10422: Angir nummer/navn på EuroVelosykkelrute</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EUROVELOSYKKELRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1_AtlanticCoastRoute">
+        <annotation>
+          <documentation>16839: 1 - Atlantic Coast Route</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16839</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3_PilgrimsRoute">
+        <annotation>
+          <documentation>16840: 3 - Pilgrims Route</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16840</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="7_SunRoute">
+        <annotation>
+          <documentation>16841: 7 - Sun Route</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16841</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="11_EastEuropeRoute">
+        <annotation>
+          <documentation>16842: 11 - East Europe Route</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16842</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="12_NorthSeaCycleRoute">
+        <annotation>
+          <documentation>16843: 12 - North Sea Cycle Route</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16843</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EuroVeloSykkelruteOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KategoriSykkelruteTurFritidType">
+    <annotation>
+      <documentation>10251: Angir hvilken hovedkategori sykkelruta tilhører.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10251</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KATEGORISYKKELRUTETURFRITID</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KategoriSykkelruteTurFritidEnumerationType nvdb:KategoriSykkelruteTurFritidOtherType"/>
+  </simpleType>
+  <simpleType name="KategoriSykkelruteTurFritidEnumerationType">
+    <annotation>
+      <documentation>10251: Angir hvilken hovedkategori sykkelruta tilhører.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10251</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KATEGORISYKKELRUTETURFRITID</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="nasjonalSykkelrute">
+        <annotation>
+          <documentation>16741: Nasjonal sykkelrute: Sykkelrute som betegnes som offisiell nasjonal sykkelrute</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16741</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regionalSykkelrute">
+        <annotation>
+          <documentation>16742: Regional sykkelrute: Sykkelruter innenfor fylke/region</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16742</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lokalSykkelrute">
+        <annotation>
+          <documentation>16743: Lokal sykkelrute: Sykkelrute i tilknytning til byer og tettsteder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16743</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KategoriSykkelruteTurFritidOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NasjonalSykkelruteType">
+    <annotation>
+      <documentation>10421: Angir nummer/navn på nasjonal sykkelrute</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NASJONALSYKKELRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NasjonalSykkelruteEnumerationType nvdb:NasjonalSykkelruteOtherType"/>
+  </simpleType>
+  <simpleType name="NasjonalSykkelruteEnumerationType">
+    <annotation>
+      <documentation>10421: Angir nummer/navn på nasjonal sykkelrute</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NASJONALSYKKELRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1_Kystruta">
+        <annotation>
+          <documentation>16822: 1 - Kystruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16822</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2_Kanalruta">
+        <annotation>
+          <documentation>16823: 2 - Kanalruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16823</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3_FjordOgFjell">
+        <annotation>
+          <documentation>16824: 3 - Fjord og fjell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16824</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="4_Rallarvegen">
+        <annotation>
+          <documentation>16825: 4 - Rallarvegen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16825</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="5_Numedalsruta">
+        <annotation>
+          <documentation>16826: 5 - Numedalsruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16826</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="6_Sognefjellsvegen">
+        <annotation>
+          <documentation>16827: 6 - Sognefjellsvegen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16827</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="7_Pilegrimsruta">
+        <annotation>
+          <documentation>16828: 7 - Pilegrimsruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16828</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8_Trollheimen">
+        <annotation>
+          <documentation>16829: 8 - Trollheimen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16829</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9_Villmarksruta">
+        <annotation>
+          <documentation>16830: 9 - Villmarksruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16830</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="10_Nordkapp_Lindesnes">
+        <annotation>
+          <documentation>16831: 10 - Nordkapp - Lindesnes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16831</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NasjonalSykkelruteOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkiltetSykkelruteTurFritidType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10423</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTETSYKKELRUTETURFRITID</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkiltetSykkelruteTurFritidEnumerationType nvdb:SkiltetSykkelruteTurFritidOtherType"/>
+  </simpleType>
+  <simpleType name="SkiltetSykkelruteTurFritidEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10423</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTETSYKKELRUTETURFRITID</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16832: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16832</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16833: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16833</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="delvis">
+        <annotation>
+          <documentation>16834: Delvis: Rute er noe sporadisk skiltet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16834</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkiltetSykkelruteTurFritidOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Sykkelrute_TurFritid" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Sykkelrute_TurFritidType">
+    <annotation>
+      <documentation>705: Fastlagt rute for sykling, primært for tur/fritidssykling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">705</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SYKKELRUTE_TURFRITID</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="Sykkelrute_TurFritidType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element minOccurs="0" name="kategori" type="nvdb:KategoriSykkelruteTurFritidType">
+            <annotation>
+              <documentation>10251: Angir hvilken hovedkategori sykkelruta tilhører.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10251</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KATEGORI</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nummer" type="string">
+            <annotation>
+              <documentation>6825: Angir nummer på sykkelrute</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6825</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="beskrivelse" type="string">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6826</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BESKRIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="euroVeloSykkelrute" type="nvdb:EuroVeloSykkelruteType">
+            <annotation>
+              <documentation>10422: Angir nummer/navn på EuroVelosykkelrute</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10422</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EUROVELOSYKKELRUTE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="navn" type="string">
+            <annotation>
+              <documentation>6824: Gir navn til Sykkelvegrute</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6824</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nasjonalSykkelrute" type="nvdb:NasjonalSykkelruteType">
+            <annotation>
+              <documentation>10421: Angir nummer/navn på nasjonal sykkelrute</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10421</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NASJONALSYKKELRUTE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="skiltet" type="nvdb:SkiltetSykkelruteTurFritidType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10423</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>6897: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6897</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Sykkelrute_TurFritidPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Sykkelrute_TurFritid"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
