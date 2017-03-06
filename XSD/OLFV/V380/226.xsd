@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V380" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V380" version="2.08">
+  <annotation>
+    <documentation>226: Det øverste lag i vegfundamentet.  Deles ofte i nedre og øvre (1).</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Bærelag" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:BærelagType">
+    <annotation>
+      <documentation>226: Det øverste lag i vegfundamentet.  Deles ofte i nedre og øvre (1).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">226</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BÆRELAG</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="BærelagType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="tykkelse" type="integer">
+            <annotation>
+              <documentation>1630: Angir tykkelse
+Enhet: Millimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1630</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYKKELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeBærelagType">
+            <annotation>
+              <documentation>1211: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1211</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lagtype" type="nvdb:LagtypeType">
+            <annotation>
+              <documentation>8742: Angir om det er tale om øvre eller nedre bærelag</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8742</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LAGTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="steinstørrelse" type="nvdb:SteinstørrelseType">
+            <annotation>
+              <documentation>5531: Angir steinstørrelse
+Enhet: Millimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="leggedato" type="date">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5142</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEGGEDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>4860: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4860</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BærelagPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Bærelag"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="LagtypeType">
+    <annotation>
+      <documentation>8742: Angir om det er tale om øvre eller nedre bærelag</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8742</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LAGTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LagtypeEnumerationType nvdb:LagtypeOtherType"/>
+  </simpleType>
+  <simpleType name="LagtypeEnumerationType">
+    <annotation>
+      <documentation>8742: Angir om det er tale om øvre eller nedre bærelag</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8742</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LAGTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="øvreBærelag">
+        <annotation>
+          <documentation>11571: Øvre bærelag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11571</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nedreBærelag">
+        <annotation>
+          <documentation>11572: Nedre bærelag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11572</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LagtypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SteinstørrelseType">
+    <annotation>
+      <documentation>5531: Angir steinstørrelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SteinstørrelseEnumerationType nvdb:SteinstørrelseOtherType"/>
+  </simpleType>
+  <simpleType name="SteinstørrelseEnumerationType">
+    <annotation>
+      <documentation>5531: Angir steinstørrelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="11">
+        <annotation>
+          <documentation>7849: 11</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7849</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="16">
+        <annotation>
+          <documentation>7850: 16</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7850</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="19">
+        <annotation>
+          <documentation>7851: 19</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7851</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="22">
+        <annotation>
+          <documentation>7852: 22</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7852</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="24">
+        <annotation>
+          <documentation>7853: 24</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7853</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="26">
+        <annotation>
+          <documentation>7854: 26</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7854</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="32">
+        <annotation>
+          <documentation>7855: 32</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7855</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="50">
+        <annotation>
+          <documentation>7856: 50</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7856</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="53">
+        <annotation>
+          <documentation>7857: 53</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7857</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="54">
+        <annotation>
+          <documentation>7858: 54</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7858</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="63">
+        <annotation>
+          <documentation>7859: 63</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7859</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="64">
+        <annotation>
+          <documentation>7860: 64</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7860</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="80">
+        <annotation>
+          <documentation>7861: 80</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SteinstørrelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBærelagType">
+    <annotation>
+      <documentation>1211: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1211</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBÆRELAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeBærelagEnumerationType nvdb:TypeBærelagOtherType"/>
+  </simpleType>
+  <simpleType name="TypeBærelagEnumerationType">
+    <annotation>
+      <documentation>1211: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1211</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBÆRELAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Msm">
+        <annotation>
+          <documentation>3660: Mekanisk stabiliserte materialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3660</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="G">
+        <annotation>
+          <documentation>3661: Grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3661</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Vm">
+        <annotation>
+          <documentation>3662: Velgraderte materialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3662</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gu1">
+        <annotation>
+          <documentation>3663: Grus, uten tilfredst. naturlig gradering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3663</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gu2">
+        <annotation>
+          <documentation>3686: Grus, u tf. naturlig gradering, fv knusing</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3686</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ks">
+        <annotation>
+          <documentation>3664: Knust stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3664</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fp">
+        <annotation>
+          <documentation>3665: Forkilt pukk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3665</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gk">
+        <annotation>
+          <documentation>6960: Knust grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6960</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fk">
+        <annotation>
+          <documentation>6961: Knust fjell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6961</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bm">
+        <annotation>
+          <documentation>3666: Bitumenstabiliserte materialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3666</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ag">
+        <annotation>
+          <documentation>3667: Asfaltert grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3667</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ap">
+        <annotation>
+          <documentation>3668: Asfaltert pukk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3668</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Pp">
+        <annotation>
+          <documentation>3669: Penetrert pukk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3669</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="As">
+        <annotation>
+          <documentation>3670: Asfaltert sand</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3670</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bg">
+        <annotation>
+          <documentation>3671: Bitumesnstabilisert grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3671</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fr">
+        <annotation>
+          <documentation>3672: Freste asfaltmaterialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3672</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Gja">
+        <annotation>
+          <documentation>3673: Gjenbrukte asfaltmaterialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3673</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ak">
+        <annotation>
+          <documentation>16134: Knust asfalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16134</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="C">
+        <annotation>
+          <documentation>3674: Sementstabiliserte materialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3674</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Cp">
+        <annotation>
+          <documentation>3675: Sementstabilisert pukk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3675</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Cg">
+        <annotation>
+          <documentation>3676: Sementstabilisert grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3676</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sg">
+        <annotation>
+          <documentation>6957: Skumgrus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6957</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Asg">
+        <annotation>
+          <documentation>7862: Asfaltskumgrus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7862</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBærelagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
