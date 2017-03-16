@@ -4647,6 +4647,24 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </element>
   <complexType name="VegreferanseType">
     <sequence>
+      <element name="vegkategori" type="vegnett:VegkategoriType">
+        <annotation>
+          <documentation>angir hvilken type veg veglenk beskriver</documentation>
+        </annotation>
+      </element>
+      <element name="vegstatus" type="vegnett:VegstatusType">
+        <annotation>
+          <documentation>angir veglenka sin status</documentation>
+        </annotation>
+      </element>
+      <element name="vegnummer" type="integer">
+        <annotation>
+          <documentation>angir nummeret til en vegrute</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
       <element name="hovedparsell" type="integer">
         <annotation>
           <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
@@ -4661,11 +4679,6 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
           </appinfo>
-        </annotation>
-      </element>
-      <element name="vegkategori" type="vegnett:VegkategoriType">
-        <annotation>
-          <documentation>angir hvilken type veg veglenk beskriver</documentation>
         </annotation>
       </element>
       <element name="veglenkeMeterFra" type="integer">
@@ -4684,25 +4697,12 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
           </appinfo>
         </annotation>
       </element>
-      <element name="vegnummer" type="integer">
-        <annotation>
-          <documentation>angir nummeret til en vegrute</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGNUMMER</taggedValue>
-          </appinfo>
-        </annotation>
-      </element>
-      <element name="vegreferanseFraDato" type="dateTime">
+      <element minOccurs="0" name="vegreferanseFraDato" type="dateTime">
         <annotation>
           <documentation>gyldighetsdato fra for vegreferanse (startdato)</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VFRADATO</taggedValue>
           </appinfo>
-        </annotation>
-      </element>
-      <element name="vegstatus" type="vegnett:VegstatusType">
-        <annotation>
-          <documentation>angir veglenka sin status</documentation>
         </annotation>
       </element>
     </sequence>
