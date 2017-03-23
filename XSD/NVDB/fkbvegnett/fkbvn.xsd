@@ -3289,13 +3289,9 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
   </element>
   <complexType abstract="true" name="LineærPosisjonType">
     <sequence>
-      <element minOccurs="0" name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
+      <element minOccurs="0" name="lenkesekvens" type="fkbvn:IdentifikasjonPropertyType">
         <annotation>
-          <documentation>metode som er brukt for å angi lineære referanser
-
-Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
-
-&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+          <documentation>unik identifikasjon av lenkesekvens</documentation>
         </annotation>
       </element>
       <element minOccurs="0" name="retning" type="fkbvn:RetningskodeType">
@@ -3306,7 +3302,15 @@ Merknad: Dersom verdi er angitt overstyrer denne standard metode for det referer
           </appinfo>
         </annotation>
       </element>
-      <element name="nettverkselement" type="fkbvn:NettverkselementPropertyType"/>
+      <element minOccurs="0" name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
   <complexType name="LineærPosisjonPropertyType">
@@ -4417,14 +4421,6 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="undergangBru">
-        <annotation>
-          <documentation>8151: Undergang/Bru</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8151</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="kabel">
         <annotation>
           <documentation>7282: Kabel</documentation>
@@ -4433,11 +4429,11 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="skredoverbygg">
+      <enumeration value="undergangBru">
         <annotation>
-          <documentation>8155: Skredoverbygg</documentation>
+          <documentation>8151: Undergang/Bru</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8151</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -4446,6 +4442,14 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
           <documentation>8150: Tunnel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8150</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredoverbygg">
+        <annotation>
+          <documentation>8155: Skredoverbygg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
