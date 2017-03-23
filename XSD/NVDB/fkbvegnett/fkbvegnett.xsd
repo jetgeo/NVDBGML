@@ -1,14 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:vegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="4.6">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fkbvegnett="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="4.6">
   <annotation>
     <documentation>FKB-Vegnett 4.6 inneholder informasjon om alle europa-, riks-, fylkes-, kommunale og skogsbilveger, samt alle private veger unntatt korte, private blindveger. Korte veger er veger med lengde mindre enn 50 m. Veger med unike adresser er med uansett lengde. Bilferjestrekninger skal være representert og gang- og sykkelveger kan være med. Vegnettet er strukturert som et nettverk av veglenker med restriksjoner i form av lineære referanser. 
 Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskriver en eksport fra NVDB beregnet på distribusjon og ajourhold av vegnettsdata gjennom FKB.</documentation>
   </annotation>
+  <include schemaLocation="100.xsd"/>
+  <include schemaLocation="105.xsd"/>
+  <include schemaLocation="107.xsd"/>
+  <include schemaLocation="573.xsd"/>
+  <include schemaLocation="591.xsd"/>
+  <include schemaLocation="606.xsd"/>
+  <include schemaLocation="607.xsd"/>
+  <include schemaLocation="813.xsd"/>
+  <include schemaLocation="821.xsd"/>
+  <include schemaLocation="822.xsd"/>
+  <include schemaLocation="856.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="Fartsgrense" substitutionGroup="gml:AbstractFeature" type="vegnett:FartsgrenseType">
+  <element name="Fartsgrense" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:FartsgrenseType">
     <annotation>
-      <documentation>Fartsgrense: Høyeste tillatte hastighet på en vegstrekning.</documentation>
+      <documentation>105: Høyeste tillatte hastighet på en vegstrekning.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">105</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSE</taggedValue>
@@ -19,45 +30,50 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="fartsgrenseVerdi" type="vegnett:FartsgrenseVerdiType">
+          <element name="fartsgrenseVerdi" type="fkbvegnett:FartsgrenseVerdiType">
             <annotation>
-              <documentation>Fartsgrense: Fartsgrense</documentation>
+              <documentation>2021: Fartsgrense
+Enhet: Kilometer/time</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2021</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEVERDI</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
   <complexType name="FartsgrensePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Fartsgrense"/>
+      <element ref="fkbvegnett:Fartsgrense"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="FartsgrenseVerdiType">
     <annotation>
-      <documentation>Fartsgrense: Fartsgrense</documentation>
+      <documentation>2021: Fartsgrense</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2021</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEVERDI</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:FartsgrenseVerdiEnumerationType vegnett:FartsgrenseVerdiOtherType"/>
+    <union memberTypes="fkbvegnett:FartsgrenseVerdiEnumerationType fkbvegnett:FartsgrenseVerdiOtherType"/>
   </simpleType>
   <simpleType name="FartsgrenseVerdiEnumerationType">
     <annotation>
-      <documentation>Fartsgrense: Fartsgrense</documentation>
+      <documentation>2021: Fartsgrense</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2021</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEVERDI</taggedValue>
@@ -66,6 +82,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
     <restriction base="string">
       <enumeration value="20">
         <annotation>
+          <documentation>11576: 20</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11576</taggedValue>
           </appinfo>
@@ -73,6 +90,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="30">
         <annotation>
+          <documentation>2726: 30</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2726</taggedValue>
           </appinfo>
@@ -80,6 +98,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="40">
         <annotation>
+          <documentation>2728: 40</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2728</taggedValue>
           </appinfo>
@@ -87,6 +106,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="50">
         <annotation>
+          <documentation>2730: 50</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2730</taggedValue>
           </appinfo>
@@ -94,6 +114,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="60">
         <annotation>
+          <documentation>2732: 60</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2732</taggedValue>
           </appinfo>
@@ -101,6 +122,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="70">
         <annotation>
+          <documentation>2735: 70</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2735</taggedValue>
           </appinfo>
@@ -108,6 +130,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="80">
         <annotation>
+          <documentation>2738: 80</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2738</taggedValue>
           </appinfo>
@@ -115,6 +138,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="90">
         <annotation>
+          <documentation>2741: 90</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2741</taggedValue>
           </appinfo>
@@ -122,6 +146,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="100">
         <annotation>
+          <documentation>5087: 100</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5087</taggedValue>
           </appinfo>
@@ -129,6 +154,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       </enumeration>
       <enumeration value="110">
         <annotation>
+          <documentation>9721: 110</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9721</taggedValue>
           </appinfo>
@@ -141,9 +167,9 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="FunksjonellVegklasse" substitutionGroup="gml:AbstractFeature" type="vegnett:FunksjonellVegklasseType">
+  <element name="FunksjonellVegklasse" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:FunksjonellVegklasseType">
     <annotation>
-      <documentation>Funksjonell vegklasse: En klassifisering basert på hvor viktig en veg er for det totale vegnettets forbindelsesmuligheter. Brukes blant annet for vekting i ruteplanlegging</documentation>
+      <documentation>821: En klassifisering basert på hvor viktig en veg er for det totale vegnettets forbindelsesmuligheter. Brukes blant annet for vekting i ruteplanlegging</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">821</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNKSJONELLVEGKLASSE</taggedValue>
@@ -154,19 +180,23 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
+          <element name="vegklasse" type="fkbvegnett:VegklasseType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
-          <element name="vegklasse" type="vegnett:VegklasseFunksjonellVegklasseType">
-            <annotation>
-              <documentation>Vegklasse: Angir funksjonell vegklasse</documentation>
+              <documentation>9338: Angir funksjonell vegklasse</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9338</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKLASSE</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -175,12 +205,12 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   </complexType>
   <complexType name="FunksjonellVegklassePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:FunksjonellVegklasse"/>
+      <element ref="fkbvegnett:FunksjonellVegklasse"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="GeneralisertLenke" substitutionGroup="vegnett:Nettverkselement" type="vegnett:GeneralisertLenkeType">
+  <element abstract="true" name="GeneralisertLenke" substitutionGroup="fkbvegnett:Nettverkselement" type="fkbvegnett:GeneralisertLenkeType">
     <annotation>
       <documentation>Abstrakt, generalisert objekttype for nettverkslenker
 &lt;i&gt;Realisering av INSPIRE Network:GeneralisedLink &lt;/i&gt;</documentation>
@@ -188,21 +218,21 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   </element>
   <complexType abstract="true" name="GeneralisertLenkeType">
     <complexContent>
-      <extension base="vegnett:NettverkselementType">
+      <extension base="fkbvegnett:NettverkselementType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
   <complexType name="GeneralisertLenkePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:GeneralisertLenke"/>
+      <element ref="fkbvegnett:GeneralisertLenke"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Gågatereguleringer" substitutionGroup="gml:AbstractFeature" type="vegnett:GågatereguleringerType">
+  <element name="Gågatereguleringer" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:GågatereguleringerType">
     <annotation>
-      <documentation>Gågate: Gate uten fortau reservert for gående hvor trafikkreglene for gågate gjelder (hentet fra HB N100 (017), stemmer også med beskrivelse av gågateskiltet i HB N300-3 (050-3))</documentation>
+      <documentation>813: Gate uten fortau reservert for gående hvor trafikkreglene for gågate gjelder (hentet fra HB N100 (017), stemmer også med beskrivelse av gågateskiltet i HB N300-3 (050-3))</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">813</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GÅGATE</taggedValue>
@@ -213,31 +243,9 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="kjøringTilEiendommeneTillatt" type="vegnett:KjøringTilEiendommeneTillattType">
-            <annotation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9313</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
-            <annotation>
-              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9322</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRILINJE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="varetransportHverdagULørdagPeriode1FraKl" type="string">
             <annotation>
-              <documentation>Varetransport hverdag u lørdag periode 1 fra kl: Varetransport hverdag  untatt lørdag periode 1, fra klokkeslett</documentation>
+              <documentation>9314: Varetransport hverdag  untatt lørdag periode 1, fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9314</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE1FRAKL</taggedValue>
@@ -246,7 +254,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
           </element>
           <element minOccurs="0" name="varetransportHverdagULørdagPeriode1TilKl" type="string">
             <annotation>
-              <documentation>Varetransport hverdag u lørdag periode 1 til kl: Varetransport hverdag  untatt lørdag periode 1, til klokkeslett</documentation>
+              <documentation>9315: Varetransport hverdag  untatt lørdag periode 1, til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9315</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE1TILKL</taggedValue>
@@ -255,7 +263,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
           </element>
           <element minOccurs="0" name="varetransportHverdagULørdagPeriode2FraKl" type="string">
             <annotation>
-              <documentation>Varetransport hverdag u lørdag periode 2 fra kl: Varetransport hverdag  untatt lørdag periode 2, fra klokkeslett</documentation>
+              <documentation>9316: Varetransport hverdag  untatt lørdag periode 2, fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9316</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE2FRAKL</taggedValue>
@@ -264,7 +272,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
           </element>
           <element minOccurs="0" name="varetransportHverdagULørdagPeriode2TilKl" type="string">
             <annotation>
-              <documentation>Varetransport hverdag u lørdag periode 2 til kl: Varetransport hverdag  untatt lørdag periode 2, til klokkeslett</documentation>
+              <documentation>9317: Varetransport hverdag  untatt lørdag periode 2, til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9317</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE2TILKL</taggedValue>
@@ -273,7 +281,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
           </element>
           <element minOccurs="0" name="varetransportLørdagFra" type="string">
             <annotation>
-              <documentation>Varetransport lørdag fra: Varetransport lørdag fra klokkeslett</documentation>
+              <documentation>9318: Varetransport lørdag fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9318</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTLØRDAGFRA</taggedValue>
@@ -282,11 +290,33 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
           </element>
           <element minOccurs="0" name="varetransportLørdagTil" type="string">
             <annotation>
-              <documentation>Varetransport lørdag til: Varetransport lørdag til klokkeslett</documentation>
+              <documentation>9319: Varetransport lørdag til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9319</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTLØRDAGTIL</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kjøringTilEiendommeneTillatt" type="fkbvegnett:KjøringTilEiendommeneTillattType">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9313</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>9322: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9322</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -295,73 +325,73 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   </complexType>
   <complexType name="GågatereguleringerPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Gågatereguleringer"/>
+      <element ref="fkbvegnett:Gågatereguleringer"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="HovedproblemVærutsattVegType">
     <annotation>
-      <documentation>Hovedproblem: Angir hva som er hovedproblem for værutsatt veg.</documentation>
+      <documentation>9957: Angir hva som er hovedproblem for værutsatt veg.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9957</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEMVÆRUTSATTVEG</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:HovedproblemVærutsattVegEnumerationType vegnett:HovedproblemVærutsattVegOtherType"/>
+    <union memberTypes="fkbvegnett:HovedproblemVærutsattVegEnumerationType fkbvegnett:HovedproblemVærutsattVegOtherType"/>
   </simpleType>
   <simpleType name="HovedproblemVærutsattVegEnumerationType">
     <annotation>
-      <documentation>Hovedproblem: Angir hva som er hovedproblem for værutsatt veg.</documentation>
+      <documentation>9957: Angir hva som er hovedproblem for værutsatt veg.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9957</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEMVÆRUTSATTVEG</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Snøfokk">
+      <enumeration value="snøfokk">
         <annotation>
-          <documentation>16166: Problem med dårlig sikt og oppbygging av snøfonner, vind uten snø er mindre problematisk</documentation>
+          <documentation>16166: Snøfokk: Problem med dårlig sikt og oppbygging av snøfonner, vind uten snø er mindre problematisk</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16166</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Vind">
+      <enumeration value="vind">
         <annotation>
-          <documentation>16167: Problem med sterk vind selv om det ikke snør eller er bølger.</documentation>
+          <documentation>16167: Vind: Problem med sterk vind selv om det ikke snør eller er bølger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16167</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Bølger">
+      <enumeration value="bølger">
         <annotation>
-          <documentation>16168: Problem med bølger som slår over veg selv om det ikke nødvendigvis er stormflo</documentation>
+          <documentation>16168: Bølger: Problem med bølger som slår over veg selv om det ikke nødvendigvis er stormflo</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16168</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Stormflo">
+      <enumeration value="stormflo">
         <annotation>
-          <documentation>16169: Kan være problem med oversvømmelse av vegen selv uten vind/bølger)Kartlegges med tanke på stormflonivået i 2050</documentation>
+          <documentation>16169: Stormflo: Kan være problem med oversvømmelse av vegen (selv uten vind/bølger). Vurderes med tanke på stormflonivået i 2050</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16169</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Flom">
+      <enumeration value="flom">
         <annotation>
-          <documentation>16969: Stor vannføring som kan føre til erosjon og/ eller oversvømmelse som er til hinder for trafikkavvikling. Kan være som følge av regn og/ eller snøsmelting.</documentation>
+          <documentation>16969: Flom: Stor vannføring som kan føre til erosjon og/ eller oversvømmelse som er til hinder for trafikkavvikling. Kan være som følge av regn og/ eller snøsmelting.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16969</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Isgang">
+      <enumeration value="isgang">
         <annotation>
-          <documentation>16970: Det at isen i elver og innsjøer brekkes opp på grunn av økt vannføring, og føres med strømmen nedover vassdraget. Dette skaper periodevis  trafikale problemer på gitt vegstrekning</documentation>
+          <documentation>16970: Isgang: Det at isen i elver og innsjøer brekkes opp på grunn av økt vannføring, og føres med strømmen nedover vassdraget. Dette skaper periodevis  trafikale problemer på gitt vegstrekning</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16970</taggedValue>
           </appinfo>
@@ -374,9 +404,9 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Høydebegrensning" substitutionGroup="gml:AbstractFeature" type="vegnett:HøydebegrensningType">
+  <element name="Høydebegrensning" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:HøydebegrensningType">
     <annotation>
-      <documentation>Høydebegrensning: Strekning i vegnettet hvor kjøretøy kan komme i konflikt med overliggende hinder</documentation>
+      <documentation>591: Strekning i vegnettet hvor kjøretøy kan komme i konflikt med overliggende hinder</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">591</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDEBEGRENSNING</taggedValue>
@@ -387,36 +417,37 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
-            <annotation>
-              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6924</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SENTERLINJE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="skiltaHøyde" type="double">
             <annotation>
-              <documentation>Skilta høyde: Angir skilta høyde i forbindelse med høydebegrensningen. Håndbok N300 (050) beskriver hvordan verdier beregnes ut fra målte høyder</documentation>
+              <documentation>5277: Angir skilta høyde i forbindelse med høydebegrensningen. Håndbok N300 (050) beskriver hvordan verdier beregnes ut fra målte høyder
+Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5277</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTAHØYDE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element name="typeHinderHøydebegrensning" type="vegnett:TypeHinderHøydebegrensningType">
+          <element name="typeHinderHøydebegrensning" type="fkbvegnett:TypeHinderHøydebegrensningType">
             <annotation>
-              <documentation>Type hinder: Angir hvilken type hinder det er tale om</documentation>
+              <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5270</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>6924: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6924</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SENTERLINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -425,41 +456,51 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   </complexType>
   <complexType name="HøydebegrensningPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Høydebegrensning"/>
+      <element ref="fkbvegnett:Høydebegrensning"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
   <simpleType name="HøyfjellsstrekningType">
     <annotation>
-      <documentation>Høyfjellsstrekning: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
+      <documentation>8835: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8835</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYFJELLSSTREKNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:HøyfjellsstrekningEnumerationType vegnett:HøyfjellsstrekningOtherType"/>
+    <union memberTypes="fkbvegnett:HøyfjellsstrekningEnumerationType fkbvegnett:HøyfjellsstrekningOtherType"/>
   </simpleType>
   <simpleType name="HøyfjellsstrekningEnumerationType">
     <annotation>
-      <documentation>Høyfjellsstrekning: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
+      <documentation>8835: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8835</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYFJELLSSTREKNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Ja">
+      <enumeration value="ja">
         <annotation>
+          <documentation>11776: Ja</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11776</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Nei">
+      <enumeration value="nei">
         <annotation>
+          <documentation>11777: Nei</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11777</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17891: Uavklart: Angis dersom det ikke er vurdert/tatt stilling til om det er høyfjellsstrekning eller ikke.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17891</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -470,7 +511,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="vegnett:IdentifikasjonType">
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="fkbvegnett:IdentifikasjonType">
     <annotation>
       <documentation>Identification: Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet. 
 
@@ -520,12 +561,12 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </complexType>
   <complexType name="IdentifikasjonPropertyType">
     <sequence>
-      <element ref="vegnett:Identifikasjon"/>
+      <element ref="fkbvegnett:Identifikasjon"/>
     </sequence>
   </complexType>
-  <element name="InnkjøringForbudt" substitutionGroup="gml:AbstractFeature" type="vegnett:InnkjøringForbudtType">
+  <element name="InnkjøringForbudt" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:InnkjøringForbudtType">
     <annotation>
-      <documentation>Innkjøring forbudt: Angir innkjøring forbudt</documentation>
+      <documentation>606: Angir innkjøring forbudt</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">606</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNKJØRINGFORBUDT</taggedValue>
@@ -536,18 +577,18 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
           <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
-              <documentation>Geometri, linje: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <documentation>6916: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6916</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SENTERLINJE</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -556,14 +597,14 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </complexType>
   <complexType name="InnkjøringForbudtPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:InnkjøringForbudt"/>
+      <element ref="fkbvegnett:InnkjøringForbudt"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Jernbanekryssing" substitutionGroup="gml:AbstractFeature" type="vegnett:JernbanekryssingType">
+  <element name="Jernbanekryssing" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:JernbanekryssingType">
     <annotation>
-      <documentation>Jernbanekryssing: Sted i vegnettet hvor veg og jernbane krysses</documentation>
+      <documentation>100: Sted i vegnettet hvor veg og jernbane krysses</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">100</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_JERNBANEKRYSSING</taggedValue>
@@ -574,27 +615,27 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonPunktPropertyType">
+          <element minOccurs="0" name="typeJernbanekryssing" type="fkbvegnett:TypeJernbanekryssingType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+              <documentation>1153: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1153</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEJERNBANEKRYSSING</taggedValue>
+              </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
-              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
+              <documentation>4799: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4799</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_POSISJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element name="typeJernbanekryssing" type="vegnett:TypeJernbanekryssingType">
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonPunktPropertyType">
             <annotation>
-              <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1153</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEJERNBANEKRYSSING</taggedValue>
-              </appinfo>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -603,7 +644,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </complexType>
   <complexType name="JernbanekryssingPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Jernbanekryssing"/>
+      <element ref="fkbvegnett:Jernbanekryssing"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -615,7 +656,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:KjøringTilEiendommeneTillattEnumerationType vegnett:KjøringTilEiendommeneTillattOtherType"/>
+    <union memberTypes="fkbvegnett:KjøringTilEiendommeneTillattEnumerationType fkbvegnett:KjøringTilEiendommeneTillattOtherType"/>
   </simpleType>
   <simpleType name="KjøringTilEiendommeneTillattEnumerationType">
     <annotation>
@@ -625,15 +666,17 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Ja">
+      <enumeration value="ja">
         <annotation>
+          <documentation>13007: Ja</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13007</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Nei">
+      <enumeration value="nei">
         <annotation>
+          <documentation>13008: Nei</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13008</taggedValue>
           </appinfo>
@@ -653,7 +696,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSELANDBRUKSVEG</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:KlasseLandbruksvegEnumerationType vegnett:KlasseLandbruksvegOtherType"/>
+    <union memberTypes="fkbvegnett:KlasseLandbruksvegEnumerationType fkbvegnett:KlasseLandbruksvegOtherType"/>
   </simpleType>
   <simpleType name="KlasseLandbruksvegEnumerationType">
     <annotation>
@@ -663,65 +706,65 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Helårs bilveg">
+      <enumeration value="helårsBilveg">
         <annotation>
-          <documentation>13070: helårs bilveg som bygges i samarbeid med det offentlige slik at den senere kan inngå i det offentlige vegnett. Krav til geometrisk utforming m.m. skal være i samsvar med de spesifikasjoner Statens vegvesen har fastsatt for den avtalte vegklasse.</documentation>
+          <documentation>13070: Helårs bilveg  : helårs bilveg som bygges i samarbeid med det offentlige slik at den senere kan inngå i det offentlige vegnett. Krav til geometrisk utforming m.m. skal være i samsvar med de spesifikasjoner Statens vegvesen har fastsatt for den avtalte vegklasse.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13070</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Hovedveg/grendeveg">
+      <enumeration value="helårsLandbruksbilveg">
         <annotation>
-          <documentation>13071: helårs bilveg med høy standard som skal kunne trafikkeres med lass hele året. Denne vegklassen skal brukes på grendeveger med blandet trafikkgrunnlag og på skogsbilveger, gardsveger og seterveger med stor trafikkbelastning av tunge kjøretøyer.</documentation>
+          <documentation>13071: Helårs landbruksbilveg: helårs bilveg med høy standard som skal kunne trafikkeres med lass hele året. Denne vegklassen skal brukes på grendeveger med blandet trafikkgrunnlag og på skogsbilveger, gardsveger og seterveger med stor trafikkbelastning av tunge kjøretøyer.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13071</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Helårs landbruksveg">
+      <enumeration value="landbruksbilveg">
         <annotation>
-          <documentation>13072: standarden for skogsbilveger med moderat til lavt trafikkgrunnlag, og for enkle gards- og seterveger. Vegen skal kunne trafikkeres med lass hele året, unntatt i teleløsningsperioden og i perioder med spesielt mye nedbør.</documentation>
+          <documentation>13072: Landbruksbilveg: standarden for skogsbilveger med moderat til lavt trafikkgrunnlag, og for enkle gards- og seterveger. Vegen skal kunne trafikkeres med lass hele året, unntatt i teleløsningsperioden og i perioder med spesielt mye nedbør.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13072</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Sommerbilveg, tømmerbil med henger">
+      <enumeration value="sommerbilveg_TømmerbilMedHenger">
         <annotation>
-          <documentation>13073: bilveger som bygges for transport av tømmer i barmarksperioden, enkle seterveger etc. Vegklassen bør bare bygges i områder der tømmerkvantum og transportavstand tilsier biltransport, men der terrengforhold og tilgjengelige ressurser ikke gir økonomisk grunnlag for å bygge en helårsveg.</documentation>
+          <documentation>13073: Sommerbilveg, tømmerbil med henger: bilveger som bygges for transport av tømmer i barmarksperioden, enkle seterveger etc. Vegklassen bør bare bygges i områder der tømmerkvantum og transportavstand tilsier biltransport, men der terrengforhold og tilgjengelige ressurser ikke gir økonomisk grunnlag for å bygge en helårsveg.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13073</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Sommerbilveg, tømmerbil uten henger">
+      <enumeration value="sommerbilveg_TømmerbilUtenHenger">
         <annotation>
-          <documentation>13074: bilveger beregnet for tømmertransport med bil uten henger utelukkende i barmarksperioden. Vegklassen må bare bygges på steder der det ikke er teknisk mulig eller økonomisk forsvarlig å bygge en høyere vegstandard. Denne vegklassen skal bare benyttes i unntakstilfeller.</documentation>
+          <documentation>13074: Sommerbilveg, tømmerbil uten henger: bilveger beregnet for tømmertransport med bil uten henger utelukkende i barmarksperioden. Vegklassen må bare bygges på steder der det ikke er teknisk mulig eller økonomisk forsvarlig å bygge en høyere vegstandard. Denne vegklassen skal bare benyttes i unntakstilfeller.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13074</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Vinterbilveg">
+      <enumeration value="vinterbilveg">
         <annotation>
-          <documentation>13075: bilveger for tømmertransport på vinterføre, der vegens bæreevne baseres på tele og snø. Vegklassen egner seg i strøk med stabile vinterforhold og lange transportavstander, og på steder der tømmerdriftene kan konsentreres på enkelte år med flere års mellomrom. Vegklassen bør bare brukes der det ikke er økonomisk grunnlag for å bygge helårsveg, og der den videre skogbehandling ikke krever bedre vegstandard.</documentation>
+          <documentation>13075: Vinterbilveg  : bilveger for tømmertransport på vinterføre, der vegens bæreevne baseres på tele og snø. Vegklassen egner seg i strøk med stabile vinterforhold og lange transportavstander, og på steder der tømmerdriftene kan konsentreres på enkelte år med flere års mellomrom. Vegklassen bør bare brukes der det ikke er økonomisk grunnlag for å bygge helårsveg, og der den videre skogbehandling ikke krever bedre vegstandard.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13075</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Tung traktorveg">
+      <enumeration value="traktorveg">
         <annotation>
-          <documentation>13076: veger for transport av landbruksprodukter og tømmer med lastetraktor og landbrukstraktor med henger. Generelt skal disse vegene kunne nyttes til transport hele året unntatt i teleløsningen. Svake partier i undergrunnen må forsterkes med bærelag.</documentation>
+          <documentation>13076: Traktorveg: veger for transport av landbruksprodukter og tømmer med lastetraktor og landbrukstraktor med henger. Generelt skal disse vegene kunne nyttes til transport hele året unntatt i teleløsningen. Svake partier i undergrunnen må forsterkes med bærelag.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13076</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Lett traktorveg">
+      <enumeration value="enkelTraktorveg">
         <annotation>
-          <documentation>13077: veger for slepkjøring av tømmer og transport av landbruksprodukter og redskap med landbrukstraktor eller annet lettere transportutstyr. Vegklassen omfatter enklere traktorveger som inngår i det permanente landbruksvegnettet og som medfører varige terrenginngrep. Standarden må i stor grad tilpasses det formål og transportutstyr vegen bygges for.</documentation>
+          <documentation>13077: Enkel traktorveg: veger for slepkjøring av tømmer og transport av landbruksprodukter og redskap med landbrukstraktor eller annet lettere transportutstyr. Vegklassen omfatter enklere traktorveger som inngår i det permanente landbruksvegnettet og som medfører varige terrenginngrep. Standarden må i stor grad tilpasses det formål og transportutstyr vegen bygges for.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13077</taggedValue>
           </appinfo>
@@ -745,7 +788,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOMMUNENUMMER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:KommunenummerEnumerationType vegnett:KommunenummerOtherType"/>
+    <union memberTypes="fkbvegnett:KommunenummerEnumerationType fkbvegnett:KommunenummerOtherType"/>
   </simpleType>
   <simpleType name="KommunenummerEnumerationType">
     <annotation>
@@ -3131,9 +3174,9 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Landbruksvegklasse" substitutionGroup="gml:AbstractFeature" type="vegnett:LandbruksvegklasseType">
+  <element name="Landbruksvegklasse" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:LandbruksvegklasseType">
     <annotation>
-      <documentation>Landbruksvegklasse: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
+      <documentation>822: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">822</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LANDBRUKSVEGKLASSE</taggedValue>
@@ -3144,7 +3187,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="klasseLandbruksveg" type="vegnett:KlasseLandbruksvegType">
+          <element name="klasseLandbruksveg" type="fkbvegnett:KlasseLandbruksvegType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9339</taggedValue>
@@ -3152,24 +3195,28 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
   <complexType name="LandbruksvegklassePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Landbruksvegklasse"/>
+      <element ref="fkbvegnett:Landbruksvegklasse"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="Lenke" substitutionGroup="vegnett:GeneralisertLenke" type="vegnett:LenkeType">
+  <element abstract="true" name="Lenke" substitutionGroup="fkbvegnett:GeneralisertLenke" type="fkbvegnett:LenkeType">
     <annotation>
       <documentation>Abstrakt objekttype for nettverkslenker, med mulighet for å angi posisjon i en sekvens av lenker.
 
@@ -3190,11 +3237,11 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
   </element>
   <complexType abstract="true" name="LenkeType">
     <complexContent>
-      <extension base="vegnett:GeneralisertLenkeType">
+      <extension base="fkbvegnett:GeneralisertLenkeType">
         <sequence>
-          <element minOccurs="0" name="lenkesekvens" type="vegnett:IdentifikasjonPropertyType">
+          <element minOccurs="0" name="lenkesekvens" type="fkbvegnett:IdentifikasjonPropertyType">
             <annotation>
-              <documentation>unik identifikasjon av lenkesekvens som lenken inngår i</documentation>
+              <documentation>unik identifikasjon av lenkesekvens</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="startposisjon" type="double">
@@ -3225,12 +3272,12 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
   </complexType>
   <complexType name="LenkePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Lenke"/>
+      <element ref="fkbvegnett:Lenke"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="vegnett:LineærPosisjonType">
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="fkbvegnett:LineærPosisjonType">
     <annotation>
       <documentation>Angivelse av en posisjon langs et nettverkselement
 &lt;font color="#ff0000"&gt;&lt;i&gt;
@@ -3242,7 +3289,7 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
   </element>
   <complexType abstract="true" name="LineærPosisjonType">
     <sequence>
-      <element minOccurs="0" name="lineærReferanseMetode" type="vegnett:LineærReferanseMetodeType">
+      <element minOccurs="0" name="lineærReferanseMetode" type="fkbvegnett:LineærReferanseMetodeType">
         <annotation>
           <documentation>metode som er brukt for å angi lineære referanser
 
@@ -3251,7 +3298,7 @@ Merknad: Dersom verdi er angitt overstyrer denne standard metode for det referer
 &lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
         </annotation>
       </element>
-      <element minOccurs="0" name="retning" type="vegnett:RetningskodeType">
+      <element minOccurs="0" name="retning" type="fkbvegnett:RetningskodeType">
         <annotation>
           <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
           <appinfo>
@@ -3259,14 +3306,15 @@ Merknad: Dersom verdi er angitt overstyrer denne standard metode for det referer
           </appinfo>
         </annotation>
       </element>
+      <element name="nettverkselement" type="fkbvegnett:NettverkselementPropertyType"/>
     </sequence>
   </complexType>
   <complexType name="LineærPosisjonPropertyType">
     <sequence>
-      <element ref="vegnett:LineærPosisjon"/>
+      <element ref="fkbvegnett:LineærPosisjon"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonPunkt" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonPunktType">
+  <element name="LineærPosisjonPunkt" substitutionGroup="fkbvegnett:LineærPosisjon" type="fkbvegnett:LineærPosisjonPunktType">
     <annotation>
       <documentation>lineær posisjon som et punkt
 
@@ -3282,7 +3330,7 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   </element>
   <complexType name="LineærPosisjonPunktType">
     <complexContent>
-      <extension base="vegnett:LineærPosisjonType">
+      <extension base="fkbvegnett:LineærPosisjonType">
         <sequence>
           <element name="posisjon" type="double">
             <annotation>
@@ -3300,10 +3348,10 @@ Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distan
   </complexType>
   <complexType name="LineærPosisjonPunktPropertyType">
     <sequence>
-      <element ref="vegnett:LineærPosisjonPunkt"/>
+      <element ref="fkbvegnett:LineærPosisjonPunkt"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonStrekning" substitutionGroup="vegnett:LineærPosisjon" type="vegnett:LineærPosisjonStrekningType">
+  <element name="LineærPosisjonStrekning" substitutionGroup="fkbvegnett:LineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningType">
     <annotation>
       <documentation>lineær posisjon som en strekning
 
@@ -3319,7 +3367,7 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   </element>
   <complexType name="LineærPosisjonStrekningType">
     <complexContent>
-      <extension base="vegnett:LineærPosisjonType">
+      <extension base="fkbvegnett:LineærPosisjonType">
         <sequence>
           <element name="fraPosisjon" type="double">
             <annotation>
@@ -3347,7 +3395,7 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   </complexType>
   <complexType name="LineærPosisjonStrekningPropertyType">
     <sequence>
-      <element ref="vegnett:LineærPosisjonStrekning"/>
+      <element ref="fkbvegnett:LineærPosisjonStrekning"/>
     </sequence>
   </complexType>
   <simpleType name="LineærReferanseMetodeType">
@@ -3375,7 +3423,7 @@ positiveVerticalOffsetDirection: "up"
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:LineærReferanseMetodeEnumerationType vegnett:LineærReferanseMetodeOtherType"/>
+    <union memberTypes="fkbvegnett:LineærReferanseMetodeEnumerationType fkbvegnett:LineærReferanseMetodeOtherType"/>
   </simpleType>
   <simpleType name="LineærReferanseMetodeEnumerationType">
     <annotation>
@@ -3472,7 +3520,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MEDIUM</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:MediumEnumerationType vegnett:MediumOtherType"/>
+    <union memberTypes="fkbvegnett:MediumEnumerationType fkbvegnett:MediumOtherType"/>
   </simpleType>
   <simpleType name="MediumEnumerationType">
     <annotation>
@@ -3514,16 +3562,24 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
   </simpleType>
   <simpleType name="MålemetodeType">
     <annotation>
-      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon</documentation>
+      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - - 
+method on which registration of position is based</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MÅLEMETODE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:MålemetodeEnumerationType vegnett:MålemetodeOtherType"/>
+    <union memberTypes="fkbvegnett:MålemetodeEnumerationType fkbvegnett:MålemetodeOtherType"/>
   </simpleType>
   <simpleType name="MålemetodeEnumerationType">
     <annotation>
-      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon</documentation>
+      <documentation>MeasuringMethod: metode som ligger til grunn for registrering av posisjon
+
+
+-- Definition - - 
+method on which registration of position is based</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">MÅLEMETODE</taggedValue>
       </appinfo>
@@ -3556,7 +3612,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       </enumeration>
       <enumeration value="15">
         <annotation>
-          <documentation>MeasureOut: Punkt beregnet på bakgrunn av måling mot andre punkter, slik som to avstander eller avstand og retning</documentation>
+          <documentation>MeasureOut: Point calculated on the basis of other items, such as two distances or distance + direction.</documentation>
         </annotation>
       </enumeration>
       <enumeration value="18">
@@ -3576,7 +3632,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       </enumeration>
       <enumeration value="21">
         <annotation>
-          <documentation>Aerotriangulated: Punkt beregnet ved aerotriangulering</documentation>
+          <documentation>Aerotriangulated: Point calculated by aerotriangulation</documentation>
         </annotation>
       </enumeration>
       <enumeration value="22">
@@ -3639,11 +3695,6 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
           <documentation>brukes for objekter som er stedfestet med lineær referanse, enten disse leveres med stedfesting kun som lineære referanser, eller med koordinatgeometri avledet fra lineære referanser</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="39">
-        <annotation>
-          <documentation>Målt med laserskanner fra instrument på bakken</documentation>
-        </annotation>
-      </enumeration>
       <enumeration value="40">
         <annotation>
           <documentation>Digitised on dig.table from orthophoto/aerial photo: Geometri overført fra ortofoto eller flybilde ved hjelp av manuell registrering på et digitaliseringsbord, uspesifisert bildemedium</documentation>
@@ -3679,16 +3730,8 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
           <documentation>Digitised on screen from satellite photo: Geometri overført fra satellittbilde ved hjelp av manuell registrering på skjerm</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="47">
-        <annotation>
-          <documentation>Digitalisert på skjerm fra andre digitale rasterdata</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="48">
-        <annotation>
-          <documentation>Digitalisert på skjerm fra tolkning av seismikk</documentation>
-        </annotation>
-      </enumeration>
+      <enumeration value="47"/>
+      <enumeration value="48"/>
       <enumeration value="49">
         <annotation>
           <documentation>Vektorisering fra laserdata, brukes også der vektoriseringen støttes av ortofoto</documentation>
@@ -3766,7 +3809,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       </enumeration>
       <enumeration value="67">
         <annotation>
-          <documentation>Coordinates retrieved from GAB: Koordinater hentet fra GAB/Matrikkelen</documentation>
+          <documentation>Coordinates retrieved from GAB: Koordinater hentet fra GAB, forløperen til registerdelen av matrikkelen</documentation>
         </annotation>
       </enumeration>
       <enumeration value="68">
@@ -3802,11 +3845,6 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       <enumeration value="74">
         <annotation>
           <documentation>Measured with rate of climb indicator: Spesielle metoder: Målt med stigningsmåler</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="75">
-        <annotation>
-          <documentation>Data generert ved bildematching</documentation>
         </annotation>
       </enumeration>
       <enumeration value="77">
@@ -3898,7 +3936,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">H-MÅLEMETODE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:MålemetodeHøydeEnumerationType vegnett:MålemetodeHøydeOtherType"/>
+    <union memberTypes="fkbvegnett:MålemetodeHøydeEnumerationType fkbvegnett:MålemetodeHøydeOtherType"/>
   </simpleType>
   <simpleType name="MålemetodeHøydeEnumerationType">
     <annotation>
@@ -3908,181 +3946,41 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="10">
-        <annotation>
-          <documentation>Terrengmålt: Uspesifisert måleinstrument</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="11">
-        <annotation>
-          <documentation>Terrengmålt: Totalstasjon</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="12">
-        <annotation>
-          <documentation>Terrengmålt: Teodolitt og el avstandsmåler</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="13">
-        <annotation>
-          <documentation>Terrengmålt: Teodolitt og målebånd</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="14">
-        <annotation>
-          <documentation>Terrengmålt: Ortogonalmetoden</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="15">
-        <annotation>
-          <documentation>Nivellement</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="18">
-        <annotation>
-          <documentation>Tatt fra plan</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="19">
-        <annotation>
-          <documentation>Annet</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="20">
-        <annotation>
-          <documentation>Stereoinstrument</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="21">
-        <annotation>
-          <documentation>Aerotriangulert</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="22">
-        <annotation>
-          <documentation>Stereoinstrument: Analytisk plotter</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="23">
-        <annotation>
-          <documentation>Stereoinstrument: Autograf</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="24">
-        <annotation>
-          <documentation>Stereoinstrument: Digitalt</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="36">
-        <annotation>
-          <documentation>Flybåren laserscanning</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="60">
-        <annotation>
-          <documentation>Genererte data (interpolasjon)</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="61">
-        <annotation>
-          <documentation>Genererte data (interpolasjon): Terrengmodell</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="62">
-        <annotation>
-          <documentation>Genererte data (interpolasjon): Vektet middel</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="63">
-        <annotation>
-          <documentation>Genererte data: Fra annen geometri</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="64">
-        <annotation>
-          <documentation>Genererte data: Generalisering</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="66">
-        <annotation>
-          <documentation>Genererte data: Sammenknytningspunkt, randpunkt</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="67">
-        <annotation>
-          <documentation>Koordinater hentet fra GAB</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="68">
-        <annotation>
-          <documentation>Koordinater hentet fra JREG</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="69">
-        <annotation>
-          <documentation>Beregnet</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="70">
-        <annotation>
-          <documentation>Spesielle metoder</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="74">
-        <annotation>
-          <documentation>Spesielle metoder: Målt med stigningsmåler</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="78">
-        <annotation>
-          <documentation>Fastsatt ved dom eller kongelig resolusjon</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="79">
-        <annotation>
-          <documentation>Annet (spesifiseres i filhode)</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="90">
-        <annotation>
-          <documentation>Treghetsstedfesting</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="91">
-        <annotation>
-          <documentation>GNSS: Kodemåling, relative målinger</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="92">
-        <annotation>
-          <documentation>GNSS: Kodemåling, enkle målinger</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="93">
-        <annotation>
-          <documentation>GNSS: Fasemåling, statisk måling</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="94">
-        <annotation>
-          <documentation>GNSS: Fasemåling, andre metoder</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="95">
-        <annotation>
-          <documentation>Kombinasjon av GNSS/Treghet</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="96">
-        <annotation>
-          <documentation>GNSS: Fasemåling RTK</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="99">
-        <annotation>
-          <documentation>Ukjent målemetode</documentation>
-        </annotation>
-      </enumeration>
+      <enumeration value="10"/>
+      <enumeration value="11"/>
+      <enumeration value="12"/>
+      <enumeration value="13"/>
+      <enumeration value="14"/>
+      <enumeration value="15"/>
+      <enumeration value="18"/>
+      <enumeration value="19"/>
+      <enumeration value="20"/>
+      <enumeration value="21"/>
+      <enumeration value="22"/>
+      <enumeration value="23"/>
+      <enumeration value="24"/>
+      <enumeration value="36"/>
+      <enumeration value="60"/>
+      <enumeration value="61"/>
+      <enumeration value="62"/>
+      <enumeration value="63"/>
+      <enumeration value="64"/>
+      <enumeration value="66"/>
+      <enumeration value="67"/>
+      <enumeration value="68"/>
+      <enumeration value="69"/>
+      <enumeration value="70"/>
+      <enumeration value="74"/>
+      <enumeration value="78"/>
+      <enumeration value="79"/>
+      <enumeration value="90"/>
+      <enumeration value="91"/>
+      <enumeration value="92"/>
+      <enumeration value="93"/>
+      <enumeration value="94"/>
+      <enumeration value="95"/>
+      <enumeration value="96"/>
+      <enumeration value="99"/>
     </restriction>
   </simpleType>
   <simpleType name="MålemetodeHøydeOtherType">
@@ -4090,7 +3988,7 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="Nettverkselement" substitutionGroup="vegnett:SOSI_Objekt" type="vegnett:NettverkselementType">
+  <element abstract="true" name="Nettverkselement" substitutionGroup="fkbvegnett:SOSI_Objekt" type="fkbvegnett:NettverkselementType">
     <annotation>
       <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
 &lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
@@ -4098,9 +3996,9 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
   </element>
   <complexType abstract="true" name="NettverkselementType">
     <complexContent>
-      <extension base="vegnett:SOSI_ObjektType">
+      <extension base="fkbvegnett:SOSI_ObjektType">
         <sequence>
-          <element minOccurs="0" name="standardLRM" type="vegnett:LineærReferanseMetodeType">
+          <element minOccurs="0" name="standardLRM" type="fkbvegnett:LineærReferanseMetodeType">
             <annotation>
               <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
 
@@ -4115,16 +4013,14 @@ Merknad: Kan overstyres for den enkelte posisjonsangivelse.
   </complexType>
   <complexType name="NettverkselementPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Nettverkselement"/>
+      <element ref="fkbvegnett:Nettverkselement"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="vegnett:PosisjonskvalitetType">
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="fkbvegnett:PosisjonskvalitetType">
     <annotation>
-      <documentation>beskrivelse av kvaliteten på stedfestingen.
-
-Merknad: Posisjonskvalitet er ikke konform med  kvalitetsmodellen i ISO slik den er defineret i ISO19157:2013, men er en videreføring av tildligere brukte kvalitetsegenskaper i SOSI.</documentation>
+      <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KVALITET</taggedValue>
       </appinfo>
@@ -4132,7 +4028,7 @@ Merknad: Posisjonskvalitet er ikke konform med  kvalitetsmodellen i ISO slik den
   </element>
   <complexType name="PosisjonskvalitetType">
     <sequence>
-      <element name="målemetode" type="vegnett:MålemetodeType">
+      <element name="målemetode" type="fkbvegnett:MålemetodeType">
         <annotation>
           <documentation>metode for måling i grunnriss (x,y), og høyde (z) når metoden er den samme som ved måling i grunnriss</documentation>
         </annotation>
@@ -4148,12 +4044,12 @@ Oppgitt i cm</documentation>
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="synbarhet" type="vegnett:SynbarhetType">
+      <element minOccurs="0" name="synbarhet" type="fkbvegnett:SynbarhetType">
         <annotation>
           <documentation>hvor godt den kartlagte detalj var synbar ved kartleggingen</documentation>
         </annotation>
       </element>
-      <element minOccurs="0" name="målemetodeHøyde" type="vegnett:MålemetodeHøydeType">
+      <element minOccurs="0" name="målemetodeHøyde" type="fkbvegnett:MålemetodeHøydeType">
         <annotation>
           <documentation>metode for å måle høyden</documentation>
         </annotation>
@@ -4178,7 +4074,7 @@ Oppgitt i cm</documentation>
   </complexType>
   <complexType name="PosisjonskvalitetPropertyType">
     <sequence>
-      <element ref="vegnett:Posisjonskvalitet"/>
+      <element ref="fkbvegnett:Posisjonskvalitet"/>
     </sequence>
   </complexType>
   <simpleType name="RetningskodeType">
@@ -4188,7 +4084,7 @@ Oppgitt i cm</documentation>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:RetningskodeEnumerationType vegnett:RetningskodeOtherType"/>
+    <union memberTypes="fkbvegnett:RetningskodeEnumerationType fkbvegnett:RetningskodeOtherType"/>
   </simpleType>
   <simpleType name="RetningskodeEnumerationType">
     <annotation>
@@ -4215,7 +4111,7 @@ Oppgitt i cm</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="SOSI_Objekt" substitutionGroup="gml:AbstractFeature" type="vegnett:SOSI_ObjektType">
+  <element abstract="true" name="SOSI_Objekt" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:SOSI_ObjektType">
     <annotation>
       <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
 
@@ -4227,7 +4123,7 @@ Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningsl
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="identifikasjon" type="vegnett:IdentifikasjonPropertyType">
+          <element minOccurs="0" name="identifikasjon" type="fkbvegnett:IdentifikasjonPropertyType">
             <annotation>
               <documentation>unik identifikasjon av et objekt</documentation>
             </annotation>
@@ -4243,14 +4139,14 @@ Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</d
               </appinfo>
             </annotation>
           </element>
-          <element name="kvalitet" type="vegnett:PosisjonskvalitetPropertyType">
+          <element name="kvalitet" type="fkbvegnett:PosisjonskvalitetPropertyType">
             <annotation>
               <documentation>beskrivelse av kvaliteten på stedfestingen
 
 Merknad: Denne er identisk med ..KVALITET i tidligere versjoner av SOSI.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="medium" type="vegnett:MediumType">
+          <element minOccurs="0" name="medium" type="fkbvegnett:MediumType">
             <annotation>
               <documentation>objektets beliggenhet i forhold til jordoverflaten
 
@@ -4258,16 +4154,11 @@ Eksempel:
 På bro, i tunnel, inne i et bygningsmessig anlegg, etc.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="kommune" type="vegnett:KommunenummerType">
+          <element minOccurs="0" name="kommune" type="fkbvegnett:KommunenummerType">
             <annotation>
               <documentation>nummerering av kommuner i henhold til SSB sin offisielle liste
 
 Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 siffer.</documentation>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="kobling" type="vegnett:SOSI_ObjektPropertyType">
-            <annotation>
-              <documentation>angivelse av objekt dette objektet er knyttet til</documentation>
             </annotation>
           </element>
         </sequence>
@@ -4276,14 +4167,14 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </complexType>
   <complexType name="SOSI_ObjektPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:SOSI_Objekt"/>
+      <element ref="fkbvegnett:SOSI_Objekt"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Svingerestriksjon" substitutionGroup="gml:AbstractFeature" type="vegnett:SvingerestriksjonType">
+  <element name="Svingerestriksjon" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:SvingerestriksjonType">
     <annotation>
-      <documentation>Svingerestriksjon: Angir svingerestriksjon</documentation>
+      <documentation>573: Angir svingerestriksjon</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">573</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SVINGERESTRIKSJON</taggedValue>
@@ -4296,14 +4187,14 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
         <sequence>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
-              <documentation>Geometri, punkt: Angivelse av posisjon på det lineære objektet.</documentation>
+              <documentation>8875: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8875</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_POSISJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element name="svingeforbudFra" type="vegnett:LineærPosisjonPunktPropertyType">
+          <element name="svingeforbudFra" type="fkbvegnett:LineærPosisjonPunktPropertyType">
             <annotation>
               <documentation>angir hvilken lenke svingerestriksjonen gjelder fra. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene</documentation>
               <appinfo>
@@ -4311,7 +4202,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
               </appinfo>
             </annotation>
           </element>
-          <element name="svingeforbudTil" type="vegnett:LineærPosisjonPunktPropertyType">
+          <element name="svingeforbudTil" type="fkbvegnett:LineærPosisjonPunktPropertyType">
             <annotation>
               <documentation>angir hvilken lenke svingerestriksjonen gjelder til. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene</documentation>
               <appinfo>
@@ -4325,7 +4216,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </complexType>
   <complexType name="SvingerestriksjonPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Svingerestriksjon"/>
+      <element ref="fkbvegnett:Svingerestriksjon"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -4337,7 +4228,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SYNBARHET</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:SynbarhetEnumerationType vegnett:SynbarhetOtherType"/>
+    <union memberTypes="fkbvegnett:SynbarhetEnumerationType fkbvegnett:SynbarhetOtherType"/>
   </simpleType>
   <simpleType name="SynbarhetEnumerationType">
     <annotation>
@@ -4349,7 +4240,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
     <restriction base="string">
       <enumeration value="0">
         <annotation>
-          <documentation>Fullt ut synlig/gjenfinnbar i terrenget (default-verdi)</documentation>
+          <documentation>Default</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1">
@@ -4374,9 +4265,9 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Trafikkreguleringer" substitutionGroup="gml:AbstractFeature" type="vegnett:TrafikkreguleringerType">
+  <element name="Trafikkreguleringer" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:TrafikkreguleringerType">
     <annotation>
-      <documentation>Trafikkreguleringer: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
+      <documentation>856: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">856</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGER</taggedValue>
@@ -4387,19 +4278,23 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
+          <element name="trafikkreguleringer" type="fkbvegnett:TrafikkreguleringsverdierType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
-          <element name="trafikkreguleringer" type="vegnett:TrafikkreguleringsverdierType">
-            <annotation>
-              <documentation>Trafikkreguleringer: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
+              <documentation>9794: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9794</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGER</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -4408,7 +4303,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </complexType>
   <complexType name="TrafikkreguleringerPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Trafikkreguleringer"/>
+      <element ref="fkbvegnett:Trafikkreguleringer"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -4421,7 +4316,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGERTRAFIKKREGULERINGER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:TrafikkreguleringsverdierEnumerationType vegnett:TrafikkreguleringsverdierOtherType"/>
+    <union memberTypes="fkbvegnett:TrafikkreguleringsverdierEnumerationType fkbvegnett:TrafikkreguleringsverdierOtherType"/>
   </simpleType>
   <simpleType name="TrafikkreguleringsverdierEnumerationType">
     <annotation>
@@ -4505,97 +4400,106 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </simpleType>
   <simpleType name="TypeHinderHøydebegrensningType">
     <annotation>
-      <documentation>Type hinder: Angir hvilken type hinder det er tale om</documentation>
+      <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5270</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:TypeHinderHøydebegrensningEnumerationType vegnett:TypeHinderHøydebegrensningOtherType"/>
+    <union memberTypes="fkbvegnett:TypeHinderHøydebegrensningEnumerationType fkbvegnett:TypeHinderHøydebegrensningOtherType"/>
   </simpleType>
   <simpleType name="TypeHinderHøydebegrensningEnumerationType">
     <annotation>
-      <documentation>Type hinder: Angir hvilken type hinder det er tale om</documentation>
+      <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5270</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Undergang/Bru">
+      <enumeration value="undergangBru">
         <annotation>
+          <documentation>8151: Undergang/Bru</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8151</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Kabel">
+      <enumeration value="kabel">
         <annotation>
+          <documentation>7282: Kabel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7282</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Skredoverbygg">
+      <enumeration value="skredoverbygg">
         <annotation>
+          <documentation>8155: Skredoverbygg</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Tunnel">
+      <enumeration value="tunnel">
         <annotation>
+          <documentation>8150: Tunnel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8150</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Bru-stag">
+      <enumeration value="bru_Stag">
         <annotation>
+          <documentation>8149: Bru-stag</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8149</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Kjøreledning">
+      <enumeration value="kjøreledning">
         <annotation>
+          <documentation>7280: Kjøreledning</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7280</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Brukabler">
+      <enumeration value="brukabler">
         <annotation>
+          <documentation>8168: Brukabler</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8168</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Skiltportal/wire">
+      <enumeration value="skiltportalWire">
         <annotation>
+          <documentation>7284: Skiltportal/wire</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7284</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Ferjesamband">
+      <enumeration value="ferjesamband">
         <annotation>
-          <documentation>8174: Høydebegrensing på standard ferje på gitt ferjesamband</documentation>
+          <documentation>8174: Ferjesamband: Høydebegrensing på standard ferje på gitt ferjesamband</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8174</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Bygning">
+      <enumeration value="bygning">
         <annotation>
+          <documentation>8175: Bygning</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8175</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Annet hinder">
+      <enumeration value="annetHinder">
         <annotation>
-          <documentation>8166: Type høydebegrensing som ikke dekkes av de andre verdiene.</documentation>
+          <documentation>8166: Annet hinder: Type høydebegrensing som ikke dekkes av de andre verdiene.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8166</taggedValue>
           </appinfo>
@@ -4610,81 +4514,90 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </simpleType>
   <simpleType name="TypeJernbanekryssingType">
     <annotation>
-      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <documentation>1153: Angir hvilken type vegobjektet er av</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1153</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEJERNBANEKRYSSING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:TypeJernbanekryssingEnumerationType vegnett:TypeJernbanekryssingOtherType"/>
+    <union memberTypes="fkbvegnett:TypeJernbanekryssingEnumerationType fkbvegnett:TypeJernbanekryssingOtherType"/>
   </simpleType>
   <simpleType name="TypeJernbanekryssingEnumerationType">
     <annotation>
-      <documentation>Type: Angir hvilken type vegobjektet er av</documentation>
+      <documentation>1153: Angir hvilken type vegobjektet er av</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1153</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEJERNBANEKRYSSING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="Veg under">
+      <enumeration value="vegUnder">
         <annotation>
+          <documentation>2772: Veg under</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2772</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Veg over">
+      <enumeration value="vegOver">
         <annotation>
+          <documentation>2771: Veg over</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2771</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan">
+      <enumeration value="IPlan">
         <annotation>
+          <documentation>2767: I plan</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2767</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, lysregulert">
+      <enumeration value="IPlan_Lysregulert">
         <annotation>
+          <documentation>2769: I plan, lysregulert</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2769</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, lysregulert og bom">
+      <enumeration value="IPlan_LysregulertOgBom">
         <annotation>
+          <documentation>2770: I plan, lysregulert og bom</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2770</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, lysregulert, bom, hel">
+      <enumeration value="IPlan_Lysregulert_Bom_Hel">
         <annotation>
+          <documentation>3905: I plan, lysregulert, bom, hel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3905</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, lysregulert, bom, halv">
+      <enumeration value="IPlan_Lysregulert_Bom_Halv">
         <annotation>
+          <documentation>3906: I plan, lysregulert, bom, halv</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3906</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, lysregulert, grind">
+      <enumeration value="IPlan_Lysregulert_Grind">
         <annotation>
+          <documentation>3907: I plan, lysregulert, grind</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3907</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="I plan, uten sikring">
+      <enumeration value="IPlan_UtenSikring">
         <annotation>
+          <documentation>2768: I plan, uten sikring</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2768</taggedValue>
           </appinfo>
@@ -4697,103 +4610,6 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="TypeNVDB_VegsperringType">
-    <annotation>
-      <documentation>Type: Angir hvilken type sperring det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENVDB_VEGSPERRING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="vegnett:TypeNVDB_VegsperringEnumerationType vegnett:TypeNVDB_VegsperringOtherType"/>
-  </simpleType>
-  <simpleType name="TypeNVDB_VegsperringEnumerationType">
-    <annotation>
-      <documentation>Type: Angir hvilken type sperring det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENVDB_VEGSPERRING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="Låst bom">
-        <annotation>
-          <documentation>9975: Bom på tvers av vegen.  I permanent låst posisjon.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9975</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Rørgelender">
-        <annotation>
-          <documentation>9971: Rørgelender/trafikkgjerde plassert slik at det stenger for biltrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9971</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Steinblokk">
-        <annotation>
-          <documentation>9972: Steinblokker plassert slik at det stenger for biltrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9972</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="New Jersey">
-        <annotation>
-          <documentation>9973: New Jersey-steiner o.l. plassert slik at det stenger for biltrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9973</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Betongkjegle">
-        <annotation>
-          <documentation>9970: Kjegle(r)/pullert(er) av betong plassert slik at det stenger for biltrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9970</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Bussluse">
-        <annotation>
-          <documentation>9974: Grop i vegen som hindrer biltrafikk.  Tilgjengelig for buss (brede kjøretøy)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9974</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Trafikkavviser">
-        <annotation>
-          <documentation>11799: Stolper, steiner, blokker etc plassert i vegen eller i overgang mellom veg og fotgjengerareal for å stenge for biltrafikk (egen).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11799</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Bilsperre">
-        <annotation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11800</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Bom med automatisk åpner">
-        <annotation>
-          <documentation>13369: Bom som åpner seg automatisk på signal fra kjøretøy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13369</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeNVDB_VegsperringOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <simpleType name="TypeVegType">
     <annotation>
       <documentation>Type veg (FormOfWay).</documentation>
@@ -4801,7 +4617,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">TYPEVEG</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:TypeVegEnumerationType vegnett:TypeVegOtherType"/>
+    <union memberTypes="fkbvegnett:TypeVegEnumerationType fkbvegnett:TypeVegOtherType"/>
   </simpleType>
   <simpleType name="TypeVegEnumerationType">
     <annotation>
@@ -4860,6 +4676,104 @@ INSPIRE: FormOfWay=walkway</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="TypeVegsperringType">
+    <annotation>
+      <documentation>7861: Angir hvilken type sperring det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGSPERRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="fkbvegnett:TypeVegsperringEnumerationType fkbvegnett:TypeVegsperringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegsperringEnumerationType">
+    <annotation>
+      <documentation>7861: Angir hvilken type sperring det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGSPERRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="låstBom">
+        <annotation>
+          <documentation>9975: Låst bom: Bom på tvers av vegen.  I permanent låst posisjon.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9975</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rørgelender">
+        <annotation>
+          <documentation>9971: Rørgelender: Rørgelender/trafikkgjerde plassert slik at det stenger for biltrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9971</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="steinblokk">
+        <annotation>
+          <documentation>9972: Steinblokk: Steinblokker plassert slik at det stenger for biltrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9972</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="newJersey">
+        <annotation>
+          <documentation>9973: New Jersey: New Jersey-steiner o.l. plassert slik at det stenger for biltrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9973</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongkjegle">
+        <annotation>
+          <documentation>9970: Betongkjegle: Kjegle(r)/pullert(er) av betong plassert slik at det stenger for biltrafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9970</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bussluse">
+        <annotation>
+          <documentation>9974: Bussluse: Grop i vegen som hindrer biltrafikk.  Tilgjengelig for buss (brede kjøretøy)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9974</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkavviser">
+        <annotation>
+          <documentation>11799: Trafikkavviser: Stolper, steiner, blokker etc plassert i vegen eller i overgang mellom veg og fotgjengerareal for å stenge for biltrafikk (egen).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11799</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bilsperre">
+        <annotation>
+          <documentation>11800: Bilsperre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11800</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bomMedAutomatiskÅpner">
+        <annotation>
+          <documentation>13369: Bom med automatisk åpner: Bom som åpner seg automatisk på signal fra kjøretøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13369</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegsperringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="VegdetaljnivåType">
     <annotation>
       <documentation>Detaljnivå i vegnettet. 
@@ -4869,7 +4783,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:VegdetaljnivåEnumerationType vegnett:VegdetaljnivåOtherType"/>
+    <union memberTypes="fkbvegnett:VegdetaljnivåEnumerationType fkbvegnett:VegdetaljnivåOtherType"/>
   </simpleType>
   <simpleType name="VegdetaljnivåEnumerationType">
     <annotation>
@@ -4906,7 +4820,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKATEGORI</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:VegkategoriEnumerationType vegnett:VegkategoriOtherType"/>
+    <union memberTypes="fkbvegnett:VegkategoriEnumerationType fkbvegnett:VegkategoriOtherType"/>
   </simpleType>
   <simpleType name="VegkategoriEnumerationType">
     <annotation>
@@ -4972,28 +4886,28 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="VegklasseFunksjonellVegklasseType">
+  <simpleType name="VegklasseType">
     <annotation>
-      <documentation>Vegklasse: Angir funksjonell vegklasse</documentation>
+      <documentation>9338: Angir funksjonell vegklasse</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9338</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKLASSEFUNKSJONELLVEGKLASSE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKLASSE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:VegklasseFunksjonellVegklasseEnumerationType vegnett:VegklasseFunksjonellVegklasseOtherType"/>
+    <union memberTypes="fkbvegnett:VegklasseEnumerationType fkbvegnett:VegklasseOtherType"/>
   </simpleType>
-  <simpleType name="VegklasseFunksjonellVegklasseEnumerationType">
+  <simpleType name="VegklasseEnumerationType">
     <annotation>
-      <documentation>Vegklasse: Angir funksjonell vegklasse</documentation>
+      <documentation>9338: Angir funksjonell vegklasse</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9338</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKLASSEFUNKSJONELLVEGKLASSE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGKLASSE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
       <enumeration value="0">
         <annotation>
-          <documentation>13060: De viktigste vegene i et vegnettverk, f.eks. motorveger.</documentation>
+          <documentation>13060: 0: De viktigste vegene i et vegnettverk, f.eks. motorveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13060</taggedValue>
           </appinfo>
@@ -5001,7 +4915,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="1">
         <annotation>
-          <documentation>13061: De nest viktigste vegene i et vegnettverk, f.eks. større riksveger.</documentation>
+          <documentation>13061: 1: De nest viktigste vegene i et vegnettverk, f.eks. større riksveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13061</taggedValue>
           </appinfo>
@@ -5009,7 +4923,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="2">
         <annotation>
-          <documentation>13062: De tredje viktigste vegene i et vegnettverk, f.eks. mindre riksveger.</documentation>
+          <documentation>13062: 2: De tredje viktigste vegene i et vegnettverk, f.eks. mindre riksveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13062</taggedValue>
           </appinfo>
@@ -5017,7 +4931,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="3">
         <annotation>
-          <documentation>13063: De fjerde viktigste vegene i et vegnettverk, f.eks. større fylkesveger.</documentation>
+          <documentation>13063: 3: De fjerde viktigste vegene i et vegnettverk, f.eks. større fylkesveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13063</taggedValue>
           </appinfo>
@@ -5025,7 +4939,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="4">
         <annotation>
-          <documentation>13064: De femte viktigste vegene i et vegnettverk, f.eks. mindre fylkesveger.</documentation>
+          <documentation>13064: 4: De femte viktigste vegene i et vegnettverk, f.eks. mindre fylkesveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13064</taggedValue>
           </appinfo>
@@ -5033,7 +4947,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="5">
         <annotation>
-          <documentation>13065: De sjette viktigste vegene i et vegnettverk, f.eks. de minste fylkesvegene og viktige kommunale veger.</documentation>
+          <documentation>13065: 5: De sjette viktigste vegene i et vegnettverk, f.eks. de minste fylkesvegene og viktige kommunale veger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13065</taggedValue>
           </appinfo>
@@ -5041,7 +4955,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="6">
         <annotation>
-          <documentation>13066: De sjuende viktigste vegene i et vegnettverk, f.eks. kommunale veger.</documentation>
+          <documentation>13066: 6: De sjuende viktigste vegene i et vegnettverk, f.eks. kommunale veger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13066</taggedValue>
           </appinfo>
@@ -5049,7 +4963,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="7">
         <annotation>
-          <documentation>13067: De åttende viktigste vegene i et vegnettverk, f.eks. private veger.</documentation>
+          <documentation>13067: 7: De åttende viktigste vegene i et vegnettverk, f.eks. private veger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13067</taggedValue>
           </appinfo>
@@ -5057,7 +4971,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="8">
         <annotation>
-          <documentation>13068: De niende viktigste vegene i et vegnettverk, f.eks. skogsbilveger.</documentation>
+          <documentation>13068: 8: De niende viktigste vegene i et vegnettverk, f.eks. skogsbilveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13068</taggedValue>
           </appinfo>
@@ -5065,7 +4979,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
       <enumeration value="9">
         <annotation>
-          <documentation>13069: De minst viktige vegene i et vegnettverk, f.eks. veger det ikke er anbefalt å kjøre på, men mulig å kjøre på.</documentation>
+          <documentation>13069: 9: De minst viktige vegene i et vegnettverk, f.eks. veger det ikke er anbefalt å kjøre på, men mulig å kjøre på.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13069</taggedValue>
           </appinfo>
@@ -5073,12 +4987,12 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;,
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VegklasseFunksjonellVegklasseOtherType">
+  <simpleType name="VegklasseOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Veglenke" substitutionGroup="vegnett:Lenke" type="vegnett:VeglenkeType">
+  <element name="Veglenke" substitutionGroup="fkbvegnett:Lenke" type="fkbvegnett:VeglenkeType">
     <annotation>
       <documentation>Objekttype som representerer lenker i vegnettet
 Eksempel: NVDB Referanselenkedeler, NVDB Transportlenker</documentation>
@@ -5086,9 +5000,9 @@ Eksempel: NVDB Referanselenkedeler, NVDB Transportlenker</documentation>
   </element>
   <complexType name="VeglenkeType">
     <complexContent>
-      <extension base="vegnett:LenkeType">
+      <extension base="fkbvegnett:LenkeType">
         <sequence>
-          <element minOccurs="0" name="detaljnivå" type="vegnett:VegdetaljnivåType">
+          <element minOccurs="0" name="detaljnivå" type="fkbvegnett:VegdetaljnivåType">
             <annotation>
               <documentation>Detaljnivå i vegnettet.</documentation>
             </annotation>
@@ -5115,18 +5029,18 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
               <documentation>forløp som følger objektets sentrale del</documentation>
             </annotation>
           </element>
-          <element name="typeVeg" type="vegnett:TypeVegType">
+          <element name="typeVeg" type="fkbvegnett:TypeVegType">
             <annotation>
               <documentation>type veg (FormOfWay).</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="veglenkeadresse" type="vegnett:VeglenkeadressePropertyType">
+          <element minOccurs="0" name="veglenkeadresse" type="fkbvegnett:VeglenkeadressePropertyType">
             <annotation>
               <documentation>sammensatt identifikator for veglenkeadresse.
 Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="vegreferanse" type="vegnett:VegreferansePropertyType">
+          <element minOccurs="0" name="vegreferanse" type="fkbvegnett:VegreferansePropertyType">
             <annotation>
               <documentation>sammensatt identifikator for vegreferanse</documentation>
               <appinfo>
@@ -5140,12 +5054,12 @@ Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav</document
   </complexType>
   <complexType name="VeglenkePropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Veglenke"/>
+      <element ref="fkbvegnett:Veglenke"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="vegnett:VeglenkeadresseType">
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="fkbvegnett:VeglenkeadresseType">
     <annotation>
       <documentation>sammensatt identifikator for veglenkeadresse. 
 Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b&gt;.&lt;/b&gt;</documentation>
@@ -5156,7 +5070,7 @@ Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b&gt;.
   </element>
   <complexType name="VeglenkeadresseType">
     <sequence>
-      <element name="kommunenummer" type="vegnett:KommunenummerType">
+      <element name="kommunenummer" type="fkbvegnett:KommunenummerType">
         <annotation>
           <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste.
 Merknad: egenskapen er påkrevd for unik identifisering av veglenkeadresser, i og med at adressekoden kun er unik innen en kommune.</documentation>
@@ -5192,10 +5106,10 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </complexType>
   <complexType name="VeglenkeadressePropertyType">
     <sequence>
-      <element ref="vegnett:Veglenkeadresse"/>
+      <element ref="fkbvegnett:Veglenkeadresse"/>
     </sequence>
   </complexType>
-  <element name="Vegreferanse" substitutionGroup="gml:AbstractObject" type="vegnett:VegreferanseType">
+  <element name="Vegreferanse" substitutionGroup="gml:AbstractObject" type="fkbvegnett:VegreferanseType">
     <annotation>
       <documentation>sammensatt identifikator for vegreferanse</documentation>
       <appinfo>
@@ -5205,14 +5119,9 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </element>
   <complexType name="VegreferanseType">
     <sequence>
-      <element name="vegkategori" type="vegnett:VegkategoriType">
+      <element name="vegkategori" type="fkbvegnett:VegkategoriType">
         <annotation>
           <documentation>angir hvilken type veg veglenk beskriver</documentation>
-        </annotation>
-      </element>
-      <element name="vegstatus" type="vegnett:VegstatusType">
-        <annotation>
-          <documentation>angir veglenka sin status</documentation>
         </annotation>
       </element>
       <element name="vegnummer" type="integer">
@@ -5223,19 +5132,16 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
           </appinfo>
         </annotation>
       </element>
+      <element name="vegstatus" type="fkbvegnett:VegstatusType">
+        <annotation>
+          <documentation>angir veglenka sin status</documentation>
+        </annotation>
+      </element>
       <element name="hovedparsell" type="integer">
         <annotation>
           <documentation>oppdeling av vegruter i kortere parseller med relativt enhetlig standard og funksjon</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">HOVEDPARSELL</taggedValue>
-          </appinfo>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="referanseretning" type="vegnett:RetningskodeType">
-        <annotation>
-          <documentation>retning for vegreferansen, med eller mot koordinatrekkefølgen. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting og lenkenes geometri.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
           </appinfo>
         </annotation>
       </element>
@@ -5255,7 +5161,15 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="vegreferanseFraDato" type="dateTime">
+      <element minOccurs="0" name="referanseretning" type="fkbvegnett:RetningskodeType">
+        <annotation>
+          <documentation>retning for vegreferansen, med eller mot koordinatrekkefølgen. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting og lenkenes geometri.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="vegreferanseFraDato" type="dateTime">
         <annotation>
           <documentation>gyldighetsdato fra for vegreferanse (startdato)</documentation>
           <appinfo>
@@ -5267,12 +5181,12 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </complexType>
   <complexType name="VegreferansePropertyType">
     <sequence>
-      <element ref="vegnett:Vegreferanse"/>
+      <element ref="fkbvegnett:Vegreferanse"/>
     </sequence>
   </complexType>
-  <element name="Vegsperring" substitutionGroup="gml:AbstractFeature" type="vegnett:VegsperringType">
+  <element name="Vegsperring" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:VegsperringType">
     <annotation>
-      <documentation>Vegsperring: Angir at veg er fysisk sperret.</documentation>
+      <documentation>607: Angir at veg er fysisk sperret.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">607</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGSPERRING</taggedValue>
@@ -5283,27 +5197,27 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="vegnett:LineærPosisjonPunktPropertyType">
+          <element name="type" type="fkbvegnett:TypeVegsperringType">
             <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
-            <annotation>
-              <documentation>Geometri, punkt: Gir punkt som geometrisk representerer objektet.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7930</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRIPUNKT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element name="type" type="vegnett:TypeNVDB_VegsperringType">
-            <annotation>
-              <documentation>Type: Angir hvilken type sperring det er tale om</documentation>
+              <documentation>7861: Angir hvilken type sperring det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>7930: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7930</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -5312,7 +5226,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </complexType>
   <complexType name="VegsperringPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:Vegsperring"/>
+      <element ref="fkbvegnett:Vegsperring"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -5325,7 +5239,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGSTATUS</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="vegnett:VegstatusEnumerationType vegnett:VegstatusOtherType"/>
+    <union memberTypes="fkbvegnett:VegstatusEnumerationType fkbvegnett:VegstatusOtherType"/>
   </simpleType>
   <simpleType name="VegstatusEnumerationType">
     <annotation>
@@ -5391,9 +5305,9 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="VærutsattVeg" substitutionGroup="gml:AbstractFeature" type="vegnett:VærutsattVegType">
+  <element name="VærutsattVeg" substitutionGroup="gml:AbstractFeature" type="fkbvegnett:VærutsattVegType">
     <annotation>
-      <documentation>Værutsatt veg: Vegstrekning som er spesielt utsatt for uvær, og av den grunn kan ha begrenset åpningstid.</documentation>
+      <documentation>107: Vegstrekning som er spesielt utsatt for uvær, og av den grunn kan ha begrenset åpningstid. Merknad: Strekninger kan ikke ha dobbeltregistreringer (overlapp), ved flere likestilte naturfarer beskrives dette under "Tilleggsinformasjon"</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">107</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VÆRUTSATTVEG</taggedValue>
@@ -5404,91 +5318,95 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="avgrensaVinterdriftFraDato" type="string">
-            <annotation>
-              <documentation>Avgrensa vinterdrift, fra dato: Angir dato (mmdd) for når avgrensa vinterdrift starter et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8836</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFTFRADATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="avgrensaVinterdriftTilDato" type="string">
-            <annotation>
-              <documentation>Avgrensa vinterdrift, til dato: Angir dato (mmdd) for når avgrensa vinterdrift avsluttes et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges. Det kan innenfor denne perioden være gitt en periode hvor vegen er helt vinterstengt (se egne ET).</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8837</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFTTILDATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="hovedproblem" type="vegnett:HovedproblemVærutsattVegType">
-            <annotation>
-              <documentation>Hovedproblem: Angir hva som er hovedproblem for værutsatt veg.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9957</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="høyfjellsstrekning" type="vegnett:HøyfjellsstrekningType">
-            <annotation>
-              <documentation>Høyfjellsstrekning: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8835</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYFJELLSSTREKNING</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="vegnett:LineærPosisjonStrekningPropertyType">
-            <annotation>
-              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="nattestengtFraDato" type="string">
-            <annotation>
-              <documentation>Nattestengt, fra dato: Angir dato (mmdd) for når nattestengning starter i et normalår.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2073</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGTFRADATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="nattestengtTilDato" type="string">
-            <annotation>
-              <documentation>Nattestengt, til dato: Angir dato (mmdd) for når nattestengning avsluttes i et normalår.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2222</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGTTILDATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="navn" type="string">
             <annotation>
-              <documentation>Navn: Angir navn på vinterveg (høyfjellsstrekning)</documentation>
+              <documentation>1082: Angir navn på vegstrekning (høyfjellsstrekning)</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1082</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType"/>
-          <element name="vinterstengtFraDato" type="string">
+          <element name="høyfjellsstrekning" type="fkbvegnett:HøyfjellsstrekningType">
             <annotation>
-              <documentation>Vinterstengt, fra dato: Angir dato (mmdd) for når vinterstengning starter et normalår.</documentation>
+              <documentation>8835: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2074</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERSTENGTFRADATO</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8835</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYFJELLSSTREKNING</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element name="vinterstengtTilDato" type="string">
+          <element minOccurs="0" name="vinterstengt_FraDato" type="string">
             <annotation>
-              <documentation>Vinterstengt, til dato: Angir dato (mmdd) for når vinterstengning opphører i et normalår.</documentation>
+              <documentation>2074: Angir dato (mmdd) for når vinterstengning starter et normalår.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2074</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERSTENGT_FRADATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vinterstengt_TilDato" type="string">
+            <annotation>
+              <documentation>2223: Angir dato (mmdd) for når vinterstengning opphører i et normalår.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2223</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERSTENGTTILDATO</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERSTENGT_TILDATO</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nattestengt_FraDato" type="string">
+            <annotation>
+              <documentation>2073: Angir dato (mmdd) for når nattestengning starter i et normalår.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2073</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGT_FRADATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="nattestengt_TilDato" type="string">
+            <annotation>
+              <documentation>2222: Angir dato (mmdd) for når nattestengning avsluttes i et normalår.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2222</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGT_TILDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="avgrensaVinterdrift_FraDato" type="string">
+            <annotation>
+              <documentation>8836: Angir dato (mmdd) for når avgrensa vinterdrift starter et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8836</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFT_FRADATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="avgrensaVinterdrift_TilDato" type="string">
+            <annotation>
+              <documentation>8837: Angir dato (mmdd) for når avgrensa vinterdrift avsluttes et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges. Det kan innenfor denne perioden være gitt en periode hvor vegen er helt vinterstengt (se egne ET).</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8837</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFT_TILDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="hovedproblem" type="fkbvegnett:HovedproblemVærutsattVegType">
+            <annotation>
+              <documentation>9957: Angir hva som er hovedproblem for værutsatt veg.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9957</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="fkbvegnett:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
         </sequence>
@@ -5497,7 +5415,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </complexType>
   <complexType name="VærutsattVegPropertyType">
     <sequence minOccurs="0">
-      <element ref="vegnett:VærutsattVeg"/>
+      <element ref="fkbvegnett:VærutsattVeg"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
