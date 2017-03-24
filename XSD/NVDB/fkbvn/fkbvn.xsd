@@ -17,7 +17,41 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="Fartsgrense" substitutionGroup="gml:AbstractFeature" type="fkbvn:FartsgrenseType">
+  <element name="Endringsflagg" substitutionGroup="gml:AbstractObject" type="fkbvn:EndringsflaggType">
+    <annotation>
+      <documentation>endringsinformasjon om et objekt
+
+Merknad: 
+Inntil videre vil hele objektet merkes med endringsflagget.
+I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved å angi om endringen er knyttet til geometrien, egenskapene eller relasjoner</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRINGSFLAGG</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="EndringsflaggType">
+    <sequence>
+      <element name="typeEndring" type="fkbvn:TypeEndringType">
+        <annotation>
+          <documentation>endringsstatus for objektet</documentation>
+        </annotation>
+      </element>
+      <element name="tidspunktEndring" type="dateTime">
+        <annotation>
+          <documentation>tidspunkt for endring av objektet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TID</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="EndringsflaggPropertyType">
+    <sequence>
+      <element ref="fkbvn:Endringsflagg"/>
+    </sequence>
+  </complexType>
+  <element name="Fartsgrense" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:FartsgrenseType">
     <annotation>
       <documentation>105: Høyeste tillatte hastighet på en vegstrekning.</documentation>
       <appinfo>
@@ -28,7 +62,7 @@ Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskri
   </element>
   <complexType name="FartsgrenseType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element name="fartsgrenseVerdi" type="fkbvn:FartsgrenseVerdiType">
             <annotation>
@@ -167,7 +201,7 @@ Enhet: Kilometer/time</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="FunksjonellVegklasse" substitutionGroup="gml:AbstractFeature" type="fkbvn:FunksjonellVegklasseType">
+  <element name="FunksjonellVegklasse" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:FunksjonellVegklasseType">
     <annotation>
       <documentation>821: En klassifisering basert på hvor viktig en veg er for det totale vegnettets forbindelsesmuligheter. Brukes blant annet for vekting i ruteplanlegging</documentation>
       <appinfo>
@@ -178,7 +212,7 @@ Enhet: Kilometer/time</documentation>
   </element>
   <complexType name="FunksjonellVegklasseType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element name="vegklasse" type="fkbvn:VegklasseType">
             <annotation>
@@ -230,7 +264,7 @@ Enhet: Kilometer/time</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Gågatereguleringer" substitutionGroup="gml:AbstractFeature" type="fkbvn:GågatereguleringerType">
+  <element name="Gågatereguleringer" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:GågatereguleringerType">
     <annotation>
       <documentation>813: Gate uten fortau reservert for gående hvor trafikkreglene for gågate gjelder (hentet fra HB N100 (017), stemmer også med beskrivelse av gågateskiltet i HB N300-3 (050-3))</documentation>
       <appinfo>
@@ -241,7 +275,7 @@ Enhet: Kilometer/time</documentation>
   </element>
   <complexType name="GågatereguleringerType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="varetransportHverdagULørdagPeriode1FraKl" type="string">
             <annotation>
@@ -404,7 +438,7 @@ Enhet: Kilometer/time</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Høydebegrensning" substitutionGroup="gml:AbstractFeature" type="fkbvn:HøydebegrensningType">
+  <element name="Høydebegrensning" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:HøydebegrensningType">
     <annotation>
       <documentation>591: Strekning i vegnettet hvor kjøretøy kan komme i konflikt med overliggende hinder</documentation>
       <appinfo>
@@ -415,7 +449,7 @@ Enhet: Kilometer/time</documentation>
   </element>
   <complexType name="HøydebegrensningType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="skiltaHøyde" type="double">
             <annotation>
@@ -564,7 +598,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
       <element ref="fkbvn:Identifikasjon"/>
     </sequence>
   </complexType>
-  <element name="InnkjøringForbudt" substitutionGroup="gml:AbstractFeature" type="fkbvn:InnkjøringForbudtType">
+  <element name="InnkjøringForbudt" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:InnkjøringForbudtType">
     <annotation>
       <documentation>606: Angir innkjøring forbudt</documentation>
       <appinfo>
@@ -575,7 +609,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </element>
   <complexType name="InnkjøringForbudtType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
@@ -602,7 +636,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Jernbanekryssing" substitutionGroup="gml:AbstractFeature" type="fkbvn:JernbanekryssingType">
+  <element name="Jernbanekryssing" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:JernbanekryssingType">
     <annotation>
       <documentation>100: Sted i vegnettet hvor veg og jernbane krysses</documentation>
       <appinfo>
@@ -613,7 +647,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </element>
   <complexType name="JernbanekryssingType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="typeJernbanekryssing" type="fkbvn:TypeJernbanekryssingType">
             <annotation>
@@ -3174,7 +3208,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Landbruksvegklasse" substitutionGroup="gml:AbstractFeature" type="fkbvn:LandbruksvegklasseType">
+  <element name="Landbruksvegklasse" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:LandbruksvegklasseType">
     <annotation>
       <documentation>822: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
       <appinfo>
@@ -3185,7 +3219,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
   </element>
   <complexType name="LandbruksvegklasseType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element name="klasseLandbruksveg" type="fkbvn:KlasseLandbruksvegType">
             <annotation>
@@ -4143,6 +4177,20 @@ Ved førstegangsregistrering settes Datafangstdato lik førsteDatafangstdato.</d
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="endringsflagg" type="fkbvn:EndringsflaggPropertyType">
+            <annotation>
+              <documentation>endringsinformasjon om et objekt 
+
+Merknad: 
+Reglene knyttet til bruken av endringsflagg er for denne versjonen ikke avklart. Utdypes nærmere i produktspesifikasjonen basert på 4.0.
+
+Merknad: 
+Endringsflagg kan benyttes til å merke slettede "objekter".
+
+Eksempel: 
+Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendomsteigen</documentation>
+            </annotation>
+          </element>
           <element name="kvalitet" type="fkbvn:PosisjonskvalitetPropertyType">
             <annotation>
               <documentation>beskrivelse av kvaliteten på stedfestingen
@@ -4176,7 +4224,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Svingerestriksjon" substitutionGroup="gml:AbstractFeature" type="fkbvn:SvingerestriksjonType">
+  <element name="Svingerestriksjon" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:SvingerestriksjonType">
     <annotation>
       <documentation>573: Angir svingerestriksjon</documentation>
       <appinfo>
@@ -4187,7 +4235,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </element>
   <complexType name="SvingerestriksjonType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
@@ -4269,7 +4317,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Trafikkreguleringer" substitutionGroup="gml:AbstractFeature" type="fkbvn:TrafikkreguleringerType">
+  <element name="Trafikkreguleringer" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:TrafikkreguleringerType">
     <annotation>
       <documentation>856: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
       <appinfo>
@@ -4280,7 +4328,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
   </element>
   <complexType name="TrafikkreguleringerType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element name="trafikkreguleringer" type="fkbvn:TrafikkreguleringsverdierType">
             <annotation>
@@ -4398,6 +4446,33 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
     </restriction>
   </simpleType>
   <simpleType name="TrafikkreguleringsverdierOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="fkbvn:TypeEndringEnumerationType fkbvn:TypeEndringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeEndringEnumerationType">
+    <annotation>
+      <documentation>endringsstatus for objektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="E"/>
+      <enumeration value="N"/>
+      <enumeration value="S"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeEndringOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -5188,7 +5263,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <element ref="fkbvn:Vegreferanse"/>
     </sequence>
   </complexType>
-  <element name="Vegsperring" substitutionGroup="gml:AbstractFeature" type="fkbvn:VegsperringType">
+  <element name="Vegsperring" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:VegsperringType">
     <annotation>
       <documentation>607: Angir at veg er fysisk sperret.</documentation>
       <appinfo>
@@ -5199,7 +5274,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </element>
   <complexType name="VegsperringType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element name="type" type="fkbvn:TypeVegsperringType">
             <annotation>
@@ -5309,7 +5384,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="VærutsattVeg" substitutionGroup="gml:AbstractFeature" type="fkbvn:VærutsattVegType">
+  <element name="VærutsattVeg" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:VærutsattVegType">
     <annotation>
       <documentation>107: Vegstrekning som er spesielt utsatt for uvær, og av den grunn kan ha begrenset åpningstid. Merknad: Strekninger kan ikke ha dobbeltregistreringer (overlapp), ved flere likestilte naturfarer beskrives dette under "Tilleggsinformasjon"</documentation>
       <appinfo>
@@ -5320,7 +5395,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
   </element>
   <complexType name="VærutsattVegType">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
           <element minOccurs="0" name="navn" type="string">
             <annotation>
