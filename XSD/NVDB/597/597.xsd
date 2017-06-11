@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>597: VSTØY/VLUFT inndata og resultatdata knyttet til en vegstrekning.</documentation>
   </annotation>
@@ -6,468 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="DefaultVerdierForRushType">
-    <annotation>
-      <documentation>5438: Forteller om defaultverdier for rush skal benyttes.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5438</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEFAULTVERDIERFORRUSH</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:DefaultVerdierForRushEnumerationType nvdb:DefaultVerdierForRushOtherType"/>
-  </simpleType>
-  <simpleType name="DefaultVerdierForRushEnumerationType">
-    <annotation>
-      <documentation>5438: Forteller om defaultverdier for rush skal benyttes.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5438</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEFAULTVERDIERFORRUSH</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>7370: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7370</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>7371: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7371</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="DefaultVerdierForRushOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="FasadeDekningsGradType">
-    <annotation>
-      <documentation>5427: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5427</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEDEKNINGSGRAD</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:FasadeDekningsGradEnumerationType nvdb:FasadeDekningsGradOtherType"/>
-  </simpleType>
-  <simpleType name="FasadeDekningsGradEnumerationType">
-    <annotation>
-      <documentation>5427: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5427</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FASADEDEKNINGSGRAD</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tettFasaderekkeEnSideOver75m">
-        <annotation>
-          <documentation>7361: Tett fasaderekke en side &gt; 75m</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7361</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tettFasaderekkeBeggeSiderOver50m">
-        <annotation>
-          <documentation>7362: Tett fasaderekke begge sider &gt; 50m</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7362</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="spredtBebyggelseVegetasjon">
-        <annotation>
-          <documentation>7363: Spredt bebyggelse/vegetasjon</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7363</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="heltÅpent">
-        <annotation>
-          <documentation>7364: Helt åpent</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7364</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="spesiellTopografi">
-        <annotation>
-          <documentation>7365: Spesiell topografi</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7365</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tunnel">
-        <annotation>
-          <documentation>7366: Tunnel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7366</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="FasadeDekningsGradOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="GateklasseType">
-    <annotation>
-      <documentation>6996: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6996</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATEKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:GateklasseEnumerationType nvdb:GateklasseOtherType"/>
-  </simpleType>
-  <simpleType name="GateklasseEnumerationType">
-    <annotation>
-      <documentation>6996: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6996</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GATEKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="gjennomfartInnfart">
-        <annotation>
-          <documentation>9272: Gjennomfart/Innfart: Hovedgate mot sentrum, gjennomfart gjennom sentrum eller ringveg/omkjøringsveg med halvsentral beliggenhet. Gaten har markerte trafikktopper morgen og ettermiddag, og relativt stor andel tungtrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9272</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sentrumsgate">
-        <annotation>
-          <documentation>9273: Sentrumsgate: Hovedgate i sentrumsområde. Gate i sentral bebyggelse som avvikler lokaltrafikk i byens/tettstedets sentrumsområde. Trafikken er jevnere fordelt over dagen enn for klasse 1, og andelen tungtrafikk er mindre, om gaten ikke har vesentlig busstrafikk. Trafikkrytmen på gaten er ujevn, forstyrrelser forekommer ofte</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9273</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="boliggate">
-        <annotation>
-          <documentation>9274: Boliggate: Hovedgate i boligområde.  Gate som fører trafikk mellom innfartsgater og ett eller flere boligområder. Gaten har kraftige trafikktopper spesielt om morgenen, men også om ettermiddagen, og har liten andel tungtrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9274</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gateIIndustriområde">
-        <annotation>
-          <documentation>9275: Gate i industriområde: Gate som betjener større nærings-/industriområde.  Gaten har stor andel tungtrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9275</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lokalVeg">
-        <annotation>
-          <documentation>9276: Lokal veg: Lokalveg i boligområde</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9276</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="GateklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="KlassifikasjonAvVegstøvBelastningType">
-    <annotation>
-      <documentation>5426: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5426</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSIFIKASJONAVVEGSTØVBELASTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KlassifikasjonAvVegstøvBelastningEnumerationType nvdb:KlassifikasjonAvVegstøvBelastningOtherType"/>
-  </simpleType>
-  <simpleType name="KlassifikasjonAvVegstøvBelastningEnumerationType">
-    <annotation>
-      <documentation>5426: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5426</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSIFIKASJONAVVEGSTØVBELASTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="sværtStorVegstøvbelastning">
-        <annotation>
-          <documentation>7357: Svært stor vegstøvbelastning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7357</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="storVegstøvbelastning">
-        <annotation>
-          <documentation>7358: Stor vegstøvbelastning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7358</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="middelsVegstøvbelastning">
-        <annotation>
-          <documentation>7359: Middels vegstøvbelastning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7359</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="liteVegstøvbelastning">
-        <annotation>
-          <documentation>7360: Lite vegstøvbelastning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7360</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KlassifikasjonAvVegstøvBelastningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="OmrådetypeType">
-    <annotation>
-      <documentation>6995: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6995</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDETYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:OmrådetypeEnumerationType nvdb:OmrådetypeOtherType"/>
-  </simpleType>
-  <simpleType name="OmrådetypeEnumerationType">
-    <annotation>
-      <documentation>6995: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6995</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMRÅDETYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="spredtBebyggelse">
-        <annotation>
-          <documentation>9269: Spredt bebyggelse</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9269</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="middelsSpredtBebyggelse">
-        <annotation>
-          <documentation>9270: Middels spredt bebyggelse</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9270</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tettBebyggelse">
-        <annotation>
-          <documentation>9271: Tett bebyggelse</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9271</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="OmrådetypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="SoneBenyttetILuftstøyBeregningerType">
-    <annotation>
-      <documentation>5437: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SONEBENYTTETILUFTSTØYBEREGNINGER</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:SoneBenyttetILuftstøyBeregningerEnumerationType nvdb:SoneBenyttetILuftstøyBeregningerOtherType"/>
-  </simpleType>
-  <simpleType name="SoneBenyttetILuftstøyBeregningerEnumerationType">
-    <annotation>
-      <documentation>5437: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SONEBENYTTETILUFTSTØYBEREGNINGER</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="by">
-        <annotation>
-          <documentation>7367: By</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7367</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tettsted">
-        <annotation>
-          <documentation>7368: Tettsted</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7368</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="landområde">
-        <annotation>
-          <documentation>7369: Landområde</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7369</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="SoneBenyttetILuftstøyBeregningerOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="StandardklasseStøy_Luft_StrekningsdataType">
-    <annotation>
-      <documentation>8315: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8315</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTØY_LUFT_STREKNINGSDATA</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:StandardklasseStøy_Luft_StrekningsdataEnumerationType nvdb:StandardklasseStøy_Luft_StrekningsdataOtherType"/>
-  </simpleType>
-  <simpleType name="StandardklasseStøy_Luft_StrekningsdataEnumerationType">
-    <annotation>
-      <documentation>8315: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8315</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTØY_LUFT_STREKNINGSDATA</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="H1">
-        <annotation>
-          <documentation>11240: H1</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11240</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="H2">
-        <annotation>
-          <documentation>11241: H2</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11241</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="H3">
-        <annotation>
-          <documentation>11242: H3</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11242</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="S1">
-        <annotation>
-          <documentation>11243: S1</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11243</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="S2">
-        <annotation>
-          <documentation>11244: S2</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11244</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="S3">
-        <annotation>
-          <documentation>11245: S3</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11245</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="A1">
-        <annotation>
-          <documentation>11246: A1</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11246</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="A2">
-        <annotation>
-          <documentation>11247: A2</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11247</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="A3">
-        <annotation>
-          <documentation>11248: A3</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11248</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="G1">
-        <annotation>
-          <documentation>11249: G1</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11249</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="G2">
-        <annotation>
-          <documentation>11250: G2</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11250</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="G3">
-        <annotation>
-          <documentation>11251: G3</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11251</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="StandardklasseStøy_Luft_StrekningsdataOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Støy_Luft_Strekningsdata" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Støy_Luft_StrekningsdataType">
     <annotation>
       <documentation>597: VSTØY/VLUFT inndata og resultatdata knyttet til en vegstrekning.</documentation>
@@ -490,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="soneBenyttetILuftstøyBeregninger" type="nvdb:SoneBenyttetILuftstøyBeregningerType">
+          <element minOccurs="0" name="soneBenyttetILuftstøyBeregninger" type="gml:CodeType">
             <annotation>
               <documentation>5437: Sone som benyttes i luftstøyberegninger. Angir om det er by, tettsted eller landområde.</documentation>
               <appinfo>
@@ -499,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="områdetype" type="nvdb:OmrådetypeType">
+          <element minOccurs="0" name="områdetype" type="gml:CodeType">
             <annotation>
               <documentation>6995: Parameter benyttet i VSTØY/VLUFT-beregning.  Angir hvilken områdetype strekningen ligger i.</documentation>
               <appinfo>
@@ -508,7 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="standardklasse" type="nvdb:StandardklasseStøy_Luft_StrekningsdataType">
+          <element minOccurs="0" name="standardklasse" type="gml:CodeType">
             <annotation>
               <documentation>8315: Vegnormalenes inndeling i klasser på vegnettet, inkl. gsv.</documentation>
               <appinfo>
@@ -517,7 +55,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="gateklasse" type="nvdb:GateklasseType">
+          <element minOccurs="0" name="gateklasse" type="gml:CodeType">
             <annotation>
               <documentation>6996: Parameter benyttet i VSTØY/VLUFT-beregning.  Beskriver gatens/vegens funksjon på gitt strekning..</documentation>
               <appinfo>
@@ -564,7 +102,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="trafikkretning" type="nvdb:TrafikkretningType">
+          <element minOccurs="0" name="trafikkretning" type="gml:CodeType">
             <annotation>
               <documentation>7001: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
               <appinfo>
@@ -651,7 +189,7 @@ Enhet: Prosent</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="defaultVerdierForRush" type="nvdb:DefaultVerdierForRushType">
+          <element minOccurs="0" name="defaultVerdierForRush" type="gml:CodeType">
             <annotation>
               <documentation>5438: Forteller om defaultverdier for rush skal benyttes.</documentation>
               <appinfo>
@@ -670,7 +208,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fasadeDekningsGrad" type="nvdb:FasadeDekningsGradType">
+          <element minOccurs="0" name="fasadeDekningsGrad" type="gml:CodeType">
             <annotation>
               <documentation>5427: Tetthet på bebyggelse langs veg Koder: 1: Tett fasaderekke en side &gt; 75m 2: Tett fasaderekke begge sider &gt; 50m 3: Spredt bebyggelse/vegetasjon 4: Helt åpent 5: Spesiell topografi 6: Tunnel</documentation>
               <appinfo>
@@ -689,7 +227,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="klassifikasjonAvVegstøvBelastning" type="nvdb:KlassifikasjonAvVegstøvBelastningType">
+          <element minOccurs="0" name="klassifikasjonAvVegstøvBelastning" type="gml:CodeType">
             <annotation>
               <documentation>5426: Koder: 1: Svært stor vegstøvbelastning 2: Stor vegstøvbelastning 3: Middels vegstøvbelastning 4: Lites vegstøvbelastning</documentation>
               <appinfo>
@@ -1337,54 +875,4 @@ Enhet: Stykker</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TrafikkretningType">
-    <annotation>
-      <documentation>7001: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7001</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TrafikkretningEnumerationType nvdb:TrafikkretningOtherType"/>
-  </simpleType>
-  <simpleType name="TrafikkretningEnumerationType">
-    <annotation>
-      <documentation>7001: Angir retning på trafikk i forhold til vegens metreringsretning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7001</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tovegsTrafikk">
-        <annotation>
-          <documentation>9277: Tovegs trafikk</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9277</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="envegs_MedMetreringsretning">
-        <annotation>
-          <documentation>9278: Envegs, med metreringsretning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9278</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="envegs_MotMetreringsretnig">
-        <annotation>
-          <documentation>9279: Envegs, mot metreringsretnig</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9279</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TrafikkretningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

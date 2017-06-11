@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>518: Siktsone er et areal som krever tiltak for å tilfredsstille siktkrav som ikke tilfredsstilles av kantklipp.</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeSiktsoneType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>4165: Angir hvilken type siktsone det er tale om</documentation>
               <appinfo>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltak_AnbefaltIntervall" type="nvdb:Tiltak_AnbefaltIntervallType">
+          <element minOccurs="0" name="tiltak_AnbefaltIntervall" type="gml:CodeType">
             <annotation>
               <documentation>9974: Gir anbefaling for hvor ofte og når det bør foretas tiltak. Gjelder areal utenfor kantklipp</documentation>
               <appinfo>
@@ -95,7 +95,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSiktsoneType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>8116: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -127,6 +127,13 @@ Enhet: Kvadratmeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -141,13 +148,6 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -159,178 +159,4 @@ Enhet: Kvadratmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="Tiltak_AnbefaltIntervallType">
-    <annotation>
-      <documentation>9974: Gir anbefaling for hvor ofte og når det bør foretas tiltak. Gjelder areal utenfor kantklipp</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9974</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK_ANBEFALTINTERVALL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:Tiltak_AnbefaltIntervallEnumerationType nvdb:Tiltak_AnbefaltIntervallOtherType"/>
-  </simpleType>
-  <simpleType name="Tiltak_AnbefaltIntervallEnumerationType">
-    <annotation>
-      <documentation>9974: Gir anbefaling for hvor ofte og når det bør foretas tiltak. Gjelder areal utenfor kantklipp</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9974</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK_ANBEFALTINTERVALL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="2GPrÅr">
-        <annotation>
-          <documentation>16189: 2 g. pr år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16189</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="1GPrÅr">
-        <annotation>
-          <documentation>16188: 1 g. pr år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16188</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="2HvertÅr">
-        <annotation>
-          <documentation>16190: 2.hvert år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16190</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="3til5HvertÅr">
-        <annotation>
-          <documentation>16191: 3-5. hvert år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16191</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="Tiltak_AnbefaltIntervallOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeSiktsoneType">
-    <annotation>
-      <documentation>4165: Angir hvilken type siktsone det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4165</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESIKTSONE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeSiktsoneEnumerationType nvdb:TypeSiktsoneOtherType"/>
-  </simpleType>
-  <simpleType name="TypeSiktsoneEnumerationType">
-    <annotation>
-      <documentation>4165: Angir hvilken type siktsone det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4165</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESIKTSONE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="kryssAvkjørsel">
-        <annotation>
-          <documentation>5140: Kryss/avkjørsel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5140</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kurve">
-        <annotation>
-          <documentation>5141: Kurve</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5141</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skiltInfo">
-        <annotation>
-          <documentation>5142: Skilt/info: Gjelder generelt soner siktsoner knyttet til objekt som skal gi informasjon til trafikanter</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5142</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="siktrydding_Vilt">
-        <annotation>
-          <documentation>5139: Siktrydding, vilt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5139</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeSiktsoneOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSiktsoneType">
-    <annotation>
-      <documentation>8116: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8116</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSIKTSONE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligSiktsoneEnumerationType nvdb:VedlikeholdsansvarligSiktsoneOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSiktsoneEnumerationType">
-    <annotation>
-      <documentation>8116: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8116</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSIKTSONE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>10510: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10510</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10588: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10588</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10666: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10666</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17754: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17754</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSiktsoneOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

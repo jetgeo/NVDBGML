@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>580: Kontrakt/avtale om drift/vedlikehold relatert til bestemte veger innenfor et avgrensa område</documentation>
   </annotation>
@@ -37,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="type" type="nvdb:TypeKontraktsområdeType">
+          <element name="type" type="gml:CodeType">
             <annotation>
               <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
               <appinfo>
@@ -92,17 +92,17 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -117,102 +117,4 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeKontraktsområdeType">
-    <annotation>
-      <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8832</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKONTRAKTSOMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeKontraktsområdeEnumerationType nvdb:TypeKontraktsområdeOtherType"/>
-  </simpleType>
-  <simpleType name="TypeKontraktsområdeEnumerationType">
-    <annotation>
-      <documentation>8832: Angir hvilken type kotraktsområde det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8832</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKONTRAKTSOMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="driftskontrakt">
-        <annotation>
-          <documentation>11750: Driftskontrakt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11750</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="OPS_Kontrakt">
-        <annotation>
-          <documentation>11751: OPS-kontrakt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11751</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="refusjonsavtale">
-        <annotation>
-          <documentation>11752: Refusjonsavtale</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11752</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="elektrokontrakt">
-        <annotation>
-          <documentation>11753: Elektrokontrakt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11753</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="veglyskontrakt">
-        <annotation>
-          <documentation>11754: Veglyskontrakt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11754</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tunnelkontrakt">
-        <annotation>
-          <documentation>11755: Tunnelkontrakt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11755</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="grøntkontrakt">
-        <annotation>
-          <documentation>18158: Grøntkontrakt: Område der det er inngått egen driftskontrakt rettet mot grøntområder/grøntobjekter</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18158</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="andrepartskontrakt">
-        <annotation>
-          <documentation>18159: Andrepartskontrakt: Område der drift administreres av annen part, f.eks en kommune på vegne av Statens vegvesen.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18159</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="utprøving">
-        <annotation>
-          <documentation>11756: Utprøving: Benyttes som "kladd" dersom man ønsker å se på flere alternativer før man bestemmer seg for hvilke veger som skal være med i en kontrakt.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11756</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeKontraktsområdeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

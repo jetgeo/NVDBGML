@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>447: Et tunnelløp hvor det ikke er åpent for ordinær trafikk.</documentation>
   </annotation>
@@ -6,90 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="KjørbarType">
-    <annotation>
-      <documentation>9179: Angir om det er mulig å kjøre med bil i tunnelløpet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRBAR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KjørbarEnumerationType nvdb:KjørbarOtherType"/>
-  </simpleType>
-  <simpleType name="KjørbarEnumerationType">
-    <annotation>
-      <documentation>9179: Angir om det er mulig å kjøre med bil i tunnelløpet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRBAR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>12319: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12319</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>12320: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12320</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KjørbarOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="RømningsvegType">
-    <annotation>
-      <documentation>9178: Angir om tunnelløp kan benyttes som rømningsveg</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9178</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RØMNINGSVEG</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:RømningsvegEnumerationType nvdb:RømningsvegOtherType"/>
-  </simpleType>
-  <simpleType name="RømningsvegEnumerationType">
-    <annotation>
-      <documentation>9178: Angir om tunnelløp kan benyttes som rømningsveg</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9178</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RØMNINGSVEG</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>12317: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12317</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>12318: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12318</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="RømningsvegOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="TunnelløpUtenTrafikk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TunnelløpUtenTrafikkType">
     <annotation>
       <documentation>447: Et tunnelløp hvor det ikke er åpent for ordinær trafikk.</documentation>
@@ -103,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeTunnelløpUtenTrafikkType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>9177: Angir hvilken type tunnelløp det er tale om</documentation>
               <appinfo>
@@ -121,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tunnelprofil" type="nvdb:TunnelprofilTunnelløpUtenTrafikkType">
+          <element minOccurs="0" name="tunnelprofil" type="gml:CodeType">
             <annotation>
               <documentation>3102: Angir hvilket standard tunnelprofil tunnelløpet er bygd etter. Merknad: Dersom tunnelløpet har varierende standard, skal det oppgis det profilet som beskriver det minste tverrsnittet.</documentation>
               <appinfo>
@@ -160,7 +76,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rømningsveg" type="nvdb:RømningsvegType">
+          <element minOccurs="0" name="rømningsveg" type="gml:CodeType">
             <annotation>
               <documentation>9178: Angir om tunnelløp kan benyttes som rømningsveg</documentation>
               <appinfo>
@@ -169,12 +85,21 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kjørbar" type="nvdb:KjørbarType">
+          <element minOccurs="0" name="kjørbar" type="gml:CodeType">
             <annotation>
               <documentation>9179: Angir om det er mulig å kjøre med bil i tunnelløpet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9179</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRBAR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11116: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11116</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -197,10 +122,10 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertVannOgFrostsikring" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:VannOgFrostsikring</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -211,10 +136,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertVannOgFrostsikring" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:VannOgFrostsikring</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -229,176 +154,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TunnelprofilTunnelløpUtenTrafikkType">
-    <annotation>
-      <documentation>3102: Angir hvilket standard tunnelprofil tunnelløpet er bygd etter. Merknad: Dersom tunnelløpet har varierende standard, skal det oppgis det profilet som beskriver det minste tverrsnittet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3102</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TUNNELPROFILTUNNELLØPUTENTRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TunnelprofilTunnelløpUtenTrafikkEnumerationType nvdb:TunnelprofilTunnelløpUtenTrafikkOtherType"/>
-  </simpleType>
-  <simpleType name="TunnelprofilTunnelløpUtenTrafikkEnumerationType">
-    <annotation>
-      <documentation>3102: Angir hvilket standard tunnelprofil tunnelløpet er bygd etter. Merknad: Dersom tunnelløpet har varierende standard, skal det oppgis det profilet som beskriver det minste tverrsnittet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3102</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TUNNELPROFILTUNNELLØPUTENTRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="T4">
-        <annotation>
-          <documentation>12301: T4</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12301</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T5">
-        <annotation>
-          <documentation>12302: T5</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12302</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T5_5">
-        <annotation>
-          <documentation>12303: T5,5</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12303</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T6">
-        <annotation>
-          <documentation>12304: T6</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12304</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T7">
-        <annotation>
-          <documentation>12305: T7</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12305</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T8_5">
-        <annotation>
-          <documentation>12306: T8,5</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12306</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T9">
-        <annotation>
-          <documentation>12307: T9</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12307</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T9_5">
-        <annotation>
-          <documentation>12308: T9,5</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12308</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T10">
-        <annotation>
-          <documentation>12309: T10</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12309</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T11">
-        <annotation>
-          <documentation>12310: T11</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12310</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="rektangulærtTverrsnitt">
-        <annotation>
-          <documentation>12316: Rektangulært tverrsnitt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12316</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TunnelprofilTunnelløpUtenTrafikkOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeTunnelløpUtenTrafikkType">
-    <annotation>
-      <documentation>9177: Angir hvilken type tunnelløp det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9177</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETUNNELLØPUTENTRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeTunnelløpUtenTrafikkEnumerationType nvdb:TypeTunnelløpUtenTrafikkOtherType"/>
-  </simpleType>
-  <simpleType name="TypeTunnelløpUtenTrafikkEnumerationType">
-    <annotation>
-      <documentation>9177: Angir hvilken type tunnelløp det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9177</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETUNNELLØPUTENTRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tverrforbindelseMellomTunnelløp">
-        <annotation>
-          <documentation>12299: Tverrforbindelse mellom tunnelløp</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12299</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tverrslagTilDagen">
-        <annotation>
-          <documentation>12300: Tverrslag til dagen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12300</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="parallelløpTilHovedløp">
-        <annotation>
-          <documentation>12323: Parallelløp til hovedløp</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12323</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sløyfe">
-        <annotation>
-          <documentation>13395: Sløyfe: Tunnelløp som går i sløyfe, dvs det starter og slutter i samme løp. Benyttes f.eks som rensesløyfe</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13395</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeTunnelløpUtenTrafikkOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

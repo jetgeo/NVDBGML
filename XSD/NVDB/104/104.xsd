@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>104: Angir bruksklasse. Foreløpig versjon for intern bruk</documentation>
   </annotation>
@@ -6,56 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="100TonnVegnettBruksklasseType">
-    <annotation>
-      <documentation>9254: Angir om vegstrekning inngår i 12/100-tonn vegnett og hvorvidt det tillates kjørt over bruene med eller uten vegfølge</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9254</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_100TONNVEGNETTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:100TonnVegnettBruksklasseEnumerationType nvdb:100TonnVegnettBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="100TonnVegnettBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9254: Angir om vegstrekning inngår i 12/100-tonn vegnett og hvorvidt det tillates kjørt over bruene med eller uten vegfølge</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9254</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_100TONNVEGNETTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="100">
-        <annotation>
-          <documentation>12900: 100: Vegstrekning inngår i 12/100-tonn vegnett. Det kreves vegfølge over bruer</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12900</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="100">
-        <annotation>
-          <documentation>17311: 100*: Vegstrekning inngår i 12/100-tonn vegnett. Det kreves ikke vegfølge over bruer</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17311</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>12901: Nei: Vegstrekning inngår ikke i 12/100-tonn vegnett.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12901</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="100TonnVegnettBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Bruksklasse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:BruksklasseType">
     <annotation>
       <documentation>104: Angir bruksklasse. Foreløpig versjon for intern bruk</documentation>
@@ -69,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="bruksklasseHelår" type="nvdb:BruksklasseHelårBruksklasseType">
+          <element name="bruksklasseHelår" type="gml:CodeType">
             <annotation>
               <documentation>5179: Angir helårs bruksklasse.</documentation>
               <appinfo>
@@ -78,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksklasseVinter" type="nvdb:BruksklasseVinterBruksklasseType">
+          <element minOccurs="0" name="bruksklasseVinter" type="gml:CodeType">
             <annotation>
               <documentation>5180: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
               <appinfo>
@@ -87,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksklasseTele" type="nvdb:BruksklasseTeleBruksklasseType">
+          <element minOccurs="0" name="bruksklasseTele" type="gml:CodeType">
             <annotation>
               <documentation>5181: Angir bruksklasse (maks aksellast) for teleløsningsperiode</documentation>
               <appinfo>
@@ -106,7 +56,7 @@ Enhet: Tonn</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksVogntoglengde" type="nvdb:MaksVogntoglengdeBruksklasseType">
+          <element minOccurs="0" name="maksVogntoglengde" type="gml:CodeType">
             <annotation>
               <documentation>5186: Angir maksimal lengde for vogntog</documentation>
               <appinfo>
@@ -115,7 +65,7 @@ Enhet: Tonn</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="veggruppe" type="nvdb:VeggruppeBruksklasseType">
+          <element minOccurs="0" name="veggruppe" type="gml:CodeType">
             <annotation>
               <documentation>5184: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
               <appinfo>
@@ -187,7 +137,7 @@ Enhet: Tonn</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksTotalvektModulvogntog" type="nvdb:MaksTotalvektModulvogntogBruksklasseType">
+          <element minOccurs="0" name="maksTotalvektModulvogntog" type="gml:CodeType">
             <annotation>
               <documentation>9125: Angir maksimal totalvekt for modulvogntog
 Enhet: Tonn</documentation>
@@ -197,7 +147,7 @@ Enhet: Tonn</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksVogntoglengdeModulvogntog" type="nvdb:MaksVogntoglengdeModulvogntogBruksklasseType">
+          <element minOccurs="0" name="maksVogntoglengdeModulvogntog" type="gml:CodeType">
             <annotation>
               <documentation>9126: Angir maksimal lengde for modulvogntog
 Enhet: Meter</documentation>
@@ -207,7 +157,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksTotalvektTømmertransport" type="nvdb:MaksTotalvektTømmertransportBruksklasseType">
+          <element minOccurs="0" name="maksTotalvektTømmertransport" type="gml:CodeType">
             <annotation>
               <documentation>9127: Angir maksimal totalvekt for tømmertransport
 Enhet: Tonn</documentation>
@@ -217,7 +167,7 @@ Enhet: Tonn</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksVogntoglengdeTømmertransport" type="nvdb:MaksVogntoglengdeTømmertransportBruksklasseType">
+          <element minOccurs="0" name="maksVogntoglengdeTømmertransport" type="gml:CodeType">
             <annotation>
               <documentation>9128: Angir maksimal lengde for tømmertransport
 Enhet: Meter</documentation>
@@ -227,7 +177,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="modulvogntog_Vinterstengt" type="nvdb:Modulvogntog_VinterstengtBruksklasseType">
+          <element minOccurs="0" name="modulvogntog_Vinterstengt" type="gml:CodeType">
             <annotation>
               <documentation>10722: For veger merket V i kolonne for vinterstenging er tillatt totalvekt begrenset til 50 tonn for modulvogntog fra 1. november til første mandag etter 2.påskedag. I Nordland, Troms og Finnmark gjelder tilsvarende fra 16. oktober til 30. april</documentation>
               <appinfo>
@@ -236,7 +186,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="modulvogntog_Linksemitrailer" type="nvdb:Modulvogntog_LinksemitrailerBruksklasseType">
+          <element minOccurs="0" name="modulvogntog_Linksemitrailer" type="gml:CodeType">
             <annotation>
               <documentation>10723: Veger som er merket med L i kolonne for type modulvogntog er ikke tillatt for modulvogntog som nevnt i bokstav b nr. 3</documentation>
               <appinfo>
@@ -245,7 +195,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="100TonnVegnett" type="nvdb:100TonnVegnettBruksklasseType">
+          <element minOccurs="0" name="100TonnVegnett" type="gml:CodeType">
             <annotation>
               <documentation>9254: Angir om vegstrekning inngår i 12/100-tonn vegnett og hvorvidt det tillates kjørt over bruene med eller uten vegfølge</documentation>
               <appinfo>
@@ -254,7 +204,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="mobilkranVegnett" type="nvdb:MobilkranVegnettBruksklasseType">
+          <element minOccurs="0" name="mobilkranVegnett" type="gml:CodeType">
             <annotation>
               <documentation>9256: Angir om vegstrekning inngår i vegnett som kan benyttes av mobilkran/motorredskap, og i så fall hvor mange aksler som tillates</documentation>
               <appinfo>
@@ -345,596 +295,4 @@ Enhet: Tonn</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="BruksklasseHelårBruksklasseType">
-    <annotation>
-      <documentation>5179: Angir helårs bruksklasse.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅRBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksklasseHelårBruksklasseEnumerationType nvdb:BruksklasseHelårBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="BruksklasseHelårBruksklasseEnumerationType">
-    <annotation>
-      <documentation>5179: Angir helårs bruksklasse.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5179</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅRBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="10-50">
-        <annotation>
-          <documentation>7051: Bk10 - 50 tonn: Bruksklasse Bk10.  Maks totalvekt 50 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7051</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="10-42">
-        <annotation>
-          <documentation>9810: Bk10 - 42 tonn: Bruksklasse Bk10.  Maks totalvekt 42 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9810</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T8-50">
-        <annotation>
-          <documentation>7052: BkT8 - 50 tonn: Bruksklasse BkT8.  Maks totalvekt 50 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7052</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T8-40">
-        <annotation>
-          <documentation>9811: BkT8 - 40 tonn: Bruksklasse BkT8.  Maks totalvekt 40 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9811</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="8-32">
-        <annotation>
-          <documentation>7050: Bk8 - 32 tonn: Bruksklasse Bk8.  Maks totalvekt 32 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7050</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="6-28">
-        <annotation>
-          <documentation>7049: Bk6 - 28 tonn: Bruksklasse Bk6.  Maks totalvekt 28 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7049</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Spes">
-        <annotation>
-          <documentation>9865: Spesiell begrensning: Benyttes hvis det er spesiell begrensning i vegnettet i forhold til aksellastrestriksjon eller begrensning i totalvekt.  Nedsatte verdier gis i egne egenskapstyper.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9865</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksklasseHelårBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksklasseTeleBruksklasseType">
-    <annotation>
-      <documentation>5181: Angir bruksklasse (maks aksellast) for teleløsningsperiode</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5181</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSETELEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksklasseTeleBruksklasseEnumerationType nvdb:BruksklasseTeleBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="BruksklasseTeleBruksklasseEnumerationType">
-    <annotation>
-      <documentation>5181: Angir bruksklasse (maks aksellast) for teleløsningsperiode</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5181</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSETELEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="T8-50">
-        <annotation>
-          <documentation>7063: BkT8 - 50 tonn: BkT8, 50 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7063</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T8-40">
-        <annotation>
-          <documentation>7064: BkT8 - 40 tonn: BkT8, 40 tonn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7064</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="8-32">
-        <annotation>
-          <documentation>7062: Bk8 - 32 tonn: Bk8</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7062</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="6-28">
-        <annotation>
-          <documentation>7060: Bk6 - 28 tonn: Bk6</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7060</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksklasseTeleBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasseType">
-    <annotation>
-      <documentation>5180: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5180</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTERBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksklasseVinterBruksklasseEnumerationType nvdb:BruksklasseVinterBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasseEnumerationType">
-    <annotation>
-      <documentation>5180: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5180</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTERBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="10-50">
-        <annotation>
-          <documentation>7057: Bk10 - 50 tonn: Bk10</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7057</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="T8-40">
-        <annotation>
-          <documentation>7058: BkT8 - 40 tonn: BkT8</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7058</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="8-32">
-        <annotation>
-          <documentation>7056: Bk8 - 32 tonn: Bk8</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7056</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksTotalvektModulvogntogBruksklasseType">
-    <annotation>
-      <documentation>9125: Angir maksimal totalvekt for modulvogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9125</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSTOTALVEKTMODULVOGNTOGBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaksTotalvektModulvogntogBruksklasseEnumerationType nvdb:MaksTotalvektModulvogntogBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MaksTotalvektModulvogntogBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9125: Angir maksimal totalvekt for modulvogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9125</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSTOTALVEKTMODULVOGNTOGBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="60">
-        <annotation>
-          <documentation>12155: 60</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12155</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="50">
-        <annotation>
-          <documentation>13696: 50</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13696</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksTotalvektModulvogntogBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksTotalvektTømmertransportBruksklasseType">
-    <annotation>
-      <documentation>9127: Angir maksimal totalvekt for tømmertransport</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9127</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSTOTALVEKTTØMMERTRANSPORTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaksTotalvektTømmertransportBruksklasseEnumerationType nvdb:MaksTotalvektTømmertransportBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MaksTotalvektTømmertransportBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9127: Angir maksimal totalvekt for tømmertransport</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9127</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSTOTALVEKTTØMMERTRANSPORTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="56">
-        <annotation>
-          <documentation>12157: 56</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12157</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="50">
-        <annotation>
-          <documentation>13697: 50</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13697</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="60">
-        <annotation>
-          <documentation>13810: 60</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13810</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksTotalvektTømmertransportBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeBruksklasseType">
-    <annotation>
-      <documentation>5186: Angir maksimal lengde for vogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5186</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaksVogntoglengdeBruksklasseEnumerationType nvdb:MaksVogntoglengdeBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeBruksklasseEnumerationType">
-    <annotation>
-      <documentation>5186: Angir maksimal lengde for vogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5186</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="19_50">
-        <annotation>
-          <documentation>7070: 19,50</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7070</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="15_00">
-        <annotation>
-          <documentation>7071: 15,00</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7071</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="12_40">
-        <annotation>
-          <documentation>7072: 12,40</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7072</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="spesiellBegrensning">
-        <annotation>
-          <documentation>11654: Spesiell begrensning: Benyttes hvis det er spesiell begrensning i vegnettet i forhold til vogntog-/kjøretøylengde.  Nedsatte verdier gis i egne egenskapstyper</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11654</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeModulvogntogBruksklasseType">
-    <annotation>
-      <documentation>9126: Angir maksimal lengde for modulvogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9126</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEMODULVOGNTOGBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaksVogntoglengdeModulvogntogBruksklasseEnumerationType nvdb:MaksVogntoglengdeModulvogntogBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeModulvogntogBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9126: Angir maksimal lengde for modulvogntog</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9126</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEMODULVOGNTOGBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="25_25">
-        <annotation>
-          <documentation>12156: 25,25</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12156</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeModulvogntogBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeTømmertransportBruksklasseType">
-    <annotation>
-      <documentation>9128: Angir maksimal lengde for tømmertransport</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9128</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDETØMMERTRANSPORTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaksVogntoglengdeTømmertransportBruksklasseEnumerationType nvdb:MaksVogntoglengdeTømmertransportBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeTømmertransportBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9128: Angir maksimal lengde for tømmertransport</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9128</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDETØMMERTRANSPORTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="22_00">
-        <annotation>
-          <documentation>12158: 22,00</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12158</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="24_00">
-        <annotation>
-          <documentation>13789: 24,00</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13789</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaksVogntoglengdeTømmertransportBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MobilkranVegnettBruksklasseType">
-    <annotation>
-      <documentation>9256: Angir om vegstrekning inngår i vegnett som kan benyttes av mobilkran/motorredskap, og i så fall hvor mange aksler som tillates</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9256</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILKRANVEGNETTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MobilkranVegnettBruksklasseEnumerationType nvdb:MobilkranVegnettBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="MobilkranVegnettBruksklasseEnumerationType">
-    <annotation>
-      <documentation>9256: Angir om vegstrekning inngår i vegnett som kan benyttes av mobilkran/motorredskap, og i så fall hvor mange aksler som tillates</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9256</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILKRANVEGNETTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="nei">
-        <annotation>
-          <documentation>12903: Nei: Mobilkraner/motorredsskap tillates ikke</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12903</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="2Og3Aksler">
-        <annotation>
-          <documentation>13002: 2 og 3 aksler: Mobilkraner/motorredsskap med 2 og 3 aksler tillates</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13002</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="4Og5Aksler">
-        <annotation>
-          <documentation>13003: 4 og 5 aksler: Mobilkraner/motorredsskap med 4 og 5 aksler tillates</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13003</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="over5Aksler">
-        <annotation>
-          <documentation>13004: Over 5 aksler: Mobilkraner/motorredsskap med flere enn 5 aksler tillates</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13004</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MobilkranVegnettBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="Modulvogntog_LinksemitrailerBruksklasseType">
-    <annotation>
-      <documentation>10723: Veger som er merket med L i kolonne for type modulvogntog er ikke tillatt for modulvogntog som nevnt i bokstav b nr. 3</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10723</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MODULVOGNTOG_LINKSEMITRAILERBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:Modulvogntog_LinksemitrailerBruksklasseEnumerationType nvdb:Modulvogntog_LinksemitrailerBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="Modulvogntog_LinksemitrailerBruksklasseEnumerationType">
-    <annotation>
-      <documentation>10723: Veger som er merket med L i kolonne for type modulvogntog er ikke tillatt for modulvogntog som nevnt i bokstav b nr. 3</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10723</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MODULVOGNTOG_LINKSEMITRAILERBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="L">
-        <annotation>
-          <documentation>17309: L: Modulvogntog av type Linksemitrailer er IKKE tillatt på strekning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17309</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="Modulvogntog_LinksemitrailerBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="Modulvogntog_VinterstengtBruksklasseType">
-    <annotation>
-      <documentation>10722: For veger merket V i kolonne for vinterstenging er tillatt totalvekt begrenset til 50 tonn for modulvogntog fra 1. november til første mandag etter 2.påskedag. I Nordland, Troms og Finnmark gjelder tilsvarende fra 16. oktober til 30. april</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10722</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MODULVOGNTOG_VINTERSTENGTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:Modulvogntog_VinterstengtBruksklasseEnumerationType nvdb:Modulvogntog_VinterstengtBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="Modulvogntog_VinterstengtBruksklasseEnumerationType">
-    <annotation>
-      <documentation>10722: For veger merket V i kolonne for vinterstenging er tillatt totalvekt begrenset til 50 tonn for modulvogntog fra 1. november til første mandag etter 2.påskedag. I Nordland, Troms og Finnmark gjelder tilsvarende fra 16. oktober til 30. april</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10722</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MODULVOGNTOG_VINTERSTENGTBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="V">
-        <annotation>
-          <documentation>17308: V: Tillatt totalvekt begrenset til 50 tonn for modulvogntog fra 1. november til første mandag etter 2.påskedag. I Nordland, Troms og Finnmark gjelder tilsvarende fra 16. oktober til 30. april</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17308</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="Modulvogntog_VinterstengtBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VeggruppeBruksklasseType">
-    <annotation>
-      <documentation>5184: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5184</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VeggruppeBruksklasseEnumerationType nvdb:VeggruppeBruksklasseOtherType"/>
-  </simpleType>
-  <simpleType name="VeggruppeBruksklasseEnumerationType">
-    <annotation>
-      <documentation>5184: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5184</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPEBRUKSKLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="A">
-        <annotation>
-          <documentation>7077: A: Veger som har bruer med flere kjørefelt, nyere bruer med ett kjørefelt eller veger som ikke har bruer. (Vegliste, spesialtransport)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7077</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="B">
-        <annotation>
-          <documentation>7078: B: Øvrige bruer med ett kjørefelt (Vegliste, spesialtransport)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7078</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ikke">
-        <annotation>
-          <documentation>9812: Ikke: Offentlige veger som det må søkes dispensasjon for i hvert enkelt tilfelle</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9812</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VeggruppeBruksklasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

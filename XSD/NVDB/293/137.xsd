@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>137: Skråflate som er del av begrensningen av et fyllingsvolum.  I tillegg til ei eller to fyllinger (evt. en på hver side av vegen) begrenses fyllingsvolumet av vegens planum.  Merknad: Det skal angis sideposisjon for fylling.</documentation>
   </annotation>
@@ -29,7 +29,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeFyllingType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>1166: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -45,15 +45,6 @@ Enhet: Kvadratmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1392</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="byggeår" type="integer">
-            <annotation>
-              <documentation>10298: Angir byggeår for vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10298</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -74,6 +65,24 @@ Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1871</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_MAKSIMAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="byggeår" type="integer">
+            <annotation>
+              <documentation>10298: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10298</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11084: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11084</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -100,6 +109,13 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -114,13 +130,6 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -132,94 +141,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeFyllingType">
-    <annotation>
-      <documentation>1166: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1166</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFYLLING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeFyllingEnumerationType nvdb:TypeFyllingOtherType"/>
-  </simpleType>
-  <simpleType name="TypeFyllingEnumerationType">
-    <annotation>
-      <documentation>1166: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1166</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFYLLING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="jord">
-        <annotation>
-          <documentation>2288: Jord</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2288</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="steinFjell_Sprengt">
-        <annotation>
-          <documentation>2258: Stein/fjell, sprengt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2258</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="blandedeMasser">
-        <annotation>
-          <documentation>3707: Blandede masser</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3707</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="letteMasser">
-        <annotation>
-          <documentation>3275: Lette masser</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3275</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lettklinker">
-        <annotation>
-          <documentation>2372: Lettklinker</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2372</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gassbetongbrudd">
-        <annotation>
-          <documentation>2362: Gassbetongbrudd</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2362</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ekspandertPolystyren">
-        <annotation>
-          <documentation>2365: Ekspandert polystyren</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2365</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bark">
-        <annotation>
-          <documentation>2370: Bark</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2370</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFyllingOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

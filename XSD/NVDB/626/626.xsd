@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>626: Gir felles data til serie med målinger</documentation>
   </annotation>
@@ -110,7 +110,7 @@ Enhet: Kilometer</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeFriksjonsmåleserieType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>5752: Angir type måling</documentation>
               <appinfo>
@@ -157,7 +157,7 @@ Enhet: Prosent</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vannmengde" type="nvdb:VannmengdeType">
+          <element minOccurs="0" name="vannmengde" type="gml:CodeType">
             <annotation>
               <documentation>5904: ?</documentation>
               <appinfo>
@@ -166,7 +166,7 @@ Enhet: Prosent</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="måleformål" type="nvdb:MåleformålType">
+          <element minOccurs="0" name="måleformål" type="gml:CodeType">
             <annotation>
               <documentation>5905: Angir formål med friksjonsmåling</documentation>
               <appinfo>
@@ -215,154 +215,4 @@ Enhet: Prosent</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="MåleformålType">
-    <annotation>
-      <documentation>5905: Angir formål med friksjonsmåling</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5905</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEFORMÅL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MåleformålEnumerationType nvdb:MåleformålOtherType"/>
-  </simpleType>
-  <simpleType name="MåleformålEnumerationType">
-    <annotation>
-      <documentation>5905: Angir formål med friksjonsmåling</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5905</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEFORMÅL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="G">
-        <annotation>
-          <documentation>8359: Generelle målinger</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8359</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="F">
-        <annotation>
-          <documentation>8360: Forsøk</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8360</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="K">
-        <annotation>
-          <documentation>8361: Kalibrering</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8361</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="R">
-        <annotation>
-          <documentation>8362: Referanse</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8362</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MåleformålOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFriksjonsmåleserieType">
-    <annotation>
-      <documentation>5752: Angir type måling</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5752</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFRIKSJONSMÅLESERIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeFriksjonsmåleserieEnumerationType nvdb:TypeFriksjonsmåleserieOtherType"/>
-  </simpleType>
-  <simpleType name="TypeFriksjonsmåleserieEnumerationType">
-    <annotation>
-      <documentation>5752: Angir type måling</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5752</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFRIKSJONSMÅLESERIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="F">
-        <annotation>
-          <documentation>7993: Fast slippmåling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7993</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="V">
-        <annotation>
-          <documentation>7994: Variabel slippmåling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7994</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFriksjonsmåleserieOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VannmengdeType">
-    <annotation>
-      <documentation>5904: ?</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5904</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNMENGDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VannmengdeEnumerationType nvdb:VannmengdeOtherType"/>
-  </simpleType>
-  <simpleType name="VannmengdeEnumerationType">
-    <annotation>
-      <documentation>5904: ?</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5904</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNMENGDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="0_0">
-        <annotation>
-          <documentation>8356: 0,0</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8356</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="0_5">
-        <annotation>
-          <documentation>8357: 0,5</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8357</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="1_0">
-        <annotation>
-          <documentation>8358: 1,0</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8358</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VannmengdeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

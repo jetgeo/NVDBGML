@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>801: utgang som kan nyttes i nødstilfelle.</documentation>
   </annotation>
@@ -19,12 +19,21 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeNødutgangType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>9129: Angir hvilken type nødutgang det er</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9129</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="universellUtforming" type="gml:CodeType">
+            <annotation>
+              <documentation>9152: Angir om nødutgang er utformet i henhold til krav om universell utforming.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9152</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UNIVERSELLUTFORMING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -37,12 +46,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="universellUtforming" type="nvdb:UniversellUtformingType">
+          <element minOccurs="0" name="prosjektreferanse" type="string">
             <annotation>
-              <documentation>9152: Angir om nødutgang er utformet i henhold til krav om universell utforming.</documentation>
+              <documentation>11155: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9152</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UNIVERSELLUTFORMING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11155</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -85,96 +94,4 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeNødutgangType">
-    <annotation>
-      <documentation>9129: Angir hvilken type nødutgang det er</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9129</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENØDUTGANG</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeNødutgangEnumerationType nvdb:TypeNødutgangOtherType"/>
-  </simpleType>
-  <simpleType name="TypeNødutgangEnumerationType">
-    <annotation>
-      <documentation>9129: Angir hvilken type nødutgang det er</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9129</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENØDUTGANG</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tilDetFri">
-        <annotation>
-          <documentation>12163: Til det fri</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12163</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tilEgenRømningstunnel">
-        <annotation>
-          <documentation>12164: Til egen rømningstunnel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12164</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tilTrafikkertParallelløp">
-        <annotation>
-          <documentation>12165: Til trafikkert parallelløp</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12165</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeNødutgangOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="UniversellUtformingType">
-    <annotation>
-      <documentation>9152: Angir om nødutgang er utformet i henhold til krav om universell utforming.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9152</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UNIVERSELLUTFORMING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:UniversellUtformingEnumerationType nvdb:UniversellUtformingOtherType"/>
-  </simpleType>
-  <simpleType name="UniversellUtformingEnumerationType">
-    <annotation>
-      <documentation>9152: Angir om nødutgang er utformet i henhold til krav om universell utforming.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9152</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UNIVERSELLUTFORMING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>12235: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12235</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>12236: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12236</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="UniversellUtformingOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

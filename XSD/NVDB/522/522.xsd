@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>522: Foreløpig kun til testformål. En enkeltspormåling (17 høydemålinger) i et profil.</documentation>
   </annotation>
@@ -6,106 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BeregningsmodellType">
-    <annotation>
-      <documentation>4450: Angir hvilken beregningsmodell som er benytta ved beregning av spordybde etc.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4450</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEREGNINGSMODELL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BeregningsmodellEnumerationType nvdb:BeregningsmodellOtherType"/>
-  </simpleType>
-  <simpleType name="BeregningsmodellEnumerationType">
-    <annotation>
-      <documentation>4450: Angir hvilken beregningsmodell som er benytta ved beregning av spordybde etc.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4450</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEREGNINGSMODELL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="snormodell">
-        <annotation>
-          <documentation>5189: Snormodell</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5189</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bjelkemodell_Bunnrettholdt">
-        <annotation>
-          <documentation>5190: Bjelkemodell, bunnrettholdt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5190</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bjelkemodell_Topprettholdt">
-        <annotation>
-          <documentation>5191: Bjelkemodell, topprettholdt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5191</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="krumholtmodell">
-        <annotation>
-          <documentation>8865: Krumholtmodell</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8865</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BeregningsmodellOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="KvalitetSpormålingType">
-    <annotation>
-      <documentation>4430: Angir kvalitet på data</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4430</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETSPORMÅLING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KvalitetSpormålingEnumerationType nvdb:KvalitetSpormålingOtherType"/>
-  </simpleType>
-  <simpleType name="KvalitetSpormålingEnumerationType">
-    <annotation>
-      <documentation>4430: Angir kvalitet på data</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4430</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETSPORMÅLING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ok">
-        <annotation>
-          <documentation>5187: Ok</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5187</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ikkeOk">
-        <annotation>
-          <documentation>5188: Ikke ok</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5188</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KvalitetSpormålingOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Spormåling" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SpormålingType">
     <annotation>
       <documentation>522: Foreløpig kun til testformål. En enkeltspormåling (17 høydemålinger) i et profil.</documentation>
@@ -149,7 +49,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="beregningsmodell" type="nvdb:BeregningsmodellType">
+          <element minOccurs="0" name="beregningsmodell" type="gml:CodeType">
             <annotation>
               <documentation>4450: Angir hvilken beregningsmodell som er benytta ved beregning av spordybde etc.</documentation>
               <appinfo>

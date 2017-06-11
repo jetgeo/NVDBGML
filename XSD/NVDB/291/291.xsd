@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>291: Strekninger som er skiltet med viltfare</documentation>
   </annotation>
@@ -6,188 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="ArtType">
-    <annotation>
-      <documentation>2221: Angir hvilken dyreart som er antatt mest forekommende på strekningen(vises på evt skilting)</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2221</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ART</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:ArtEnumerationType nvdb:ArtOtherType"/>
-  </simpleType>
-  <simpleType name="ArtEnumerationType">
-    <annotation>
-      <documentation>2221: Angir hvilken dyreart som er antatt mest forekommende på strekningen(vises på evt skilting)</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2221</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ART</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="elg">
-        <annotation>
-          <documentation>4073: Elg</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4073</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="rein">
-        <annotation>
-          <documentation>4074: Rein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4074</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="hjort">
-        <annotation>
-          <documentation>4072: Hjort</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4072</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="rådyr">
-        <annotation>
-          <documentation>16783: Rådyr</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16783</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="ArtOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierViltfareType">
-    <annotation>
-      <documentation>8016: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8016</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVILTFARE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierViltfareEnumerationType nvdb:EierViltfareOtherType"/>
-  </simpleType>
-  <simpleType name="EierViltfareEnumerationType">
-    <annotation>
-      <documentation>8016: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8016</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVILTFARE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>10282: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10282</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10744: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10744</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10346: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10346</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10410: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10410</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17605: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17605</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierViltfareOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligViltfareType">
-    <annotation>
-      <documentation>8087: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8087</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVILTFARE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligViltfareEnumerationType nvdb:VedlikeholdsansvarligViltfareOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligViltfareEnumerationType">
-    <annotation>
-      <documentation>8087: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8087</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVILTFARE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>10481: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10481</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10559: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10559</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10637: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10637</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17733: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17733</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligViltfareOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Viltfare" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:ViltfareType">
     <annotation>
       <documentation>291: Strekninger som er skiltet med viltfare</documentation>
@@ -201,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="art" type="nvdb:ArtType">
+          <element minOccurs="0" name="art" type="gml:CodeType">
             <annotation>
               <documentation>2221: Angir hvilken dyreart som er antatt mest forekommende på strekningen(vises på evt skilting)</documentation>
               <appinfo>
@@ -229,7 +47,7 @@ Enhet: Kilometer</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierViltfareType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>8016: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -238,7 +56,7 @@ Enhet: Kilometer</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligViltfareType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>8087: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -261,24 +79,10 @@ Enhet: Kilometer</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertViltskremmereVarslere" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSiktsone" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Siktsone</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:ViltskremmereVarslere</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -289,10 +93,24 @@ Enhet: Kilometer</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertViltskremmereVarslere" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSiktsone" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:ViltskremmereVarslere</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Siktsone</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

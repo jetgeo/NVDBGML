@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>757: Vedlegg til vegliste.  For intern bruk i forbindelse med utarbeiding av veglister.</documentation>
   </annotation>
@@ -6,64 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="ListetypeType">
-    <annotation>
-      <documentation>7584: Angir hvilken listetype vedlegget hører til</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7584</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LISTETYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:ListetypeEnumerationType nvdb:ListetypeOtherType"/>
-  </simpleType>
-  <simpleType name="ListetypeEnumerationType">
-    <annotation>
-      <documentation>7584: Angir hvilken listetype vedlegget hører til</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7584</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LISTETYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="riksveg_Standard">
-        <annotation>
-          <documentation>9874: Riksveg, standard</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9874</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="riksveg_Spesialtransport">
-        <annotation>
-          <documentation>9875: Riksveg, spesialtransport</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9875</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkesveg_Standard">
-        <annotation>
-          <documentation>9876: Fylkesveg, standard</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9876</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkesveg_Spesialrapport">
-        <annotation>
-          <documentation>9877: Fylkesveg, spesialrapport</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9877</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="ListetypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Vegliste_Vedlegg" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Vegliste_VedleggType">
     <annotation>
       <documentation>757: Vedlegg til vegliste.  For intern bruk i forbindelse med utarbeiding av veglister.</documentation>
@@ -86,7 +28,16 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="listetype" type="nvdb:ListetypeType">
+          <element minOccurs="0" name="rekkefølge" type="integer">
+            <annotation>
+              <documentation>7585: Angir rekkefølge for vedlegget</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7585</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKEFØLGE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="listetype" type="gml:CodeType">
             <annotation>
               <documentation>7584: Angir hvilken listetype vedlegget hører til</documentation>
               <appinfo>
@@ -119,15 +70,6 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7544</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MERKNAD</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="rekkefølge" type="integer">
-            <annotation>
-              <documentation>7585: Angir rekkefølge for vedlegget</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7585</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REKKEFØLGE</taggedValue>
               </appinfo>
             </annotation>
           </element>

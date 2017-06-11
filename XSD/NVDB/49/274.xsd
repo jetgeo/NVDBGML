@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>274: Blomsterbeplantinger skal fremvise blomsterprakt, form, farge og duft. Det menes her planter som kommer i kategorien stauder, utplantingsplanter, løk, roser og klatreplanter.</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeBlomsterbeplantningType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>4130: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -74,15 +74,6 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tilleggsinformasjon" type="string">
-            <annotation>
-              <documentation>9966: Tilleggsinformasjon om vegobjektet, f.eks. ytterligere beskrivelse dersom det finnes flere arter i arealet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9966</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="sluttdatoForGarantitid" type="date">
             <annotation>
               <documentation>10564: Angir sluttdato for garantitid</documentation>
@@ -92,7 +83,25 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBlomsterbeplantningType">
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>9966: Tilleggsinformasjon om vegobjektet, f.eks. ytterligere beskrivelse dersom det finnes flere arter i arealet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9966</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="gml:CodeType">
+            <annotation>
+              <documentation>10873: Angir hvem som er eier av vegobjektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10873</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>8783: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -101,12 +110,12 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierBlomsterbeplantningType">
+          <element minOccurs="0" name="prosjektreferanse" type="string">
             <annotation>
-              <documentation>10873: Angir hvem som er eier av vegobjektet.</documentation>
+              <documentation>11112: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10873</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11112</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -140,17 +149,17 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -165,202 +174,4 @@ Enhet: Kvadratmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="EierBlomsterbeplantningType">
-    <annotation>
-      <documentation>10873: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10873</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierBlomsterbeplantningEnumerationType nvdb:EierBlomsterbeplantningOtherType"/>
-  </simpleType>
-  <simpleType name="EierBlomsterbeplantningEnumerationType">
-    <annotation>
-      <documentation>10873: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10873</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>17912: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17912</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>17915: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17915</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>17913: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17913</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>17914: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17914</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17916: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17916</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierBlomsterbeplantningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeBlomsterbeplantningType">
-    <annotation>
-      <documentation>4130: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4130</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeBlomsterbeplantningEnumerationType nvdb:TypeBlomsterbeplantningOtherType"/>
-  </simpleType>
-  <simpleType name="TypeBlomsterbeplantningEnumerationType">
-    <annotation>
-      <documentation>4130: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4130</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stauder">
-        <annotation>
-          <documentation>5096: Stauder: Stauder er flerårige urteaktige planter som visner ned om vinteren og bryter nye skudd om våren. Unntaksvis er noen staudeslag vintergrønne. Gruppen omfatter rabattstauder, markdekkere, sukkulenter og prydgras.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5096</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="utplantningsplanter">
-        <annotation>
-          <documentation>5098: Utplantningsplanter: Utplantingsplanter er ettårige blomsterrike planter som plantes ut om våren/forsommeren for så å blomstre i hele vekstsesongen. Slike planter er skjøtselskrevende.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5098</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="løkbeplantninger">
-        <annotation>
-          <documentation>5099: Løkbeplantninger: Løbekplanter omfatter flerårige og ettårige løk og knoller. Løk har næringslager og beskyttende fortykning av grunnblad nederst på stengelen. Eksempler på løkfamilie er er hyasint-, løk-, påskelilje- og liljefamilien. Knoll er oppsvulmet rot eller stengel som inneholder opplagsnæring. Eksempler på knoller er krokus og georginer. Merknad: I tilfeller der løkplantningene er mer sporadisk spredt utover en gressplen skal det ikke registreres Blomsterbeplantninger, men Grasdekker istedet, ref. innsamlingsreglene for Blomsterbeplanininger</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5099</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="roser">
-        <annotation>
-          <documentation>9814: Roser: Blomsterrike rosebusker fra rose-slekta som har høy prydverdi. Disse er skjøtselskrevende med tanke på gjødsling/jordforbedring, luking og  beskjæring for å oppnå rik blomstring. Buskroser tilhører kategorien busker, og skal ikke registrerer som roser. Buskroser er mer robuste roseplanter som krever tilsvarende oppfølging som busker generelt.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9814</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="klatreplanter">
-        <annotation>
-          <documentation>9818: Klatreplanter: Klatreplanter klatrer eller slynger seg på vertikal flate (mur, gjerde, vegg, espalier), rundt stolper, søyler el.l., med eller uten hjelp. Slike planter kan ha slyngtråder, kroker, hefteskiver, luft/klatrerørtter.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9818</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sedummatter">
-        <annotation>
-          <documentation>16181: Sedummatter: Sedum/bergknapp tilhører bergknappfamilien (Crassulaceae) og er sukkulente stauder med lav vekst og tykke blader. Mindre skjøtselskrevende enn vanlige stauder. Sedum utenom matter registreres som stauder.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16181</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeBlomsterbeplantningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBlomsterbeplantningType">
-    <annotation>
-      <documentation>8783: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8783</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligBlomsterbeplantningEnumerationType nvdb:VedlikeholdsansvarligBlomsterbeplantningOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBlomsterbeplantningEnumerationType">
-    <annotation>
-      <documentation>8783: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8783</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBLOMSTERBEPLANTNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>11623: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11623</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>11621: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11621</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>11622: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11622</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17760: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17760</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBlomsterbeplantningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

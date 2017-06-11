@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>13: Åpning til/fra et rom/område.  Kan åpnes og lukkes med dør eller port.</documentation>
   </annotation>
@@ -6,272 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BranndørType">
-    <annotation>
-      <documentation>3509: Angir om døren er godkjent branndør</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3509</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BranndørEnumerationType nvdb:BranndørOtherType"/>
-  </simpleType>
-  <simpleType name="BranndørEnumerationType">
-    <annotation>
-      <documentation>3509: Angir om døren er godkjent branndør</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3509</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>4694: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4694</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>4695: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4695</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BranndørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdePortDørType">
-    <annotation>
-      <documentation>1251: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1251</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksområdePortDørEnumerationType nvdb:BruksområdePortDørOtherType"/>
-  </simpleType>
-  <simpleType name="BruksområdePortDørEnumerationType">
-    <annotation>
-      <documentation>1251: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1251</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tunnel_TilgangSideløp">
-        <annotation>
-          <documentation>4855: Tunnel, tilgang sideløp</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4855</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tunnel_TilgangFjellrom">
-        <annotation>
-          <documentation>4857: Tunnel, tilgang fjellrom</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4857</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tilgangBygning">
-        <annotation>
-          <documentation>4858: Tilgang bygning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4858</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdePortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierPortDørType">
-    <annotation>
-      <documentation>9782: Angir hvem som er eier av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9782</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierPortDørEnumerationType nvdb:EierPortDørOtherType"/>
-  </simpleType>
-  <simpleType name="EierPortDørEnumerationType">
-    <annotation>
-      <documentation>9782: Angir hvem som er eier av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9782</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>15922: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15922</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>15923: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15923</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>15924: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15924</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>15925: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15925</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17625: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17625</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierPortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialePortDørType">
-    <annotation>
-      <documentation>3701: Angir materiale</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3701</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaterialePortDørEnumerationType nvdb:MaterialePortDørOtherType"/>
-  </simpleType>
-  <simpleType name="MaterialePortDørEnumerationType">
-    <annotation>
-      <documentation>3701: Angir materiale</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3701</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tre">
-        <annotation>
-          <documentation>4698: Tre</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4698</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="stål">
-        <annotation>
-          <documentation>4697: Stål</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4697</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="aluminium">
-        <annotation>
-          <documentation>4696: Aluminium</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4696</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast">
-        <annotation>
-          <documentation>16135: Plast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16135</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialePortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="NormalStillingPortDørType">
-    <annotation>
-      <documentation>3730: Angir hva som er normal stilling for dør</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3730</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NORMALSTILLINGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:NormalStillingPortDørEnumerationType nvdb:NormalStillingPortDørOtherType"/>
-  </simpleType>
-  <simpleType name="NormalStillingPortDørEnumerationType">
-    <annotation>
-      <documentation>3730: Angir hva som er normal stilling for dør</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3730</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NORMALSTILLINGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="åpen">
-        <annotation>
-          <documentation>4701: Åpen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4701</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lukka_Ulåst">
-        <annotation>
-          <documentation>4700: Lukka, ulåst</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4700</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lukka_Låst">
-        <annotation>
-          <documentation>4699: Lukka, låst</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4699</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="NormalStillingPortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="PortDør" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:PortDørType">
     <annotation>
       <documentation>13: Åpning til/fra et rom/område.  Kan åpnes og lukkes med dør eller port.</documentation>
@@ -285,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdePortDørType">
+          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
             <annotation>
               <documentation>1251: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -294,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypePortDørType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>1095: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -303,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="utforming" type="nvdb:UtformingPortDørType">
+          <element minOccurs="0" name="utforming" type="gml:CodeType">
             <annotation>
               <documentation>1706: Angir hvilken utforming port/dør har</documentation>
               <appinfo>
@@ -312,7 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materiale" type="nvdb:MaterialePortDørType">
+          <element minOccurs="0" name="materiale" type="gml:CodeType">
             <annotation>
               <documentation>3701: Angir materiale</documentation>
               <appinfo>
@@ -341,7 +75,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="normalStilling" type="nvdb:NormalStillingPortDørType">
+          <element minOccurs="0" name="normalStilling" type="gml:CodeType">
             <annotation>
               <documentation>3730: Angir hva som er normal stilling for dør</documentation>
               <appinfo>
@@ -350,30 +84,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="branndør" type="nvdb:BranndørType">
+          <element minOccurs="0" name="branndør" type="gml:CodeType">
             <annotation>
               <documentation>3509: Angir om døren er godkjent branndør</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3509</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNDØR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="produsentnavn" type="string">
-            <annotation>
-              <documentation>1512: Angir navn på produsent av port/dør</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1512</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="driftsmerking" type="string">
-            <annotation>
-              <documentation>10475: Gir unikt navn/id for objektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10475</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -386,12 +102,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligPortDørType">
+          <element minOccurs="0" name="driftsmerking" type="string">
             <annotation>
-              <documentation>3820: Angir hvem som er ansvarlig for vedlikehold</documentation>
+              <documentation>10475: Gir unikt navn/id for objektet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3820</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10475</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -404,12 +120,39 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierPortDørType">
+          <element minOccurs="0" name="produsentnavn" type="string">
+            <annotation>
+              <documentation>1512: Angir navn på produsent av port/dør</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1512</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUSENTNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>9782: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9782</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+            <annotation>
+              <documentation>3820: Angir hvem som er ansvarlig for vedlikehold</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3820</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11034: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11034</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -450,17 +193,17 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -475,154 +218,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypePortDørType">
-    <annotation>
-      <documentation>1095: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1095</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypePortDørEnumerationType nvdb:TypePortDørOtherType"/>
-  </simpleType>
-  <simpleType name="TypePortDørEnumerationType">
-    <annotation>
-      <documentation>1095: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1095</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="leddport">
-        <annotation>
-          <documentation>2453: Leddport</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2453</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="dør">
-        <annotation>
-          <documentation>2452: Dør</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2452</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skyvedør">
-        <annotation>
-          <documentation>16136: Skyvedør</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16136</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypePortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="UtformingPortDørType">
-    <annotation>
-      <documentation>1706: Angir hvilken utforming port/dør har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1706</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:UtformingPortDørEnumerationType nvdb:UtformingPortDørOtherType"/>
-  </simpleType>
-  <simpleType name="UtformingPortDørEnumerationType">
-    <annotation>
-      <documentation>1706: Angir hvilken utforming port/dør har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1706</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="enkel">
-        <annotation>
-          <documentation>2455: Enkel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2455</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="todelt">
-        <annotation>
-          <documentation>2456: Todelt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2456</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="UtformingPortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligPortDørType">
-    <annotation>
-      <documentation>3820: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3820</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligPortDørEnumerationType nvdb:VedlikeholdsansvarligPortDørOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligPortDørEnumerationType">
-    <annotation>
-      <documentation>3820: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3820</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGPORTDØR</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>10676: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10676</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10677: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10677</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10678: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10678</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17683: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17683</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligPortDørOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

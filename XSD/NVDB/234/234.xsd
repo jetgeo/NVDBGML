@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>234: Opphøyd terrengformasjon f.eks. anlagt for å skjerme mot vegtrafikkstøy eller skredmasser. Kan være sammensatt av flere lag</documentation>
   </annotation>
@@ -6,336 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AdkomstVollType">
-    <annotation>
-      <documentation>9682: Beskriver hvordan man får adkomst til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9682</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:AdkomstVollEnumerationType nvdb:AdkomstVollOtherType"/>
-  </simpleType>
-  <simpleType name="AdkomstVollEnumerationType">
-    <annotation>
-      <documentation>9682: Beskriver hvordan man får adkomst til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9682</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="hjullaster">
-        <annotation>
-          <documentation>13955: Hjullaster: Adkomst for hjullaster</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13955</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gravemaskin">
-        <annotation>
-          <documentation>13956: Gravemaskin: Adkomst for gravemaskin</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13956</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tilFots">
-        <annotation>
-          <documentation>13957: Til fots: Adkomst til fots</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13957</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kran">
-        <annotation>
-          <documentation>13958: Kran: Adkomst for kran</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13958</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tau">
-        <annotation>
-          <documentation>13959: Tau: Adkomt med tau</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13959</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="helikopter">
-        <annotation>
-          <documentation>13960: Helikopter: Adkomst for helikopter</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13960</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="AdkomstVollOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdeVollType">
-    <annotation>
-      <documentation>1286: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1286</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksområdeVollEnumerationType nvdb:BruksområdeVollOtherType"/>
-  </simpleType>
-  <simpleType name="BruksområdeVollEnumerationType">
-    <annotation>
-      <documentation>1286: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1286</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="støyskjerming">
-        <annotation>
-          <documentation>1996: Støyskjerming</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1996</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skredsikring_Ledevoll">
-        <annotation>
-          <documentation>13984: Skredsikring, ledevoll</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13984</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skredsikring_Fangvoll">
-        <annotation>
-          <documentation>13983: Skredsikring, fangvoll</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13983</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="flomsikring">
-        <annotation>
-          <documentation>3805: Flomsikring</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3805</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="snøVindskjerming">
-        <annotation>
-          <documentation>1999: Snø/vindskjerming</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1999</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdeVollOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierVollType">
-    <annotation>
-      <documentation>5824: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5824</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierVollEnumerationType nvdb:EierVollOtherType"/>
-  </simpleType>
-  <simpleType name="EierVollEnumerationType">
-    <annotation>
-      <documentation>5824: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5824</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>8219: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8219</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10711: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10711</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8245: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8245</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>8271: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8271</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17607: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17607</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierVollOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialtypeVollType">
-    <annotation>
-      <documentation>1422: Angir primær materialtype for vegobjektet. For skredsikringsvoller skal det angis materiale på støtside.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1422</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaterialtypeVollEnumerationType nvdb:MaterialtypeVollOtherType"/>
-  </simpleType>
-  <simpleType name="MaterialtypeVollEnumerationType">
-    <annotation>
-      <documentation>1422: Angir primær materialtype for vegobjektet. For skredsikringsvoller skal det angis materiale på støtside.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1422</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="jord">
-        <annotation>
-          <documentation>4671: Jord</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4671</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="stein">
-        <annotation>
-          <documentation>4672: Stein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4672</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong">
-        <annotation>
-          <documentation>4673: Betong</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4673</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tørrmur">
-        <annotation>
-          <documentation>15961: Tørrmur: Mur av stein e.l.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15961</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gabioner">
-        <annotation>
-          <documentation>15962: Gabioner: Steinfylte nettingkister som kan stables inntil- og oppå hverandre</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15962</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialtypeVollOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligVollType">
-    <annotation>
-      <documentation>5809: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5809</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligVollEnumerationType nvdb:VedlikeholdsansvarligVollOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligVollEnumerationType">
-    <annotation>
-      <documentation>5809: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5809</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVOLL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>8204: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8204</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8230: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8230</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>8256: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8256</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17697: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17697</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligVollOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Voll" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VollType">
     <annotation>
       <documentation>234: Opphøyd terrengformasjon f.eks. anlagt for å skjerme mot vegtrafikkstøy eller skredmasser. Kan være sammensatt av flere lag</documentation>
@@ -349,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeVollType">
+          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
             <annotation>
               <documentation>1286: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -358,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materialtype" type="nvdb:MaterialtypeVollType">
+          <element minOccurs="0" name="materialtype" type="gml:CodeType">
             <annotation>
               <documentation>1422: Angir primær materialtype for vegobjektet. For skredsikringsvoller skal det angis materiale på støtside.</documentation>
               <appinfo>
@@ -447,7 +117,7 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstVollType">
+          <element minOccurs="0" name="adkomst" type="gml:CodeType">
             <annotation>
               <documentation>9682: Beskriver hvordan man får adkomst til vegobjektet</documentation>
               <appinfo>
@@ -474,7 +144,7 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierVollType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>5824: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -483,12 +153,21 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligVollType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>5809: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5809</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11109: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11109</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -515,10 +194,10 @@ Enhet: Grader (360)</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSkjerm" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Skjerm</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -529,10 +208,10 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -543,17 +222,17 @@ Enhet: Grader (360)</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSkjerm" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Skjerm</targetElement>
               </appinfo>
             </annotation>
           </element>

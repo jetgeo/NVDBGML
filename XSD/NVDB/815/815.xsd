@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>815: Angir hvilken offisiell holdning det er til opprettelse av avkjørsler på strekningen</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="klasse" type="nvdb:KlasseType">
+          <element name="klasse" type="gml:CodeType">
             <annotation>
               <documentation>9320: Angir holdningsklasse</documentation>
               <appinfo>
@@ -67,62 +67,4 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="KlasseType">
-    <annotation>
-      <documentation>9320: Angir holdningsklasse</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9320</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KlasseEnumerationType nvdb:KlasseOtherType"/>
-  </simpleType>
-  <simpleType name="KlasseEnumerationType">
-    <annotation>
-      <documentation>9320: Angir holdningsklasse</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9320</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="megetStreng">
-        <annotation>
-          <documentation>13009: Meget streng</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13009</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="streng">
-        <annotation>
-          <documentation>13010: Streng</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13010</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="mindreStreng">
-        <annotation>
-          <documentation>13011: Mindre streng</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13011</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="liteStreng">
-        <annotation>
-          <documentation>13012: Lite streng</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13012</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KlasseOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

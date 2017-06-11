@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>106: Angir hvilken strategi det skal være i forhold til vinterdrift på strekningen.</documentation>
   </annotation>
@@ -6,56 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="TypeStrategiType">
-    <annotation>
-      <documentation>1158: Angir hvilken type vinterstrategi det er tale om.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1158</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTRATEGI</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeStrategiEnumerationType nvdb:TypeStrategiOtherType"/>
-  </simpleType>
-  <simpleType name="TypeStrategiEnumerationType">
-    <annotation>
-      <documentation>1158: Angir hvilken type vinterstrategi det er tale om.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1158</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTRATEGI</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="strategiBarVeg">
-        <annotation>
-          <documentation>2721: Strategi bar veg: Omfatter strekninger som skal være snø- og isfrie hele vinteren. "Bar veg" skal omfatte kjørebane mellom ytterkant av kantlinjene</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2721</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="strategiVinterveg">
-        <annotation>
-          <documentation>2722: Strategi vinterveg: Omfatter strekninger hvor det er akseptabelt med snø- og isdekke hele eller deler av vinteren.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2722</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="mellomstrategi">
-        <annotation>
-          <documentation>2723: Mellomstrategi</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2723</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeStrategiOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Vinterdriftsstrategi" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VinterdriftsstrategiType">
     <annotation>
       <documentation>106: Angir hvilken strategi det skal være i forhold til vinterdrift på strekningen.</documentation>
@@ -69,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="typeStrategi" type="nvdb:TypeStrategiType">
+          <element minOccurs="0" name="typeStrategi" type="gml:CodeType">
             <annotation>
               <documentation>1158: Angir hvilken type vinterstrategi det er tale om.</documentation>
               <appinfo>

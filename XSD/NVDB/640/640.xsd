@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>640: Del av vegens vertikalkurvatur.  Sirkelbue (høybrekk/lavbrekk) eller rettlinje.</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeKurvatur_VertikalelementType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>5843: Angir hvilken elementtype det er tale om</documentation>
               <appinfo>
@@ -119,46 +119,4 @@ Enhet: Promille</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeKurvatur_VertikalelementType">
-    <annotation>
-      <documentation>5843: Angir hvilken elementtype det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5843</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKURVATUR_VERTIKALELEMENT</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeKurvatur_VertikalelementEnumerationType nvdb:TypeKurvatur_VertikalelementOtherType"/>
-  </simpleType>
-  <simpleType name="TypeKurvatur_VertikalelementEnumerationType">
-    <annotation>
-      <documentation>5843: Angir hvilken elementtype det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5843</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKURVATUR_VERTIKALELEMENT</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="rettlinje">
-        <annotation>
-          <documentation>8318: Rettlinje</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8318</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sirkelbue">
-        <annotation>
-          <documentation>8319: Sirkelbue</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8319</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeKurvatur_VertikalelementOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

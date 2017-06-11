@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>167: En enhet som gir en impuls til styreapparatet når den blir aktivert av en trafikant</documentation>
   </annotation>
@@ -6,88 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BruksområdeDetektor_TrafikkType">
-    <annotation>
-      <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3513</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEDETEKTOR_TRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksområdeDetektor_TrafikkEnumerationType nvdb:BruksområdeDetektor_TrafikkOtherType"/>
-  </simpleType>
-  <simpleType name="BruksområdeDetektor_TrafikkEnumerationType">
-    <annotation>
-      <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3513</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEDETEKTOR_TRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="signalreguleringMotorkjøretøy">
-        <annotation>
-          <documentation>13703: Signalregulering motorkjøretøy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13703</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="signalreguleringSykkel">
-        <annotation>
-          <documentation>13704: Signalregulering sykkel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13704</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="signalregulering_Fotgjenger">
-        <annotation>
-          <documentation>18405: Signalregulering, fotgjenger</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18405</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="trafikkregistreringMotorkjøretøy">
-        <annotation>
-          <documentation>13705: Trafikkregistrering motorkjøretøy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13705</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="trafikkregistreringSykkel">
-        <annotation>
-          <documentation>13706: Trafikkregistrering sykkel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13706</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="trafikkregistrering_Fotgjenger">
-        <annotation>
-          <documentation>18406: Trafikkregistrering, fotgjenger</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18406</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ATK">
-        <annotation>
-          <documentation>16760: ATK: Detektor benyttet i forbindelse med ATK</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16760</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdeDetektor_TrafikkOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Detektor_Trafikk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Detektor_TrafikkType">
     <annotation>
       <documentation>167: En enhet som gir en impuls til styreapparatet når den blir aktivert av en trafikant</documentation>
@@ -101,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeDetektor_TrafikkType">
+          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
             <annotation>
               <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
               <appinfo>
@@ -110,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeDetektor_TrafikkType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -176,6 +94,15 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11092: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11092</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>4833: Gir punkt som geometrisk representerer objektet.</documentation>
@@ -223,86 +150,4 @@ Enhet: Kvadratmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeDetektor_TrafikkType">
-    <annotation>
-      <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1183</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDETEKTOR_TRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeDetektor_TrafikkEnumerationType nvdb:TypeDetektor_TrafikkOtherType"/>
-  </simpleType>
-  <simpleType name="TypeDetektor_TrafikkEnumerationType">
-    <annotation>
-      <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1183</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDETEKTOR_TRAFIKK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="induktivsløyfe_Motorkjøretøy">
-        <annotation>
-          <documentation>4895: Induktivsløyfe, motorkjøretøy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4895</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="induktivsløyfe_Sykkel">
-        <annotation>
-          <documentation>4896: Induktivsløyfe, sykkel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4896</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="piezo_ElektriskKabel">
-        <annotation>
-          <documentation>4897: Piezo-elektrisk kabel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4897</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="infrarødDetektor">
-        <annotation>
-          <documentation>4898: Infrarød detektor</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4898</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="videodetektor">
-        <annotation>
-          <documentation>4899: Videodetektor</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4899</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="video_Varmesøkende">
-        <annotation>
-          <documentation>18407: Video, varmesøkende</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18407</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="radardetektor">
-        <annotation>
-          <documentation>4900: Radardetektor</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4900</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeDetektor_TrafikkOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

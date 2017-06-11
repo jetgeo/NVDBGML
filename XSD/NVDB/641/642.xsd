@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>642: Punkt i høybrekk/lavbrekk hvor stigning er 0, dvs i topp/bunnpunkt.</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeKurvatur_VertikalpunktType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>5844: Angir hvilken type vertikalpunkt det er</documentation>
               <appinfo>
@@ -79,70 +79,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeKurvatur_VertikalpunktType">
-    <annotation>
-      <documentation>5844: Angir hvilken type vertikalpunkt det er</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5844</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKURVATUR_VERTIKALPUNKT</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeKurvatur_VertikalpunktEnumerationType nvdb:TypeKurvatur_VertikalpunktOtherType"/>
-  </simpleType>
-  <simpleType name="TypeKurvatur_VertikalpunktEnumerationType">
-    <annotation>
-      <documentation>5844: Angir hvilken type vertikalpunkt det er</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5844</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKURVATUR_VERTIKALPUNKT</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="toppunkt_Høybrekk">
-        <annotation>
-          <documentation>8320: Toppunkt, høybrekk: Vendepunkt, hvor vertikalkurvatur går fra stigning til fall. I topp-punktet vil stigningen være null (s=0). Også kalt høybrekk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8320</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bunnpunkt_Lavbrekk">
-        <annotation>
-          <documentation>8321: Bunnpunkt, lavbrekk: Vendepunkt, hvor vertikalkurvatur går fra fall til stigning. I bunn-punktet vil stigningen være null (s=0). Også kalt lavbrekk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8321</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="markertKnekkpunkt_Høy">
-        <annotation>
-          <documentation>9108: Markert knekkpunkt, høy: Markert knekkpunkt er et punkt hvor stigningsgraden endrer seg markant.  Stigningen har samme fortegn før og etter knekkpunktet.  Høy innebærer at vertikalkurvaturen er i et høybrekk i dette punktet.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9108</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="markertKnekkpunkt_Lav">
-        <annotation>
-          <documentation>9109: Markert knekkpunkt, lav: Markert knekkpunkt er et punkt hvor stigningsgraden endrer seg markant. Stigningen har samme fortegn før og etter knekkpunktet. Lav innebærer at vertikalkurvaturen er i et lavbrekk i dette punktet.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9109</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bruddpunkt">
-        <annotation>
-          <documentation>9110: Bruddpunkt: KurvGen (som beregner kurvatur til NVDB) deler vegstrekninger inn i delstrekninger (kurver). For å sikre seg at en har tilstrekkelig høydeinformasjon, beskriver bruddpunktet høyden i overgangen mellom to kurver.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9110</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeKurvatur_VertikalpunktOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

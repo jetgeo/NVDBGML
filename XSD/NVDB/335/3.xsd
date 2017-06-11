@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>3: En frittstående konstruksjon som skal være et hinder for f.eks støyutbredelse</documentation>
   </annotation>
@@ -6,492 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BruksområdeSkjermType">
-    <annotation>
-      <documentation>1247: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1247</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksområdeSkjermEnumerationType nvdb:BruksområdeSkjermOtherType"/>
-  </simpleType>
-  <simpleType name="BruksområdeSkjermEnumerationType">
-    <annotation>
-      <documentation>1247: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1247</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="støyskjerm">
-        <annotation>
-          <documentation>1994: Støyskjerm: Skjerm benyttes primært for å skjerme omgivelser mot støy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1994</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="leskjer_Med_Sikringsskjerm">
-        <annotation>
-          <documentation>3287: Leskjerm/sikringsskjerm: Skjerm som primært er benyttet for å skjerme omgivelser mot sprut/støv fra veg, snø fra brøyting, innsyn, skjerming mot jernbane, vind etc.og samtidig ikke har funksjon i forhold til støyskjerming.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3287</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdeSkjermOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierSkjermType">
-    <annotation>
-      <documentation>1546: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1546</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierSkjermEnumerationType nvdb:EierSkjermOtherType"/>
-  </simpleType>
-  <simpleType name="EierSkjermEnumerationType">
-    <annotation>
-      <documentation>1546: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1546</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>2139: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2139</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10694: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10694</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>2143: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2143</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>2147: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2147</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17655: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17655</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierSkjermOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="FundamenteringPlasseringType">
-    <annotation>
-      <documentation>2153: Angir hva skjermen er fundamentert/plassert på.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2153</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGPLASSERING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:FundamenteringPlasseringEnumerationType nvdb:FundamenteringPlasseringOtherType"/>
-  </simpleType>
-  <simpleType name="FundamenteringPlasseringEnumerationType">
-    <annotation>
-      <documentation>2153: Angir hva skjermen er fundamentert/plassert på.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2153</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGPLASSERING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="påBerg">
-        <annotation>
-          <documentation>15974: På berg: Fundamentering på berg</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15974</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påJordFylling">
-        <annotation>
-          <documentation>15975: På jord/fylling: Fundamentering på jord/fylling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15975</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påBergOgJordFylling">
-        <annotation>
-          <documentation>15976: På berg og jord/fylling: Fundamentering varierer mellom på berg og på jord/fylling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15976</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påBru">
-        <annotation>
-          <documentation>15995: På bru: Skjerm er fundamentert/plassert på bru</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15995</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påVoll">
-        <annotation>
-          <documentation>15998: På voll: Skjerm er fundamentert/plassert på topp av voll</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15998</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påMurAvNaturstein">
-        <annotation>
-          <documentation>17438: På mur av naturstein: Skjerm er plassert oppå mur av naturstein.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17438</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påMurAvBetong">
-        <annotation>
-          <documentation>17437: På mur av betong: Skjerm er plassert oppå betongmur.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17437</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påBetongrekkverk">
-        <annotation>
-          <documentation>15999: På betongrekkverk: Skjerm er fundamentert/plassert på topp betongrekkverk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15999</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="FundamenteringPlasseringOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="LydabsorberendeType">
-    <annotation>
-      <documentation>1606: Angir om vegobjektet er lydabsorberende</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1606</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYDABSORBERENDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:LydabsorberendeEnumerationType nvdb:LydabsorberendeOtherType"/>
-  </simpleType>
-  <simpleType name="LydabsorberendeEnumerationType">
-    <annotation>
-      <documentation>1606: Angir om vegobjektet er lydabsorberende</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1606</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LYDABSORBERENDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>3511: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3511</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>3549: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3549</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="LydabsorberendeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialeSkjermType">
-    <annotation>
-      <documentation>1087: Angir materialtype for skjerm</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1087</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALESKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaterialeSkjermEnumerationType nvdb:MaterialeSkjermOtherType"/>
-  </simpleType>
-  <simpleType name="MaterialeSkjermEnumerationType">
-    <annotation>
-      <documentation>1087: Angir materialtype for skjerm</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1087</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALESKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tre">
-        <annotation>
-          <documentation>2181: Tre</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2181</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong">
-        <annotation>
-          <documentation>3321: Betong</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3321</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betongstein">
-        <annotation>
-          <documentation>3339: Betongstein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3339</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tegl">
-        <annotation>
-          <documentation>3350: Tegl</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3350</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="metall">
-        <annotation>
-          <documentation>2222: Metall</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2222</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast">
-        <annotation>
-          <documentation>2261: Plast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2261</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kunststoff">
-        <annotation>
-          <documentation>2359: Kunststoff</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2359</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="pleksiglass">
-        <annotation>
-          <documentation>2367: Pleksiglass</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2367</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="herdetGlass">
-        <annotation>
-          <documentation>17393: Herdet glass</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17393</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="torvmurMedGress">
-        <annotation>
-          <documentation>17223: Torvmur med gress: Skjerm som er bygd opp med torv og fremstår som gressdekket.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17223</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="naturstein">
-        <annotation>
-          <documentation>4963: Naturstein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4963</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialeSkjermOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialeSøylerType">
-    <annotation>
-      <documentation>1665: Angir hvilken type søyler skjermen har.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1665</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALESØYLER</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaterialeSøylerEnumerationType nvdb:MaterialeSøylerOtherType"/>
-  </simpleType>
-  <simpleType name="MaterialeSøylerEnumerationType">
-    <annotation>
-      <documentation>1665: Angir hvilken type søyler skjermen har.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1665</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALESØYLER</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="tre">
-        <annotation>
-          <documentation>3347: Tre</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3347</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong">
-        <annotation>
-          <documentation>3798: Betong</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3798</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="stål">
-        <annotation>
-          <documentation>3800: Stål</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3800</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="aluminium">
-        <annotation>
-          <documentation>3799: Aluminium</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3799</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast">
-        <annotation>
-          <documentation>3349: Plast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3349</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialeSøylerOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="OverflatebehandlingSkjermType">
-    <annotation>
-      <documentation>1599: Angir hvordan vegobjektet er overflatebehandla</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1599</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLINGSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:OverflatebehandlingSkjermEnumerationType nvdb:OverflatebehandlingSkjermOtherType"/>
-  </simpleType>
-  <simpleType name="OverflatebehandlingSkjermEnumerationType">
-    <annotation>
-      <documentation>1599: Angir hvordan vegobjektet er overflatebehandla</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1599</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLINGSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="malt">
-        <annotation>
-          <documentation>2151: Malt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2151</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="beiset">
-        <annotation>
-          <documentation>2158: Beiset</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2158</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="impregnert">
-        <annotation>
-          <documentation>2164: Impregnert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2164</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="oljet">
-        <annotation>
-          <documentation>2170: Oljet</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2170</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lakkert">
-        <annotation>
-          <documentation>2176: Lakkert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2176</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="OverflatebehandlingSkjermOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Skjerm" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkjermType">
     <annotation>
       <documentation>3: En frittstående konstruksjon som skal være et hinder for f.eks støyutbredelse</documentation>
@@ -505,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeSkjermType">
+          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
             <annotation>
               <documentation>1247: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -514,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materialeSkjerm" type="nvdb:MaterialeSkjermType">
+          <element minOccurs="0" name="materialeSkjerm" type="gml:CodeType">
             <annotation>
               <documentation>1087: Angir materialtype for skjerm</documentation>
               <appinfo>
@@ -523,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materialeSøyler" type="nvdb:MaterialeSøylerType">
+          <element minOccurs="0" name="materialeSøyler" type="gml:CodeType">
             <annotation>
               <documentation>1665: Angir hvilken type søyler skjermen har.</documentation>
               <appinfo>
@@ -532,16 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="oppsettingsår" type="integer">
-            <annotation>
-              <documentation>9936: Angir hvilket år skjerm ble satt opp</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9936</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="typeGjennomsiktigVegg" type="nvdb:TypeGjennomsiktigVeggType">
+          <element minOccurs="0" name="typeGjennomsiktigVegg" type="gml:CodeType">
             <annotation>
               <documentation>3951: Angir hvilket materiale gjennomsiktig vegg er laget av</documentation>
               <appinfo>
@@ -550,7 +55,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fundamenteringPlassering" type="nvdb:FundamenteringPlasseringType">
+          <element minOccurs="0" name="fundamenteringPlassering" type="gml:CodeType">
             <annotation>
               <documentation>2153: Angir hva skjermen er fundamentert/plassert på.</documentation>
               <appinfo>
@@ -559,7 +64,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="typeFundament" type="nvdb:TypeFundamentType">
+          <element minOccurs="0" name="typeFundament" type="gml:CodeType">
             <annotation>
               <documentation>9819: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -628,7 +133,7 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="lydabsorberende" type="nvdb:LydabsorberendeType">
+          <element minOccurs="0" name="lydabsorberende" type="gml:CodeType">
             <annotation>
               <documentation>1606: Angir om vegobjektet er lydabsorberende</documentation>
               <appinfo>
@@ -637,7 +142,7 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="utformingTopp" type="nvdb:UtformingToppType">
+          <element minOccurs="0" name="utformingTopp" type="gml:CodeType">
             <annotation>
               <documentation>9829: Angir hvordan topp av vegobjektet er utformet</documentation>
               <appinfo>
@@ -655,12 +160,21 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="overflatebehandling" type="nvdb:OverflatebehandlingSkjermType">
+          <element minOccurs="0" name="overflatebehandling" type="gml:CodeType">
             <annotation>
               <documentation>1599: Angir hvordan vegobjektet er overflatebehandla</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1599</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>9936: Angir hvilket år skjerm ble satt opp</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9936</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -673,16 +187,7 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="FKB_ID" type="string">
-            <annotation>
-              <documentation>10846: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10846</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FKB_ID</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierSkjermType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>1546: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -691,12 +196,39 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSkjermType">
+          <element minOccurs="0" name="eier_Navn" type="string">
+            <annotation>
+              <documentation>11202: Navn på eier av  vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11202</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER_NAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>1549: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1549</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11029: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11029</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="FKB_ID" type="string">
+            <annotation>
+              <documentation>10846: Refererer til FKB-identitet. Benyttes i forbindelse med felles forvaltning av geometri.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10846</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FKB_ID</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -732,236 +264,4 @@ Enhet: Millimeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeFundamentType">
-    <annotation>
-      <documentation>9819: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9819</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFUNDAMENT</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeFundamentEnumerationType nvdb:TypeFundamentOtherType"/>
-  </simpleType>
-  <simpleType name="TypeFundamentEnumerationType">
-    <annotation>
-      <documentation>9819: Angir hvilken type vegobjektet er av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9819</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFUNDAMENT</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="betong_Bankett">
-        <annotation>
-          <documentation>15989: Betong, bankett: Skjerm er fundamentert på sammenhengende støpt såle/bankett</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15989</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong_Punktfundamenter">
-        <annotation>
-          <documentation>15991: Betong, punktfundamenter: Skjerm er fundamentert på støpte punnktfundamenter.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15991</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong_Peler">
-        <annotation>
-          <documentation>17846: Betong, peler: Skjerm er fundamentert på betongpeler</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17846</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="direktefundamentertSøyle">
-        <annotation>
-          <documentation>17847: Direktefundamentert søyle: Søyler er funamentert direkte i jordmasser</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17847</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="stålspyd">
-        <annotation>
-          <documentation>17848: Stålspyd: Søyler er fundamentert på spydspiss som er stukket ned i jord.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17848</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="påKonstruksjon">
-        <annotation>
-          <documentation>17849: På konstruksjon: Skjerm er festet direkte på konstruksjon som f.eks mur, bru, mm</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17849</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFundamentOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeGjennomsiktigVeggType">
-    <annotation>
-      <documentation>3951: Angir hvilket materiale gjennomsiktig vegg er laget av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3951</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGJENNOMSIKTIGVEGG</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeGjennomsiktigVeggEnumerationType nvdb:TypeGjennomsiktigVeggOtherType"/>
-  </simpleType>
-  <simpleType name="TypeGjennomsiktigVeggEnumerationType">
-    <annotation>
-      <documentation>3951: Angir hvilket materiale gjennomsiktig vegg er laget av</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3951</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGJENNOMSIKTIGVEGG</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="pleksiglass">
-        <annotation>
-          <documentation>4961: Pleksiglass</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4961</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="herdetGlass">
-        <annotation>
-          <documentation>4962: Herdet glass</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4962</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeGjennomsiktigVeggOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="UtformingToppType">
-    <annotation>
-      <documentation>9829: Angir hvordan topp av vegobjektet er utformet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9829</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGTOPP</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:UtformingToppEnumerationType nvdb:UtformingToppOtherType"/>
-  </simpleType>
-  <simpleType name="UtformingToppEnumerationType">
-    <annotation>
-      <documentation>9829: Angir hvordan topp av vegobjektet er utformet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9829</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFORMINGTOPP</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="skrå">
-        <annotation>
-          <documentation>15992: Skrå</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15992</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bue">
-        <annotation>
-          <documentation>15994: Bue</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15994</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="trappRett">
-        <annotation>
-          <documentation>15993: Trapp/rett</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">15993</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="UtformingToppOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkjermType">
-    <annotation>
-      <documentation>1549: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1549</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligSkjermEnumerationType nvdb:VedlikeholdsansvarligSkjermOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkjermEnumerationType">
-    <annotation>
-      <documentation>1549: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1549</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKJERM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>2140: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2140</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>2144: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2144</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>2148: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2148</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17670: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17670</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17669: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17669</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkjermOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

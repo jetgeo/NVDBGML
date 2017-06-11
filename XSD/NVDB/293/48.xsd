@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>48: Del av vegen reservert for gående.  Som regel ligger f. høyere enn kjørebanen og er atskilt fra denne med kantstein (1)</documentation>
   </annotation>
@@ -6,178 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BelegningType">
-    <annotation>
-      <documentation>5637: Angir hvilken belegning det er på fortauet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5637</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BelegningEnumerationType nvdb:BelegningOtherType"/>
-  </simpleType>
-  <simpleType name="BelegningEnumerationType">
-    <annotation>
-      <documentation>5637: Angir hvilken belegning det er på fortauet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5637</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="betong">
-        <annotation>
-          <documentation>7922: Betong</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7922</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong_Farget">
-        <annotation>
-          <documentation>7923: Betong, farget</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7923</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong_MønstretOgFarget">
-        <annotation>
-          <documentation>7924: Betong, mønstret og farget</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7924</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betong_Heller">
-        <annotation>
-          <documentation>7925: Betong, heller</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7925</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="betongstein">
-        <annotation>
-          <documentation>7926: Betongstein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7926</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="brostein">
-        <annotation>
-          <documentation>7927: Brostein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7927</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="granitt">
-        <annotation>
-          <documentation>11231: Granitt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11231</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skiferheller">
-        <annotation>
-          <documentation>11230: Skiferheller</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11230</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="asfalt">
-        <annotation>
-          <documentation>7928: Asfalt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7928</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="grus">
-        <annotation>
-          <documentation>7929: Grus</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7929</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BelegningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierFortauType">
-    <annotation>
-      <documentation>7994: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7994</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERFORTAU</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierFortauEnumerationType nvdb:EierFortauOtherType"/>
-  </simpleType>
-  <simpleType name="EierFortauEnumerationType">
-    <annotation>
-      <documentation>7994: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7994</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERFORTAU</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>10260: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10260</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10722: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10722</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10324: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10324</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10388: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10388</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17575: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17575</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierFortauOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Fortau" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FortauType">
     <annotation>
       <documentation>48: Del av vegen reservert for gående.  Som regel ligger f. høyere enn kjørebanen og er atskilt fra denne med kantstein (1)</documentation>
@@ -191,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="belegning" type="nvdb:BelegningType">
+          <element minOccurs="0" name="belegning" type="gml:CodeType">
             <annotation>
               <documentation>5637: Angir hvilken belegning det er på fortauet.</documentation>
               <appinfo>
@@ -229,7 +57,7 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="punkthinder" type="nvdb:PunkthinderType">
+          <element minOccurs="0" name="punkthinder" type="gml:CodeType">
             <annotation>
               <documentation>10718: Sted hvor det er markant innsnevring av fortau. Kan være til hinder for gående og drift av fortauet</documentation>
               <appinfo>
@@ -238,7 +66,7 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="varmekabler" type="nvdb:VarmekablerType">
+          <element minOccurs="0" name="varmekabler" type="gml:CodeType">
             <annotation>
               <documentation>1830: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet</documentation>
               <appinfo>
@@ -256,7 +84,7 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierFortauType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>7994: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -265,12 +93,21 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligFortauType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>5638: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5638</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11053: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11053</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -288,10 +125,10 @@ Enhet: Centimeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -302,10 +139,10 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBreddemåling" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Breddemåling</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -320,178 +157,4 @@ Enhet: Centimeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="PunkthinderType">
-    <annotation>
-      <documentation>10718: Sted hvor det er markant innsnevring av fortau. Kan være til hinder for gående og drift av fortauet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10718</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PUNKTHINDER</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:PunkthinderEnumerationType nvdb:PunkthinderOtherType"/>
-  </simpleType>
-  <simpleType name="PunkthinderEnumerationType">
-    <annotation>
-      <documentation>10718: Sted hvor det er markant innsnevring av fortau. Kan være til hinder for gående og drift av fortauet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10718</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PUNKTHINDER</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="treBeplantning">
-        <annotation>
-          <documentation>17370: Tre/beplantning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17370</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skilt">
-        <annotation>
-          <documentation>17371: Skilt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17371</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lysmast">
-        <annotation>
-          <documentation>17372: Lysmast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17372</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bygningKonstruksjon">
-        <annotation>
-          <documentation>17373: Bygning/konstruksjon</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17373</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="holdeplassLeskur">
-        <annotation>
-          <documentation>17374: Holdeplass/leskur</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17374</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="annetHinder">
-        <annotation>
-          <documentation>17375: Annet hinder</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17375</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="PunkthinderOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VarmekablerType">
-    <annotation>
-      <documentation>1830: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1830</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARMEKABLER</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VarmekablerEnumerationType nvdb:VarmekablerOtherType"/>
-  </simpleType>
-  <simpleType name="VarmekablerEnumerationType">
-    <annotation>
-      <documentation>1830: Angir om det er varmekabler eller ikke i tilknytning til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1830</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARMEKABLER</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>3522: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3522</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>3560: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3560</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VarmekablerOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFortauType">
-    <annotation>
-      <documentation>5638: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5638</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGFORTAU</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligFortauEnumerationType nvdb:VedlikeholdsansvarligFortauOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFortauEnumerationType">
-    <annotation>
-      <documentation>5638: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5638</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGFORTAU</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>7930: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7930</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>7931: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7931</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>7932: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7932</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17685: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17685</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFortauOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

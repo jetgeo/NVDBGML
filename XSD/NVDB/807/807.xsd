@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>807: Strekning mellom to ferjekaier hvor det er tilrettelagt for å reise med ferje.</documentation>
   </annotation>
@@ -6,48 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="DriftsstatusFerjestrekningType">
-    <annotation>
-      <documentation>9221: Angir hvilken driftsstatus ferjestrekningen har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9221</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUSFERJESTREKNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:DriftsstatusFerjestrekningEnumerationType nvdb:DriftsstatusFerjestrekningOtherType"/>
-  </simpleType>
-  <simpleType name="DriftsstatusFerjestrekningEnumerationType">
-    <annotation>
-      <documentation>9221: Angir hvilken driftsstatus ferjestrekningen har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9221</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUSFERJESTREKNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="trafikkeres">
-        <annotation>
-          <documentation>12860: Trafikkeres</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12860</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nedlagt">
-        <annotation>
-          <documentation>12861: Nedlagt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12861</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="DriftsstatusFerjestrekningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Ferjestrekning" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FerjestrekningType">
     <annotation>
       <documentation>807: Strekning mellom to ferjekaier hvor det er tilrettelagt for å reise med ferje.</documentation>
@@ -97,7 +55,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="driftsstatus" type="nvdb:DriftsstatusFerjestrekningType">
+          <element minOccurs="0" name="driftsstatus" type="gml:CodeType">
             <annotation>
               <documentation>9221: Angir hvilken driftsstatus ferjestrekningen har</documentation>
               <appinfo>

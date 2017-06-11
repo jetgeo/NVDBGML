@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>64: Sted med en eller flere ferjelemmer hvor ferje anløper for å ta om bord og slippe av kjøretøy og passasjerer.</documentation>
   </annotation>
@@ -6,164 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="DriftsstatusType">
-    <annotation>
-      <documentation>9229: Angir driftsstatus til ferjeleie</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9229</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUS</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:DriftsstatusEnumerationType nvdb:DriftsstatusOtherType"/>
-  </simpleType>
-  <simpleType name="DriftsstatusEnumerationType">
-    <annotation>
-      <documentation>9229: Angir driftsstatus til ferjeleie</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9229</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUS</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="trafikkeres">
-        <annotation>
-          <documentation>12865: Trafikkeres: Ferjeleie benyttes i normal rutetrafikk.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12865</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nedlagt">
-        <annotation>
-          <documentation>12866: Nedlagt: Ferjeleie benyttes ikke i normal rutetrafikk, men er intakt slik at det kan benyttes i forbindelse med omkjøring/vegstengning med mer.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12866</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="DriftsstatusOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EgenGangbaneTilFerjeType">
-    <annotation>
-      <documentation>9493: Angir om det er egen gangbane for gående for ombordstigning til ferje</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9493</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EGENGANGBANETILFERJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EgenGangbaneTilFerjeEnumerationType nvdb:EgenGangbaneTilFerjeOtherType"/>
-  </simpleType>
-  <simpleType name="EgenGangbaneTilFerjeEnumerationType">
-    <annotation>
-      <documentation>9493: Angir om det er egen gangbane for gående for ombordstigning til ferje</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9493</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EGENGANGBANETILFERJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>13373: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13373</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>13374: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13374</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="delvis">
-        <annotation>
-          <documentation>17378: Delvis: Angir at det delvis er egen gangbane og/eller at det er gangbane til ei ferje/ferjelem og ikke til annen. Det skal gis mer informasjon under "Tilleggsinformasjon"</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17378</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EgenGangbaneTilFerjeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierFerjeleieType">
-    <annotation>
-      <documentation>7559: Angir hvem som eier ferjeleiet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7559</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERFERJELEIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierFerjeleieEnumerationType nvdb:EierFerjeleieOtherType"/>
-  </simpleType>
-  <simpleType name="EierFerjeleieEnumerationType">
-    <annotation>
-      <documentation>7559: Angir hvem som eier ferjeleiet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7559</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERFERJELEIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>9822: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9822</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>9825: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9825</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>9823: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9823</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>9824: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9824</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17608: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17608</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierFerjeleieOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Ferjeleie" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FerjeleieType">
     <annotation>
       <documentation>64: Sted med en eller flere ferjelemmer hvor ferje anløper for å ta om bord og slippe av kjøretøy og passasjerer.</documentation>
@@ -186,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="driftsstatus" type="nvdb:DriftsstatusType">
+          <element minOccurs="0" name="driftsstatus" type="gml:CodeType">
             <annotation>
               <documentation>9229: Angir driftsstatus til ferjeleie</documentation>
               <appinfo>
@@ -260,7 +102,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="egenGangbaneTilFerje" type="nvdb:EgenGangbaneTilFerjeType">
+          <element minOccurs="0" name="egenGangbaneTilFerje" type="gml:CodeType">
             <annotation>
               <documentation>9493: Angir om det er egen gangbane for gående for ombordstigning til ferje</documentation>
               <appinfo>
@@ -269,7 +111,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kaikantsikring" type="nvdb:KaikantsikringType">
+          <element minOccurs="0" name="kaikantsikring" type="gml:CodeType">
             <annotation>
               <documentation>9492: Beskriver om ferjeleiet har en form for sikring mot vann. Ja: om hele ferjeleiet har sikring. Delvis: deler av kaikanten er sikret</documentation>
               <appinfo>
@@ -278,7 +120,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="venterom" type="nvdb:VenteromType">
+          <element minOccurs="0" name="venterom" type="gml:CodeType">
             <annotation>
               <documentation>10729: Angir om det er venterom i tilknytning til ferjeleiet</documentation>
               <appinfo>
@@ -305,7 +147,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eierFerjeleie" type="nvdb:EierFerjeleieType">
+          <element minOccurs="0" name="eierFerjeleie" type="gml:CodeType">
             <annotation>
               <documentation>7559: Angir hvem som eier ferjeleiet</documentation>
               <appinfo>
@@ -314,7 +156,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarligFerjeleie" type="nvdb:VedlikeholdsansvarligFerjeleieType">
+          <element minOccurs="0" name="vedlikeholdsansvarligFerjeleie" type="gml:CodeType">
             <annotation>
               <documentation>7560: Angir hvem som har ansvar for vedlikehold</documentation>
               <appinfo>
@@ -355,6 +197,13 @@ Enhet: Kvadratmeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="30" minOccurs="0" name="assosiertGrøntanlegg" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -369,13 +218,6 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -387,162 +229,4 @@ Enhet: Kvadratmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="KaikantsikringType">
-    <annotation>
-      <documentation>9492: Beskriver om ferjeleiet har en form for sikring mot vann. Ja: om hele ferjeleiet har sikring. Delvis: deler av kaikanten er sikret</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9492</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAIKANTSIKRING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KaikantsikringEnumerationType nvdb:KaikantsikringOtherType"/>
-  </simpleType>
-  <simpleType name="KaikantsikringEnumerationType">
-    <annotation>
-      <documentation>9492: Beskriver om ferjeleiet har en form for sikring mot vann. Ja: om hele ferjeleiet har sikring. Delvis: deler av kaikanten er sikret</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9492</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KAIKANTSIKRING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>13370: Ja: Hele kaikanten er sikret/markert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13370</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="delvis">
-        <annotation>
-          <documentation>13371: Delvis: Deler av kaikant er sikret/markert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13371</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>13372: Nei: Kaikant er ikke sikret/markert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13372</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KaikantsikringOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFerjeleieType">
-    <annotation>
-      <documentation>7560: Angir hvem som har ansvar for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7560</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGFERJELEIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligFerjeleieEnumerationType nvdb:VedlikeholdsansvarligFerjeleieOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFerjeleieEnumerationType">
-    <annotation>
-      <documentation>7560: Angir hvem som har ansvar for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7560</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGFERJELEIE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>9826: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9826</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>9829: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9829</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>9827: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9827</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>9828: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9828</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17700: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17700</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligFerjeleieOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VenteromType">
-    <annotation>
-      <documentation>10729: Angir om det er venterom i tilknytning til ferjeleiet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10729</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VENTEROM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VenteromEnumerationType nvdb:VenteromOtherType"/>
-  </simpleType>
-  <simpleType name="VenteromEnumerationType">
-    <annotation>
-      <documentation>10729: Angir om det er venterom i tilknytning til ferjeleiet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10729</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VENTEROM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>17383: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17383</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>17384: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17384</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VenteromOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>872: Faunapassasjer har som primærfunksjon å koble sammen habitatområder som er fragmentert/isolert på grunn av en eksisterende veg</documentation>
   </annotation>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeFaunapassasjeType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>10230: Angir hvilken type utforming passasjen har</documentation>
               <appinfo>
@@ -64,7 +64,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="formål" type="nvdb:FormålFaunapassasjeType">
+          <element minOccurs="0" name="formål" type="gml:CodeType">
             <annotation>
               <documentation>10233: Angir om passasjen er tilrettelagt for akvatiske og/eller terrestriske organismer.</documentation>
               <appinfo>
@@ -170,10 +170,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -184,10 +184,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -202,112 +202,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="FormålFaunapassasjeType">
-    <annotation>
-      <documentation>10233: Angir om passasjen er tilrettelagt for akvatiske og/eller terrestriske organismer.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10233</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLFAUNAPASSASJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:FormålFaunapassasjeEnumerationType nvdb:FormålFaunapassasjeOtherType"/>
-  </simpleType>
-  <simpleType name="FormålFaunapassasjeEnumerationType">
-    <annotation>
-      <documentation>10233: Angir om passasjen er tilrettelagt for akvatiske og/eller terrestriske organismer.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10233</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLFAUNAPASSASJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="akvatisk">
-        <annotation>
-          <documentation>16734: Akvatisk: For alle vannlevende organismer (f.eks. fisk, bunndyr etc)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16734</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="terrestrisk">
-        <annotation>
-          <documentation>16735: Terrestrisk: For alle landlevende organismer (f.eks. hjortevilt, smågnagere etc)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16735</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="begge">
-        <annotation>
-          <documentation>16736: Begge: Passasjen har dobbeltfunksjon, tillater ferdsel av både land- og vannlevende organismer.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16736</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="FormålFaunapassasjeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFaunapassasjeType">
-    <annotation>
-      <documentation>10230: Angir hvilken type utforming passasjen har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10230</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFAUNAPASSASJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeFaunapassasjeEnumerationType nvdb:TypeFaunapassasjeOtherType"/>
-  </simpleType>
-  <simpleType name="TypeFaunapassasjeEnumerationType">
-    <annotation>
-      <documentation>10230: Angir hvilken type utforming passasjen har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10230</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFAUNAPASSASJE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="overgang">
-        <annotation>
-          <documentation>16730: Overgang: En passasje som fører viltet i bro over vegen. Viltgjerder leder viltet i riktig retning.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16730</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="undergang">
-        <annotation>
-          <documentation>16731: Undergang: En passasje som fører viltet under vegen. Dette er enten en spesiallaget passasje for vilt eller en bru over en naturlig forsenkning i landskapet (e.g. over en bekkedal).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16731</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kulvert">
-        <annotation>
-          <documentation>16732: Kulvert: Kulverter er gjennomløp beliggende under vegbanen, oftest støpt i betong. Finnes med og uten vannføring. Inkluderer også hvelv/rør i fylling.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16732</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sluse">
-        <annotation>
-          <documentation>16733: Sluse: En åpning i viltgjerdet på omtrent 20-50 meter der viltet vil ha mulighet til å krysse vegen.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16733</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeFaunapassasjeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

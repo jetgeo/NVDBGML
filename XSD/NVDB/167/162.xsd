@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>162: Punkt hvor det gjennomføres automatisk trafikkontroll (ATK) på passerende kjøretøy ved hjelp av en fartsmåler og kamera som fotograferer fartsovertredere.</documentation>
   </annotation>
@@ -37,12 +37,21 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kontollretning" type="nvdb:KontollretningType">
+          <element minOccurs="0" name="kontollretning" type="gml:CodeType">
             <annotation>
               <documentation>9527: Angir hvilken kjøreretning som blir kontrollert.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9527</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTOLLRETNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fartsmåler_Type" type="gml:CodeType">
+            <annotation>
+              <documentation>9525: Angir hvilken type fartsmåler det er i tilknytning til ATK-punkt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9525</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSMÅLER_TYPE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -64,15 +73,6 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fartsmåler_Type" type="nvdb:Fartsmåler_TypeType">
-            <annotation>
-              <documentation>9525: Angir hvilken type fartsmåler det er i tilknytning til ATK-punkt</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9525</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSMÅLER_TYPE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="fartsmåler_Installeringsår" type="integer">
             <annotation>
               <documentation>9526: Angir hvilket år fartsmåler ble installert og satt i drift.</documentation>
@@ -82,7 +82,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierATK_PunktType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>9521: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
@@ -113,20 +113,6 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -134,10 +120,24 @@
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDetektor_Trafikk" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Detektor_Trafikk</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -152,130 +152,4 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="EierATK_PunktType">
-    <annotation>
-      <documentation>9521: Angir hvem som er eier av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9521</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERATK_PUNKT</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierATK_PunktEnumerationType nvdb:EierATK_PunktOtherType"/>
-  </simpleType>
-  <simpleType name="EierATK_PunktEnumerationType">
-    <annotation>
-      <documentation>9521: Angir hvem som er eier av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9521</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERATK_PUNKT</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>13448: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13448</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17620: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17620</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierATK_PunktOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="Fartsmåler_TypeType">
-    <annotation>
-      <documentation>9525: Angir hvilken type fartsmåler det er i tilknytning til ATK-punkt</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9525</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSMÅLER_TYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:Fartsmåler_TypeEnumerationType nvdb:Fartsmåler_TypeOtherType"/>
-  </simpleType>
-  <simpleType name="Fartsmåler_TypeEnumerationType">
-    <annotation>
-      <documentation>9525: Angir hvilken type fartsmåler det er i tilknytning til ATK-punkt</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9525</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSMÅLER_TYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="DR_410">
-        <annotation>
-          <documentation>13444: DR 410</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13444</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="axspeed">
-        <annotation>
-          <documentation>13445: Axspeed</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13445</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="Fartsmåler_TypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="KontollretningType">
-    <annotation>
-      <documentation>9527: Angir hvilken kjøreretning som blir kontrollert.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9527</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTOLLRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KontollretningEnumerationType nvdb:KontollretningOtherType"/>
-  </simpleType>
-  <simpleType name="KontollretningEnumerationType">
-    <annotation>
-      <documentation>9527: Angir hvilken kjøreretning som blir kontrollert.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9527</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTOLLRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="medMetreringsretning">
-        <annotation>
-          <documentation>13446: Med metreringsretning: Kontrollerer trafikk som kjører i samme retning som vegens metreringsretning.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13446</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="motMetreringsretning">
-        <annotation>
-          <documentation>13447: Mot metreringsretning: Kontrollerer trafikk som kjører i motsatt retning av vegens metreringsretning.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13447</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KontollretningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

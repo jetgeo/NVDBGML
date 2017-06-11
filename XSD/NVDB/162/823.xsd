@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>823: Strekning mellom to ATK-punkt hvor det gjennomføres automatisk trafikkontroll (ATK) av gjennomsnittsfarten på passerende kjøretøy.</documentation>
   </annotation>
@@ -6,48 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="KontrollretningType">
-    <annotation>
-      <documentation>9519: Angir i hvilken kjøreretning det blir gjort trafikkontroll.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9519</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTROLLRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:KontrollretningEnumerationType nvdb:KontrollretningOtherType"/>
-  </simpleType>
-  <simpleType name="KontrollretningEnumerationType">
-    <annotation>
-      <documentation>9519: Angir i hvilken kjøreretning det blir gjort trafikkontroll.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9519</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONTROLLRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="medMetreringsretning">
-        <annotation>
-          <documentation>13436: Med metreringsretning: Det blir foretatt måling i samme retning som metreringsretning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13436</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="motMetreringsretning">
-        <annotation>
-          <documentation>13437: Mot metreringsretning: Det blir foretatt måling i motsatt retning av metreringsretning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13437</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="KontrollretningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Streknings_ATK" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Streknings_ATKType">
     <annotation>
       <documentation>823: Strekning mellom to ATK-punkt hvor det gjennomføres automatisk trafikkontroll (ATK) av gjennomsnittsfarten på passerende kjøretøy.</documentation>
@@ -70,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kontrollretning" type="nvdb:KontrollretningType">
+          <element minOccurs="0" name="kontrollretning" type="gml:CodeType">
             <annotation>
               <documentation>9519: Angir i hvilken kjøreretning det blir gjort trafikkontroll.</documentation>
               <appinfo>
@@ -107,10 +65,10 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+          <element maxOccurs="2" minOccurs="0" name="assosiertATK_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:ATK_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -121,10 +79,10 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="2" minOccurs="0" name="assosiertATK_Punkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:ATK_Punkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

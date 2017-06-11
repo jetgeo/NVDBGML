@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>45: Et punkt i vegnettet hvor det kreves betaling for å kunne kjøre videre.  Kan gjelde i en eller begge retninger.</documentation>
   </annotation>
@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bomstasjonstype" type="nvdb:BomstasjonstypeType">
+          <element minOccurs="0" name="bomstasjonstype" type="gml:CodeType">
             <annotation>
               <documentation>9390: Angir hvilken type bomstasjon det er tale om</documentation>
               <appinfo>
@@ -64,7 +64,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="innkrevningsretning" type="nvdb:InnkrevningsretningType">
+          <element minOccurs="0" name="innkrevningsretning" type="gml:CodeType">
             <annotation>
               <documentation>9414: Angir hvilken retning det er betalingsinnkrevning i forhold til vegens metreringsretning</documentation>
               <appinfo>
@@ -122,6 +122,15 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="rushtidMorgen_Fra" type="string">
+            <annotation>
+              <documentation>9407: Angir tidspunkt eventuell rushtidsavgift starter på morgenen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9407</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGEN_FRA</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="bomstasjon_Id" type="integer">
             <annotation>
               <documentation>9595: Angir ID på bomstasjonen.  Er grunnlag for å få overført takstinformasjon fra CS-Norge</documentation>
@@ -131,21 +140,12 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tidsdifferensiertTakst" type="nvdb:TidsdifferensiertTakstType">
+          <element minOccurs="0" name="tidsdifferensiertTakst" type="gml:CodeType">
             <annotation>
               <documentation>9409: Angir om takst for en eller flere vektklasser varierer over døgnet. Det skal også angis Ja om det er gratis i perioder av døgnet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9409</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSDIFFERENSIERTTAKST</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="rushtidMorgen_Fra" type="string">
-            <annotation>
-              <documentation>9407: Angir tidspunkt eventuell rushtidsavgift starter på morgenen</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9407</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RUSHTIDMORGEN_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -176,7 +176,7 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="timesregel" type="nvdb:TimesregelType">
+          <element minOccurs="0" name="timesregel" type="gml:CodeType">
             <annotation>
               <documentation>9412: Angir ordning der man betaler kun for den første passeringen ved to eller flere passeringer gjennom samme bompengeanlegg i løpet av en time.</documentation>
               <appinfo>
@@ -204,7 +204,7 @@ Enhet: Minutt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="gratisGjennomkjøringVedHC_Brikke" type="nvdb:GratisGjennomkjøringVedHC_BrikkeType">
+          <element minOccurs="0" name="gratisGjennomkjøringVedHC_Brikke" type="gml:CodeType">
             <annotation>
               <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
               <appinfo>
@@ -222,7 +222,7 @@ Enhet: Minutt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierBomstasjonType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>7992: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -231,12 +231,21 @@ Enhet: Minutt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBomstasjonType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>5799: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5799</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11051: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11051</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -262,13 +271,6 @@ Enhet: Minutt</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBygning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Bygning</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -290,6 +292,13 @@ Enhet: Minutt</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBygning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Bygning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -301,362 +310,4 @@ Enhet: Minutt</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="BomstasjonstypeType">
-    <annotation>
-      <documentation>9390: Angir hvilken type bomstasjon det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9390</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BOMSTASJONSTYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BomstasjonstypeEnumerationType nvdb:BomstasjonstypeOtherType"/>
-  </simpleType>
-  <simpleType name="BomstasjonstypeEnumerationType">
-    <annotation>
-      <documentation>9390: Angir hvilken type bomstasjon det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9390</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BOMSTASJONSTYPE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="autoPASSManuell">
-        <annotation>
-          <documentation>13132: AutoPASS + manuell: Bomstasjon har Autopass og manuell betaling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13132</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="autoPASSAutomatisk">
-        <annotation>
-          <documentation>13133: AutoPASS + automatisk: Bomstasjon har autopass og automatisk betaling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13133</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kunManuell">
-        <annotation>
-          <documentation>13134: Kun manuell: Bomstasjon har kun manuell innkreving</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13134</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BomstasjonstypeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierBomstasjonType">
-    <annotation>
-      <documentation>7992: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7992</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBOMSTASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierBomstasjonEnumerationType nvdb:EierBomstasjonOtherType"/>
-  </simpleType>
-  <simpleType name="EierBomstasjonEnumerationType">
-    <annotation>
-      <documentation>7992: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7992</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBOMSTASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>10258: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10258</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10720: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10720</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10322: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10322</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>10386: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10386</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17577: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17577</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierBomstasjonOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHC_BrikkeType">
-    <annotation>
-      <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9404</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHC_BRIKKE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:GratisGjennomkjøringVedHC_BrikkeEnumerationType nvdb:GratisGjennomkjøringVedHC_BrikkeOtherType"/>
-  </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHC_BrikkeEnumerationType">
-    <annotation>
-      <documentation>9404: Angir om gjennomkjøring med HC-brikke er gratis</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9404</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRATISGJENNOMKJØRINGVEDHC_BRIKKE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>13253: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13253</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>13254: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13254</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="GratisGjennomkjøringVedHC_BrikkeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="InnkrevningsretningType">
-    <annotation>
-      <documentation>9414: Angir hvilken retning det er betalingsinnkrevning i forhold til vegens metreringsretning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9414</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNKREVNINGSRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:InnkrevningsretningEnumerationType nvdb:InnkrevningsretningOtherType"/>
-  </simpleType>
-  <simpleType name="InnkrevningsretningEnumerationType">
-    <annotation>
-      <documentation>9414: Angir hvilken retning det er betalingsinnkrevning i forhold til vegens metreringsretning</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9414</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNKREVNINGSRETNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="medMetrering">
-        <annotation>
-          <documentation>13259: Med metrering</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13259</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="motMetrering">
-        <annotation>
-          <documentation>13260: Mot metrering</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13260</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="beggeRetninger">
-        <annotation>
-          <documentation>13261: Begge retninger</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13261</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="InnkrevningsretningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TidsdifferensiertTakstType">
-    <annotation>
-      <documentation>9409: Angir om takst for en eller flere vektklasser varierer over døgnet. Det skal også angis Ja om det er gratis i perioder av døgnet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9409</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSDIFFERENSIERTTAKST</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TidsdifferensiertTakstEnumerationType nvdb:TidsdifferensiertTakstOtherType"/>
-  </simpleType>
-  <simpleType name="TidsdifferensiertTakstEnumerationType">
-    <annotation>
-      <documentation>9409: Angir om takst for en eller flere vektklasser varierer over døgnet. Det skal også angis Ja om det er gratis i perioder av døgnet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9409</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIDSDIFFERENSIERTTAKST</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>13255: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13255</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>13256: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13256</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TidsdifferensiertTakstOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TimesregelType">
-    <annotation>
-      <documentation>9412: Angir ordning der man betaler kun for den første passeringen ved to eller flere passeringer gjennom samme bompengeanlegg i løpet av en time.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9412</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIMESREGEL</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TimesregelEnumerationType nvdb:TimesregelOtherType"/>
-  </simpleType>
-  <simpleType name="TimesregelEnumerationType">
-    <annotation>
-      <documentation>9412: Angir ordning der man betaler kun for den første passeringen ved to eller flere passeringer gjennom samme bompengeanlegg i løpet av en time.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9412</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TIMESREGEL</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="standardTimesregel">
-        <annotation>
-          <documentation>13257: Standard timesregel: Det gis fritak/rabatt ved passering av mer enn en bomstasjon innenfor et avgrenset tidsrom.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13257</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="omvendtTimesregel">
-        <annotation>
-          <documentation>18299: Omvendt timesregel: Det gis fritak/rabatt om kun en av to eller flere angitte bomstasjon passeres innenfor et gitt tidsrom. Må passere minst to bomstasjoner for å bli belastet</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18299</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ikkeTimesregel">
-        <annotation>
-          <documentation>13258: Ikke timesregel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13258</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TimesregelOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBomstasjonType">
-    <annotation>
-      <documentation>5799: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5799</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBOMSTASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligBomstasjonEnumerationType nvdb:VedlikeholdsansvarligBomstasjonOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBomstasjonEnumerationType">
-    <annotation>
-      <documentation>5799: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5799</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBOMSTASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>8194: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8194</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8220: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8220</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>8246: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8246</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17687: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17687</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligBomstasjonOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

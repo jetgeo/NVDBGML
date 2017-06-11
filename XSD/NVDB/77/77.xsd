@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>77: Rør som fører væske eller gass (uoff).</documentation>
   </annotation>
@@ -6,456 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BruksområdeRørledningType">
-    <annotation>
-      <documentation>1267: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1267</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDERØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:BruksområdeRørledningEnumerationType nvdb:BruksområdeRørledningOtherType"/>
-  </simpleType>
-  <simpleType name="BruksområdeRørledningEnumerationType">
-    <annotation>
-      <documentation>1267: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1267</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDERØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="vann">
-        <annotation>
-          <documentation>2886: Vann</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2886</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Drenering">
-        <annotation>
-          <documentation>2890: Vann, drenering: Angis når det er benyttet drensrør, dvs. rør som har åpning for infiltrering av vann fra grunnen.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2890</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Overvann">
-        <annotation>
-          <documentation>2889: Vann, overvann: Tette rør for transport av dreneringsvann</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2889</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Stikkledning">
-        <annotation>
-          <documentation>2888: Vann, stikkledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2888</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Hovedledning">
-        <annotation>
-          <documentation>2887: Vann, hovedledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2887</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Pumpeledning">
-        <annotation>
-          <documentation>4863: Vann, pumpeledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4863</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Spillvann">
-        <annotation>
-          <documentation>2891: Vann, spillvann</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2891</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_Avløp_Felles">
-        <annotation>
-          <documentation>2892: Vann, avløp, felles</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2892</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="vann_InfiltreringIGrunnen">
-        <annotation>
-          <documentation>18307: Vann, infiltrering i grunnen: Rør med åpninger/hull, benyttes for å magasinere vann i grunnen, dvs motsatt av å drenere.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18307</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fjernvarme">
-        <annotation>
-          <documentation>2893: Fjernvarme</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2893</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fjernkjøling">
-        <annotation>
-          <documentation>2894: Fjernkjøling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2894</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gassledning">
-        <annotation>
-          <documentation>2895: Gassledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2895</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="oljeledning">
-        <annotation>
-          <documentation>2896: Oljeledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2896</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ventilasjon">
-        <annotation>
-          <documentation>2897: Ventilasjon</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2897</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kulvert">
-        <annotation>
-          <documentation>2899: Kulvert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2899</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="BruksområdeRørledningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierRørledningType">
-    <annotation>
-      <documentation>5821: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5821</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERRØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierRørledningEnumerationType nvdb:EierRørledningOtherType"/>
-  </simpleType>
-  <simpleType name="EierRørledningEnumerationType">
-    <annotation>
-      <documentation>5821: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5821</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERRØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>8216: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8216</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>10708: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10708</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8242: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8242</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>8268: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8268</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17563: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17563</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierRørledningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="HarInnløpsristType">
-    <annotation>
-      <documentation>1922: Angir om det er innløpsrist i tilknytning til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1922</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HARINNLØPSRIST</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:HarInnløpsristEnumerationType nvdb:HarInnløpsristOtherType"/>
-  </simpleType>
-  <simpleType name="HarInnløpsristEnumerationType">
-    <annotation>
-      <documentation>1922: Angir om det er innløpsrist i tilknytning til vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1922</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HARINNLØPSRIST</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="ja">
-        <annotation>
-          <documentation>3530: Ja</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3530</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="nei">
-        <annotation>
-          <documentation>3568: Nei</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3568</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="HarInnløpsristOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialtypeRørledningType">
-    <annotation>
-      <documentation>1410: Angir primær materialtype for vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1410</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPERØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MaterialtypeRørledningEnumerationType nvdb:MaterialtypeRørledningOtherType"/>
-  </simpleType>
-  <simpleType name="MaterialtypeRørledningEnumerationType">
-    <annotation>
-      <documentation>1410: Angir primær materialtype for vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1410</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPERØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="betong">
-        <annotation>
-          <documentation>2210: Betong</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2210</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="metall_Stål_Galvanisert">
-        <annotation>
-          <documentation>2233: Metall, stål, galvanisert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2233</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="metall_Stål">
-        <annotation>
-          <documentation>2238: Metall, stål</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2238</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="metall_Stål_Korrugert">
-        <annotation>
-          <documentation>2245: Metall, stål, korrugert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2245</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast">
-        <annotation>
-          <documentation>2271: Plast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2271</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Npf8001">
-        <annotation>
-          <documentation>2276: Plast, npf8001</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2276</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Abs_Rør">
-        <annotation>
-          <documentation>2277: Plast, abs-rør</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2277</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Pvc_Rør">
-        <annotation>
-          <documentation>2278: Plast, pvc-rør</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2278</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Pp">
-        <annotation>
-          <documentation>2280: Plast, pp</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2280</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Pe">
-        <annotation>
-          <documentation>2281: Plast, pe</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2281</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_DV">
-        <annotation>
-          <documentation>17368: Plast, DV: Dobbeltvegget plastrør</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17368</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="glassfiber">
-        <annotation>
-          <documentation>2375: Glassfiber</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2375</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="natursteinFjell_Murstein">
-        <annotation>
-          <documentation>2256: Naturstein/fjell, murstein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2256</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="teglstein_Murstein">
-        <annotation>
-          <documentation>2376: Teglstein, murstein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2376</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="plast_Pel">
-        <annotation>
-          <documentation>2282: Plast, pel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2282</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaterialtypeRørledningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="RehabiliteringType">
-    <annotation>
-      <documentation>1927: Angir om vegobjektet har vært rehabilitert og hvilken form for rehabilitering</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1927</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REHABILITERING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:RehabiliteringEnumerationType nvdb:RehabiliteringOtherType"/>
-  </simpleType>
-  <simpleType name="RehabiliteringEnumerationType">
-    <annotation>
-      <documentation>1927: Angir om vegobjektet har vært rehabilitert og hvilken form for rehabilitering</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1927</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REHABILITERING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="epoxy">
-        <annotation>
-          <documentation>2921: Epoxy</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2921</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="delvisUtskifting">
-        <annotation>
-          <documentation>2922: Delvis utskifting</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2922</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="oppblåsbarIndrePlaststrømpe">
-        <annotation>
-          <documentation>3958: Oppblåsbar indre plaststrømpe</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3958</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="RehabiliteringOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Rørledning" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:RørledningType">
     <annotation>
       <documentation>77: Rør som fører væske eller gass (uoff).</documentation>
@@ -469,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeRørledningType">
+          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
             <annotation>
               <documentation>1267: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -478,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materialtype" type="nvdb:MaterialtypeRørledningType">
+          <element minOccurs="0" name="materialtype" type="gml:CodeType">
             <annotation>
               <documentation>1410: Angir primær materialtype for vegobjektet</documentation>
               <appinfo>
@@ -487,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tverrsnittform" type="nvdb:TverrsnittformType">
+          <element minOccurs="0" name="tverrsnittform" type="gml:CodeType">
             <annotation>
               <documentation>1677: Angir hvilken form tverrsnittet av vegobjektet</documentation>
               <appinfo>
@@ -546,7 +96,7 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="harInnløpsrist" type="nvdb:HarInnløpsristType">
+          <element minOccurs="0" name="harInnløpsrist" type="gml:CodeType">
             <annotation>
               <documentation>1922: Angir om det er innløpsrist i tilknytning til vegobjektet</documentation>
               <appinfo>
@@ -564,21 +114,21 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="produktinformasjon" type="string">
+          <element minOccurs="0" name="skjøtemetode" type="gml:CodeType">
             <annotation>
-              <documentation>1483: Angir navn på firma som har levert vegobjektet</documentation>
+              <documentation>1924: Angir hvordan rørene er sammenkoplet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1483</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTINFORMASJON</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1924</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJØTEMETODE</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+          <element minOccurs="0" name="rehabilitering" type="gml:CodeType">
             <annotation>
-              <documentation>10882: Tilleggsinformasjon knyttet til vegobjektet</documentation>
+              <documentation>1927: Angir om vegobjektet har vært rehabilitert og hvilken form for rehabilitering</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10882</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1927</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REHABILITERING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -591,25 +141,25 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skjøtemetode" type="nvdb:SkjøtemetodeType">
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>1924: Angir hvordan rørene er sammenkoplet</documentation>
+              <documentation>10882: Tilleggsinformasjon knyttet til vegobjektet</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1924</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJØTEMETODE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10882</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rehabilitering" type="nvdb:RehabiliteringType">
+          <element minOccurs="0" name="produktinformasjon" type="string">
             <annotation>
-              <documentation>1927: Angir om vegobjektet har vært rehabilitert og hvilken form for rehabilitering</documentation>
+              <documentation>1483: Informasjon som til sammen gjør det mulig å hente ut detaljer om produktet i produktdatabaser. Kan f.eks være produsent, typebetegnesle, modellnummer,</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1927</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REHABILITERING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1483</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierRørledningType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>5821: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -627,12 +177,21 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligRørledningType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
             <annotation>
               <documentation>5806: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5806</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11066: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11066</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -657,17 +216,17 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -682,202 +241,4 @@ Enhet: Forholdstall</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="SkjøtemetodeType">
-    <annotation>
-      <documentation>1924: Angir hvordan rørene er sammenkoplet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1924</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJØTEMETODE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:SkjøtemetodeEnumerationType nvdb:SkjøtemetodeOtherType"/>
-  </simpleType>
-  <simpleType name="SkjøtemetodeEnumerationType">
-    <annotation>
-      <documentation>1924: Angir hvordan rørene er sammenkoplet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1924</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKJØTEMETODE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="helstøpt">
-        <annotation>
-          <documentation>2909: Helstøpt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2909</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sveist">
-        <annotation>
-          <documentation>2910: Sveist</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2910</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="muffeMedPakning">
-        <annotation>
-          <documentation>2911: Muffe med pakning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2911</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="muffeUtenPakning">
-        <annotation>
-          <documentation>2912: Muffe uten pakning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2912</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fals">
-        <annotation>
-          <documentation>2913: Fals</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2913</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="flens">
-        <annotation>
-          <documentation>2914: Flens</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2914</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="buttIButt">
-        <annotation>
-          <documentation>2915: Butt i butt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2915</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="krympeplast">
-        <annotation>
-          <documentation>3942: Krympeplast</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3942</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="SkjøtemetodeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TverrsnittformType">
-    <annotation>
-      <documentation>1677: Angir hvilken form tverrsnittet av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1677</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TVERRSNITTFORM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TverrsnittformEnumerationType nvdb:TverrsnittformOtherType"/>
-  </simpleType>
-  <simpleType name="TverrsnittformEnumerationType">
-    <annotation>
-      <documentation>1677: Angir hvilken form tverrsnittet av vegobjektet</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1677</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TVERRSNITTFORM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="sirkulært">
-        <annotation>
-          <documentation>2528: Sirkulært</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2528</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="firkanta">
-        <annotation>
-          <documentation>2533: Firkanta</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2533</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ellipse">
-        <annotation>
-          <documentation>16702: Ellipse</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16702</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TverrsnittformOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligRørledningType">
-    <annotation>
-      <documentation>5806: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5806</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGRØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligRørledningEnumerationType nvdb:VedlikeholdsansvarligRørledningOtherType"/>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligRørledningEnumerationType">
-    <annotation>
-      <documentation>5806: Angir hvem som er ansvarlig for vedlikehold</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5806</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGRØRLEDNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="statensVegvesen">
-        <annotation>
-          <documentation>8201: Statens vegvesen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8201</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8227: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8227</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>8253: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8253</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17694: Uavklart</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17694</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="VedlikeholdsansvarligRørledningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

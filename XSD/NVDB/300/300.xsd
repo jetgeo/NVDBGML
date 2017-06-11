@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>300: Naturlike områder som det skal tas hensyn til og/eller krever en definert form for skjøtsel (se aktuell arbeidsoperasjon + hyppighet). Slike steder kan være spesielle siktsoner, naturtyper, opprettholdelse av skogryddingstiltak, landskapspleieområde m.m.</documentation>
   </annotation>
@@ -6,295 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AktuellArbeidsoperasjonType">
-    <annotation>
-      <documentation>1243: Angir aktuelt arbeidsoperasjon for området.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1243</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTUELLARBEIDSOPERASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:AktuellArbeidsoperasjonEnumerationType nvdb:AktuellArbeidsoperasjonOtherType"/>
-  </simpleType>
-  <simpleType name="AktuellArbeidsoperasjonEnumerationType">
-    <annotation>
-      <documentation>1243: Angir aktuelt arbeidsoperasjon for området.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1243</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTUELLARBEIDSOPERASJON</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="engGressKlippes">
-        <annotation>
-          <documentation>16946: Eng/gress klippes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16946</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="gressKrattFjernes">
-        <annotation>
-          <documentation>3948: Gress/kratt fjernes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3948</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="buskerKrattHoldesNede">
-        <annotation>
-          <documentation>3946: Busker/kratt holdes nede</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3946</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="buskerKrattFjernes">
-        <annotation>
-          <documentation>3945: Busker/kratt fjernes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3945</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skogTynnes">
-        <annotation>
-          <documentation>3944: Skog tynnes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3944</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skogFjernes">
-        <annotation>
-          <documentation>3943: Skog fjernes</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3943</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="trærBeskjæres">
-        <annotation>
-          <documentation>3947: Trær beskjæres: Trær stammes opp /døde greiner fjernes på faglig riktig måte.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3947</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kreverIkkeTiltak_KunHensyn">
-        <annotation>
-          <documentation>16947: Krever ikke tiltak, kun hensyn</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16947</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="AktuellArbeidsoperasjonOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierNaturområdeType">
-    <annotation>
-      <documentation>10876: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10876</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERNATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:EierNaturområdeEnumerationType nvdb:EierNaturområdeOtherType"/>
-  </simpleType>
-  <simpleType name="EierNaturområdeEnumerationType">
-    <annotation>
-      <documentation>10876: Angir hvem som er eier av vegobjektet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10876</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERNATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stat">
-        <annotation>
-          <documentation>17927: Stat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17927</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylkeskommune">
-        <annotation>
-          <documentation>17930: Fylkeskommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17930</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>17928: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17928</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>17929: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17929</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="uavklart">
-        <annotation>
-          <documentation>17931: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17931</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="EierNaturområdeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="FormålNaturområdeType">
-    <annotation>
-      <documentation>4667: Angir formål med å skjøtte området.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4667</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLNATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:FormålNaturområdeEnumerationType nvdb:FormålNaturområdeOtherType"/>
-  </simpleType>
-  <simpleType name="FormålNaturområdeEnumerationType">
-    <annotation>
-      <documentation>4667: Angir formål med å skjøtte området.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4667</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLNATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="bevareNaturområdeKulturlandskap">
-        <annotation>
-          <documentation>16255: Bevare naturområde/kulturlandskap: Areal skal skjøttes for å sikre område sin egenart.  
-Merknad: Områdets egenart kommer fram av egen egenskapstype (Type)</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16255</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sikreUtsiktFraVegen_Sikkerhet_Estetikk">
-        <annotation>
-          <documentation>16240: Sikre utsikt fra vegen, sikkerhet, estetikk.: Holde vegetasjonen nede/ jevnlig rydding av estetiske eller sikkerhetsmessige grunner. Felt med masseplanter går ofte inn her.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16240</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="hensynTilNaboeiendom">
-        <annotation>
-          <documentation>5739: Hensyn til naboeiendom: Holde nede vegetasjonen av hensyn til naboeiendom</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5739</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="hindreLokaltGlattVeg">
-        <annotation>
-          <documentation>5738: Hindre lokalt glatt veg: Holde nede vegetasjonen for å hindre skygge på veg som kan gi is/glatt vegbane</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5738</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="matområde_Vilt">
-        <annotation>
-          <documentation>5740: Matområde, vilt: Holde nede vegetasjonen for å hindre at vilt beiter for nær inntil vegen</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5740</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="FormålNaturområdeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="HyppighetTiltakType">
-    <annotation>
-      <documentation>9996: Angir hvor ofte tiltak skal gjennomføres</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9996</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HYPPIGHETTILTAK</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:HyppighetTiltakEnumerationType nvdb:HyppighetTiltakOtherType"/>
-  </simpleType>
-  <simpleType name="HyppighetTiltakEnumerationType">
-    <annotation>
-      <documentation>9996: Angir hvor ofte tiltak skal gjennomføres</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9996</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HYPPIGHETTILTAK</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="hvertÅr">
-        <annotation>
-          <documentation>16252: Hvert år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16252</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="annetHvertÅr">
-        <annotation>
-          <documentation>16248: Annet hvert år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16248</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="toGangerILøpetAv5År">
-        <annotation>
-          <documentation>16249: To ganger i løpet av 5 år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16249</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="enGangILøpetAv5År">
-        <annotation>
-          <documentation>16250: En gang i løpet av 5 år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16250</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sjeldnereEnn5År">
-        <annotation>
-          <documentation>16251: Sjeldnere enn 5 år</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16251</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="HyppighetTiltakOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Naturområde" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:NaturområdeType">
     <annotation>
       <documentation>300: Naturlike områder som det skal tas hensyn til og/eller krever en definert form for skjøtsel (se aktuell arbeidsoperasjon + hyppighet). Slike steder kan være spesielle siktsoner, naturtyper, opprettholdelse av skogryddingstiltak, landskapspleieområde m.m.</documentation>
@@ -308,7 +19,7 @@ Merknad: Områdets egenart kommer fram av egen egenskapstype (Type)</documentati
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeNaturområdeType">
+          <element minOccurs="0" name="type" type="gml:CodeType">
             <annotation>
               <documentation>10565: Angir hvilken type område det er tale om</documentation>
               <appinfo>
@@ -317,7 +28,7 @@ Merknad: Områdets egenart kommer fram av egen egenskapstype (Type)</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="formål" type="nvdb:FormålNaturområdeType">
+          <element minOccurs="0" name="formål" type="gml:CodeType">
             <annotation>
               <documentation>4667: Angir formål med å skjøtte området.</documentation>
               <appinfo>
@@ -326,7 +37,7 @@ Merknad: Områdets egenart kommer fram av egen egenskapstype (Type)</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="aktuellArbeidsoperasjon" type="nvdb:AktuellArbeidsoperasjonType">
+          <element minOccurs="0" name="aktuellArbeidsoperasjon" type="gml:CodeType">
             <annotation>
               <documentation>1243: Angir aktuelt arbeidsoperasjon for området.</documentation>
               <appinfo>
@@ -335,7 +46,7 @@ Merknad: Områdets egenart kommer fram av egen egenskapstype (Type)</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hyppighetTiltak" type="nvdb:HyppighetTiltakType">
+          <element minOccurs="0" name="hyppighetTiltak" type="gml:CodeType">
             <annotation>
               <documentation>9996: Angir hvor ofte tiltak skal gjennomføres</documentation>
               <appinfo>
@@ -373,16 +84,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="område" type="gml:SurfacePropertyType">
-            <annotation>
-              <documentation>10566: Gir flate/polygon som geometrisk avgrenser området</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10566</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierNaturområdeType">
+          <element minOccurs="0" name="eier" type="gml:CodeType">
             <annotation>
               <documentation>10876: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -397,6 +99,15 @@ Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4897</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>10566: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10566</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -419,17 +130,17 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -444,86 +155,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeNaturområdeType">
-    <annotation>
-      <documentation>10565: Angir hvilken type område det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10565</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeNaturområdeEnumerationType nvdb:TypeNaturområdeOtherType"/>
-  </simpleType>
-  <simpleType name="TypeNaturområdeEnumerationType">
-    <annotation>
-      <documentation>10565: Angir hvilken type område det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10565</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPENATUROMRÅDE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="eng">
-        <annotation>
-          <documentation>16938: Eng: Eng består av blomstrende urter og gras. Slike områder er ikke beregnet for tråkk men skal fremstå som prydelement langs vegskråninger, vegkanter eller i kryssområde. Klippefrekvens er lav, men tilpasset frøsetting og ikke såpass lav at oppslag av kratt får dominere arealet. klippetidspunkt er med på å bestemme hvilke arter som skal vokse der.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16938</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="masseplanter">
-        <annotation>
-          <documentation>16939: Masseplanter: Ungplanter, tidlig stadie av skog. Hvis denne skal tilhøre skog, bør masseplanter stå i definisjonen av skog/tregruppe.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16939</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skogTregruppe">
-        <annotation>
-          <documentation>16940: Skog/tregruppe: En gruppe eller samling trær med undervegetasjon som skal tynnes/ ryddes jevnlig for å åpne for inn- og utsyn. Består av store eller små trær, med bunnvegetasjon av gress, urter eller lavtvoksende busk-kratt.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16940</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="naturmark_Impediment">
-        <annotation>
-          <documentation>16941: Naturmark, impediment: Skrinne områder med lav bonitet og mye fjell i dagen.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16941</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ferksvannsVåtmarksområder">
-        <annotation>
-          <documentation>16942: Ferksvanns-/våtmarksområder: Viktige bekkedrag, dammer, rik kultur­landskapssjø, evjer/bukter/viker, kroksjøer/ flomdammer, kalksjøer (inkl. utvalgt naturtype), deltaområde. Se DN håndbok 13</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16942</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kulturlandsskap">
-        <annotation>
-          <documentation>16943: Kulturlandsskap: Naturbeitemark, hagemark, slåttemark (inkl. utvalgt naturtype), slåtte- og beitemyr, kantkratt. Se DN håndbok 13</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16943</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="verdifullNaturtype">
-        <annotation>
-          <documentation>16945: Verdifull naturtype: Ensartet type natur som er verdifull og omfatter alle levende organismer (planter og dyr), og de miljøfaktorene som virker der, eller spesielle typer naturforekomster som dammer, åkerholmer eller lignende, samt spesielle typer geologiske forekomster.Kilde: Naturmangfoldloven/Artsdatabanken</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16945</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeNaturområdeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

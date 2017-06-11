@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>836: Vegoppmerking som er forsterket med fresing i asfaltdekket. Fresingen skal gi vibrasjon i kjøretøyet</documentation>
   </annotation>
@@ -6,106 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="FresemetodeType">
-    <annotation>
-      <documentation>9502: Angir fresemetode som er benyttet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9502</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FRESEMETODE</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:FresemetodeEnumerationType nvdb:FresemetodeOtherType"/>
-  </simpleType>
-  <simpleType name="FresemetodeEnumerationType">
-    <annotation>
-      <documentation>9502: Angir fresemetode som er benyttet.</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9502</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FRESEMETODE</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="nedfrestSinusriller">
-        <annotation>
-          <documentation>13386: Nedfrest sinusriller</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13386</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="sinusriller">
-        <annotation>
-          <documentation>13387: Sinusriller</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13387</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="annet">
-        <annotation>
-          <documentation>13388: Annet</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13388</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="FresemetodeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeVegoppmerking_ForsterketType">
-    <annotation>
-      <documentation>9500: Angir hvilken type forsterket vegoppmerking det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9500</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKING_FORSTERKET</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeVegoppmerking_ForsterketEnumerationType nvdb:TypeVegoppmerking_ForsterketOtherType"/>
-  </simpleType>
-  <simpleType name="TypeVegoppmerking_ForsterketEnumerationType">
-    <annotation>
-      <documentation>9500: Angir hvilken type forsterket vegoppmerking det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9500</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGOPPMERKING_FORSTERKET</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="forsterketMidtoppmerking">
-        <annotation>
-          <documentation>13384: Forsterket midtoppmerking: Forsterket vegoppmerling mellom motgående kjørefelt der det ikke er fysisk midtdeler.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13384</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="forsterketOppmerkingMotMidtdeler">
-        <annotation>
-          <documentation>18276: Forsterket oppmerking mot midtdeler: Forsterket midtoppmerking inn mot midtdeler.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18276</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="forsterketKantoppmerking">
-        <annotation>
-          <documentation>13385: Forsterket kantoppmerking: forsterket oppmerking på vegkant</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13385</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeVegoppmerking_ForsterketOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Vegoppmerking_Forsterket" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Vegoppmerking_ForsterketType">
     <annotation>
       <documentation>836: Vegoppmerking som er forsterket med fresing i asfaltdekket. Fresingen skal gi vibrasjon i kjøretøyet</documentation>
@@ -119,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="type" type="nvdb:TypeVegoppmerking_ForsterketType">
+          <element name="type" type="gml:CodeType">
             <annotation>
               <documentation>9500: Angir hvilken type forsterket vegoppmerking det er tale om</documentation>
               <appinfo>
@@ -128,16 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="etableringsår" type="integer">
-            <annotation>
-              <documentation>9501: Angir hvilket år forsterket vegoppmerking ble etablert</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9501</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ETABLERINGSÅR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="fresemetode" type="nvdb:FresemetodeType">
+          <element minOccurs="0" name="fresemetode" type="gml:CodeType">
             <annotation>
               <documentation>9502: Angir fresemetode som er benyttet.</documentation>
               <appinfo>
@@ -156,12 +47,30 @@ Enhet: Centimeter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="etableringsår" type="integer">
+            <annotation>
+              <documentation>9501: Angir hvilket år forsterket vegoppmerking ble etablert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9501</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ETABLERINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
               <documentation>10411: Kan benyttes for å gi ytterligere informasjon om merkingen</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10411</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11159: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11159</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>

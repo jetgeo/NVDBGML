@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>783: sted hvor veginngrep hindrer fiskevandring, hindrer vannstrøm eller endrer strandsone</documentation>
   </annotation>
@@ -19,26 +19,45 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="typeHinder" type="nvdb:TypeHinderType">
+          <element minOccurs="0" name="typeInngrep" type="gml:CodeType">
             <annotation>
+              <documentation>8322: Angir hvilken type inngrep det er tale om</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8322</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEINNGREP</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hovedproblem" type="nvdb:HovedproblemType">
+          <element minOccurs="0" name="hovedproblem" type="gml:CodeType">
             <annotation>
-              <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.  (Ikke aktuelt for "fylling i strandsone" da problem gir seg selv)</documentation>
+              <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8323</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="vannforekomst_ID" type="string">
+            <annotation>
+              <documentation>11190: ID som refererer til vannforekomst i Vann-Nett Portal</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11190</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNFOREKOMST_ID</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vannforekosmtNavn" type="string">
+            <annotation>
+              <documentation>11191: Navn som refererer til vannforekomst i Vann-Nett Portal</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11191</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNFOREKOSMTNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="vassdragsnummer" type="string">
             <annotation>
-              <documentation>8324: Vasssdragsnummer på vassdrag som blir berørt.  Er nøkkel til kopling mot vanndata.</documentation>
+              <documentation>8324: ID som refererer til vassdragsnummer i NVE Nedbørsfelt (REGINE)</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8324</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VASSDRAGSNUMMER</taggedValue>
@@ -47,7 +66,7 @@
           </element>
           <element minOccurs="0" name="vassdragsnavn" type="string">
             <annotation>
-              <documentation>8325: Gir navn på vassdrag.</documentation>
+              <documentation>8325: Navn som refererer til vassdragsforekomst i NVE Nedbørsfelt (Regine)</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8325</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VASSDRAGSNAVN</taggedValue>
@@ -56,10 +75,28 @@
           </element>
           <element minOccurs="0" name="problembeskrivelse" type="string">
             <annotation>
-              <documentation>8326: Gir mulighet for å gi utfyllende beskrivelse av problemet</documentation>
+              <documentation>8326: Gir mulighet for å gi utfyllende beskrivelse av problemet og eventuelle tiltak som er gjort</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8326</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROBLEMBESKRIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naturmangfold" type="string">
+            <annotation>
+              <documentation>11195: Beskrivelse av det man kjenner til  angående fisk og evt elvemusling.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11195</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATURMANGFOLD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="spesielleForhold" type="string">
+            <annotation>
+              <documentation>11196: Relevant informasjon som kan være nyttig å kjenne til, som feks gyro, svært sårbare områder, naturreservat (i eller i umiddelbar nærhet) etc.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11196</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLEFORHOLD</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -78,6 +115,42 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8328</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REGISTRERTAV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="datoUtbedret" type="date">
+            <annotation>
+              <documentation>11192: Dato det sist ble gjort utbedring på stedet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11192</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOUTBEDRET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="utbedretAv" type="string">
+            <annotation>
+              <documentation>11193: Navn/signatur på de som foretok utbedring</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11193</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTBEDRETAV</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vedlikeholdOppfølging" type="string">
+            <annotation>
+              <documentation>11194: Kort om hva drift må gjøre av oppfølging</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11194</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDOPPFØLGING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="arkivnummer" type="string">
+            <annotation>
+              <documentation>11197: Referanse til sak i Mime</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11197</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -122,126 +195,4 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="HovedproblemType">
-    <annotation>
-      <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.  (Ikke aktuelt for "fylling i strandsone" da problem gir seg selv)</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8323</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:HovedproblemEnumerationType nvdb:HovedproblemOtherType"/>
-  </simpleType>
-  <simpleType name="HovedproblemEnumerationType">
-    <annotation>
-      <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.  (Ikke aktuelt for "fylling i strandsone" da problem gir seg selv)</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8323</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="bruddIVannstrøm">
-        <annotation>
-          <documentation>11271: Brudd i vannstrøm</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11271</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="strømningshastighet">
-        <annotation>
-          <documentation>11272: Strømningshastighet</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11272</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="dybde">
-        <annotation>
-          <documentation>11273: Dybde: For liten dybde.  Fisken kommer ikke videre.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11273</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bunnsubstrat">
-        <annotation>
-          <documentation>11274: Bunnsubstrat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11274</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="HovedproblemOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeHinderType">
-    <annotation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8322</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDER</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeHinderEnumerationType nvdb:TypeHinderOtherType"/>
-  </simpleType>
-  <simpleType name="TypeHinderEnumerationType">
-    <annotation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8322</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDER</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="stikkrenneKulvert">
-        <annotation>
-          <documentation>11266: Stikkrenne/kulvert</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11266</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bekkelukking">
-        <annotation>
-          <documentation>11267: Bekkelukking</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11267</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bru">
-        <annotation>
-          <documentation>11268: Bru</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11268</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fylling">
-        <annotation>
-          <documentation>11269: Fylling: Fyllinger kan for eksempel stenge fjordarmer ved at vi anlegger fyllinger med for små kulverter.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11269</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="fyllingIStrandsoneOver250M">
-        <annotation>
-          <documentation>11270: Fylling i strandsone &gt; 250 m: Tilfeller hvor fylling er i konflikt med strandsone over strekning på minst 250 meter.  Det regnes som konflikt når avstand fra fyllingsfot til vann er mindre enn 30 meter.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11270</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeHinderOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>

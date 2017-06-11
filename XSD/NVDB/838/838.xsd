@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>838: Vegbredde beregnet på basis av grunnlagsdata, f.eks FKB, dekkestilstandsdata etc . Merknad: Disse dataene er i første omgang tiltenkt bruksområder hvor det ikke stilles veldig nøyaktige krav til breddenøyaktighet, bla analyser knyttet til NTP.</documentation>
   </annotation>
@@ -6,56 +6,6 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="GrunnlagType">
-    <annotation>
-      <documentation>9534: Angir hvilke kilde dataene kommer fra</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9534</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNLAG</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:GrunnlagEnumerationType nvdb:GrunnlagOtherType"/>
-  </simpleType>
-  <simpleType name="GrunnlagEnumerationType">
-    <annotation>
-      <documentation>9534: Angir hvilke kilde dataene kommer fra</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9534</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNLAG</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="FKB">
-        <annotation>
-          <documentation>13456: FKB</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13456</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="laserdata_Dekketilstand">
-        <annotation>
-          <documentation>13457: Laserdata, dekketilstand</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13457</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="manuellMåling">
-        <annotation>
-          <documentation>13458: Manuell måling</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13458</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="GrunnlagOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Vegbredde_Beregnet" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Vegbredde_BeregnetType">
     <annotation>
       <documentation>838: Vegbredde beregnet på basis av grunnlagsdata, f.eks FKB, dekkestilstandsdata etc . Merknad: Disse dataene er i første omgang tiltenkt bruksområder hvor det ikke stilles veldig nøyaktige krav til breddenøyaktighet, bla analyser knyttet til NTP.</documentation>
@@ -159,7 +109,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="grunnlag" type="nvdb:GrunnlagType">
+          <element minOccurs="0" name="grunnlag" type="gml:CodeType">
             <annotation>
               <documentation>9534: Angir hvilke kilde dataene kommer fra</documentation>
               <appinfo>

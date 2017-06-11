@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
   <annotation>
     <documentation>591: Strekning i vegnettet hvor kjøretøy kan komme i konflikt med overliggende hinder</documentation>
   </annotation>
@@ -29,7 +29,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="typeHinderHøydebegrensning" type="nvdb:TypeHinderHøydebegrensningType">
+          <element name="typeHinderHøydebegrensning" type="gml:CodeType">
             <annotation>
               <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
               <appinfo>
@@ -106,7 +106,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="målemetodeHøydebegrensning" type="nvdb:MålemetodeHøydebegrensningType">
+          <element minOccurs="0" name="målemetodeHøydebegrensning" type="gml:CodeType">
             <annotation>
               <documentation>9490: Angir målemetode som er brukt for å måle høyder</documentation>
               <appinfo>
@@ -121,6 +121,15 @@ Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9489</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="prosjektreferanse" type="string">
+            <annotation>
+              <documentation>11149: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11149</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -164,176 +173,4 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="MålemetodeHøydebegrensningType">
-    <annotation>
-      <documentation>9490: Angir målemetode som er brukt for å måle høyder</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9490</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEHØYDEBEGRENSNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:MålemetodeHøydebegrensningEnumerationType nvdb:MålemetodeHøydebegrensningOtherType"/>
-  </simpleType>
-  <simpleType name="MålemetodeHøydebegrensningEnumerationType">
-    <annotation>
-      <documentation>9490: Angir målemetode som er brukt for å måle høyder</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9490</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODEHØYDEBEGRENSNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="laser">
-        <annotation>
-          <documentation>13366: Laser</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13366</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="målestav">
-        <annotation>
-          <documentation>13367: Målestav</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13367</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="scanningAvHvelv">
-        <annotation>
-          <documentation>13368: Scanning av hvelv</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13368</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="teoretiskGrunnlag">
-        <annotation>
-          <documentation>17875: Teoretisk grunnlag: Høyder er beregnet ut fra teoretisk grunnlag, f.eks digital 3D-modell</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17875</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="MålemetodeHøydebegrensningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeHinderHøydebegrensningType">
-    <annotation>
-      <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5270</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <union memberTypes="nvdb:TypeHinderHøydebegrensningEnumerationType nvdb:TypeHinderHøydebegrensningOtherType"/>
-  </simpleType>
-  <simpleType name="TypeHinderHøydebegrensningEnumerationType">
-    <annotation>
-      <documentation>5270: Angir hvilken type hinder det er tale om</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5270</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
-      </appinfo>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="undergangBru">
-        <annotation>
-          <documentation>8151: Undergang/Bru</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8151</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skredoverbygg">
-        <annotation>
-          <documentation>8155: Skredoverbygg</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bru_Stag">
-        <annotation>
-          <documentation>8149: Bru-stag</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8149</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kjøreledning">
-        <annotation>
-          <documentation>7280: Kjøreledning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7280</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="brukabler">
-        <annotation>
-          <documentation>8168: Brukabler</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8168</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="skiltportalWire">
-        <annotation>
-          <documentation>7284: Skiltportal/wire</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7284</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="ferjesamband">
-        <annotation>
-          <documentation>8174: Ferjesamband: Høydebegrensing på standard ferje på gitt ferjesamband</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8174</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="bygning">
-        <annotation>
-          <documentation>8175: Bygning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8175</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="kabel">
-        <annotation>
-          <documentation>7282: Kabel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7282</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="tunnel">
-        <annotation>
-          <documentation>8150: Tunnel</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8150</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="annetHinder">
-        <annotation>
-          <documentation>8166: Annet hinder: Type høydebegrensing som ikke dekkes av de andre verdiene.</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8166</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-    </restriction>
-  </simpleType>
-  <simpleType name="TypeHinderHøydebegrensningOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
 </schema>
