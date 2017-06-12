@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.08">
   <annotation>
     <documentation>446: Arkivert informasjon, kan f.eks være bilder, tegninger, tekniske beskrivelser, mm</documentation>
   </annotation>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeDokumentasjonType">
             <annotation>
               <documentation>2361: Angir hvilken type dokumentasjon det er tale om</documentation>
               <appinfo>
@@ -142,4 +142,62 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeDokumentasjonType">
+    <annotation>
+      <documentation>2361: Angir hvilken type dokumentasjon det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2361</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDOKUMENTASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeDokumentasjonEnumerationType nvdb:TypeDokumentasjonOtherType"/>
+  </simpleType>
+  <simpleType name="TypeDokumentasjonEnumerationType">
+    <annotation>
+      <documentation>2361: Angir hvilken type dokumentasjon det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2361</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDOKUMENTASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bilde">
+        <annotation>
+          <documentation>4254: Bilde: F.eks foto</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4254</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tegning">
+        <annotation>
+          <documentation>4255: Tegning: F.eks prosjekteringstegninger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4255</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dokument">
+        <annotation>
+          <documentation>10076: Dokument: F.eks word-dokument, o.l</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10076</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="video">
+        <annotation>
+          <documentation>10077: Video</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10077</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeDokumentasjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>
