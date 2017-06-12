@@ -1,6 +1,8 @@
 option explicit
 
 !INC Local Scripts.EAConstants-VBScript
+!INC NVDB._felles
+!INC NVDB._parametre
 
 ' Script Name: Generer applikasjonsskjema pr vegobjekttype
 ' Author: Knut Jetlund
@@ -9,9 +11,7 @@ option explicit
 '
 ' NOTE: Requires a package to be selected in the Project Browser
 ' 
-const svnSOSINVDB = "C:\DATA\Standardisering\SOSI\SOSI Modell\Andre viktige komponenter\NVDB\NVDB Datakatalogen versjon 2.08"
 const ns = "https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB"
-const ver = "2.08"
 
 sub main()
 	' Show and clear the script output window
@@ -101,9 +101,9 @@ sub main()
 						set tagVal = Nothing
 						set tagVal = scPck.Element.TaggedValues.GetByName("version")
 						if not tagVal is Nothing then
-							tagVal.Value = ver
+							tagVal.Value = FC_version
 						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("version", ver)
+							set tagVal = scPck.Element.TaggedValues.AddNew("version", FC_version)
 						End if
 						tagVal.Update()
 
@@ -134,6 +134,7 @@ sub main()
 						End if
 						tagVal.Update()
 						scMod.Packages.Refresh
+
 					
 						'Importerer SOSI Fellesegenskaper-pakken
 						Repository.WriteOutput "Script", Now & " Importerer SOSI Fellesegenskaper-pakken", 0 
@@ -148,7 +149,7 @@ sub main()
 						if not pkSOSIfelles is nothing then
 							Repository.WriteOutput "Script", Now & " Pakken SOSI Fellesegenskaper er funnet i prosjektet (" & pkSOSIfelles.PackageGUID & ")", 0 
 							'Setter GML-tagger på SOSI Fellesegenskaper
-							set tagVal = pkSOSIfelles.Element.TaggedValues.AddNew("version", ver)
+							set tagVal = pkSOSIfelles.Element.TaggedValues.AddNew("version", FC_version)
 							tagVal.Update
 							set tagVal = pkSOSIfelles.Element.TaggedValues.AddNew("xmlns", "nvdb")
 							tagVal.Update
@@ -165,7 +166,7 @@ sub main()
 
 						'Importerer aktuell objekttype sin pakke
 						Repository.WriteOutput "Script", Now & " Importerer filen " & id & ".xml", 0 
-						pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDB & "\" & id & ".xml", 1,0
+						pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDBPath & FC_version & "\" & id & ".xml", 1,0
 					
 						'Løkke for assosiasjoner
 						dim con as EA.Connector
@@ -176,7 +177,7 @@ sub main()
 								if tagVal.Value <> id then
 									'Importer assosiert pakke
 									Repository.WriteOutput "Script", Now & " Importerer filen " & tagVal.Value & ".xml", 0 
-									pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDB & "\" & tagVal.Value & ".xml", 1,0
+									pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDBPath & FC_version & "\" & tagVal.Value & ".xml", 1,0
 								end if
 							end if
 							set tagVal = nothing
@@ -185,7 +186,7 @@ sub main()
 								if tagVal.Value <> id then
 									'Importer assosiert pakke
 									Repository.WriteOutput "Script", Now & " Importerer filen " & tagVal.Value & ".xml", 0 
-									pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDB & "\" & tagVal.Value & ".xml", 1,0
+									pI.ImportPackageXMI scPck.PackageGUID, svnSOSINVDBPath & FC_version & "\" & tagVal.Value & ".xml", 1,0
 								end if
 							end if
 						next
