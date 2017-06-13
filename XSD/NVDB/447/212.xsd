@@ -6,6 +6,254 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EierVifteVentilatorType">
+    <annotation>
+      <documentation>10992: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10992</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierVifteVentilatorEnumerationType nvdb:EierVifteVentilatorOtherType"/>
+  </simpleType>
+  <simpleType name="EierVifteVentilatorEnumerationType">
+    <annotation>
+      <documentation>10992: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10992</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>18398: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18398</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>18399: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18399</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>18400: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18400</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>18401: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18401</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>18402: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18402</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierVifteVentilatorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KorrosjonsbeskyttelseType">
+    <annotation>
+      <documentation>4022: Angir hvilken type korrosjonsbeskyttelse som er benyttet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4022</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KORROSJONSBESKYTTELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KorrosjonsbeskyttelseEnumerationType nvdb:KorrosjonsbeskyttelseOtherType"/>
+  </simpleType>
+  <simpleType name="KorrosjonsbeskyttelseEnumerationType">
+    <annotation>
+      <documentation>4022: Angir hvilken type korrosjonsbeskyttelse som er benyttet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4022</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KORROSJONSBESKYTTELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="varmforsinket">
+        <annotation>
+          <documentation>5053: Varmforsinket</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5053</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pulverlakkert">
+        <annotation>
+          <documentation>5054: Pulverlakkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5054</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeBehovForKorrosjonsbeskyttelse">
+        <annotation>
+          <documentation>13785: Ikke behov for korrosjonsbeskyttelse: Angis dersom vifte/ventilator er av materiale som ikke trenger korrosjonsbeskyttelse, f.eks syrefast stål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13785</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KorrosjonsbeskyttelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVifteVentilatorType">
+    <annotation>
+      <documentation>1205: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1205</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVifteVentilatorEnumerationType nvdb:TypeVifteVentilatorOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVifteVentilatorEnumerationType">
+    <annotation>
+      <documentation>1205: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1205</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="symmetrisk">
+        <annotation>
+          <documentation>4866: Symmetrisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4866</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="asymmetrisk">
+        <annotation>
+          <documentation>4867: Asymmetrisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4867</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="asymmetrisk_70_30">
+        <annotation>
+          <documentation>4868: Asymmetrisk, 70/30</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4868</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="asymmetrisk_40_60">
+        <annotation>
+          <documentation>4869: Asymmetrisk, 40/60</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4869</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sjaktventilator">
+        <annotation>
+          <documentation>7453: Sjaktventilator</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7453</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="avtrekksvifte">
+        <annotation>
+          <documentation>10246: Avtrekksvifte: Mindre avtrekksvifte til bruk i bygninger eller fjellrom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10246</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVifteVentilatorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligVifteVentilatorType">
+    <annotation>
+      <documentation>8079: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8079</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligVifteVentilatorEnumerationType nvdb:VedlikeholdsansvarligVifteVentilatorOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligVifteVentilatorEnumerationType">
+    <annotation>
+      <documentation>8079: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8079</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGVIFTEVENTILATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10473: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10473</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10551: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10551</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10629: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10629</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17728: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17728</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligVifteVentilatorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="VifteVentilator" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VifteVentilatorType">
     <annotation>
       <documentation>212: Vifte for å ventilere tunneler</documentation>
@@ -29,7 +277,7 @@ Enhet: Kilowatt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeVifteVentilatorType">
             <annotation>
               <documentation>1205: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -38,7 +286,7 @@ Enhet: Kilowatt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="korrosjonsbeskyttelse" type="gml:CodeType">
+          <element minOccurs="0" name="korrosjonsbeskyttelse" type="nvdb:KorrosjonsbeskyttelseType">
             <annotation>
               <documentation>4022: Angir hvilken type korrosjonsbeskyttelse som er benyttet.</documentation>
               <appinfo>
@@ -156,7 +404,7 @@ Enhet: Volt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="gml:CodeType">
+          <element minOccurs="0" name="eier" type="nvdb:EierVifteVentilatorType">
             <annotation>
               <documentation>10992: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -165,7 +413,7 @@ Enhet: Volt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligVifteVentilatorType">
             <annotation>
               <documentation>8079: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>

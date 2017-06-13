@@ -6,6 +6,56 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="TypeProsjektType">
+    <annotation>
+      <documentation>1111: Angir hvilken type prosjekt dette er</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1111</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEPROSJEKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeProsjektEnumerationType nvdb:TypeProsjektOtherType"/>
+  </simpleType>
+  <simpleType name="TypeProsjektEnumerationType">
+    <annotation>
+      <documentation>1111: Angir hvilken type prosjekt dette er</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1111</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEPROSJEKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="nyanlegg">
+        <annotation>
+          <documentation>3238: Nyanlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3238</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utbedringAvVeg">
+        <annotation>
+          <documentation>3239: Utbedring av veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3239</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="forsterkningsprosjekt">
+        <annotation>
+          <documentation>11573: Forsterkningsprosjekt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11573</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeProsjektOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Veganlegg" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VeganleggType">
     <annotation>
       <documentation>30: Omfatter alle vegområder/traseer og tilhørende system som skal utføres i et vegprosjekt</documentation>
@@ -28,7 +78,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="typeProsjekt" type="gml:CodeType">
+          <element minOccurs="0" name="typeProsjekt" type="nvdb:TypeProsjektType">
             <annotation>
               <documentation>1111: Angir hvilken type prosjekt dette er</documentation>
               <appinfo>

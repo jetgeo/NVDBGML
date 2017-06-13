@@ -6,6 +6,48 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BebyggelsestypeType">
+    <annotation>
+      <documentation>5177: Angir hvilken type bebyggelse som er mest karakteristisk.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5177</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEBYGGELSESTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BebyggelsestypeEnumerationType nvdb:BebyggelsestypeOtherType"/>
+  </simpleType>
+  <simpleType name="BebyggelsestypeEnumerationType">
+    <annotation>
+      <documentation>5177: Angir hvilken type bebyggelse som er mest karakteristisk.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5177</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BEBYGGELSESTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bolig">
+        <annotation>
+          <documentation>7036: Bolig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7036</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="industri">
+        <annotation>
+          <documentation>7037: Industri</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7037</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BebyggelsestypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Standardklasse" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StandardklasseType">
     <annotation>
       <documentation>576: Angir hvilken standardklasse vegen tilhører</documentation>
@@ -19,7 +61,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="standardklasse" type="gml:CodeType">
+          <element minOccurs="0" name="standardklasse" type="nvdb:StandardklasseStandardklasseType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5176</taggedValue>
@@ -27,7 +69,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bebyggelsestype" type="gml:CodeType">
+          <element minOccurs="0" name="bebyggelsestype" type="nvdb:BebyggelsestypeType">
             <annotation>
               <documentation>5177: Angir hvilken type bebyggelse som er mest karakteristisk.</documentation>
               <appinfo>
@@ -68,4 +110,124 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="StandardklasseStandardklasseType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5176</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTANDARDKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StandardklasseStandardklasseEnumerationType nvdb:StandardklasseStandardklasseOtherType"/>
+  </simpleType>
+  <simpleType name="StandardklasseStandardklasseEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5176</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STANDARDKLASSESTANDARDKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hovedveg_UbebygdSpredtBebyggelse">
+        <annotation>
+          <documentation>7024: Hovedveg, ubebygd/spredt bebyggelse: Hovedveg i ubebygd eller spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7024</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hovedveg_MiddelsTettBebyggelse">
+        <annotation>
+          <documentation>7025: Hovedveg, middels tett bebyggelse: Hovedveg i middels tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7025</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hovedveg_TettBebyggelse">
+        <annotation>
+          <documentation>7026: Hovedveg, tett bebyggelse: Hovedveg i tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7026</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="samleveg_UbebygdSpredtBebyggelse">
+        <annotation>
+          <documentation>7027: Samleveg, ubebygd/spredt bebyggelse: Samleveg i ubebygd eller spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7027</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="samleveg_MiddelsTettBebyggelse">
+        <annotation>
+          <documentation>7028: Samleveg, middels tett bebyggelse: Samleveg i middels tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7028</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="samlegate_TettBebyggelse">
+        <annotation>
+          <documentation>7029: Samlegate, tett bebyggelse: Samleveg i tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7029</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="atkomstveg_UbebygdSpredtBebyggelse">
+        <annotation>
+          <documentation>7030: Atkomstveg, ubebygd/spredt bebyggelse: Atkomstveg i ubebygd eller spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7030</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="atkomstveg_MiddelsTettBebyggelse">
+        <annotation>
+          <documentation>7031: Atkomstveg, middels tett bebyggelse: Atkomstveg i middels tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7031</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="atkomstgate_TettBebyggelse">
+        <annotation>
+          <documentation>7032: Atkomstgate, tett bebyggelse: Atkomstveg i tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7032</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangSykkelveg_UbebygdSpredtBebyggelse">
+        <annotation>
+          <documentation>7033: Gang-/sykkelveg, ubebygd/spredt bebyggelse: Gang-/sykkelveg i ubebygd eller spredt bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7033</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangSykkelveg_MiddelsTettBebyggelse">
+        <annotation>
+          <documentation>7034: Gang-/sykkelveg, middels tett bebyggelse: Gang-/sykkelveg i middels tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7034</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangSykkelveg_TettBebyggelse">
+        <annotation>
+          <documentation>7035: Gang-/sykkelveg, tett bebyggelse: Gang-/sykkelveg i tett bebyggelse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7035</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StandardklasseStandardklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

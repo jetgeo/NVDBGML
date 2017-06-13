@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="tilstand" type="gml:CodeType">
+          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkade_StrekningType">
             <annotation>
               <documentation>2267: Angir tilstand til vegobjektet</documentation>
               <appinfo>
@@ -46,7 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltak" type="gml:CodeType">
+          <element minOccurs="0" name="tiltak" type="nvdb:TiltakTilstandSkade_StrekningType">
             <annotation>
               <documentation>2063: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
               <appinfo>
@@ -55,7 +55,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltakNår" type="gml:CodeType">
+          <element minOccurs="0" name="tiltakNår" type="nvdb:TiltakNårTilstandSkade_StrekningType">
             <annotation>
               <documentation>2113: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
               <appinfo>
@@ -123,4 +123,202 @@ Enhet: Prosent</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TilstandTilstandSkade_StrekningType">
+    <annotation>
+      <documentation>2267: Angir tilstand til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2267</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TilstandTilstandSkade_StrekningEnumerationType nvdb:TilstandTilstandSkade_StrekningOtherType"/>
+  </simpleType>
+  <simpleType name="TilstandTilstandSkade_StrekningEnumerationType">
+    <annotation>
+      <documentation>2267: Angir tilstand til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2267</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ok">
+        <annotation>
+          <documentation>4100: Ok</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4100</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tiltaksbehov">
+        <annotation>
+          <documentation>4101: Tiltaksbehov</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4101</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mangler">
+        <annotation>
+          <documentation>4102: Mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4102</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="funksjonell">
+        <annotation>
+          <documentation>4628: Funksjonell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4628</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TilstandTilstandSkade_StrekningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakNårTilstandSkade_StrekningType">
+    <annotation>
+      <documentation>2113: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2113</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TiltakNårTilstandSkade_StrekningEnumerationType nvdb:TiltakNårTilstandSkade_StrekningOtherType"/>
+  </simpleType>
+  <simpleType name="TiltakNårTilstandSkade_StrekningEnumerationType">
+    <annotation>
+      <documentation>2113: Angir tidsperiode fra skade er registrert til tiltaket bør være utført.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2113</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKNÅRTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="straks">
+        <annotation>
+          <documentation>3864: Straks</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3864</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="14Dager">
+        <annotation>
+          <documentation>3866: 14 dager</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3866</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3Mnd">
+        <annotation>
+          <documentation>3868: 3 mnd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3868</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1År">
+        <annotation>
+          <documentation>3869: 1 år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3869</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1til2År">
+        <annotation>
+          <documentation>3871: 1-2 år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3871</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="over2år">
+        <annotation>
+          <documentation>3874: &gt; 2år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3874</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påSikt">
+        <annotation>
+          <documentation>3876: på sikt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3876</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakNårTilstandSkade_StrekningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakTilstandSkade_StrekningType">
+    <annotation>
+      <documentation>2063: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2063</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TiltakTilstandSkade_StrekningEnumerationType nvdb:TiltakTilstandSkade_StrekningOtherType"/>
+  </simpleType>
+  <simpleType name="TiltakTilstandSkade_StrekningEnumerationType">
+    <annotation>
+      <documentation>2063: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2063</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAKTILSTANDSKADE_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="skiftes">
+        <annotation>
+          <documentation>3490: Skiftes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3490</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjernes">
+        <annotation>
+          <documentation>3711: Fjernes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3711</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utbedresPåStedet">
+        <annotation>
+          <documentation>3862: Utbedres på stedet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3862</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ryddes">
+        <annotation>
+          <documentation>5741: Ryddes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5741</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakTilstandSkade_StrekningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

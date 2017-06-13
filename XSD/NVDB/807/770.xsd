@@ -6,6 +6,46 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DriftsstatusFerjesambandType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9189</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUSFERJESAMBAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DriftsstatusFerjesambandEnumerationType nvdb:DriftsstatusFerjesambandOtherType"/>
+  </simpleType>
+  <simpleType name="DriftsstatusFerjesambandEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9189</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSSTATUSFERJESAMBAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="trafikkeres">
+        <annotation>
+          <documentation>12858: Trafikkeres</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12858</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nedlagt">
+        <annotation>
+          <documentation>12859: Nedlagt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12859</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DriftsstatusFerjesambandOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Ferjesamband" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FerjesambandType">
     <annotation>
       <documentation>770: Overfart som trafikkeres av bilferje.  Kan ha to eller flere anløpssteder.(uoff)</documentation>
@@ -28,7 +68,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="sambandstype" type="gml:CodeType">
+          <element minOccurs="0" name="sambandstype" type="nvdb:SambandstypeType">
             <annotation>
               <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
               <appinfo>
@@ -37,7 +77,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="driftsstatus" type="gml:CodeType">
+          <element minOccurs="0" name="driftsstatus" type="nvdb:DriftsstatusFerjesambandType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9189</taggedValue>
@@ -82,4 +122,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="SambandstypeType">
+    <annotation>
+      <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMBANDSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SambandstypeEnumerationType nvdb:SambandstypeOtherType"/>
+  </simpleType>
+  <simpleType name="SambandstypeEnumerationType">
+    <annotation>
+      <documentation>10954: Angir hvilken type samband det er, dvs om det er på stat-, fylke- eller kommunenivå.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10954</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SAMBANDSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="riksvegferjesamband">
+        <annotation>
+          <documentation>18304: Riksvegferjesamband: Samband som administreres av stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18304</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkesferjesamband">
+        <annotation>
+          <documentation>18305: Fylkesferjesamband: Samband som administreres av fylkeskummune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18305</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommuneferjesamband">
+        <annotation>
+          <documentation>18306: Kommuneferjesamband: Ferjesamband som administreres av kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18306</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SambandstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

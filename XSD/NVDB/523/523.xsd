@@ -129,4 +129,46 @@ Enhet: Millimeter x 100</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="KvalitetJevnhetsTeksturmålingType">
+    <annotation>
+      <documentation>4457: Angir om kvalitet er ok eller ikke ok</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4457</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETJEVNHETSTEKSTURMÅLING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KvalitetJevnhetsTeksturmålingEnumerationType nvdb:KvalitetJevnhetsTeksturmålingOtherType"/>
+  </simpleType>
+  <simpleType name="KvalitetJevnhetsTeksturmålingEnumerationType">
+    <annotation>
+      <documentation>4457: Angir om kvalitet er ok eller ikke ok</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4457</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KVALITETJEVNHETSTEKSTURMÅLING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ok">
+        <annotation>
+          <documentation>5192: Ok</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5192</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeOk">
+        <annotation>
+          <documentation>5193: Ikke ok</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5193</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KvalitetJevnhetsTeksturmålingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

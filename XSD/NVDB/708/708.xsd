@@ -3,6 +3,86 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="LengdeklasseType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6857</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LengdeklasseEnumerationType nvdb:LengdeklasseOtherType"/>
+  </simpleType>
+  <simpleType name="LengdeklasseEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6857</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="alleKjøretøy">
+        <annotation>
+          <documentation>9045: Alle kjøretøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9045</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kortereEnn5_6Meter">
+        <annotation>
+          <documentation>9046: Kortere enn 5,6 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9046</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="5_6_7_5Meter">
+        <annotation>
+          <documentation>9047: 5,6 - 7,5 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9047</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="7_6_12_4Meter">
+        <annotation>
+          <documentation>9048: 7,6 - 12,4 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9048</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="12_5_15_9Meter">
+        <annotation>
+          <documentation>9049: 12,5 - 15,9 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9049</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lengreEnn15_9Meter">
+        <annotation>
+          <documentation>9050: Lengre enn 15,9 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9050</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="langeKjøretøy">
+        <annotation>
+          <documentation>9967: Lange kjøretøy: Kjøretøy &gt;5.5 meter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9967</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LengdeklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="TrafikkdataITellepunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrafikkdataITellepunktType">
     <annotation>
       <appinfo>
@@ -39,7 +119,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="lengdeklasse" type="gml:CodeType">
+          <element minOccurs="0" name="lengdeklasse" type="nvdb:LengdeklasseType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6857</taggedValue>

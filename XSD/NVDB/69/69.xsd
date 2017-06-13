@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="typeTverrsnitt" type="gml:CodeType">
+          <element minOccurs="0" name="typeTverrsnitt" type="nvdb:TypeTverrsnittType">
             <annotation>
               <documentation>1131: Angir hvilken type tverrsnitt tunnelportalen har</documentation>
               <appinfo>
@@ -112,17 +112,17 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -144,4 +144,46 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeTverrsnittType">
+    <annotation>
+      <documentation>1131: Angir hvilken type tverrsnitt tunnelportalen har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1131</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETVERRSNITT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeTverrsnittEnumerationType nvdb:TypeTverrsnittOtherType"/>
+  </simpleType>
+  <simpleType name="TypeTverrsnittEnumerationType">
+    <annotation>
+      <documentation>1131: Angir hvilken type tverrsnitt tunnelportalen har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1131</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETVERRSNITT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="rektangulært">
+        <annotation>
+          <documentation>3420: Rektangulært: Profil i utløp av portal har en rektangulær form. Mer detaljer om utforming kan legges på tilleggsinformasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3420</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sirkulærtBuet">
+        <annotation>
+          <documentation>3423: Sirkulært/buet: Profil i utløp av portal har en rund form. Mer detaljer om utforming kan legges på tilleggsinformasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3423</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeTverrsnittOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

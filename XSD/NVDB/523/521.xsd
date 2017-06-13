@@ -46,7 +46,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="formål" type="gml:CodeType">
+          <element name="formål" type="nvdb:FormålType">
             <annotation>
               <documentation>4421: Angir formål med måling</documentation>
               <appinfo>
@@ -64,15 +64,6 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="målebil" type="string">
-            <annotation>
-              <documentation>4423: Angir hvilken målebil som var brukt på oppdraget</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4423</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEBIL</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="utstyr" type="string">
             <annotation>
               <documentation>4428: Angir utstyr.</documentation>
@@ -82,7 +73,16 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="spor_Bjelke" type="gml:CodeType">
+          <element minOccurs="0" name="målebil" type="string">
+            <annotation>
+              <documentation>4423: Angir hvilken målebil som var brukt på oppdraget</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4423</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEBIL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="spor_Bjelke" type="nvdb:Spor_BjelkeType">
             <annotation>
               <documentation>4418: Angir plassering av målebjelke i tverrprofilet</documentation>
               <appinfo>
@@ -91,7 +91,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="spor_Laser" type="gml:CodeType">
+          <element minOccurs="0" name="spor_Laser" type="nvdb:Spor_LaserType">
             <annotation>
               <documentation>4419: Angir plassering av laser i tverrprofilet</documentation>
               <appinfo>
@@ -100,7 +100,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="stillbilder" type="gml:CodeType">
+          <element minOccurs="0" name="stillbilder" type="nvdb:StillbilderType">
             <annotation>
               <documentation>4422: Angir om det blir tatt stillbilder eller ikke</documentation>
               <appinfo>
@@ -293,4 +293,260 @@ Enhet: Stykker</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="FormålType">
+    <annotation>
+      <documentation>4421: Angir formål med måling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FormålEnumerationType nvdb:FormålOtherType"/>
+  </simpleType>
+  <simpleType name="FormålEnumerationType">
+    <annotation>
+      <documentation>4421: Angir formål med måling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="G">
+        <annotation>
+          <documentation>5182: Generelle målinger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5182</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="R">
+        <annotation>
+          <documentation>5183: Referansemåling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5183</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="F">
+        <annotation>
+          <documentation>5184: Forsøksmålinger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5184</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="T">
+        <annotation>
+          <documentation>9723: Teleløsning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9723</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>10118: Initiell-1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10118</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>10119: Initiell-2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10119</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>10120: Initiell-3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10120</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="a">
+        <annotation>
+          <documentation>13048: Måleserie a</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13048</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="b">
+        <annotation>
+          <documentation>13049: Måleserie b</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13049</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="c">
+        <annotation>
+          <documentation>13050: Måleserie c</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13050</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="d">
+        <annotation>
+          <documentation>13051: Måleserie d</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13051</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FormålOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Spor_BjelkeType">
+    <annotation>
+      <documentation>4418: Angir plassering av målebjelke i tverrprofilet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4418</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR_BJELKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Spor_BjelkeEnumerationType nvdb:Spor_BjelkeOtherType"/>
+  </simpleType>
+  <simpleType name="Spor_BjelkeEnumerationType">
+    <annotation>
+      <documentation>4418: Angir plassering av målebjelke i tverrprofilet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4418</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR_BJELKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="indre">
+        <annotation>
+          <documentation>5175: Indre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5175</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mellom">
+        <annotation>
+          <documentation>5176: Mellom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5176</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ytre">
+        <annotation>
+          <documentation>5177: Ytre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5177</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Spor_BjelkeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Spor_LaserType">
+    <annotation>
+      <documentation>4419: Angir plassering av laser i tverrprofilet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4419</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR_LASER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Spor_LaserEnumerationType nvdb:Spor_LaserOtherType"/>
+  </simpleType>
+  <simpleType name="Spor_LaserEnumerationType">
+    <annotation>
+      <documentation>4419: Angir plassering av laser i tverrprofilet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4419</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR_LASER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="indre">
+        <annotation>
+          <documentation>5179: Indre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5179</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mellom">
+        <annotation>
+          <documentation>5180: Mellom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5180</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ytre">
+        <annotation>
+          <documentation>5181: Ytre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5181</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Spor_LaserOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StillbilderType">
+    <annotation>
+      <documentation>4422: Angir om det blir tatt stillbilder eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STILLBILDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StillbilderEnumerationType nvdb:StillbilderOtherType"/>
+  </simpleType>
+  <simpleType name="StillbilderEnumerationType">
+    <annotation>
+      <documentation>4422: Angir om det blir tatt stillbilder eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STILLBILDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5185: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5185</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5186: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5186</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StillbilderOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

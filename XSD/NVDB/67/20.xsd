@@ -29,7 +29,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeKantstolperRefleksType">
             <annotation>
               <documentation>1102: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -75,7 +75,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materialtype" type="gml:CodeType">
+          <element minOccurs="0" name="materialtype" type="nvdb:MaterialtypeKantstolperRefleksType">
             <annotation>
               <documentation>1400: Angir primær materialtype for vegobjektet.  Stolpemateriale</documentation>
               <appinfo>
@@ -89,17 +89,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -114,4 +114,112 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="MaterialtypeKantstolperRefleksType">
+    <annotation>
+      <documentation>1400: Angir primær materialtype for vegobjektet.  Stolpemateriale</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1400</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEKANTSTOLPERREFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MaterialtypeKantstolperRefleksEnumerationType nvdb:MaterialtypeKantstolperRefleksOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialtypeKantstolperRefleksEnumerationType">
+    <annotation>
+      <documentation>1400: Angir primær materialtype for vegobjektet.  Stolpemateriale</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1400</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEKANTSTOLPERREFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tre">
+        <annotation>
+          <documentation>2187: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2187</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>2267: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2267</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall">
+        <annotation>
+          <documentation>3286: Metall</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3286</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialtypeKantstolperRefleksOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeKantstolperRefleksType">
+    <annotation>
+      <documentation>1102: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1102</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKANTSTOLPERREFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeKantstolperRefleksEnumerationType nvdb:TypeKantstolperRefleksOtherType"/>
+  </simpleType>
+  <simpleType name="TypeKantstolperRefleksEnumerationType">
+    <annotation>
+      <documentation>1102: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1102</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEKANTSTOLPERREFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="refleksPåStolper">
+        <annotation>
+          <documentation>2524: Refleks på stolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2524</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="refleksPåRekkverksstolper">
+        <annotation>
+          <documentation>2525: Refleks på rekkverksstolper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2525</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flexiMark">
+        <annotation>
+          <documentation>11798: FlexiMark: Trafikkskiller med refelks.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11798</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="overhengendeReflekssylinder">
+        <annotation>
+          <documentation>11237: Overhengende reflekssylinder: Plastsylindrer med refleks som henger i flukt med vegens kantlinjer.  Benyttes først og fremst i tunneler.  Underkant plastsylinder skal flukte med skiltet høyde.  Typisk dimensjon: 40mm i diameter, lengde 200 mm.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11237</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeKantstolperRefleksOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

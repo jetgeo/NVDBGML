@@ -6,6 +6,876 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruddhendelseType">
+    <annotation>
+      <documentation>11012: Angir type bruddhendelse.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11012</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUDDHENDELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruddhendelseEnumerationType nvdb:BruddhendelseOtherType"/>
+  </simpleType>
+  <simpleType name="BruddhendelseEnumerationType">
+    <annotation>
+      <documentation>11012: Angir type bruddhendelse.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11012</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUDDHENDELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="vegStengt">
+        <annotation>
+          <documentation>18469: Veg stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18469</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnelStengt">
+        <annotation>
+          <documentation>18470: Tunnel stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18470</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bruStengt">
+        <annotation>
+          <documentation>18471: Bru stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18471</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ferjeFerjekaiStengt">
+        <annotation>
+          <documentation>18472: Ferje/ferjekai stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18472</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruddhendelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruddårsakType">
+    <annotation>
+      <documentation>10749: Angir hva som er årsak til bruddhendelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10749</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUDDÅRSAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruddårsakEnumerationType nvdb:BruddårsakOtherType"/>
+  </simpleType>
+  <simpleType name="BruddårsakEnumerationType">
+    <annotation>
+      <documentation>10749: Angir hva som er årsak til bruddhendelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10749</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUDDÅRSAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bilberging_Vogntog">
+        <annotation>
+          <documentation>17410: Bilberging (Vogntog): Brukes i Veg stengt. Brukes der det er eller forventes økt forekomst av fastkjørte vogntog, for eksempel i bratte stigninger vinterstid.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17410</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brann_IObjekterPåNærVegen">
+        <annotation>
+          <documentation>17411: Brann (i objekter på/nær vegen): Brukes i Tunnel stengt eller Veg stengt. Brukes i tunneler eller der vegen ligger nært opp til objekter som kan forårsake storbrann som fører til langvarig stengt veg, for eksempel prosessindustri. Bensinstasjoner og industriområder generelt skal ikke kartlegges her. Brukes kun i særskilte tilfeller.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17411</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dreneringssvikt">
+        <annotation>
+          <documentation>17413: Dreneringssvikt: Brukes i Veg stengt. Brukes der det er skadde og/eller underdimensjonerte stikkrenner eller lukket drenering langs veg som erfaringsvis forårsaker overvann/flom ved store nedbørsmengder.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17413</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="farligGodsUlykke">
+        <annotation>
+          <documentation>17415: Farlig gods ulykke: Brukes i Veg stengt. Brukes der det er spesielt høy risiko for ulykker med farlig gods, for eksempel i tilknytning til raffineri/industri.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17415</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flom">
+        <annotation>
+          <documentation>17417: Flom: Brukes i Bru stengt eller Veg stengt. Brukes for bruer, evt. tunneler eller der det er veg langs vassdrag som erfaringsvis er utsatt for flom ved store nedbørsmengder og/eller snøsmelting, eller ved flom i sidebekker på grunn av ekstremnedbør.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17417</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fundamenteringssvikt">
+        <annotation>
+          <documentation>17418: Fundamenteringssvikt: Brukes i Veg stengt. Brukes der det er økt sannsynlighet for brudd i vegfundamenteringen pga. utvasking etter store nedbørsmengder, slitasje fra tungtrafikk, dårlige grunnforhold eller andre årsaker.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17418</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="høyde_Lengde_Bredde_Vekt">
+        <annotation>
+          <documentation>17419: Høyde - lengde - bredde - vekt: Brukes i Bru stengt, Veg stengt eller Tunnel stengt. Brukes der restriksjoner eller begrensninger kan føre til at kjøretøy som overstiger grensene kjører seg fast, eller skader/ødelegger infrastrukturen eller på annen måte stenger for annen trafikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17419</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredKvikkleire">
+        <annotation>
+          <documentation>17421: Skred kvikkleire: Brukes i Veg stengt. Punkt eller strekning med fare for kvikkleireskred der vegen ligger i eller nær et område med kvikkleire.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17421</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredJord">
+        <annotation>
+          <documentation>17422: Skred jord: Brukes i Veg stengt. Punkt eller strekning som er spesielt utsatt for jordskred. Jordskred er raske utglidninger og bevegelse av vannmettede løsmasser i bratte skråninger, utenfor definerte vannveier. Høyt vanninnhold og oppbygging av vanntrykk i løsmassene er oftest den utløsende faktoren for jordskred. Dette skjer som følge langvarig nedbør, eller etter korte og intense regnskyll eller i kombinasjon med rask snøsmelting, se NVE's faktaark 2013-01 om Jordskred og flomskred</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17422</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredSnø">
+        <annotation>
+          <documentation>17424: Skred snø: Brukes i veg stengt. Punkt eller strekning som er spesielt utsatt for snøskred.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17424</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredStein">
+        <annotation>
+          <documentation>17425: Skred stein: Brukes i Veg stengt. Punkt eller strekning som er spesielt utsatt for steinskred</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17425</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stormflo">
+        <annotation>
+          <documentation>17426: Stormflo: Brukes i Veg stengt, evt. Tunnel stengt, Bru stengt eller Ferje/ferjekai stengt. Brukes der det finnes lavtliggende punkt eller strekning som ligger slik til at det kan bli oversvømt ved stormflo.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17426</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="strømbrudd">
+        <annotation>
+          <documentation>17427: Strømbrudd: Brukes i Tunnel stengt, Ferje/ferjekai stengt, Veg stengt, Bru stengt. Brukes i tilknytning til mekaniske skilt, bommer, pumpesumper eller lignende, og kun der langvarige strømbrudd er av avgjørende betydning for funksjonsevnen til vegen, brua, tunnelen, ferjekaia.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17427</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ulykkespunktStrekning">
+        <annotation>
+          <documentation>17430: Ulykkespunkt/-strekning: Brukes i Veg stengt eller Tunnel stengt. Kartlegging av ulykkespunkt og -strekninger i VegROS skal være et supplement til allerede eksisterende ulykkespunkt i NVDB. Det som spesielt skal registreres er punkt eller strekninger der hyppig forekommende ulykker og utforkjøringer (som oftest uten personskade) er et tegn på potensielle framkommelighetsutfordringer slik de er definert i risikovurderingen i retningslinjene for VegROS. Lokal kunnskap er spesielt viktig i denne kartleggingen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17430</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="utglidning">
+        <annotation>
+          <documentation>17431: Utglidning: Brukes i Veg stengt. Utglidning brukes også for å indikere en generell massebevegelse i en skråning og er ofte det første bruddet i et senere jordskred. Utglidninger oppstår i slakere terreng med finkornet, vannmettet jord og leire. De finnes gjerne på dyrket mark eller i naturlige skråninger i terrenget, særlig i de bratte sidekantene langs veier, elver, kunstige/modifiserte skråninger, langs jernbaner og i menneskeskapte fyllinger i bebodde områder.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17431</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vind">
+        <annotation>
+          <documentation>17432: Vind: Brukes i Veg stengt, Bru stengt, eller Ferje/ferjekai stengt. Brukes for strekning som er spesielt sårbar for sterk vind som storm/orkan, for eksempel vinterstormer over fjelloverganger, eller store trær nær vegen som gir økt risiko for vindfall og dermed stengt veg ved sterk vind/storm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17432</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="værforhold">
+        <annotation>
+          <documentation>17433: Værforhold: Brukes i Veg stengt, Bru stengt, eller Ferje/ferjekai stengt. Brukes ved andre værrelaterte hendelser som ikke dekkes av det som er beskrevet i de andre hendelsene</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17433</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruddårsakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektAndelTungeType">
+    <annotation>
+      <documentation>11188: Angir faktor for andel tunge kjøretøy</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11188</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTANDELTUNGE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektAndelTungeEnumerationType nvdb:FaktorvektAndelTungeOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektAndelTungeEnumerationType">
+    <annotation>
+      <documentation>11188: Angir faktor for andel tunge kjøretøy</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11188</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTANDELTUNGE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18481: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18481</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18482: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18482</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18483: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18483</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektAndelTungeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektBeredskapType">
+    <annotation>
+      <documentation>11023: Angir en kvalittaiv vurdering av beredskapen for angitt bruddhendelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11023</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTBEREDSKAP</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektBeredskapEnumerationType nvdb:FaktorvektBeredskapOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektBeredskapEnumerationType">
+    <annotation>
+      <documentation>11023: Angir en kvalittaiv vurdering av beredskapen for angitt bruddhendelse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11023</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTBEREDSKAP</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lav">
+        <annotation>
+          <documentation>18457: Lav: Beredskap ikke tilpasset bruddhendelsen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18457</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18458: Middels: Beredskap delvis tilpasset bruddhendelsen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18458</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="høy">
+        <annotation>
+          <documentation>18459: Høy: Beredskap tilpasset bruddhendelsen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18459</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektBeredskapOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektOmfangType">
+    <annotation>
+      <documentation>11019: Angir i hvilken grad bruddhendelsen påvirker fremkommelighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11019</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTOMFANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektOmfangEnumerationType nvdb:FaktorvektOmfangOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektOmfangEnumerationType">
+    <annotation>
+      <documentation>11019: Angir i hvilken grad bruddhendelsen påvirker fremkommelighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11019</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTOMFANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18445: Liten: Åpen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18445</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18446: Middels: Delvis stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18446</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18447: Stor: Helt stengt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18447</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektOmfangOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektOmkjøringType">
+    <annotation>
+      <documentation>11022: Angir egnethet på omkjøringsveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11022</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTOMKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektOmkjøringEnumerationType nvdb:FaktorvektOmkjøringOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektOmkjøringEnumerationType">
+    <annotation>
+      <documentation>11022: Angir egnethet på omkjøringsveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11022</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTOMKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18454: Liten: Egnet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18454</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18455: Middels: Delvis uegnet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18455</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18456: Stor: Svært uegnet/finnes ikke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18456</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektOmkjøringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektSannsynlighetType">
+    <annotation>
+      <documentation>11017: Angir hvor ofte fremkommelighetsbruddet skjer eller forventes å skje</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11017</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTSANNSYNLIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektSannsynlighetEnumerationType nvdb:FaktorvektSannsynlighetOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektSannsynlighetEnumerationType">
+    <annotation>
+      <documentation>11017: Angir hvor ofte fremkommelighetsbruddet skjer eller forventes å skje</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11017</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTSANNSYNLIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18439: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18439</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18440: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18440</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18441: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18441</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektSannsynlighetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektSårbarhetType">
+    <annotation>
+      <documentation>11015: Samleparameter for enkeltparametrene Omkjøring og Beredskap</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11015</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTSÅRBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektSårbarhetEnumerationType nvdb:FaktorvektSårbarhetOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektSårbarhetEnumerationType">
+    <annotation>
+      <documentation>11015: Samleparameter for enkeltparametrene Omkjøring og Beredskap</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11015</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTSÅRBARHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18433: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18433</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18434: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18434</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18435: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18435</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektSårbarhetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektTBKType">
+    <annotation>
+      <documentation>11189: Angir faktor for trafikkberedskapsklasse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11189</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTTBK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektTBKEnumerationType nvdb:FaktorvektTBKOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektTBKEnumerationType">
+    <annotation>
+      <documentation>11189: Angir faktor for trafikkberedskapsklasse</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11189</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTTBK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18484: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18484</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18485: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18485</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18486: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18486</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektTBKOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektTrusselType">
+    <annotation>
+      <documentation>11013: Samleparameter for enkeltparametrene Sannsynlighet, Omfang og Varighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11013</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTTRUSSEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektTrusselEnumerationType nvdb:FaktorvektTrusselOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektTrusselEnumerationType">
+    <annotation>
+      <documentation>11013: Samleparameter for enkeltparametrene Sannsynlighet, Omfang og Varighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11013</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTTRUSSEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18427: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18427</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18428: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18428</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18429: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18429</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektTrusselOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektVarighetType">
+    <annotation>
+      <documentation>11020: Angir hvor lenge fremkommelighetsbruddet med det angitte omfanget varer</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11020</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVARIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektVarighetEnumerationType nvdb:FaktorvektVarighetOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektVarighetEnumerationType">
+    <annotation>
+      <documentation>11020: Angir hvor lenge fremkommelighetsbruddet med det angitte omfanget varer</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11020</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVARIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18448: Liten: Omkring 6 timer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18448</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18449: Middels: Omkring 12 timer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18449</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18450: Stor: Mer enn 24 timer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18450</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektVarighetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektVerdiType">
+    <annotation>
+      <documentation>11014: Samleparameter for enkeltparametrene ÅDT, Andel tunge, TBK og Viktighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11014</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektVerdiEnumerationType nvdb:FaktorvektVerdiOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektVerdiEnumerationType">
+    <annotation>
+      <documentation>11014: Samleparameter for enkeltparametrene ÅDT, Andel tunge, TBK og Viktighet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11014</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVERDI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18430: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18430</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18431: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18431</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18432: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18432</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektVerdiOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektViktighetType">
+    <annotation>
+      <documentation>11021: Angir lokal, regional eller nasjonal betydning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11021</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVIKTIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektViktighetEnumerationType nvdb:FaktorvektViktighetOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektViktighetEnumerationType">
+    <annotation>
+      <documentation>11021: Angir lokal, regional eller nasjonal betydning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11021</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTVIKTIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18451: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18451</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18452: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18452</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18453: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18453</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektViktighetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektÅDTType">
+    <annotation>
+      <documentation>11187: Angir faktor for årsdøgntrafikk. Grenseverdier varierer regionvis</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11187</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTÅDT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FaktorvektÅDTEnumerationType nvdb:FaktorvektÅDTOtherType"/>
+  </simpleType>
+  <simpleType name="FaktorvektÅDTEnumerationType">
+    <annotation>
+      <documentation>11187: Angir faktor for årsdøgntrafikk. Grenseverdier varierer regionvis</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11187</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FAKTORVEKTÅDT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18478: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18478</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18479: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18479</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18480: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18480</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FaktorvektÅDTOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikoType">
+    <annotation>
+      <documentation>11016: Samlet uttrykk for Trussel, Verdi og Sårbarhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11016</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKO</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RisikoEnumerationType nvdb:RisikoOtherType"/>
+  </simpleType>
+  <simpleType name="RisikoEnumerationType">
+    <annotation>
+      <documentation>11016: Samlet uttrykk for Trussel, Verdi og Sårbarhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11016</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RISIKO</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>18436: Liten</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18436</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>18437: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18437</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>18438: Stor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18438</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RisikoOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="VegROSPunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegROSPunktType">
     <annotation>
       <documentation>895: Punkt/strekning i vegnettet hvor det er økt risiko og sårbarhet for langvarige fremkommelighetsbrudd. Merknad: Skal ha minst 10 meters utstrekning</documentation>
@@ -19,7 +889,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruddhendelse" type="gml:CodeType">
+          <element minOccurs="0" name="bruddhendelse" type="nvdb:BruddhendelseType">
             <annotation>
               <documentation>11012: Angir type bruddhendelse.</documentation>
               <appinfo>
@@ -28,7 +898,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="bruddårsak" type="gml:CodeType">
+          <element name="bruddårsak" type="nvdb:BruddårsakType">
             <annotation>
               <documentation>10749: Angir hva som er årsak til bruddhendelse</documentation>
               <appinfo>
@@ -91,7 +961,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektTrussel" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektTrussel" type="nvdb:FaktorvektTrusselType">
             <annotation>
               <documentation>11013: Samleparameter for enkeltparametrene Sannsynlighet, Omfang og Varighet</documentation>
               <appinfo>
@@ -100,7 +970,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektVerdi" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektVerdi" type="nvdb:FaktorvektVerdiType">
             <annotation>
               <documentation>11014: Samleparameter for enkeltparametrene ÅDT, Andel tunge, TBK og Viktighet</documentation>
               <appinfo>
@@ -109,7 +979,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektSårbarhet" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektSårbarhet" type="nvdb:FaktorvektSårbarhetType">
             <annotation>
               <documentation>11015: Samleparameter for enkeltparametrene Omkjøring og Beredskap</documentation>
               <appinfo>
@@ -118,7 +988,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="risiko" type="gml:CodeType">
+          <element minOccurs="0" name="risiko" type="nvdb:RisikoType">
             <annotation>
               <documentation>11016: Samlet uttrykk for Trussel, Verdi og Sårbarhet</documentation>
               <appinfo>
@@ -127,7 +997,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektSannsynlighet" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektSannsynlighet" type="nvdb:FaktorvektSannsynlighetType">
             <annotation>
               <documentation>11017: Angir hvor ofte fremkommelighetsbruddet skjer eller forventes å skje</documentation>
               <appinfo>
@@ -136,7 +1006,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektOmfang" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektOmfang" type="nvdb:FaktorvektOmfangType">
             <annotation>
               <documentation>11019: Angir i hvilken grad bruddhendelsen påvirker fremkommelighet</documentation>
               <appinfo>
@@ -145,7 +1015,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektVarighet" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektVarighet" type="nvdb:FaktorvektVarighetType">
             <annotation>
               <documentation>11020: Angir hvor lenge fremkommelighetsbruddet med det angitte omfanget varer</documentation>
               <appinfo>
@@ -154,7 +1024,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektViktighet" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektViktighet" type="nvdb:FaktorvektViktighetType">
             <annotation>
               <documentation>11021: Angir lokal, regional eller nasjonal betydning</documentation>
               <appinfo>
@@ -163,7 +1033,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektOmkjøring" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektOmkjøring" type="nvdb:FaktorvektOmkjøringType">
             <annotation>
               <documentation>11022: Angir egnethet på omkjøringsveg</documentation>
               <appinfo>
@@ -172,7 +1042,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektÅDT" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektÅDT" type="nvdb:FaktorvektÅDTType">
             <annotation>
               <documentation>11187: Angir faktor for årsdøgntrafikk. Grenseverdier varierer regionvis</documentation>
               <appinfo>
@@ -181,7 +1051,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektAndelTunge" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektAndelTunge" type="nvdb:FaktorvektAndelTungeType">
             <annotation>
               <documentation>11188: Angir faktor for andel tunge kjøretøy</documentation>
               <appinfo>
@@ -190,7 +1060,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektTBK" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektTBK" type="nvdb:FaktorvektTBKType">
             <annotation>
               <documentation>11189: Angir faktor for trafikkberedskapsklasse</documentation>
               <appinfo>
@@ -199,7 +1069,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="faktorvektBeredskap" type="gml:CodeType">
+          <element minOccurs="0" name="faktorvektBeredskap" type="nvdb:FaktorvektBeredskapType">
             <annotation>
               <documentation>11023: Angir en kvalittaiv vurdering av beredskapen for angitt bruddhendelse</documentation>
               <appinfo>

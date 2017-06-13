@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="resipienttilstand" type="gml:CodeType">
+          <element minOccurs="0" name="resipienttilstand" type="nvdb:ResipienttilstandType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8329</taggedValue>
@@ -27,7 +27,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="resipienttype" type="gml:CodeType">
+          <element minOccurs="0" name="resipienttype" type="nvdb:ResipienttypeType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8330</taggedValue>
@@ -108,4 +108,116 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="ResipienttilstandType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8329</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RESIPIENTTILSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:ResipienttilstandEnumerationType nvdb:ResipienttilstandOtherType"/>
+  </simpleType>
+  <simpleType name="ResipienttilstandEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8329</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RESIPIENTTILSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="storPåvirkning">
+        <annotation>
+          <documentation>11275: Stor påvirkning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middelsEllerUkjentPåvirkning">
+        <annotation>
+          <documentation>11276: Middels eller ukjent påvirkning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="litenPåvirkning">
+        <annotation>
+          <documentation>11277: Liten påvirkning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11277</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ResipienttilstandOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ResipienttypeType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8330</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RESIPIENTTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:ResipienttypeEnumerationType nvdb:ResipienttypeOtherType"/>
+  </simpleType>
+  <simpleType name="ResipienttypeEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8330</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RESIPIENTTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="innsjø">
+        <annotation>
+          <documentation>11278: Innsjø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grunnvann">
+        <annotation>
+          <documentation>11279: Grunnvann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11279</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="elvBekk">
+        <annotation>
+          <documentation>11280: Elv/bekk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11280</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="myr">
+        <annotation>
+          <documentation>11281: Myr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11281</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="våtmark">
+        <annotation>
+          <documentation>11282: Våtmark</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11282</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ResipienttypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

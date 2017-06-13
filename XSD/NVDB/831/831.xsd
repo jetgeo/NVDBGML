@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="vegdekkeklasse" type="gml:CodeType">
+          <element minOccurs="0" name="vegdekkeklasse" type="nvdb:VegdekkeklasseVegdekkeklasseType">
             <annotation>
               <documentation>9421: Angir hvilken vegdekkeklasse som gjelder på denne strekningen.</documentation>
               <appinfo>
@@ -49,4 +49,46 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="VegdekkeklasseVegdekkeklasseType">
+    <annotation>
+      <documentation>9421: Angir hvilken vegdekkeklasse som gjelder på denne strekningen.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGDEKKEKLASSEVEGDEKKEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VegdekkeklasseVegdekkeklasseEnumerationType nvdb:VegdekkeklasseVegdekkeklasseOtherType"/>
+  </simpleType>
+  <simpleType name="VegdekkeklasseVegdekkeklasseEnumerationType">
+    <annotation>
+      <documentation>9421: Angir hvilken vegdekkeklasse som gjelder på denne strekningen.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9421</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGDEKKEKLASSEVEGDEKKEKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="vegdekkeklasse1">
+        <annotation>
+          <documentation>13272: Vegdekkeklasse 1: Veger som ikke kvalifiserer til vegdekkeklasse 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13272</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegdekkeklasse2">
+        <annotation>
+          <documentation>13273: Vegdekkeklasse 2: Veger som i hovedsak er bygd i henhold til gjeldende vegnormal Statens vegvesen Håndbok N200 (018)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VegdekkeklasseVegdekkeklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

@@ -6,6 +6,46 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="MotorvegSkadegradstetthetType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6939</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOTORVEGSKADEGRADSTETTHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MotorvegSkadegradstetthetEnumerationType nvdb:MotorvegSkadegradstetthetOtherType"/>
+  </simpleType>
+  <simpleType name="MotorvegSkadegradstetthetEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6939</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOTORVEGSKADEGRADSTETTHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>9112: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9112</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>9113: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9113</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MotorvegSkadegradstetthetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Skadegradstetthet" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkadegradstetthetType">
     <annotation>
       <documentation>718: Foreløpig kun til testformål. Verdier som angir sannsynligheten for ulykker langs vegnettet. Regnes ut som en funksjon av antall ulykker, alvorlighetsgraden for ulykkene, trafikkmengde, fartsgrense og motorveg.</documentation>
@@ -123,7 +163,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="motorveg" type="gml:CodeType">
+          <element minOccurs="0" name="motorveg" type="nvdb:MotorvegSkadegradstetthetType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6939</taggedValue>

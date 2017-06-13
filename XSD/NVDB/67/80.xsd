@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeGrøft_ÅpenType">
             <annotation>
               <documentation>1139: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materiale" type="gml:CodeType">
+          <element minOccurs="0" name="materiale" type="nvdb:MaterialeGrøft_ÅpenType">
             <annotation>
               <documentation>1944: Angir hvilket materiale grøfta i hovedsak ligger i/er omsluttet av.  Evt belegning skal ikke oppgis her.</documentation>
               <appinfo>
@@ -104,7 +104,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligGrøft_ÅpenType">
             <annotation>
               <documentation>8061: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -161,4 +161,194 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="MaterialeGrøft_ÅpenType">
+    <annotation>
+      <documentation>1944: Angir hvilket materiale grøfta i hovedsak ligger i/er omsluttet av.  Evt belegning skal ikke oppgis her.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1944</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALEGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MaterialeGrøft_ÅpenEnumerationType nvdb:MaterialeGrøft_ÅpenOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialeGrøft_ÅpenEnumerationType">
+    <annotation>
+      <documentation>1944: Angir hvilket materiale grøfta i hovedsak ligger i/er omsluttet av.  Evt belegning skal ikke oppgis her.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1944</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALEGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="berg">
+        <annotation>
+          <documentation>3046: Berg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3046</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprengtStein">
+        <annotation>
+          <documentation>3048: Sprengt stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3048</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="løsmasse">
+        <annotation>
+          <documentation>3596: Løsmasse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3596</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kombinasjonLøsmasseBerg">
+        <annotation>
+          <documentation>13798: Kombinasjon løsmasse/berg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13798</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="myr">
+        <annotation>
+          <documentation>3932: Myr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3932</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialeGrøft_ÅpenOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGrøft_ÅpenType">
+    <annotation>
+      <documentation>1139: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1139</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeGrøft_ÅpenEnumerationType nvdb:TypeGrøft_ÅpenOtherType"/>
+  </simpleType>
+  <simpleType name="TypeGrøft_ÅpenEnumerationType">
+    <annotation>
+      <documentation>1139: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1139</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dypSidegrøft">
+        <annotation>
+          <documentation>3889: Dyp sidegrøft: Benyttes om dyp sidegrøft som har til hensikt å drenere overbygning.   Det er som regel ikke lukka drenering i tillegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3889</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grunnSidegrøft">
+        <annotation>
+          <documentation>3890: Grunn sidegrøft: Benyttes om grunn sidegrøft som bare har til hensikt å drenere overflatevann og ikke overbygning.  Det er som regel lukka drenering i tillegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3890</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="filtergrøft">
+        <annotation>
+          <documentation>17233: Filtergrøft: Sidegrøft der vann infiltreres og ledes bort . Se HB N200 kap 403.47. Større rensegrøfter defineres som "Lukka rørgrøft" av type "Filter-/rensegrøft" eller "Basseng/magasin" med bruksområde "Rensebasseng, infiltrasjon".</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17233</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="terrenggrøft">
+        <annotation>
+          <documentation>2934: Terrenggrøft</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2934</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="åpentAvløp">
+        <annotation>
+          <documentation>11627: Åpent avløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11627</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGrøft_ÅpenOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligGrøft_ÅpenType">
+    <annotation>
+      <documentation>8061: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8061</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligGrøft_ÅpenEnumerationType nvdb:VedlikeholdsansvarligGrøft_ÅpenOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligGrøft_ÅpenEnumerationType">
+    <annotation>
+      <documentation>8061: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8061</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGGRØFT_ÅPEN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10455: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10455</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10533: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10533</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10611: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10611</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17713: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17713</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligGrøft_ÅpenOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

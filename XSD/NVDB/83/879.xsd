@@ -6,6 +6,640 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DriftstilstandType">
+    <annotation>
+      <documentation>10637: Driftstilstand. 1 = er ikke tømt, 2 = er tømt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10637</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSTILSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DriftstilstandEnumerationType nvdb:DriftstilstandOtherType"/>
+  </simpleType>
+  <simpleType name="DriftstilstandEnumerationType">
+    <annotation>
+      <documentation>10637: Driftstilstand. 1 = er ikke tømt, 2 = er tømt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10637</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSTILSTAND</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ikkeTømt">
+        <annotation>
+          <documentation>17196: Ikke tømt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17196</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tømt">
+        <annotation>
+          <documentation>17199: Tømt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17199</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DriftstilstandOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGByggefeil_MonteringTetthetFrostsikringType">
+    <annotation>
+      <documentation>10619: Tilstandsgrad, Byggefeil, montering/tetthet/frostsikring. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10619</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGBYGGEFEIL_MONTERINGTETTHETFROSTSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGByggefeil_MonteringTetthetFrostsikringEnumerationType nvdb:TGByggefeil_MonteringTetthetFrostsikringOtherType"/>
+  </simpleType>
+  <simpleType name="TGByggefeil_MonteringTetthetFrostsikringEnumerationType">
+    <annotation>
+      <documentation>10619: Tilstandsgrad, Byggefeil, montering/tetthet/frostsikring. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10619</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGBYGGEFEIL_MONTERINGTETTHETFROSTSIKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17048: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17048</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17074: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17074</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17100: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17100</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17126: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17126</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17152: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17152</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17178: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17178</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGByggefeil_MonteringTetthetFrostsikringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGKapasitetSandfangkum_SlamromType">
+    <annotation>
+      <documentation>10622: Tilstandsgrad, Kapasitet sandfangkum (slamrom). 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10622</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGKAPASITETSANDFANGKUM_SLAMROM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGKapasitetSandfangkum_SlamromEnumerationType nvdb:TGKapasitetSandfangkum_SlamromOtherType"/>
+  </simpleType>
+  <simpleType name="TGKapasitetSandfangkum_SlamromEnumerationType">
+    <annotation>
+      <documentation>10622: Tilstandsgrad, Kapasitet sandfangkum (slamrom). 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10622</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGKAPASITETSANDFANGKUM_SLAMROM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17051: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17051</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17077: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17077</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17103: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17103</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17129: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17129</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17155: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17155</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17181: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17181</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGKapasitetSandfangkum_SlamromOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGKapasitetSlukRistType">
+    <annotation>
+      <documentation>10625: Tisltandsgrad, Kapasitet sluk/rist. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10625</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGKAPASITETSLUKRIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGKapasitetSlukRistEnumerationType nvdb:TGKapasitetSlukRistOtherType"/>
+  </simpleType>
+  <simpleType name="TGKapasitetSlukRistEnumerationType">
+    <annotation>
+      <documentation>10625: Tisltandsgrad, Kapasitet sluk/rist. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10625</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGKAPASITETSLUKRIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17054: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17054</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17080: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17080</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17106: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17106</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17132: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17132</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17158: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17158</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17184: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17184</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGKapasitetSlukRistOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSamletVurderingPraktisk_ManuellType">
+    <annotation>
+      <documentation>10632: Tilstandsgrad, Samlet vurdering praktisk, manuell. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10632</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSAMLETVURDERINGPRAKTISK_MANUELL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGSamletVurderingPraktisk_ManuellEnumerationType nvdb:TGSamletVurderingPraktisk_ManuellOtherType"/>
+  </simpleType>
+  <simpleType name="TGSamletVurderingPraktisk_ManuellEnumerationType">
+    <annotation>
+      <documentation>10632: Tilstandsgrad, Samlet vurdering praktisk, manuell. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10632</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSAMLETVURDERINGPRAKTISK_MANUELL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17061: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17061</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17087: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17087</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17113: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17113</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17139: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17139</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17165: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17165</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17191: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17191</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSamletVurderingPraktisk_ManuellOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSamletVurderingTeoretisk_AutomatikkType">
+    <annotation>
+      <documentation>10629: Tilstandsgrad, Samlet vurdering teoretisk, automatikk. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10629</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSAMLETVURDERINGTEORETISK_AUTOMATIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGSamletVurderingTeoretisk_AutomatikkEnumerationType nvdb:TGSamletVurderingTeoretisk_AutomatikkOtherType"/>
+  </simpleType>
+  <simpleType name="TGSamletVurderingTeoretisk_AutomatikkEnumerationType">
+    <annotation>
+      <documentation>10629: Tilstandsgrad, Samlet vurdering teoretisk, automatikk. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10629</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSAMLETVURDERINGTEORETISK_AUTOMATIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17058: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17058</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17084: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17084</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17110: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17110</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17136: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17136</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17162: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17162</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17188: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17188</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSamletVurderingTeoretisk_AutomatikkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeKumType">
+    <annotation>
+      <documentation>10612: Tilstandsgrad, Skade kum. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10612</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADEKUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGSkadeKumEnumerationType nvdb:TGSkadeKumOtherType"/>
+  </simpleType>
+  <simpleType name="TGSkadeKumEnumerationType">
+    <annotation>
+      <documentation>10612: Tilstandsgrad, Skade kum. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10612</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADEKUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17041: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17041</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17067: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17067</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17093: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17093</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17119: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17119</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17145: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17145</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17171: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17171</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeKumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeRist_LokkUtenforFastDekkeType">
+    <annotation>
+      <documentation>10617: Tilstandsgrad, Skade rist, lokk utenfor fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10617</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADERIST_LOKKUTENFORFASTDEKKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGSkadeRist_LokkUtenforFastDekkeEnumerationType nvdb:TGSkadeRist_LokkUtenforFastDekkeOtherType"/>
+  </simpleType>
+  <simpleType name="TGSkadeRist_LokkUtenforFastDekkeEnumerationType">
+    <annotation>
+      <documentation>10617: Tilstandsgrad, Skade rist, lokk utenfor fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10617</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADERIST_LOKKUTENFORFASTDEKKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17046: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17046</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17072: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17072</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17098: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17098</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17124: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17124</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17150: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17150</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17176: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17176</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeRist_LokkUtenforFastDekkeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeSluk_Rist_LokkIFastDekkeType">
+    <annotation>
+      <documentation>10615: Tilstandsgrad, Skade sluk, rist, lokk i fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10615</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADESLUK_RIST_LOKKIFASTDEKKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TGSkadeSluk_Rist_LokkIFastDekkeEnumerationType nvdb:TGSkadeSluk_Rist_LokkIFastDekkeOtherType"/>
+  </simpleType>
+  <simpleType name="TGSkadeSluk_Rist_LokkIFastDekkeEnumerationType">
+    <annotation>
+      <documentation>10615: Tilstandsgrad, Skade sluk, rist, lokk i fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10615</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TGSKADESLUK_RIST_LOKKIFASTDEKKE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>17044: 0: Tilstandsgrad 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17044</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>17070: 1: Tilstandsgrad 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17070</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>17096: 2: Tilstandsgrad 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17096</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>17122: 3: Tilstandsgrad 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17122</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8">
+        <annotation>
+          <documentation>17148: 8: Tilstandsgrad Ikke Undersøkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17148</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>17174: 9: Tilstandsgrad mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17174</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TGSkadeSluk_Rist_LokkIFastDekkeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Tilstandsgrad_Kum" substitutionGroup="gml:AbstractFeature" type="nvdb:Tilstandsgrad_KumType">
     <annotation>
       <documentation>879: Angir tilstandsgrader for kum</documentation>
@@ -19,7 +653,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="TGSkadeKum" type="gml:CodeType">
+          <element minOccurs="0" name="TGSkadeKum" type="nvdb:TGSkadeKumType">
             <annotation>
               <documentation>10612: Tilstandsgrad, Skade kum. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -37,7 +671,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGSkadeSluk_Rist_LokkIFastDekke" type="gml:CodeType">
+          <element minOccurs="0" name="TGSkadeSluk_Rist_LokkIFastDekke" type="nvdb:TGSkadeSluk_Rist_LokkIFastDekkeType">
             <annotation>
               <documentation>10615: Tilstandsgrad, Skade sluk, rist, lokk i fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -55,7 +689,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGSkadeRist_LokkUtenforFastDekke" type="gml:CodeType">
+          <element minOccurs="0" name="TGSkadeRist_LokkUtenforFastDekke" type="nvdb:TGSkadeRist_LokkUtenforFastDekkeType">
             <annotation>
               <documentation>10617: Tilstandsgrad, Skade rist, lokk utenfor fast dekke. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -73,7 +707,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGByggefeil_MonteringTetthetFrostsikring" type="gml:CodeType">
+          <element minOccurs="0" name="TGByggefeil_MonteringTetthetFrostsikring" type="nvdb:TGByggefeil_MonteringTetthetFrostsikringType">
             <annotation>
               <documentation>10619: Tilstandsgrad, Byggefeil, montering/tetthet/frostsikring. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -91,7 +725,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGKapasitetSandfangkum_Slamrom" type="gml:CodeType">
+          <element minOccurs="0" name="TGKapasitetSandfangkum_Slamrom" type="nvdb:TGKapasitetSandfangkum_SlamromType">
             <annotation>
               <documentation>10622: Tilstandsgrad, Kapasitet sandfangkum (slamrom). 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -109,7 +743,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGKapasitetSlukRist" type="gml:CodeType">
+          <element minOccurs="0" name="TGKapasitetSlukRist" type="nvdb:TGKapasitetSlukRistType">
             <annotation>
               <documentation>10625: Tisltandsgrad, Kapasitet sluk/rist. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -127,7 +761,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGSamletVurderingTeoretisk_Automatikk" type="gml:CodeType">
+          <element minOccurs="0" name="TGSamletVurderingTeoretisk_Automatikk" type="nvdb:TGSamletVurderingTeoretisk_AutomatikkType">
             <annotation>
               <documentation>10629: Tilstandsgrad, Samlet vurdering teoretisk, automatikk. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -136,7 +770,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="TGSamletVurderingPraktisk_Manuell" type="gml:CodeType">
+          <element minOccurs="0" name="TGSamletVurderingPraktisk_Manuell" type="nvdb:TGSamletVurderingPraktisk_ManuellType">
             <annotation>
               <documentation>10632: Tilstandsgrad, Samlet vurdering praktisk, manuell. 0=TG0, 1=TG1, 2=TG3, 3=TG3, 8=TGIU, 9=TGmang</documentation>
               <appinfo>
@@ -154,7 +788,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="driftstilstand" type="gml:CodeType">
+          <element minOccurs="0" name="driftstilstand" type="nvdb:DriftstilstandType">
             <annotation>
               <documentation>10637: Driftstilstand. 1 = er ikke tømt, 2 = er tømt</documentation>
               <appinfo>
@@ -172,7 +806,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vannføring" type="gml:CodeType">
+          <element minOccurs="0" name="vannføring" type="nvdb:VannføringType">
             <annotation>
               <documentation>10643: Vannføring. 1=Liten (kontinuerlig), 2=Stor (kontinuerlig), 3=Årsvariasjon, 4=Stående vann, 5=Tørrlagt</documentation>
               <appinfo>
@@ -181,7 +815,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="typeRegistrering" type="gml:CodeType">
+          <element minOccurs="0" name="typeRegistrering" type="nvdb:TypeRegistreringType">
             <annotation>
               <documentation>10640: Type registrering. 1 = hovedinspeksjon, 2 = årlig ajourhold</documentation>
               <appinfo>
@@ -240,4 +874,112 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeRegistreringType">
+    <annotation>
+      <documentation>10640: Type registrering. 1 = hovedinspeksjon, 2 = årlig ajourhold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10640</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEREGISTRERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeRegistreringEnumerationType nvdb:TypeRegistreringOtherType"/>
+  </simpleType>
+  <simpleType name="TypeRegistreringEnumerationType">
+    <annotation>
+      <documentation>10640: Type registrering. 1 = hovedinspeksjon, 2 = årlig ajourhold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10640</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEREGISTRERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hoved">
+        <annotation>
+          <documentation>17202: Hoved: Hovedinspeksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17202</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="årlig">
+        <annotation>
+          <documentation>17205: Årlig: Årlig ajourhold</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeRegistreringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VannføringType">
+    <annotation>
+      <documentation>10643: Vannføring. 1=Liten (kontinuerlig), 2=Stor (kontinuerlig), 3=Årsvariasjon, 4=Stående vann, 5=Tørrlagt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10643</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNFØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VannføringEnumerationType nvdb:VannføringOtherType"/>
+  </simpleType>
+  <simpleType name="VannføringEnumerationType">
+    <annotation>
+      <documentation>10643: Vannføring. 1=Liten (kontinuerlig), 2=Stor (kontinuerlig), 3=Årsvariasjon, 4=Stående vann, 5=Tørrlagt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10643</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VANNFØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="liten">
+        <annotation>
+          <documentation>17208: Liten: Liten kontinuelrig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17208</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stor">
+        <annotation>
+          <documentation>17211: Stor: Stor, kontinuerlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17211</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="årsvariasjon">
+        <annotation>
+          <documentation>17214: Årsvariasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17214</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ståendeVann">
+        <annotation>
+          <documentation>17217: Stående vann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17217</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tørrlagt">
+        <annotation>
+          <documentation>17220: Tørrlagt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17220</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VannføringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

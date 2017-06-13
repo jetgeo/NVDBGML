@@ -24,7 +24,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="årsak" type="gml:CodeType">
+          <element minOccurs="0" name="årsak" type="nvdb:ÅrsakType">
             <annotation>
               <documentation>4557: Angir årsak til telehiv</documentation>
               <appinfo>
@@ -71,4 +71,46 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="ÅrsakType">
+    <annotation>
+      <documentation>4557: Angir årsak til telehiv</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4557</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:ÅrsakEnumerationType nvdb:ÅrsakOtherType"/>
+  </simpleType>
+  <simpleType name="ÅrsakEnumerationType">
+    <annotation>
+      <documentation>4557: Angir årsak til telehiv</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4557</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ÅRSAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stikkrenne">
+        <annotation>
+          <documentation>5465: Stikkrenne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5465</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grunnforhold">
+        <annotation>
+          <documentation>5466: Grunnforhold</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5466</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ÅrsakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

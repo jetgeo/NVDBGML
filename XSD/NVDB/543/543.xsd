@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeRekkverksskjøtType">
             <annotation>
               <documentation>4664: Angir type</documentation>
               <appinfo>
@@ -69,4 +69,38 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeRekkverksskjøtType">
+    <annotation>
+      <documentation>4664: Angir type</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4664</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEREKKVERKSSKJØT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeRekkverksskjøtEnumerationType nvdb:TypeRekkverksskjøtOtherType"/>
+  </simpleType>
+  <simpleType name="TypeRekkverksskjøtEnumerationType">
+    <annotation>
+      <documentation>4664: Angir type</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4664</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEREKKVERKSSKJØT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dilatasjonsskjøt">
+        <annotation>
+          <documentation>5732: Dilatasjonsskjøt: Betegnelse på skjøter, bla. mellom rekkverk eller rekkverkskomponenter på bru, som er konstruert for å oppta bevegelser fra temperatur, svinn etc.   Disse må alltid plasseres der det er brufuger. Kilde: Rekkverksnormal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5732</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeRekkverksskjøtOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

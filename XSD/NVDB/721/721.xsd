@@ -6,6 +6,112 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="FartsgrenseFartsgrense_VariabelType">
+    <annotation>
+      <documentation>7023: Verdien på fartsgrensen i angitt tidsrom</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7023</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSE_VARIABEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FartsgrenseFartsgrense_VariabelEnumerationType nvdb:FartsgrenseFartsgrense_VariabelOtherType"/>
+  </simpleType>
+  <simpleType name="FartsgrenseFartsgrense_VariabelEnumerationType">
+    <annotation>
+      <documentation>7023: Verdien på fartsgrensen i angitt tidsrom</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7023</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARTSGRENSEFARTSGRENSE_VARIABEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="20">
+        <annotation>
+          <documentation>11577: 20</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11577</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="30">
+        <annotation>
+          <documentation>9333: 30</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9333</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="40">
+        <annotation>
+          <documentation>9334: 40</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9334</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="50">
+        <annotation>
+          <documentation>9335: 50</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9335</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="60">
+        <annotation>
+          <documentation>9336: 60</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9336</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="70">
+        <annotation>
+          <documentation>9337: 70</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9337</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="80">
+        <annotation>
+          <documentation>9338: 80</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9338</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="90">
+        <annotation>
+          <documentation>9339: 90</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9339</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="100">
+        <annotation>
+          <documentation>9340: 100</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9340</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="110">
+        <annotation>
+          <documentation>16591: 110</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16591</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FartsgrenseFartsgrense_VariabelOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Fartsgrense_Variabel" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Fartsgrense_VariabelType">
     <annotation>
       <documentation>721: Høyeste tillatte hastighet på en vegstrekning innenfor et avgrenset tidsrom.</documentation>
@@ -19,7 +125,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="fartsgrense" type="gml:CodeType">
+          <element name="fartsgrense" type="nvdb:FartsgrenseFartsgrense_VariabelType">
             <annotation>
               <documentation>7023: Verdien på fartsgrensen i angitt tidsrom
 Enhet: Kilometer/time</documentation>
@@ -29,7 +135,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="type" type="gml:CodeType">
+          <element name="type" type="nvdb:TypeFartsgrense_VariabelType">
             <annotation>
               <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
               <appinfo>
@@ -38,7 +144,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="ukedag" type="gml:CodeType">
+          <element minOccurs="0" name="ukedag" type="nvdb:UkedagType">
             <annotation>
               <documentation>9401: Angir ukedager en variabel fartsgrense gjelder for.</documentation>
               <appinfo>
@@ -53,15 +159,6 @@ Enhet: Kilometer/time</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7019</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATO_FRA</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="klokkeslett_Fra" type="string">
-            <annotation>
-              <documentation>7017: Angir tidspunkt (hhmm) på døgnet som variabel fartsgrense gjelder fra.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7017</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETT_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -83,9 +180,13 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element minOccurs="0" name="klokkeslett_Fra" type="string">
             <annotation>
-              <documentation>Angivelse av objektets posisjon</documentation>
+              <documentation>7017: Angir tidspunkt (hhmm) på døgnet som variabel fartsgrense gjelder fra.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7017</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLOKKESLETT_FRA</taggedValue>
+              </appinfo>
             </annotation>
           </element>
           <element minOccurs="0" name="vedtaksnummer" type="string">
@@ -95,6 +196,11 @@ Enhet: Kilometer/time</documentation>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9402</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDTAKSNUMMER</taggedValue>
               </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
           <element minOccurs="0" name="arkivnummer" type="string">
@@ -155,4 +261,168 @@ Enhet: Kilometer/time</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeFartsgrense_VariabelType">
+    <annotation>
+      <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7016</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSE_VARIABEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeFartsgrense_VariabelEnumerationType nvdb:TypeFartsgrense_VariabelOtherType"/>
+  </simpleType>
+  <simpleType name="TypeFartsgrense_VariabelEnumerationType">
+    <annotation>
+      <documentation>7016: Angir hvilken type variabel fartsgrense det er</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7016</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFARTSGRENSE_VARIABEL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="vinterfartsgrense">
+        <annotation>
+          <documentation>9327: Vinterfartsgrense</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9327</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sommerfartsgrense">
+        <annotation>
+          <documentation>13242: Sommerfartsgrense</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13242</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skole">
+        <annotation>
+          <documentation>9328: Skole</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9328</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="miljøfartsgrense">
+        <annotation>
+          <documentation>13241: Miljøfartsgrense</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13241</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeFartsgrense_VariabelOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UkedagType">
+    <annotation>
+      <documentation>9401: Angir ukedager en variabel fartsgrense gjelder for.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9401</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UKEDAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UkedagEnumerationType nvdb:UkedagOtherType"/>
+  </simpleType>
+  <simpleType name="UkedagEnumerationType">
+    <annotation>
+      <documentation>9401: Angir ukedager en variabel fartsgrense gjelder for.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9401</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UKEDAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hverdager">
+        <annotation>
+          <documentation>13243: Hverdager: Mandag - Lørdag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13243</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hverdagerUtenLørdag">
+        <annotation>
+          <documentation>13244: Hverdager u/ lørdag: Mandag - Fredag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13244</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lørdagOgSøndag">
+        <annotation>
+          <documentation>13245: Lørdag og søndag: Lørdag - Søndag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13245</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mandag">
+        <annotation>
+          <documentation>13246: Mandag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13246</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tirsdag">
+        <annotation>
+          <documentation>13247: Tirsdag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13247</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="onsdag">
+        <annotation>
+          <documentation>13248: Onsdag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13248</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="torsdag">
+        <annotation>
+          <documentation>13249: Torsdag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13249</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fredag">
+        <annotation>
+          <documentation>13250: Fredag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13250</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lørdag">
+        <annotation>
+          <documentation>13251: Lørdag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13251</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="søndag">
+        <annotation>
+          <documentation>13252: Søndag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13252</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UkedagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

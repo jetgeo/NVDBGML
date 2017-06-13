@@ -6,6 +6,90 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="KjøretøykategoriType">
+    <annotation>
+      <documentation>10764: Angir hvilken kjøretøykategori omkjøringsruta gjelder for.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10764</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KjøretøykategoriEnumerationType nvdb:KjøretøykategoriOtherType"/>
+  </simpleType>
+  <simpleType name="KjøretøykategoriEnumerationType">
+    <annotation>
+      <documentation>10764: Angir hvilken kjøretøykategori omkjøringsruta gjelder for.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10764</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRETØYKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="letteKjøretøy">
+        <annotation>
+          <documentation>17434: Lette kjøretøy: Omkjøringsrute gjelder kun for lette kjøretøy.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17434</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="alleKjøretøy">
+        <annotation>
+          <documentation>17435: Alle kjøretøy: Omkjøringsrute gjelder for både lette og tunge kjøretøy som ikke overkrider eventuelle begrensinger angitt i veglistene.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17435</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KjøretøykategoriOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NivåOmkjøringsruteType">
+    <annotation>
+      <documentation>10702: Angir om det er lokal eller overordnet omkjøringsrute. Lokale kontra overordna går på om en omkjøringsrute er beregnet for å hovedsaklig ta seg av lokaltrafikk eller om den også kan ta gjennomgangstrafikken. Lokale o. er beregna for å ta lokal trafikk, ov</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10702</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NIVÅOMKJØRINGSRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NivåOmkjøringsruteEnumerationType nvdb:NivåOmkjøringsruteOtherType"/>
+  </simpleType>
+  <simpleType name="NivåOmkjøringsruteEnumerationType">
+    <annotation>
+      <documentation>10702: Angir om det er lokal eller overordnet omkjøringsrute. Lokale kontra overordna går på om en omkjøringsrute er beregnet for å hovedsaklig ta seg av lokaltrafikk eller om den også kan ta gjennomgangstrafikken. Lokale o. er beregna for å ta lokal trafikk, ov</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10702</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NIVÅOMKJØRINGSRUTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lokal">
+        <annotation>
+          <documentation>17288: Lokal: Omkjøringsrute som er egnet for lokaltrafikk. Se Håndbok R611, kap 7.4.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17288</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="overordnet">
+        <annotation>
+          <documentation>17289: Overordnet: Omkjøringsrute som er egnet for å  ta gjennomgangstrafikk. Se også Håndbok R611, kap 7.4.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17289</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NivåOmkjøringsruteOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Omkjøringsrute" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:OmkjøringsruteType">
     <annotation>
       <documentation>886: Strekning/rute som anbefales for omkjøring for en eller flere  stengningslenker</documentation>
@@ -37,7 +121,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="nivå" type="gml:CodeType">
+          <element minOccurs="0" name="nivå" type="nvdb:NivåOmkjøringsruteType">
             <annotation>
               <documentation>10702: Angir om det er lokal eller overordnet omkjøringsrute. Lokale kontra overordna går på om en omkjøringsrute er beregnet for å hovedsaklig ta seg av lokaltrafikk eller om den også kan ta gjennomgangstrafikken. Lokale o. er beregna for å ta lokal trafikk, overordna o. er beregna for gjennomgangstrafikk og fanger gjerne opp trafikken et godt stykke før aktuell stengningslenke. Se også Håndbok R611 kap 7.4</documentation>
               <appinfo>
@@ -46,7 +130,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="retning" type="gml:CodeType">
+          <element minOccurs="0" name="retning" type="nvdb:RetningType">
             <annotation>
               <documentation>10704: Angir om omkjøringsruta gjelder for begge kjøreretninger eller kun en veg. Utfyllende informasjon kan gis i merknadsfelt.</documentation>
               <appinfo>
@@ -84,7 +168,7 @@ Enhet: Minutt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kjøretøykategori" type="gml:CodeType">
+          <element minOccurs="0" name="kjøretøykategori" type="nvdb:KjøretøykategoriType">
             <annotation>
               <documentation>10764: Angir hvilken kjøretøykategori omkjøringsruta gjelder for.</documentation>
               <appinfo>
@@ -121,4 +205,46 @@ Enhet: Minutt</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="RetningType">
+    <annotation>
+      <documentation>10704: Angir om omkjøringsruta gjelder for begge kjøreretninger eller kun en veg. Utfyllende informasjon kan gis i merknadsfelt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10704</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RetningEnumerationType nvdb:RetningOtherType"/>
+  </simpleType>
+  <simpleType name="RetningEnumerationType">
+    <annotation>
+      <documentation>10704: Angir om omkjøringsruta gjelder for begge kjøreretninger eller kun en veg. Utfyllende informasjon kan gis i merknadsfelt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10704</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="begge">
+        <annotation>
+          <documentation>17290: Begge: Omkjøringsrute benyttes for trafikk i begge retninger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17290</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="enVeg">
+        <annotation>
+          <documentation>17291: En veg: Omkjøringsrute benyttes av trafikk som kjører i den retningen som det er angitt i navn på omkjøringsruta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17291</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

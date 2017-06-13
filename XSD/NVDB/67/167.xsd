@@ -6,6 +6,88 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeDetektor_TrafikkType">
+    <annotation>
+      <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3513</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEDETEKTOR_TRAFIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeDetektor_TrafikkEnumerationType nvdb:BruksområdeDetektor_TrafikkOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeDetektor_TrafikkEnumerationType">
+    <annotation>
+      <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3513</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEDETEKTOR_TRAFIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="signalreguleringMotorkjøretøy">
+        <annotation>
+          <documentation>13703: Signalregulering motorkjøretøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13703</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signalreguleringSykkel">
+        <annotation>
+          <documentation>13704: Signalregulering sykkel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13704</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signalregulering_Fotgjenger">
+        <annotation>
+          <documentation>18405: Signalregulering, fotgjenger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18405</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkregistreringMotorkjøretøy">
+        <annotation>
+          <documentation>13705: Trafikkregistrering motorkjøretøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13705</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkregistreringSykkel">
+        <annotation>
+          <documentation>13706: Trafikkregistrering sykkel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13706</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkregistrering_Fotgjenger">
+        <annotation>
+          <documentation>18406: Trafikkregistrering, fotgjenger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18406</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ATK">
+        <annotation>
+          <documentation>16760: ATK: Detektor benyttet i forbindelse med ATK</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16760</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeDetektor_TrafikkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Detektor_Trafikk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Detektor_TrafikkType">
     <annotation>
       <documentation>167: En enhet som gir en impuls til styreapparatet når den blir aktivert av en trafikant</documentation>
@@ -19,7 +101,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeDetektor_TrafikkType">
             <annotation>
               <documentation>3513: Angir hva detektoren hovedsaklig brukes til</documentation>
               <appinfo>
@@ -28,7 +110,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeDetektor_TrafikkType">
             <annotation>
               <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -125,17 +207,17 @@ Enhet: Kvadratmeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -150,4 +232,86 @@ Enhet: Kvadratmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeDetektor_TrafikkType">
+    <annotation>
+      <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1183</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDETEKTOR_TRAFIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeDetektor_TrafikkEnumerationType nvdb:TypeDetektor_TrafikkOtherType"/>
+  </simpleType>
+  <simpleType name="TypeDetektor_TrafikkEnumerationType">
+    <annotation>
+      <documentation>1183: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1183</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDETEKTOR_TRAFIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="induktivsløyfe_Motorkjøretøy">
+        <annotation>
+          <documentation>4895: Induktivsløyfe, motorkjøretøy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4895</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="induktivsløyfe_Sykkel">
+        <annotation>
+          <documentation>4896: Induktivsløyfe, sykkel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4896</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="piezo_ElektriskKabel">
+        <annotation>
+          <documentation>4897: Piezo-elektrisk kabel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4897</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="infrarødDetektor">
+        <annotation>
+          <documentation>4898: Infrarød detektor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4898</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="videodetektor">
+        <annotation>
+          <documentation>4899: Videodetektor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4899</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="video_Varmesøkende">
+        <annotation>
+          <documentation>18407: Video, varmesøkende</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18407</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="radardetektor">
+        <annotation>
+          <documentation>4900: Radardetektor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4900</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeDetektor_TrafikkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

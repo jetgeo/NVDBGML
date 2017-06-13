@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="typeTrafikkontroll" type="gml:CodeType">
+          <element name="typeTrafikkontroll" type="nvdb:TypeTrafikkontrollType">
             <annotation>
               <documentation>9370: Angir hvilken type trafikkontroll det er tale om</documentation>
               <appinfo>
@@ -89,4 +89,46 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeTrafikkontrollType">
+    <annotation>
+      <documentation>9370: Angir hvilken type trafikkontroll det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9370</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETRAFIKKONTROLL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeTrafikkontrollEnumerationType nvdb:TypeTrafikkontrollOtherType"/>
+  </simpleType>
+  <simpleType name="TypeTrafikkontrollEnumerationType">
+    <annotation>
+      <documentation>9370: Angir hvilken type trafikkontroll det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9370</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPETRAFIKKONTROLL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="strekningMedATK_Punkter">
+        <annotation>
+          <documentation>13097: Strekning med ATK-punkter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13097</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="streknings_ATK">
+        <annotation>
+          <documentation>13098: Streknings-ATK</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13098</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeTrafikkontrollOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

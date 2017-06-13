@@ -6,6 +6,48 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BudsjettFiberdukType">
+    <annotation>
+      <documentation>5536: Angir hvilket budsjett utlegging går over</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5536</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUDSJETTFIBERDUK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BudsjettFiberdukEnumerationType nvdb:BudsjettFiberdukOtherType"/>
+  </simpleType>
+  <simpleType name="BudsjettFiberdukEnumerationType">
+    <annotation>
+      <documentation>5536: Angir hvilket budsjett utlegging går over</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5536</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUDSJETTFIBERDUK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="anlegg">
+        <annotation>
+          <documentation>7868: Anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7868</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vedlikehold">
+        <annotation>
+          <documentation>7869: Vedlikehold</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7869</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BudsjettFiberdukOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Fiberduk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FiberdukType">
     <annotation>
       <documentation>59: Permeabel duk som hovedsaklig brukes til filter og til separasjon av gode og dårlige masser.  Visse duker har også en armeringsfunksjon.  Betegnelsen geotekstil og fiberduk benyttes ofte om hverandre (2).</documentation>
@@ -57,7 +99,7 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="budsjett" type="gml:CodeType">
+          <element minOccurs="0" name="budsjett" type="nvdb:BudsjettFiberdukType">
             <annotation>
               <documentation>5536: Angir hvilket budsjett utlegging går over</documentation>
               <appinfo>
@@ -152,6 +194,13 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="assosiertEntreprenør" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -163,13 +212,6 @@ Enhet: Meter</documentation>
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

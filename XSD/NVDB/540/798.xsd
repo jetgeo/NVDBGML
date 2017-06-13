@@ -3,6 +3,64 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="OppdatertFraTrafikkmengde_KjørefeltType">
+    <annotation>
+      <documentation>9112: Angir hvorfra ÅDT-verdien er kommet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9112</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPDATERTFRATRAFIKKMENGDE_KJØREFELT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OppdatertFraTrafikkmengde_KjørefeltEnumerationType nvdb:OppdatertFraTrafikkmengde_KjørefeltOtherType"/>
+  </simpleType>
+  <simpleType name="OppdatertFraTrafikkmengde_KjørefeltEnumerationType">
+    <annotation>
+      <documentation>9112: Angir hvorfra ÅDT-verdien er kommet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9112</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPDATERTFRATRAFIKKMENGDE_KJØREFELT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="oppskrevetFraPrimærtellepunktet">
+        <annotation>
+          <documentation>12090: Oppskrevet fra primærtellepunktet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12090</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="oppskrevetFraNivå_1Tellepunktet">
+        <annotation>
+          <documentation>12089: Oppskrevet fra nivå-1 tellepunktet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12089</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="oppskrevetFraFylkesindeksen">
+        <annotation>
+          <documentation>12088: Oppskrevet fra fylkesindeksen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12088</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="brukersatt">
+        <annotation>
+          <documentation>12087: Brukersatt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12087</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppdatertFraTrafikkmengde_KjørefeltOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Trafikkmengde_Kjørefelt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Trafikkmengde_KjørefeltType">
     <annotation>
       <appinfo>
@@ -34,7 +92,7 @@ Enhet: Prosent</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="oppdatertFra" type="gml:CodeType">
+          <element minOccurs="0" name="oppdatertFra" type="nvdb:OppdatertFraTrafikkmengde_KjørefeltType">
             <annotation>
               <documentation>9112: Angir hvorfra ÅDT-verdien er kommet</documentation>
               <appinfo>

@@ -37,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rapporttype" type="gml:CodeType">
+          <element minOccurs="0" name="rapporttype" type="nvdb:RapporttypeType">
             <annotation>
               <documentation>7582: Rapporttype</documentation>
               <appinfo>
@@ -57,4 +57,86 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="RapporttypeType">
+    <annotation>
+      <documentation>7582: Rapporttype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7582</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RAPPORTTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RapporttypeEnumerationType nvdb:RapporttypeOtherType"/>
+  </simpleType>
+  <simpleType name="RapporttypeEnumerationType">
+    <annotation>
+      <documentation>7582: Rapporttype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7582</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RAPPORTTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="punkt">
+        <annotation>
+          <documentation>9867: Punkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9867</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="strekning">
+        <annotation>
+          <documentation>9868: Strekning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9868</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegnett">
+        <annotation>
+          <documentation>9869: Vegnett</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9869</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="detaljert">
+        <annotation>
+          <documentation>9870: Detaljert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9870</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mangel">
+        <annotation>
+          <documentation>9871: Mangel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9871</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="generiskdetaljert">
+        <annotation>
+          <documentation>9872: Generiskdetaljert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9872</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hjelpefil">
+        <annotation>
+          <documentation>9873: Hjelpefil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9873</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RapporttypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

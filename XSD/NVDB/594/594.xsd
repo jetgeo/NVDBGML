@@ -6,6 +6,322 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EnhetensFunksjonType">
+    <annotation>
+      <documentation>5345: Angir funksjon til enhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5345</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHETENSFUNKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EnhetensFunksjonEnumerationType nvdb:EnhetensFunksjonOtherType"/>
+  </simpleType>
+  <simpleType name="EnhetensFunksjonEnumerationType">
+    <annotation>
+      <documentation>5345: Angir funksjon til enhet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5345</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHETENSFUNKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bolig">
+        <annotation>
+          <documentation>7345: Bolig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7345</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skoleEllerBarnehage">
+        <annotation>
+          <documentation>7346: Skole eller barnehage</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7346</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykehusInstitusjoner">
+        <annotation>
+          <documentation>7347: Sykehus/institusjoner</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7347</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annet">
+        <annotation>
+          <documentation>7458: Annet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7458</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnhetensFunksjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnhetstypeType">
+    <annotation>
+      <documentation>5343: Angir om det beregnes støy for bygning eller for privat/offentlig uteområde. Det er kun for bygninger det er aktuelt med GAB-nummer.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5343</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHETSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EnhetstypeEnumerationType nvdb:EnhetstypeOtherType"/>
+  </simpleType>
+  <simpleType name="EnhetstypeEnumerationType">
+    <annotation>
+      <documentation>5343: Angir om det beregnes støy for bygning eller for privat/offentlig uteområde. Det er kun for bygninger det er aktuelt med GAB-nummer.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5343</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENHETSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bygning">
+        <annotation>
+          <documentation>7338: Bygning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7338</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privatFellesareal">
+        <annotation>
+          <documentation>7339: Privat fellesareal</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7339</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="offentligUteareal">
+        <annotation>
+          <documentation>7340: Offentlig uteareal</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7340</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnhetstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="GjennomførtTiltakType">
+    <annotation>
+      <documentation>5361: Gjennomført tiltak (F=Fasade, S=Skjerm)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5361</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENNOMFØRTTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GjennomførtTiltakEnumerationType nvdb:GjennomførtTiltakOtherType"/>
+  </simpleType>
+  <simpleType name="GjennomførtTiltakEnumerationType">
+    <annotation>
+      <documentation>5361: Gjennomført tiltak (F=Fasade, S=Skjerm)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5361</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENNOMFØRTTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="fasade">
+        <annotation>
+          <documentation>7456: Fasade</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7456</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skjerm">
+        <annotation>
+          <documentation>7457: Skjerm: Gjennomført tiltak</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7457</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bådeFasadeOgSkjerm">
+        <annotation>
+          <documentation>10902: Både fasade og skjerm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10902</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GjennomførtTiltakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedmaterialeIVeggMotHovedvegType">
+    <annotation>
+      <documentation>5349: Hovedmateriale i vegg mot hovedveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5349</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDMATERIALEIVEGGMOTHOVEDVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HovedmaterialeIVeggMotHovedvegEnumerationType nvdb:HovedmaterialeIVeggMotHovedvegOtherType"/>
+  </simpleType>
+  <simpleType name="HovedmaterialeIVeggMotHovedvegEnumerationType">
+    <annotation>
+      <documentation>5349: Hovedmateriale i vegg mot hovedveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5349</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDMATERIALEIVEGGMOTHOVEDVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lettvegg">
+        <annotation>
+          <documentation>7348: Lettvegg: Lett. Dvs. tre eller lette plater</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7348</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tung">
+        <annotation>
+          <documentation>7349: Tung: Tung. Dvs. mur eller betong, inkl. lettbetong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7349</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lett_MenSærskiltIsolert">
+        <annotation>
+          <documentation>7350: Lett, men særskilt isolert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7350</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedmaterialeIVeggMotHovedvegOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HustypeType">
+    <annotation>
+      <documentation>5344: Angir hustype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5344</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HUSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HustypeEnumerationType nvdb:HustypeOtherType"/>
+  </simpleType>
+  <simpleType name="HustypeEnumerationType">
+    <annotation>
+      <documentation>5344: Angir hustype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5344</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HUSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="frittliggendeSammenbygdSmåhus">
+        <annotation>
+          <documentation>7341: Frittliggende/sammenbygd småhus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7341</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="terrassehusFrittliggendeBlokker">
+        <annotation>
+          <documentation>7342: Terrassehus/frittliggende blokker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7342</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="storhusBygård">
+        <annotation>
+          <documentation>7343: Storhus/Bygård</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7343</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annetStorhus">
+        <annotation>
+          <documentation>10903: Annet storhus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10903</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annet">
+        <annotation>
+          <documentation>7344: Annet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7344</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HustypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Nummer_IndikatorType">
+    <annotation>
+      <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5337</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER_INDIKATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Nummer_IndikatorEnumerationType nvdb:Nummer_IndikatorOtherType"/>
+  </simpleType>
+  <simpleType name="Nummer_IndikatorEnumerationType">
+    <annotation>
+      <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5337</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NUMMER_INDIKATOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="GAB_NRInneholderEtVirkeligGAB_Nummer">
+        <annotation>
+          <documentation>7336: GAB-NR inneholder et virkelig GAB-nummer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7336</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="GAB_NRInneholderEtLokaltLøpenummer">
+        <annotation>
+          <documentation>7337: GAB-NR inneholder et lokalt løpenummer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7337</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Nummer_IndikatorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Støy_Luft_Bygning" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Støy_Luft_BygningType">
     <annotation>
       <documentation>594: VSTØY/VLUFT inndata og resultatdata i tilknytning til en bygning/enhet.  Kan også være uteområde etc.  Tidligere register 29-Bygning i VDB</documentation>
@@ -46,7 +362,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="enhetstype" type="gml:CodeType">
+          <element minOccurs="0" name="enhetstype" type="nvdb:EnhetstypeType">
             <annotation>
               <documentation>5343: Angir om det beregnes støy for bygning eller for privat/offentlig uteområde. Det er kun for bygninger det er aktuelt med GAB-nummer.</documentation>
               <appinfo>
@@ -55,7 +371,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="enhetensFunksjon" type="gml:CodeType">
+          <element minOccurs="0" name="enhetensFunksjon" type="nvdb:EnhetensFunksjonType">
             <annotation>
               <documentation>5345: Angir funksjon til enhet</documentation>
               <appinfo>
@@ -64,7 +380,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hustype" type="gml:CodeType">
+          <element minOccurs="0" name="hustype" type="nvdb:HustypeType">
             <annotation>
               <documentation>5344: Angir hustype</documentation>
               <appinfo>
@@ -82,7 +398,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="nummer_Indikator" type="gml:CodeType">
+          <element minOccurs="0" name="nummer_Indikator" type="nvdb:Nummer_IndikatorType">
             <annotation>
               <documentation>5337: Ikke alle bygninger er registrert i GAB og har derfor heller ikke fått tildelt noe GABNR. De har sannsynligvis fått et lokalt løpenummer ved registrering. For å muliggjøre direkte oppslag på bygningen via dette nummeret lagres det i GAB-NR samtidig som NR-IND settes til 'L'.</documentation>
               <appinfo>
@@ -91,7 +407,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vindustypeIVeggMotHovedveg" type="gml:CodeType">
+          <element minOccurs="0" name="vindustypeIVeggMotHovedveg" type="nvdb:VindustypeIVeggMotHovedvegType">
             <annotation>
               <documentation>5350: Vindustype i vegg mot hovedveg</documentation>
               <appinfo>
@@ -156,7 +472,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hovedmaterialeIVeggMotHovedveg" type="gml:CodeType">
+          <element minOccurs="0" name="hovedmaterialeIVeggMotHovedveg" type="nvdb:HovedmaterialeIVeggMotHovedvegType">
             <annotation>
               <documentation>5349: Hovedmateriale i vegg mot hovedveg</documentation>
               <appinfo>
@@ -175,7 +491,7 @@ Enhet: Milligram/kubikkmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="gjennomførtTiltak" type="gml:CodeType">
+          <element minOccurs="0" name="gjennomførtTiltak" type="nvdb:GjennomførtTiltakType">
             <annotation>
               <documentation>5361: Gjennomført tiltak (F=Fasade, S=Skjerm)</documentation>
               <appinfo>
@@ -455,17 +771,17 @@ Enhet: Milligram/kubikkmeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="2" name="assosiertStøy_Luft_Utbredelse" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Støy_Luft_Utbredelse</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="2" name="assosiertStøy_Luft_Utbredelse" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Støy_Luft_Utbredelse</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -480,4 +796,62 @@ Enhet: Milligram/kubikkmeter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="VindustypeIVeggMotHovedvegType">
+    <annotation>
+      <documentation>5350: Vindustype i vegg mot hovedveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5350</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDUSTYPEIVEGGMOTHOVEDVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VindustypeIVeggMotHovedvegEnumerationType nvdb:VindustypeIVeggMotHovedvegOtherType"/>
+  </simpleType>
+  <simpleType name="VindustypeIVeggMotHovedvegEnumerationType">
+    <annotation>
+      <documentation>5350: Vindustype i vegg mot hovedveg</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5350</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINDUSTYPEIVEGGMOTHOVEDVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="enkeltvind_Uten_Ettlagsvindu">
+        <annotation>
+          <documentation>7351: Enkeltvindu/ettlagsvindu</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7351</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vanligDobbeltvindu">
+        <annotation>
+          <documentation>7352: Vanlig dobbeltvindu</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7352</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tynneLydvinduerIEnRamme">
+        <annotation>
+          <documentation>7353: Tynne lydvinduer i en ramme</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7353</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dypeLydvinduerMedStorGlassavstand">
+        <annotation>
+          <documentation>7354: Dype lydvinduer med stor glassavstand</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7354</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VindustypeIVeggMotHovedvegOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

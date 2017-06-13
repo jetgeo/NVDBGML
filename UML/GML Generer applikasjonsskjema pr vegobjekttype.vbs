@@ -90,51 +90,17 @@ sub main()
 						'Legger på gml-tagger 
 						dim tagVal as EA.TaggedValue
 						set tagVal = Nothing
-						set tagVal = scPck.Element.TaggedValues.GetByName("targetNamespace")
-						if not tagVal is Nothing then
-							tagVal.Value = ns
-						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("targetNamespace", ns)
-						End if
+						set tagVal = scPck.Element.TaggedValues.AddNew("targetNamespace", ns)
+						tagVal.Update()					
+						set tagVal = scPck.Element.TaggedValues.AddNew("version", FC_version)
 						tagVal.Update()
-						
-						set tagVal = Nothing
-						set tagVal = scPck.Element.TaggedValues.GetByName("version")
-						if not tagVal is Nothing then
-							tagVal.Value = FC_version
-						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("version", FC_version)
-						End if
+						set tagVal = scPck.Element.TaggedValues.AddNew("xmlns", "nvdb")
 						tagVal.Update()
-
-						set tagVal = Nothing
-						set tagVal = scPck.Element.TaggedValues.GetByName("xmlns")
-						if not tagVal is Nothing then
-							tagVal.Value = "nvdb"
-						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("xmlns", "nvdb")
-						End if
+						set tagVal = scPck.Element.TaggedValues.AddNew("xsdDocument", nvn & ".xsd")
 						tagVal.Update()
-
-						set tagVal = Nothing
-						set tagVal = scPck.Element.TaggedValues.GetByName("xsdDocument")
-						if not tagVal is Nothing then
-							tagVal.Value = nvn & ".xsd"
-						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("xsdDocument", nvn & ".xsd")
-						End if
-						tagVal.Update()
-
-						set tagVal = Nothing
-						set tagVal = scPck.Element.TaggedValues.GetByName("xsdEncodingRule")
-						if not tagVal is Nothing then
-							tagVal.Value = "sosi"
-						else
-							set tagVal = scPck.Element.TaggedValues.AddNew("xsdEncodingRule", "sosi")
-						End if
+						set tagVal = scPck.Element.TaggedValues.AddNew("xsdEncodingRule", "sosi")
 						tagVal.Update()
 						scMod.Packages.Refresh
-
 					
 						'Importerer SOSI Fellesegenskaper-pakken
 						Repository.WriteOutput "Script", Now & " Importerer SOSI Fellesegenskaper-pakken", 0 

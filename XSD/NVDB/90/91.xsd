@@ -6,6 +6,122 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AntallLamperType">
+    <annotation>
+      <documentation>1958: Angir hvor mange lyspærer det er knyttet til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1958</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLAMPER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:AntallLamperEnumerationType nvdb:AntallLamperOtherType"/>
+  </simpleType>
+  <simpleType name="AntallLamperEnumerationType">
+    <annotation>
+      <documentation>1958: Angir hvor mange lyspærer det er knyttet til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1958</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLAMPER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1">
+        <annotation>
+          <documentation>3731: 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3731</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>3740: 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3740</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>3747: 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3747</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="4">
+        <annotation>
+          <documentation>3017: 4</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3017</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AntallLamperOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningSignalhodeType">
+    <annotation>
+      <documentation>5659: Angir hvilken retning signalhodet peker relatert til metreringsretning.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5659</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RETNINGSIGNALHODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RetningSignalhodeEnumerationType nvdb:RetningSignalhodeOtherType"/>
+  </simpleType>
+  <simpleType name="RetningSignalhodeEnumerationType">
+    <annotation>
+      <documentation>5659: Angir hvilken retning signalhodet peker relatert til metreringsretning.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5659</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RETNINGSIGNALHODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="3">
+        <annotation>
+          <documentation>7978: 3: Signalhodet peker mot høyre sett i forhold til metreringsretning på vegen signalhodet er stedfesta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7978</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="6">
+        <annotation>
+          <documentation>7981: 6: Signalhodet peker i samme retning som metreringsretning på vegen signalhodet er stedfesta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7981</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="9">
+        <annotation>
+          <documentation>7984: 9: Signalhodet peker mot venstre sett i forhold til metreringsretning på vegen signalhodet er stedfesta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7984</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="12">
+        <annotation>
+          <documentation>7987: 12: Signalhodet peker i motsatt retning av metreringsretningen på vegen signalhodet er stedfesta</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7987</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningSignalhodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Signalhode" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SignalhodeType">
     <annotation>
       <documentation>91: Innfatning med ett eller flere lys/lamper som til sammen danner et trafikklyssignal</documentation>
@@ -19,7 +135,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeSignalhodeType">
             <annotation>
               <documentation>1147: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -28,7 +144,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="antallLamper" type="gml:CodeType">
+          <element minOccurs="0" name="antallLamper" type="nvdb:AntallLamperType">
             <annotation>
               <documentation>1958: Angir hvor mange lyspærer det er knyttet til vegobjektet
 Enhet: Stykker</documentation>
@@ -38,7 +154,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="størrelse" type="gml:CodeType">
+          <element minOccurs="0" name="størrelse" type="nvdb:StørrelseType">
             <annotation>
               <documentation>1969: Angir størrelse av vegobjekt
 Enhet: Millimeter</documentation>
@@ -58,7 +174,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="retning" type="gml:CodeType">
+          <element minOccurs="0" name="retning" type="nvdb:RetningSignalhodeType">
             <annotation>
               <documentation>5659: Angir hvilken retning signalhodet peker relatert til metreringsretning.</documentation>
               <appinfo>
@@ -177,4 +293,248 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="StørrelseType">
+    <annotation>
+      <documentation>1969: Angir størrelse av vegobjekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1969</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØRRELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StørrelseEnumerationType nvdb:StørrelseOtherType"/>
+  </simpleType>
+  <simpleType name="StørrelseEnumerationType">
+    <annotation>
+      <documentation>1969: Angir størrelse av vegobjekt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1969</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØRRELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="100">
+        <annotation>
+          <documentation>3011: 100</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3011</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="200">
+        <annotation>
+          <documentation>3929: 200: Verdi benyttes om signalhoder som har størrelse 200 eller 210</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3929</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="300">
+        <annotation>
+          <documentation>3014: 300</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3014</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StørrelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSignalhodeType">
+    <annotation>
+      <documentation>1147: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1147</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESIGNALHODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeSignalhodeEnumerationType nvdb:TypeSignalhodeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeSignalhodeEnumerationType">
+    <annotation>
+      <documentation>1147: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1147</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESIGNALHODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hovedsignal_3Lys_1080">
+        <annotation>
+          <documentation>2992: Hovedsignal, 3 lys  (1080): Standard kjøretøysignal. 3 lysåpninger. Rød, gul og gul. Signal 1080 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2992</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_3Lys_Venstre_1082_1">
+        <annotation>
+          <documentation>2999: Pilsignal, 3 lys, venstre (1082.1): Kjøretøysignal, pilsignal, 3 lysåpninger. Rød, gul og grønn venstrepil. Signal 1082.1 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2999</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_3Lys_RettFram_1082_2">
+        <annotation>
+          <documentation>3000: Pilsignal, 3 lys, rett fram (1082.2): Kjøretøysignal, pilsignal, 3 lysåpninger. Rød, gul og grønn rett-frampil. Signal 1082.2 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3000</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_3Lys_Høyre_1082_3">
+        <annotation>
+          <documentation>3001: Pilsignal, 3 lys, høyre (1082.3): Kjøretøysignal, pilsignal, 3 lysåpninger. Rød, gul og grønn høyrepil. Signal 1082.3 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3001</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_GulGrønn_Venstre_1082_1">
+        <annotation>
+          <documentation>2996: Pilsignal, 2 lys, gul/grønn, venstre (1082.1): Kjøretøysignal. Pilsignal, 2 lysåpninger. Gul og grønn venstrepil. Variant av signal 1082.1 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2996</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_GulGrønn_RettFram_1082_2">
+        <annotation>
+          <documentation>18415: Pilsignal, 2 lys, gul/grønn, rett fram(1082.2): Kjøretøysignal. Pilsignal, 2 lysåpninger. Gul og grønn rett-frampil. Variant av signal 1082.2 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18415</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_GulGrønn_Høyre_1082_3">
+        <annotation>
+          <documentation>18416: Pilsignal, 2 lys, gul/grønn, høyre (1082.3): Kjøretøysignal. Pilsignal, 2 lysåpninger. Gul og grønn høyrepil. Variant av signal 1082.3 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18416</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_RødGul_Venstre_1082_1">
+        <annotation>
+          <documentation>2997: Pilsignal, 2 lys, rød/gul, venstre (1082.1): Kjøretøysignal. Pilsignal, 2 lysåpninger. Rød og gul venstrepil. Variant av signal 1082.1 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2997</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_RødGul_RettFram_1082_2">
+        <annotation>
+          <documentation>18418: Pilsignal, 2 lys, rød/gul, rett fram (1082.2): Kjøretøysignal. Pilsignal, 2 lysåpninger. Rød og gul venstrepil. Variant av signal 1082.2 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18418</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_2Lys_RødGul_Høyre_1082_3">
+        <annotation>
+          <documentation>18417: Pilsignal, 2 lys, rød/gul, høyre (1082.3): Kjøretøysignal. Pilsignal, 2 lysåpninger. Rød og gul høyrepil. Variant av signal 1082.3 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18417</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_1Lys_GrønnVenstre_1082_1">
+        <annotation>
+          <documentation>2995: Pilsignal, 1 lys, grønn venstre (1082.1): Kjøretøysignal. Pilsignal, 1 lysåpning. Grønn venstrepil. Variant av signal 1082.1 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2995</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_1Lys_GrønnRettFramn_1082_2">
+        <annotation>
+          <documentation>18413: Pilsignal, 1 lys, grønn rett framn (1082.2): Kjøretøysignal. Pilsignal, 1 lysåpning. Grønn venstrepil. Variant av signal 1082.2 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18413</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pilsignal_1Lys_GrønnHøyre_1082_3">
+        <annotation>
+          <documentation>18414: Pilsignal, 1 lys, grønn høyre (1082.3): Kjøretøysignal. Pilsignal, 1 lysåpning. Grønn venstrepil. Variant av signal 1082.3 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18414</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sykkelsignal_1084">
+        <annotation>
+          <documentation>3003: Sykkelsignal (1084): Sykkelsignal gjelder for kjørende i sykkelfelt og sykkelkryssing. Signal 1084 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3003</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fotgjengersignal_1086">
+        <annotation>
+          <documentation>3004: Fotgjengersignal (1086): Signal rettet mot fotgjengere. Normalt rød og grønn mann. Kan være variant med dobbelt rød mann.  Signal 1086 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3004</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signalForKollektivtrafikk_1088">
+        <annotation>
+          <documentation>3002: Signal for kollektivtrafikk (1088): Standard kjøretøysignal for kollektivtrafikk. 3 lysåpninger. Nederste lysåpning kan være venstrepil, rettframpil eller høyrepil. Signal 1088 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3002</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kjørefeltsignal_1090">
+        <annotation>
+          <documentation>3005: Kjørefeltsignal (1090): Signaler i form av enten rødt kryss, grønn pil eller gul pil over kjørefelt. De benyttes i forbindelse med stengning eller reversering av kjørefelt i forbindelse med trafikkomlegginger ved vegarbeid, hendelser o.l. på flerfeltsveger og i tunneler der slike hendelser erfaringsmessig skjer forholdsvis hyppig. Signal 1090 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3005</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tolyssignal_1092">
+        <annotation>
+          <documentation>3006: Tolyssignal (1092): Tolyssignaler anvendes på bomstasjoner, fergeleier, parkeringsanlegg og andre offentlige steder åpne for allmenn ferdsel hvor formålet er å dirigere trafikk ved lave hastigheter.  Signal 1092 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3006</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rødtStoppblinksignal_1094">
+        <annotation>
+          <documentation>3007: Rødt stoppblinksignal (1094): Rødt stoppblinksignal benyttes hvor trafikken må stoppes helt over en kortere eller lengre periode.  Signal 1094 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3007</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="blinkendeSignalForanJernbane_1096">
+        <annotation>
+          <documentation>3008: Blinkende signal foran jernbane (1096): Blinkende signal foran jernbane kan benyttes ved planoverganger der vegtrafikken må stoppes for sikker kryssing av skinnegang.  Signal 1096 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3008</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gultBlinksignal_1098">
+        <annotation>
+          <documentation>3009: Gult blinksignal (1098): Signalet angir at trafikantene må vise særlig aktpågivenhet og varsomhet.  Signal 1098 i Håndbok N303</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3009</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSignalhodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

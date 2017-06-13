@@ -6,6 +6,90 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="MobiltelefonGSM_NetcomType">
+    <annotation>
+      <documentation>3702: Angir om det er dekning for denne type mobiltelefonnett</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3702</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILTELEFONGSM_NETCOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MobiltelefonGSM_NetcomEnumerationType nvdb:MobiltelefonGSM_NetcomOtherType"/>
+  </simpleType>
+  <simpleType name="MobiltelefonGSM_NetcomEnumerationType">
+    <annotation>
+      <documentation>3702: Angir om det er dekning for denne type mobiltelefonnett</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3702</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILTELEFONGSM_NETCOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4824: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4824</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11757: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11757</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MobiltelefonGSM_NetcomOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MobiltelefonGSM_TelenorMobilType">
+    <annotation>
+      <documentation>3703: Angir om det er dekning for denne type mobiltelefonnett</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3703</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILTELEFONGSM_TELENORMOBIL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MobiltelefonGSM_TelenorMobilEnumerationType nvdb:MobiltelefonGSM_TelenorMobilOtherType"/>
+  </simpleType>
+  <simpleType name="MobiltelefonGSM_TelenorMobilEnumerationType">
+    <annotation>
+      <documentation>3703: Angir om det er dekning for denne type mobiltelefonnett</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3703</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MOBILTELEFONGSM_TELENORMOBIL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4825: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4825</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>11758: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11758</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MobiltelefonGSM_TelenorMobilOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Mobiltelefonsamband" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:MobiltelefonsambandType">
     <annotation>
       <documentation>471: System for innhenting og videreformidling av mobiltelefonsignal feks i tunnel (uoff)</documentation>
@@ -19,7 +103,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="networkNorway" type="gml:CodeType">
+          <element minOccurs="0" name="networkNorway" type="nvdb:NetworkNorwayType">
             <annotation>
               <documentation>10577: Angir om det er tilrettelagt for angitt mobilnettverk</documentation>
               <appinfo>
@@ -28,7 +112,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="mobiltelefonGSM_Netcom" type="gml:CodeType">
+          <element minOccurs="0" name="mobiltelefonGSM_Netcom" type="nvdb:MobiltelefonGSM_NetcomType">
             <annotation>
               <documentation>3702: Angir om det er dekning for denne type mobiltelefonnett</documentation>
               <appinfo>
@@ -37,7 +121,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="mobiltelefonGSM_TelenorMobil" type="gml:CodeType">
+          <element minOccurs="0" name="mobiltelefonGSM_TelenorMobil" type="nvdb:MobiltelefonGSM_TelenorMobilType">
             <annotation>
               <documentation>3703: Angir om det er dekning for denne type mobiltelefonnett</documentation>
               <appinfo>
@@ -89,4 +173,46 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="NetworkNorwayType">
+    <annotation>
+      <documentation>10577: Angir om det er tilrettelagt for angitt mobilnettverk</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10577</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NETWORKNORWAY</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NetworkNorwayEnumerationType nvdb:NetworkNorwayOtherType"/>
+  </simpleType>
+  <simpleType name="NetworkNorwayEnumerationType">
+    <annotation>
+      <documentation>10577: Angir om det er tilrettelagt for angitt mobilnettverk</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10577</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NETWORKNORWAY</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16964: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16964</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16965: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16965</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NetworkNorwayOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

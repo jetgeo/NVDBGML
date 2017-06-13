@@ -6,6 +6,408 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AntallLøsneområderType">
+    <annotation>
+      <documentation>9570: Angir hvor mange ulike løsneområder som leder ned til det aktuelle skredpunktet.  Brukes i naturfareplan.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9570</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLØSNEOMRÅDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:AntallLøsneområderEnumerationType nvdb:AntallLøsneområderOtherType"/>
+  </simpleType>
+  <simpleType name="AntallLøsneområderEnumerationType">
+    <annotation>
+      <documentation>9570: Angir hvor mange ulike løsneområder som leder ned til det aktuelle skredpunktet.  Brukes i naturfareplan.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9570</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLLØSNEOMRÅDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1">
+        <annotation>
+          <documentation>13780: 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13780</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>13781: 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13781</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>13782: 3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13782</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flere">
+        <annotation>
+          <documentation>13783: Flere</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13783</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AntallLøsneområderOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="NaboskredType">
+    <annotation>
+      <documentation>9367: Angir i hvilken grad det er fare for naboskred på strekningen, dvs om ventende biler på grunn av skred kan treffes av nytt skred. Brukes i beregning av F6 Naboskredfaktor.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9367</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NABOSKRED</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:NaboskredEnumerationType nvdb:NaboskredOtherType"/>
+  </simpleType>
+  <simpleType name="NaboskredEnumerationType">
+    <annotation>
+      <documentation>9367: Angir i hvilken grad det er fare for naboskred på strekningen, dvs om ventende biler på grunn av skred kan treffes av nytt skred. Brukes i beregning av F6 Naboskredfaktor.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9367</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NABOSKRED</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ingen">
+        <annotation>
+          <documentation>13093: Ingen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13093</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="toSkredløp_LitenSamtidighet">
+        <annotation>
+          <documentation>13094: To skredløp, liten samtidighet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13094</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="toSkredløp_StorSamtidighet">
+        <annotation>
+          <documentation>13095: To skredløp, stor samtidighet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13095</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flereSkredløp">
+        <annotation>
+          <documentation>13096: Flere skredløp</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13096</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="NaboskredOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmkjøringType">
+    <annotation>
+      <documentation>9392: Beregnet omkjøringstid (inkl fergetid) hvis vegen er stengt ved skredpunktet. Brukes ved beregning av F3 Omkjøringsfaktor</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9392</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OmkjøringEnumerationType nvdb:OmkjøringOtherType"/>
+  </simpleType>
+  <simpleType name="OmkjøringEnumerationType">
+    <annotation>
+      <documentation>9392: Beregnet omkjøringstid (inkl fergetid) hvis vegen er stengt ved skredpunktet. Brukes ved beregning av F3 Omkjøringsfaktor</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9392</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OMKJØRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="under1Min">
+        <annotation>
+          <documentation>13204: Under 1 min.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13204</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="5Min">
+        <annotation>
+          <documentation>13190: 5 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13190</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="15Min">
+        <annotation>
+          <documentation>13191: 15 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13191</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="30Min">
+        <annotation>
+          <documentation>13192: 30 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13192</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="45Min">
+        <annotation>
+          <documentation>13193: 45 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13193</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="60Min">
+        <annotation>
+          <documentation>13194: 60 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13194</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="75Min">
+        <annotation>
+          <documentation>13195: 75 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13195</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="90Min">
+        <annotation>
+          <documentation>13196: 90 min</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13196</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2T">
+        <annotation>
+          <documentation>13197: 2 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13197</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3T">
+        <annotation>
+          <documentation>13198: 3 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13198</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="4T">
+        <annotation>
+          <documentation>13199: 4 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13199</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="5T">
+        <annotation>
+          <documentation>13200: 5 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13200</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="6T">
+        <annotation>
+          <documentation>13201: 6 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13201</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="7T">
+        <annotation>
+          <documentation>13202: 7 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13202</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="8T">
+        <annotation>
+          <documentation>13203: 8 t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13203</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingenOmkjøringsmulighet">
+        <annotation>
+          <documentation>13205: Ingen omkjøringsmulighet: Ingen omkjøringsmulighet. Dersom omkjøring tar mer enn 8 timer regnes det også som ingen omkjøring.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OmkjøringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlannivåType">
+    <annotation>
+      <documentation>9382: Angir hvor langt man er kommet i planprosessen på aktuelt punkt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9382</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlannivåEnumerationType nvdb:PlannivåOtherType"/>
+  </simpleType>
+  <simpleType name="PlannivåEnumerationType">
+    <annotation>
+      <documentation>9382: Angir hvor langt man er kommet i planprosessen på aktuelt punkt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9382</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANNIVÅ</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ikkeVurdert">
+        <annotation>
+          <documentation>13112: Ikke vurdert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13112</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="id">
+        <annotation>
+          <documentation>13113: Idé</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13113</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skisseForprosjekt">
+        <annotation>
+          <documentation>13114: Skisse/forprosjekt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13114</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommunedelplan">
+        <annotation>
+          <documentation>13115: Kommunedelplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13115</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="reguleringsplan">
+        <annotation>
+          <documentation>13116: Reguleringsplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13116</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="byggeplan">
+        <annotation>
+          <documentation>13117: Byggeplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13117</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlannivåOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkredfaktorkategoriType">
+    <annotation>
+      <documentation>9380: Angir hvilken kategori skredpunktet tilhører. Beregnes fra skredfaktor</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9380</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDFAKTORKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkredfaktorkategoriEnumerationType nvdb:SkredfaktorkategoriOtherType"/>
+  </simpleType>
+  <simpleType name="SkredfaktorkategoriEnumerationType">
+    <annotation>
+      <documentation>9380: Angir hvilken kategori skredpunktet tilhører. Beregnes fra skredfaktor</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9380</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDFAKTORKATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="høy">
+        <annotation>
+          <documentation>13109: Høy</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13109</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="middels">
+        <annotation>
+          <documentation>13110: Middels</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13110</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lav">
+        <annotation>
+          <documentation>13111: Lav</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13111</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sikringUtført">
+        <annotation>
+          <documentation>16762: Sikring utført: Angir at dette skredpunktet er sikret. Det er med for å ha historikk.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16762</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkredfaktorkategoriOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Skredpunkt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkredpunktType">
     <annotation>
       <documentation>824: Strekning som er utsatt for skred og hvor det er aktuelt å gjennomføre sikringstiltak. Det skal normalt opprettes et skredpunkt per skredløp, men der skredløpene vanskelig kan sikres fysisk uten å berøre neste skredløp kan man vurdere å slå sammen flere skredløp i samme skredpunkt</documentation>
@@ -188,7 +590,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="omkjøring" type="gml:CodeType">
+          <element minOccurs="0" name="omkjøring" type="nvdb:OmkjøringType">
             <annotation>
               <documentation>9392: Beregnet omkjøringstid (inkl fergetid) hvis vegen er stengt ved skredpunktet. Brukes ved beregning av F3 Omkjøringsfaktor</documentation>
               <appinfo>
@@ -215,7 +617,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="naboskred" type="gml:CodeType">
+          <element minOccurs="0" name="naboskred" type="nvdb:NaboskredType">
             <annotation>
               <documentation>9367: Angir i hvilken grad det er fare for naboskred på strekningen, dvs om ventende biler på grunn av skred kan treffes av nytt skred. Brukes i beregning av F6 Naboskredfaktor.</documentation>
               <appinfo>
@@ -287,7 +689,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skredfaktorkategori" type="gml:CodeType">
+          <element minOccurs="0" name="skredfaktorkategori" type="nvdb:SkredfaktorkategoriType">
             <annotation>
               <documentation>9380: Angir hvilken kategori skredpunktet tilhører. Beregnes fra skredfaktor</documentation>
               <appinfo>
@@ -296,7 +698,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="plannivå" type="gml:CodeType">
+          <element minOccurs="0" name="plannivå" type="nvdb:PlannivåType">
             <annotation>
               <documentation>9382: Angir hvor langt man er kommet i planprosessen på aktuelt punkt.</documentation>
               <appinfo>
@@ -333,7 +735,7 @@ Enhet: Prosent</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="utførtAnslag" type="gml:CodeType">
+          <element minOccurs="0" name="utførtAnslag" type="nvdb:UtførtAnslagType">
             <annotation>
               <documentation>10179: Angir om kostnadsoverslag er utarbeidet etter Anslagsmetoden.</documentation>
               <appinfo>
@@ -388,7 +790,7 @@ Enhet: Forholdstall</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="antallLøsneområder" type="gml:CodeType">
+          <element minOccurs="0" name="antallLøsneområder" type="nvdb:AntallLøsneområderType">
             <annotation>
               <documentation>9570: Angir hvor mange ulike løsneområder som leder ned til det aktuelle skredpunktet.  Brukes i naturfareplan.</documentation>
               <appinfo>
@@ -416,17 +818,17 @@ Enhet: Forholdstall</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -441,4 +843,46 @@ Enhet: Forholdstall</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="UtførtAnslagType">
+    <annotation>
+      <documentation>10179: Angir om kostnadsoverslag er utarbeidet etter Anslagsmetoden.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10179</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFØRTANSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtførtAnslagEnumerationType nvdb:UtførtAnslagOtherType"/>
+  </simpleType>
+  <simpleType name="UtførtAnslagEnumerationType">
+    <annotation>
+      <documentation>10179: Angir om kostnadsoverslag er utarbeidet etter Anslagsmetoden.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10179</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTFØRTANSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16587: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16587</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16588: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16588</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtførtAnslagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

@@ -6,6 +6,122 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DataopprinnelseVegbreddeType">
+    <annotation>
+      <documentation>5261: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5261</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSEVEGBREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DataopprinnelseVegbreddeEnumerationType nvdb:DataopprinnelseVegbreddeOtherType"/>
+  </simpleType>
+  <simpleType name="DataopprinnelseVegbreddeEnumerationType">
+    <annotation>
+      <documentation>5261: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5261</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSEVEGBREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="vegReg">
+        <annotation>
+          <documentation>7115: VegReg: Data registrert ute på veg med VegReg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7115</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="generertFraTverrprofilobjektet_ID_528">
+        <annotation>
+          <documentation>7113: Generert fra Tverrprofilobjektet (ID 528)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7113</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="overførtFraPMSDekke">
+        <annotation>
+          <documentation>7114: Overført fra PMS/Dekke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7114</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DataopprinnelseVegbreddeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeType">
+    <annotation>
+      <documentation>5262: Angir hvilken målemetode som er benyttet for å framskaffe bredde</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5262</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MålemetodeEnumerationType nvdb:MålemetodeOtherType"/>
+  </simpleType>
+  <simpleType name="MålemetodeEnumerationType">
+    <annotation>
+      <documentation>5262: Angir hvilken målemetode som er benyttet for å framskaffe bredde</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5262</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="måltIFelt">
+        <annotation>
+          <documentation>7157: Målt i felt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7157</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="måltIKartOrtofoto">
+        <annotation>
+          <documentation>7165: Målt i kart/ortofoto</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7165</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="beregnetFraLaserdata_Dekketilstand">
+        <annotation>
+          <documentation>7168: Beregnet fra laserdata, dekketilstand</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7168</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="beregnetFraKartdataFKB">
+        <annotation>
+          <documentation>13459: Beregnet fra kartdata/FKB</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13459</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anslåttVerdi">
+        <annotation>
+          <documentation>7161: Anslått verdi</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7161</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MålemetodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Vegbredde" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegbreddeType">
     <annotation>
       <documentation>583: Strekning som har enhelig bredde på vegen. Inneholder bredde på dekke, kjørebane og total vegbredde</documentation>
@@ -49,7 +165,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="dataopprinnelse" type="gml:CodeType">
+          <element minOccurs="0" name="dataopprinnelse" type="nvdb:DataopprinnelseVegbreddeType">
             <annotation>
               <documentation>5261: Angir hvilke kilde dataene kommer fra</documentation>
               <appinfo>
@@ -67,7 +183,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="målemetode" type="gml:CodeType">
+          <element minOccurs="0" name="målemetode" type="nvdb:MålemetodeType">
             <annotation>
               <documentation>5262: Angir hvilken målemetode som er benyttet for å framskaffe bredde</documentation>
               <appinfo>

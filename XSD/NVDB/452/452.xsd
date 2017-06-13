@@ -6,6 +6,122 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BelysningUndergangType">
+    <annotation>
+      <documentation>5276: Angir om det er belysning i undergangen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5276</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSNINGUNDERGANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BelysningUndergangEnumerationType nvdb:BelysningUndergangOtherType"/>
+  </simpleType>
+  <simpleType name="BelysningUndergangEnumerationType">
+    <annotation>
+      <documentation>5276: Angir om det er belysning i undergangen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5276</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSNINGUNDERGANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>7292: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7292</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>7293: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7293</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelysningUndergangOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="GårUnderType">
+    <annotation>
+      <documentation>5271: Angir hva som er begrensning i høyde.  Hva vegen går under</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5271</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GÅRUNDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GårUnderEnumerationType nvdb:GårUnderOtherType"/>
+  </simpleType>
+  <simpleType name="GårUnderEnumerationType">
+    <annotation>
+      <documentation>5271: Angir hva som er begrensning i høyde.  Hva vegen går under</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5271</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GÅRUNDER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="veg">
+        <annotation>
+          <documentation>7287: Veg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7287</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="jernbane">
+        <annotation>
+          <documentation>7286: Jernbane</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7286</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gangbru">
+        <annotation>
+          <documentation>7285: Gangbru</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7285</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bygning">
+        <annotation>
+          <documentation>7909: Bygning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7909</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="viltovergang">
+        <annotation>
+          <documentation>8176: Viltovergang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8176</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="låvebru">
+        <annotation>
+          <documentation>8188: Låvebru</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8188</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GårUnderOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Undergang" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:UndergangType">
     <annotation>
       <documentation>452: Passasje for trafikk av ulik art (kjørende, gående, dyr) under bru eller mindre bygning.  Se også Tunnelløp og Høydegrensning</documentation>
@@ -28,7 +144,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="gårUnder" type="gml:CodeType">
+          <element minOccurs="0" name="gårUnder" type="nvdb:GårUnderType">
             <annotation>
               <documentation>5271: Angir hva som er begrensning i høyde.  Hva vegen går under</documentation>
               <appinfo>
@@ -37,7 +153,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="belysning" type="gml:CodeType">
+          <element minOccurs="0" name="belysning" type="nvdb:BelysningUndergangType">
             <annotation>
               <documentation>5276: Angir om det er belysning i undergangen</documentation>
               <appinfo>
@@ -64,7 +180,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligUndergangType">
             <annotation>
               <documentation>8092: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -141,4 +257,62 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="VedlikeholdsansvarligUndergangType">
+    <annotation>
+      <documentation>8092: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8092</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGUNDERGANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligUndergangEnumerationType nvdb:VedlikeholdsansvarligUndergangOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligUndergangEnumerationType">
+    <annotation>
+      <documentation>8092: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8092</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGUNDERGANG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10486: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10486</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10564: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10564</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10642: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10642</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17736: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17736</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligUndergangOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

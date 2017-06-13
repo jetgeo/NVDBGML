@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeBuskerType">
             <annotation>
               <documentation>4131: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -48,7 +48,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="løvfellendeVintergrønne" type="gml:CodeType">
+          <element minOccurs="0" name="løvfellendeVintergrønne" type="nvdb:LøvfellendeVintergrønneType">
             <annotation>
               <documentation>4157: Angir om buskene er løvfellende eller ikke</documentation>
               <appinfo>
@@ -121,7 +121,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="gml:CodeType">
+          <element minOccurs="0" name="eier" type="nvdb:EierBuskerType">
             <annotation>
               <documentation>10872: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -130,7 +130,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBuskerType">
             <annotation>
               <documentation>4505: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -175,7 +175,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="planteomgivelser" type="gml:CodeType">
+          <element minOccurs="0" name="planteomgivelser" type="nvdb:PlanteomgivelserType">
             <annotation>
               <documentation>4506: Angir hva som omgir plantene</documentation>
               <appinfo>
@@ -189,10 +189,10 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -203,10 +203,10 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -221,4 +221,286 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="EierBuskerType">
+    <annotation>
+      <documentation>10872: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10872</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierBuskerEnumerationType nvdb:EierBuskerOtherType"/>
+  </simpleType>
+  <simpleType name="EierBuskerEnumerationType">
+    <annotation>
+      <documentation>10872: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10872</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>17907: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17907</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>17910: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17910</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>17908: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17908</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>17909: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17909</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17911: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17911</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBuskerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneType">
+    <annotation>
+      <documentation>4157: Angir om buskene er løvfellende eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4157</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:LøvfellendeVintergrønneEnumerationType nvdb:LøvfellendeVintergrønneOtherType"/>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneEnumerationType">
+    <annotation>
+      <documentation>4157: Angir om buskene er løvfellende eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4157</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LØVFELLENDEVINTERGRØNNE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="løvfellende">
+        <annotation>
+          <documentation>5107: Løvfellende</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5107</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vintergrønne">
+        <annotation>
+          <documentation>5108: Vintergrønne</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5108</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="LøvfellendeVintergrønneOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlanteomgivelserType">
+    <annotation>
+      <documentation>4506: Angir hva som omgir plantene</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4506</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANTEOMGIVELSER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlanteomgivelserEnumerationType nvdb:PlanteomgivelserOtherType"/>
+  </simpleType>
+  <simpleType name="PlanteomgivelserEnumerationType">
+    <annotation>
+      <documentation>4506: Angir hva som omgir plantene</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4506</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLANTEOMGIVELSER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="matjord">
+        <annotation>
+          <documentation>5290: Matjord</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5290</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gress">
+        <annotation>
+          <documentation>5291: Gress</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5291</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="barklag">
+        <annotation>
+          <documentation>5292: Barklag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5292</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlanteomgivelserOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBuskerType">
+    <annotation>
+      <documentation>4131: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4131</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeBuskerEnumerationType nvdb:TypeBuskerOtherType"/>
+  </simpleType>
+  <simpleType name="TypeBuskerEnumerationType">
+    <annotation>
+      <documentation>4131: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4131</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="busker_Frittstående">
+        <annotation>
+          <documentation>5101: Busker, frittstående: Frittstående busker er solitære/ enkeltstående busker. Disse er ofte store og har rik blomstring eller andre karakteristika som gjør dem til et blikkfang.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5101</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="buskfelt">
+        <annotation>
+          <documentation>5102: Buskfelt: Buskfelt er områder/areal beplantet med flere enn 2 busker. Inkluderer også frittvoksende hekk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5102</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hekk_Formklippet">
+        <annotation>
+          <documentation>5103: Hekk, formklippet: Hekk er en rekke med busker eller større treslag som er plantet tett, og vedlikeholdt på en måte for å markere en grense.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5103</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="buskroser">
+        <annotation>
+          <documentation>5104: Buskroser: Buskroser har kraftigere og mer buskaktig vekst enn vanlige roser. Disse krever tilsvarende lik skjøtsel som busker generelt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5104</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="buskas">
+        <annotation>
+          <documentation>5105: Buskas: Gjengrodde/ høytvoksende buskfelt med betydelig lavere skjøtseslbehov enn for buskfelt. Buskas er i mange tilfeller gjengrodde buskfelt, som har grodd igjen til å gi et mer naturlikt preg. Helhetsinntrykket skal likevel  være være frisk og frodig.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5105</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBuskerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBuskerType">
+    <annotation>
+      <documentation>4505: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4505</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligBuskerEnumerationType nvdb:VedlikeholdsansvarligBuskerOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBuskerEnumerationType">
+    <annotation>
+      <documentation>4505: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4505</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBUSKER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>5293: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5293</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>5294: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5294</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>5295: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5295</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17680: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17680</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBuskerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

@@ -6,6 +6,104 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="Fargeliste_TV_tekstType">
+    <annotation>
+      <documentation>8727: Test av liste med farger hvor det er predefinerte verdier for farge</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8727</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGELISTE_TV_TEKST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Fargeliste_TV_tekstEnumerationType nvdb:Fargeliste_TV_tekstOtherType"/>
+  </simpleType>
+  <simpleType name="Fargeliste_TV_tekstEnumerationType">
+    <annotation>
+      <documentation>8727: Test av liste med farger hvor det er predefinerte verdier for farge</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8727</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGELISTE_TV_TEKST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="gul">
+        <annotation>
+          <documentation>11551: Gul</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11551</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="blå">
+        <annotation>
+          <documentation>11552: Blå</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11552</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grå">
+        <annotation>
+          <documentation>11553: Grå</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11553</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rød">
+        <annotation>
+          <documentation>11554: Rød</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11554</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Fargeliste_TV_tekstOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Fargelistenr_TV_tallType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8728</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGELISTENR_TV_TALL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Fargelistenr_TV_tallEnumerationType nvdb:Fargelistenr_TV_tallOtherType"/>
+  </simpleType>
+  <simpleType name="Fargelistenr_TV_tallEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8728</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FARGELISTENR_TV_TALL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="1">
+        <annotation>
+          <documentation>11813: 1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11813</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>11814: 2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11814</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Fargelistenr_TV_tallOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Testobjekttype" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TestobjekttypeType">
     <annotation>
       <documentation>562: Denne objekttypen benyttes ifbm testing av NVDB</documentation>
@@ -100,7 +198,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fargeliste_TV_tekst" type="gml:CodeType">
+          <element minOccurs="0" name="fargeliste_TV_tekst" type="nvdb:Fargeliste_TV_tekstType">
             <annotation>
               <documentation>8727: Test av liste med farger hvor det er predefinerte verdier for farge</documentation>
               <appinfo>
@@ -109,7 +207,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fargelistenr_TV_tall" type="gml:CodeType">
+          <element minOccurs="0" name="fargelistenr_TV_tall" type="nvdb:Fargelistenr_TV_tallType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8728</taggedValue>

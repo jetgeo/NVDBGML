@@ -6,6 +6,218 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="DataopprinnelseType">
+    <annotation>
+      <documentation>4547: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4547</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:DataopprinnelseEnumerationType nvdb:DataopprinnelseOtherType"/>
+  </simpleType>
+  <simpleType name="DataopprinnelseEnumerationType">
+    <annotation>
+      <documentation>4547: Angir hvilke kilde dataene kommer fra</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4547</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATAOPPRINNELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tverr">
+        <annotation>
+          <documentation>5446: Tverr</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5446</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dekkeregister">
+        <annotation>
+          <documentation>5447: Dekkeregister</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5447</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegReg">
+        <annotation>
+          <documentation>5448: VegReg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5448</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="regneark">
+        <annotation>
+          <documentation>5449: Regneark</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5449</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="DataopprinnelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Målemetode_BreddeType">
+    <annotation>
+      <documentation>4531: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODE_BREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Målemetode_BreddeEnumerationType nvdb:Målemetode_BreddeOtherType"/>
+  </simpleType>
+  <simpleType name="Målemetode_BreddeEnumerationType">
+    <annotation>
+      <documentation>4531: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MÅLEMETODE_BREDDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="målehjul">
+        <annotation>
+          <documentation>5429: Målehjul</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5429</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stikkstang">
+        <annotation>
+          <documentation>5430: Stikkstang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5430</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anslag">
+        <annotation>
+          <documentation>5431: Anslag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5431</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stigningsmåler">
+        <annotation>
+          <documentation>5432: Stigningsmåler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5432</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="waterstang">
+        <annotation>
+          <documentation>5433: Waterstang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5433</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="målebånd">
+        <annotation>
+          <documentation>5434: Målebånd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5434</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kikkert">
+        <annotation>
+          <documentation>5435: Kikkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5435</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="manuellVideo">
+        <annotation>
+          <documentation>5436: Manuell video</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5436</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ukjent">
+        <annotation>
+          <documentation>5437: Ukjent</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5437</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="automatiskVideo">
+        <annotation>
+          <documentation>5439: Automatisk video</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5439</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="anleggskontroll">
+        <annotation>
+          <documentation>5440: Anleggskontroll</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5440</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ferdigvegskart">
+        <annotation>
+          <documentation>5441: Ferdigvegskart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5441</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digitaleKart">
+        <annotation>
+          <documentation>5442: Digitale kart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5442</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kart">
+        <annotation>
+          <documentation>5443: Kart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5443</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="detaljplan">
+        <annotation>
+          <documentation>5444: Detaljplan</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5444</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="laser">
+        <annotation>
+          <documentation>5445: Laser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5445</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Målemetode_BreddeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Tverrprofil" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TverrprofilType">
     <annotation>
       <documentation>528: Snitt av veg vinkelrett på vegens midtlinje</documentation>
@@ -269,7 +481,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="målemetode_Bredde" type="gml:CodeType">
+          <element minOccurs="0" name="målemetode_Bredde" type="nvdb:Målemetode_BreddeType">
             <annotation>
               <documentation>4531: Angir metode for måling av bredde.  Kodeverk fra TVERR benyttes</documentation>
               <appinfo>
@@ -287,7 +499,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="dataopprinnelse" type="gml:CodeType">
+          <element minOccurs="0" name="dataopprinnelse" type="nvdb:DataopprinnelseType">
             <annotation>
               <documentation>4547: Angir hvilke kilde dataene kommer fra</documentation>
               <appinfo>
@@ -319,17 +531,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>

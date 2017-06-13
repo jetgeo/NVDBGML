@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="siktklasse" type="gml:CodeType">
+          <element minOccurs="0" name="siktklasse" type="nvdb:SiktklasseSiktklasseType">
             <annotation>
               <documentation>9420: Angir hvilken siktklasse som gjelder på denne strekningen.</documentation>
               <appinfo>
@@ -49,4 +49,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="SiktklasseSiktklasseType">
+    <annotation>
+      <documentation>9420: Angir hvilken siktklasse som gjelder på denne strekningen.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9420</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SIKTKLASSESIKTKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SiktklasseSiktklasseEnumerationType nvdb:SiktklasseSiktklasseOtherType"/>
+  </simpleType>
+  <simpleType name="SiktklasseSiktklasseEnumerationType">
+    <annotation>
+      <documentation>9420: Angir hvilken siktklasse som gjelder på denne strekningen.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9420</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SIKTKLASSESIKTKLASSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="siktklasse1">
+        <annotation>
+          <documentation>13269: Siktklasse 1: Vegstrekninger bygd i henhold til normaler for veg- og gateutforming fra før 1992 og vegstrekninger med svært varierende geometrisk standard.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13269</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="siktklasse2">
+        <annotation>
+          <documentation>13270: Siktklasse 2: Vegstrekninger som i hovedsak er bygd i henhold til vegnormal Statens vegvesen håndbok N100 (017) Veg- og gateutforming (1992/1993)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13270</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="siktklasse3">
+        <annotation>
+          <documentation>13271: Siktklasse 3: Vegstrekninger som i hovedsak er bygd i henhold til vegnormal Statens vegvesen håndbok N100 (017) Veg- og gateutforming (2008)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13271</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SiktklasseSiktklasseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

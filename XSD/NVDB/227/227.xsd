@@ -6,6 +6,48 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BudsjettForsterkningslagType">
+    <annotation>
+      <documentation>5538: Angir hvilket budsjett utlegging går over</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5538</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUDSJETTFORSTERKNINGSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BudsjettForsterkningslagEnumerationType nvdb:BudsjettForsterkningslagOtherType"/>
+  </simpleType>
+  <simpleType name="BudsjettForsterkningslagEnumerationType">
+    <annotation>
+      <documentation>5538: Angir hvilket budsjett utlegging går over</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5538</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUDSJETTFORSTERKNINGSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="anlegg">
+        <annotation>
+          <documentation>7872: Anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7872</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vedlikehold">
+        <annotation>
+          <documentation>7873: Vedlikehold</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7873</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BudsjettForsterkningslagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Forsterkningslag" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:ForsterkningslagType">
     <annotation>
       <documentation>227: Lag i vegens overbygning mellom planum og bærelag.  Hovedfunksjonen er å fordele trafikkbelastningen slik at undergrunnen ikke overbelastes (2)</documentation>
@@ -29,7 +71,7 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeForsterkningslagType">
             <annotation>
               <documentation>1212: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -57,7 +99,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="budsjett" type="gml:CodeType">
+          <element minOccurs="0" name="budsjett" type="nvdb:BudsjettForsterkningslagType">
             <annotation>
               <documentation>5538: Angir hvilket budsjett utlegging går over</documentation>
               <appinfo>
@@ -147,4 +189,54 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeForsterkningslagType">
+    <annotation>
+      <documentation>1212: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1212</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFORSTERKNINGSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeForsterkningslagEnumerationType nvdb:TypeForsterkningslagOtherType"/>
+  </simpleType>
+  <simpleType name="TypeForsterkningslagEnumerationType">
+    <annotation>
+      <documentation>1212: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1212</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFORSTERKNINGSLAG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="knusteSteinmaterialer">
+        <annotation>
+          <documentation>3679: Knuste steinmaterialer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3679</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sandGrus">
+        <annotation>
+          <documentation>3677: Sand/grus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3677</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprengtStein">
+        <annotation>
+          <documentation>3680: Sprengt stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3680</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeForsterkningslagOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

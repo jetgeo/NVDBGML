@@ -6,6 +6,64 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="FormålNedbøyningsmåleserieType">
+    <annotation>
+      <documentation>7915: Angir formål med nedbøyningsmåling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7915</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLNEDBØYNINGSMÅLESERIE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FormålNedbøyningsmåleserieEnumerationType nvdb:FormålNedbøyningsmåleserieOtherType"/>
+  </simpleType>
+  <simpleType name="FormålNedbøyningsmåleserieEnumerationType">
+    <annotation>
+      <documentation>7915: Angir formål med nedbøyningsmåling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7915</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORMÅLNEDBØYNINGSMÅLESERIE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="S">
+        <annotation>
+          <documentation>10093: Sommer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10093</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="T">
+        <annotation>
+          <documentation>10092: Teleløsning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10092</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="P">
+        <annotation>
+          <documentation>10090: Parallellmåling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10090</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="R">
+        <annotation>
+          <documentation>10091: Referansestrekning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10091</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FormålNedbøyningsmåleserieOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Nedbøyningsmåleserie" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:NedbøyningsmåleserieType">
     <annotation>
       <documentation>774: Serie med nedbøyningsmålinger</documentation>
@@ -19,7 +77,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="formål" type="gml:CodeType">
+          <element minOccurs="0" name="formål" type="nvdb:FormålNedbøyningsmåleserieType">
             <annotation>
               <documentation>7915: Angir formål med nedbøyningsmåling</documentation>
               <appinfo>
@@ -37,7 +95,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="spor" type="gml:CodeType">
+          <element minOccurs="0" name="spor" type="nvdb:SporType">
             <annotation>
               <documentation>7916: Angir hvor nedbøyning er foretatt</documentation>
               <appinfo>
@@ -60,7 +118,7 @@
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="utstyrstype" type="gml:CodeType">
+          <element minOccurs="0" name="utstyrstype" type="nvdb:UtstyrstypeType">
             <annotation>
               <documentation>8768: Angir hvilken type utstyr som er benyttet ved nedbøyningsmåling</documentation>
               <appinfo>
@@ -118,4 +176,112 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="SporType">
+    <annotation>
+      <documentation>7916: Angir hvor nedbøyning er foretatt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7916</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SporEnumerationType nvdb:SporOtherType"/>
+  </simpleType>
+  <simpleType name="SporEnumerationType">
+    <annotation>
+      <documentation>7916: Angir hvor nedbøyning er foretatt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7916</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Y">
+        <annotation>
+          <documentation>10089: Ytre spor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10089</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="M">
+        <annotation>
+          <documentation>10088: Mellom spor</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10088</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="I">
+        <annotation>
+          <documentation>10087: Indre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10087</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SporOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtstyrstypeType">
+    <annotation>
+      <documentation>8768: Angir hvilken type utstyr som er benyttet ved nedbøyningsmåling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8768</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSTYRSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtstyrstypeEnumerationType nvdb:UtstyrstypeOtherType"/>
+  </simpleType>
+  <simpleType name="UtstyrstypeEnumerationType">
+    <annotation>
+      <documentation>8768: Angir hvilken type utstyr som er benyttet ved nedbøyningsmåling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8768</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTSTYRSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dynaflect">
+        <annotation>
+          <documentation>11605: Dynaflect</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11605</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fallodd">
+        <annotation>
+          <documentation>11606: Fallodd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11606</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lacroix">
+        <annotation>
+          <documentation>11607: Lacroix</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11607</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="benkelmann">
+        <annotation>
+          <documentation>11608: Benkelmann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11608</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtstyrstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

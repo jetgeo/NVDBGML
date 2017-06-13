@@ -6,6 +6,136 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="GeografiskOppløsningType">
+    <annotation>
+      <documentation>8339: Angir hva statistikken omfatter</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8339</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GeografiskOppløsningEnumerationType nvdb:GeografiskOppløsningOtherType"/>
+  </simpleType>
+  <simpleType name="GeografiskOppløsningEnumerationType">
+    <annotation>
+      <documentation>8339: Angir hva statistikken omfatter</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8339</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOGRAFISKOPPLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="landet">
+        <annotation>
+          <documentation>11290: Landet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11290</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="region">
+        <annotation>
+          <documentation>11291: Region</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11291</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylke">
+        <annotation>
+          <documentation>11292: Fylke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11292</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegavdeling">
+        <annotation>
+          <documentation>11293: Vegavdeling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11293</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>11665: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11665</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegPrLand">
+        <annotation>
+          <documentation>11294: Veg pr land</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11294</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegPrRegion">
+        <annotation>
+          <documentation>11295: Veg pr region</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11295</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegPrFylke">
+        <annotation>
+          <documentation>11286: Veg pr fylke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11286</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegPrAvdeling">
+        <annotation>
+          <documentation>11287: Veg pr avdeling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11287</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegPrKommune">
+        <annotation>
+          <documentation>11670: Veg pr kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11670</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="HP">
+        <annotation>
+          <documentation>11288: HP</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11288</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="PMS_Parsell">
+        <annotation>
+          <documentation>11289: PMS-parsell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11289</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="generert">
+        <annotation>
+          <documentation>11296: Generert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11296</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GeografiskOppløsningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Statistikk_Generell" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Statistikk_GenerellType">
     <annotation>
       <documentation>785: Aggregert informasjon ifbm en vegobjekttype.</documentation>
@@ -37,7 +167,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element name="geografiskOppløsning" type="gml:CodeType">
+          <element name="geografiskOppløsning" type="nvdb:GeografiskOppløsningType">
             <annotation>
               <documentation>8339: Angir hva statistikken omfatter</documentation>
               <appinfo>

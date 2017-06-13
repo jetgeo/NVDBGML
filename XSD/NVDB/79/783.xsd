@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="typeInngrep" type="gml:CodeType">
+          <element minOccurs="0" name="typeInngrep" type="nvdb:TypeInngrepType">
             <annotation>
               <documentation>8322: Angir hvilken type inngrep det er tale om</documentation>
               <appinfo>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hovedproblem" type="gml:CodeType">
+          <element minOccurs="0" name="hovedproblem" type="nvdb:HovedproblemType">
             <annotation>
               <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.</documentation>
               <appinfo>
@@ -195,4 +195,128 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="HovedproblemType">
+    <annotation>
+      <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8323</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HovedproblemEnumerationType nvdb:HovedproblemOtherType"/>
+  </simpleType>
+  <simpleType name="HovedproblemEnumerationType">
+    <annotation>
+      <documentation>8323: Angir hva som er hovedproblem ved dette inngrepet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8323</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bruddIVannstrøm">
+        <annotation>
+          <documentation>11271: Brudd i vannstrøm</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11271</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="strømningshastighet">
+        <annotation>
+          <documentation>11272: Strømningshastighet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11272</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dybde">
+        <annotation>
+          <documentation>11273: Dybde: For liten dybde.  Fisken kommer ikke videre.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bunnsubstrat">
+        <annotation>
+          <documentation>11274: Bunnsubstrat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11274</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedproblemOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeInngrepType">
+    <annotation>
+      <documentation>8322: Angir hvilken type inngrep det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8322</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEINNGREP</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeInngrepEnumerationType nvdb:TypeInngrepOtherType"/>
+  </simpleType>
+  <simpleType name="TypeInngrepEnumerationType">
+    <annotation>
+      <documentation>8322: Angir hvilken type inngrep det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8322</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEINNGREP</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stikkrenneKulvert">
+        <annotation>
+          <documentation>11266: Stikkrenne/kulvert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11266</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bekkelukking">
+        <annotation>
+          <documentation>11267: Bekkelukking</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11267</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bru">
+        <annotation>
+          <documentation>11268: Bru</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11268</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylling">
+        <annotation>
+          <documentation>11269: Fylling: Fyllinger kan for eksempel stenge fjordarmer ved at vi anlegger fyllinger med for små kulverter.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11269</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fyllingIStrandsoneOver250M">
+        <annotation>
+          <documentation>11270: Fylling i strandsone &gt; 250 m: Tilfeller hvor fylling er i konflikt med strandsone over strekning på minst 250 meter.  Det regnes som konflikt når avstand fra fyllingsfot til vann er mindre enn 30 meter.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11270</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeInngrepOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

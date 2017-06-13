@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeOppdrag_FagdataType">
             <annotation>
               <documentation>5600: Angir hvilken type oppdrag det er tale om</documentation>
               <appinfo>
@@ -111,4 +111,70 @@ Enhet: Kroner</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeOppdrag_FagdataType">
+    <annotation>
+      <documentation>5600: Angir hvilken type oppdrag det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5600</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEOPPDRAG_FAGDATA</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeOppdrag_FagdataEnumerationType nvdb:TypeOppdrag_FagdataOtherType"/>
+  </simpleType>
+  <simpleType name="TypeOppdrag_FagdataEnumerationType">
+    <annotation>
+      <documentation>5600: Angir hvilken type oppdrag det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5600</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEOPPDRAG_FAGDATA</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="nyregistrering">
+        <annotation>
+          <documentation>7882: Nyregistrering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7882</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sporOgJevnhetsmåling">
+        <annotation>
+          <documentation>7883: Spor og jevnhetsmåling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7883</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kvalitetskontroll">
+        <annotation>
+          <documentation>7881: Kvalitetskontroll</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7881</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ajourhold">
+        <annotation>
+          <documentation>7884: Ajourhold</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7884</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rapportgenerering">
+        <annotation>
+          <documentation>7885: Rapportgenerering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7885</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeOppdrag_FagdataOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

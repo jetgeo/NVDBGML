@@ -37,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="prioritet" type="gml:CodeType">
+          <element minOccurs="0" name="prioritet" type="nvdb:PrioritetFeierodeType">
             <annotation>
               <documentation>10683: Angir hvilken prioritet som gjelder for aktuell rode</documentation>
               <appinfo>
@@ -90,4 +90,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="PrioritetFeierodeType">
+    <annotation>
+      <documentation>10683: Angir hvilken prioritet som gjelder for aktuell rode</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10683</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIORITETFEIERODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PrioritetFeierodeEnumerationType nvdb:PrioritetFeierodeOtherType"/>
+  </simpleType>
+  <simpleType name="PrioritetFeierodeEnumerationType">
+    <annotation>
+      <documentation>10683: Angir hvilken prioritet som gjelder for aktuell rode</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10683</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIORITETFEIERODE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="A">
+        <annotation>
+          <documentation>17247: A: Høyest prioritet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17247</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="B">
+        <annotation>
+          <documentation>17248: B: Middels prioritet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17248</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="C">
+        <annotation>
+          <documentation>17249: C: Lavest prioritet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17249</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PrioritetFeierodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

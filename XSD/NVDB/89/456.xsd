@@ -6,6 +6,312 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AbonnementstypeType">
+    <annotation>
+      <documentation>3508: Angir hvilken type abonnement det er på telefonforbindelsen (uoff)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3508</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ABONNEMENTSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:AbonnementstypeEnumerationType nvdb:AbonnementstypeOtherType"/>
+  </simpleType>
+  <simpleType name="AbonnementstypeEnumerationType">
+    <annotation>
+      <documentation>3508: Angir hvilken type abonnement det er på telefonforbindelsen (uoff)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3508</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ABONNEMENTSTYPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="bredbåndFiber">
+        <annotation>
+          <documentation>18273: Bredbånd/fiber</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ISDN">
+        <annotation>
+          <documentation>4759: ISDN</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4759</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ISDN_Basis">
+        <annotation>
+          <documentation>4758: ISDN, Basis</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4758</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ISDN_Plus">
+        <annotation>
+          <documentation>4760: ISDN, Plus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4760</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AbonnementstypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatType">
+    <annotation>
+      <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeStyreapparatEnumerationType nvdb:BruksområdeStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatEnumerationType">
+    <annotation>
+      <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="signalanlegg">
+        <annotation>
+          <documentation>18408: Signalanlegg: Benyttes til styring av signalanlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18408</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skilt">
+        <annotation>
+          <documentation>18409: Skilt: Benyttes til styring av variabelt skilt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18409</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegbom">
+        <annotation>
+          <documentation>18410: Vegbom: Benyttes til styring av vegbom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18410</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ventilasjon">
+        <annotation>
+          <documentation>18411: Ventilasjon: Benyttes til styring av ventilasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18411</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annetUtstyr">
+        <annotation>
+          <documentation>18412: Annet utstyr: Benyttes til styring av annet teknisk utstyr.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18412</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStyreapparatOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierStyreapparatType">
+    <annotation>
+      <documentation>8021: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8021</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierStyreapparatEnumerationType nvdb:EierStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="EierStyreapparatEnumerationType">
+    <annotation>
+      <documentation>8021: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8021</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>10287: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10287</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>10748: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10748</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10351: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10351</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10415: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10415</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17614: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17614</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierStyreapparatOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnergikildeType">
+    <annotation>
+      <documentation>3750: Angir hvilken type energikilde som benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3750</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENERGIKILDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EnergikildeEnumerationType nvdb:EnergikildeOtherType"/>
+  </simpleType>
+  <simpleType name="EnergikildeEnumerationType">
+    <annotation>
+      <documentation>3750: Angir hvilken type energikilde som benyttes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3750</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ENERGIKILDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="nettselskap">
+        <annotation>
+          <documentation>4882: Nettselskap</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4882</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="batteri">
+        <annotation>
+          <documentation>4883: Batteri</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4883</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="batteriSolcellepanel">
+        <annotation>
+          <documentation>4884: Batteri/solcellepanel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4884</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="batteriVindgenerator">
+        <annotation>
+          <documentation>4885: Batteri/vindgenerator</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4885</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EnergikildeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="KommunikasjonType">
+    <annotation>
+      <documentation>3643: Angir hvilken type kommunikasjon det er i tilknytning til stasjonen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3643</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KOMMUNIKASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:KommunikasjonEnumerationType nvdb:KommunikasjonOtherType"/>
+  </simpleType>
+  <simpleType name="KommunikasjonEnumerationType">
+    <annotation>
+      <documentation>3643: Angir hvilken type kommunikasjon det er i tilknytning til stasjonen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3643</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KOMMUNIKASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="mode_Med_Oppringt">
+        <annotation>
+          <documentation>4886: Modem/oppringt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4886</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mobiltelefon">
+        <annotation>
+          <documentation>4887: Mobiltelefon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4887</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fastLinje">
+        <annotation>
+          <documentation>4888: Fast linje</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4888</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="manuellTappingAvData">
+        <annotation>
+          <documentation>4889: Manuell "tapping" av data</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4889</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="KommunikasjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="Styreapparat" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StyreapparatType">
     <annotation>
       <documentation>456: Apparatur i tilknytning til teknisk utstyr.  Apparatur står vanligvis i skap.  Inneholder f.eks PLS, modem, batteri/strøm, telefon med mer.  Benyttes f.eks i tilknytning til signalanlegg.</documentation>
@@ -19,7 +325,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeStyreapparatType">
             <annotation>
               <documentation>8812: Angir type styreapparat.</documentation>
               <appinfo>
@@ -28,7 +334,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeStyreapparatType">
             <annotation>
               <documentation>11003: Angir hovedbruksområde for styreapparat</documentation>
               <appinfo>
@@ -37,7 +343,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="typeIO" type="gml:CodeType">
+          <element minOccurs="0" name="typeIO" type="nvdb:TypeIOStyreapparatType">
             <annotation>
               <documentation>4053: Angir om det er digital eller analog tilkopling</documentation>
               <appinfo>
@@ -73,7 +379,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="energikilde" type="gml:CodeType">
+          <element minOccurs="0" name="energikilde" type="nvdb:EnergikildeType">
             <annotation>
               <documentation>3750: Angir hvilken type energikilde som benyttes</documentation>
               <appinfo>
@@ -82,7 +388,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kommunikasjon" type="gml:CodeType">
+          <element minOccurs="0" name="kommunikasjon" type="nvdb:KommunikasjonType">
             <annotation>
               <documentation>3643: Angir hvilken type kommunikasjon det er i tilknytning til stasjonen</documentation>
               <appinfo>
@@ -145,7 +451,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="gml:CodeType">
+          <element minOccurs="0" name="eier" type="nvdb:EierStyreapparatType">
             <annotation>
               <documentation>8021: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -154,7 +460,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligStyreapparatType">
             <annotation>
               <documentation>8095: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -181,7 +487,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="abonnementstype" type="gml:CodeType">
+          <element minOccurs="0" name="abonnementstype" type="nvdb:AbonnementstypeType">
             <annotation>
               <documentation>3508: Angir hvilken type abonnement det er på telefonforbindelsen (uoff)</documentation>
               <appinfo>
@@ -213,4 +519,490 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeIOStyreapparatType">
+    <annotation>
+      <documentation>4053: Angir om det er digital eller analog tilkopling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4053</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEIOSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeIOStyreapparatEnumerationType nvdb:TypeIOStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="TypeIOStyreapparatEnumerationType">
+    <annotation>
+      <documentation>4053: Angir om det er digital eller analog tilkopling</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4053</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEIOSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="analog">
+        <annotation>
+          <documentation>5062: Analog</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5062</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digital">
+        <annotation>
+          <documentation>5068: Digital</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5068</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeIOStyreapparatOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStyreapparatType">
+    <annotation>
+      <documentation>8812: Angir type styreapparat.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8812</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeStyreapparatEnumerationType nvdb:TypeStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="TypeStyreapparatEnumerationType">
+    <annotation>
+      <documentation>8812: Angir type styreapparat.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8812</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="signal">
+        <annotation>
+          <documentation>11675: Signal</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11675</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_C800V">
+        <annotation>
+          <documentation>11676: Signal, C800V</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11676</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_EC_1">
+        <annotation>
+          <documentation>11677: Signal, EC-1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11677</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ELC">
+        <annotation>
+          <documentation>11678: Signal, ELC: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11678</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ELC_2">
+        <annotation>
+          <documentation>11679: Signal, ELC-2: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11679</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ELC_3">
+        <annotation>
+          <documentation>11680: Signal, ELC-3: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11680</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ELC_2_3">
+        <annotation>
+          <documentation>11681: Signal, ELC-2/3: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11681</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_EPC">
+        <annotation>
+          <documentation>11682: Signal, EPC: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11682</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_EPC_4">
+        <annotation>
+          <documentation>11683: Signal, EPC-4: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11683</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_EPC_2">
+        <annotation>
+          <documentation>11684: Signal, EPC-2: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11684</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FC">
+        <annotation>
+          <documentation>11685: Signal, FC: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11685</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FC_2000">
+        <annotation>
+          <documentation>11686: Signal, FC-2000: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11686</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FC_2008">
+        <annotation>
+          <documentation>11687: Signal, FC-2008: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11687</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FC_2016">
+        <annotation>
+          <documentation>11688: Signal, FC-2016: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11688</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FC_400">
+        <annotation>
+          <documentation>11689: Signal, FC-400: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11689</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA">
+        <annotation>
+          <documentation>11690: Signal, FCA: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11690</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_400">
+        <annotation>
+          <documentation>11691: Signal, FCA-400: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11691</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_4000">
+        <annotation>
+          <documentation>11692: Signal, FCA-4000: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11692</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_042">
+        <annotation>
+          <documentation>11693: Signal, FCA-042: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11693</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_082">
+        <annotation>
+          <documentation>11694: Signal, FCA-082: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11694</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_162">
+        <annotation>
+          <documentation>11695: Signal, FCA-162: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11695</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FCA_2">
+        <annotation>
+          <documentation>11696: Signal, FCA-2: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11696</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_FR_80">
+        <annotation>
+          <documentation>11697: Signal, FR-80: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11697</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ITC_1">
+        <annotation>
+          <documentation>11698: Signal, ITC-1: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11698</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ITC_2">
+        <annotation>
+          <documentation>16164: Signal, ITC-2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16164</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_ITC_2_Mini">
+        <annotation>
+          <documentation>16165: Signal, ITC-2 Mini</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16165</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_JCF">
+        <annotation>
+          <documentation>11699: Signal, JCF: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11699</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_JCF_150">
+        <annotation>
+          <documentation>11700: Signal, JCF-150: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11700</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_JCF_250">
+        <annotation>
+          <documentation>11701: Signal, JCF-250: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11701</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_KL">
+        <annotation>
+          <documentation>11702: Signal, KL: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11702</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_KL_5000">
+        <annotation>
+          <documentation>11703: Signal, KL-5000: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11703</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_KLT_5000">
+        <annotation>
+          <documentation>11704: Signal, KLT-5000: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11704</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_LC">
+        <annotation>
+          <documentation>11705: Signal, LC: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11705</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_LCFCA">
+        <annotation>
+          <documentation>11706: Signal, LC/FCA: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11706</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_MQ">
+        <annotation>
+          <documentation>11707: Signal, MQ: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11707</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_MR">
+        <annotation>
+          <documentation>11708: Signal, MR: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11708</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_NH">
+        <annotation>
+          <documentation>11709: Signal, NH: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11709</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_PLS">
+        <annotation>
+          <documentation>11710: Signal, PLS: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11710</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_POFYR">
+        <annotation>
+          <documentation>11711: Signal, POFYR: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11711</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SC_5400">
+        <annotation>
+          <documentation>11712: Signal, SC-5400: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11712</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SC_5408">
+        <annotation>
+          <documentation>11713: Signal, SC-5408: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11713</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SC_8800">
+        <annotation>
+          <documentation>11714: Signal, SC-8800: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11714</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SC_9016">
+        <annotation>
+          <documentation>11715: Signal, SC-9016: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11715</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SC_9108">
+        <annotation>
+          <documentation>11716: Signal, SC-9108: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11716</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="signal_SE">
+        <annotation>
+          <documentation>11717: Signal, SE: Ikke aktuell ved nye anlegg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11717</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStyreapparatOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligStyreapparatType">
+    <annotation>
+      <documentation>8095: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8095</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligStyreapparatEnumerationType nvdb:VedlikeholdsansvarligStyreapparatOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligStyreapparatEnumerationType">
+    <annotation>
+      <documentation>8095: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8095</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTYREAPPARAT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10489: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10489</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10567: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10567</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10645: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10645</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17737: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17737</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligStyreapparatOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

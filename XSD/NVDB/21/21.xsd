@@ -29,7 +29,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeBrøytestikkType">
             <annotation>
               <documentation>1103: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -38,7 +38,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="optiskLedning" type="gml:CodeType">
+          <element minOccurs="0" name="optiskLedning" type="nvdb:OptiskLedningType">
             <annotation>
               <documentation>4553: Angir om brøytestikk benyttes for optisk ledning.</documentation>
               <appinfo>
@@ -47,7 +47,7 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="refleks" type="gml:CodeType">
+          <element minOccurs="0" name="refleks" type="nvdb:RefleksType">
             <annotation>
               <documentation>1920: Angir om det er refleks i tilknytning til vegobjektet og evt hvilken type.  Angir om brøytestikk har refleks eller ikke</documentation>
               <appinfo>
@@ -76,7 +76,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="permanent" type="gml:CodeType">
+          <element minOccurs="0" name="permanent" type="nvdb:PermanentType">
             <annotation>
               <documentation>2068: Angir om vegobjektet er permanent eller midlertidig/sesongbetinga.  Angir om brøytestikk er fast montert hele året, eller om de tas ned i sommersesongen</documentation>
               <appinfo>
@@ -115,13 +115,6 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -136,6 +129,13 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
@@ -147,4 +147,188 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="OptiskLedningType">
+    <annotation>
+      <documentation>4553: Angir om brøytestikk benyttes for optisk ledning.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4553</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPTISKLEDNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OptiskLedningEnumerationType nvdb:OptiskLedningOtherType"/>
+  </simpleType>
+  <simpleType name="OptiskLedningEnumerationType">
+    <annotation>
+      <documentation>4553: Angir om brøytestikk benyttes for optisk ledning.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4553</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPTISKLEDNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5461: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5461</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5462: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5462</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OptiskLedningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PermanentType">
+    <annotation>
+      <documentation>2068: Angir om vegobjektet er permanent eller midlertidig/sesongbetinga.  Angir om brøytestikk er fast montert hele året, eller om de tas ned i sommersesongen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2068</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PERMANENT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PermanentEnumerationType nvdb:PermanentOtherType"/>
+  </simpleType>
+  <simpleType name="PermanentEnumerationType">
+    <annotation>
+      <documentation>2068: Angir om vegobjektet er permanent eller midlertidig/sesongbetinga.  Angir om brøytestikk er fast montert hele året, eller om de tas ned i sommersesongen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2068</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PERMANENT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3543: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3543</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3581: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3581</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PermanentOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RefleksType">
+    <annotation>
+      <documentation>1920: Angir om det er refleks i tilknytning til vegobjektet og evt hvilken type.  Angir om brøytestikk har refleks eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1920</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RefleksEnumerationType nvdb:RefleksOtherType"/>
+  </simpleType>
+  <simpleType name="RefleksEnumerationType">
+    <annotation>
+      <documentation>1920: Angir om det er refleks i tilknytning til vegobjektet og evt hvilken type.  Angir om brøytestikk har refleks eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1920</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_REFLEKS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3529: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3529</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3567: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3567</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RefleksOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBrøytestikkType">
+    <annotation>
+      <documentation>1103: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1103</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBRØYTESTIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeBrøytestikkEnumerationType nvdb:TypeBrøytestikkOtherType"/>
+  </simpleType>
+  <simpleType name="TypeBrøytestikkEnumerationType">
+    <annotation>
+      <documentation>1103: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1103</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBRØYTESTIKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tre">
+        <annotation>
+          <documentation>2197: Tre: Omfatter brøytestikk av kvist samt andre typer av tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2197</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bambus">
+        <annotation>
+          <documentation>2198: Bambus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2198</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall_Stål_Galvanisert">
+        <annotation>
+          <documentation>2224: Metall, stål, galvanisert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2224</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>2263: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2263</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBrøytestikkOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

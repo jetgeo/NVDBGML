@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeBassengMagasinType">
             <annotation>
               <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="hovedForbasseng" type="gml:CodeType">
+          <element minOccurs="0" name="hovedForbasseng" type="nvdb:HovedForbassengType">
             <annotation>
               <documentation>10451: Angir bassenget er regnet som hovedbasseng eller forbasseng</documentation>
               <appinfo>
@@ -37,7 +37,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bunn" type="gml:CodeType">
+          <element minOccurs="0" name="bunn" type="nvdb:BunnType">
             <annotation>
               <documentation>10452: Angir hvilken type bunn det er i bassenget</documentation>
               <appinfo>
@@ -56,7 +56,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="innløpsløsning" type="gml:CodeType">
+          <element minOccurs="0" name="innløpsløsning" type="nvdb:InnløpsløsningType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10455</taggedValue>
@@ -64,7 +64,7 @@ Enhet: Kvadratmeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="utløpsløsning" type="gml:CodeType">
+          <element minOccurs="0" name="utløpsløsning" type="nvdb:UtløpsløsningType">
             <annotation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10457</taggedValue>
@@ -102,7 +102,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="filtermasser" type="gml:CodeType">
+          <element minOccurs="0" name="filtermasser" type="nvdb:FiltermasserType">
             <annotation>
               <documentation>10685: Angir om det er stedlige eller tilførte filtermasser</documentation>
               <appinfo>
@@ -111,7 +111,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="slukkevann" type="gml:CodeType">
+          <element minOccurs="0" name="slukkevann" type="nvdb:SlukkevannType">
             <annotation>
               <documentation>10454: Angir om vannet benyttes til slukkevann i forbindelse med evt. brann. Mest relevant i tunnel</documentation>
               <appinfo>
@@ -120,7 +120,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="oljeutskilling" type="gml:CodeType">
+          <element minOccurs="0" name="oljeutskilling" type="nvdb:OljeutskillingType">
             <annotation>
               <documentation>10456: Basseng har system for utskilling av olje.</documentation>
               <appinfo>
@@ -156,7 +156,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="gml:CodeType">
+          <element minOccurs="0" name="eier" type="nvdb:EierBassengMagasinType">
             <annotation>
               <documentation>8010: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -165,7 +165,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBassengMagasinType">
             <annotation>
               <documentation>8077: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -224,4 +224,524 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="BruksområdeBassengMagasinType">
+    <annotation>
+      <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1283</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeBassengMagasinEnumerationType nvdb:BruksområdeBassengMagasinOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeBassengMagasinEnumerationType">
+    <annotation>
+      <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1283</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="rensebasseng">
+        <annotation>
+          <documentation>7941: Rensebasseng: Basseng for å rense vann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7941</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Sedimentasjon">
+        <annotation>
+          <documentation>17034: Rensebasseng, sedimentasjon: Basseng for å rense vann ved at slam/sediment bunnfaller.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17034</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Infiltrasjon">
+        <annotation>
+          <documentation>17035: Rensebasseng, infiltrasjon: Vann infiltreres. Stedlige masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17035</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Våtmark">
+        <annotation>
+          <documentation>17036: Rensebasseng, våtmark</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17036</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="oppsamlingAvForurensning">
+        <annotation>
+          <documentation>7943: Oppsamling av forurensning: Basseng for å samle opp eventuelle lekkasjer/søl fra havarerte tankbiler etc.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7943</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fordrøyningsbasseng">
+        <annotation>
+          <documentation>7942: Fordrøyningsbasseng: Basseng som benyttes for å utjevne varierende vannføringer slik at nedstrøms ledningsnett og renseanlegg ikke blir overbelastet (Store norske leksikon)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7942</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vannmagasin">
+        <annotation>
+          <documentation>17037: Vannmagasin: Oppbevaring av vann som skal benyttes til bestemt formål.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17037</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pumpesump">
+        <annotation>
+          <documentation>7944: Pumpesump: Basseng i tilknytning til pumpestasjon.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7944</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeBassengMagasinOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BunnType">
+    <annotation>
+      <documentation>10452: Angir hvilken type bunn det er i bassenget</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10452</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUNN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BunnEnumerationType nvdb:BunnOtherType"/>
+  </simpleType>
+  <simpleType name="BunnEnumerationType">
+    <annotation>
+      <documentation>10452: Angir hvilken type bunn det er i bassenget</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10452</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BUNN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betongbunn">
+        <annotation>
+          <documentation>16907: Betongbunn</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16907</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bunntettingLeire">
+        <annotation>
+          <documentation>16908: Bunntetting leire</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16908</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bunntetting_Mm_Ran">
+        <annotation>
+          <documentation>16909: Bunntetting membran</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16909</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="berg">
+        <annotation>
+          <documentation>17012: Berg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17012</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BunnOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBassengMagasinType">
+    <annotation>
+      <documentation>8010: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8010</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierBassengMagasinEnumerationType nvdb:EierBassengMagasinOtherType"/>
+  </simpleType>
+  <simpleType name="EierBassengMagasinEnumerationType">
+    <annotation>
+      <documentation>8010: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8010</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>10276: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>10738: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10738</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10340: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10340</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10404: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10404</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17587: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17587</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBassengMagasinOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FiltermasserType">
+    <annotation>
+      <documentation>10685: Angir om det er stedlige eller tilførte filtermasser</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10685</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FILTERMASSER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FiltermasserEnumerationType nvdb:FiltermasserOtherType"/>
+  </simpleType>
+  <simpleType name="FiltermasserEnumerationType">
+    <annotation>
+      <documentation>10685: Angir om det er stedlige eller tilførte filtermasser</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10685</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FILTERMASSER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stedligeMasser">
+        <annotation>
+          <documentation>17278: Stedlige masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tilførteMasser">
+        <annotation>
+          <documentation>17279: Tilførte masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17279</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FiltermasserOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedForbassengType">
+    <annotation>
+      <documentation>10451: Angir bassenget er regnet som hovedbasseng eller forbasseng</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10451</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDFORBASSENG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:HovedForbassengEnumerationType nvdb:HovedForbassengOtherType"/>
+  </simpleType>
+  <simpleType name="HovedForbassengEnumerationType">
+    <annotation>
+      <documentation>10451: Angir bassenget er regnet som hovedbasseng eller forbasseng</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10451</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDFORBASSENG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hovedbasseng">
+        <annotation>
+          <documentation>16904: Hovedbasseng</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16904</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="forbasseng">
+        <annotation>
+          <documentation>16905: Forbasseng</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16905</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="HovedForbassengOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="InnløpsløsningType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10455</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNLØPSLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:InnløpsløsningEnumerationType nvdb:InnløpsløsningOtherType"/>
+  </simpleType>
+  <simpleType name="InnløpsløsningEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10455</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNLØPSLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dykket">
+        <annotation>
+          <documentation>16916: Dykket</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16916</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="åpen">
+        <annotation>
+          <documentation>16917: Åpen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16917</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="InnløpsløsningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OljeutskillingType">
+    <annotation>
+      <documentation>10456: Basseng har system for utskilling av olje.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10456</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OLJEUTSKILLING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OljeutskillingEnumerationType nvdb:OljeutskillingOtherType"/>
+  </simpleType>
+  <simpleType name="OljeutskillingEnumerationType">
+    <annotation>
+      <documentation>10456: Basseng har system for utskilling av olje.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10456</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OLJEUTSKILLING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16918: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16918</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16919: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16919</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OljeutskillingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SlukkevannType">
+    <annotation>
+      <documentation>10454: Angir om vannet benyttes til slukkevann i forbindelse med evt. brann. Mest relevant i tunnel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10454</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SLUKKEVANN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SlukkevannEnumerationType nvdb:SlukkevannOtherType"/>
+  </simpleType>
+  <simpleType name="SlukkevannEnumerationType">
+    <annotation>
+      <documentation>10454: Angir om vannet benyttes til slukkevann i forbindelse med evt. brann. Mest relevant i tunnel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10454</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SLUKKEVANN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16914: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16914</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16915: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16915</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SlukkevannOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtløpsløsningType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10457</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTLØPSLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:UtløpsløsningEnumerationType nvdb:UtløpsløsningOtherType"/>
+  </simpleType>
+  <simpleType name="UtløpsløsningEnumerationType">
+    <annotation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10457</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_UTLØPSLØSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dykket">
+        <annotation>
+          <documentation>16920: Dykket</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16920</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="åpen">
+        <annotation>
+          <documentation>16921: Åpen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16921</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="UtløpsløsningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBassengMagasinType">
+    <annotation>
+      <documentation>8077: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8077</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligBassengMagasinEnumerationType nvdb:VedlikeholdsansvarligBassengMagasinOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBassengMagasinEnumerationType">
+    <annotation>
+      <documentation>8077: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8077</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>10471: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10471</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10549: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10549</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>10627: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10627</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17726: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17726</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBassengMagasinOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

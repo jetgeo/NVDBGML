@@ -6,6 +6,48 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="EtterslepTilstandSkadeFU_StrekningType">
+    <annotation>
+      <documentation>4086: Angir om det er etterslep i forhold til Håndbok R610 (111).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4086</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ETTERSLEPTILSTANDSKADEFU_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EtterslepTilstandSkadeFU_StrekningEnumerationType nvdb:EtterslepTilstandSkadeFU_StrekningOtherType"/>
+  </simpleType>
+  <simpleType name="EtterslepTilstandSkadeFU_StrekningEnumerationType">
+    <annotation>
+      <documentation>4086: Angir om det er etterslep i forhold til Håndbok R610 (111).</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4086</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ETTERSLEPTILSTANDSKADEFU_STREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5085: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5085</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5086: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5086</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EtterslepTilstandSkadeFU_StrekningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="TilstandSkadeFU_Strekning" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkadeFU_StrekningType">
     <annotation>
       <documentation>507: Gir informasjon om funksjonalitet.  Normalt knyttet til et spesifikt strekningsobjekt.</documentation>
@@ -19,7 +61,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="etterslep" type="gml:CodeType">
+          <element minOccurs="0" name="etterslep" type="nvdb:EtterslepTilstandSkadeFU_StrekningType">
             <annotation>
               <documentation>4086: Angir om det er etterslep i forhold til Håndbok R610 (111).</documentation>
               <appinfo>

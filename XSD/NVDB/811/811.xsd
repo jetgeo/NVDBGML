@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeDataanalyseType">
             <annotation>
               <documentation>9288: Angir hvilken type dataanalyse som er gjort</documentation>
               <appinfo>
@@ -67,4 +67,54 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeDataanalyseType">
+    <annotation>
+      <documentation>9288: Angir hvilken type dataanalyse som er gjort</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9288</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDATAANALYSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeDataanalyseEnumerationType nvdb:TypeDataanalyseOtherType"/>
+  </simpleType>
+  <simpleType name="TypeDataanalyseEnumerationType">
+    <annotation>
+      <documentation>9288: Angir hvilken type dataanalyse som er gjort</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9288</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEDATAANALYSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="manglendeData">
+        <annotation>
+          <documentation>12980: Manglende data</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12980</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="overlappendeData">
+        <annotation>
+          <documentation>12981: Overlappende data</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12981</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="generell">
+        <annotation>
+          <documentation>12982: Generell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12982</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeDataanalyseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

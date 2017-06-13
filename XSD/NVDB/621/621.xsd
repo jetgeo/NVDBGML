@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="gml:CodeType">
+          <element minOccurs="0" name="type" type="nvdb:TypeOppgave_VegnettType">
             <annotation>
               <documentation>5603: Angir hvilken type oppdrag det er tale om</documentation>
               <appinfo>
@@ -93,4 +93,70 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TypeOppgave_VegnettType">
+    <annotation>
+      <documentation>5603: Angir hvilken type oppdrag det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5603</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEOPPGAVE_VEGNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeOppgave_VegnettEnumerationType nvdb:TypeOppgave_VegnettOtherType"/>
+  </simpleType>
+  <simpleType name="TypeOppgave_VegnettEnumerationType">
+    <annotation>
+      <documentation>5603: Angir hvilken type oppdrag det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5603</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEOPPGAVE_VEGNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="utsjekk">
+        <annotation>
+          <documentation>7893: Utsjekk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7893</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vegnettsredigering">
+        <annotation>
+          <documentation>7894: Vegnettsredigering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7894</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="godkjenning">
+        <annotation>
+          <documentation>7895: Godkjenning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7895</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="setteVegnettIDrift">
+        <annotation>
+          <documentation>7896: Sette vegnett i drift</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7896</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="godkjenning">
+        <annotation>
+          <documentation>7892: Godkjenning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7892</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeOppgave_VegnettOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

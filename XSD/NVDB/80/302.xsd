@@ -6,6 +6,48 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="SkadetypeTilstandSkade_GrøftType">
+    <annotation>
+      <documentation>2272: Angir hvilken type skade det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2272</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADE_GRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkadetypeTilstandSkade_GrøftEnumerationType nvdb:SkadetypeTilstandSkade_GrøftOtherType"/>
+  </simpleType>
+  <simpleType name="SkadetypeTilstandSkade_GrøftEnumerationType">
+    <annotation>
+      <documentation>2272: Angir hvilken type skade det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2272</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKADETYPETILSTANDSKADE_GRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tilgrodd">
+        <annotation>
+          <documentation>4109: Tilgrodd</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4109</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tettetPgaRas">
+        <annotation>
+          <documentation>4110: Tettet pga ras</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4110</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkadetypeTilstandSkade_GrøftOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="TilstandSkade_Grøft" substitutionGroup="gml:AbstractFeature" type="nvdb:TilstandSkade_GrøftType">
     <annotation>
       <documentation>302: Gir informasjon om tilstand og eventuell skade på åpen grøft.</documentation>
@@ -19,7 +61,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="tilstand" type="gml:CodeType">
+          <element minOccurs="0" name="tilstand" type="nvdb:TilstandTilstandSkade_GrøftType">
             <annotation>
               <documentation>2271: Angir tilstand til vegobjektet</documentation>
               <appinfo>
@@ -28,7 +70,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="skadetype" type="gml:CodeType">
+          <element minOccurs="0" name="skadetype" type="nvdb:SkadetypeTilstandSkade_GrøftType">
             <annotation>
               <documentation>2272: Angir hvilken type skade det er tale om</documentation>
               <appinfo>
@@ -46,7 +88,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="tiltak" type="gml:CodeType">
+          <element minOccurs="0" name="tiltak" type="nvdb:TiltakType">
             <annotation>
               <documentation>1244: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
               <appinfo>
@@ -104,4 +146,96 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="TilstandTilstandSkade_GrøftType">
+    <annotation>
+      <documentation>2271: Angir tilstand til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2271</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_GRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TilstandTilstandSkade_GrøftEnumerationType nvdb:TilstandTilstandSkade_GrøftOtherType"/>
+  </simpleType>
+  <simpleType name="TilstandTilstandSkade_GrøftEnumerationType">
+    <annotation>
+      <documentation>2271: Angir tilstand til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2271</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILSTANDTILSTANDSKADE_GRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ok">
+        <annotation>
+          <documentation>4106: Ok</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4106</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tiltaksbehov">
+        <annotation>
+          <documentation>4107: Tiltaksbehov</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4107</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mangler">
+        <annotation>
+          <documentation>4108: Mangler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4108</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="funksjonell">
+        <annotation>
+          <documentation>4630: Funksjonell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4630</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TilstandTilstandSkade_GrøftOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakType">
+    <annotation>
+      <documentation>1244: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1244</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TiltakEnumerationType nvdb:TiltakOtherType"/>
+  </simpleType>
+  <simpleType name="TiltakEnumerationType">
+    <annotation>
+      <documentation>1244: Angir hvilket tiltak som bør foretas på vegobjektet som skade er koplet mot</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1244</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="grøfterensk">
+        <annotation>
+          <documentation>3822: Grøfterensk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3822</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TiltakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>

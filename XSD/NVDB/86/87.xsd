@@ -19,7 +19,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="bruksområde" type="gml:CodeType">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeBelysningspunktType">
             <annotation>
               <documentation>1272: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="plassering" type="gml:CodeType">
+          <element minOccurs="0" name="plassering" type="nvdb:PlasseringType">
             <annotation>
               <documentation>1874: Angir plassering for vegobjektet</documentation>
               <appinfo>
@@ -47,7 +47,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="strømtilførsel_Kategori" type="gml:CodeType">
+          <element minOccurs="0" name="strømtilførsel_Kategori" type="nvdb:Strømtilførsel_KategoriType">
             <annotation>
               <documentation>2078: Angir hvilken type strømtilkopling det er til vegobjektet</documentation>
               <appinfo>
@@ -65,7 +65,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="overbelastningsvern" type="gml:CodeType">
+          <element minOccurs="0" name="overbelastningsvern" type="nvdb:OverbelastningsvernType">
             <annotation>
               <documentation>10006: Angir om det er overbelastningsvern i punktet</documentation>
               <appinfo>
@@ -101,7 +101,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="gml:CodeType">
+          <element minOccurs="0" name="eier" type="nvdb:EierBelysningspunktType">
             <annotation>
               <documentation>10003: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
@@ -119,7 +119,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="gml:CodeType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligBelysningspunktType">
             <annotation>
               <documentation>1555: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
@@ -168,17 +168,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -193,4 +193,432 @@ Enhet: Meter</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <simpleType name="BruksområdeBelysningspunktType">
+    <annotation>
+      <documentation>1272: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1272</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeBelysningspunktEnumerationType nvdb:BruksområdeBelysningspunktOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeBelysningspunktEnumerationType">
+    <annotation>
+      <documentation>1272: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1272</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="belysningVegGate">
+        <annotation>
+          <documentation>2955: Belysning veg/gate: Belysnig av veg og gate</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2955</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningTunnel">
+        <annotation>
+          <documentation>2963: Belysning tunnel: Belysning i tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2963</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nødbelysning_Tunnel">
+        <annotation>
+          <documentation>4910: Nødbelysning, tunnel: Nødbelysning i tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4910</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningBru">
+        <annotation>
+          <documentation>3319: Belysning bru: Brukes kun for spesiell belysning av bru. Vanlig vegbelysning settes som Belysning veg/gate</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3319</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningOmrådePlass">
+        <annotation>
+          <documentation>2957: Belysning område/plass: Belysnig av veg og gate</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2957</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningFerjeleie">
+        <annotation>
+          <documentation>16261: Belysning ferjeleie: Belysning av ferjeleie</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16261</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningVegkryss">
+        <annotation>
+          <documentation>2959: Belysning vegkryss: Belysning i vegkryss</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2959</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningGangSykkelveg">
+        <annotation>
+          <documentation>2953: Belysning gang/sykkelveg: Belysning på gang- og sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2953</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysningGangfelt">
+        <annotation>
+          <documentation>2961: Belysning gangfelt: Belysning for gangfelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2961</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysning_Undergang">
+        <annotation>
+          <documentation>17318: Belysning, undergang: Belysningspunkt i undergang/under bru etc.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17318</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysning_Utstyr">
+        <annotation>
+          <documentation>4908: Belysning, utstyr: Belysning av vegutstyr f.eks betalingsautomat, skilt, med mer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4908</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="belysning_PrivatOmråde">
+        <annotation>
+          <documentation>3856: Belysning, privat område: Belysning av privat område</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3856</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kunKabelframføring">
+        <annotation>
+          <documentation>18317: Kun kabelframføring: Belysningspunkt som kun har funksjon kabelframføring, inneholder ikke lysarmatur.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18317</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeBelysningspunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBelysningspunktType">
+    <annotation>
+      <documentation>10003: Angir hvem som er eier av vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierBelysningspunktEnumerationType nvdb:EierBelysningspunktOtherType"/>
+  </simpleType>
+  <simpleType name="EierBelysningspunktEnumerationType">
+    <annotation>
+      <documentation>10003: Angir hvem som er eier av vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10003</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat">
+        <annotation>
+          <documentation>16262: Stat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16262</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>16263: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16263</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>16264: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16264</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>16265: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16265</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17632: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17632</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierBelysningspunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="OverbelastningsvernType">
+    <annotation>
+      <documentation>10006: Angir om det er overbelastningsvern i punktet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10006</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERBELASTNINGSVERN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OverbelastningsvernEnumerationType nvdb:OverbelastningsvernOtherType"/>
+  </simpleType>
+  <simpleType name="OverbelastningsvernEnumerationType">
+    <annotation>
+      <documentation>10006: Angir om det er overbelastningsvern i punktet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10006</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERBELASTNINGSVERN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16267: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16267</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16268: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16268</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OverbelastningsvernOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringType">
+    <annotation>
+      <documentation>1874: Angir plassering for vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringEnumerationType nvdb:PlasseringOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringEnumerationType">
+    <annotation>
+      <documentation>1874: Angir plassering for vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="lysmast">
+        <annotation>
+          <documentation>2965: Lysmast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2965</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mindreStolpe">
+        <annotation>
+          <documentation>2969: Mindre stolpe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2969</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hengerITakKabelstige">
+        <annotation>
+          <documentation>2970: Henger i tak/kabelstige</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2970</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="festetTilVeggBygning">
+        <annotation>
+          <documentation>2972: Festet til vegg/bygning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2972</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påPortal">
+        <annotation>
+          <documentation>2988: På portal</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2988</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hengerIVaier">
+        <annotation>
+          <documentation>3757: Henger i vaier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3757</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Strømtilførsel_KategoriType">
+    <annotation>
+      <documentation>2078: Angir hvilken type strømtilkopling det er til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2078</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STRØMTILFØRSEL_KATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Strømtilførsel_KategoriEnumerationType nvdb:Strømtilførsel_KategoriOtherType"/>
+  </simpleType>
+  <simpleType name="Strømtilførsel_KategoriEnumerationType">
+    <annotation>
+      <documentation>2078: Angir hvilken type strømtilkopling det er til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2078</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STRØMTILFØRSEL_KATEGORI</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="jordkabel">
+        <annotation>
+          <documentation>3765: Jordkabel: Kabel i bakken</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3765</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="line">
+        <annotation>
+          <documentation>3766: Line: Uisolert kabel i ludt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3766</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="EX">
+        <annotation>
+          <documentation>3857: EX: Isolert kabel i luft</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3857</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Strømtilførsel_KategoriOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBelysningspunktType">
+    <annotation>
+      <documentation>1555: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1555</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligBelysningspunktEnumerationType nvdb:VedlikeholdsansvarligBelysningspunktOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBelysningspunktEnumerationType">
+    <annotation>
+      <documentation>1555: Angir hvem som er ansvarlig for vedlikehold</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1555</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGBELYSNINGSPUNKT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="statensVegvesen">
+        <annotation>
+          <documentation>2142: Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2142</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>2146: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2146</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lokaltE_Verk">
+        <annotation>
+          <documentation>3717: Lokalt e-verk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3717</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>17672: Uavklart</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17672</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>2150: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2150</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligBelysningspunktOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
 </schema>
