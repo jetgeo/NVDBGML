@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" version="2.09">
+  <annotation>
+    <documentation>851: Installasjoner for kunstig utløsning  som står i løsneområdene for skred</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="AdkomstSkredutløsningstiltakType">
+    <annotation>
+      <documentation>9666: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9666</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDUTLØSNINGSTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:AdkomstSkredutløsningstiltakEnumerationType nvdb:AdkomstSkredutløsningstiltakOtherType"/>
+  </simpleType>
+  <simpleType name="AdkomstSkredutløsningstiltakEnumerationType">
+    <annotation>
+      <documentation>9666: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9666</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDUTLØSNINGSTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="hjullaster">
+        <annotation>
+          <documentation>13926: Hjullaster: Adkomst for hjullaster</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13926</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gravemaskin">
+        <annotation>
+          <documentation>13927: Gravemaskin: Adkomst for gravemaskin</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13927</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tilFots">
+        <annotation>
+          <documentation>13928: Til fots: Adkomst til fots</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13928</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kran">
+        <annotation>
+          <documentation>13929: Kran: Adkomst for kran</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13929</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tau">
+        <annotation>
+          <documentation>13930: Tau: Adkomt med tau</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13930</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="helikopter">
+        <annotation>
+          <documentation>13931: Helikopter: Adkomst for helikopter</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13931</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AdkomstSkredutløsningstiltakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Skredutløsningstiltak" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkredutløsningstiltakType">
+    <annotation>
+      <documentation>851: Installasjoner for kunstig utløsning  som står i løsneområdene for skred</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">851</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDUTLØSNINGSTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="SkredutløsningstiltakType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeSkredutløsningstiltakType">
+            <annotation>
+              <documentation>9664: Angir type skredutløsning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9664</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="antallEnheter" type="integer">
+            <annotation>
+              <documentation>9665: Antall enheter for skredutløsning
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9665</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLENHETER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="adkomst" type="nvdb:AdkomstSkredutløsningstiltakType">
+            <annotation>
+              <documentation>9666: Beskriver hvordan man får adkomst til vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9666</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>9667: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9667</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>9670: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9670</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SkredutløsningstiltakPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Skredutløsningstiltak"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeSkredutløsningstiltakType">
+    <annotation>
+      <documentation>9664: Angir type skredutløsning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9664</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKREDUTLØSNINGSTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeSkredutløsningstiltakEnumerationType nvdb:TypeSkredutløsningstiltakOtherType"/>
+  </simpleType>
+  <simpleType name="TypeSkredutløsningstiltakEnumerationType">
+    <annotation>
+      <documentation>9664: Angir type skredutløsning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9664</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKREDUTLØSNINGSTILTAK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="sprengladning_Forhåndsplassert">
+        <annotation>
+          <documentation>13922: Sprengladning, forhåndsplassert: Sprengladning som er forhåndsplassert i utløsningsområdet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13922</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sprengningstårn">
+        <annotation>
+          <documentation>13923: Sprengningstårn: Innretning som settes opp i fjellsidene for å slippe ut sprenglegemer for å utløse skred</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13923</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gassdetonator">
+        <annotation>
+          <documentation>13924: Gassdetonator: Innretning for fjernutløsning av en gasseksplosjon i utløsningsområdet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13924</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kabelbane">
+        <annotation>
+          <documentation>13925: Kabelbane: kabelane som brukes for å bringe sprengladninger inn i skredutløsningsområdet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13925</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSkredutløsningstiltakOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

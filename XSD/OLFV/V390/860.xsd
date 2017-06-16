@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" version="2.09">
+  <annotation>
+    <documentation>860: En rekke med lys satt opp i den hensikt å lede trafikkanter ut av en tunnel i en nødsituasjon. Evakueringslysene skal normalt være festet på tunnelvegg i bestemt høyde over veg og med fast innbyrdes avstand Det forutsettes at de enkelt evakueringslysene som inngår hovedsakelig er av samme type. Det opprettes en forekomst for hver side av vegen.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Evakueringslysstrekning" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:EvakueringslysstrekningType">
+    <annotation>
+      <documentation>860: En rekke med lys satt opp i den hensikt å lede trafikkanter ut av en tunnel i en nødsituasjon. Evakueringslysene skal normalt være festet på tunnelvegg i bestemt høyde over veg og med fast innbyrdes avstand Det forutsettes at de enkelt evakueringslysene som inngår hovedsakelig er av samme type. Det opprettes en forekomst for hver side av vegen.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">860</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EVAKUERINGSLYSSTREKNING</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="EvakueringslysstrekningType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="typeLyskilde" type="nvdb:TypeLyskildeType">
+            <annotation>
+              <documentation>9899: Angir type lyskilder i et evakueringslys</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9899</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPELYSKILDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="antallEvakueringslyspunkt" type="integer">
+            <annotation>
+              <documentation>9890: Angir hhvor mange evakueringslyspunk som inngår i evakueringslysstrekning. Der det er flere lyskilder på samme oppsetting  telles det som ett evakueringslyspunkt.
+Enhet: Stykker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9890</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLEVAKUERINGSLYSPUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="effekt" type="integer">
+            <annotation>
+              <documentation>9895: Angir effekt for ett evakueringslys
+Enhet: Watt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9895</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EFFEKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="driftsattår" type="integer">
+            <annotation>
+              <documentation>9892: Angir årstall objektet ble satt i drift</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9892</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSATTÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>9898: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9898</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EvakueringslysstrekningPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Evakueringslysstrekning"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeLyskildeType">
+    <annotation>
+      <documentation>9899: Angir type lyskilder i et evakueringslys</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9899</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPELYSKILDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeLyskildeEnumerationType nvdb:TypeLyskildeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeLyskildeEnumerationType">
+    <annotation>
+      <documentation>9899: Angir type lyskilder i et evakueringslys</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9899</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPELYSKILDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="LED">
+        <annotation>
+          <documentation>16082: LED</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16082</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lysstoffrør">
+        <annotation>
+          <documentation>16083: Lysstoffrør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16083</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lystråd">
+        <annotation>
+          <documentation>16721: Lystråd: Tråd som lyser i hele trådens lengde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16721</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glødelampe">
+        <annotation>
+          <documentation>16722: Glødelampe: Tradisjonell glødelampe</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16722</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeLyskildeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

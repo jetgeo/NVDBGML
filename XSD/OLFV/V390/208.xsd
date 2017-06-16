@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" version="2.09">
+  <annotation>
+    <documentation>208: Innretning for opplagring av vann.  Eksempelvis i tilknytning til tunneler.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="BassengMagasin" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:BassengMagasinType">
+    <annotation>
+      <documentation>208: Innretning for opplagring av vann.  Eksempelvis i tilknytning til tunneler.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">208</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="BassengMagasinType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="bruksområde" type="nvdb:BruksområdeBassengMagasinType">
+            <annotation>
+              <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1283</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="areal" type="integer">
+            <annotation>
+              <documentation>1378: Angir arealet av vegobjektet
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1378</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="volum" type="integer">
+            <annotation>
+              <documentation>1394: Angir volum av vann/væske ved fullt basseng
+Enhet: Kubikkmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1394</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VOLUM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10268: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10268</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="område" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>8881: Gir flate/polygon som geometrisk avgrenser området</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8881</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_FLATE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BassengMagasinPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:BassengMagasin"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="BruksområdeBassengMagasinType">
+    <annotation>
+      <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1283</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeBassengMagasinEnumerationType nvdb:BruksområdeBassengMagasinOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeBassengMagasinEnumerationType">
+    <annotation>
+      <documentation>1283: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1283</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEBASSENGMAGASIN</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="rensebasseng">
+        <annotation>
+          <documentation>7941: Rensebasseng: Basseng for å rense vann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7941</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Sedimentasjon">
+        <annotation>
+          <documentation>17034: Rensebasseng, sedimentasjon: Basseng for å rense vann ved at slam/sediment bunnfaller.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17034</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Infiltrasjon">
+        <annotation>
+          <documentation>17035: Rensebasseng, infiltrasjon: Vann infiltreres. Stedlige masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17035</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rensebasseng_Våtmark">
+        <annotation>
+          <documentation>17036: Rensebasseng, våtmark</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17036</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="oppsamlingAvForurensning">
+        <annotation>
+          <documentation>7943: Oppsamling av forurensning: Basseng for å samle opp eventuelle lekkasjer/søl fra havarerte tankbiler etc.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7943</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fordrøyningsbasseng">
+        <annotation>
+          <documentation>7942: Fordrøyningsbasseng: Basseng som benyttes for å utjevne varierende vannføringer slik at nedstrøms ledningsnett og renseanlegg ikke blir overbelastet (Store norske leksikon)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7942</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vannmagasin">
+        <annotation>
+          <documentation>17037: Vannmagasin: Oppbevaring av vann som skal benyttes til bestemt formål.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17037</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pumpesump">
+        <annotation>
+          <documentation>7944: Pumpesump: Basseng i tilknytning til pumpestasjon.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7944</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeBassengMagasinOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

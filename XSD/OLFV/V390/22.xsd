@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" version="2.09">
+  <annotation>
+    <documentation>22: Konstruksjon med rist eller gitter som er innbygd i vegbanen, og som hindrer krøtter i å komme over. (jfr bokmålsordboka)</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Ferist" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FeristType">
+    <annotation>
+      <documentation>22: Konstruksjon med rist eller gitter som er innbygd i vegbanen, og som hindrer krøtter i å komme over. (jfr bokmålsordboka)</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">22</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FERIST</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="FeristType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeFeristType">
+            <annotation>
+              <documentation>1104: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1104</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="passering_Ved_Ferist" type="nvdb:Passering_Ved_FeristType">
+            <annotation>
+              <documentation>1737: Angir om det er mulighet for passering for fotgjengere utenom ferist</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1737</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PASSERING_VED_FERIST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="vinterforberedelse" type="nvdb:VinterforberedelseType">
+            <annotation>
+              <documentation>4595: Angir hva som skal gjøres med ferist i forkant av vinter sesongen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4595</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERFORBEREDELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10290: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10290</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>9425: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9425</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FeristPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Ferist"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="Passering_Ved_FeristType">
+    <annotation>
+      <documentation>1737: Angir om det er mulighet for passering for fotgjengere utenom ferist</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1737</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PASSERING_VED_FERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Passering_Ved_FeristEnumerationType nvdb:Passering_Ved_FeristOtherType"/>
+  </simpleType>
+  <simpleType name="Passering_Ved_FeristEnumerationType">
+    <annotation>
+      <documentation>1737: Angir om det er mulighet for passering for fotgjengere utenom ferist</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1737</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PASSERING_VED_FERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3516: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3516</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3554: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3554</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Passering_Ved_FeristOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeFeristType">
+    <annotation>
+      <documentation>1104: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1104</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeFeristEnumerationType nvdb:TypeFeristOtherType"/>
+  </simpleType>
+  <simpleType name="TypeFeristEnumerationType">
+    <annotation>
+      <documentation>1104: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1104</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEFERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="rør">
+        <annotation>
+          <documentation>2492: Rør</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2492</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="HI_Bjelker">
+        <annotation>
+          <documentation>2493: H/i-bjelker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2493</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="elektrisk">
+        <annotation>
+          <documentation>2494: Elektrisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2494</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeFeristOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VinterforberedelseType">
+    <annotation>
+      <documentation>4595: Angir hva som skal gjøres med ferist i forkant av vinter sesongen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4595</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERFORBEREDELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VinterforberedelseEnumerationType nvdb:VinterforberedelseOtherType"/>
+  </simpleType>
+  <simpleType name="VinterforberedelseEnumerationType">
+    <annotation>
+      <documentation>4595: Angir hva som skal gjøres med ferist i forkant av vinter sesongen</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4595</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VINTERFORBEREDELSE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tildekkes">
+        <annotation>
+          <documentation>5533: Tildekkes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5533</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjernes">
+        <annotation>
+          <documentation>5534: Fjernes</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5534</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VinterforberedelseOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
