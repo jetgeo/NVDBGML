@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
   <annotation>
     <documentation>626: Gir felles data til serie med målinger</documentation>
   </annotation>
@@ -46,12 +46,12 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="SWVersjon" type="string">
+          <element minOccurs="0" name="spor" type="nvdb:SporType">
             <annotation>
-              <documentation>5745: Angir SoftWare-versjon</documentation>
+              <documentation>11207: Angir i hvilket spor friksjonsmåling er foretatt.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5745</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SWVERSJON</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11207</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -80,6 +80,15 @@ Enhet: Kilometer</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5748</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPERATOR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="SWVersjon" type="string">
+            <annotation>
+              <documentation>5745: Angir SoftWare-versjon</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5745</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SWVERSJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -266,9 +275,83 @@ Enhet: Prosent</documentation>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="1">
+        <annotation>
+          <documentation>18503: Initiell-1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18503</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2">
+        <annotation>
+          <documentation>18502: Initiell-2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18502</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="3">
+        <annotation>
+          <documentation>18501: Initiell-3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18501</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="MåleformålOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SporType">
+    <annotation>
+      <documentation>11207: Angir i hvilket spor friksjonsmåling er foretatt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11207</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SporEnumerationType nvdb:SporOtherType"/>
+  </simpleType>
+  <simpleType name="SporEnumerationType">
+    <annotation>
+      <documentation>11207: Angir i hvilket spor friksjonsmåling er foretatt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11207</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="i">
+        <annotation>
+          <documentation>18506: Indre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18506</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="m">
+        <annotation>
+          <documentation>18505: Mellom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18505</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="y">
+        <annotation>
+          <documentation>18504: Ytre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18504</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SporOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
