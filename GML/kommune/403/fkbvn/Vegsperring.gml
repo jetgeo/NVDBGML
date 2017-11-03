@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" gml:id="id86f01421-1094-485a-b092-34311ff21f4b" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn/fkbvn.xsd">
+<gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" gml:id="id87ee48b3-edb2-4b2d-9f80-3637cc05ce53" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn/fkbvn.xsd">
 	<gml:boundedBy>
 		<gml:Envelope srsName="EPSG:6173" srsDimension="3">
 			<gml:lowerCorner>283860.66 6745833.22072 126.36325</gml:lowerCorner>
@@ -1534,6 +1534,35 @@
 					</fkbvn:lenkesekvens>
 					<fkbvn:lineærReferanseMetode>normalisert</fkbvn:lineærReferanseMetode>
 					<fkbvn:posisjon>0.368127753278251</fkbvn:posisjon>
+				</fkbvn:LineærPosisjonPunkt>
+			</fkbvn:lineærPosisjon>
+		</fkbvn:Vegsperring>
+	</gml:featureMember>
+	<gml:featureMember>
+		<fkbvn:Vegsperring gml:id="vegvesen.no.nvdb.824265035_0">
+			<fkbvn:identifikasjon>
+				<fkbvn:Identifikasjon>
+					<fkbvn:lokalId>824265035</fkbvn:lokalId>
+					<fkbvn:navnerom>vegvesen.no.nvdb</fkbvn:navnerom>
+					<fkbvn:versjonId>1</fkbvn:versjonId>
+				</fkbvn:Identifikasjon>
+			</fkbvn:identifikasjon>
+			<fkbvn:type>låstBom</fkbvn:type>
+			<fkbvn:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.824265035_0-0" srsName="EPSG:6173" srsDimension="3">
+					<gml:pos>287626.85478 6746400.06918 128.79467</gml:pos>
+				</gml:Point>
+			</fkbvn:posisjon>
+			<fkbvn:lineærPosisjon>
+				<fkbvn:LineærPosisjonPunkt>
+					<fkbvn:lenkesekvens>
+						<fkbvn:Identifikasjon>
+							<fkbvn:lokalId>2746694</fkbvn:lokalId>
+							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
+						</fkbvn:Identifikasjon>
+					</fkbvn:lenkesekvens>
+					<fkbvn:lineærReferanseMetode>normalisert</fkbvn:lineærReferanseMetode>
+					<fkbvn:posisjon>0.450497967932767</fkbvn:posisjon>
 				</fkbvn:LineærPosisjonPunkt>
 			</fkbvn:lineærPosisjon>
 		</fkbvn:Vegsperring>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" gml:id="id94343cb5-3c43-4fa3-9028-af1682036123" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn/fkbvn.xsd">
+<gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" gml:id="id849b1635-25ea-44cd-853c-d9c06c6d8ad7" xsi:schemaLocation="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB/fkbvn/fkbvn.xsd">
 	<gml:boundedBy>
 		<gml:Envelope srsName="EPSG:6173" srsDimension="3">
 			<gml:lowerCorner>285590.78507 6746097.12445 125.57379</gml:lowerCorner>
@@ -767,82 +767,6 @@
 		</fkbvn:Svingerestriksjon>
 	</gml:featureMember>
 	<gml:featureMember>
-		<fkbvn:Svingerestriksjon gml:id="vegvesen.no.nvdb.264606870_0">
-			<fkbvn:identifikasjon>
-				<fkbvn:Identifikasjon>
-					<fkbvn:lokalId>264606870</fkbvn:lokalId>
-					<fkbvn:navnerom>vegvesen.no.nvdb</fkbvn:navnerom>
-					<fkbvn:versjonId>1</fkbvn:versjonId>
-				</fkbvn:Identifikasjon>
-			</fkbvn:identifikasjon>
-			<fkbvn:posisjon>
-				<gml:Point gml:id="vegvesen.no.nvdb.264606870_0-0" srsName="EPSG:6173" srsDimension="3">
-					<gml:pos>287889.5 6746551.3 128.5</gml:pos>
-				</gml:Point>
-			</fkbvn:posisjon>
-			<fkbvn:svingeforbudFra>
-				<fkbvn:LineærPosisjonPunkt>
-					<fkbvn:lenkesekvens>
-						<fkbvn:Identifikasjon>
-							<fkbvn:lokalId>705752</fkbvn:lokalId>
-							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
-						</fkbvn:Identifikasjon>
-					</fkbvn:lenkesekvens>
-					<fkbvn:posisjon>1.0</fkbvn:posisjon>
-				</fkbvn:LineærPosisjonPunkt>
-			</fkbvn:svingeforbudFra>
-			<fkbvn:svingeforbudTil>
-				<fkbvn:LineærPosisjonPunkt>
-					<fkbvn:lenkesekvens>
-						<fkbvn:Identifikasjon>
-							<fkbvn:lokalId>705463</fkbvn:lokalId>
-							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
-						</fkbvn:Identifikasjon>
-					</fkbvn:lenkesekvens>
-					<fkbvn:posisjon>0.268866783689655</fkbvn:posisjon>
-				</fkbvn:LineærPosisjonPunkt>
-			</fkbvn:svingeforbudTil>
-		</fkbvn:Svingerestriksjon>
-	</gml:featureMember>
-	<gml:featureMember>
-		<fkbvn:Svingerestriksjon gml:id="vegvesen.no.nvdb.264606870_1">
-			<fkbvn:identifikasjon>
-				<fkbvn:Identifikasjon>
-					<fkbvn:lokalId>264606870</fkbvn:lokalId>
-					<fkbvn:navnerom>vegvesen.no.nvdb</fkbvn:navnerom>
-					<fkbvn:versjonId>1</fkbvn:versjonId>
-				</fkbvn:Identifikasjon>
-			</fkbvn:identifikasjon>
-			<fkbvn:posisjon>
-				<gml:Point gml:id="vegvesen.no.nvdb.264606870_1-0" srsName="EPSG:6173" srsDimension="3">
-					<gml:pos>287902.91623 6746547.40578 128.29123</gml:pos>
-				</gml:Point>
-			</fkbvn:posisjon>
-			<fkbvn:svingeforbudFra>
-				<fkbvn:LineærPosisjonPunkt>
-					<fkbvn:lenkesekvens>
-						<fkbvn:Identifikasjon>
-							<fkbvn:lokalId>705752</fkbvn:lokalId>
-							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
-						</fkbvn:Identifikasjon>
-					</fkbvn:lenkesekvens>
-					<fkbvn:posisjon>1.0</fkbvn:posisjon>
-				</fkbvn:LineærPosisjonPunkt>
-			</fkbvn:svingeforbudFra>
-			<fkbvn:svingeforbudTil>
-				<fkbvn:LineærPosisjonPunkt>
-					<fkbvn:lenkesekvens>
-						<fkbvn:Identifikasjon>
-							<fkbvn:lokalId>705463</fkbvn:lokalId>
-							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
-						</fkbvn:Identifikasjon>
-					</fkbvn:lenkesekvens>
-					<fkbvn:posisjon>0.268866783689655</fkbvn:posisjon>
-				</fkbvn:LineærPosisjonPunkt>
-			</fkbvn:svingeforbudTil>
-		</fkbvn:Svingerestriksjon>
-	</gml:featureMember>
-	<gml:featureMember>
 		<fkbvn:Svingerestriksjon gml:id="vegvesen.no.nvdb.290620589_0">
 			<fkbvn:identifikasjon>
 				<fkbvn:Identifikasjon>
@@ -1294,6 +1218,82 @@
 						</fkbvn:Identifikasjon>
 					</fkbvn:lenkesekvens>
 					<fkbvn:posisjon>0.760211147955439</fkbvn:posisjon>
+				</fkbvn:LineærPosisjonPunkt>
+			</fkbvn:svingeforbudTil>
+		</fkbvn:Svingerestriksjon>
+	</gml:featureMember>
+	<gml:featureMember>
+		<fkbvn:Svingerestriksjon gml:id="vegvesen.no.nvdb.826297296_0">
+			<fkbvn:identifikasjon>
+				<fkbvn:Identifikasjon>
+					<fkbvn:lokalId>826297296</fkbvn:lokalId>
+					<fkbvn:navnerom>vegvesen.no.nvdb</fkbvn:navnerom>
+					<fkbvn:versjonId>1</fkbvn:versjonId>
+				</fkbvn:Identifikasjon>
+			</fkbvn:identifikasjon>
+			<fkbvn:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.826297296_0-0" srsName="EPSG:6173" srsDimension="3">
+					<gml:pos>287883.85039 6746541.4067 128.7</gml:pos>
+				</gml:Point>
+			</fkbvn:posisjon>
+			<fkbvn:svingeforbudFra>
+				<fkbvn:LineærPosisjonPunkt>
+					<fkbvn:lenkesekvens>
+						<fkbvn:Identifikasjon>
+							<fkbvn:lokalId>704634</fkbvn:lokalId>
+							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
+						</fkbvn:Identifikasjon>
+					</fkbvn:lenkesekvens>
+					<fkbvn:posisjon>0.0749278495309346</fkbvn:posisjon>
+				</fkbvn:LineærPosisjonPunkt>
+			</fkbvn:svingeforbudFra>
+			<fkbvn:svingeforbudTil>
+				<fkbvn:LineærPosisjonPunkt>
+					<fkbvn:lenkesekvens>
+						<fkbvn:Identifikasjon>
+							<fkbvn:lokalId>650385</fkbvn:lokalId>
+							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
+						</fkbvn:Identifikasjon>
+					</fkbvn:lenkesekvens>
+					<fkbvn:posisjon>0.0274550231169956</fkbvn:posisjon>
+				</fkbvn:LineærPosisjonPunkt>
+			</fkbvn:svingeforbudTil>
+		</fkbvn:Svingerestriksjon>
+	</gml:featureMember>
+	<gml:featureMember>
+		<fkbvn:Svingerestriksjon gml:id="vegvesen.no.nvdb.826297296_1">
+			<fkbvn:identifikasjon>
+				<fkbvn:Identifikasjon>
+					<fkbvn:lokalId>826297296</fkbvn:lokalId>
+					<fkbvn:navnerom>vegvesen.no.nvdb</fkbvn:navnerom>
+					<fkbvn:versjonId>1</fkbvn:versjonId>
+				</fkbvn:Identifikasjon>
+			</fkbvn:identifikasjon>
+			<fkbvn:posisjon>
+				<gml:Point gml:id="vegvesen.no.nvdb.826297296_1-0" srsName="EPSG:6173" srsDimension="3">
+					<gml:pos>287889.5 6746551.3 128.5</gml:pos>
+				</gml:Point>
+			</fkbvn:posisjon>
+			<fkbvn:svingeforbudFra>
+				<fkbvn:LineærPosisjonPunkt>
+					<fkbvn:lenkesekvens>
+						<fkbvn:Identifikasjon>
+							<fkbvn:lokalId>704634</fkbvn:lokalId>
+							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
+						</fkbvn:Identifikasjon>
+					</fkbvn:lenkesekvens>
+					<fkbvn:posisjon>0.0749278495309346</fkbvn:posisjon>
+				</fkbvn:LineærPosisjonPunkt>
+			</fkbvn:svingeforbudFra>
+			<fkbvn:svingeforbudTil>
+				<fkbvn:LineærPosisjonPunkt>
+					<fkbvn:lenkesekvens>
+						<fkbvn:Identifikasjon>
+							<fkbvn:lokalId>650385</fkbvn:lokalId>
+							<fkbvn:navnerom>vegvesen.no.nvdb.rls</fkbvn:navnerom>
+						</fkbvn:Identifikasjon>
+					</fkbvn:lenkesekvens>
+					<fkbvn:posisjon>0.0274550231169956</fkbvn:posisjon>
 				</fkbvn:LineærPosisjonPunkt>
 			</fkbvn:svingeforbudTil>
 		</fkbvn:Svingerestriksjon>
