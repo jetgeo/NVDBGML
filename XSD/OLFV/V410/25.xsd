@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" version="2.11">
+  <annotation>
+    <documentation>25: Lite bygg for vern mot vær og vind.  Benyttes i forbindelse med holdeplasser.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="GlassflaterMarkertType">
+    <annotation>
+      <documentation>9845: Angir om glassflater har markering i 2 høyder for å unngå at noen går på dem.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9845</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GLASSFLATERMARKERT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:GlassflaterMarkertEnumerationType nvdb:GlassflaterMarkertOtherType"/>
+  </simpleType>
+  <simpleType name="GlassflaterMarkertEnumerationType">
+    <annotation>
+      <documentation>9845: Angir om glassflater har markering i 2 høyder for å unngå at noen går på dem.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9845</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GLASSFLATERMARKERT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16006: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16006</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16007: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16007</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GlassflaterMarkertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="InnvendigBelysningType">
+    <annotation>
+      <documentation>3128: Angir om det er innvendig belysning i leskur</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3128</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNVENDIGBELYSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:InnvendigBelysningEnumerationType nvdb:InnvendigBelysningOtherType"/>
+  </simpleType>
+  <simpleType name="InnvendigBelysningEnumerationType">
+    <annotation>
+      <documentation>3128: Angir om det er innvendig belysning i leskur</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3128</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNVENDIGBELYSNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4660: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4660</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>4661: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4661</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="InnvendigBelysningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Leskur" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:LeskurType">
+    <annotation>
+      <documentation>25: Lite bygg for vern mot vær og vind.  Benyttes i forbindelse med holdeplasser.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">25</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LESKUR</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="LeskurType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="materialtype" type="nvdb:MaterialtypeLeskurType">
+            <annotation>
+              <documentation>1401: Angir primær materialtype for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1401</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="innvendigBelysning" type="nvdb:InnvendigBelysningType">
+            <annotation>
+              <documentation>3128: Angir om det er innvendig belysning i leskur</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3128</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INNVENDIGBELYSNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="glassflaterMarkert" type="nvdb:GlassflaterMarkertType">
+            <annotation>
+              <documentation>9845: Angir om glassflater har markering i 2 høyder for å unngå at noen går på dem.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9845</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GLASSFLATERMARKERT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sittemulighet" type="nvdb:SittemulighetType">
+            <annotation>
+              <documentation>3952: Angir om det er sittemulighet i leskur</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3952</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trinnfriAdkomst" type="nvdb:TrinnfriAdkomstType">
+            <annotation>
+              <documentation>9847: Angir om høydeforskjell mellom fortau og leskur er så lav at f.eks. rullestol eller barnevogn enkelt kan komme inn, dvs. mindre enn 2 cm.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9847</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRINNFRIADKOMST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10322: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10322</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>4733: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4733</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LeskurPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Leskur"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="MaterialtypeLeskurType">
+    <annotation>
+      <documentation>1401: Angir primær materialtype for vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1401</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPELESKUR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MaterialtypeLeskurEnumerationType nvdb:MaterialtypeLeskurOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialtypeLeskurEnumerationType">
+    <annotation>
+      <documentation>1401: Angir primær materialtype for vegobjektet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1401</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPELESKUR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="tre">
+        <annotation>
+          <documentation>2188: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2188</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong">
+        <annotation>
+          <documentation>2206: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2206</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stein">
+        <annotation>
+          <documentation>4014: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4014</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall">
+        <annotation>
+          <documentation>4013: Metall</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall_Stål_Galvanisert">
+        <annotation>
+          <documentation>2229: Metall, stål, galvanisert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2229</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall_Aluminium">
+        <annotation>
+          <documentation>2250: Metall, aluminium</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2250</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>2268: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2268</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pleksiglass">
+        <annotation>
+          <documentation>2369: Pleksiglass</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2369</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="herdetGlass">
+        <annotation>
+          <documentation>12130: Herdet glass: F.eks City90</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12130</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="glassfiber">
+        <annotation>
+          <documentation>2374: Glassfiber</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2374</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialtypeLeskurOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SittemulighetType">
+    <annotation>
+      <documentation>3952: Angir om det er sittemulighet i leskur</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3952</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SittemulighetEnumerationType nvdb:SittemulighetOtherType"/>
+  </simpleType>
+  <simpleType name="SittemulighetEnumerationType">
+    <annotation>
+      <documentation>3952: Angir om det er sittemulighet i leskur</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3952</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SITTEMULIGHET</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>4964: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4964</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ja_MedArmlene">
+        <annotation>
+          <documentation>16005: Ja, med armlene</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16005</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>4965: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4965</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SittemulighetOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrinnfriAdkomstType">
+    <annotation>
+      <documentation>9847: Angir om høydeforskjell mellom fortau og leskur er så lav at f.eks. rullestol eller barnevogn enkelt kan komme inn, dvs. mindre enn 2 cm.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9847</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRINNFRIADKOMST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrinnfriAdkomstEnumerationType nvdb:TrinnfriAdkomstOtherType"/>
+  </simpleType>
+  <simpleType name="TrinnfriAdkomstEnumerationType">
+    <annotation>
+      <documentation>9847: Angir om høydeforskjell mellom fortau og leskur er så lav at f.eks. rullestol eller barnevogn enkelt kan komme inn, dvs. mindre enn 2 cm.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9847</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRINNFRIADKOMST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>16010: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16010</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>16011: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16011</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrinnfriAdkomstOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

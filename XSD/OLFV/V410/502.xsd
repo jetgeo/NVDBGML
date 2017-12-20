@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" version="2.11">
+  <annotation>
+    <documentation>502: Skap for oppbevaring/installasjon av utstyr.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Skap_Teknisk" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:Skap_TekniskType">
+    <annotation>
+      <documentation>502: Skap for oppbevaring/installasjon av utstyr.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">502</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKAP_TEKNISK</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="Skap_TekniskType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeSkap_TekniskType">
+            <annotation>
+              <documentation>4013: Angir hvilken type skap det er tale om</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10358: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10358</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsmerking" type="string">
+            <annotation>
+              <documentation>10087: Gir unikt navn/id for objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10087</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>5007: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5007</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Skap_TekniskPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Skap_Teknisk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeSkap_TekniskType">
+    <annotation>
+      <documentation>4013: Angir hvilken type skap det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAP_TEKNISK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeSkap_TekniskEnumerationType nvdb:TypeSkap_TekniskOtherType"/>
+  </simpleType>
+  <simpleType name="TypeSkap_TekniskEnumerationType">
+    <annotation>
+      <documentation>4013: Angir hvilken type skap det er tale om</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4013</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKAP_TEKNISK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betjeningStyring">
+        <annotation>
+          <documentation>7455: Betjening/styring: Skap for betjening og manuell styring av f.eks. kommunikasjon, vifter, belysning eller pumpestasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7455</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="automasjonsskap">
+        <annotation>
+          <documentation>5056: Automasjonsskap: Skap for automatisk styring eller fjernstyring av f.eks. kommunikasjon, vifter, belysning eller pumpestasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5056</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tellepunktskap">
+        <annotation>
+          <documentation>11787: Tellepunktskap: Skap i tilknytning til tellepunkt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11787</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nødstyreskap">
+        <annotation>
+          <documentation>12166: Nødstyreskap: Skap for styring av nødsystemet i f.eks. en tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12166</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSkap_TekniskOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

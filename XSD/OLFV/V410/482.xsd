@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" version="2.11">
+  <annotation>
+    <documentation>482: Angir punkt for registrering av trafikkdata</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Trafikkregistreringsstasjon" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TrafikkregistreringsstasjonType">
+    <annotation>
+      <documentation>482: Angir punkt for registrering av trafikkdata</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">482</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGISTRERINGSSTASJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="TrafikkregistreringsstasjonType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>4997: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4997</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKamera" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kamera</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSkap_Teknisk" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Skap_Teknisk</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDetektor_Trafikk" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Detektor_Trafikk</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TrafikkregistreringsstasjonPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Trafikkregistreringsstasjon"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>
