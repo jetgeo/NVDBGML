@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V390" version="2.10">
+  <annotation>
+    <documentation>23: Fysisk hinder for å kunne stenge en veg.  F.eks i forbindelse med rasfare, tunnel, høgfjell etc.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeVegbomType">
+    <annotation>
+      <documentation>1252: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1252</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeVegbomEnumerationType nvdb:BruksområdeVegbomOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeVegbomEnumerationType">
+    <annotation>
+      <documentation>1252: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1252</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="høyfjellsovergang">
+        <annotation>
+          <documentation>2495: Høyfjellsovergang</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2495</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tunnel">
+        <annotation>
+          <documentation>2753: Tunnel</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2753</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vanligVegstrekning">
+        <annotation>
+          <documentation>2496: Vanlig vegstrekning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2496</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bomstasjon">
+        <annotation>
+          <documentation>2497: Bomstasjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2497</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ferjekai">
+        <annotation>
+          <documentation>10247: Ferjekai: Bom som stenger ferjelem</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10247</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sluseGangSykkelveg">
+        <annotation>
+          <documentation>5485: Sluse gang/sykkelveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5485</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeVegbomOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FjernstyringVegbomType">
+    <annotation>
+      <documentation>1738: Angir om vegobjektet kan fjernstyres</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1738</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRINGVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FjernstyringVegbomEnumerationType nvdb:FjernstyringVegbomOtherType"/>
+  </simpleType>
+  <simpleType name="FjernstyringVegbomEnumerationType">
+    <annotation>
+      <documentation>1738: Angir om vegobjektet kan fjernstyres</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1738</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRINGVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3517: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3517</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3555: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3555</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FjernstyringVegbomOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialtypeVegbomType">
+    <annotation>
+      <documentation>4596: Angir materialtype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4596</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:MaterialtypeVegbomEnumerationType nvdb:MaterialtypeVegbomOtherType"/>
+  </simpleType>
+  <simpleType name="MaterialtypeVegbomEnumerationType">
+    <annotation>
+      <documentation>4596: Angir materialtype</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4596</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stål">
+        <annotation>
+          <documentation>5535: Stål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5535</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>5536: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5536</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tre">
+        <annotation>
+          <documentation>5537: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5537</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="aluminium">
+        <annotation>
+          <documentation>8189: Aluminium</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8189</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="MaterialtypeVegbomOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegbomType">
+    <annotation>
+      <documentation>1105: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1105</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVegbomEnumerationType nvdb:TypeVegbomOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVegbomEnumerationType">
+    <annotation>
+      <documentation>1105: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1105</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="heveSenkebom">
+        <annotation>
+          <documentation>2498: Heve-/senkebom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2498</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="heveSenkebom_Ensidig">
+        <annotation>
+          <documentation>2499: Heve-/senkebom, ensidig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2499</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="heveSenkebom_Tosidig">
+        <annotation>
+          <documentation>2500: Heve-/senkebom, tosidig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2500</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="svingbom">
+        <annotation>
+          <documentation>2501: Svingbom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2501</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="svingbom_Ensidig">
+        <annotation>
+          <documentation>2502: Svingbom, ensidig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2502</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="svingbom_Tosidig">
+        <annotation>
+          <documentation>2503: Svingbom, tosidig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2503</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongkjegle">
+        <annotation>
+          <documentation>5486: Betongkjegle</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5486</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="rørgelender">
+        <annotation>
+          <documentation>5487: Rørgelender</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5487</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="steinblokk">
+        <annotation>
+          <documentation>5488: Steinblokk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5488</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="newJersey">
+        <annotation>
+          <documentation>5489: New jersey</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5489</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bilsperre">
+        <annotation>
+          <documentation>5490: Bilsperre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5490</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVegbomOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeÅpningLukkingType">
+    <annotation>
+      <documentation>3839: Angir hvordan åpning/lukking foregår</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3839</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEÅPNINGLUKKING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeÅpningLukkingEnumerationType nvdb:TypeÅpningLukkingOtherType"/>
+  </simpleType>
+  <simpleType name="TypeÅpningLukkingEnumerationType">
+    <annotation>
+      <documentation>3839: Angir hvordan åpning/lukking foregår</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3839</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEÅPNINGLUKKING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="manuell">
+        <annotation>
+          <documentation>4705: Manuell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4705</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="automatisertElektrisk">
+        <annotation>
+          <documentation>4704: Automatisert/elektrisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4704</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeÅpningLukkingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VarselblinkPåmontertType">
+    <annotation>
+      <documentation>4611: Angir om det er montert varselblink på vegbom/stengsel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4611</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARSELBLINKPÅMONTERT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VarselblinkPåmontertEnumerationType nvdb:VarselblinkPåmontertOtherType"/>
+  </simpleType>
+  <simpleType name="VarselblinkPåmontertEnumerationType">
+    <annotation>
+      <documentation>4611: Angir om det er montert varselblink på vegbom/stengsel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4611</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARSELBLINKPÅMONTERT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5567: Ja: Det er montert varselblink</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5567</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5568: Nei: Benyttes i tilfeller hvor det ikke er montert varselblink, men det er relevant å montere varselblink</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5568</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ikkeRelevant">
+        <annotation>
+          <documentation>17303: Ikke relevant: Angis i tilfeller hvor det ikke er relevant å montere varselblink. (Verdi er til uttesting)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17303</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VarselblinkPåmontertOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Vegbom" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VegbomType">
+    <annotation>
+      <documentation>23: Fysisk hinder for å kunne stenge en veg.  F.eks i forbindelse med rasfare, tunnel, høgfjell etc.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">23</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGBOM</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VegbomType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="bruksområde" type="nvdb:BruksområdeVegbomType">
+            <annotation>
+              <documentation>1252: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1252</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeVegbomType">
+            <annotation>
+              <documentation>1105: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1105</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="materialtype" type="nvdb:MaterialtypeVegbomType">
+            <annotation>
+              <documentation>4596: Angir materialtype</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4596</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALTYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="typeÅpningLukking" type="nvdb:TypeÅpningLukkingType">
+            <annotation>
+              <documentation>3839: Angir hvordan åpning/lukking foregår</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3839</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEÅPNINGLUKKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="varselblinkPåmontert" type="nvdb:VarselblinkPåmontertType">
+            <annotation>
+              <documentation>4611: Angir om det er montert varselblink på vegbom/stengsel</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4611</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARSELBLINKPÅMONTERT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="fjernstyring" type="nvdb:FjernstyringVegbomType">
+            <annotation>
+              <documentation>1738: Angir om vegobjektet kan fjernstyres</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1738</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Angivelse av objektets posisjon</documentation>
+            </annotation>
+          </element>
+          <element name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>10394: Angir hvilket år vegobjektet ble satt opp</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10394</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsmerking" type="string">
+            <annotation>
+              <documentation>10490: Gir unikt navn/id for objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10490</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>9426: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9426</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VegbomPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Vegbom"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

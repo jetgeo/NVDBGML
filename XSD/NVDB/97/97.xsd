@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.09">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
   <annotation>
     <documentation>97: Skilt som kan vise ulike motiv.  Motivet kan styres fra en sentral eller det kan varieres manuelt.</documentation>
   </annotation>
@@ -6,36 +6,36 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AnsiktssideVariabeltSkiltType">
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltType">
     <annotation>
-      <documentation>6987: Angir hvilken retning ansiktssiden til vegobjektet er vendt mot i forhold til vegens metreringsretning</documentation>
+      <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDEVARIABELTSKILT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOTVARIABELTSKILT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:AnsiktssideVariabeltSkiltEnumerationType nvdb:AnsiktssideVariabeltSkiltOtherType"/>
+    <union memberTypes="nvdb:Ansiktsside_RettetMotVariabeltSkiltEnumerationType nvdb:Ansiktsside_RettetMotVariabeltSkiltOtherType"/>
   </simpleType>
-  <simpleType name="AnsiktssideVariabeltSkiltEnumerationType">
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltEnumerationType">
     <annotation>
-      <documentation>6987: Angir hvilken retning ansiktssiden til vegobjektet er vendt mot i forhold til vegens metreringsretning</documentation>
+      <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDEVARIABELTSKILT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOTVARIABELTSKILT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="medMetreringsretning">
+      <enumeration value="trafikkIMetreringsretning">
         <annotation>
-          <documentation>9138: Med metreringsretning</documentation>
+          <documentation>9138: Trafikk i metreringsretning: Ansiktsside er rettet mot trafikanter som beveger seg i metreringsretning på vegen skiltplate er registrert.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9138</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="motMetreringsretning">
+      <enumeration value="trafikkMotMetreringsretning">
         <annotation>
-          <documentation>9139: Mot metreringsretning</documentation>
+          <documentation>9139: Trafikk mot metreringsretning: Ansiktsside er rettet mot trafikanter som beveger seg mot metreringsretning på vegen skiltplate er registrert</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9139</taggedValue>
           </appinfo>
@@ -43,7 +43,7 @@
       </enumeration>
       <enumeration value="paralleltMotVeg">
         <annotation>
-          <documentation>9140: Parallelt mot veg</documentation>
+          <documentation>9140: Parallelt mot veg: Skiltplate er orientert parallelt med vegen den er registrert på. Ansiktsside er vendt inn mot denne vegen.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9140</taggedValue>
           </appinfo>
@@ -51,7 +51,7 @@
       </enumeration>
       <enumeration value="paralleltFraVeg">
         <annotation>
-          <documentation>9141: Parallelt fra veg</documentation>
+          <documentation>9141: Parallelt fra veg: Skiltplate er orientert parallelt med vegen den er registrert på. Ansiktsside er vendt ut fra denne vegen, dvs ansikt er kun synlig fra sideveger.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9141</taggedValue>
           </appinfo>
@@ -59,7 +59,7 @@
       </enumeration>
       <enumeration value="tosidig">
         <annotation>
-          <documentation>9142: Tosidig</documentation>
+          <documentation>9142: Tosidig: Skiltplate har motiv på begge sider.</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9142</taggedValue>
           </appinfo>
@@ -67,7 +67,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="AnsiktssideVariabeltSkiltOtherType">
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -775,12 +775,12 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="ansiktsside" type="nvdb:AnsiktssideVariabeltSkiltType">
+          <element minOccurs="0" name="ansiktsside_RettetMot" type="nvdb:Ansiktsside_RettetMotVariabeltSkiltType">
             <annotation>
-              <documentation>6987: Angir hvilken retning ansiktssiden til vegobjektet er vendt mot i forhold til vegens metreringsretning</documentation>
+              <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -793,15 +793,6 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="belyst" type="nvdb:BelystVariabeltSkiltType">
-            <annotation>
-              <documentation>4598: Angir om skiltet er belyst eller ikke</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4598</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYST</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="type" type="nvdb:TypeVariabeltSkiltType">
             <annotation>
               <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
@@ -811,12 +802,12 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="prosjektreferanse" type="string">
+          <element minOccurs="0" name="belyst" type="nvdb:BelystVariabeltSkiltType">
             <annotation>
-              <documentation>11028: Referanse til prosjekt. Benyttes for å lettere kunne skille nye data fra eksisterende data i NVDB</documentation>
+              <documentation>4598: Angir om skiltet er belyst eller ikke</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11028</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PROSJEKTREFERANSE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4598</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYST</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -914,6 +905,13 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -932,13 +930,6 @@ Enhet: Stykker</documentation>
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
               </appinfo>
             </annotation>
           </element>
