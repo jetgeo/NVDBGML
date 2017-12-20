@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
-    <documentation>625: Magasin for å fange opp skredmasser</documentation>
+    <documentation>625: Magasin for å fange opp skredmasser eller nedfall fra bergskjæringer</documentation>
   </annotation>
   <include schemaLocation="Voll.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="AdkomstSkredmagasinType">
+  <simpleType name="AdkomstSkredmagasinFanggrøftType">
     <annotation>
       <documentation>9688: Beskriver hvordan man får adkomst til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9688</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:AdkomstSkredmagasinEnumerationType nvdb:AdkomstSkredmagasinOtherType"/>
+    <union memberTypes="nvdb:AdkomstSkredmagasinFanggrøftEnumerationType nvdb:AdkomstSkredmagasinFanggrøftOtherType"/>
   </simpleType>
-  <simpleType name="AdkomstSkredmagasinEnumerationType">
+  <simpleType name="AdkomstSkredmagasinFanggrøftEnumerationType">
     <annotation>
       <documentation>9688: Beskriver hvordan man får adkomst til vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9688</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ADKOMSTSKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -75,35 +75,43 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="AdkomstSkredmagasinOtherType">
+  <simpleType name="AdkomstSkredmagasinFanggrøftOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="EierSkredmagasinType">
+  <simpleType name="EierSkredmagasinFanggrøftType">
     <annotation>
       <documentation>9690: Angir hvem som er eier av vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9690</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:EierSkredmagasinEnumerationType nvdb:EierSkredmagasinOtherType"/>
+    <union memberTypes="nvdb:EierSkredmagasinFanggrøftEnumerationType nvdb:EierSkredmagasinFanggrøftOtherType"/>
   </simpleType>
-  <simpleType name="EierSkredmagasinEnumerationType">
+  <simpleType name="EierSkredmagasinFanggrøftEnumerationType">
     <annotation>
       <documentation>9690: Angir hvem som er eier av vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9690</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="stat">
+      <enumeration value="stat_StatensVegvesen">
         <annotation>
-          <documentation>13974: Stat</documentation>
+          <documentation>13974: Stat, Statens vegvesen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13974</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stat_NyeVeier">
+        <annotation>
+          <documentation>18645: Stat, Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18645</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -141,24 +149,33 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="EierSkredmagasinOtherType">
+  <simpleType name="EierSkredmagasinFanggrøftOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Skredmagasin" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkredmagasinType">
+  <element name="SkredmagasinFanggrøft" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:SkredmagasinFanggrøftType">
     <annotation>
-      <documentation>625: Magasin for å fange opp skredmasser</documentation>
+      <documentation>625: Magasin for å fange opp skredmasser eller nedfall fra bergskjæringer</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">625</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="SkredmagasinType">
+  <complexType name="SkredmagasinFanggrøftType">
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
+          <element minOccurs="0" name="type" type="nvdb:TypeSkredmagasinFanggrøftType">
+            <annotation>
+              <documentation>11265: Angir hvilken type magasin det er tale om.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11265</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="beskrivelse" type="string">
             <annotation>
               <documentation>5661: Kan angi beskrivelse til skredgropen</documentation>
@@ -188,7 +205,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="magasinvolum" type="double">
+          <element minOccurs="0" name="magasinvolum" type="integer">
             <annotation>
               <documentation>5660: Angir hvor stort volum med masser magasinet kan ta opp
 Enhet: Kubikkmeter</documentation>
@@ -208,7 +225,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstSkredmagasinType">
+          <element minOccurs="0" name="adkomst" type="nvdb:AdkomstSkredmagasinFanggrøftType">
             <annotation>
               <documentation>9688: Beskriver hvordan man får adkomst til vegobjektet</documentation>
               <appinfo>
@@ -235,7 +252,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierSkredmagasinType">
+          <element minOccurs="0" name="eier" type="nvdb:EierSkredmagasinFanggrøftType">
             <annotation>
               <documentation>9690: Angir hvem som er eier av vegobjektet</documentation>
               <appinfo>
@@ -244,7 +261,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSkredmagasinType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligSkredmagasinFanggrøftType">
             <annotation>
               <documentation>9691: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
               <appinfo>
@@ -285,10 +302,10 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertVoll" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Voll</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -306,13 +323,6 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertVoll" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Voll</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -320,41 +330,98 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="SkredmagasinPropertyType">
+  <complexType name="SkredmagasinFanggrøftPropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:Skredmagasin"/>
+      <element ref="nvdb:SkredmagasinFanggrøft"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="VedlikeholdsansvarligSkredmagasinType">
+  <simpleType name="TypeSkredmagasinFanggrøftType">
     <annotation>
-      <documentation>9691: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
+      <documentation>11265: Angir hvilken type magasin det er tale om.</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9691</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11265</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligSkredmagasinEnumerationType nvdb:VedlikeholdsansvarligSkredmagasinOtherType"/>
+    <union memberTypes="nvdb:TypeSkredmagasinFanggrøftEnumerationType nvdb:TypeSkredmagasinFanggrøftOtherType"/>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkredmagasinEnumerationType">
+  <simpleType name="TypeSkredmagasinFanggrøftEnumerationType">
+    <annotation>
+      <documentation>11265: Angir hvilken type magasin det er tale om.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11265</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESKREDMAGASINFANGGRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="skredmagasin">
+        <annotation>
+          <documentation>19004: Skredmagasin: Magasin for å samle opp skred fra naturlig terreng</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19004</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fanggrøft">
+        <annotation>
+          <documentation>19005: Fanggrøft: Magasin for å samle opp nedfall fra bergskjæringer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19005</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSkredmagasinFanggrøftOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligSkredmagasinFanggrøftType">
     <annotation>
       <documentation>9691: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9691</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKREDMAGASIN</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKREDMAGASINFANGGRØFT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VedlikeholdsansvarligSkredmagasinFanggrøftEnumerationType nvdb:VedlikeholdsansvarligSkredmagasinFanggrøftOtherType"/>
+  </simpleType>
+  <simpleType name="VedlikeholdsansvarligSkredmagasinFanggrøftEnumerationType">
+    <annotation>
+      <documentation>9691: Angir hvem som er ansvarlig for vedlikeholdet</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9691</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSKREDMAGASINFANGGRØFT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
       <enumeration value="statensVegvesen">
         <annotation>
-          <documentation>13978: Statens Vegvesen</documentation>
+          <documentation>13978: Statens vegvesen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13978</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nyeVeier">
+        <annotation>
+          <documentation>18689: Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18689</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -363,6 +430,14 @@ Enhet: Meter</documentation>
           <documentation>13979: Kommune</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">13979</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="OPS">
+        <annotation>
+          <documentation>18818: OPS</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18818</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -384,7 +459,7 @@ Enhet: Meter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligSkredmagasinOtherType">
+  <simpleType name="VedlikeholdsansvarligSkredmagasinFanggrøftOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

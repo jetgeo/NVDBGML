@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
     <documentation>853: Kum for trekking og/eller sammenkobling av kabler</documentation>
   </annotation>
@@ -67,11 +67,19 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="stat">
+      <enumeration value="stat_StatensVegvesen">
         <annotation>
-          <documentation>14010: Stat</documentation>
+          <documentation>14010: Stat, Statens vegvesen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">14010</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stat_NyeVeier">
+        <annotation>
+          <documentation>18613: Stat, Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18613</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -164,22 +172,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="MaterialeTrekkekumType">
+  <simpleType name="Materiale_KumType">
     <annotation>
-      <documentation>9741: Angir type materiale i kum</documentation>
+      <documentation>9741: Angir type materiale i selve kummen</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9741</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALETREKKEKUM</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_KUM</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:MaterialeTrekkekumEnumerationType nvdb:MaterialeTrekkekumOtherType"/>
+    <union memberTypes="nvdb:Materiale_KumEnumerationType nvdb:Materiale_KumOtherType"/>
   </simpleType>
-  <simpleType name="MaterialeTrekkekumEnumerationType">
+  <simpleType name="Materiale_KumEnumerationType">
     <annotation>
-      <documentation>9741: Angir type materiale i kum</documentation>
+      <documentation>9741: Angir type materiale i selve kummen</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9741</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALETREKKEKUM</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_KUM</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -217,7 +225,57 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="MaterialeTrekkekumOtherType">
+  <simpleType name="Materiale_KumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Materiale_LokkType">
+    <annotation>
+      <documentation>11241: Angir materialtype for kummens lokk</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11241</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_LOKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Materiale_LokkEnumerationType nvdb:Materiale_LokkOtherType"/>
+  </simpleType>
+  <simpleType name="Materiale_LokkEnumerationType">
+    <annotation>
+      <documentation>11241: Angir materialtype for kummens lokk</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11241</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_LOKK</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betong">
+        <annotation>
+          <documentation>18527: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18527</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>18528: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18528</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="støpjern">
+        <annotation>
+          <documentation>18529: Støpjern</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18529</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Materiale_LokkOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -335,6 +393,33 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="materiale_Kum" type="nvdb:Materiale_KumType">
+            <annotation>
+              <documentation>9741: Angir type materiale i selve kummen</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9741</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_KUM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="materiale_Lokk" type="nvdb:Materiale_LokkType">
+            <annotation>
+              <documentation>11241: Angir materialtype for kummens lokk</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11241</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE_LOKK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brannsikker" type="nvdb:BrannsikkerType">
+            <annotation>
+              <documentation>9742: Angir om kum er brannsikker</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9742</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNSIKKER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="diameter_Ytre" type="double">
             <annotation>
               <documentation>9729: Angir ytre diameter for trekkekum
@@ -385,15 +470,6 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="materiale" type="nvdb:MaterialeTrekkekumType">
-            <annotation>
-              <documentation>9741: Angir type materiale i kum</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9741</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MATERIALE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="arkivnummer" type="string">
             <annotation>
               <documentation>9730: Referanse til Statens vegvesen sitt arkivsystem</documentation>
@@ -403,12 +479,11 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="brannsikker" type="nvdb:BrannsikkerType">
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
             <annotation>
-              <documentation>9742: Angir om kum er brannsikker</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9742</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNSIKKER</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11242</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -507,17 +582,17 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -553,9 +628,17 @@ Enhet: Stykker</documentation>
     <restriction base="string">
       <enumeration value="statensVegvesen">
         <annotation>
-          <documentation>18354: Statens Vegvesen</documentation>
+          <documentation>18354: Statens vegvesen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18354</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nyeVeier">
+        <annotation>
+          <documentation>18718: Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18718</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -564,6 +647,14 @@ Enhet: Stykker</documentation>
           <documentation>18355: Kommune</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18355</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="OPS">
+        <annotation>
+          <documentation>18847: OPS</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18847</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

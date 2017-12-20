@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
     <documentation>902: Gjeldende bruksklasse for spesialtransport i vegliste.</documentation>
   </annotation>
@@ -178,7 +178,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="veggruppe" type="nvdb:VeggruppeBruksklasse_SpesialtransportType">
+          <element minOccurs="0" name="veggruppe" type="nvdb:VeggruppeType">
             <annotation>
               <documentation>10923: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
               <appinfo>
@@ -270,6 +270,22 @@
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="12_40">
+        <annotation>
+          <documentation>18247: 12,40</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18247</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spesiellBegrensning">
+        <annotation>
+          <documentation>18248: Spesiell begrensning: Benyttes hvis det er spesiell begrensning i vegnettet i forhold til vogntog-/kjøretøylengde.  Nedsatte verdier gis i egne egenskapstyper</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18248</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="MaksVogntoglengdeBruksklasse_SpesialtransportOtherType">
@@ -277,22 +293,22 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="VeggruppeBruksklasse_SpesialtransportType">
+  <simpleType name="VeggruppeType">
     <annotation>
       <documentation>10923: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10923</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPEBRUKSKLASSE_SPESIALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:VeggruppeBruksklasse_SpesialtransportEnumerationType nvdb:VeggruppeBruksklasse_SpesialtransportOtherType"/>
+    <union memberTypes="nvdb:VeggruppeEnumerationType nvdb:VeggruppeOtherType"/>
   </simpleType>
-  <simpleType name="VeggruppeBruksklasse_SpesialtransportEnumerationType">
+  <simpleType name="VeggruppeEnumerationType">
     <annotation>
       <documentation>10923: Angir dispensasjon for spesialtransport avhengig av bruenes tilstand</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10923</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPEBRUKSKLASSE_SPESIALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEGGRUPPE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -322,7 +338,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VeggruppeBruksklasse_SpesialtransportOtherType">
+  <simpleType name="VeggruppeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

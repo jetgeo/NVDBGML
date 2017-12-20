@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
     <documentation>241: Den øverste del av overbygningen, består vanligvis av et bindlag og et slitelag. (1)</documentation>
   </annotation>
@@ -1269,11 +1269,27 @@
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="nyeVeier">
+        <annotation>
+          <documentation>18762: Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18762</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="kommune">
         <annotation>
           <documentation>10555: Kommune</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10555</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="OPS">
+        <annotation>
+          <documentation>18891: OPS</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18891</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -1361,16 +1377,6 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="øvreNominelleSteinstørrelse" type="nvdb:ØvreNominelleSteinstørrelseType">
-            <annotation>
-              <documentation>2288: Angir øvre nominelle steinstørrelse for asfaltmateriale.
-Enhet: Millimeter</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2288</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ØVRENOMINELLESTEINSTØRRELSE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element name="dekkebredde_GjSnitt" type="double">
             <annotation>
               <documentation>5135: Angir gjennomsnittlig bredde for dekket.
@@ -1378,6 +1384,25 @@ Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5135</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKEBREDDE_GJSNITT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="dekkeleggingsdato" type="date">
+            <annotation>
+              <documentation>5136: Angir dato for dekkelegging</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5136</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKELEGGINGSDATO</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="øvreNominelleSteinstørrelse" type="nvdb:ØvreNominelleSteinstørrelseType">
+            <annotation>
+              <documentation>2288: Angir øvre nominelle steinstørrelse for asfaltmateriale.
+Enhet: Millimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2288</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ØVRENOMINELLESTEINSTØRRELSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1397,15 +1422,6 @@ Enhet: Kroner</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6874</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KOSTNAD</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element name="dekkeleggingsdato" type="date">
-            <annotation>
-              <documentation>5136: Angir dato for dekkelegging</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5136</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DEKKELEGGINGSDATO</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1610,10 +1626,10 @@ Enhet: Kroner</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="assosiertEntreprenør" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBærelag" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Entreprenør</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Bærelag</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -1631,10 +1647,10 @@ Enhet: Kroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBærelag" type="gml:ReferenceType">
+          <element minOccurs="0" name="assosiertEntreprenør" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Bærelag</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Entreprenør</targetElement>
               </appinfo>
             </annotation>
           </element>

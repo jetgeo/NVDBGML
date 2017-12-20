@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
     <documentation>904: Gjeldende bruksklasse for normaltransport i vegliste.</documentation>
   </annotation>
@@ -6,22 +6,22 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BruksklasseHelårBruksklasse_NormaltransportType">
+  <simpleType name="BruksklasseHelårType">
     <annotation>
       <documentation>10901: Angir helårs bruksklasse.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10901</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅRBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅR</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:BruksklasseHelårBruksklasse_NormaltransportEnumerationType nvdb:BruksklasseHelårBruksklasse_NormaltransportOtherType"/>
+    <union memberTypes="nvdb:BruksklasseHelårEnumerationType nvdb:BruksklasseHelårOtherType"/>
   </simpleType>
-  <simpleType name="BruksklasseHelårBruksklasse_NormaltransportEnumerationType">
+  <simpleType name="BruksklasseHelårEnumerationType">
     <annotation>
       <documentation>10901: Angir helårs bruksklasse.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10901</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅRBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEHELÅR</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -83,27 +83,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="BruksklasseHelårBruksklasse_NormaltransportOtherType">
+  <simpleType name="BruksklasseHelårOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasse_NormaltransportType">
+  <simpleType name="BruksklasseVinterType">
     <annotation>
       <documentation>10907: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10907</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTERBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTER</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:BruksklasseVinterBruksklasse_NormaltransportEnumerationType nvdb:BruksklasseVinterBruksklasse_NormaltransportOtherType"/>
+    <union memberTypes="nvdb:BruksklasseVinterEnumerationType nvdb:BruksklasseVinterOtherType"/>
   </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasse_NormaltransportEnumerationType">
+  <simpleType name="BruksklasseVinterEnumerationType">
     <annotation>
       <documentation>10907: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10907</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTERBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSKLASSEVINTER</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -133,7 +133,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="BruksklasseVinterBruksklasse_NormaltransportOtherType">
+  <simpleType name="BruksklasseVinterOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -151,7 +151,7 @@
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element name="bruksklasseHelår" type="nvdb:BruksklasseHelårBruksklasse_NormaltransportType">
+          <element name="bruksklasseHelår" type="nvdb:BruksklasseHelårType">
             <annotation>
               <documentation>10901: Angir helårs bruksklasse.</documentation>
               <appinfo>
@@ -160,7 +160,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksklasseVinter" type="nvdb:BruksklasseVinterBruksklasse_NormaltransportType">
+          <element minOccurs="0" name="bruksklasseVinter" type="nvdb:BruksklasseVinterType">
             <annotation>
               <documentation>10907: Angir lovlig bruksklasse (maks aksellast) for vinter.</documentation>
               <appinfo>
@@ -169,7 +169,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="maksVogntoglengde" type="nvdb:MaksVogntoglengdeBruksklasse_NormaltransportType">
+          <element minOccurs="0" name="maksVogntoglengde" type="nvdb:MaksVogntoglengdeType">
             <annotation>
               <documentation>10913: Angir maksimal lengde for vogntog</documentation>
               <appinfo>
@@ -246,22 +246,22 @@ Enhet: Tonn</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="MaksVogntoglengdeBruksklasse_NormaltransportType">
+  <simpleType name="MaksVogntoglengdeType">
     <annotation>
       <documentation>10913: Angir maksimal lengde for vogntog</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10913</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:MaksVogntoglengdeBruksklasse_NormaltransportEnumerationType nvdb:MaksVogntoglengdeBruksklasse_NormaltransportOtherType"/>
+    <union memberTypes="nvdb:MaksVogntoglengdeEnumerationType nvdb:MaksVogntoglengdeOtherType"/>
   </simpleType>
-  <simpleType name="MaksVogntoglengdeBruksklasse_NormaltransportEnumerationType">
+  <simpleType name="MaksVogntoglengdeEnumerationType">
     <annotation>
       <documentation>10913: Angir maksimal lengde for vogntog</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10913</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDEBRUKSKLASSE_NORMALTRANSPORT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MAKSVOGNTOGLENGDE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -299,7 +299,7 @@ Enhet: Tonn</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="MaksVogntoglengdeBruksklasse_NormaltransportOtherType">
+  <simpleType name="MaksVogntoglengdeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

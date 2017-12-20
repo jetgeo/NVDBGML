@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.10">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
   <annotation>
-    <documentation>78: Trase med nedgravd(e) rørledning(er) eller pukkstreng. Benyttes i første rekke i forbindelse med drenering av veger, men kan også inneholde andre typer rørledninger. Merknad: Grøft med kun kabler og trekkerør er definert som egen vegobjekttype Kabelgrøft</documentation>
+    <documentation>78: Trase med nedgravd(e) rørledning(er) eller pukkstreng. Benyttes i første rekke i forbindelse med drenering av veger, men kan også inneholde andre typer rørledninger. Merknad: Lukket rørgrøft med kun kabler og trekkerør er definert som egen vegobjekttype Kabelgrøft</documentation>
   </annotation>
   <include schemaLocation="Vannhaandteringsanlegg.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
@@ -25,11 +25,19 @@
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="stat">
+      <enumeration value="stat_StatensVegvesen">
         <annotation>
-          <documentation>17939: Stat</documentation>
+          <documentation>17939: Stat, Statens vegvesen</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17939</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stat_NyeVeier">
+        <annotation>
+          <documentation>18633: Stat, Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18633</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -174,7 +182,7 @@
   </simpleType>
   <element name="LukketRørgrøft" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:LukketRørgrøftType">
     <annotation>
-      <documentation>78: Trase med nedgravd(e) rørledning(er) eller pukkstreng. Benyttes i første rekke i forbindelse med drenering av veger, men kan også inneholde andre typer rørledninger. Merknad: Grøft med kun kabler og trekkerør er definert som egen vegobjekttype Kabelgrøft</documentation>
+      <documentation>78: Trase med nedgravd(e) rørledning(er) eller pukkstreng. Benyttes i første rekke i forbindelse med drenering av veger, men kan også inneholde andre typer rørledninger. Merknad: Lukket rørgrøft med kun kabler og trekkerør er definert som egen vegobjekttype Kabelgrøft</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">78</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LUKKETRØRGRØFT</taggedValue>
@@ -200,6 +208,16 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1138</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GRUNNFORHOLD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengde" type="integer">
+            <annotation>
+              <documentation>11248: Angir total lengde av vegobjektet
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11248</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -281,17 +299,17 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKum" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kum</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
