@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V410" version="2.11">
+  <annotation>
+    <documentation>97: Skilt som kan vise ulike motiv.  Motivet kan styres fra en sentral eller det kan varieres manuelt.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltType">
+    <annotation>
+      <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOTVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Ansiktsside_RettetMotVariabeltSkiltEnumerationType nvdb:Ansiktsside_RettetMotVariabeltSkiltOtherType"/>
+  </simpleType>
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltEnumerationType">
+    <annotation>
+      <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOTVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="trafikkIMetreringsretning">
+        <annotation>
+          <documentation>9138: Trafikk i metreringsretning: Ansiktsside er rettet mot trafikanter som beveger seg i metreringsretning på vegen skiltplate er registrert.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9138</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkMotMetreringsretning">
+        <annotation>
+          <documentation>9139: Trafikk mot metreringsretning: Ansiktsside er rettet mot trafikanter som beveger seg mot metreringsretning på vegen skiltplate er registrert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9139</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="paralleltMotVeg">
+        <annotation>
+          <documentation>9140: Parallelt mot veg: Skiltplate er orientert parallelt med vegen den er registrert på. Ansiktsside er vendt inn mot denne vegen.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9140</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="paralleltFraVeg">
+        <annotation>
+          <documentation>9141: Parallelt fra veg: Skiltplate er orientert parallelt med vegen den er registrert på. Ansiktsside er vendt ut fra denne vegen, dvs ansikt er kun synlig fra sideveger.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9141</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tosidig">
+        <annotation>
+          <documentation>9142: Tosidig: Skiltplate har motiv på begge sider.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9142</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Ansiktsside_RettetMotVariabeltSkiltOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelystVariabeltSkiltType">
+    <annotation>
+      <documentation>4598: Angir om skiltet er belyst eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4598</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSTVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BelystVariabeltSkiltEnumerationType nvdb:BelystVariabeltSkiltOtherType"/>
+  </simpleType>
+  <simpleType name="BelystVariabeltSkiltEnumerationType">
+    <annotation>
+      <documentation>4598: Angir om skiltet er belyst eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4598</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYSTVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>5538: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5538</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>5539: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5539</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelystVariabeltSkiltOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FjernstyringVariabeltSkiltType">
+    <annotation>
+      <documentation>1739: Angir om vegobjektet kan fjernstyres</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1739</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRINGVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FjernstyringVariabeltSkiltEnumerationType nvdb:FjernstyringVariabeltSkiltOtherType"/>
+  </simpleType>
+  <simpleType name="FjernstyringVariabeltSkiltEnumerationType">
+    <annotation>
+      <documentation>1739: Angir om vegobjektet kan fjernstyres</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1739</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRINGVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>3518: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3518</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>3556: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3556</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FjernstyringVariabeltSkiltOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkiftingAvBudskapType">
+    <annotation>
+      <documentation>3745: Angir hvordan symbol/budskap skiftes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3745</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKIFTINGAVBUDSKAP</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SkiftingAvBudskapEnumerationType nvdb:SkiftingAvBudskapOtherType"/>
+  </simpleType>
+  <simpleType name="SkiftingAvBudskapEnumerationType">
+    <annotation>
+      <documentation>3745: Angir hvordan symbol/budskap skiftes</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3745</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKIFTINGAVBUDSKAP</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="manuelt">
+        <annotation>
+          <documentation>4735: Manuelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4735</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="automatisertElektrisk">
+        <annotation>
+          <documentation>4734: Automatisert/elektrisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4734</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SkiftingAvBudskapOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Skiltnummer_OrdinærVisningType">
+    <annotation>
+      <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Skiltnummer_OrdinærVisningEnumerationType nvdb:Skiltnummer_OrdinærVisningOtherType"/>
+  </simpleType>
+  <simpleType name="Skiltnummer_OrdinærVisningEnumerationType">
+    <annotation>
+      <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="148_MøtendeTrafikk">
+        <annotation>
+          <documentation>17932: 148 - Møtende trafikk: Møtende trafikk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17932</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="149_Kø">
+        <annotation>
+          <documentation>17486: 149 - Kø: Kø</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17486</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="152_Sidevind">
+        <annotation>
+          <documentation>17477: 152 - Sidevind: Sidevind</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17477</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="153_Trafikkulykke">
+        <annotation>
+          <documentation>17512: 153 - Trafikkulykke: Trafikkulykke</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17512</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="306_5_ForbudtForLastebilOgTrekkbil">
+        <annotation>
+          <documentation>17478: 306.5 - Forbudt for lastebil og trekkbil: Forbudt for lastebil og trekkbil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17478</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="310_ForbudtForMotorvognMedFlereEnnToHjulOgMedTillattTotalvektHøyereEnnAngitt">
+        <annotation>
+          <documentation>17495: 310 - Forbudt for motorvogn med flere enn to hjul og med tillatt totalvekt høyere enn angitt: Forbudt for motorvogn med flere enn to hjul og med tillatt totalvekt høyere enn angitt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17495</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="335_ForbikjøringsforbudForLastebil">
+        <annotation>
+          <documentation>17493: 335 - Forbikjøringsforbud for lastebil: Forbikjøringsforbud for lastebil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17493</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="337_SluttPåForbikjøringsforbudForLastebil">
+        <annotation>
+          <documentation>17494: 337 - Slutt på forbikjøringsforbud for lastebil: Slutt på forbikjøringsforbud for lastebil</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17494</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_20_Fartsgrense20Kmt">
+        <annotation>
+          <documentation>17521: 362.20 - Fartsgrense 20 km/t: Fartsgrense 20 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17521</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_30_Fartsgrense30Kmt">
+        <annotation>
+          <documentation>17513: 362.30 - Fartsgrense 30 km/t: Fartsgrense 30 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17513</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_40_Fartsgrense40Kmt">
+        <annotation>
+          <documentation>17514: 362.40 - Fartsgrense 40 km/t: Fartsgrense 40 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17514</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_50_Fartsgrense50Kmt">
+        <annotation>
+          <documentation>17515: 362.50 - Fartsgrense 50 km/t: Fartsgrense 50 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17515</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_60_Fartsgrense60Kmt">
+        <annotation>
+          <documentation>17516: 362.60 - Fartsgrense 60 km/t: Fartsgrense 60 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17516</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_70_Fartsgrense70Kmt">
+        <annotation>
+          <documentation>17517: 362.70 - Fartsgrense 70 km/t: Fartsgrense 70 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17517</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_80_Fartsgrense80Kmt">
+        <annotation>
+          <documentation>17518: 362.80 - Fartsgrense 80 km/t: Fartsgrense 80 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17518</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_90_Fartsgrense90Kmt">
+        <annotation>
+          <documentation>17519: 362.90 - Fartsgrense 90 km/t: Fartsgrense 90 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17519</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_100_Fartsgrense100Kmt">
+        <annotation>
+          <documentation>17520: 362.100 - Fartsgrense 100 km/t: Fartsgrense 100 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17520</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="362_110_Fartsgrense110Kmt">
+        <annotation>
+          <documentation>17522: 362.110 - Fartsgrense 110 km/t: Fartsgrense 110 km/t</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17522</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="539_01_KjørefeltendringMedMotgående">
+        <annotation>
+          <documentation>18476: 539.01 - Kjørefeltendring med motgående: Kjørefeltendring med motgående.  (F.o.m. ver. 1.76: Skiltnummer endret fra "539.1")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18476</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="539_02_KjørefeltendringMedToFelt">
+        <annotation>
+          <documentation>18477: 539.02 - Kjørefeltendring med to felt: Kjørefeltendring med to felt.  (F.o.m. ver. 1.76: Skiltnummer endret fra "539.2")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18477</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="560_Opplysningstavle">
+        <annotation>
+          <documentation>17790: 560 - Opplysningstavle: Opplysningstavle</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17790</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="701_1_TabellorienteringstavleForVanligKryss">
+        <annotation>
+          <documentation>17479: 701.1 - Tabellorienteringstavle for vanlig kryss: Tabellorienteringstavle for vanlig kryss.  (F.o.m. ver. 1.76: Skiltnummer endret fra "720.4")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17479</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="701_2_TabellorienteringstavleForPlanskiltKryssPåToOgTrefeltsveg">
+        <annotation>
+          <documentation>17496: 701.2 - Tabellorienteringstavle for planskilt kryss på to- og trefeltsveg: Tabellorienteringstavle for planskilt kryss på to- og trefeltsveg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17496</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="703_1_DiagramorienteringstavleForRundkjøring">
+        <annotation>
+          <documentation>17480: 703.1 - Diagramorienteringstavle for rundkjøring: Diagramorienteringstavle for rundkjøring.  (F.o.m. ver. 1.76: Skiltnummer endret fra "720.3")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17480</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="703_2_DiagramorienteringstavleForKryssMedSpesiellUtforming">
+        <annotation>
+          <documentation>17497: 703.2 - Diagramorienteringstavle for kryss med spesiell utforming: Diagramorienteringstavle for kryss med spesiell utforming</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17497</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="705_1_Avkjøringstavle1000_MTavle">
+        <annotation>
+          <documentation>17481: 705.1 - Avkjøringstavle. 1000-m tavle: Avkjøringstavle. 1000-m tavle.  (F.o.m. ver. 1.76: Skiltnummer endret fra "720.1")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17481</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="705_2_Avkjøringstavle500_MTavle">
+        <annotation>
+          <documentation>17482: 705.2 - Avkjøringstavle. 500-m tavle: Avkjøringstavle. 500-m tavle.  (F.o.m. ver. 1.76: Skiltnummer endret fra "720.2")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17482</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="707_1_KjørefeltorienteringstavleUtenVisningsmål">
+        <annotation>
+          <documentation>17498: 707.1 - Kjørefeltorienteringstavle uten visningsmål: Kjørefeltorienteringstavle uten visningsmål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17498</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="707_2_KjørefeltorienteringstavleMedVisningsmål">
+        <annotation>
+          <documentation>17499: 707.2 - Kjørefeltorienteringstavle med visningsmål: Kjørefeltorienteringstavle med visningsmål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17499</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="707_3_KjørefeltorienteringstavleForFeltsubtraksjon">
+        <annotation>
+          <documentation>17500: 707.3 - Kjørefeltorienteringstavle for feltsubtraksjon: Kjørefeltorienteringstavle for feltsubtraksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17500</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="707_4_KjørefeltorienteringstavleForFerjeleie">
+        <annotation>
+          <documentation>17501: 707.4 - Kjørefeltorienteringstavle for ferjeleie: Kjørefeltorienteringstavle for ferjeleie</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17501</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="709_1_PortalorienteringstavleForEttKjørefelt">
+        <annotation>
+          <documentation>17485: 709.1 - Portalorienteringstavle for ett kjørefelt: Portalorienteringstavle for ett kjørefelt.  (F.o.m. ver. 1.76: Skiltnummer endret fra "709")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17485</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="709_2_PortalorienteringstavleForFlereKjørefelt">
+        <annotation>
+          <documentation>17502: 709.2 - Portalorienteringstavle for flere kjørefelt: Portalorienteringstavle for flere kjørefelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17502</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="709_3_PortalorienteringstavleForFlereKjøreretninger">
+        <annotation>
+          <documentation>17503: 709.3 - Portalorienteringstavle for flere kjøreretninger: Portalorienteringstavle for flere kjøreretninger</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17503</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="709_4_PortalorienteringstavleForFeltsubtraksjon">
+        <annotation>
+          <documentation>17504: 709.4 - Portalorienteringstavle for feltsubtraksjon: Portalorienteringstavle for feltsubtraksjon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17504</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="711R_Tabellvegviser_RettFram">
+        <annotation>
+          <documentation>17487: 711.R - Tabellvegviser, Rett fram: Tabellvegviser, Rett fram.  (F.o.m. ver. 1.76: Skiltnummer endret fra "711")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17487</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="711H90_Tabellvegviser_Høyre_90Grader">
+        <annotation>
+          <documentation>17505: 711.H90 - Tabellvegviser, Høyre, 90 grader: Tabellvegviser, Høyre, 90 grader</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17505</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="711V90_Tabellvegviser_Venstre_90Grader">
+        <annotation>
+          <documentation>17506: 711.V90 - Tabellvegviser, Venstre, 90 grader: Tabellvegviser, Venstre, 90 grader</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17506</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="713V_VanligVegviser_Venstre">
+        <annotation>
+          <documentation>17488: 713.V - Vanlig vegviser, Venstre: Vanlig vegviser, Venstre.  (F.o.m. ver. 1.76: Skiltnummer endret fra "713")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17488</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="713H_VanligVegviser_Høyre">
+        <annotation>
+          <documentation>17507: 713.H - Vanlig vegviser, Høyre: Vanlig vegviser, Høyre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17507</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="715_1_AvkjøringsvegviserForVegUtenKryssnummer">
+        <annotation>
+          <documentation>17489: 715.1 - Avkjøringsvegviser for veg uten kryssnummer: Avkjøringsvegviser for veg uten kryssnummer.  (F.o.m. ver. 1.76: Skiltnummer endret fra "715")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17489</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="715_2_AvkjøringsvegviserForVegMedKryssnummer">
+        <annotation>
+          <documentation>17508: 715.2 - Avkjøringsvegviser for veg med kryssnummer: Avkjøringsvegviser for veg med kryssnummer</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17508</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="717_Kjørefeltvegviser">
+        <annotation>
+          <documentation>17490: 717 - Kjørefeltvegviser: Kjørefeltvegviser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17490</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="719_1_PortalvegviserForEttKjørefelt">
+        <annotation>
+          <documentation>17491: 719.1 - Portalvegviser for ett kjørefelt: Portalvegviser for ett kjørefelt.  (F.o.m. ver. 1.76: Skiltnummer endret fra "719")</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17491</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="719_2_PortalvegviserForFlereKjørefelt">
+        <annotation>
+          <documentation>17509: 719.2 - Portalvegviser for flere kjørefelt: Portalvegviser for flere kjørefelt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17509</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="719_4_PortalvegviserForAvkjøring">
+        <annotation>
+          <documentation>17510: 719.4 - Portalvegviser for avkjøring: Portalvegviser for avkjøring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17510</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="719_5_PortalvegviserForFerjeleierOgBomstasjoner">
+        <annotation>
+          <documentation>17511: 719.5 - Portalvegviser for ferjeleier og bomstasjoner: Portalvegviser for ferjeleier og bomstasjoner</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17511</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="904H_Retningsmarkering_MotHøyre">
+        <annotation>
+          <documentation>17492: 904H - Retningsmarkering, Mot høyre: Retningsmarkering, Mot høyre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17492</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="904V_Retningsmarkering_MotVenstre">
+        <annotation>
+          <documentation>17483: 904V - Retningsmarkering, Mot venstre: Retningsmarkering, Mot venstre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17483</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="912_Avkjøringsmarkering">
+        <annotation>
+          <documentation>17484: 912 - Avkjøringsmarkering: Avkjøringsmarkering</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17484</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Skiltnummer_OrdinærVisningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVariabeltSkiltType">
+    <annotation>
+      <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1151</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeVariabeltSkiltEnumerationType nvdb:TypeVariabeltSkiltOtherType"/>
+  </simpleType>
+  <simpleType name="TypeVariabeltSkiltEnumerationType">
+    <annotation>
+      <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1151</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEVARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="mekanisk">
+        <annotation>
+          <documentation>2834: Mekanisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2834</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mekaniskMedLameller">
+        <annotation>
+          <documentation>2836: Mekanisk med lameller</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2836</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="mekaniskRoterende">
+        <annotation>
+          <documentation>2835: Mekanisk roterende</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2835</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digitalt">
+        <annotation>
+          <documentation>2832: Digitalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2832</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digitalt_Lysdioder">
+        <annotation>
+          <documentation>4877: Digitalt, Lysdioder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4877</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="digitalt_Fiberoptisk">
+        <annotation>
+          <documentation>4880: Digitalt, Fiberoptisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4880</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVariabeltSkiltOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="VariabeltSkilt" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:VariabeltSkiltType">
+    <annotation>
+      <documentation>97: Skilt som kan vise ulike motiv.  Motivet kan styres fra en sentral eller det kan varieres manuelt.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">97</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARIABELTSKILT</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="VariabeltSkiltType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="skiltnummer_OrdinærVisning" type="nvdb:Skiltnummer_OrdinærVisningType">
+            <annotation>
+              <documentation>10783: Angir skiltnumer på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10783</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKILTNUMMER_ORDINÆRVISNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tekst_OrdinærVisning" type="string">
+            <annotation>
+              <documentation>3763: Angir tekst på variabelt skilt i ordinær visningsmodus, dvs den visningen som er mest utbredt når skiltet ikke er avslått/blankt.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3763</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TEKST_ORDINÆRVISNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="variasjon" type="nvdb:VariasjonType">
+            <annotation>
+              <documentation>1905: Angir hva som varierer på et variabelt skilt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1905</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARIASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="skiftingAvBudskap" type="nvdb:SkiftingAvBudskapType">
+            <annotation>
+              <documentation>3745: Angir hvordan symbol/budskap skiftes</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3745</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SKIFTINGAVBUDSKAP</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plasseringskode" type="integer">
+            <annotation>
+              <documentation>6986: Angir plasseringskode for variabelt skilt i skiltpunkt.  Øverste posisjon har lavest nummer, nederste posisjon har høyest verdi.  Benytt nummerering 10, 20, 30 i utgangspunktet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6986</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGSKODE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="ansiktsside_RettetMot" type="nvdb:Ansiktsside_RettetMotVariabeltSkiltType">
+            <annotation>
+              <documentation>6987: Angir hva skiltplatens ansiktsside, dvs skiltmotivet er rettet mot.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6987</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANSIKTSSIDE_RETTETMOT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fjernstyring" type="nvdb:FjernstyringVariabeltSkiltType">
+            <annotation>
+              <documentation>1739: Angir om vegobjektet kan fjernstyres</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1739</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FJERNSTYRING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="belyst" type="nvdb:BelystVariabeltSkiltType">
+            <annotation>
+              <documentation>4598: Angir om skiltet er belyst eller ikke</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4598</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELYST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeVariabeltSkiltType">
+            <annotation>
+              <documentation>1151: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1151</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>10393: Angir hvilket år vegobjektet ble satt opp</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10393</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsmerking" type="string">
+            <annotation>
+              <documentation>10489: Gir unikt navn/id for objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10489</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>4796: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4796</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="felt" type="string">
+            <annotation>
+              <documentation>Tekststreng som brukes dersom objektet gjelder bestemte kjørefelt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VariabeltSkiltPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:VariabeltSkilt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="VariasjonType">
+    <annotation>
+      <documentation>1905: Angir hva som varierer på et variabelt skilt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1905</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARIASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:VariasjonEnumerationType nvdb:VariasjonOtherType"/>
+  </simpleType>
+  <simpleType name="VariasjonEnumerationType">
+    <annotation>
+      <documentation>1905: Angir hva som varierer på et variabelt skilt</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1905</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARIASJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="etMotivPåAv">
+        <annotation>
+          <documentation>2827: Et motiv på/av: Skiltet kan veksle mellom å vise et definerte motiv og å være avslått.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2827</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vekslingMellomToMotiv">
+        <annotation>
+          <documentation>2828: Veksling mellom to motiv: Skiltet kan veksle mellom å vise to fast definerte motiv. Eventuell avslått posisjon kommer i tillegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2828</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vekslingMellomTreMotiv">
+        <annotation>
+          <documentation>2829: Veksling mellom tre motiv: Skiltet kan veksle mellom å vise tre fast definerte motiv. Eventuell avslått posisjon kommer i tillegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2829</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vekslingMellomFlereEnnTreMotiv">
+        <annotation>
+          <documentation>17933: Veksling mellom flere enn tre motiv: Skiltet kan veksle mellom å vise 3 eller flere fast definerte motiv. Eventuell avslått posisjon kommer i tillegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17933</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="frittValgtFartsgrensevarsling">
+        <annotation>
+          <documentation>2830: Fritt valgt fartsgrensevarsling: Skiltet kan vise fritt valgt fartsgrense/fartsgrenseoppheving.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2830</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="frittValgtTekst">
+        <annotation>
+          <documentation>2831: Fritt valgt tekst: Det kan vises fritt valgt teskt på skiltet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2831</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VariasjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
