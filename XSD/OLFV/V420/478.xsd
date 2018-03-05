@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" version="2.12">
+  <annotation>
+    <documentation>478: Utstyr til å registrere tilløp til brann</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Branndetektor" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:BranndetektorType">
+    <annotation>
+      <documentation>478: Utstyr til å registrere tilløp til brann</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">478</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRANNDETEKTOR</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="BranndetektorType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeBranndetektorType">
+            <annotation>
+              <documentation>3774: Angir type</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3774</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="oppsettingsår" type="integer">
+            <annotation>
+              <documentation>10272: Angir hvilket år vegobjektet ble satt opp</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10272</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPSETTINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsmerking" type="string">
+            <annotation>
+              <documentation>10139: Gir unikt navn/id for objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10139</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>10078: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10078</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BranndetektorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Branndetektor"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeBranndetektorType">
+    <annotation>
+      <documentation>3774: Angir type</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3774</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBRANNDETEKTOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeBranndetektorEnumerationType nvdb:TypeBranndetektorOtherType"/>
+  </simpleType>
+  <simpleType name="TypeBranndetektorEnumerationType">
+    <annotation>
+      <documentation>3774: Angir type</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3774</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEBRANNDETEKTOR</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="optiskt">
+        <annotation>
+          <documentation>4834: Optiskt: Sensor som registrerer røyk optisk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4834</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gass">
+        <annotation>
+          <documentation>16015: Gass: Sensor som måler tilstedeværelse av en eller flere gasser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16015</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="termisk">
+        <annotation>
+          <documentation>4835: Termisk: Sensor som registrerer endring i temperatur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4835</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="IR_Kamera">
+        <annotation>
+          <documentation>16016: IR-kamera: Infrarødt kamera for detektering av brann ut fra bildeanalyse</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16016</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kombinert">
+        <annotation>
+          <documentation>16027: Kombinert: Brannvarsler som kombinerer flere metoder for registrering av brann</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16027</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="manuell">
+        <annotation>
+          <documentation>4833: Manuell: Manuell brannmelder</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4833</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeBranndetektorOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

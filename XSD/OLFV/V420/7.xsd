@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" version="2.12">
+  <annotation>
+    <documentation>7: Gjerde er frittstående hinder som skal stenge/lede ferdsel av folk eller dyr</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeGjerdeType">
+    <annotation>
+      <documentation>1249: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1249</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeGjerdeEnumerationType nvdb:BruksområdeGjerdeOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeGjerdeEnumerationType">
+    <annotation>
+      <documentation>1249: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1249</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="trafikkLedegjerde">
+        <annotation>
+          <documentation>2401: Trafikk-/ledegjerde: Gjerde som avgrenser fotgjengertrafikk fra motorvogntrafikk.  Kilde: Rekkverksnormal.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2401</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vilt">
+        <annotation>
+          <documentation>2402: Vilt: Skal hindre dyr i å komme ut i kjørebanen eller vegområdet.  (Temahefte hb111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2402</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="eiendom">
+        <annotation>
+          <documentation>2403: Eiendom</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2403</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gelender">
+        <annotation>
+          <documentation>2404: Gelender</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2404</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sikringsgjerde">
+        <annotation>
+          <documentation>9295: Sikringsgjerde: Skal sikre at personer eller dyr ikke får tilgang til kjørebanen eller spesielt farlig område.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9295</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="miljøgjerde">
+        <annotation>
+          <documentation>3788: Miljøgjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3788</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="blendingsgjerde">
+        <annotation>
+          <documentation>9294: Blendingsgjerde: Skal hindre blending fra møtende trafikk. (Temahefte hb 111)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9294</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeGjerdeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Gjerde" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:GjerdeType">
+    <annotation>
+      <documentation>7: Gjerde er frittstående hinder som skal stenge/lede ferdsel av folk eller dyr</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="GjerdeType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="bruksområde" type="nvdb:BruksområdeGjerdeType">
+            <annotation>
+              <documentation>1249: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1249</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="type" type="nvdb:TypeGjerdeType">
+            <annotation>
+              <documentation>1091: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1091</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="typeStolpe" type="nvdb:TypeStolpeType">
+            <annotation>
+              <documentation>2105: Angir hvilken type stolper gjerdet har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2105</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTOLPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="høyde_GjSnitt" type="double">
+            <annotation>
+              <documentation>1575: Angir gjennomsnittlig egenhøyde for hele vegobjektet.
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1575</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_GJSNITT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lengde" type="double">
+            <annotation>
+              <documentation>1300: Angir eksakt lengde av gjerde
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1300</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LENGDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="overflatebehandling" type="nvdb:OverflatebehandlingGjerdeType">
+            <annotation>
+              <documentation>1601: Angir hvordan vegobjektet er overflatebehandla</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1601</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10301: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10301</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>4716: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4716</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertGjerdeport" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Gjerdeport</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GjerdePropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Gjerde"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="OverflatebehandlingGjerdeType">
+    <annotation>
+      <documentation>1601: Angir hvordan vegobjektet er overflatebehandla</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1601</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLINGGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OverflatebehandlingGjerdeEnumerationType nvdb:OverflatebehandlingGjerdeOtherType"/>
+  </simpleType>
+  <simpleType name="OverflatebehandlingGjerdeEnumerationType">
+    <annotation>
+      <documentation>1601: Angir hvordan vegobjektet er overflatebehandla</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1601</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OVERFLATEBEHANDLINGGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="malt">
+        <annotation>
+          <documentation>2153: Malt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2153</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="beiset">
+        <annotation>
+          <documentation>2160: Beiset</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2160</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="impregnert">
+        <annotation>
+          <documentation>2166: Impregnert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2166</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="oljet">
+        <annotation>
+          <documentation>2172: Oljet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2172</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="lakkert">
+        <annotation>
+          <documentation>2178: Lakkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2178</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="galvanisert">
+        <annotation>
+          <documentation>17392: Galvanisert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17392</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OverflatebehandlingGjerdeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGjerdeType">
+    <annotation>
+      <documentation>1091: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1091</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeGjerdeEnumerationType nvdb:TypeGjerdeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeGjerdeEnumerationType">
+    <annotation>
+      <documentation>1091: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1091</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGJERDE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="flettverk_Plastbelagt">
+        <annotation>
+          <documentation>2406: Flettverk, plastbelagt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2406</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flettverk_Stålflettverksgjerde">
+        <annotation>
+          <documentation>3253: Flettverk, stålflettverksgjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3253</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flettverk_StorrutetGjerde">
+        <annotation>
+          <documentation>3255: Flettverk, storrutet gjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3255</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flettverk_Kraftig">
+        <annotation>
+          <documentation>10776: Flettverk, kraftig: Ekstra kraftig flettverk-gjerde oftest benyttet i forbindelse med rassikring.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10776</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tregjerde">
+        <annotation>
+          <documentation>2407: Tregjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2407</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tregjerde_Åpent">
+        <annotation>
+          <documentation>3257: Tregjerde, åpent</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3257</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tregjerde_Tett">
+        <annotation>
+          <documentation>3259: Tregjerde, tett</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3259</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stålRørgjerde">
+        <annotation>
+          <documentation>3364: Stål/rørgjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3364</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="aluminiumsgjerde">
+        <annotation>
+          <documentation>3853: Aluminiumsgjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3853</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="herdetGlass">
+        <annotation>
+          <documentation>17441: Herdet glass</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17441</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="pleksiglass">
+        <annotation>
+          <documentation>17442: Pleksiglass</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17442</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="steingjerde">
+        <annotation>
+          <documentation>2405: Steingjerde</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2405</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGjerdeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStolpeType">
+    <annotation>
+      <documentation>2105: Angir hvilken type stolper gjerdet har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2105</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTOLPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeStolpeEnumerationType nvdb:TypeStolpeOtherType"/>
+  </simpleType>
+  <simpleType name="TypeStolpeEnumerationType">
+    <annotation>
+      <documentation>2105: Angir hvilken type stolper gjerdet har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2105</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTOLPE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="metall_Aluminium">
+        <annotation>
+          <documentation>2253: Metall, aluminium</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2253</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metall_Stål">
+        <annotation>
+          <documentation>2243: Metall, stål</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2243</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tre">
+        <annotation>
+          <documentation>2196: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2196</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="plast">
+        <annotation>
+          <documentation>2275: Plast</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong">
+        <annotation>
+          <documentation>17440: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17440</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStolpeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

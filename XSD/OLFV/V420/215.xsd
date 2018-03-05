@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V420" version="2.12">
+  <annotation>
+    <documentation>215: Utstyr for å måle gass, særlig aktuelt i tunnel</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Gassmåler" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:GassmålerType">
+    <annotation>
+      <documentation>215: Utstyr for å måle gass, særlig aktuelt i tunnel</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">215</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GASSMÅLER</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="GassmålerType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeGassmålerType">
+            <annotation>
+              <documentation>1208: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1208</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="installeringsår" type="string">
+            <annotation>
+              <documentation>4068: Angir hvilket år utstyret ble installert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4068</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_INSTALLERINGSÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="driftsmerking" type="string">
+            <annotation>
+              <documentation>10465: Gir unikt navn/id for objektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10465</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DRIFTSMERKING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="produktnavn" type="string">
+            <annotation>
+              <documentation>1465: Angir produktnavn/typebetegnelse, kan også ta med typenummer</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1465</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="posisjon" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>4855: Gir punkt som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4855</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_PUNKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonPunktPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GassmålerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Gassmåler"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeGassmålerType">
+    <annotation>
+      <documentation>1208: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1208</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGASSMÅLER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeGassmålerEnumerationType nvdb:TypeGassmålerOtherType"/>
+  </simpleType>
+  <simpleType name="TypeGassmålerEnumerationType">
+    <annotation>
+      <documentation>1208: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1208</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEGASSMÅLER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="CO_Måler">
+        <annotation>
+          <documentation>5017: CO-måler: Måler hvor det kan detekteres CO</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5017</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="NOx_Måler">
+        <annotation>
+          <documentation>5018: NOx-måler: Måler hvor det kan detekteres NOx</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5018</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kombinertCOOgNox">
+        <annotation>
+          <documentation>18530: Kombinert CO og Nox: Måler hvor det kan detekteres både CO og NOx</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18530</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="metan">
+        <annotation>
+          <documentation>18531: Metan: Måler hvor det kan detekteres metan.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18531</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hydrogen">
+        <annotation>
+          <documentation>18532: Hydrogen: Måler hvor det kan detekteres hydrogen. Benyttes f.eks i batterirom i tunnel.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18532</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="radon">
+        <annotation>
+          <documentation>18533: Radon: Måler hvor det kan detekteres radon</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18533</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="øvrigLPG">
+        <annotation>
+          <documentation>18534: Øvrig LPG: Måler hvor det kan detekteres øvrige LPG-gasser (Liquefied Petroleum Gass)</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18534</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGassmålerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

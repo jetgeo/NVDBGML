@@ -106,7 +106,7 @@ sub main()
 						Repository.WriteOutput "Script", Now & " Importerer SOSI Fellesegenskaper-pakken", 0 
 						dim pI as EA.Project
 						set pI = scRep.GetProjectInterface()
-						pI.ImportPackageXMI scPck.PackageGUID, "C:\DATA\Standardisering\NVDB\NVDB Datakatalogen\trunk\public\SOSI Fellesegenskaper.xml", 1,0
+						pI.ImportPackageXMI scPck.PackageGUID, "C:\DATA\GitHub\NVDB-Datakatalogen\UML\XMI\SOSI Fellesegenskaper.xml", 1,0
 								
 						'Finn SOSI Fellesegenskaper og sett GML-tagger
 						dim pkSOSIfelles as EA.Package
