@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
   <annotation>
     <documentation>226: Det øverste lag i vegfundamentet.  Deles ofte i nedre og øvre (1).</documentation>
   </annotation>
@@ -85,13 +85,32 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="steinstørrelse" type="nvdb:SteinstørrelseType">
+          <element minOccurs="0" name="reseptnummer" type="string">
             <annotation>
-              <documentation>5531: Angir steinstørrelse
+              <documentation>11304: Gir reseptnummer for oppslag i Labsys</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11304</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RESEPTNUMMER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="steinstørrelse_Største" type="nvdb:Steinstørrelse_StørsteType">
+            <annotation>
+              <documentation>5531: Angir største steinstørrelse for bærelagsmaterialet.
 Enhet: Millimeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_STØRSTE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="steinstørrelse_Minste" type="nvdb:Steinstørrelse_MinsteType">
+            <annotation>
+              <documentation>11305: Angir minte steinstørrelse for bærelagsmaterialet.
+Enhet: Millimeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11305</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_MINSTE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -114,14 +133,6 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="leggedato" type="date">
-            <annotation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5142</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEGGEDATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="forbruk" type="integer">
             <annotation>
               <documentation>5150: Angir masseforbruk pr kvm
@@ -129,6 +140,14 @@ Enhet: Kilo/kvadratmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5150</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBRUK</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="leggedato" type="date">
+            <annotation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5142</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_LEGGEDATO</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -144,6 +163,7 @@ Enhet: Kilo/kvadratmeter</documentation>
           <element minOccurs="0" name="bredde_Gjennomsnitt" type="double">
             <annotation>
               <documentation>5143: Enhet: Meter
+Enhet: Meter
 Enhet: Meter
 Enhet: Meter
 Enhet: Meter
@@ -321,22 +341,72 @@ Enhet: Meter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="SteinstørrelseType">
+  <simpleType name="Steinstørrelse_MinsteType">
     <annotation>
-      <documentation>5531: Angir steinstørrelse</documentation>
+      <documentation>11305: Angir minte steinstørrelse for bærelagsmaterialet.</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11305</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_MINSTE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:SteinstørrelseEnumerationType nvdb:SteinstørrelseOtherType"/>
+    <union memberTypes="nvdb:Steinstørrelse_MinsteEnumerationType nvdb:Steinstørrelse_MinsteOtherType"/>
   </simpleType>
-  <simpleType name="SteinstørrelseEnumerationType">
+  <simpleType name="Steinstørrelse_MinsteEnumerationType">
     <annotation>
-      <documentation>5531: Angir steinstørrelse</documentation>
+      <documentation>11305: Angir minte steinstørrelse for bærelagsmaterialet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11305</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_MINSTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="0">
+        <annotation>
+          <documentation>19077: 0</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19077</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="16">
+        <annotation>
+          <documentation>19078: 16</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19078</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="22">
+        <annotation>
+          <documentation>19079: 22</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19079</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="Steinstørrelse_MinsteOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Steinstørrelse_StørsteType">
+    <annotation>
+      <documentation>5531: Angir største steinstørrelse for bærelagsmaterialet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_STØRSTE</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:Steinstørrelse_StørsteEnumerationType nvdb:Steinstørrelse_StørsteOtherType"/>
+  </simpleType>
+  <simpleType name="Steinstørrelse_StørsteEnumerationType">
+    <annotation>
+      <documentation>5531: Angir største steinstørrelse for bærelagsmaterialet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5531</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STEINSTØRRELSE_STØRSTE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -372,51 +442,11 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="24">
-        <annotation>
-          <documentation>7853: 24</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7853</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="26">
-        <annotation>
-          <documentation>7854: 26</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7854</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="32">
         <annotation>
           <documentation>7855: 32</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7855</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="50">
-        <annotation>
-          <documentation>7856: 50</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7856</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="53">
-        <annotation>
-          <documentation>7857: 53</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7857</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="54">
-        <annotation>
-          <documentation>7858: 54</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7858</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -428,17 +458,9 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="64">
+      <enumeration value="90">
         <annotation>
-          <documentation>7860: 64</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7860</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="80">
-        <annotation>
-          <documentation>7861: 80</documentation>
+          <documentation>7861: 90</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7861</taggedValue>
           </appinfo>
@@ -446,7 +468,7 @@ Enhet: Meter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="SteinstørrelseOtherType">
+  <simpleType name="Steinstørrelse_StørsteOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -478,49 +500,9 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="G">
-        <annotation>
-          <documentation>3661: Grus</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3661</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Vm">
-        <annotation>
-          <documentation>3662: Velgraderte materialer</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3662</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Gu1">
-        <annotation>
-          <documentation>3663: Grus, uten tilfredst. naturlig gradering</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3663</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Gu2">
-        <annotation>
-          <documentation>3686: Grus, u tf. naturlig gradering, fv knusing</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3686</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="Ks">
-        <annotation>
-          <documentation>3664: Knust stein</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3664</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="Fp">
         <annotation>
-          <documentation>3665: Forkilt pukk</documentation>
+          <documentation>3665: Forkilt pukk: Mest aktuelle sorteringer: 16/56, 22/63, 22/90</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3665</taggedValue>
           </appinfo>
@@ -528,7 +510,7 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="Gk">
         <annotation>
-          <documentation>6960: Knust grus</documentation>
+          <documentation>6960: Knust grus: Mest aktuelle sorteringer: 0/22, 0/32, 0/45, 0/63</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6960</taggedValue>
           </appinfo>
@@ -536,9 +518,25 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="Fk">
         <annotation>
-          <documentation>6961: Knust fjell</documentation>
+          <documentation>6961: Knust berg: Knuste steinmaterialer. Mest aktuelle sorteringer: 0/32, 0/45, 0/63</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6961</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ak">
+        <annotation>
+          <documentation>16134: Knust asfalt: Benyttes ikke om dypfresing. Forutsetter at masser er tilført utenfra.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16134</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dypfrest_MekaniskStabilisert">
+        <annotation>
+          <documentation>19018: Dypfrest, mekanisk stabilisert: Resultat av dypfresing av dekke/bærelag. Blandede masser mekanisk stabilisert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19018</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -574,14 +572,6 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="As">
-        <annotation>
-          <documentation>3670: Asfaltert sand</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3670</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="Bg">
         <annotation>
           <documentation>3671: Bitumesnstabilisert grus</documentation>
@@ -590,27 +580,43 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Fr">
+      <enumeration value="Bag">
         <annotation>
-          <documentation>3672: Freste asfaltmaterialer</documentation>
+          <documentation>19074: Bitumenanriket grus</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3672</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19074</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Gja">
+      <enumeration value="Eg">
         <annotation>
-          <documentation>3673: Gjenbrukte asfaltmaterialer</documentation>
+          <documentation>19075: Emulsjonsgrus</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3673</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19075</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Ak">
+      <enumeration value="Ep">
         <annotation>
-          <documentation>16134: Knust asfalt</documentation>
+          <documentation>19076: Emulsjonspukk</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16134</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19076</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sg">
+        <annotation>
+          <documentation>6957: Skumgrus</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6957</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dypfrest_Bitumenstabilisert">
+        <annotation>
+          <documentation>19022: Dypfrest, bitumenstabilisert: Resultat av dypfresing av dekke/bærelag. Blandede masser stabilisert med med bitumen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19022</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -638,19 +644,27 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Sg">
+      <enumeration value="Gjb">
         <annotation>
-          <documentation>6957: Skumgrus</documentation>
+          <documentation>6962: Gjenbruksbetong</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6957</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">6962</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="Asg">
+      <enumeration value="ls">
         <annotation>
-          <documentation>7862: Asfaltskumgrus</documentation>
+          <documentation>19020: Ligninstabilert materiale: Grus-/Steinmaterialer stabilisert med lignin</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7862</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19020</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="dl">
+        <annotation>
+          <documentation>19019: Dypfrest, ligninstabilisert: Resultat av dypfresing av dekke/bærelag. Blandede masser stabilisert med lignin</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19019</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

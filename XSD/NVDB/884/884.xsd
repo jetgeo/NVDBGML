@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.11">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
   <annotation>
-    <documentation>884: Strekning som inngår i gitt rode</documentation>
+    <documentation>884: Strekning som inngår i spesifikk rode for feiing/renhold</documentation>
   </annotation>
   <include schemaLocation="Feierode.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
@@ -8,7 +8,7 @@
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element name="Feierode" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:FeierodeType">
     <annotation>
-      <documentation>884: Strekning som inngår i gitt rode</documentation>
+      <documentation>884: Strekning som inngår i spesifikk rode for feiing/renhold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">884</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FEIERODE</taggedValue>
@@ -43,6 +43,15 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10683</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRIORITET</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="renholdsintervall" type="nvdb:RenholdsintervallType">
+            <annotation>
+              <documentation>11308: Angir hvor ofte det er planlagt å utføre feiing/renhold på strekning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11308</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RENHOLDSINTERVALL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -145,6 +154,64 @@
     </restriction>
   </simpleType>
   <simpleType name="PrioritetFeierodeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="RenholdsintervallType">
+    <annotation>
+      <documentation>11308: Angir hvor ofte det er planlagt å utføre feiing/renhold på strekning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11308</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RENHOLDSINTERVALL</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:RenholdsintervallEnumerationType nvdb:RenholdsintervallOtherType"/>
+  </simpleType>
+  <simpleType name="RenholdsintervallEnumerationType">
+    <annotation>
+      <documentation>11308: Angir hvor ofte det er planlagt å utføre feiing/renhold på strekning</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11308</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RENHOLDSINTERVALL</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="daglig">
+        <annotation>
+          <documentation>19085: Daglig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19085</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ukentlig">
+        <annotation>
+          <documentation>19086: Ukentlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19086</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="månedlig">
+        <annotation>
+          <documentation>19087: Månedlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19087</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="2GangerÅrlig">
+        <annotation>
+          <documentation>19088: 2 ganger årlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19088</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RenholdsintervallOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
