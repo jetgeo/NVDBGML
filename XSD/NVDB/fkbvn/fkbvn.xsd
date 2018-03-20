@@ -1,31 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB"
-  xmlns:gml="http://www.opengis.net/gml/3.2"
-  xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-  elementFormDefault="qualified"
-  targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="4.6">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fkbvn="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="4.6">
   <annotation>
     <documentation>FKB-Vegnett 4.6 inneholder informasjon om alle europa-, riks-, fylkes-, kommunale og skogsbilveger, samt alle private veger unntatt korte, private blindveger. Korte veger er veger med lengde mindre enn 50 m. Veger med unike adresser er med uansett lengde. Bilferjestrekninger skal være representert og gang- og sykkelveger kan være med. Vegnettet er strukturert som et nettverk av veglenker med restriksjoner i form av lineære referanser. 
 Vegnettet ajourføres i Nasjonal Vegdatabank, NVDB. Denne spesifikasjonen beskriver en eksport fra NVDB beregnet på distribusjon og ajourhold av vegnettsdata gjennom FKB.</documentation>
   </annotation>
-  <include schemaLocation="100.xsd"/>
-  <include schemaLocation="105.xsd"/>
-  <include schemaLocation="107.xsd"/>
-  <include schemaLocation="573.xsd"/>
-  <include schemaLocation="591.xsd"/>
-  <include schemaLocation="606.xsd"/>
-  <include schemaLocation="607.xsd"/>
-  <include schemaLocation="813.xsd"/>
-  <include schemaLocation="821.xsd"/>
-  <include schemaLocation="822.xsd"/>
-  <include schemaLocation="856.xsd"/>
-  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo"
-    schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2"
-    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="Endringsflagg" substitutionGroup="gml:AbstractObject"
-    type="fkbvn:EndringsflaggType">
+  <element name="Endringsflagg" substitutionGroup="gml:AbstractObject" type="fkbvn:EndringsflaggType">
     <annotation>
       <documentation>endringsinformasjon om et objekt
 
@@ -44,14 +25,6 @@ I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved 
           <documentation>endringsstatus for objektet</documentation>
         </annotation>
       </element>
-      <element name="tidspunktEndring" type="dateTime">
-        <annotation>
-          <documentation>tidspunkt for endring av objektet</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">ENDRET_TID</taggedValue>
-          </appinfo>
-        </annotation>
-      </element>
     </sequence>
   </complexType>
   <complexType name="EndringsflaggPropertyType">
@@ -59,8 +32,7 @@ I det videre arbeidet (framtidige versjoner) vil denne kunne utvides, f.eks ved 
       <element ref="fkbvn:Endringsflagg"/>
     </sequence>
   </complexType>
-  <element name="Fartsgrense" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:FartsgrenseType">
+  <element name="Fartsgrense" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:FartsgrenseType">
     <annotation>
       <documentation>105: Høyeste tillatte hastighet på en vegstrekning.</documentation>
       <appinfo>
@@ -83,13 +55,12 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -211,8 +182,7 @@ Enhet: Kilometer/time</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="FunksjonellVegklasse" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:FunksjonellVegklasseType">
+  <element name="FunksjonellVegklasse" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:FunksjonellVegklasseType">
     <annotation>
       <documentation>821: En klassifisering basert på hvor viktig en veg er for det totale vegnettets forbindelsesmuligheter. Brukes blant annet for vekting i ruteplanlegging</documentation>
       <appinfo>
@@ -234,13 +204,12 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -256,11 +225,10 @@ Enhet: Kilometer/time</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="GeneralisertLenke" substitutionGroup="fkbvn:Nettverkselement"
-    type="fkbvn:GeneralisertLenkeType">
+  <element abstract="true" name="GeneralisertLenke" substitutionGroup="fkbvn:Nettverkselement" type="fkbvn:GeneralisertLenkeType">
     <annotation>
       <documentation>Abstrakt, generalisert objekttype for nettverkslenker
-&lt;i>Realisering av INSPIRE Network:GeneralisedLink &lt;/i></documentation>
+&lt;i&gt;Realisering av INSPIRE Network:GeneralisedLink &lt;/i&gt;</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="GeneralisertLenkeType">
@@ -277,8 +245,73 @@ Enhet: Kilometer/time</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Gågatereguleringer" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:GågatereguleringerType">
+  <simpleType name="GjentakelsesintervallVærutsattVegType">
+    <annotation>
+      <documentation>9958: Angir hvor ofte dette problemet statistisk sett oppstår. Det defineres som at problemet har inntruffet ikke bare om vegen blir stengt, men også om det er behov for økt beredskap og enkelte restriksjoner som f.eks nedsatt hastighet, sperring av ett kjørefe</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9958</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENTAKELSESINTERVALLVÆRUTSATTVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="fkbvn:GjentakelsesintervallVærutsattVegEnumerationType fkbvn:GjentakelsesintervallVærutsattVegOtherType"/>
+  </simpleType>
+  <simpleType name="GjentakelsesintervallVærutsattVegEnumerationType">
+    <annotation>
+      <documentation>9958: Angir hvor ofte dette problemet statistisk sett oppstår. Det defineres som at problemet har inntruffet ikke bare om vegen blir stengt, men også om det er behov for økt beredskap og enkelte restriksjoner som f.eks nedsatt hastighet, sperring av ett kjørefe</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9958</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENTAKELSESINTERVALLVÆRUTSATTVEG</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="flereGangerPerMåned">
+        <annotation>
+          <documentation>16171: Flere ganger per måned</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16171</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="flereGangerPerÅr">
+        <annotation>
+          <documentation>16172: Flere ganger per år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16172</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="1til2GangerÅrlig">
+        <annotation>
+          <documentation>16173: 1-2 ganger årlig</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16173</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="hver2til5År">
+        <annotation>
+          <documentation>16174: Hver 2.-5. år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16174</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sjeldnereEnnHvert5År">
+        <annotation>
+          <documentation>16175: Sjeldnere enn hvert 5. år</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">16175</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="GjentakelsesintervallVærutsattVegOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Gågatereguleringer" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:GågatereguleringerType">
     <annotation>
       <documentation>813: Gate uten fortau reservert for gående hvor trafikkreglene for gågate gjelder (hentet fra HB N100 (017), stemmer også med beskrivelse av gågateskiltet i HB N300-3 (050-3))</documentation>
       <appinfo>
@@ -296,7 +329,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>9314: Varetransport hverdag  untatt lørdag periode 1, fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9314</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE1FRAKL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_HVERDAG_1_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -305,7 +338,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>9315: Varetransport hverdag  untatt lørdag periode 1, til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9315</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE1TILKL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_HVERDAG_1_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -314,7 +347,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>9316: Varetransport hverdag  untatt lørdag periode 2, fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9316</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE2FRAKL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_HVERDAG_2_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -323,7 +356,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>9317: Varetransport hverdag  untatt lørdag periode 2, til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9317</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTHVERDAGULØRDAGPERIODE2TILKL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_HVERDAG_2_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -332,7 +365,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>9318: Varetransport lørdag fra klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9318</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTLØRDAGFRA</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_LØRDAG_FRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -341,20 +374,20 @@ Enhet: Kilometer/time</documentation>
               <documentation>9319: Varetransport lørdag til klokkeslett</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9319</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VARETRANSPORTLØRDAGTIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VARETRANSPORT_LØRDAG_TIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="kjøringTilEiendommeneTillatt"
-            type="fkbvn:KjøringTilEiendommeneTillattType">
+          <element minOccurs="0" name="kjøringTilEiendommeneTillatt" type="fkbvn:KjøringTilEiendommeneTillattType">
             <annotation>
+              <documentation>9313: Angivelse om det er tillatt å kjøre til eiendom</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9313</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KJØRING_TIL_EIENDOM_TILLAT</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>9322: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -363,8 +396,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -388,9 +420,7 @@ Enhet: Kilometer/time</documentation>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HOVEDPROBLEMVÆRUTSATTVEG</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:HovedproblemVærutsattVegEnumerationType fkbvn:HovedproblemVærutsattVegOtherType"
-    />
+    <union memberTypes="fkbvn:HovedproblemVærutsattVegEnumerationType fkbvn:HovedproblemVærutsattVegOtherType"/>
   </simpleType>
   <simpleType name="HovedproblemVærutsattVegEnumerationType">
     <annotation>
@@ -401,6 +431,14 @@ Enhet: Kilometer/time</documentation>
       </appinfo>
     </annotation>
     <restriction base="string">
+      <enumeration value="sandflukt">
+        <annotation>
+          <documentation>19014: Sandflukt: Strekning utsatt for sterk vind og sandtransport som kan gi redusert sikt.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19014</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="snøfokk">
         <annotation>
           <documentation>16166: Snøfokk: Problem med dårlig sikt og oppbygging av snøfonner, vind uten snø er mindre problematisk</documentation>
@@ -456,8 +494,7 @@ Enhet: Kilometer/time</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Høydebegrensning" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:HøydebegrensningType">
+  <element name="Høydebegrensning" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:HøydebegrensningType">
     <annotation>
       <documentation>591: Strekning i vegnettet hvor kjøretøy kan komme i konflikt med overliggende hinder</documentation>
       <appinfo>
@@ -489,7 +526,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>6924: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -498,8 +535,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -565,8 +601,7 @@ Enhet: Meter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject"
-    type="fkbvn:IdentifikasjonType">
+  <element name="Identifikasjon" substitutionGroup="gml:AbstractObject" type="fkbvn:IdentifikasjonType">
     <annotation>
       <documentation>Identification: Unik identifikasjon av et objekt, ivaretatt av den ansvarlige produsent/forvalter, som kan benyttes av eksterne applikasjoner som referanse til objektet. 
 
@@ -619,8 +654,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
       <element ref="fkbvn:Identifikasjon"/>
     </sequence>
   </complexType>
-  <element name="InnkjøringForbudt" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:InnkjøringForbudtType">
+  <element name="InnkjøringForbudt" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:InnkjøringForbudtType">
     <annotation>
       <documentation>606: Angir innkjøring forbudt</documentation>
       <appinfo>
@@ -633,7 +667,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <complexContent>
       <extension base="fkbvn:SOSI_Objekt_NVDBType">
         <sequence>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>6916: Gir linje/kurve som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -642,8 +676,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -659,8 +692,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Jernbanekryssing" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:JernbanekryssingType">
+  <element name="Jernbanekryssing" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:JernbanekryssingType">
     <annotation>
       <documentation>100: Sted i vegnettet hvor veg og jernbane krysses</documentation>
       <appinfo>
@@ -673,7 +705,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <complexContent>
       <extension base="fkbvn:SOSI_Objekt_NVDBType">
         <sequence>
-          <element minOccurs="0" name="typeJernbanekryssing" type="fkbvn:TypeJernbanekryssingType">
+          <element name="typeJernbanekryssing" type="fkbvn:TypeJernbanekryssingType">
             <annotation>
               <documentation>1153: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -682,7 +714,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+          <element name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>4799: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -691,8 +723,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonPunktPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonPunktPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -710,17 +741,17 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </complexType>
   <simpleType name="KjøringTilEiendommeneTillattType">
     <annotation>
+      <documentation>9313: Angivelse om det er tillatt å kjøre til eiendom</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9313</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:KjøringTilEiendommeneTillattEnumerationType fkbvn:KjøringTilEiendommeneTillattOtherType"
-    />
+    <union memberTypes="fkbvn:KjøringTilEiendommeneTillattEnumerationType fkbvn:KjøringTilEiendommeneTillattOtherType"/>
   </simpleType>
   <simpleType name="KjøringTilEiendommeneTillattEnumerationType">
     <annotation>
+      <documentation>9313: Angivelse om det er tillatt å kjøre til eiendom</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9313</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KJØRINGTILEIENDOMMENETILLATT</taggedValue>
@@ -752,6 +783,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </simpleType>
   <simpleType name="KlasseLandbruksvegType">
     <annotation>
+      <documentation>9339: Angir landbruksvegklasse</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9339</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSELANDBRUKSVEG</taggedValue>
@@ -761,6 +793,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
   </simpleType>
   <simpleType name="KlasseLandbruksvegEnumerationType">
     <annotation>
+      <documentation>9339: Angir landbruksvegklasse</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9339</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSELANDBRUKSVEG</taggedValue>
@@ -842,9 +875,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
     <annotation>
       <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste samt et utvalg av utgåtte numre
 
-Merknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 sifre.
-
-Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske tegn eller tankestrek. Det betyr at det vil forekomme avvik mellom definisjonene i denne lista i SOSI modellregister og definisjonene i offisielt standarddokument.</documentation>
+Merknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 sifre.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOMMUNENUMMER</taggedValue>
       </appinfo>
@@ -855,9 +886,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
     <annotation>
       <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste samt et utvalg av utgåtte numre
 
-Merknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 sifre.
-
-Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske tegn eller tankestrek. Det betyr at det vil forekomme avvik mellom definisjonene i denne lista i SOSI modellregister og definisjonene i offisielt standarddokument.</documentation>
+Merknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med ledende null. Kommune benyttes for kopling mot en rekke andre registre som også benytter 4 sifre.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">KOMMUNENUMMER</taggedValue>
       </appinfo>
@@ -1475,7 +1504,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0702">
         <annotation>
-          <documentation>Holmestrand</documentation>
+          <documentation>Holmestrand (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0703">
@@ -1495,7 +1524,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0706">
         <annotation>
-          <documentation>Sandefjord</documentation>
+          <documentation>Sandefjord (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0707">
@@ -1510,7 +1539,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0709">
         <annotation>
-          <documentation>Larvik</documentation>
+          <documentation>Larvik (utgått)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="0710">
+        <annotation>
+          <documentation>Sandefjord</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0711">
@@ -1525,7 +1559,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0714">
         <annotation>
-          <documentation>Hof</documentation>
+          <documentation>Hof (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0716">
@@ -1545,12 +1579,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0719">
         <annotation>
-          <documentation>Andebu</documentation>
+          <documentation>Andebu (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0720">
         <annotation>
-          <documentation>Stokke</documentation>
+          <documentation>Stokke (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0721">
@@ -1560,12 +1594,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0722">
         <annotation>
-          <documentation>Nøtterøy</documentation>
+          <documentation>Nøtterøy (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0723">
         <annotation>
-          <documentation>Tjøme</documentation>
+          <documentation>Tjøme (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0725">
@@ -1585,7 +1619,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="0728">
         <annotation>
-          <documentation>Lardal</documentation>
+          <documentation>Lardal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="0805">
@@ -2320,7 +2354,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1515">
         <annotation>
-          <documentation>Herøy i  Møre og Romsdal</documentation>
+          <documentation>Herøy i Møre og Romsdal</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1516">
@@ -2391,11 +2425,6 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <enumeration value="1535">
         <annotation>
           <documentation>Vestnes</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="1537">
-        <annotation>
-          <documentation>Rindal</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1539">
@@ -2490,167 +2519,167 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1601">
         <annotation>
-          <documentation>Trondheim</documentation>
+          <documentation>Trondheim (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1612">
         <annotation>
-          <documentation>Hemne</documentation>
+          <documentation>Hemne (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1613">
         <annotation>
-          <documentation>Snillfjord</documentation>
+          <documentation>Snillfjord (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1617">
         <annotation>
-          <documentation>Hitra</documentation>
+          <documentation>Hitra (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1620">
         <annotation>
-          <documentation>Frøya</documentation>
+          <documentation>Frøya (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1621">
         <annotation>
-          <documentation>Ørland</documentation>
+          <documentation>Ørland (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1622">
         <annotation>
-          <documentation>Agdenes</documentation>
+          <documentation>Agdenes (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1624">
         <annotation>
-          <documentation>Rissa</documentation>
+          <documentation>Rissa (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1627">
         <annotation>
-          <documentation>Bjugn</documentation>
+          <documentation>Bjugn (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1630">
         <annotation>
-          <documentation>Åfjord</documentation>
+          <documentation>Åfjord (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1632">
         <annotation>
-          <documentation>Roan</documentation>
+          <documentation>Roan (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1633">
         <annotation>
-          <documentation>Osen</documentation>
+          <documentation>Osen (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1634">
         <annotation>
-          <documentation>Oppdal</documentation>
+          <documentation>Oppdal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1635">
         <annotation>
-          <documentation>Rennebu</documentation>
+          <documentation>Rennebu (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1636">
         <annotation>
-          <documentation>Meldal</documentation>
+          <documentation>Meldal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1638">
         <annotation>
-          <documentation>Orkdal</documentation>
+          <documentation>Orkdal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1640">
         <annotation>
-          <documentation>Røros</documentation>
+          <documentation>Røros (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1644">
         <annotation>
-          <documentation>Holtålen</documentation>
+          <documentation>Holtålen (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1648">
         <annotation>
-          <documentation>Midtre Gauldal</documentation>
+          <documentation>Midtre Gauldal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1653">
         <annotation>
-          <documentation>Melhus</documentation>
+          <documentation>Melhus (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1657">
         <annotation>
-          <documentation>Skaun</documentation>
+          <documentation>Skaun (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1662">
         <annotation>
-          <documentation>Klæbu</documentation>
+          <documentation>Klæbu (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1663">
         <annotation>
-          <documentation>Malvik</documentation>
+          <documentation>Malvik (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1664">
         <annotation>
-          <documentation>Selbu</documentation>
+          <documentation>Selbu (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1665">
         <annotation>
-          <documentation>Tydal</documentation>
+          <documentation>Tydal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1702">
         <annotation>
-          <documentation>Steinkjer</documentation>
+          <documentation>Steinkjer (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1703">
         <annotation>
-          <documentation>Namsos</documentation>
+          <documentation>Namsos (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1711">
         <annotation>
-          <documentation>Meråker</documentation>
+          <documentation>Meråker (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1714">
         <annotation>
-          <documentation>Stjørdal</documentation>
+          <documentation>Stjørdal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1717">
         <annotation>
-          <documentation>Frosta</documentation>
+          <documentation>Frosta (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1718">
         <annotation>
-          <documentation>Leksvik</documentation>
+          <documentation>Leksvik (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1719">
         <annotation>
-          <documentation>Levanger</documentation>
+          <documentation>Levanger (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1721">
         <annotation>
-          <documentation>Verdal</documentation>
+          <documentation>Verdal (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1723">
@@ -2660,12 +2689,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1724">
         <annotation>
-          <documentation>Verran</documentation>
+          <documentation>Verran (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1725">
         <annotation>
-          <documentation>Namdalseid</documentation>
+          <documentation>Namdalseid (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1729">
@@ -2675,67 +2704,67 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1736">
         <annotation>
-          <documentation>Snåase - Snåsa</documentation>
+          <documentation>Snåase – Snåsa (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1738">
         <annotation>
-          <documentation>Lierne</documentation>
+          <documentation>Lierne (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1739">
         <annotation>
-          <documentation>Røyrvik</documentation>
+          <documentation>Raarvihke – Røyrvik (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1740">
         <annotation>
-          <documentation>Namsskogan</documentation>
+          <documentation>Namsskogan (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1742">
         <annotation>
-          <documentation>Grong</documentation>
+          <documentation>Grong (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1743">
         <annotation>
-          <documentation>Høylandet</documentation>
+          <documentation>Høylandet (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1744">
         <annotation>
-          <documentation>Overhalla</documentation>
+          <documentation>Overhalla (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1748">
         <annotation>
-          <documentation>Fosnes</documentation>
+          <documentation>Fosnes (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1749">
         <annotation>
-          <documentation>Flatanger</documentation>
+          <documentation>Flatanger (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1750">
         <annotation>
-          <documentation>Vikna</documentation>
+          <documentation>Vikna (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1751">
         <annotation>
-          <documentation>Nærøy</documentation>
+          <documentation>Nærøy (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1755">
         <annotation>
-          <documentation>Leka</documentation>
+          <documentation>Leka (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1756">
         <annotation>
-          <documentation>Inderøy</documentation>
+          <documentation>Inderøy (utgått)</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1804">
@@ -2860,7 +2889,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1841">
         <annotation>
-          <documentation>Fauske</documentation>
+          <documentation>Fauske – Fuossko</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1842">
@@ -2880,12 +2909,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1849">
         <annotation>
-          <documentation>Hamarøy - Hábmer</documentation>
+          <documentation>Hamarøy – Hábmer</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1850">
         <annotation>
-          <documentation>Divtasvuodna - Tysfjord</documentation>
+          <documentation>Divtasvuodna – Tysfjord</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1851">
@@ -2950,7 +2979,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1870">
         <annotation>
-          <documentation>Sortland</documentation>
+          <documentation>Sortland – Suortá</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1871">
@@ -2975,7 +3004,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1903">
         <annotation>
-          <documentation>Harstad</documentation>
+          <documentation>Harstad – Hárstták</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1911">
@@ -3005,7 +3034,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1920">
         <annotation>
-          <documentation>Lavangen</documentation>
+          <documentation>Loabák – Lavangen</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1922">
@@ -3070,12 +3099,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="1939">
         <annotation>
-          <documentation>Storfjord - Omasvuotna - Omasvuono</documentation>
+          <documentation>Storfjord – Omasvuotna – Omasvuono</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1940">
         <annotation>
-          <documentation>Gáivuotna - Kåfjord</documentation>
+          <documentation>Gáivuotna – Kåfjord – Kaivuono</documentation>
         </annotation>
       </enumeration>
       <enumeration value="1941">
@@ -3115,7 +3144,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="2011">
         <annotation>
-          <documentation>Guovdageaidnu - Kautokeino</documentation>
+          <documentation>Guovdageaidnu – Kautokeino</documentation>
         </annotation>
       </enumeration>
       <enumeration value="2012">
@@ -3155,12 +3184,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="2020">
         <annotation>
-          <documentation>Porsá?gu - Porsanger - Porsanki</documentation>
+          <documentation>Porsanger – Porsá?gu – Porsanki</documentation>
         </annotation>
       </enumeration>
       <enumeration value="2021">
         <annotation>
-          <documentation>Kárášjohka - Karasjok</documentation>
+          <documentation>Kárášjohka – Karasjok</documentation>
         </annotation>
       </enumeration>
       <enumeration value="2022">
@@ -3180,12 +3209,12 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       </enumeration>
       <enumeration value="2025">
         <annotation>
-          <documentation>Deatnu - Tana</documentation>
+          <documentation>Deatnu – Tana</documentation>
         </annotation>
       </enumeration>
       <enumeration value="2027">
         <annotation>
-          <documentation>Unjárga - Nesseby</documentation>
+          <documentation>Unjárga – Nesseby</documentation>
         </annotation>
       </enumeration>
       <enumeration value="2028">
@@ -3228,6 +3257,256 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
           <documentation>Sokkelen nord for 62 grader Nord</documentation>
         </annotation>
       </enumeration>
+      <enumeration value="5001">
+        <annotation>
+          <documentation>Trondheim</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5004">
+        <annotation>
+          <documentation>Steinkjer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5005">
+        <annotation>
+          <documentation>Namsos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5011">
+        <annotation>
+          <documentation>Hemne</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5012">
+        <annotation>
+          <documentation>Snillfjord</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5013">
+        <annotation>
+          <documentation>Hitra</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5014">
+        <annotation>
+          <documentation>Frøya</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5015">
+        <annotation>
+          <documentation>Ørland</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5016">
+        <annotation>
+          <documentation>Agdenes</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5017">
+        <annotation>
+          <documentation>Bjugn</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5018">
+        <annotation>
+          <documentation>Åfjord</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5019">
+        <annotation>
+          <documentation>Roan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5020">
+        <annotation>
+          <documentation>Osen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5021">
+        <annotation>
+          <documentation>Oppdal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5022">
+        <annotation>
+          <documentation>Rennebu</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5023">
+        <annotation>
+          <documentation>Meldal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5024">
+        <annotation>
+          <documentation>Orkdal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5025">
+        <annotation>
+          <documentation>Røros</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5026">
+        <annotation>
+          <documentation>Holtålen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5027">
+        <annotation>
+          <documentation>Midtre Gauldal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5028">
+        <annotation>
+          <documentation>Melhus</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5029">
+        <annotation>
+          <documentation>Skaun</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5030">
+        <annotation>
+          <documentation>Klæbu</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5031">
+        <annotation>
+          <documentation>Malvik</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5032">
+        <annotation>
+          <documentation>Selbu</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5033">
+        <annotation>
+          <documentation>Tydal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5034">
+        <annotation>
+          <documentation>Meråker</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5035">
+        <annotation>
+          <documentation>Stjørdal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5036">
+        <annotation>
+          <documentation>Frosta</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5037">
+        <annotation>
+          <documentation>Levanger</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5038">
+        <annotation>
+          <documentation>Verdal</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5039">
+        <annotation>
+          <documentation>Verran</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5040">
+        <annotation>
+          <documentation>Namdalseid</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5041">
+        <annotation>
+          <documentation>Snåase – Snåsa</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5042">
+        <annotation>
+          <documentation>Lierne</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5043">
+        <annotation>
+          <documentation>Raarvihke – Røyrvik</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5044">
+        <annotation>
+          <documentation>Namsskogan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5045">
+        <annotation>
+          <documentation>Grong</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5046">
+        <annotation>
+          <documentation>Høylandet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5047">
+        <annotation>
+          <documentation>Overhalla</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5048">
+        <annotation>
+          <documentation>Frosnes</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5049">
+        <annotation>
+          <documentation>Flatanger</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5050">
+        <annotation>
+          <documentation>Vikna</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5051">
+        <annotation>
+          <documentation>Nærøy</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5052">
+        <annotation>
+          <documentation>Leka</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5053">
+        <annotation>
+          <documentation>Inderøy</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="5054">
+        <annotation>
+          <documentation>Indre Fosen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="0712">
+        <annotation>
+          <documentation>Larvik</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="0715">
+        <annotation>
+          <documentation>Holmestrand</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="0729">
+        <annotation>
+          <documentation>Færder</documentation>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="KommunenummerOtherType">
@@ -3235,8 +3514,7 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Landbruksvegklasse" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:LandbruksvegklasseType">
+  <element name="Landbruksvegklasse" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:LandbruksvegklasseType">
     <annotation>
       <documentation>822: Landbruksmyndighetene sin inndeling av landbruksveger, ut i fra støtteordninger</documentation>
       <appinfo>
@@ -3251,19 +3529,19 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
         <sequence>
           <element name="klasseLandbruksveg" type="fkbvn:KlasseLandbruksvegType">
             <annotation>
+              <documentation>9339: Angir landbruksvegklasse</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9339</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KLASSELANDBRUKSVEG</taggedValue>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -3279,55 +3557,32 @@ Merknad 2: Modelleringsverktøyet Enterprise Architect håndterer ikke samiske t
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="Lenke" substitutionGroup="fkbvn:GeneralisertLenke"
-    type="fkbvn:LenkeType">
+  <element abstract="true" name="Lenke" substitutionGroup="fkbvn:GeneralisertLenke" type="fkbvn:LenkeType">
     <annotation>
       <documentation>Abstrakt objekttype for nettverkslenker, med mulighet for å angi posisjon i en sekvens av lenker.
 
 Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geometrilengde  kan angis på flere alternative måter:
 &amp;nbsp;
-&lt;ul>
-	&lt;li>Kun startVerdi. Målt lengde og sluttverdi er lik geometrilengde      &lt;/li>
-&lt;/ul>
-&lt;ul>
-	&lt;li>Kombinasjonen startVerdi-sluttVerdi. Målt lengde er lik differansen mellom disse egenskapene.      &lt;/li>
-	&lt;li>Kombinasjonen startVerdi-måltLengde. Sluttverdi er lik summen av disse egenskapene.      &lt;/li>
-	&lt;li>Kun måltLengde. startverdi er lik 0, og sluttverdi er lik målt lengde      &lt;/li>
-	&lt;li>Ingen av egenskapene angitt. Kun geometrien benyttes for beregning av posisjoner.      &lt;/li>
-&lt;/ul>
+&lt;ul&gt;
+	&lt;li&gt;Kun startVerdi. Målt lengde og sluttverdi er lik geometrilengde      &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-sluttVerdi. Målt lengde er lik differansen mellom disse egenskapene.      &lt;/li&gt;
+	&lt;li&gt;Kombinasjonen startVerdi-måltLengde. Sluttverdi er lik summen av disse egenskapene.      &lt;/li&gt;
+	&lt;li&gt;Kun måltLengde. startverdi er lik 0, og sluttverdi er lik målt lengde      &lt;/li&gt;
+	&lt;li&gt;Ingen av egenskapene angitt. Kun geometrien benyttes for beregning av posisjoner.      &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;i>Realisering av INSPIRE Network:Link.&lt;/i></documentation>
+&lt;i&gt;Realisering av INSPIRE Network:Link.&lt;/i&gt;</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="LenkeType">
     <complexContent>
       <extension base="fkbvn:GeneralisertLenkeType">
         <sequence>
-          <element minOccurs="0" name="lenkesekvens" type="fkbvn:IdentifikasjonPropertyType">
+          <element name="lenkesekvens" type="fkbvn:LenkesekvensreferansePropertyType">
             <annotation>
               <documentation>unik identifikasjon av lenkesekvens</documentation>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="startposisjon" type="double">
-            <annotation>
-              <documentation>STARTVERDI: &lt;font color="#0f0f0f">startposisjon for lenken i et lineært referansesystem&lt;/font>
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">&lt;i>ISO19148: &lt;/i>&lt;/font>
-&lt;font color="#0f0f0f">&lt;i>LR_ILinearElement ::&lt;/i>&lt;/font>
-&lt;font color="#0f0f0f">&lt;i>startValue(LRM : LinearReferencingMethod) : Measure&lt;/i> &lt;/font></documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTARTVERDI</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="sluttposisjon" type="double">
-            <annotation>
-              <documentation>STARTVERDI: &lt;font color="#0f0f0f">sluttposisjon for lenken i et lineært referansesystem&lt;/font>
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">&lt;i>ISO19148: Finnes ikke&lt;/i> &lt;/font></documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSLUTTVERDI</taggedValue>
-              </appinfo>
             </annotation>
           </element>
         </sequence>
@@ -3341,50 +3596,56 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject"
-    type="fkbvn:LineærPosisjonType">
+  <element abstract="true" name="Lenkesekvensreferanse" substitutionGroup="gml:AbstractObject" type="fkbvn:LenkesekvensreferanseType">
     <annotation>
-      <documentation>Angivelse av en posisjon langs et nettverkselement
-&lt;font color="#ff0000">&lt;i>
-&lt;/i>&lt;/font>&lt;font color="#0f0f0f">&lt;i>Realisering av ISO19148: LE_EventLocation&lt;/i>&lt;/font></documentation>
+      <documentation>Abstrakt objekttype for sekvenser av lenker.
+Eksempel: En sammenhengende rute bestående av flere dellenker 
+&lt;i&gt;Realisering av INSPIRE Network:LinkSequence&lt;/i&gt;</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LENKESEKVENS</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType abstract="true" name="LineærPosisjonType">
+  <complexType abstract="true" name="LenkesekvensreferanseType">
     <sequence>
-      <element minOccurs="0" name="lenkesekvens" type="fkbvn:IdentifikasjonPropertyType">
+      <element name="identifikasjon" type="fkbvn:IdentifikasjonPropertyType">
         <annotation>
-          <documentation>unik identifikasjon av lenkesekvens</documentation>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
-        <annotation>
-          <documentation>metode som er brukt for å angi lineære referanser
-
-Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
-
-&lt;font color="#0f0f0f">&lt;i>ISO19148: overridingLRM&lt;/i>&lt;/font></documentation>
-        </annotation>
-      </element>
-      <element minOccurs="0" name="retning" type="fkbvn:RetningskodeType">
-        <annotation>
-          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+          <documentation>identifikasjon på ordna samling med retta lenker som utgjør lenkesekvensen</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">IDENT</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="startposisjon" type="double">
+        <annotation>
+          <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;startposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: &lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;LR_ILinearElement ::&lt;/i&gt;&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;startValue(LRM : LinearReferencingMethod) : Measure&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTARTVERDI</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="sluttposisjon" type="double">
+        <annotation>
+          <documentation>STARTVERDI: &lt;font color="#0f0f0f"&gt;sluttposisjon for lenken i et lineært referansesystem&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: Finnes ikke&lt;/i&gt; &lt;/font&gt;</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSLUTTVERDI</taggedValue>
           </appinfo>
         </annotation>
       </element>
     </sequence>
   </complexType>
-  <complexType name="LineærPosisjonPropertyType">
+  <complexType name="LenkesekvensreferansePropertyType">
     <sequence>
-      <element ref="fkbvn:LineærPosisjon"/>
+      <element ref="fkbvn:Lenkesekvensreferanse"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonPunkt" substitutionGroup="fkbvn:LineærPosisjon"
-    type="fkbvn:LineærPosisjonPunktType">
+  <element name="LineærPosisjonPunkt" substitutionGroup="fkbvn:LineærPosisjon_Punkt" type="fkbvn:LineærPosisjonPunktType">
     <annotation>
       <documentation>lineær posisjon som et punkt
 
@@ -3392,21 +3653,21 @@ Merknad:
 Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
 LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
 
-&lt;i>Realisering av ISO19148: LE_AtLocation&lt;/i></documentation>
+&lt;i&gt;Realisering av ISO19148: LE_AtLocation&lt;/i&gt;</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKT</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
       </appinfo>
     </annotation>
   </element>
   <complexType name="LineærPosisjonPunktType">
     <complexContent>
-      <extension base="fkbvn:LineærPosisjonType">
+      <extension base="fkbvn:LineærPosisjon_PunktType">
         <sequence>
           <element name="posisjon" type="double">
             <annotation>
               <documentation>posisjon langs nettverkselementet, i henhold til referansemetoden 
 
-Merknad: Ref&lt;font color="#0f0f0f"> &lt;i>ISO19148: atPosition -  distanceAlong&lt;/i> &lt;/font></documentation>
+Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPUNKTPOSISJON</taggedValue>
               </appinfo>
@@ -3421,8 +3682,7 @@ Merknad: Ref&lt;font color="#0f0f0f"> &lt;i>ISO19148: atPosition -  distanceAlon
       <element ref="fkbvn:LineærPosisjonPunkt"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonStrekning" substitutionGroup="fkbvn:LineærPosisjon"
-    type="fkbvn:LineærPosisjonStrekningType">
+  <element name="LineærPosisjonStrekning" substitutionGroup="fkbvn:LineærPosisjon_Strekning" type="fkbvn:LineærPosisjonStrekningType">
     <annotation>
       <documentation>lineær posisjon som en strekning
 
@@ -3430,21 +3690,21 @@ Merknad:
 Dette er en forenkling i forhold til ISO19148, der posisjonsangivelsene er en egen datatype LR_DistanceExpression som har igjen egenskapen DistanceAlong.
 LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, som inneholder egenskapen offsetLateralDistance (avstandSide).
 
-&lt;i>Realisering av ISO19148: LE_FromToLocation&lt;/i></documentation>
+&lt;i&gt;Realisering av ISO19148: LE_FromToLocation&lt;/i&gt;</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRSTREKNING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
       </appinfo>
     </annotation>
   </element>
   <complexType name="LineærPosisjonStrekningType">
     <complexContent>
-      <extension base="fkbvn:LineærPosisjonType">
+      <extension base="fkbvn:LineærPosisjon_StrekningType">
         <sequence>
           <element name="fraPosisjon" type="double">
             <annotation>
-              <documentation>&lt;font color="#0f0f0f">startposisjon langs &lt;/font>nettverkselementet,&lt;font color="#0f0f0f"> i henhold til referansemetoden &lt;/font>
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">Merknad: Ref &lt;i>ISO19148: fromPosition -  distanceAlong&lt;/i> &lt;/font></documentation>
+              <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: fromPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRFRAPOSISJON</taggedValue>
               </appinfo>
@@ -3452,9 +3712,9 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
           </element>
           <element name="tilPosisjon" type="double">
             <annotation>
-              <documentation>&lt;font color="#0f0f0f">sluttposisjon langs &lt;/font>nettverkselementet&lt;font color="#0f0f0f">, i henhold til referansemetoden&lt;/font>
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">Merknad: Ref &lt;i>ISO19148: toPosition -  distanceAlong&lt;/i> &lt;/font></documentation>
+              <documentation>&lt;font color="#0f0f0f"&gt;sluttposisjon langs &lt;/font&gt;nettverkselementet&lt;font color="#0f0f0f"&gt;, i henhold til referansemetoden&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: Ref &lt;i&gt;ISO19148: toPosition -  distanceAlong&lt;/i&gt; &lt;/font&gt;</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRTILPOSISJON</taggedValue>
               </appinfo>
@@ -3469,6 +3729,63 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
       <element ref="fkbvn:LineærPosisjonStrekning"/>
     </sequence>
   </complexType>
+  <element abstract="true" name="LineærPosisjon_Punkt" substitutionGroup="gml:AbstractObject" type="fkbvn:LineærPosisjon_PunktType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjon_PunktType">
+    <sequence>
+      <element name="lenkesekvens" type="fkbvn:LenkesekvensreferansePropertyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjon_PunktPropertyType">
+    <sequence>
+      <element ref="fkbvn:LineærPosisjon_Punkt"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="LineærPosisjon_Strekning" substitutionGroup="gml:AbstractObject" type="fkbvn:LineærPosisjon_StrekningType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjon_StrekningType">
+    <sequence>
+      <element name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element name="retning" type="fkbvn:RetningType">
+        <annotation>
+          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+          </appinfo>
+        </annotation>
+      </element>
+      <element name="lenkesekvens" type="fkbvn:LenkesekvensreferansePropertyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjon_StrekningPropertyType">
+    <sequence>
+      <element ref="fkbvn:LineærPosisjon_Strekning"/>
+    </sequence>
+  </complexType>
   <simpleType name="LineærReferanseMetodeType">
     <annotation>
       <documentation>Metode brukt for lineære referanser
@@ -3477,26 +3794,24 @@ Merknad:
 
 Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
 Felles for alle metoder i Norge:
-&lt;ul>
-	&lt;li>offsetUnits: "meter" &lt;/li>
-	&lt;li>positiveLateralOffsetDirection: "right" &lt;/li>
-&lt;/ul>
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
 positiveVerticalOffsetDirection: "up"
 
-&lt;font color="#0f0f0f">Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font>
-&lt;ul>
-	&lt;li>navn &lt;/li>
-	&lt;li>type (absolutt, relativ eller interpolert) &lt;/li>
-	&lt;li>måleenhet &lt;/li>
-	&lt;li>restriksjoner/regler (constraints) &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:LineærReferanseMetodeEnumerationType fkbvn:LineærReferanseMetodeOtherType"
-    />
+    <union memberTypes="fkbvn:LineærReferanseMetodeEnumerationType fkbvn:LineærReferanseMetodeOtherType"/>
   </simpleType>
   <simpleType name="LineærReferanseMetodeEnumerationType">
     <annotation>
@@ -3506,19 +3821,19 @@ Merknad:
 
 Dersom offset er i bruk så angis også positiv offsetretning til side (høyre eller venstre) og vertikalt (opp/ned). 
 Felles for alle metoder i Norge:
-&lt;ul>
-	&lt;li>offsetUnits: "meter" &lt;/li>
-	&lt;li>positiveLateralOffsetDirection: "right" &lt;/li>
-&lt;/ul>
+&lt;ul&gt;
+	&lt;li&gt;offsetUnits: "meter" &lt;/li&gt;
+	&lt;li&gt;positiveLateralOffsetDirection: "right" &lt;/li&gt;
+&lt;/ul&gt;
 positiveVerticalOffsetDirection: "up"
 
-&lt;font color="#0f0f0f">Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font>
-&lt;ul>
-	&lt;li>navn &lt;/li>
-	&lt;li>type (absolutt, relativ eller interpolert) &lt;/li>
-	&lt;li>måleenhet &lt;/li>
-	&lt;li>restriksjoner/regler (constraints) &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;Dette er en kodeliste basert på en forenkling av ISO19148: LR_LinearReferencingMethod, som benytter 4 attributter&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;navn &lt;/li&gt;
+	&lt;li&gt;type (absolutt, relativ eller interpolert) &lt;/li&gt;
+	&lt;li&gt;måleenhet &lt;/li&gt;
+	&lt;li&gt;restriksjoner/regler (constraints) &lt;/li&gt;
+&lt;/ul&gt;</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRLRM</taggedValue>
       </appinfo>
@@ -3529,51 +3844,51 @@ positiveVerticalOffsetDirection: "up"
           <documentation>posisjon fra start av nettverkselementet (lenken), angitt i meter
 
 Merknad: Kan ta utgangspunkt i en angitt startverdi for nettverkselementet.
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">ISO19148: LR_LinearReferencingMethod:&lt;/font>
-&lt;ul>
-	&lt;li>type: "absolute"  &lt;/li>
-&lt;/ul>
-&lt;ul>
-	&lt;li>units: "meter"  &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute"  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+	&lt;li&gt;units: "meter"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
         </annotation>
       </enumeration>
       <enumeration value="kilometrering">
         <annotation>
           <documentation>posisjon fra start av nettverkselementet, angitt i kilometer. 
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">Merknad: &lt;/font>Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">ISO19148: LR_LinearReferencingMethod:&lt;/font>
-&lt;ul>
-	&lt;li>type: "absolute" &lt;/li>
-	&lt;li>units: "kilometer" &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;Kan ta utgangspunkt i en angitt startverdi for nettverkselementet (lenken).
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "absolute" &lt;/li&gt;
+	&lt;li&gt;units: "kilometer" &lt;/li&gt;
+&lt;/ul&gt;</documentation>
         </annotation>
       </enumeration>
       <enumeration value="normalisert">
         <annotation>
           <documentation>posisjon fra start av nettverkselementet, angitt som et desimaltall mellom 0 og 1, i forhold til start (0) og slutt (1) på nettverkselementet (lenken)
 
-&lt;font color="#0f0f0f">Merknad: &lt;/font>
-&lt;font color="#0f0f0f">ISO19148: LR_LinearReferencingMethod:&lt;/font>
-&lt;ul>
-	&lt;li>type: "Interpolative"  &lt;/li>
-	&lt;li>units: "0..1"  &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "0..1"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
         </annotation>
       </enumeration>
       <enumeration value="prosent">
         <annotation>
           <documentation>posisjon fra start av nettverkselementet, angitt i prosent av lengden på nettverkselementet (lenken)
 
-&lt;font color="#0f0f0f">Merknad: &lt;/font>
-&lt;font color="#0f0f0f">ISO19148: LR_LinearReferencingMethod:&lt;/font>
-&lt;ul>
-	&lt;li>type: "Interpolative"  &lt;/li>
-	&lt;li>units: "percent"  &lt;/li>
-&lt;/ul></documentation>
+&lt;font color="#0f0f0f"&gt;Merknad: &lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;ISO19148: LR_LinearReferencingMethod:&lt;/font&gt;
+&lt;ul&gt;
+	&lt;li&gt;type: "Interpolative"  &lt;/li&gt;
+	&lt;li&gt;units: "percent"  &lt;/li&gt;
+&lt;/ul&gt;</documentation>
         </annotation>
       </enumeration>
     </restriction>
@@ -3930,11 +4245,6 @@ method on which registration of position is based</documentation>
           <documentation>Stipulated by court decision or royal decree: Geometri fastsatt ved dom, lov, traktat eller kongelig resolusjon</documentation>
         </annotation>
       </enumeration>
-      <enumeration value="79">
-        <annotation>
-          <documentation>????: Annet (spesifiseres i filhode)</documentation>
-        </annotation>
-      </enumeration>
       <enumeration value="80">
         <annotation>
           <documentation>Free-hand drawing: Digitalisert ut fra frihåndstegning.  Frihåndstegning er basert på svært grovt grunnlag eller ikke noe grunnlag</documentation>
@@ -4061,24 +4371,23 @@ method on which registration of position is based</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="Nettverkselement" substitutionGroup="fkbvn:SOSI_Objekt"
-    type="fkbvn:NettverkselementType">
+  <element abstract="true" name="Nettverkselement" substitutionGroup="fkbvn:SOSI_Objekt" type="fkbvn:NettverkselementType">
     <annotation>
       <documentation>Abstrakt objekttype som representerer et element i et nettverk, med generelle egenskaper som muliggjør lineære referanser til elementene, 
-&lt;i>Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i></documentation>
+&lt;i&gt;Realisering av INSPIRE Network:NetworkElement og ISO19148 LR_Feature.&lt;/i&gt;</documentation>
     </annotation>
   </element>
   <complexType abstract="true" name="NettverkselementType">
     <complexContent>
       <extension base="fkbvn:SOSI_ObjektType">
         <sequence>
-          <element minOccurs="0" name="standardLRM" type="fkbvn:LineærReferanseMetodeType">
+          <element name="standardLRM" type="fkbvn:LineærReferanseMetodeType">
             <annotation>
               <documentation>STANDARDLRM: Standard metode som brukes for å angi lineære referanser til nettverkselementet
 
 Merknad: Kan overstyres for den enkelte posisjonsangivelse. 
-&lt;font color="#0f0f0f">
-&lt;/font>&lt;font color="#0f0f0f">&lt;i>ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i>&lt;/font></documentation>
+&lt;font color="#0f0f0f"&gt;
+&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: LR_ILinearElement ::defaultLRM() : LR_LinearReferencingMethod&lt;/i&gt;&lt;/font&gt;</documentation>
             </annotation>
           </element>
         </sequence>
@@ -4092,8 +4401,7 @@ Merknad: Kan overstyres for den enkelte posisjonsangivelse.
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject"
-    type="fkbvn:PosisjonskvalitetType">
+  <element name="Posisjonskvalitet" substitutionGroup="gml:AbstractObject" type="fkbvn:PosisjonskvalitetType">
     <annotation>
       <documentation>beskrivelse av kvaliteten på stedfestingen</documentation>
       <appinfo>
@@ -4152,20 +4460,20 @@ Oppgitt i cm</documentation>
       <element ref="fkbvn:Posisjonskvalitet"/>
     </sequence>
   </complexType>
-  <simpleType name="RetningskodeType">
+  <simpleType name="ReferanseretningType">
     <annotation>
       <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="fkbvn:RetningskodeEnumerationType fkbvn:RetningskodeOtherType"/>
+    <union memberTypes="fkbvn:ReferanseretningEnumerationType fkbvn:ReferanseretningOtherType"/>
   </simpleType>
-  <simpleType name="RetningskodeEnumerationType">
+  <simpleType name="ReferanseretningEnumerationType">
     <annotation>
       <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNINGSKODE</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">REFERANSERETNING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -4181,13 +4489,46 @@ Oppgitt i cm</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="RetningskodeOtherType">
+  <simpleType name="ReferanseretningOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="SOSI_Objekt" substitutionGroup="gml:AbstractFeature"
-    type="fkbvn:SOSI_ObjektType">
+  <simpleType name="RetningType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="fkbvn:RetningEnumerationType fkbvn:RetningOtherType"/>
+  </simpleType>
+  <simpleType name="RetningEnumerationType">
+    <annotation>
+      <documentation>Kodeliste for å angi retning i forrhold til nettverkselementets geometri.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="med">
+        <annotation>
+          <documentation>Retning med geometrien</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="mot">
+        <annotation>
+          <documentation>Retning mot geometrien</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="RetningOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="SOSI_Objekt" substitutionGroup="gml:AbstractFeature" type="fkbvn:SOSI_ObjektType">
     <annotation>
       <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
 
@@ -4199,7 +4540,7 @@ Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningsl
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="identifikasjon" type="fkbvn:IdentifikasjonPropertyType">
+          <element name="identifikasjon" type="fkbvn:IdentifikasjonPropertyType">
             <annotation>
               <documentation>unik identifikasjon av et objekt</documentation>
             </annotation>
@@ -4262,8 +4603,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 siffer, dvs. eventuelt med l
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="SOSI_Objekt_NVDB" substitutionGroup="gml:AbstractFeature"
-    type="fkbvn:SOSI_Objekt_NVDBType">
+  <element abstract="true" name="SOSI_Objekt_NVDB" substitutionGroup="gml:AbstractFeature" type="fkbvn:SOSI_Objekt_NVDBType">
     <annotation>
       <documentation>abstrakt objekt som bærer en rekke egenskaper som er fagområde-uavhengige og kan benyttes for alle objekttyper
 
@@ -4275,7 +4615,7 @@ Spesielt i produktspesifikasjonsarbeid vil en velge egenskaper og av grensningsl
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="identifikasjon" type="fkbvn:IdentifikasjonPropertyType">
+          <element name="identifikasjon" type="fkbvn:IdentifikasjonPropertyType">
             <annotation>
               <documentation>unik identifikasjon av et objekt</documentation>
             </annotation>
@@ -4305,8 +4645,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Svingerestriksjon" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:SvingerestriksjonType">
+  <element name="Svingerestriksjon" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:SvingerestriksjonType">
     <annotation>
       <documentation>573: Angir svingerestriksjon</documentation>
       <appinfo>
@@ -4319,7 +4658,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
     <complexContent>
       <extension base="fkbvn:SOSI_Objekt_NVDBType">
         <sequence>
-          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+          <element name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>8875: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -4332,7 +4671,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
             <annotation>
               <documentation>angir hvilken lenke svingerestriksjonen gjelder fra. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SVINGEFORBUDFRA</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SVINGEFORBUDFRA</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -4340,7 +4679,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
             <annotation>
               <documentation>angir hvilken lenke svingerestriksjonen gjelder til. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting på referanselenkene</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SVINGEFORBUDTIL</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">SVINGEFORBUDTIL</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -4399,8 +4738,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Trafikkreguleringer" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:TrafikkreguleringerType">
+  <element name="Trafikkreguleringer" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:TrafikkreguleringerType">
     <annotation>
       <documentation>856: Strekning hvor det er restriksjoner for motortrafikk eller gående og syklende</documentation>
       <appinfo>
@@ -4413,7 +4751,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
     <complexContent>
       <extension base="fkbvn:SOSI_Objekt_NVDBType">
         <sequence>
-          <element name="trafikkreguleringer" type="fkbvn:TrafikkreguleringsverdierType">
+          <element name="trafikkreguleringer" type="fkbvn:TrafikkreguleringerTrafikkreguleringerType">
             <annotation>
               <documentation>9794: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
               <appinfo>
@@ -4422,13 +4760,12 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -4444,7 +4781,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TrafikkreguleringsverdierType">
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerType">
     <annotation>
       <documentation>9794: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
       <appinfo>
@@ -4452,11 +4789,9 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRAFIKKREGULERINGERTRAFIKKREGULERINGER</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:TrafikkreguleringsverdierEnumerationType fkbvn:TrafikkreguleringsverdierOtherType"
-    />
+    <union memberTypes="fkbvn:TrafikkreguleringerTrafikkreguleringerEnumerationType fkbvn:TrafikkreguleringerTrafikkreguleringerOtherType"/>
   </simpleType>
-  <simpleType name="TrafikkreguleringsverdierEnumerationType">
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerEnumerationType">
     <annotation>
       <documentation>9794: Angir eventuelle restriksjoner for motortrafikk, gående og syklende</documentation>
       <appinfo>
@@ -4531,7 +4866,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TrafikkreguleringsverdierOtherType">
+  <simpleType name="TrafikkreguleringerTrafikkreguleringerOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -4571,9 +4906,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEHINDERHØYDEBEGRENSNING</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:TypeHinderHøydebegrensningEnumerationType fkbvn:TypeHinderHøydebegrensningOtherType"
-    />
+    <union memberTypes="fkbvn:TypeHinderHøydebegrensningEnumerationType fkbvn:TypeHinderHøydebegrensningOtherType"/>
   </simpleType>
   <simpleType name="TypeHinderHøydebegrensningEnumerationType">
     <annotation>
@@ -4592,19 +4925,19 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="skredoverbygg">
-        <annotation>
-          <documentation>8155: Skredoverbygg</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="kabel">
         <annotation>
           <documentation>7282: Kabel</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7282</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="skredoverbygg">
+        <annotation>
+          <documentation>8155: Skredoverbygg</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8155</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -4687,8 +5020,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEJERNBANEKRYSSING</taggedValue>
       </appinfo>
     </annotation>
-    <union
-      memberTypes="fkbvn:TypeJernbanekryssingEnumerationType fkbvn:TypeJernbanekryssingOtherType"/>
+    <union memberTypes="fkbvn:TypeJernbanekryssingEnumerationType fkbvn:TypeJernbanekryssingOtherType"/>
   </simpleType>
   <simpleType name="TypeJernbanekryssingEnumerationType">
     <annotation>
@@ -4808,10 +5140,16 @@ INSPIRE: FormOfWay=dualCarriageway</documentation>
 INSPIRE: FormOfWay=singleCarriageway</documentation>
         </annotation>
       </enumeration>
+      <enumeration value="rundkjøring">
+        <annotation>
+          <documentation>Rundkjøring.
+INSPIRE: FormOfWay=roundabout</documentation>
+        </annotation>
+      </enumeration>
       <enumeration value="bilferje">
         <annotation>
           <documentation>Bilferje: strekning trafikkert av bilferjer som del av vegnettet.
-INSPIRE: FeatureType=FerryUse, FerryUseValue=&lt;i>cars&lt;/i></documentation>
+INSPIRE: FeatureType=FerryUse, FerryUseValue=&lt;i&gt;cars&lt;/i&gt;</documentation>
         </annotation>
       </enumeration>
       <enumeration value="gangOgSykkelveg">
@@ -4835,12 +5173,6 @@ INSPIRE: FormOfWay=walkway</documentation>
       <enumeration value="trapp">
         <annotation>
           <documentation>Trapp: trapp som naturlig inngår i nettverket</documentation>
-        </annotation>
-      </enumeration>
-      <enumeration value="rundkjøring">
-        <annotation>
-          <documentation>Rundkjøring.
-            INSPIRE: FormOfWay=roundabout</documentation>
         </annotation>
       </enumeration>
     </restriction>
@@ -4933,7 +5265,7 @@ INSPIRE: FormOfWay=walkway</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="bomMedAutomatiskÅpner">
+      <enumeration value="B_Mm_DAutomatiskÅpner">
         <annotation>
           <documentation>13369: Bom med automatisk åpner: Bom som åpner seg automatisk på signal fra kjøretøy</documentation>
           <appinfo>
@@ -4951,8 +5283,8 @@ INSPIRE: FormOfWay=walkway</documentation>
   <simpleType name="VegdetaljnivåType">
     <annotation>
       <documentation>Detaljnivå i vegnettet. 
-Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i>VegSenterlinje&lt;/i>, &lt;i>Vegtrase&lt;/i>, &lt;i>Kjørebane&lt;/i> og &lt;i>Kjørefelt&lt;/i>).
-Ikke angitt verdi tilsvarer tidligere bruk av &lt;i>VegSenterlinje&lt;/i>, der linja representerer både vegtrase og kjørebane</documentation>
+Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
       </appinfo>
@@ -4962,8 +5294,8 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i>VegSenterlinje&lt;/i>, der l
   <simpleType name="VegdetaljnivåEnumerationType">
     <annotation>
       <documentation>Detaljnivå i vegnettet. 
-Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i>VegSenterlinje&lt;/i>, &lt;i>Vegtrase&lt;/i>, &lt;i>Kjørebane&lt;/i> og &lt;i>Kjørefelt&lt;/i>).
-Ikke angitt verdi tilsvarer tidligere bruk av &lt;i>VegSenterlinje&lt;/i>, der linja representerer både vegtrase og kjørebane</documentation>
+Merknad: Erstatter tidligere bruk av ulike objekttyper for å skille detaljnivåer i vegnettet (objekttypene &lt;i&gt;VegSenterlinje&lt;/i&gt;, &lt;i&gt;Vegtrase&lt;/i&gt;, &lt;i&gt;Kjørebane&lt;/i&gt; og &lt;i&gt;Kjørefelt&lt;/i&gt;).
+Ikke angitt verdi tilsvarer tidligere bruk av &lt;i&gt;VegSenterlinje&lt;/i&gt;, der linja representerer både vegtrase og kjørebane</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGDETALJNIVÅ</taggedValue>
       </appinfo>
@@ -5168,8 +5500,7 @@ Ikke angitt verdi tilsvarer tidligere bruk av &lt;i>VegSenterlinje&lt;/i>, der l
   </simpleType>
   <element name="Veglenke" substitutionGroup="fkbvn:Lenke" type="fkbvn:VeglenkeType">
     <annotation>
-      <documentation>Objekttype som representerer lenker i vegnettet
-Eksempel: NVDB Referanselenkedeler, NVDB Transportlenker</documentation>
+      <documentation>Objekttype som representerer lenker i vegnettet</documentation>
     </annotation>
   </element>
   <complexType name="VeglenkeType">
@@ -5185,7 +5516,7 @@ Eksempel: NVDB Referanselenkedeler, NVDB Transportlenker</documentation>
             <annotation>
               <documentation>kjørefeltnummer angir stedfesting i vegens tverretning</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VKJORFELT</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">FELTOVERSIKT</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -5214,7 +5545,7 @@ Et kunstig objekt hvor senterlinjen representerer en konstruert linje som skjøt
 Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav</documentation>
             </annotation>
           </element>
-          <element minOccurs="0" name="vegreferanse" type="fkbvn:VegreferansePropertyType">
+          <element name="vegreferanse" type="fkbvn:VegreferansePropertyType">
             <annotation>
               <documentation>sammensatt identifikator for vegreferanse</documentation>
               <appinfo>
@@ -5233,11 +5564,10 @@ Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav</document
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject"
-    type="fkbvn:VeglenkeadresseType">
+  <element name="Veglenkeadresse" substitutionGroup="gml:AbstractObject" type="fkbvn:VeglenkeadresseType">
     <annotation>
       <documentation>sammensatt identifikator for veglenkeadresse. 
-Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b>.&lt;/b></documentation>
+Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b&gt;.&lt;/b&gt;</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">VEGLENKEADRESSE</taggedValue>
       </appinfo>
@@ -5245,12 +5575,6 @@ Merknad: Komplett vegadresse består i tillegg av husnummer og bokstav&lt;b>.&lt
   </element>
   <complexType name="VeglenkeadresseType">
     <sequence>
-      <element name="kommunenummer" type="fkbvn:KommunenummerType">
-        <annotation>
-          <documentation>nummerering av kommuner i henhold til Statistisk sentralbyrå sin offisielle liste.
-Merknad: egenskapen er påkrevd for unik identifisering av veglenkeadresser, i og med at adressekoden kun er unik innen en kommune.</documentation>
-        </annotation>
-      </element>
       <element name="adressekode" type="integer">
         <annotation>
           <documentation>nummer som entydig identifiserer adresserbare veglenker i matrikkelen. For hvert adressenavn skal det således foreligge en adressekode, jf. matrikkelforskriften § 51.2. 
@@ -5260,7 +5584,7 @@ Merknad: Adressekode er unik innenfor kommunen</documentation>
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="adressenavn" type="string">
+      <element name="adressenavn" type="string">
         <annotation>
           <documentation>navn på veglenke i matrikkelen (matrikkelforskriften § 2e).</documentation>
           <appinfo>
@@ -5268,7 +5592,7 @@ Merknad: Adressekode er unik innenfor kommunen</documentation>
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="sideveg" type="boolean">
+      <element minOccurs="0" name="sideveg" type="string">
         <annotation>
           <documentation>angir om en veglenke er sideveg og dermed bruker adresser fra lenka den er sideveg fra.
 Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentation>
@@ -5336,7 +5660,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
           </appinfo>
         </annotation>
       </element>
-      <element minOccurs="0" name="referanseretning" type="fkbvn:RetningskodeType">
+      <element name="referanseretning" type="fkbvn:ReferanseretningType">
         <annotation>
           <documentation>retning for vegreferansen, med eller mot koordinatrekkefølgen. Merknad: Egenskapen finnes ikke i NVDB, men avledes ut fra stedfesting og lenkenes geometri.</documentation>
           <appinfo>
@@ -5359,8 +5683,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <element ref="fkbvn:Vegreferanse"/>
     </sequence>
   </complexType>
-  <element name="Vegsperring" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:VegsperringType">
+  <element name="Vegsperring" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:VegsperringType">
     <annotation>
       <documentation>607: Angir at veg er fysisk sperret.</documentation>
       <appinfo>
@@ -5382,7 +5705,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="posisjon" type="gml:PointPropertyType">
+          <element name="posisjon" type="gml:PointPropertyType">
             <annotation>
               <documentation>7930: Gir punkt som geometrisk representerer objektet.</documentation>
               <appinfo>
@@ -5391,8 +5714,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonPunktPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonPunktPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -5482,8 +5804,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="VærutsattVeg" substitutionGroup="fkbvn:SOSI_Objekt_NVDB"
-    type="fkbvn:VærutsattVegType">
+  <element name="VærutsattVeg" substitutionGroup="fkbvn:SOSI_Objekt_NVDB" type="fkbvn:VærutsattVegType">
     <annotation>
       <documentation>107: Vegstrekning som er spesielt utsatt for uvær, og av den grunn kan ha begrenset åpningstid. Merknad: Strekninger kan ikke ha dobbeltregistreringer (overlapp), ved flere likestilte naturfarer beskrives dette under "Tilleggsinformasjon"</documentation>
       <appinfo>
@@ -5496,15 +5817,6 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
     <complexContent>
       <extension base="fkbvn:SOSI_Objekt_NVDBType">
         <sequence>
-          <element minOccurs="0" name="navn" type="string">
-            <annotation>
-              <documentation>1082: Angir navn på vegstrekning (høyfjellsstrekning)</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1082</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NAVN</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element name="høyfjellsstrekning" type="fkbvn:HøyfjellsstrekningType">
             <annotation>
               <documentation>8835: Angir om denne vegstrekningen kan kategoriseres som høgfjellsstrekning eller ikke.  Med høgfjellsstrekning menes: Veger ekstra utsatt for snø og vind.  De behøver ikke ligge høyt over havet, men er over tregrensen.</documentation>
@@ -5532,42 +5844,6 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="nattestengt_FraDato" type="string">
-            <annotation>
-              <documentation>2073: Angir dato (mmdd) for når nattestengning starter i et normalår.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2073</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGT_FRADATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="nattestengt_TilDato" type="string">
-            <annotation>
-              <documentation>2222: Angir dato (mmdd) for når nattestengning avsluttes i et normalår.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2222</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NATTESTENGT_TILDATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="avgrensaVinterdrift_FraDato" type="string">
-            <annotation>
-              <documentation>8836: Angir dato (mmdd) for når avgrensa vinterdrift starter et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8836</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFT_FRADATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="avgrensaVinterdrift_TilDato" type="string">
-            <annotation>
-              <documentation>8837: Angir dato (mmdd) for når avgrensa vinterdrift avsluttes et normalår.  Med avgrenset vinterdrift menes at det er spesielle kriterier knyttet til når vegen skal åpnes og stenges. Det kan innenfor denne perioden være gitt en periode hvor vegen er helt vinterstengt (se egne ET).</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8837</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AVGRENSAVINTERDRIFT_TILDATO</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="hovedproblem" type="fkbvn:HovedproblemVærutsattVegType">
             <annotation>
               <documentation>9957: Angir hva som er hovedproblem for værutsatt veg.</documentation>
@@ -5577,13 +5853,21 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="senterlinje" type="gml:CurvePropertyType">
+          <element minOccurs="0" name="gjentakelsesintervall" type="fkbvn:GjentakelsesintervallVærutsattVegType">
+            <annotation>
+              <documentation>9958: Angir hvor ofte dette problemet statistisk sett oppstår. Det defineres som at problemet har inntruffet ikke bare om vegen blir stengt, men også om det er behov for økt beredskap og enkelte restriksjoner som f.eks nedsatt hastighet, sperring av ett kjørefelt mm</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">9958</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GJENTAKELSESINTERVALL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
             <annotation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon"
-            type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
