@@ -60,7 +60,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -209,7 +209,7 @@ Enhet: Kilometer/time</documentation>
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -396,7 +396,7 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -535,7 +535,7 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -676,7 +676,7 @@ NOTE Maksimum lengde er valgt for å tillate tidsregistrering i henhold til  ISO
               </appinfo>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -3541,7 +3541,7 @@ Merknad: Det presiseres at kommune alltid skal ha 4 sifre, dvs. eventuelt med le
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -3643,7 +3643,36 @@ Merknad: Lenkens posisjon i et nettverk og skalering av lengde i forhold til geo
       <element ref="fkbvn:Lenkesekvensreferanse"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonPunkt" substitutionGroup="fkbvn:LineærPosisjon_Punkt" type="fkbvn:LineærPosisjonPunktType">
+  <element abstract="true" name="LineærPosisjon" substitutionGroup="gml:AbstractObject" type="fkbvn:LineærPosisjonType">
+    <annotation>
+      <documentation>Angivelse av en posisjon langs et nettverkselement
+&lt;font color="#ff0000"&gt;&lt;i&gt;
+&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="LineærPosisjonType">
+    <sequence>
+      <element name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
+        <annotation>
+          <documentation>metode som er brukt for å angi lineære referanser
+
+Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
+
+&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element name="lenkesekvens" type="fkbvn:IdentifikasjonPropertyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="LineærPosisjonPropertyType">
+    <sequence>
+      <element ref="fkbvn:LineærPosisjon"/>
+    </sequence>
+  </complexType>
+  <element name="LineærPosisjonPunkt" substitutionGroup="fkbvn:LineærPosisjon" type="fkbvn:LineærPosisjonPunktType">
     <annotation>
       <documentation>lineær posisjon som et punkt
 
@@ -3659,7 +3688,7 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   </element>
   <complexType name="LineærPosisjonPunktType">
     <complexContent>
-      <extension base="fkbvn:LineærPosisjon_PunktType">
+      <extension base="fkbvn:LineærPosisjonType">
         <sequence>
           <element name="posisjon" type="double">
             <annotation>
@@ -3680,7 +3709,7 @@ Merknad: Ref&lt;font color="#0f0f0f"&gt; &lt;i&gt;ISO19148: atPosition -  distan
       <element ref="fkbvn:LineærPosisjonPunkt"/>
     </sequence>
   </complexType>
-  <element name="LineærPosisjonStrekning" substitutionGroup="fkbvn:LineærPosisjon_Strekning" type="fkbvn:LineærPosisjonStrekningType">
+  <element name="LineærPosisjonStrekning" substitutionGroup="fkbvn:LineærPosisjon" type="fkbvn:LineærPosisjonStrekningType">
     <annotation>
       <documentation>lineær posisjon som en strekning
 
@@ -3696,8 +3725,16 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   </element>
   <complexType name="LineærPosisjonStrekningType">
     <complexContent>
-      <extension base="fkbvn:LineærPosisjon_StrekningType">
+      <extension base="fkbvn:LineærPosisjonType">
         <sequence>
+          <element name="retning" type="fkbvn:RetningType">
+            <annotation>
+              <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element name="fraPosisjon" type="double">
             <annotation>
               <documentation>&lt;font color="#0f0f0f"&gt;startposisjon langs &lt;/font&gt;nettverkselementet,&lt;font color="#0f0f0f"&gt; i henhold til referansemetoden &lt;/font&gt;
@@ -3725,63 +3762,6 @@ LR_DistanceExpression har også en subtype LRO_LateralOffsetDistanceExpression, 
   <complexType name="LineærPosisjonStrekningPropertyType">
     <sequence>
       <element ref="fkbvn:LineærPosisjonStrekning"/>
-    </sequence>
-  </complexType>
-  <element abstract="true" name="LineærPosisjon_Punkt" substitutionGroup="gml:AbstractObject" type="fkbvn:LineærPosisjon_PunktType">
-    <annotation>
-      <documentation>Angivelse av en posisjon langs et nettverkselement
-&lt;font color="#ff0000"&gt;&lt;i&gt;
-&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
-      </appinfo>
-    </annotation>
-  </element>
-  <complexType abstract="true" name="LineærPosisjon_PunktType">
-    <sequence>
-      <element name="lenkesekvens" type="fkbvn:LenkesekvensreferansePropertyType"/>
-    </sequence>
-  </complexType>
-  <complexType name="LineærPosisjon_PunktPropertyType">
-    <sequence>
-      <element ref="fkbvn:LineærPosisjon_Punkt"/>
-    </sequence>
-  </complexType>
-  <element abstract="true" name="LineærPosisjon_Strekning" substitutionGroup="gml:AbstractObject" type="fkbvn:LineærPosisjon_StrekningType">
-    <annotation>
-      <documentation>Angivelse av en posisjon langs et nettverkselement
-&lt;font color="#ff0000"&gt;&lt;i&gt;
-&lt;/i&gt;&lt;/font&gt;&lt;font color="#0f0f0f"&gt;&lt;i&gt;Realisering av ISO19148: LE_EventLocation&lt;/i&gt;&lt;/font&gt;</documentation>
-      <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">LRPOSISJON</taggedValue>
-      </appinfo>
-    </annotation>
-  </element>
-  <complexType abstract="true" name="LineærPosisjon_StrekningType">
-    <sequence>
-      <element name="lineærReferanseMetode" type="fkbvn:LineærReferanseMetodeType">
-        <annotation>
-          <documentation>metode som er brukt for å angi lineære referanser
-
-Merknad: Dersom verdi er angitt overstyrer denne standard metode for det refererte nettverkselementet. 
-
-&lt;font color="#0f0f0f"&gt;&lt;i&gt;ISO19148: overridingLRM&lt;/i&gt;&lt;/font&gt;</documentation>
-        </annotation>
-      </element>
-      <element name="retning" type="fkbvn:RetningType">
-        <annotation>
-          <documentation>Posisjonens retning i forhold til nettverkselementet sin retning</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">RETNING</taggedValue>
-          </appinfo>
-        </annotation>
-      </element>
-      <element name="lenkesekvens" type="fkbvn:LenkesekvensreferansePropertyType"/>
-    </sequence>
-  </complexType>
-  <complexType name="LineærPosisjon_StrekningPropertyType">
-    <sequence>
-      <element ref="fkbvn:LineærPosisjon_Strekning"/>
     </sequence>
   </complexType>
   <simpleType name="LineærReferanseMetodeType">
@@ -4763,7 +4743,7 @@ Dersom en eiendomsgrense endres skal endringsflagg også legges inn på eiendoms
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
@@ -5865,7 +5845,7 @@ Dersom ikke oppgitt, gir det "Nei"-alternativet, dvs "Ikke sideveg"</documentati
               <documentation>Angivelse av objektets posisjon</documentation>
             </annotation>
           </element>
-          <element name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
+          <element maxOccurs="unbounded" name="lineærPosisjon" type="fkbvn:LineærPosisjonStrekningPropertyType">
             <annotation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
