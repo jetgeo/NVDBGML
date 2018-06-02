@@ -1,27 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>62: Byggverk som brukes for å overvinne nivåforskjell hvor vanlig skråning vil ta for stor plass.  S. brukes også som sikringstiltak.</documentation>
   </annotation>
-  <include schemaLocation="Stoettemur.xsd"/>
+  <include schemaLocation="Stoettekonstruksjon.xsd"/>
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <simpleType name="BruksområdeStøttemurType">
+  <simpleType name="AktivForankringType">
     <annotation>
-      <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <documentation>11358: Hvis støttekonstruksjonen er forankret, har forankringen fortsatt en funksjon i ferdig tilstand?</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11358</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTIVFORANKRING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:BruksområdeStøttemurEnumerationType nvdb:BruksområdeStøttemurOtherType"/>
+    <union memberTypes="nvdb:AktivForankringEnumerationType nvdb:AktivForankringOtherType"/>
   </simpleType>
-  <simpleType name="BruksområdeStøttemurEnumerationType">
+  <simpleType name="AktivForankringEnumerationType">
+    <annotation>
+      <documentation>11358: Hvis støttekonstruksjonen er forankret, har forankringen fortsatt en funksjon i ferdig tilstand?</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11358</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTIVFORANKRING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>19213: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19213</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>19214: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19214</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="AktivForankringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStøttekonstruksjonType">
     <annotation>
       <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeStøttekonstruksjonEnumerationType nvdb:BruksområdeStøttekonstruksjonOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeStøttekonstruksjonEnumerationType">
+    <annotation>
+      <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -59,27 +101,27 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="BruksområdeStøttemurOtherType">
+  <simpleType name="BruksområdeStøttekonstruksjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="EierStøttemurType">
+  <simpleType name="EierStøttekonstruksjonType">
     <annotation>
       <documentation>5823: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5823</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:EierStøttemurEnumerationType nvdb:EierStøttemurOtherType"/>
+    <union memberTypes="nvdb:EierStøttekonstruksjonEnumerationType nvdb:EierStøttekonstruksjonOtherType"/>
   </simpleType>
-  <simpleType name="EierStøttemurEnumerationType">
+  <simpleType name="EierStøttekonstruksjonEnumerationType">
     <annotation>
       <documentation>5823: Angir hvem som er eier av vegobjektet.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5823</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERSTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -133,27 +175,93 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="EierStøttemurOtherType">
+  <simpleType name="EierStøttekonstruksjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="FundamenteringStøttemurType">
+  <simpleType name="ForblendingType">
     <annotation>
-      <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
+      <documentation>11355: Type forblending</documentation>
       <appinfo>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:FundamenteringStøttemurEnumerationType nvdb:FundamenteringStøttemurOtherType"/>
+    <union memberTypes="nvdb:ForblendingEnumerationType nvdb:ForblendingOtherType"/>
   </simpleType>
-  <simpleType name="FundamenteringStøttemurEnumerationType">
+  <simpleType name="ForblendingEnumerationType">
+    <annotation>
+      <documentation>11355: Type forblending</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betongmur">
+        <annotation>
+          <documentation>19208: Betongmur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19208</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingenForblending">
+        <annotation>
+          <documentation>19212: Ingen forblending</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19212</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tørrmur">
+        <annotation>
+          <documentation>19209: Tørrmur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19209</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="torvblokker">
+        <annotation>
+          <documentation>19211: Torvblokker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19211</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tre">
+        <annotation>
+          <documentation>19210: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19210</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ForblendingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FundamenteringStøttekonstruksjonType">
     <annotation>
       <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FundamenteringStøttekonstruksjonEnumerationType nvdb:FundamenteringStøttekonstruksjonOtherType"/>
+  </simpleType>
+  <simpleType name="FundamenteringStøttekonstruksjonEnumerationType">
+    <annotation>
+      <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -189,27 +297,35 @@
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="påPeler">
+        <annotation>
+          <documentation>19207: På peler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19207</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="FundamenteringStøttemurOtherType">
+  <simpleType name="FundamenteringStøttekonstruksjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="Støttemur" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StøttemurType">
+  <element name="Støttekonstruksjon" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StøttekonstruksjonType">
     <annotation>
       <documentation>62: Byggverk som brukes for å overvinne nivåforskjell hvor vanlig skråning vil ta for stor plass.  S. brukes også som sikringstiltak.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">62</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
   </element>
-  <complexType name="StøttemurType">
+  <complexType name="StøttekonstruksjonType">
     <complexContent>
       <extension base="nvdb:FellesegenskaperType">
         <sequence>
-          <element minOccurs="0" name="type" type="nvdb:TypeStøttemurType">
+          <element minOccurs="0" name="type" type="nvdb:TypeStøttekonstruksjonType">
             <annotation>
               <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
               <appinfo>
@@ -218,7 +334,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeStøttemurType">
+          <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdeStøttekonstruksjonType">
             <annotation>
               <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
               <appinfo>
@@ -227,7 +343,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="fundamentering" type="nvdb:FundamenteringStøttemurType">
+          <element minOccurs="0" name="fundamentering" type="nvdb:FundamenteringStøttekonstruksjonType">
             <annotation>
               <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
               <appinfo>
@@ -294,6 +410,53 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="forblending" type="nvdb:ForblendingType">
+            <annotation>
+              <documentation>11355: Type forblending</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konstruksjonsbeskrivelse" type="string">
+            <annotation>
+              <documentation>11354: Beskrivelse av relevante forhold som ikke dekkes av andre egenskaper</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11354</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSTRUKSJONSBESKRIVELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konstruksjonshøyde_Maksimal" type="double">
+            <annotation>
+              <documentation>11356: Inkluderer både synlig og tildekket del
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11356</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSTRUKSJONSHØYDE_MAKSIMAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="konstruksjonshøyde_Minimum" type="double">
+            <annotation>
+              <documentation>11357: Inkluderer både synlig og tildekket del
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11357</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSTRUKSJONSHØYDE_MINIMUM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="aktivForankring" type="nvdb:AktivForankringType">
+            <annotation>
+              <documentation>11358: Hvis støttekonstruksjonen er forankret, har forankringen fortsatt en funksjon i ferdig tilstand?</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11358</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTIVFORANKRING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="byggeår" type="integer">
             <annotation>
               <documentation>10368: Angir byggeår for vegobjektet</documentation>
@@ -303,7 +466,16 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="eier" type="nvdb:EierStøttemurType">
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>11359: Supplerende informasjon av interesse</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11359</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierStøttekonstruksjonType">
             <annotation>
               <documentation>5823: Angir hvem som er eier av vegobjektet.</documentation>
               <appinfo>
@@ -312,12 +484,21 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligStøttemurType">
+          <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligStøttekonstruksjonType">
             <annotation>
               <documentation>5807: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5807</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="arkivnummer" type="string">
+            <annotation>
+              <documentation>11403: Referanse til Statens vegvesen sitt arkivsystem</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11403</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -353,24 +534,10 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -381,6 +548,13 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -388,36 +562,59 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="StøttemurPropertyType">
+  <complexType name="StøttekonstruksjonPropertyType">
     <sequence minOccurs="0">
-      <element ref="nvdb:Støttemur"/>
+      <element ref="nvdb:Støttekonstruksjon"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="TypeStøttemurType">
+  <simpleType name="TypeStøttekonstruksjonType">
     <annotation>
       <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1126</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:TypeStøttemurEnumerationType nvdb:TypeStøttemurOtherType"/>
+    <union memberTypes="nvdb:TypeStøttekonstruksjonEnumerationType nvdb:TypeStøttekonstruksjonOtherType"/>
   </simpleType>
-  <simpleType name="TypeStøttemurEnumerationType">
+  <simpleType name="TypeStøttekonstruksjonEnumerationType">
     <annotation>
       <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1126</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
+      <enumeration value="naturstein_Murt_Støpt">
+        <annotation>
+          <documentation>3344: Naturstein, murt, støpt: Jfr. Prosess 71.1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3344</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="naturstein_Murt_Tørrmur">
+        <annotation>
+          <documentation>3342: Naturstein, murt, tørrmur: Jfr. Prosess 71.1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3342</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="betong">
         <annotation>
           <documentation>3323: Betong</documentation>
@@ -428,7 +625,7 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="betong_Plasstøpt">
         <annotation>
-          <documentation>3327: Betong, plasstøpt</documentation>
+          <documentation>3327: Betong, plasstøpt: Jfr. Prosess 71.2</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3327</taggedValue>
           </appinfo>
@@ -436,7 +633,7 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="betong_PrefabrikkerteElement">
         <annotation>
-          <documentation>3333: Betong, prefabrikkerte element</documentation>
+          <documentation>3333: Betong, prefabrikkerte element: Jfr. Prosess 71.3</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3333</taggedValue>
           </appinfo>
@@ -444,7 +641,7 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="betongstein_Murt_Tørrmur">
         <annotation>
-          <documentation>3336: Betongstein, murt, tørrmur</documentation>
+          <documentation>3336: Betongstein, murt, tørrmur: Jfr. Prosess 71.3</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3336</taggedValue>
           </appinfo>
@@ -452,47 +649,23 @@ Enhet: Meter</documentation>
       </enumeration>
       <enumeration value="betongstein_Murt_Støpt">
         <annotation>
-          <documentation>3340: Betongstein, murt, støpt</documentation>
+          <documentation>3340: Betongstein, murt, støpt: Jfr. Prosess 71.3</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3340</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="naturstein_Murt_Støpt">
-        <annotation>
-          <documentation>3344: Naturstein, murt, støpt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3344</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="naturstein_Murt_Tørrmur">
-        <annotation>
-          <documentation>3342: Naturstein, murt, tørrmur</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3342</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="steinkurver">
         <annotation>
-          <documentation>3377: Steinkurver</documentation>
+          <documentation>3377: Steinkurver: Jfr. Prosess 71.5</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3377</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="spunt">
-        <annotation>
-          <documentation>3378: Spunt</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3378</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="armertJord">
         <annotation>
-          <documentation>3379: Armert jord</documentation>
+          <documentation>3379: Armert jord: Jfr. Prosess 71.7</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3379</taggedValue>
           </appinfo>
@@ -506,29 +679,61 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="spunt">
+        <annotation>
+          <documentation>3378: Spunt: Jfr. Prosess 83.61 og 83.63</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3378</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="slissevegg">
+        <annotation>
+          <documentation>19204: Slissevegg: Jfr. Prosess 83.64</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19204</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bjelkestengsel">
+        <annotation>
+          <documentation>19205: Bjelkestengsel: Inkluderer rørvegg med sprøytebetong. Jfr prosess 83.62</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sekantvegg">
+        <annotation>
+          <documentation>19206: Sekantvegg: Jfr prosess 83.67</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19206</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="TypeStøttemurOtherType">
+  <simpleType name="TypeStøttekonstruksjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligStøttemurType">
+  <simpleType name="VedlikeholdsansvarligStøttekonstruksjonType">
     <annotation>
       <documentation>5807: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5807</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:VedlikeholdsansvarligStøttemurEnumerationType nvdb:VedlikeholdsansvarligStøttemurOtherType"/>
+    <union memberTypes="nvdb:VedlikeholdsansvarligStøttekonstruksjonEnumerationType nvdb:VedlikeholdsansvarligStøttekonstruksjonOtherType"/>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligStøttemurEnumerationType">
+  <simpleType name="VedlikeholdsansvarligStøttekonstruksjonEnumerationType">
     <annotation>
       <documentation>5807: Angir hvem som er ansvarlig for vedlikehold</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5807</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTØTTEMUR</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIGSTØTTEKONSTRUKSJON</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -548,19 +753,19 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8228: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8228</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18852: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18852</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>8228: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8228</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -582,7 +787,7 @@ Enhet: Meter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="VedlikeholdsansvarligStøttemurOtherType">
+  <simpleType name="VedlikeholdsansvarligStøttekonstruksjonOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

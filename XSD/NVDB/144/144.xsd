@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>144: Enklere forebygning utført av stein, evt med underliggende filterlag (1). Benyttes i forbindelse med sikring av skråninger mot vannerosjon.</documentation>
   </annotation>
@@ -8,7 +8,7 @@
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <simpleType name="BruksområdePlastringErosjonssikringType">
     <annotation>
-      <documentation>1277: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <documentation>1277: Angir hvilken type erosjon/glidning det sikres mot.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1277</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEPLASTRINGEROSJONSSIKRING</taggedValue>
@@ -18,40 +18,40 @@
   </simpleType>
   <simpleType name="BruksområdePlastringErosjonssikringEnumerationType">
     <annotation>
-      <documentation>1277: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <documentation>1277: Angir hvilken type erosjon/glidning det sikres mot.</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1277</taggedValue>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDEPLASTRINGEROSJONSSIKRING</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="hindreElveerosjon">
+      <enumeration value="elveerosjon">
         <annotation>
-          <documentation>3280: Hindre elveerosjon</documentation>
+          <documentation>3280: Elveerosjon</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3280</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="hindreVannSjøErosjon">
+      <enumeration value="bølgeerosjon">
         <annotation>
-          <documentation>3281: Hindre vann/sjø erosjon</documentation>
+          <documentation>3281: Bølgeerosjon</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3281</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="hindreSkråningserosjon">
+      <enumeration value="overflateerosjonISkråning">
         <annotation>
-          <documentation>3282: Hindre skråningserosjon</documentation>
+          <documentation>3282: Overflateerosjon i skråning</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3282</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="sikreSkråningsstabilitet">
+      <enumeration value="overflateglidningerISkråning">
         <annotation>
-          <documentation>3960: Sikre skråningsstabilitet</documentation>
+          <documentation>3960: Overflateglidninger i skråning</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3960</taggedValue>
           </appinfo>
@@ -153,7 +153,7 @@
         <sequence>
           <element minOccurs="0" name="bruksområde" type="nvdb:BruksområdePlastringErosjonssikringType">
             <annotation>
-              <documentation>1277: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <documentation>1277: Angir hvilken type erosjon/glidning det sikres mot.</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1277</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
@@ -169,12 +169,31 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="areal" type="integer">
+            <annotation>
+              <documentation>11392: Angir areal av vegobjektet
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11392</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="byggeår" type="integer">
             <annotation>
               <documentation>10337: Angir byggeår for vegobjektet</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10337</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>11393: Supplerende informasjon av interesse</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11393</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -193,6 +212,15 @@
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8066</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="arkivnummer" type="string">
+            <annotation>
+              <documentation>11327: Referanse til Statens vegvesen sitt arkivsystem</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11327</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -237,10 +265,10 @@
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -251,10 +279,10 @@
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Strekning" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Strekning</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -304,9 +332,17 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="grus">
+      <enumeration value="geotekstiler">
         <annotation>
-          <documentation>2305: Grus</documentation>
+          <documentation>19230: Geotekstiler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19230</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="grusKnusteMasser">
+        <annotation>
+          <documentation>2305: Grus/knuste masser</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2305</taggedValue>
           </appinfo>
@@ -404,19 +440,19 @@
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10538: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10538</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18910: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18910</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10538: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10538</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

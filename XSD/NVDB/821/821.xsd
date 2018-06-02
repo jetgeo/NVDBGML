@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>821: En klassifisering basert på hvor viktig en veg er for det totale vegnettets forbindelsesmuligheter. Brukes blant annet for vekting i ruteplanlegging</documentation>
   </annotation>
@@ -28,7 +28,7 @@
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="status" type="nvdb:StatusType">
+          <element minOccurs="0" name="status" type="nvdb:StatusFunksjonellVegklasseType">
             <annotation>
               <documentation>10182: Angir hvilken status vegklassen har</documentation>
               <appinfo>
@@ -67,22 +67,22 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="StatusType">
+  <simpleType name="StatusFunksjonellVegklasseType">
     <annotation>
       <documentation>10182: Angir hvilken status vegklassen har</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10182</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFUNKSJONELLVEGKLASSE</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:StatusEnumerationType nvdb:StatusOtherType"/>
+    <union memberTypes="nvdb:StatusFunksjonellVegklasseEnumerationType nvdb:StatusFunksjonellVegklasseOtherType"/>
   </simpleType>
-  <simpleType name="StatusEnumerationType">
+  <simpleType name="StatusFunksjonellVegklasseEnumerationType">
     <annotation>
       <documentation>10182: Angir hvilken status vegklassen har</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10182</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSFUNKSJONELLVEGKLASSE</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -104,7 +104,7 @@
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="StatusOtherType">
+  <simpleType name="StatusFunksjonellVegklasseOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>

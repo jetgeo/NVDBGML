@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>609: Benyttes særlig i forbindelse med asfaltdekker.  Forhindrer oppsprekking etc.</documentation>
   </annotation>
@@ -30,7 +30,7 @@
           </element>
           <element minOccurs="0" name="areal" type="integer">
             <annotation>
-              <documentation>5484: Gir areal av armeringsnett
+              <documentation>5484: Angir areal av område med armeringsnett
 Enhet: Kvadratmeter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5484</taggedValue>
@@ -57,12 +57,30 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="plassering" type="string">
+          <element minOccurs="0" name="plassering" type="nvdb:PlasseringType">
             <annotation>
-              <documentation>8751: Angir hvor i en konstruksjon armeringsnettet er plassert</documentation>
+              <documentation>11321: Angir hvor i konstruksjonen armeringsnettet er plassert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11321</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="produktbetegnelse" type="string">
+            <annotation>
+              <documentation>11323: Angi produktnavn/typebetegnelse som er benyttet på armeringsnettet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11323</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PRODUKTBETEGNELSE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tilleggsinformasjon" type="string">
+            <annotation>
+              <documentation>8751: Gir tilleggsinfo, bla  om hvor i en konstruksjon armeringsnettet er plassert</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8751</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TILLEGGSINFORMASJON</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -75,12 +93,30 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="eier" type="nvdb:EierArmeringsnettType">
+            <annotation>
+              <documentation>11322: Angir hvem som er eier av vegobjektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11322</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="vedlikeholdsansvarlig" type="nvdb:VedlikeholdsansvarligArmeringsnettType">
             <annotation>
               <documentation>8118: Angir hvem som er ansvarlig for vedlikehold</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8118</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_VEDLIKEHOLDSANSVARLIG</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="arkivnummer" type="string">
+            <annotation>
+              <documentation>11328: Referanse til Statens vegvesen sitt arkivsystem</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11328</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ARKIVNUMMER</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -184,6 +220,80 @@ Enhet: Meter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="EierArmeringsnettType">
+    <annotation>
+      <documentation>11322: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11322</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERARMERINGSNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:EierArmeringsnettEnumerationType nvdb:EierArmeringsnettOtherType"/>
+  </simpleType>
+  <simpleType name="EierArmeringsnettEnumerationType">
+    <annotation>
+      <documentation>11322: Angir hvem som er eier av vegobjektet.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11322</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EIERARMERINGSNETT</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="stat_StatensVegvesen">
+        <annotation>
+          <documentation>19130: Stat, Statens vegvesen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19130</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stat_NyeVeier">
+        <annotation>
+          <documentation>19129: Stat, Nye Veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19129</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fylkeskommune">
+        <annotation>
+          <documentation>19126: Fylkeskommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19126</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>19127: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19127</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>19128: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19128</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="uavklart">
+        <annotation>
+          <documentation>19131: Uavklart: Verdi benyttes inntil det er avklart hvem som er eier (ingen verdi tolkes som at vegeier er eier).</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19131</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="EierArmeringsnettOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="MaterialtypeType">
     <annotation>
       <documentation>5483: Angir hvilket materiale armeringsnettet er av</documentation>
@@ -203,7 +313,7 @@ Enhet: Meter</documentation>
       </appinfo>
     </annotation>
     <restriction base="string">
-      <enumeration value="g">
+      <enumeration value="G">
         <annotation>
           <documentation>7450: Glassfiber</documentation>
           <appinfo>
@@ -211,7 +321,7 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="s">
+      <enumeration value="S">
         <annotation>
           <documentation>7451: Stål</documentation>
           <appinfo>
@@ -219,7 +329,7 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="p">
+      <enumeration value="P">
         <annotation>
           <documentation>7452: Plast</documentation>
           <appinfo>
@@ -227,9 +337,83 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="T">
+        <annotation>
+          <documentation>19120: Tre: Metode med bakhun/bord. Ikke aktuell på nye anlegg.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19120</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
     </restriction>
   </simpleType>
   <simpleType name="MaterialtypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringType">
+    <annotation>
+      <documentation>11321: Angir hvor i konstruksjonen armeringsnettet er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11321</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:PlasseringEnumerationType nvdb:PlasseringOtherType"/>
+  </simpleType>
+  <simpleType name="PlasseringEnumerationType">
+    <annotation>
+      <documentation>11321: Angir hvor i konstruksjonen armeringsnettet er plassert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11321</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="underSlitelag">
+        <annotation>
+          <documentation>19121: Under slitelag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19121</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="underBindlag">
+        <annotation>
+          <documentation>19122: Under bindlag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19122</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="underBærelag">
+        <annotation>
+          <documentation>19123: Under bærelag</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19123</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="underForsterkningslagPåTraubunn">
+        <annotation>
+          <documentation>19124: Under forsterkningslag/på traubunn</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19124</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="underIFylling">
+        <annotation>
+          <documentation>19125: Under/i fylling</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19125</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="PlasseringOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -269,19 +453,19 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10590: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10590</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18904: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18904</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10590: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10590</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

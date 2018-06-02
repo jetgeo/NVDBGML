@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>461: Matepunkt med måler for lavspentnett som forsyner vegvesenets installasjoner med strøm.</documentation>
   </annotation>
@@ -436,16 +436,6 @@ Enhet: Volt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="effekt" type="integer">
-            <annotation>
-              <documentation>10025: Angir maks effekt anlegget trekker
-Enhet: Kilowatt</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10025</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EFFEKT</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="kundenummer" type="string">
             <annotation>
               <documentation>5640: Angir kundenummer for SVV hos nettselskap</documentation>
@@ -536,6 +526,16 @@ Enhet: Kilowatt</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="effekt" type="integer">
+            <annotation>
+              <documentation>10025: Angir maks effekt anlegget trekker
+Enhet: Kilowatt</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10025</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_EFFEKT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="integrertMed" type="string">
             <annotation>
               <documentation>10030: Angir hvem anlegget ev. er integrert med</documentation>
@@ -622,20 +622,6 @@ Enhet: Kilowatt</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTennpunkt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Tennpunkt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -650,6 +636,13 @@ Enhet: Kilowatt</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBelysningspunkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Belysningspunkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -657,10 +650,17 @@ Enhet: Kilowatt</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertBelysningspunkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Belysningspunkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTennpunkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Tennpunkt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -1150,19 +1150,19 @@ Enhet: Kilowatt</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10571: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10571</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18915: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18915</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10571: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10571</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

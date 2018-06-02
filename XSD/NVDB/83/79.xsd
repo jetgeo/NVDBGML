@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>79: Rør for vanngjennomløp på tvers av vegen (evnt. på tvers av tilgrensende avkjørsel) med maks lysåpning 2,5 meter. Stikkrenne/kulvert har åpent innløp og/eller utløp. Stikkrenne/kulvert kan ha inn- og utløpskonstruksjoner som kummer og støtteskjold. Merknad: Inntil videre registrere stikkrenner med bruksområde biologisk mangfold eller landbruk som vanlig stikkrenne. Dette blir endret på i senere versjon av Datakatalogen.</documentation>
   </annotation>
@@ -6,6 +6,106 @@
   <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BelegningInnløpType">
+    <annotation>
+      <documentation>11418: Angir om det er spesiell belegning i området rundt innløpet av stikkrenna.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11418</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGINNLØP</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BelegningInnløpEnumerationType nvdb:BelegningInnløpOtherType"/>
+  </simpleType>
+  <simpleType name="BelegningInnløpEnumerationType">
+    <annotation>
+      <documentation>11418: Angir om det er spesiell belegning i området rundt innløpet av stikkrenna.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11418</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGINNLØP</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="asfalt">
+        <annotation>
+          <documentation>19271: Asfalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19271</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stein">
+        <annotation>
+          <documentation>19272: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19272</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingenStedligeMasser">
+        <annotation>
+          <documentation>19273: Ingen/stedlige masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19273</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelegningInnløpOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelegningUtløpType">
+    <annotation>
+      <documentation>11419: Angir om det er spesiell belegning i området rundt utløpet av stikkrenna.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11419</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGUTLØP</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BelegningUtløpEnumerationType nvdb:BelegningUtløpOtherType"/>
+  </simpleType>
+  <simpleType name="BelegningUtløpEnumerationType">
+    <annotation>
+      <documentation>11419: Angir om det er spesiell belegning i området rundt utløpet av stikkrenna.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11419</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGUTLØP</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="asfalt">
+        <annotation>
+          <documentation>19274: Asfalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19274</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stein">
+        <annotation>
+          <documentation>19275: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19275</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingenStedligeMasser">
+        <annotation>
+          <documentation>19276: Ingen/stedlige masser</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19276</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BelegningUtløpOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="BruksområdeStikkrenneKulvertType">
     <annotation>
       <documentation>6981: Angir hva stikkrenne kulvert primært brukes til.</documentation>
@@ -792,12 +892,30 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="belegningInnløp" type="nvdb:BelegningInnløpType">
+            <annotation>
+              <documentation>11418: Angir om det er spesiell belegning i området rundt innløpet av stikkrenna.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11418</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGINNLØP</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="typeUtløp" type="nvdb:TypeUtløpType">
             <annotation>
               <documentation>1940: Angir hvilken type utløp det er i ei stikkrenne</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1940</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPEUTLØP</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="belegningUtløp" type="nvdb:BelegningUtløpType">
+            <annotation>
+              <documentation>11419: Angir om det er spesiell belegning i området rundt utløpet av stikkrenna.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11419</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BELEGNINGUTLØP</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -1095,6 +1213,13 @@ Enhet: Millimeter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -1109,13 +1234,6 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -1123,17 +1241,17 @@ Enhet: Millimeter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Punkt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -1441,19 +1559,19 @@ Enhet: Millimeter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>10532: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10532</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18858: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18858</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>10532: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10532</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

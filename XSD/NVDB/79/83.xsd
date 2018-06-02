@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>83: Konstruksjon som benyttes i forbindelse med kopling av rørledninger og/eller inntak av vann gjennom rist/sluk. Merknad: Kum for kopling av trekkerør og kabler er definert som egen vegobjekttype Trekkekum.</documentation>
   </annotation>
@@ -395,6 +395,15 @@
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="spesiellBelegningRundtKum" type="nvdb:SpesiellBelegningRundtKumType">
+            <annotation>
+              <documentation>11417: Angir om det er spesiell belegning i et belte/firkant rundt kum for å lette vedlikehold og gjøre kum mer synlig.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11417</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLBELEGNINGRUNDTKUM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="diameter" type="double">
             <annotation>
               <documentation>1727: Angir indre diameter av kum
@@ -651,24 +660,17 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -679,10 +681,17 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkade_Punkt" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertSystemobjekt" type="gml:ReferenceType">
             <annotation>
               <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkade_Punkt</targetElement>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Systemobjekt</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -1131,6 +1140,56 @@ Enhet: Stykker</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="SpesiellBelegningRundtKumType">
+    <annotation>
+      <documentation>11417: Angir om det er spesiell belegning i et belte/firkant rundt kum for å lette vedlikehold og gjøre kum mer synlig.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11417</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLBELEGNINGRUNDTKUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:SpesiellBelegningRundtKumEnumerationType nvdb:SpesiellBelegningRundtKumOtherType"/>
+  </simpleType>
+  <simpleType name="SpesiellBelegningRundtKumEnumerationType">
+    <annotation>
+      <documentation>11417: Angir om det er spesiell belegning i et belte/firkant rundt kum for å lette vedlikehold og gjøre kum mer synlig.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11417</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SPESIELLBELEGNINGRUNDTKUM</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="asfalt">
+        <annotation>
+          <documentation>19268: Asfalt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19268</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="stein">
+        <annotation>
+          <documentation>19269: Stein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19269</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingen">
+        <annotation>
+          <documentation>19270: Ingen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19270</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="SpesiellBelegningRundtKumOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="StigeType">
     <annotation>
       <documentation>1946: Angir hva slags stige det er i kummen</documentation>
@@ -1330,19 +1389,19 @@ Enhet: Stykker</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>8225: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8225</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18826: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18826</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>8225: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">8225</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

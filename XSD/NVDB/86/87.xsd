@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>87: Lokasjon/konteiner med samling av en eller flere lysarmaturer og lysmast i ett punkt. Det kan forekomme varianter uten lysmast, for eksempel lysarmatur opphengt i tunneltak, og det kan forekomme varianter uten lysarmatur, f.eks lysmast kun for kabelframføring.</documentation>
   </annotation>
@@ -75,6 +75,15 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="plassering" type="nvdb:PlasseringBelysningspunktType">
+            <annotation>
+              <documentation>1874: Angir plassering for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="fellesføringMedAnnenEtat" type="string">
             <annotation>
               <documentation>8745: Angir om det er felles luftlinjeframføring på felles stolperekke med f.eks energiverk, teleselskap, bredbåndsselskap etc</documentation>
@@ -90,15 +99,6 @@ Enhet: Meter</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10005</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FELLESFØRINGLEIETAKER</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="plassering" type="nvdb:PlasseringType">
-            <annotation>
-              <documentation>1874: Angir plassering for vegobjektet</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -449,22 +449,22 @@ Enhet: Meter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <simpleType name="PlasseringType">
+  <simpleType name="PlasseringBelysningspunktType">
     <annotation>
       <documentation>1874: Angir plassering for vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGBELYSNINGSPUNKT</taggedValue>
       </appinfo>
     </annotation>
-    <union memberTypes="nvdb:PlasseringEnumerationType nvdb:PlasseringOtherType"/>
+    <union memberTypes="nvdb:PlasseringBelysningspunktEnumerationType nvdb:PlasseringBelysningspunktOtherType"/>
   </simpleType>
-  <simpleType name="PlasseringEnumerationType">
+  <simpleType name="PlasseringBelysningspunktEnumerationType">
     <annotation>
       <documentation>1874: Angir plassering for vegobjektet</documentation>
       <appinfo>
         <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1874</taggedValue>
-        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERING</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_PLASSERINGBELYSNINGSPUNKT</taggedValue>
       </appinfo>
     </annotation>
     <restriction base="string">
@@ -518,7 +518,7 @@ Enhet: Meter</documentation>
       </enumeration>
     </restriction>
   </simpleType>
-  <simpleType name="PlasseringOtherType">
+  <simpleType name="PlasseringBelysningspunktOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -608,19 +608,19 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="OPS">
+        <annotation>
+          <documentation>18843: OPS</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18843</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="kommune">
         <annotation>
           <documentation>2146: Kommune</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">2146</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
-      <enumeration value="lokaltE_Verk">
-        <annotation>
-          <documentation>3717: Lokalt e-verk</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3717</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>
@@ -632,11 +632,11 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="OPS">
+      <enumeration value="lokaltE_Verk">
         <annotation>
-          <documentation>18843: OPS</documentation>
+          <documentation>3717: Lokalt e-verk</documentation>
           <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18843</taggedValue>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3717</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

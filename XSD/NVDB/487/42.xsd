@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>42: Sted i kollektivnettet der kollektivlinjer krysser eller tangerer hverandre. Knutepunktets funksjon er å binde kollektivnettet sammen til et nettverk slik at den reisende ved hjelp av tilrettelagt omstigning/bytte kan nå sitt bestemmelsessted. Et knutepunkt har ofte begrepet terminal eller stasjon i navnet (HB V123)</documentation>
   </annotation>
@@ -598,21 +598,21 @@ Enhet: Stykker</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="stoppestedsnummer_Entur" type="string">
-            <annotation>
-              <documentation>10956: Unikt nummer på stoppestedet som kollektivknutepunktet samsvarer med. Forbeholdt nummer som benyttes i Nasjonalt Stoppestedregister Entur. Benytes for datautveksling mellom NVDB og NSR</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10956</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STOPPESTEDSNUMMER_ENTUR</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="sistVerifisert" type="date">
             <annotation>
               <documentation>10591: Angir data for når egenskapene sist var verifisert</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10591</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SISTVERIFISERT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="NSR_Stopplace_ID" type="string">
+            <annotation>
+              <documentation>10956: Unik ID som refererer til Stopplace (stoppested)  i Nasjonalt stoppestedsregister (NSR). Benytes for datautveksling mellom NVDB og NSR</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10956</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_NSR_STOPPLACE_ID</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -666,6 +666,13 @@ Enhet: Stykker</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertHoldeplassutrustning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Holdeplassutrustning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -677,13 +684,6 @@ Enhet: Stykker</documentation>
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertHoldeplassutrustning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Holdeplassutrustning</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -969,19 +969,19 @@ og/eller samme fylke</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>17009: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17009</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18868: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18868</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>17009: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">17009</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

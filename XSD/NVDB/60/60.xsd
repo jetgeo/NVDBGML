@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>60: Byggverk uten overliggende fylling som fører vegen over en fri åpning på minst 2,5 meter (1).  Kort bru &lt; 40 meter, lang bru &gt; 40 meter.</documentation>
   </annotation>
@@ -84,12 +84,12 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="aktivtF_Nr" type="integer">
+          <element minOccurs="0" name="status" type="nvdb:StatusType">
             <annotation>
-              <documentation>11181: Angir fylkesnummer til fylket som har administrativt ansvar for byggverket nå.</documentation>
+              <documentation>11317: Angir hvilken status ei bru har</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11181</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AKTIVTF_NR</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11317</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -4520,6 +4520,88 @@ Enhet: Meter</documentation>
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="StatusType">
+    <annotation>
+      <documentation>11317: Angir hvilken status ei bru har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11317</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StatusEnumerationType nvdb:StatusOtherType"/>
+  </simpleType>
+  <simpleType name="StatusEnumerationType">
+    <annotation>
+      <documentation>11317: Angir hvilken status ei bru har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11317</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="planlagt">
+        <annotation>
+          <documentation>19261: Planlagt</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19261</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trafikkert">
+        <annotation>
+          <documentation>19262: Trafikkert</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19262</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nedlagtSperret">
+        <annotation>
+          <documentation>19263: Nedlagt/Sperret</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19263</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nybygd_IkkeTraf">
+        <annotation>
+          <documentation>19264: Nybygd, ikke traf.</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19264</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="revet">
+        <annotation>
+          <documentation>19265: Revet</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19265</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="byggesIkkeAldri">
+        <annotation>
+          <documentation>19266: Bygges ikke/aldri</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19266</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="annen">
+        <annotation>
+          <documentation>19267: Annen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19267</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="VedlikeholdsansvarligBruType">
     <annotation>
       <documentation>8969: Angir hvem som er ansvarlig for vedlikehold</documentation>
@@ -4587,14 +4669,6 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="privat">
-        <annotation>
-          <documentation>11806: Privat</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11806</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS_Selskapet">
         <annotation>
           <documentation>12855: OPS-selskapet</documentation>
@@ -4603,11 +4677,27 @@ Enhet: Meter</documentation>
           </appinfo>
         </annotation>
       </enumeration>
+      <enumeration value="nyeVeier">
+        <annotation>
+          <documentation>19092: Nye veier</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19092</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
       <enumeration value="kraftsselskapet">
         <annotation>
           <documentation>12856: Kraftsselskapet</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12856</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="privat">
+        <annotation>
+          <documentation>11806: Privat</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11806</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

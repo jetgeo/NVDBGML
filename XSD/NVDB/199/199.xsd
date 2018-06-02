@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>199: Trær er flerårige vedaktige planter som har definert stamme og krone.</documentation>
   </annotation>
@@ -264,6 +264,48 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="OppbindingType">
+    <annotation>
+      <documentation>11422: Angir om det er noen form for oppbinding av treet/stammen.  Oppbinding består vanligvis av  trestolper og et bånd der båndet går rundt treet og er fest i stolpene.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPBINDING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:OppbindingEnumerationType nvdb:OppbindingOtherType"/>
+  </simpleType>
+  <simpleType name="OppbindingEnumerationType">
+    <annotation>
+      <documentation>11422: Angir om det er noen form for oppbinding av treet/stammen.  Oppbinding består vanligvis av  trestolper og et bånd der båndet går rundt treet og er fest i stolpene.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11422</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPBINDING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>19278: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19278</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>19279: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19279</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="OppbindingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <simpleType name="SpesielleRestriksjonerType">
     <annotation>
       <documentation>9986: Angir om det er knyttet spesielle restriksjoner til tre/trær.</documentation>
@@ -310,6 +352,114 @@
     </restriction>
   </simpleType>
   <simpleType name="SpesielleRestriksjonerOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrebeskytterType">
+    <annotation>
+      <documentation>11416: Angir om det er satt opp trebeskytter for å beskytte treet/stammen mot påkjørsel, klatring, hærverk etc..</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11416</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREBESKYTTER</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TrebeskytterEnumerationType nvdb:TrebeskytterOtherType"/>
+  </simpleType>
+  <simpleType name="TrebeskytterEnumerationType">
+    <annotation>
+      <documentation>11416: Angir om det er satt opp trebeskytter for å beskytte treet/stammen mot påkjørsel, klatring, hærverk etc..</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11416</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREBESKYTTER</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>19258: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19258</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>19259: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19259</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TrebeskytterOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TregruberistType">
+    <annotation>
+      <documentation>11415: Angir om det er tregruberist, dvs beskyttelse på bakkenivå over røtter inn mot stamme.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11415</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREGRUBERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TregruberistEnumerationType nvdb:TregruberistOtherType"/>
+  </simpleType>
+  <simpleType name="TregruberistEnumerationType">
+    <annotation>
+      <documentation>11415: Angir om det er tregruberist, dvs beskyttelse på bakkenivå over røtter inn mot stamme.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11415</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREGRUBERIST</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="støpejern">
+        <annotation>
+          <documentation>19254: Støpejern</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19254</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong">
+        <annotation>
+          <documentation>19255: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19255</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="granittblokk">
+        <annotation>
+          <documentation>19277: Granittblokk</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19277</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingen">
+        <annotation>
+          <documentation>19257: Ingen</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19257</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="smågatestein">
+        <annotation>
+          <documentation>19256: Smågatestein</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19256</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TregruberistOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -495,15 +645,6 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="treslag_BotaniskNavn" type="string">
-            <annotation>
-              <documentation>4494: Angir botanisk navn på treslag</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4494</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAG_BOTANISKNAVN</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="spesielleRestriksjoner" type="nvdb:SpesielleRestriksjonerType">
             <annotation>
               <documentation>9986: Angir om det er knyttet spesielle restriksjoner til tre/trær.</documentation>
@@ -513,12 +654,48 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element minOccurs="0" name="treslag_BotaniskNavn" type="string">
+            <annotation>
+              <documentation>4494: Angir botanisk navn på treslag</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4494</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TRESLAG_BOTANISKNAVN</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tregruberist" type="nvdb:TregruberistType">
+            <annotation>
+              <documentation>11415: Angir om det er tregruberist, dvs beskyttelse på bakkenivå over røtter inn mot stamme.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11415</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREGRUBERIST</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
           <element minOccurs="0" name="sluttdatoForGarantitid" type="date">
             <annotation>
               <documentation>10562: Angir sluttdato for garantitid</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10562</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SLUTTDATOFORGARANTITID</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="trebeskytter" type="nvdb:TrebeskytterType">
+            <annotation>
+              <documentation>11416: Angir om det er satt opp trebeskytter for å beskytte treet/stammen mot påkjørsel, klatring, hærverk etc..</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11416</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TREBESKYTTER</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="oppbinding" type="nvdb:OppbindingType">
+            <annotation>
+              <documentation>11422: Angir om det er noen form for oppbinding av treet/stammen.  Oppbinding består vanligvis av  trestolper og et bånd der båndet går rundt treet og er fest i stolpene.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11422</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_OPPBINDING</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -590,13 +767,6 @@ Enhet: Meter</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
             <annotation>
               <appinfo>
@@ -611,10 +781,24 @@ Enhet: Meter</documentation>
               </appinfo>
             </annotation>
           </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertTilstandSkadeFU_Strekning" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:TilstandSkadeFU_Strekning</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
           <element maxOccurs="unbounded" minOccurs="0" name="assosiertKommentar" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Kommentar</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="assosiertPlantekum" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Plantekum</targetElement>
               </appinfo>
             </annotation>
           </element>
@@ -839,19 +1023,19 @@ trærn når de står utenløv</documentation>
           </appinfo>
         </annotation>
       </enumeration>
-      <enumeration value="kommune">
-        <annotation>
-          <documentation>12179: Kommune</documentation>
-          <appinfo>
-            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12179</taggedValue>
-          </appinfo>
-        </annotation>
-      </enumeration>
       <enumeration value="OPS">
         <annotation>
           <documentation>18914: OPS</documentation>
           <appinfo>
             <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">18914</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="kommune">
+        <annotation>
+          <documentation>12179: Kommune</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">12179</taggedValue>
           </appinfo>
         </annotation>
       </enumeration>

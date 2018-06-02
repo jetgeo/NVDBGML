@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>526: Måling av vegoverflatens friksjon</documentation>
   </annotation>
@@ -87,15 +87,6 @@ Enhet: Bar</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="type" type="nvdb:TypeFriksjonsmålingType">
-            <annotation>
-              <documentation>7911: Angir type måling</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7911</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="envTemp" type="double">
             <annotation>
               <documentation>5738: Utetemperatur i grC
@@ -125,16 +116,6 @@ Enhet: Grader Celcius</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="surfTemp" type="double">
-            <annotation>
-              <documentation>5740: Overflatetemperatur på vei i grC
-Enhet: Grader Celcius</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5740</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SURFTEMP</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="TWSpeed" type="double">
             <annotation>
               <documentation>5741: Hengerhjulshastighet i km/t
@@ -145,13 +126,22 @@ Enhet: Kilometer/time</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="MWSpeed" type="double">
+          <element minOccurs="0" name="type" type="nvdb:TypeFriksjonsmålingType">
             <annotation>
-              <documentation>5727: Målehjulshastighet i km/t.  Gjelder bare fastslippmålinger
-Enhet: Kilometer/time</documentation>
+              <documentation>7911: Angir type måling</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5727</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MWSPEED</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">7911</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="surfTemp" type="double">
+            <annotation>
+              <documentation>5740: Overflatetemperatur på vei i grC
+Enhet: Grader Celcius</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5740</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_SURFTEMP</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -161,6 +151,16 @@ Enhet: Kilometer/time</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5734</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_F60</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="MWSpeed" type="double">
+            <annotation>
+              <documentation>5727: Målehjulshastighet i km/t.  Gjelder bare fastslippmålinger
+Enhet: Kilometer/time</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">5727</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_MWSPEED</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -222,17 +222,17 @@ Enhet: Kilometer/time</documentation>
               <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
-            <annotation>
-              <appinfo>
-                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
-              </appinfo>
-            </annotation>
-          </element>
           <element name="assosiertFriksjonsmåleserie" type="gml:ReferenceType">
             <annotation>
               <appinfo>
                 <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Friksjonsmåleserie</targetElement>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="assosiertDokumentasjon" type="gml:ReferenceType">
+            <annotation>
+              <appinfo>
+                <targetElement xmlns="http://www.opengis.net/gml/3.2">nvdb:Dokumentasjon</targetElement>
               </appinfo>
             </annotation>
           </element>

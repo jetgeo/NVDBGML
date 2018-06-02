@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.12">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/NVDB" version="2.13">
   <annotation>
     <documentation>914: Oversikt og status for TS-inspeksjoner</documentation>
   </annotation>
@@ -80,6 +80,98 @@
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
+  <simpleType name="StatusTS_InspeksjonType">
+    <annotation>
+      <documentation>11319: Angir status for gjennomføring av tiltak.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11319</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSTS_INSPEKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StatusTS_InspeksjonEnumerationType nvdb:StatusTS_InspeksjonOtherType"/>
+  </simpleType>
+  <simpleType name="StatusTS_InspeksjonEnumerationType">
+    <annotation>
+      <documentation>11319: Angir status for gjennomføring av tiltak.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11319</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUSTS_INSPEKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ingenTiltak">
+        <annotation>
+          <documentation>19095: Ingen tiltak</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19095</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="delvisGjennomført">
+        <annotation>
+          <documentation>19096: Delvis gjennomført</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19096</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="gjennomført">
+        <annotation>
+          <documentation>19097: Gjennomført</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19097</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusTS_InspeksjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StørreInvesteringType">
+    <annotation>
+      <documentation>11318: Angir om tiltak er større investering eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11318</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØRREINVESTERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:StørreInvesteringEnumerationType nvdb:StørreInvesteringOtherType"/>
+  </simpleType>
+  <simpleType name="StørreInvesteringEnumerationType">
+    <annotation>
+      <documentation>11318: Angir om tiltak er større investering eller ikke</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11318</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØRREINVESTERING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ja">
+        <annotation>
+          <documentation>19093: Ja</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19093</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="nei">
+        <annotation>
+          <documentation>19094: Nei</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19094</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StørreInvesteringOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
   <element name="TS_Inspeksjon" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:TS_InspeksjonType">
     <annotation>
       <documentation>914: Oversikt og status for TS-inspeksjoner</documentation>
@@ -149,35 +241,6 @@ For prosjekt angis normalt navnet på prosjektet som har bestilt inspeksjonen (f
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="totaltAntallFunn" type="integer">
-            <annotation>
-              <documentation>11233: Angir antall funn som er registrert ved TS-inspeksjonen. Antallet vil framgå av TS-rapporten som er levert bestiller.
-Enhet: Stykker</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11233</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TOTALTANTALLFUNN</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="antallFunnUtbedret" type="integer">
-            <annotation>
-              <documentation>11234: Angir antall funn av de som er kartlagt som er utbedret. Feltet vil kunne oppdateres over tid ettersom tiltak blir gjennomført.
-Enhet: Stykker</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11234</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_ANTALLFUNNUTBEDRET</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
-          <element minOccurs="0" name="datoForUtbedring" type="date">
-            <annotation>
-              <documentation>11235: Angir dato for gjennomføring av tiltak. I og med at tiltak gjennomføres over tid registreres dato for siste utbedring.</documentation>
-              <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11235</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_DATOFORUTBEDRING</taggedValue>
-              </appinfo>
-            </annotation>
-          </element>
           <element minOccurs="0" name="kostnad" type="integer">
             <annotation>
               <documentation>11236: Angir total beregnet kostnad for gjennomføring av alle kartlagte funn i den aktuelle TS-inspeksjonen
@@ -185,6 +248,24 @@ Enhet: KiloKroner</documentation>
               <appinfo>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11236</taggedValue>
                 <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KOSTNAD</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="størreInvestering" type="nvdb:StørreInvesteringType">
+            <annotation>
+              <documentation>11318: Angir om tiltak er større investering eller ikke</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11318</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØRREINVESTERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="rapportreferanse" type="string">
+            <annotation>
+              <documentation>11239: Referanse til TS-rapport som er lagret på O:\Landsdekkende eller i Mime.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11239</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RAPPORTREFERANSE</taggedValue>
               </appinfo>
             </annotation>
           </element>
@@ -197,12 +278,12 @@ Enhet: KiloKroner</documentation>
               </appinfo>
             </annotation>
           </element>
-          <element minOccurs="0" name="rapportreferanse" type="string">
+          <element minOccurs="0" name="status" type="nvdb:StatusTS_InspeksjonType">
             <annotation>
-              <documentation>11239: Referanse til TS-rapport som er lagret på O:\Landsdekkende eller i Mime.</documentation>
+              <documentation>11319: Angir status for gjennomføring av tiltak.</documentation>
               <appinfo>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11239</taggedValue>
-                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_RAPPORTREFERANSE</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11319</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STATUS</taggedValue>
               </appinfo>
             </annotation>
           </element>
