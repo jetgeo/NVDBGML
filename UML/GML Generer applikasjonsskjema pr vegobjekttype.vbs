@@ -210,7 +210,8 @@ sub main()
 						'Close the file.
 						objFile.Close
 						Set objFile = Nothing
-						'Kjør runshapechange.bat, vent på fullføring 		
+						'Kjør runshapechange.bat, vent på fullføring 	
+						
 						Repository.WriteOutput "Script", Now & " Kjører ShapeChange og flytter filer til riktig område...", 0 
 						dim shell
 						set shell=createobject("wscript.shell") 

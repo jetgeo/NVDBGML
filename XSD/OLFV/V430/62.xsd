@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:nvdb="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V430" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/AppInfo" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/NVDBGML/master/XSD/OLFV/V430" version="2.13">
+  <annotation>
+    <documentation>62: Byggverk som brukes for å overvinne nivåforskjell hvor vanlig skråning vil ta for stor plass.  S. brukes også som sikringstiltak.</documentation>
+  </annotation>
+  <include schemaLocation="OLFV.xsd"/>
+  <import namespace="http://www.interactive-instruments.de/ShapeChange/AppInfo" schemaLocation="http://shapechange.net/resources/schema/ShapeChangeAppinfo.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BruksområdeStøttekonstruksjonType">
+    <annotation>
+      <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:BruksområdeStøttekonstruksjonEnumerationType nvdb:BruksområdeStøttekonstruksjonOtherType"/>
+  </simpleType>
+  <simpleType name="BruksområdeStøttekonstruksjonEnumerationType">
+    <annotation>
+      <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDESTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="støtteOppSkjæringsskråning">
+        <annotation>
+          <documentation>3374: Støtte opp skjæringsskråning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3374</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="støtteOppFyllingsskråning">
+        <annotation>
+          <documentation>3375: Støtte opp fyllingsskråning</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3375</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="vingemur">
+        <annotation>
+          <documentation>3380: Vingemur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3380</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sikreFjellskjæring">
+        <annotation>
+          <documentation>3376: Sikre fjellskjæring</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3376</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="BruksområdeStøttekonstruksjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ForblendingType">
+    <annotation>
+      <documentation>11355: Type forblending</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:ForblendingEnumerationType nvdb:ForblendingOtherType"/>
+  </simpleType>
+  <simpleType name="ForblendingEnumerationType">
+    <annotation>
+      <documentation>11355: Type forblending</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betongmur">
+        <annotation>
+          <documentation>19208: Betongmur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19208</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="ingenForblending">
+        <annotation>
+          <documentation>19212: Ingen forblending</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19212</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tørrmur">
+        <annotation>
+          <documentation>19209: Tørrmur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19209</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="torvblokker">
+        <annotation>
+          <documentation>19211: Torvblokker</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19211</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="tre">
+        <annotation>
+          <documentation>19210: Tre</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19210</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ForblendingOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FundamenteringStøttekonstruksjonType">
+    <annotation>
+      <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:FundamenteringStøttekonstruksjonEnumerationType nvdb:FundamenteringStøttekonstruksjonOtherType"/>
+  </simpleType>
+  <simpleType name="FundamenteringStøttekonstruksjonEnumerationType">
+    <annotation>
+      <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERINGSTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="betongsåle">
+        <annotation>
+          <documentation>3382: Betongsåle</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3382</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="trykkimpregnertTresåle">
+        <annotation>
+          <documentation>3383: Trykkimpregnert tresåle</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3383</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="fjellfot">
+        <annotation>
+          <documentation>3454: Fjellfot</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3454</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="løsmasseFjell">
+        <annotation>
+          <documentation>3384: Løsmasse/fjell</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3384</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="påPeler">
+        <annotation>
+          <documentation>19207: På peler</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19207</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="FundamenteringStøttekonstruksjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+  <element name="Støttekonstruksjon" substitutionGroup="nvdb:Fellesegenskaper" type="nvdb:StøttekonstruksjonType">
+    <annotation>
+      <documentation>62: Byggverk som brukes for å overvinne nivåforskjell hvor vanlig skråning vil ta for stor plass.  S. brukes også som sikringstiltak.</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">62</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_STØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>
+  <complexType name="StøttekonstruksjonType">
+    <complexContent>
+      <extension base="nvdb:FellesegenskaperType">
+        <sequence>
+          <element name="type" type="nvdb:TypeStøttekonstruksjonType">
+            <annotation>
+              <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1126</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="bruksområde" type="nvdb:BruksområdeStøttekonstruksjonType">
+            <annotation>
+              <documentation>1265: Angir hva vegobjektet brukes til, hvilken funksjon det har</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1265</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BRUKSOMRÅDE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="fundamentering" type="nvdb:FundamenteringStøttekonstruksjonType">
+            <annotation>
+              <documentation>1668: Angir hvordan vegobjektet er fundamentert</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1668</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FUNDAMENTERING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="areal" type="integer">
+            <annotation>
+              <documentation>3950: Angir areal av støttemur
+Enhet: Kvadratmeter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3950</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_AREAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="høyde_Maks" type="double">
+            <annotation>
+              <documentation>10844: Angir største egenhøyde for støttemur.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10844</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_MAKS</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="høyde_GjSnitt" type="double">
+            <annotation>
+              <documentation>1582: Angir gjennomsnittlig egenhøyde for hele vegobjektet.
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1582</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_HØYDE_GJSNITT</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="forblending" type="nvdb:ForblendingType">
+            <annotation>
+              <documentation>11355: Type forblending</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11355</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_FORBLENDING</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="konstruksjonshøyde_Maksimal" type="double">
+            <annotation>
+              <documentation>11356: Inkluderer både synlig og tildekket del
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11356</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSTRUKSJONSHØYDE_MAKSIMAL</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="konstruksjonshøyde_Minimum" type="double">
+            <annotation>
+              <documentation>11357: Inkluderer både synlig og tildekket del
+Enhet: Meter</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">11357</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_KONSTRUKSJONSHØYDE_MINIMUM</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="byggeår" type="integer">
+            <annotation>
+              <documentation>10368: Angir byggeår for vegobjektet</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">10368</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_BYGGEÅR</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element name="senterlinje" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>4765: Gir linje/kurve som geometrisk representerer objektet.</documentation>
+              <appinfo>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">4765</taggedValue>
+                <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_GEOMETRI_LINJE</taggedValue>
+              </appinfo>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="lineærPosisjon" type="nvdb:LineærPosisjonStrekningPropertyType">
+            <annotation>
+              <documentation>Angivelse av posisjon på det lineære objektet.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StøttekonstruksjonPropertyType">
+    <sequence minOccurs="0">
+      <element ref="nvdb:Støttekonstruksjon"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeStøttekonstruksjonType">
+    <annotation>
+      <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1126</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <union memberTypes="nvdb:TypeStøttekonstruksjonEnumerationType nvdb:TypeStøttekonstruksjonOtherType"/>
+  </simpleType>
+  <simpleType name="TypeStøttekonstruksjonEnumerationType">
+    <annotation>
+      <documentation>1126: Angir hvilken type vegobjektet er av</documentation>
+      <appinfo>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">1126</taggedValue>
+        <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="SOSI_navn">NVDB_TYPESTØTTEKONSTRUKSJON</taggedValue>
+      </appinfo>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="naturstein_Murt_Støpt">
+        <annotation>
+          <documentation>3344: Naturstein, murt, støpt: Jfr. Prosess 71.1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3344</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="naturstein_Murt_Tørrmur">
+        <annotation>
+          <documentation>3342: Naturstein, murt, tørrmur: Jfr. Prosess 71.1</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3342</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong">
+        <annotation>
+          <documentation>3323: Betong</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3323</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong_Plasstøpt">
+        <annotation>
+          <documentation>3327: Betong, plasstøpt: Jfr. Prosess 71.2</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3327</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betong_PrefabrikkerteElement">
+        <annotation>
+          <documentation>3333: Betong, prefabrikkerte element: Jfr. Prosess 71.3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3333</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongstein_Murt_Tørrmur">
+        <annotation>
+          <documentation>3336: Betongstein, murt, tørrmur: Jfr. Prosess 71.3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3336</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="betongstein_Murt_Støpt">
+        <annotation>
+          <documentation>3340: Betongstein, murt, støpt: Jfr. Prosess 71.3</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3340</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="steinkurver">
+        <annotation>
+          <documentation>3377: Steinkurver: Jfr. Prosess 71.5</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3377</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="armertJord">
+        <annotation>
+          <documentation>3379: Armert jord: Jfr. Prosess 71.7</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3379</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="treSognemur">
+        <annotation>
+          <documentation>3381: Tre/Sognemur</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3381</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="spunt">
+        <annotation>
+          <documentation>3378: Spunt: Jfr. Prosess 83.61 og 83.63</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">3378</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="slissevegg">
+        <annotation>
+          <documentation>19204: Slissevegg: Jfr. Prosess 83.64</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19204</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="bjelkestengsel">
+        <annotation>
+          <documentation>19205: Bjelkestengsel: Inkluderer rørvegg med sprøytebetong. Jfr prosess 83.62</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19205</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+      <enumeration value="sekantvegg">
+        <annotation>
+          <documentation>19206: Sekantvegg: Jfr prosess 83.67</documentation>
+          <appinfo>
+            <taggedValue xmlns="http://www.interactive-instruments.de/ShapeChange/AppInfo" tag="NVDB_ID">19206</taggedValue>
+          </appinfo>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeStøttekonstruksjonOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>
